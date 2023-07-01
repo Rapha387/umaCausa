@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/home.css">
+  <title>umaCausa - Home</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html"><img src="./images/logo.png" alt=""></a>
+      <ul>
+        <li><a href="#">Ongs</a></li>
+        <li><a href="#">Campanhas</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Cadastre-se</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="carrossel">
+    <div class="slides">
+
+      <input type="radio" name="slide" id="slide1" checked>
+      <input type="radio" name="slide" id="slide2">
+      <input type="radio" name="slide" id="slide3">
+
+      <div class="slide s1"></div>
+      <div class="slide s2"></div>
+      <div class="slide s3"></div>
+
+      <div class="indicadores">
+        <label for="slide1" class="indicador ativo"></label>
+        <label for="slide2" class="indicador"></label>
+        <label for="slide3" class="indicador"></label>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <nav>
+      <img src="./images/logoBranca.png" alt="logo umaCausa" />
+      <div>
+        <h3>Inicio</h3>
+        <p><a href="#">Home</a></p>
+        <p><a href="#">Campanhas</a></p>
+        <p><a href="#">ONGs</a></p>
+      </div>
+      <div>
+        <h3>Sobre Nós</h3>
+        <p><a href="#">Sobre</a></p>
+        <p><a href="#">Nossa Equipe</a></p>
+      </div>
+      <div>
+        <h3>Suporte</h3>
+        <p><a href="#">FAQ</a></p>
+      </div>
+    </nav>
+  </footer>
+
+  <script src="./js/home.js"></script>
+</body>
+</html>

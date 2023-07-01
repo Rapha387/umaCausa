@@ -1,0 +1,36 @@
+@import './components/mixins';
+@import './components/fontcolors';
+@import './components/header';
+@import './components/footer';
+
+body{
+  position: relative;
+  background-image: url(./../images/background-body.png);
+  min-height: 100vh;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+button a{
+  cursor: pointer;
+}
+
+h1{
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+}
+
+.container{
+  @include flexCenter(space-between);
+  width: 1200px;
+  margin: auto;
+}
+

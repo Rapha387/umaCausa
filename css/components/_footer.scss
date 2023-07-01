@@ -1,0 +1,31 @@
+@import './mixins';
+@import './fontcolors';
+
+
+footer{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  height: 200px;
+  width: 100%;
+  background-color: $primary-color;
+
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1200px;
+    margin: auto;
+
+    h3{
+      font-size: 16px;
+      color: #fff;
+    }
+
+    a{
+      font-size: 14px;
+      color: #fff;
+    }
+  }
+}
