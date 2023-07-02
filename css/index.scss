@@ -5,7 +5,7 @@
 
 body{
   position: relative;
-  background-image: url(./../images/background-body.png);
+  background-image: url(./../images/background/background-body.png);
   min-height: 100vh;
 }
 
@@ -19,8 +19,30 @@ body{
   text-decoration: none;
 }
 
-button a{
+main{
+  margin: auto;
+  width: 1200px;
+  padding: 3.438rem;
+}
+
+button, a{
   cursor: pointer;
+}
+
+button{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  background-color: $primary-color;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+
+  img{
+    padding-right: 4.5px ;
+    width: 19px;
+  }
 }
 
 h1{

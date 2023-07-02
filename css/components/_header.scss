@@ -13,6 +13,7 @@ header
 
   nav{
     @include flexCenter(space-between);
+    padding: 0 3.438rem;
     width: 1200px;
     margin: auto;
 
@@ -20,7 +21,7 @@ header
       @include flexCenter(space-between);
 
       li{
-        padding: 10px; 
+        padding-left: 10px; 
       }
       a{
         color: #000;

@@ -17,15 +17,15 @@
   transition: 1.5s;
 }
 .carrossel .slides .s1 {
-  background-image: url(../images/01.jpg);
+  background-image: url(../../images/bannerHome/01.jpg);
   background-position: center;
 }
 .carrossel .slides .s2 {
-  background-image: url(../images/02.jpg);
+  background-image: url(../../images/bannerHome/02.jpg);
   background-position: center;
 }
 .carrossel .slides .s3 {
-  background-image: url(../images/03.jpg);
+  background-image: url(../../images/bannerHome/03.jpg);
   background-position: center;
 }
 .carrossel .indicadores {
