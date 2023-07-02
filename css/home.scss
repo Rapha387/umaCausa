@@ -1,2 +1,24 @@
 @import './components/slider';
 @import './components/mixins';
+
+
+
+.apresentacao{
+  @include flexCenter(space-between, flex-start);
+
+  .foto{
+    background-color: #ededed;
+    width: 58%;
+    height: 268px;
+  }
+
+  .explicacao{
+    width: 37%;
+
+    p{
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: justify;
+    }
+  }
+}

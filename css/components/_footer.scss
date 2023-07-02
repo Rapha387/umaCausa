@@ -5,16 +5,12 @@
 footer{
   display: flex;
   align-items: center;
-  position: absolute;
-  bottom: 0;
   height: 200px;
   width: 100%;
   background-color: $primary-color;
 
   nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    @include flexCenter (space-between, flex-start);
     padding: 0 3.438rem;
     width: 1200px;
     margin: auto;

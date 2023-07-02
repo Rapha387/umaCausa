@@ -45,13 +45,14 @@ button{
   }
 }
 
-h1{
+h1, h2{
   font-family: 'Roboto', sans-serif;
   font-size: 22px;
+  font-weight: 900;
 }
 
 .container{
-  @include flexCenter(space-between);
+  @include flexCenter(space-between, center);
   width: 1200px;
   margin: auto;
 }

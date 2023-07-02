@@ -34,8 +34,6 @@ header nav ul a:hover {
 footer {
   display: flex;
   align-items: center;
-  position: absolute;
-  bottom: 0;
   height: 200px;
   width: 100%;
   background-color: #0063BF;
@@ -98,9 +96,10 @@ button img {
   width: 19px;
 }
 
-h1 {
+h1, h2 {
   font-family: "Roboto", sans-serif;
   font-size: 22px;
+  font-weight: 900;
 }
 
 .container {
