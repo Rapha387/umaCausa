@@ -77,6 +77,15 @@
 .apresentacao .explicacao {
   width: 37%;
 }
+.apresentacao .explicacao h1 {
+  width: 303px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.apresentacao .explicacao h1 img {
+  width: 120px;
+}
 .apresentacao .explicacao p {
   margin-top: 20px;
   font-size: 14px;

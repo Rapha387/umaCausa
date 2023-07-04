@@ -15,6 +15,16 @@
   .explicacao{
     width: 37%;
 
+    h1{
+      width: 303px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      img{
+        width: 120px;
+      }
+    }
     p{
       margin-top: 20px;
       font-size: 14px;
