@@ -32,8 +32,30 @@
   }
 }
 
+.botoes-carrossel{
+  @include flexCenter(space-between, center);
+  width: 86px;
+  height: 22px;
+  margin: auto;
+
+  button{
+    justify-content: center;
+    width: 28px;
+    height: 22px;
+
+    img{
+      padding: 0;
+      width: 16px;
+    }
+  }
+  .voltar{
+    img{
+      transform: rotate(180deg);
+    }
+  }
+}
+
 .recomendacoes{
-  
   h2{
     margin: 30px 0;
     letter-spacing: 5.5px;
@@ -41,15 +63,19 @@
 
   .campanhas{
     @include flexCenter(space-between, center);
-
+    margin-bottom: 30px;
 
     .campanha{
+      display: flex;
+      flex-direction: column;
       border-radius: 5px;
+      width: 187px;
 
       .sobre-campanha{
         background-color: #F5F5F5;
         padding-bottom: 10px;
         border-radius: 0 0 5px 5px;
+
         .nome-campanha{
           padding: 10px;
           font-size: 14px;
@@ -77,6 +103,20 @@
             font-weight: 700;
           }
         }
+      }
+    }
+
+    .ong{
+      width: 151px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 5px;
+      background-color: #F5F5F5;
+
+      .nome-ong{
+        padding: 14px 10px;
+        font-size: 14px;
+        font-weight: 700;
       }
     }
   }
