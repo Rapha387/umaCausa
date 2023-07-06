@@ -1,5 +1,6 @@
 @import './components/slider';
 @import './components/mixins';
+@import './components/fontcolors';
 
 
 
@@ -42,6 +43,12 @@
     justify-content: center;
     width: 28px;
     height: 22px;
+    margin-top: 0;
+    position: static;
+
+    &::after{
+      content: none;
+    }
 
     img{
       padding: 0;
@@ -49,6 +56,7 @@
     }
   }
   .voltar{
+
     img{
       transform: rotate(180deg);
     }
@@ -72,7 +80,7 @@
       width: 187px;
 
       .sobre-campanha{
-        background-color: #F5F5F5;
+        background-color: $cinza-elementos;
         padding-bottom: 10px;
         border-radius: 0 0 5px 5px;
 
@@ -83,7 +91,7 @@
         }
   
         .progresso{
-          @include flexCenter(start, center);
+          @include flexCenter(flex-start, center);
           width: 100%;
   
           .barra-progresso{
@@ -111,7 +119,7 @@
       display: flex;
       flex-direction: column;
       border-radius: 5px;
-      background-color: #F5F5F5;
+      background-color: $cinza-elementos;
 
       .nome-ong{
         padding: 14px 10px;

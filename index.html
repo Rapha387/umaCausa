@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./css/home.css">
   <title>umaCausa - Home</title>
@@ -40,7 +41,6 @@
       </div>
     </div>
   </div>
-
   <main>
     <div class="apresentacao">
       <div class="foto"></div>
@@ -54,10 +54,10 @@
       </div>
     </div>
 
-    <div class="recomendacoes">
+    <div class="recomendacoes swiper" id="campanhasProximas">
       <h2>CAMPANHAS PRÓXIMAS</h2>
-      <div class="campanhas">
-        <div class="campanha">
+      <div class="campanhas swiper-wrapper">
+        <div class="campanha swiper-slide">
           <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
           <div class="sobre-campanha">
             <div class="nome-campanha">
@@ -71,7 +71,7 @@
             </div>
           </div>
         </div>
-        <div class="campanha">
+        <div class="campanha swiper-slide"">
           <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
           <div class="sobre-campanha">
             <div class="nome-campanha">
@@ -85,7 +85,7 @@
             </div>
           </div>
         </div>
-        <div class="campanha">
+        <div class="campanha swiper-slide">
           <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
           <div class="sobre-campanha">
             <div class="nome-campanha">
@@ -99,7 +99,7 @@
             </div>
           </div>
         </div>
-        <div class="campanha">
+        <div class="campanha swiper-slide">
           <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
           <div class="sobre-campanha">
             <div class="nome-campanha">
@@ -113,7 +113,7 @@
             </div>
           </div>
         </div>
-        <div class="campanha">
+        <div class="campanha swiper-slide">
           <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
           <div class="sobre-campanha">
             <div class="nome-campanha">
@@ -127,16 +127,7 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="botoes-carrossel">
-        <button class="voltar"><img src="./images/botoes/seta.png" alt="botao voltar"></button>
-        <button class="avancar"><img src="./images/botoes/seta.png" alt="botao avançar"></button>
-      </div>
-    </div>
-    <div class="recomendacoes">
-      <h2>CAMPANHAS QUASE FINALIZANDO</h2>
-      <div class="campanhas">
-        <div class="campanha">
+        <div class="campanha swiper-slide">
           <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
           <div class="sobre-campanha">
             <div class="nome-campanha">
@@ -150,50 +141,8 @@
             </div>
           </div>
         </div>
-        <div class="campanha">
-          <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
-          <div class="sobre-campanha">
-            <div class="nome-campanha">
-              Evento De Doação de Ca...
-            </div>
-            <div class="progresso">
-              <div class="barra-progresso">
-                <div class="quantidade-progresso"></div>
-              </div>
-              <div class="porcentagem">15%</div>
-            </div>
-          </div>
-        </div>
-        <div class="campanha">
-          <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
-          <div class="sobre-campanha">
-            <div class="nome-campanha">
-              Evento De Doação de Ca...
-            </div>
-            <div class="progresso">
-              <div class="barra-progresso">
-                <div class="quantidade-progresso"></div>
-              </div>
-              <div class="porcentagem">15%</div>
-            </div>
-          </div>
-        </div>
-        <div class="campanha">
-          <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
-          <div class="sobre-campanha">
-            <div class="nome-campanha">
-              Evento De Doação de Ca...
-            </div>
-            <div class="progresso">
-              <div class="barra-progresso">
-                <div class="quantidade-progresso"></div>
-              </div>
-              <div class="porcentagem">15%</div>
-            </div>
-          </div>
-        </div>
-        <div class="campanha">
-          <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
+        <div class="campanha swiper-slide">
+          <img src="./images/ongs/ong1.png" alt="fotoCampanha">
           <div class="sobre-campanha">
             <div class="nome-campanha">
               Evento De Doação de Ca...
@@ -208,44 +157,163 @@
         </div>
       </div>
       <div class="botoes-carrossel">
-        <button class="voltar"><img src="./images/botoes/seta.png" alt="botao voltar"></button>
-        <button class="avancar"><img src="./images/botoes/seta.png" alt="botao avançar"></button>
+        <button class="voltar swiper-button-prev"><img src="./images/botoes/seta.png" alt="botao voltar"></button>
+        <button class="avancar swiper-button-next"><img src="./images/botoes/seta.png" alt="botao avançar"></button>
       </div>
     </div>
-    <div class="recomendacoes">
+    <div class="recomendacoes swiper" id="campanhasAcabando">
+      <h2>CAMPANHAS PERTO DE ACABAR</h2>
+      <div class="campanhas swiper-wrapper">
+        <div class="campanha swiper-slide">
+          <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
+          <div class="sobre-campanha">
+            <div class="nome-campanha">
+              Evento De Doação de Ca...
+            </div>
+            <div class="progresso">
+              <div class="barra-progresso">
+                <div class="quantidade-progresso"></div>
+              </div>
+              <div class="porcentagem">15%</div>
+            </div>
+          </div>
+        </div>
+        <div class="campanha swiper-slide"">
+          <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
+          <div class="sobre-campanha">
+            <div class="nome-campanha">
+              Evento De Doação de Ca...
+            </div>
+            <div class="progresso">
+              <div class="barra-progresso">
+                <div class="quantidade-progresso"></div>
+              </div>
+              <div class="porcentagem">15%</div>
+            </div>
+          </div>
+        </div>
+        <div class="campanha swiper-slide">
+          <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
+          <div class="sobre-campanha">
+            <div class="nome-campanha">
+              Evento De Doação de Ca...
+            </div>
+            <div class="progresso">
+              <div class="barra-progresso">
+                <div class="quantidade-progresso"></div>
+              </div>
+              <div class="porcentagem">15%</div>
+            </div>
+          </div>
+        </div>
+        <div class="campanha swiper-slide">
+          <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
+          <div class="sobre-campanha">
+            <div class="nome-campanha">
+              Evento De Doação de Ca...
+            </div>
+            <div class="progresso">
+              <div class="barra-progresso">
+                <div class="quantidade-progresso"></div>
+              </div>
+              <div class="porcentagem">15%</div>
+            </div>
+          </div>
+        </div>
+        <div class="campanha swiper-slide">
+          <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
+          <div class="sobre-campanha">
+            <div class="nome-campanha">
+              Evento De Doação de Ca...
+            </div>
+            <div class="progresso">
+              <div class="barra-progresso">
+                <div class="quantidade-progresso"></div>
+              </div>
+              <div class="porcentagem">15%</div>
+            </div>
+          </div>
+        </div>
+        <div class="campanha swiper-slide">
+          <img src="./images/campanhas/campanha1.png" alt="fotoCampanha">
+          <div class="sobre-campanha">
+            <div class="nome-campanha">
+              Evento De Doação de Ca...
+            </div>
+            <div class="progresso">
+              <div class="barra-progresso">
+                <div class="quantidade-progresso"></div>
+              </div>
+              <div class="porcentagem">15%</div>
+            </div>
+          </div>
+        </div>
+        <div class="campanha swiper-slide">
+          <img src="./images/ongs/ong1.png" alt="fotoCampanha">
+          <div class="sobre-campanha">
+            <div class="nome-campanha">
+              Evento De Doação de Ca...
+            </div>
+            <div class="progresso">
+              <div class="barra-progresso">
+                <div class="quantidade-progresso"></div>
+              </div>
+              <div class="porcentagem">15%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="botoes-carrossel">
+        <button class="voltar swiper-button-prev"><img src="./images/botoes/seta.png" alt="botao voltar"></button>
+        <button class="avancar swiper-button-next"><img src="./images/botoes/seta.png" alt="botao avançar"></button>
+      </div>
+    </div>
+    <div class="recomendacoes swiper" id="ongs">
       <h2>ONGS</h2>
-      <div class="campanhas">
-        <div class="ong">
+      <div class="campanhas swiper-wrapper">
+        <div class="ong swiper-slide">
           <img src="./images/ongs/ong1.png" alt="foto da Ong">
           <div class="nome-ong">
               Instituto Viva Bichos
           </div>
         </div>
-        <div class="ong">
+        <div class="ong swiper-slide">
           <img src="./images/ongs/ong1.png" alt="foto da Ong">
           <div class="nome-ong">
               Instituto Viva Bichos
           </div>
         </div>
-        <div class="ong">
+        <div class="ong swiper-slide">
           <img src="./images/ongs/ong1.png" alt="foto da Ong">
           <div class="nome-ong">
               Instituto Viva Bichos
           </div>
         </div>
-        <div class="ong">
+        <div class="ong swiper-slide">
           <img src="./images/ongs/ong1.png" alt="foto da Ong">
           <div class="nome-ong">
               Instituto Viva Bichos
           </div>
         </div>
-        <div class="ong">
+        <div class="ong swiper-slide">
           <img src="./images/ongs/ong1.png" alt="foto da Ong">
           <div class="nome-ong">
               Instituto Viva Bichos
           </div>
         </div>
-        <div class="ong">
+        <div class="ong swiper-slide">
+          <img src="./images/ongs/ong1.png" alt="foto da Ong">
+          <div class="nome-ong">
+              Instituto Viva Bichos
+          </div>
+        </div>
+        <div class="ong swiper-slide">
+          <img src="./images/ongs/ong1.png" alt="foto da Ong">
+          <div class="nome-ong">
+              Instituto Viva Bichos
+          </div>
+        </div>
+        <div class="ong swiper-slide">
           <img src="./images/ongs/ong1.png" alt="foto da Ong">
           <div class="nome-ong">
               Instituto Viva Bichos
@@ -253,8 +321,8 @@
         </div>
       </div>
       <div class="botoes-carrossel">
-        <button class="voltar"><img src="./images/botoes/seta.png" alt="botao voltar"></button>
-        <button class="avancar"><img src="./images/botoes/seta.png" alt="botao avançar"></button>
+        <button class="voltar swiper-button-prev"><img src="./images/botoes/seta.png" alt="botao voltar"></button>
+        <button class="avancar swiper-button-next"><img src="./images/botoes/seta.png" alt="botao avançar"></button>
       </div>
     </div>
   </main>
@@ -280,6 +348,8 @@
     </nav>
   </footer>
 
+  <script src="./swiper/swiper-bundle.min.js"></script>
+  <script src="./js/carrossel-itens.js"></script>
   <script src="./js/home.js"></script>
 </body>
 </html>
