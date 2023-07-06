@@ -1,5 +1,5 @@
-@import './mixins';
-@import './fontcolors';
+@import './../abstracts/mixins';
+@import './../abstracts/variables';
 
 header
 {
@@ -14,7 +14,7 @@ header
   nav{
     @include flexCenter(space-between, center);
     padding: 0 3.438rem;
-    width: 1200px;
+    width: $espacamento-principal;
     margin: auto;
 
     ul{

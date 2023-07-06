@@ -1,0 +1,44 @@
+@import './abstracts/mixins';
+@import './abstracts/variables';
+
+@import './layout/header';
+@import './layout/footer';
+@import './layout/body';
+@import './layout/main';
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: $fonte-principal;
+  list-style: none;
+  text-decoration: none;
+}
+
+button, a{
+  cursor: pointer;
+}
+
+button{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  background-color: $primary-color;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+
+  img{
+    padding-right: 4.5px ;
+    width: 19px;
+  }
+}
+
+h1, h2{
+  font-family: $fonte-secundaria;
+  font-size: 22px;
+  font-weight: 900;
+}

@@ -1,5 +1,5 @@
-@import './mixins';
-@import './fontcolors';
+@import './../abstracts/mixins';
+@import './../abstracts/variables';
 
 
 footer{
@@ -12,7 +12,7 @@ footer{
   nav{
     @include flexCenter (space-between, flex-start);
     padding: 0 3.438rem;
-    width: 1200px;
+    width: $espacamento-principal;
     margin: auto;
 
     h3{

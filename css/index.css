@@ -61,6 +61,12 @@ body {
   min-height: 100vh;
 }
 
+main {
+  margin: auto;
+  width: 1200px;
+  padding: 3.438rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -69,12 +75,6 @@ body {
   font-family: "Lato", sans-serif;
   list-style: none;
   text-decoration: none;
-}
-
-main {
-  margin: auto;
-  width: 1200px;
-  padding: 3.438rem;
 }
 
 button, a {
@@ -101,11 +101,3 @@ h1, h2 {
   font-size: 22px;
   font-weight: 900;
 }
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 1200px;
-  margin: auto;
-}/*# sourceMappingURL=index.css.map */
