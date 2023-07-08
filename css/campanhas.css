@@ -122,6 +122,9 @@ main {
   flex-wrap: wrap;
   gap: 14px;
 }
+.campanhas .campanhas-flex a {
+  color: #000;
+}
 
 .pesquisa {
   width: 336px;

@@ -17,10 +17,14 @@ main{
   h2{
     margin-top: 0;
   }
-
+  
   .campanhas-flex{
     flex-wrap: wrap;
     gap: 14px;
+
+    a{
+      color: #000;
+    }
   }
 }
 
