@@ -13,7 +13,7 @@ header
 
   nav{
     @include flexCenter(space-between, center);
-    padding: 0 3.438rem;
+    padding: $padding-principal;
     width: $espacamento-principal;
     margin: auto;
 

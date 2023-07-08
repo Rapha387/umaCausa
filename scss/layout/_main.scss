@@ -3,5 +3,7 @@
 main{
   margin: auto;
   width: $espacamento-principal;
-  padding: 3.438rem;
+  padding: $padding-principal;
+  padding-top: 3.438rem;
+  padding-bottom: 3.438rem;
 }

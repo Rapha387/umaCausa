@@ -64,6 +64,66 @@
   margin-left: -66.6%;
 }
 
+.campanhas h2 {
+  margin: 30px 0;
+  letter-spacing: 5.5px;
+}
+.campanhas .campanhas-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.campanhas .campanhas-flex .campanha {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  width: 187px;
+}
+.campanhas .campanhas-flex .campanha .sobre-campanha {
+  background-color: #F3F3F3;
+  padding-bottom: 10px;
+  border-radius: 0 0 5px 5px;
+}
+.campanhas .campanhas-flex .campanha .sobre-campanha .nome-campanha {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.campanhas .campanhas-flex .campanha .sobre-campanha .progresso {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.campanhas .campanhas-flex .campanha .sobre-campanha .progresso .barra-progresso {
+  width: 153px;
+  height: 11px;
+  background-color: #D9D9D9;
+}
+.campanhas .campanhas-flex .campanha .sobre-campanha .progresso .barra-progresso .quantidade-progresso {
+  width: 30%;
+  height: 11px;
+  background-color: #D45F2C;
+}
+.campanhas .campanhas-flex .campanha .sobre-campanha .progresso .porcentagem {
+  margin-left: 3px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.campanhas .campanhas-flex .ong {
+  width: 151px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: #F3F3F3;
+}
+.campanhas .campanhas-flex .ong .nome-ong {
+  padding: 14px 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .apresentacao {
   display: flex;
   justify-content: space-between;
@@ -116,64 +176,4 @@
 }
 .botoes-carrossel .voltar img {
   transform: rotate(180deg);
-}
-
-.recomendacoes h2 {
-  margin: 30px 0;
-  letter-spacing: 5.5px;
-}
-.recomendacoes .campanhas {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-.recomendacoes .campanhas .campanha {
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
-  width: 187px;
-}
-.recomendacoes .campanhas .campanha .sobre-campanha {
-  background-color: #F3F3F3;
-  padding-bottom: 10px;
-  border-radius: 0 0 5px 5px;
-}
-.recomendacoes .campanhas .campanha .sobre-campanha .nome-campanha {
-  padding: 10px;
-  font-size: 14px;
-  font-weight: 700;
-}
-.recomendacoes .campanhas .campanha .sobre-campanha .progresso {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-}
-.recomendacoes .campanhas .campanha .sobre-campanha .progresso .barra-progresso {
-  width: 153px;
-  height: 11px;
-  background-color: #D9D9D9;
-}
-.recomendacoes .campanhas .campanha .sobre-campanha .progresso .barra-progresso .quantidade-progresso {
-  width: 30%;
-  height: 11px;
-  background-color: #D45F2C;
-}
-.recomendacoes .campanhas .campanha .sobre-campanha .progresso .porcentagem {
-  margin-left: 3px;
-  font-size: 11px;
-  font-weight: 700;
-}
-.recomendacoes .campanhas .ong {
-  width: 151px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
-  background-color: #F3F3F3;
-}
-.recomendacoes .campanhas .ong .nome-ong {
-  padding: 14px 10px;
-  font-size: 14px;
-  font-weight: 700;
 }

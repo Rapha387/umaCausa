@@ -1,0 +1,122 @@
+.campanhas h2 {
+  margin: 30px 0;
+  letter-spacing: 5.5px;
+}
+.campanhas .campanhas-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.campanhas .campanhas-flex .campanha {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  width: 187px;
+}
+.campanhas .campanhas-flex .campanha .sobre-campanha {
+  background-color: #F3F3F3;
+  padding-bottom: 10px;
+  border-radius: 0 0 5px 5px;
+}
+.campanhas .campanhas-flex .campanha .sobre-campanha .nome-campanha {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.campanhas .campanhas-flex .campanha .sobre-campanha .progresso {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.campanhas .campanhas-flex .campanha .sobre-campanha .progresso .barra-progresso {
+  width: 153px;
+  height: 11px;
+  background-color: #D9D9D9;
+}
+.campanhas .campanhas-flex .campanha .sobre-campanha .progresso .barra-progresso .quantidade-progresso {
+  width: 30%;
+  height: 11px;
+  background-color: #D45F2C;
+}
+.campanhas .campanhas-flex .campanha .sobre-campanha .progresso .porcentagem {
+  margin-left: 3px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.campanhas .campanhas-flex .ong {
+  width: 151px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: #F3F3F3;
+}
+.campanhas .campanhas-flex .ong .nome-ong {
+  padding: 14px 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.campanhas {
+  width: 621px;
+}
+.campanhas h2 {
+  margin-top: 0;
+}
+.campanhas .campanhas-flex {
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.pesquisa {
+  width: 336px;
+}
+.pesquisa .pesquisar {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 2px #B7B7B7;
+  border-radius: 4px;
+  padding-right: 0.75rem;
+}
+.pesquisa .pesquisar input[type=search] {
+  border: none;
+  width: 100%;
+  padding: 1rem 0 1rem 0.75rem;
+}
+.pesquisa .pesquisar input[type=search]:focus {
+  outline: none !important;
+}
+.pesquisa .pesquisar input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+.pesquisa .pesquisar img {
+  cursor: pointer;
+  width: 20px;
+}
+.pesquisa .filtro {
+  margin-top: 30px;
+  width: 100%;
+  padding: 1.375rem 1.25rem;
+  background-color: #EFEFF0;
+  border-radius: 4px;
+}
+.pesquisa .filtro h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+}
+.pesquisa .filtro select {
+  padding: 0.4rem;
+  margin-top: 12px;
+  border: none;
+  width: 100%;
+}

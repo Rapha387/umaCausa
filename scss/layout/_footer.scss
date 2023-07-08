@@ -11,7 +11,7 @@ footer{
 
   nav{
     @include flexCenter (space-between, flex-start);
-    padding: 0 3.438rem;
+    padding: $padding-principal;
     width: $espacamento-principal;
     margin: auto;
 
