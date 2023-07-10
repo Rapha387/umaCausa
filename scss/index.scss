@@ -1,11 +1,24 @@
+
+/* -------------- ABSTRACTS --------------- */
+
 @import './abstracts/mixins';
 @import './abstracts/variables';
+
+/* -------------- COMPONENTES --------------- */
+
+@import './components/sliderCampanhas';
+@import './components/slider';
+@import './components/filtro';
+@import './components/input-pesquisa';
+
+/* -------------- LAYOUT --------------- */
 
 @import './layout/header';
 @import './layout/footer';
 @import './layout/body';
 @import './layout/main';
 
+/* --------------  --------------- */
 
 *{
   margin: 0;
@@ -41,4 +54,8 @@ h1, h2{
   font-family: $fonte-secundaria;
   font-size: 22px;
   font-weight: 900;
+}
+
+h2{
+  letter-spacing: 5.5px;
 }

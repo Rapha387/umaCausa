@@ -1,0 +1,72 @@
+@import './../abstracts/variables';
+@import './../abstracts/mixins';
+
+main{
+  display: flex;
+  justify-content: space-between;
+}
+
+.pesquisa{
+  width: 336px;
+}
+
+.ongs{
+  width: 621px;
+
+  h2{
+    margin-bottom: 30px;
+  }
+  .ong{
+    margin-bottom: 15px;
+    width: 100%;
+    border-radius: 4px; 
+    
+    img{
+      width: 70px;
+      height: 70px;
+      border-radius: 4px;
+      margin-bottom: -10px
+    }
+
+    .infos-ong{
+      @include flexCenter(flex-start, flex-start);
+      gap: 20px;
+      border-radius: 4px 4px 0 0;
+      background-color: $cinza-elementos;
+      padding: 0.938rem 0.75rem;
+      padding-bottom: 0;
+
+      .descricao{
+        h3{
+          color: #000;
+          font-weight: 700;
+          display: flex;
+          gap: 10px;
+
+          img{
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        p{
+          color: $texto;
+          margin-top: 4px;
+          font-size: 14px;
+        }
+      }
+    }
+    .tags{
+      background-color: #373434;
+      border-radius: 0 0 4px 4px;
+      padding: 0.1rem;
+      padding-left: 6.4rem;
+
+      .tag{
+        font-size: 14px;
+        color: $link;
+        display: inline-block;
+      }
+    }
+  }
+}

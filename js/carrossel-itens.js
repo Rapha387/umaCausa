@@ -2,6 +2,7 @@ const swiperCampanhasProximas = new Swiper('#campanhasProximas',{
   slidesPerView: 5,
   // Optional parameters
   direction: 'horizontal',
+  
 
   spaceBetween: 39,
   // If we need pagination
