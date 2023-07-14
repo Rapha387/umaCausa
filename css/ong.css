@@ -3,7 +3,57 @@
   height: 266px;
 }
 
+.doacao {
+  width: 834px;
+  padding: 2.5rem;
+  text-align: center;
+}
+.doacao h2 {
+  letter-spacing: 0.6px;
+  margin-bottom: 40px;
+}
+.doacao .escolher-doacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.doacao .escolher-doacao .tipo-doacao {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: #F5F5F5;
+  width: 293px;
+  height: 285px;
+  border-radius: 4px;
+}
+.doacao .escolher-doacao .tipo-doacao h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+}
+.doacao .escolher-doacao .ou {
+  height: 285px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.doacao .escolher-doacao .ou::before {
+  content: "";
+  width: 1px;
+  height: 127px;
+  background-color: #000;
+}
+.doacao .escolher-doacao .ou::after {
+  content: "";
+  width: 1px;
+  height: 127px;
+  background-color: #000;
+}
+
 main {
+  position: relative;
   padding-top: 0;
 }
 main .logo-nome {

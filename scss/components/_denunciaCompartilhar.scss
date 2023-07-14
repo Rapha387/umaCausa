@@ -1,17 +1,32 @@
-
+@import './../abstracts/variables';
 
 
 .denunciar-compartilhar{
   @include flexCenter(space-between, center);
   margin-top: 15px;
   padding: 10px 2px;
-  border-top: solid thin #000;
+  position: relative;
+  /*border-top: solid thin #000;*/
+
+  &::before{
+    content : '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+  }
 
   .compartilhar, .denunciar{
     cursor: pointer;
     display: flex;
     align-items: center;
     gap:10px;
+    transition: 0.15s;
+
+    &:hover{
+      color: $primary-color;
+    }
 
     img{
       width: 17.5px;

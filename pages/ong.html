@@ -24,9 +24,31 @@
       </ul>
     </nav>
   </header>
-
+  
   <img src="./../images/bannerOng/banner1.png" class="banner" alt="banner ong">
+  
+  <div class="bloqueio escondido"></div>
+
+  <div class="caixa-flutuante doacao escondido">
+    <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
+    <h2>ESCOLHER DOAÇÂO</h2>
+    <div class="escolher-doacao">
+      <div class="tipo-doacao">
+        <img src="./../images/tipoDoacao/doacao-monetaria.png" alt="">
+        <h3>Doação monetária</h3>
+      </div>
+      <div class="ou">
+        <span>ou</span>
+      </div>
+      <div class="tipo-doacao">
+        <img src="./../images/tipoDoacao/doacao-item.png" alt="">
+        <h3>Doação de Item</h3>
+      </div>
+    </div>
+  </div>
+
   <main>
+
     <div class="logo-nome"> 
       <img src="./../images/ongs/ong1.png" class="logo-ong" alt="">
       <h1>Instituto Viva Bichos Brasil <img src="./../images/categorias/categoria1.png" alt="" class="img-categoria-ong"></h1>
@@ -193,7 +215,7 @@
         </div>
       </div>
       <div class="infos2">
-        <button class="doar">
+        <button class="doar" id="btnDoar">
           <img src="./../images/icons/search.png" alt="DOAR">
           <div>DOAR</div>
         </button>
@@ -282,6 +304,6 @@
 
   <script src="./../swiper/swiper-bundle.min.js"></script>
   <script src="./../js/carrossel-itens.js"></script>
-  <script src="./../js/home.js"></script>
+  <script src="./../js/popup.js"></script>
 </body>
 </html>
