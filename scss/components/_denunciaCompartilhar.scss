@@ -1,0 +1,21 @@
+
+
+
+.denunciar-compartilhar{
+  @include flexCenter(space-between, center);
+  margin-top: 15px;
+  padding: 10px 2px;
+  border-top: solid thin #000;
+
+  .compartilhar, .denunciar{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap:10px;
+
+    img{
+      width: 17.5px;
+      height: 22px;
+    }
+  }
+}

@@ -10,9 +10,13 @@
     @include flexCenter(space-between, center);
     margin-bottom: 30px;
 
-    .campanha{
+    a{
+      color: #000;
       display: flex;
       flex-direction: column;
+    }
+
+    .campanha{
       border-radius: 5px;
       width: 187px;
 
@@ -53,10 +57,14 @@
 
     .ong{
       width: 151px;
-      display: flex;
-      flex-direction: column;
       border-radius: 5px;
       background-color: $cinza-elementos;
+      
+      a{
+        display: flex;
+        flex-direction: column;
+        color: #000;
+      }
 
       .nome-ong{
         padding: 14px 10px;

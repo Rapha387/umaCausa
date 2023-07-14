@@ -9,14 +9,17 @@
   align-items: center;
   margin-bottom: 30px;
 }
-.campanhas .campanhas-flex .campanha {
+.campanhas .campanhas-flex a {
+  color: #000;
   display: flex;
   flex-direction: column;
+}
+.campanhas .campanhas-flex .campanha {
   border-radius: 5px;
   width: 187px;
 }
 .campanhas .campanhas-flex .campanha .sobre-campanha {
-  background-color: #F3F3F3;
+  background-color: #F5F5F5;
   padding-bottom: 10px;
   border-radius: 0 0 5px 5px;
 }
@@ -48,10 +51,13 @@
 }
 .campanhas .campanhas-flex .ong {
   width: 151px;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+}
+.campanhas .campanhas-flex .ong a {
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
-  background-color: #F3F3F3;
+  color: #000;
 }
 .campanhas .campanhas-flex .ong .nome-ong {
   padding: 14px 10px;
@@ -174,6 +180,51 @@
   width: 20px;
 }
 
+.botoes-carrossel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 86px;
+  height: 22px;
+  margin: auto;
+}
+.botoes-carrossel button {
+  justify-content: center;
+  width: 28px;
+  height: 22px;
+  margin-top: 0;
+  position: static;
+}
+.botoes-carrossel button::after {
+  content: none;
+}
+.botoes-carrossel button img {
+  padding: 0;
+  width: 16px;
+}
+.botoes-carrossel .voltar img {
+  transform: rotate(180deg);
+}
+
+.denunciar-compartilhar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding: 10px 2px;
+  border-top: solid thin #000;
+}
+.denunciar-compartilhar .compartilhar, .denunciar-compartilhar .denunciar {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.denunciar-compartilhar .compartilhar img, .denunciar-compartilhar .denunciar img {
+  width: 17.5px;
+  height: 22px;
+}
+
 /* -------------- LAYOUT --------------- */
 header {
   display: flex;
@@ -263,6 +314,7 @@ button, a {
 
 button {
   display: flex;
+  justify-content: center;
   align-items: center;
   font-size: 14px;
   background-color: #0063BF;

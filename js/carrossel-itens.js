@@ -27,6 +27,20 @@ const swiperCampanhasAcabando = new Swiper('#campanhasAcabando',{
   },
 });
 
+const swiperCampanhasAtuais= new Swiper('#campanhasAtuais',{
+  slidesPerView: 3,
+  // Optional parameters
+  direction: 'horizontal',
+
+  spaceBetween: 39,
+  // If we need pagination
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
 
 const swiperOngs = new Swiper('#ongs',{
   slidesPerView: 6,

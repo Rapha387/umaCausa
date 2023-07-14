@@ -10,6 +10,8 @@
 @import './components/slider';
 @import './components/filtro';
 @import './components/input-pesquisa';
+@import './components/botoesCarrosel';
+@import './components/denunciaCompartilhar';
 
 /* -------------- LAYOUT --------------- */
 
@@ -35,8 +37,7 @@ button, a{
 }
 
 button{
-  display: flex;
-  align-items: center;
+  @include flexCenter(center, center);
   font-size: 14px;
   background-color: $primary-color;
   color: #fff;

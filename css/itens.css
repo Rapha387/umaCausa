@@ -21,6 +21,7 @@ main {
   gap: 14px;
 }
 .itens .item {
+  min-height: 285px;
   width: 187px;
   display: flex;
   flex-direction: column;
@@ -29,7 +30,7 @@ main {
   border-radius: 4px 4px 0 0;
 }
 .itens .item .sobre-item {
-  background-color: #F3F3F3;
+  background-color: #F5F5F5;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;

@@ -1,0 +1,29 @@
+.botoes-carrossel{
+  @include flexCenter(space-between, center);
+  width: 86px;
+  height: 22px;
+  margin: auto;
+
+  button{
+    justify-content: center;
+    width: 28px;
+    height: 22px;
+    margin-top: 0;
+    position: static;
+
+    &::after{
+      content: none;
+    }
+
+    img{
+      padding: 0;
+      width: 16px;
+    }
+  }
+  .voltar{
+
+    img{
+      transform: rotate(180deg);
+    }
+  }
+}
