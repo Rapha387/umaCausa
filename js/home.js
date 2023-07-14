@@ -46,7 +46,6 @@ function mudarAutomatico(){
 
   for(let i = 0; i < indicadores.length; i++){
     if(i == qual){
-      console.log("aa");
       indicadores[i].classList.add("ativo");
     }
     else{

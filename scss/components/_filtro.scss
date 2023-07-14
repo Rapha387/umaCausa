@@ -4,7 +4,7 @@
   margin-top: 30px;
   width: 100%;
   padding: 1.375rem 1.25rem;
-  background-color: #EFEFF0;
+  background-color: $cinza-elementos;
   border-radius: 4px;
   
   h3{
@@ -13,6 +13,7 @@
   }
 
   select{
+    background-color: #fff;
     border-style: none;
     padding: 1rem;
     outline: none !important;

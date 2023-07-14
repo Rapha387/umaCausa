@@ -1,0 +1,25 @@
+
+
+.denuncia{
+  padding: 1.875rem;
+  padding-top: 3.5rem;
+
+  .denuncia-flex{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  
+    h1{
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+  
+    select{
+      margin: 15px 0;
+    }
+  }
+
+  button{
+    margin-top: 15px;
+  }
+}

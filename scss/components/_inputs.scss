@@ -1,0 +1,19 @@
+
+
+input, select, textarea{
+  border-radius: 4px;
+  background-color: $cinza-elementos;
+  border: none;
+  resize: none;
+  padding: 0.594rem 1rem ;
+
+  &:focus{
+    border: none;
+    outline: none !important;
+  }
+}
+
+label{
+  display: inline-block;
+  margin-bottom: 5px;
+}

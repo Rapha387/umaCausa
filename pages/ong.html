@@ -47,8 +47,29 @@
     </div>
   </div>
 
-  <main>
+  <div class="caixa-flutuante denuncia escondido">
+    <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
+    <div class="denuncia-flex">
+      <h1>qual o motivo da denúncia?</h1>
+      <select name="motivoDenuncia" id="">
+        <option>Selecione o motivo</option>
+      </select>
+      <label for="observacao">Observacao:</label>
+      <textarea name="observacao" id="" cols="30" rows="5"></textarea>
+      <button>Denunciar</button>
+    </div>
+  </div>
 
+  <div class="caixa-flutuante popup-compartilhar escondido">
+    <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
+    <label for="compartilhar">Compartilhar:</label><br>
+    <div class="compartilhar-flex">
+      <input type="text" name="compartilhar" id="inputCompartilhar" value="umacausa.com.br/ong/vivabichos" disabled>
+      <button id="btnCopiar"><img src="./../images/icons/copiar.png" alt=""></button>
+    </div>
+  </div>
+
+  <main>
     <div class="logo-nome"> 
       <img src="./../images/ongs/ong1.png" class="logo-ong" alt="">
       <h1>Instituto Viva Bichos Brasil <img src="./../images/categorias/categoria1.png" alt="" class="img-categoria-ong"></h1>
@@ -266,11 +287,11 @@
 
 
         <div class="denunciar-compartilhar">
-          <div class="denunciar">
+          <div class="compartilhar" id="btnCompartilhar">
             <img src="./../images/icons/compartilhar.png" alt="icon compartilhar">
             <div>Compartilhar</div>
           </div>
-          <div class="compartilhar">
+          <div class="denunciar" id="btnDenunciar">
             <img src="./../images/icons/denunciar.png" alt="icon denunciar">
             <div>Denunciar</div>
           </div>
