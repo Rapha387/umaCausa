@@ -1,0 +1,47 @@
+
+
+.popup-doacao-monetaria{
+  padding: 2rem;
+  padding-top: 3rem;
+  width: 520px;
+
+  .monetaria-flex{
+    @include flexCenter(space-between, center);
+    height: 187px;
+
+    .infos-doacao{
+      width: 195px;
+      display: flex;
+      flex-direction: column;
+
+      button{
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 15px;
+      }
+    }
+
+    .espacamento{
+      width: 1px;
+      height: 100%;
+      background-color: #000;
+      height: 100%;
+    }
+
+    .qrcode{
+      border: solid thin #AFB1B6;
+      width: 187px;
+      height: 100%;
+    }
+  }
+
+  .botao-finalizar-doacao{
+    margin-top: 2rem;
+    width: 100%;
+    @include flexCenter(center, center);
+
+    button{
+      width: 228px;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+
+
+.popup-doacao-item{
+  padding: 2rem;
+  padding-top: 3rem;
+
+  .infos-doacao{
+    width: 228px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    input, select{
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+
+.popup-doacao{
+  width: 800px;
+  padding: 2rem;
+  text-align: center;
+  
+  h2{
+    letter-spacing: 0.6px;
+    margin-bottom: 30px;
+  }
+
+  .escolher-doacao{
+    @include flexCenter(space-between, center);
+
+    .tipo-doacao{
+      cursor: pointer;
+      @include flexCenter(space-evenly, center);
+      flex-direction: column;
+      background-color: $cinza-elementos;
+      width: 293px;
+      height: 285px;
+      border-radius: 4px;
+      
+      h3{
+        font-family: $fonte-secundaria;
+        font-weight: 900;
+      }
+    }
+
+    .ou{
+      height: 285px;
+      @include flexCenter(space-between, center);
+      flex-direction: column;
+
+      &::before, &::after{
+        content: '';
+        width: 1px;
+        height: 127px;
+        background-color: #000;
+      }
+    }
+  }
+}

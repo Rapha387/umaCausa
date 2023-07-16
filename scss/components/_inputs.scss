@@ -13,7 +13,17 @@ input, select, textarea{
   }
 }
 
+input[type=number]::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
 label{
   display: inline-block;
   margin-bottom: 5px;
+}
+
+.input-label{
+  margin-bottom: 20px;
 }

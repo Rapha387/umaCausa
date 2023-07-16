@@ -165,9 +165,19 @@ input:focus, select:focus, textarea:focus {
   outline: none !important;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
 label {
   display: inline-block;
   margin-bottom: 5px;
+}
+
+.input-label {
+  margin-bottom: 20px;
 }
 
 .pesquisar {
@@ -287,6 +297,17 @@ label {
   position: absolute;
   top: 20px;
   right: 20px;
+  width: 22px;
+  height: 22px;
+}
+
+.botao-voltar {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .denuncia {
@@ -332,6 +353,106 @@ label {
   padding: 0;
   width: 24px;
   height: 24px;
+}
+
+.popup-doacao {
+  width: 800px;
+  padding: 2rem;
+  text-align: center;
+}
+.popup-doacao h2 {
+  letter-spacing: 0.6px;
+  margin-bottom: 30px;
+}
+.popup-doacao .escolher-doacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.popup-doacao .escolher-doacao .tipo-doacao {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: #F5F5F5;
+  width: 293px;
+  height: 285px;
+  border-radius: 4px;
+}
+.popup-doacao .escolher-doacao .tipo-doacao h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+}
+.popup-doacao .escolher-doacao .ou {
+  height: 285px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.popup-doacao .escolher-doacao .ou::before, .popup-doacao .escolher-doacao .ou::after {
+  content: "";
+  width: 1px;
+  height: 127px;
+  background-color: #000;
+}
+
+.popup-doacao-monetaria {
+  padding: 2rem;
+  padding-top: 3rem;
+  width: 520px;
+}
+.popup-doacao-monetaria .monetaria-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 187px;
+}
+.popup-doacao-monetaria .monetaria-flex .infos-doacao {
+  width: 195px;
+  display: flex;
+  flex-direction: column;
+}
+.popup-doacao-monetaria .monetaria-flex .infos-doacao button {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.popup-doacao-monetaria .monetaria-flex .espacamento {
+  width: 1px;
+  height: 100%;
+  background-color: #000;
+  height: 100%;
+}
+.popup-doacao-monetaria .monetaria-flex .qrcode {
+  border: solid thin #AFB1B6;
+  width: 187px;
+  height: 100%;
+}
+.popup-doacao-monetaria .botao-finalizar-doacao {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-doacao-monetaria .botao-finalizar-doacao button {
+  width: 228px;
+}
+
+.popup-doacao-item {
+  padding: 2rem;
+  padding-top: 3rem;
+}
+.popup-doacao-item .infos-doacao {
+  width: 228px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.popup-doacao-item .infos-doacao input, .popup-doacao-item .infos-doacao select {
+  width: 100%;
 }
 
 /* -------------- LAYOUT --------------- */

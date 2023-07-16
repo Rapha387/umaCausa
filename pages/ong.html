@@ -29,23 +29,72 @@
   
   <div class="bloqueio escondido"></div>
 
-  <div class="caixa-flutuante doacao escondido">
+  <div class="caixa-flutuante popup-doacao escondido">
     <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
     <h2>ESCOLHER DOAÇÂO</h2>
     <div class="escolher-doacao">
-      <div class="tipo-doacao">
+      <div class="tipo-doacao" id="btnDoarMonetario">
         <img src="./../images/tipoDoacao/doacao-monetaria.png" alt="">
         <h3>Doação monetária</h3>
       </div>
       <div class="ou">
         <span>ou</span>
       </div>
-      <div class="tipo-doacao">
+      <div class="tipo-doacao" id="btnDoarItem">
         <img src="./../images/tipoDoacao/doacao-item.png" alt="">
         <h3>Doação de Item</h3>
       </div>
     </div>
   </div>
+
+  <div class="caixa-flutuante popup-doacao-monetaria escondido">
+    <img class="botao-voltar" src="./../images/icons/btnVoltar.png" alt="">
+    <div class="monetaria-flex">
+      <div class="infos-doacao">
+        <label for="txtValor">Valor:</label>
+        <input type="number" placeholder="10,00" id="txtValor">
+        <button>Gerar QRCODE</button>
+        <label for="txtValor">Comprovante:</label>
+        <input type="file">
+      </div>
+
+      <div class="espacamento"></div>
+      
+      <div class="qrcode">
+        <img src="" alt="">
+      </div>
+    </div>
+
+    <div class="botao-finalizar-doacao">
+      <button>Finalizar Doação</button>
+    </div>
+  </div>
+
+  <div class="caixa-flutuante popup-doacao-item escondido">
+    <img class="botao-voltar" src="./../images/icons/btnVoltar.png" alt="">
+    <div class="infos-doacao">
+      <div class="input-label">
+        <label for="txtNomeItem">Nome:</label><br>
+        <input type="text" id="txtNomeItem" placeholder="Nome do item">
+      </div>
+      <div class="input-label">
+        <label for="txtQuantidadeItem">Quantidade:</label><br>
+        <input type="number" id="txtQuantidadeItem" placeholder="2">
+      </div>
+      <div class="input-label">
+        <label for="cmbTipoEntrega">Tipo da Entrega:</label><br>
+        <select name="cmbTipoEntrega" id="cmbTipoEntrega">
+          <option value="">Levar Item ao Local</option>
+        </select>
+      </div>
+      <div class="input-label">
+        <label for="dtEnvio">Data de Envio:</label><br>
+        <input type="date" name="dtEnvio" id="">
+      </div>
+      <button>Agendar Envio</button>
+    </div>
+  </div>
+
 
   <div class="caixa-flutuante denuncia escondido">
     <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
