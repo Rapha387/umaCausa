@@ -1,0 +1,27 @@
+.tituloDivulgacaoItem{
+    width: 604px;
+    color: #0063bf;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin: 10px 10px 0px 0px;
+}
+
+.tudo{
+    margin: auto;
+    width: 604px;
+}
+
+.inputs{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input input::placeholder{
+    color: #B7B7B7;
+}
