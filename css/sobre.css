@@ -1,0 +1,31 @@
+.principalSobre{
+
+    width: 100%;
+
+    display:flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+}
+
+.fotoLogo{
+
+    display: flex;
+
+    align-items: center;
+
+    flex-direction: column;
+
+}
+
+.titulo{
+
+    font-family: "Roboto", sans-serif;
+
+}
+
+ 
