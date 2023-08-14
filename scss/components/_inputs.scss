@@ -2,13 +2,12 @@
 
 input, select, textarea{
   border-radius: 4px;
-  background-color: $cinza-elementos;
-  border: none;
+  background-color: #fff;
   resize: none;
-  padding: 0.594rem 1rem ;
+  padding: 0.594rem 1rem;
+  border: 2px solid #d3d3d3;
 
   &:focus{
-    border: none;
     outline: none !important;
   }
 }

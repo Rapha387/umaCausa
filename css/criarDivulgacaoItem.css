@@ -25,3 +25,12 @@
 .input input::placeholder{
     color: #B7B7B7;
 }
+
+
+input[type="file"], textarea{
+    height: 178px;
+}
+
+input::-webkit-file-upload-button{
+    background-color: #0063bf;
+}

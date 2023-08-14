@@ -155,13 +155,13 @@
 
 input, select, textarea {
   border-radius: 4px;
-  background-color: #F5F5F5;
-  border: none;
+  background-color: #fff;
   resize: none;
   padding: 0.594rem 1rem;
+  border: 2px solid #d3d3d3;
 }
 input:focus, select:focus, textarea:focus {
-  border: none;
+
   outline: none !important;
 }
 
