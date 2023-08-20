@@ -1,0 +1,130 @@
+@import './../abstracts/mixins';
+@import './../abstracts/variables';
+
+main{
+  display: flex;
+  justify-content: space-between;
+}
+
+.foto-descricao-campanha{
+  width: 675px;
+
+  img{
+    width: 100%;
+    height: 322px;
+  }
+
+  .descricao-campanha{
+    border-radius: 4px;
+    padding: 1.25rem;
+    margin-top: 10px;
+    min-height: 220px;
+    width: 100%;
+    background-color: #F5F5F5;
+
+    h3{
+      margin: 5px 0;
+      font-size: 14px;
+      font-family: $fonte-secundaria;
+      color: #585858;
+    }
+
+    p{
+      font-size: 14px;
+      text-align: justify;
+    }
+  }
+}
+
+
+.infos-campanha{
+  width: 360px;
+
+  .meta{
+
+    h3{
+      font-size: 16px;
+      font-family: $fonte-secundaria;
+      font-weight: 900;
+    }
+
+    button{
+      width: 100%;
+      margin: 15px 0 20px 0;
+    }
+
+    .barra-meta{
+      margin-top: 10px;
+      border: solid thin #8B8B8B;
+      border-radius: 4px;
+      background-color: #D9D9D9;
+      width: 100%;
+      height: 18px;
+
+    }
+    .progresso{
+      width: 30%;
+      height: 100%;
+      background-color: #B66D6D;
+    }
+  } 
+
+  .realizador-campanha{
+
+    h3{
+      font-family: $fonte-secundaria;
+      font-size: 16px;
+      letter-spacing: 4px;
+      font-weight: 900;
+    }
+
+    .infos-realizador{
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      img{
+        border: solid thin #8B8B8B;
+        border-radius: 4px;    
+        width: 60px;
+        height: 60px;
+      }
+
+      h3{
+        font-family: $fonte-secundaria;
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 0px;
+      }
+
+      p{
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.ods-campanha{
+  margin-top: 20px;
+
+  h3{
+    font-family: $fonte-secundaria;
+    font-size: 16px;
+    letter-spacing: 4px;
+    font-weight: 900;
+    margin-bottom: 20px;
+  }
+
+  .flex-ods{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    img{
+      width: 68px;
+    }
+  }
+}

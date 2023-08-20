@@ -4,7 +4,7 @@ const botoesVoltar = document.querySelectorAll('.botao-voltar');
 const bloqueio = document.querySelector('.bloqueio');
 
 const botaoDoar = document.getElementById('btnDoar');
-const popupDoar = document.querySelector('.popup-doacao');
+const popupDoar = document.getElementById('popupPrincipal');
 
 const botaoDenunciar = document.getElementById('btnDenunciar');
 const popupDenunciar = document.querySelector('.denuncia');
