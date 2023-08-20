@@ -1,12 +1,22 @@
-.bannerLogin{
-  width: 50%;
-  height: 94.5vh;
+header{
+  height: 7.4vh;
+}
+
+body{
+  padding-top: 7.4vh;
 }
 
 .principalLogin{
+  height: 92.6vh;
   display:flex;
   align-items: center;
 }
+
+.bannerLogin{
+  width: 50%;
+  height: 100%;
+}
+
 
 .login{
   margin:auto;
