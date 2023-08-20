@@ -1,4 +1,30 @@
+.bannerLogin{
+  width: 50%;
+  height: 94.5vh;
+}
 
+.principalLogin{
+  display:flex;
+  align-items: center;
+}
 
+.login{
+  margin:auto;
+  display:flex;
+  flex-direction: column;
+  height:289px;
+  justify-content: space-between;
+}
 
+.login input{
+  width: 395px;
+  height:55px;
+}
 
+.login button{
+  height:45px;
+}
+
+p{
+  text-align: center;
+}

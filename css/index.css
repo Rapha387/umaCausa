@@ -457,6 +457,9 @@ label {
 
 /* -------------- LAYOUT --------------- */
 header {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -514,6 +517,7 @@ footer nav a {
 }
 
 body {
+  padding-top: 50px;
   position: relative;
   background-image: url(./../images/background/background-body.png);
   min-height: 100vh;
