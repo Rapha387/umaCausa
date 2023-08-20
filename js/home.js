@@ -34,6 +34,7 @@ function mudarSlide(event){
 }
 
 function mudarAutomatico(){
+  clearInterval(temporizador);
   qual++;
   if(qual == indicadores.length)
     qual = 0;
@@ -52,9 +53,11 @@ function mudarAutomatico(){
       indicadores[i].classList.remove("ativo");
     }
   } 
+  iniciarTemporizador();
 }
 
 function iniciarTemporizador(){
+  clearInterval(temporizador);
   temporizador = setInterval(mudarAutomatico, 4000);
 }
 
