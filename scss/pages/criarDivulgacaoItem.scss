@@ -1,43 +1,36 @@
-.tituloDivulgacaoItem {
+.tituloDivulgacaoItem{
   width: 604px;
   color: #0063bf;
   margin: auto;
   padding-bottom: 40px;
 }
 
-.input {
+.input{
   display: flex;
   flex-direction: column;
   width: 45%;
   margin: 10px 10px 0px 0px;
 }
 
-.tudo {
+.tudo{
   margin: auto;
   width: 604px;
 }
 
-.inputs {
+.inputs{
   display: flex;
   flex-wrap: wrap;
 }
 
-.input input::-moz-placeholder {
+.input input::placeholder{
   color: #B7B7B7;
 }
 
-.input input:-ms-input-placeholder {
-  color: #B7B7B7;
-}
 
-.input input::placeholder {
-  color: #B7B7B7;
-}
-
-input[type=file], textarea {
+input[type="file"], textarea{
   height: 178px;
 }
 
-input::-webkit-file-upload-button {
+input::-webkit-file-upload-button{
   background-color: #0063bf;
 }

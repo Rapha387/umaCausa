@@ -161,7 +161,6 @@ input, select, textarea {
   border: 2px solid #d3d3d3;
 }
 input:focus, select:focus, textarea:focus {
-
   outline: none !important;
 }
 
