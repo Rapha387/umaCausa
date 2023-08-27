@@ -6,13 +6,8 @@
 }
 
 .input {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 45%;
   margin: 10px 10px 0px 0px;
 }
@@ -23,14 +18,11 @@
 }
 
 .inputs {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.input input::-webkit-input-placeholder {
+.input input::-moz-placeholder {
   color: #B7B7B7;
 }
 
@@ -38,15 +30,11 @@
   color: #B7B7B7;
 }
 
-.input input::-ms-input-placeholder {
-  color: #B7B7B7;
-}
-
 .input input::placeholder {
   color: #B7B7B7;
 }
 
-input[type="file"], textarea {
+input[type=file], textarea {
   height: 178px;
 }
 
@@ -64,10 +52,10 @@ input::-webkit-file-upload-button {
   font-family: Arial, sans-serif;
 }
 
-.custom-file-upload input[type="file"] {
+.custom-file-upload input[type=file] {
   display: none;
 }
 
 .file-selected {
-  content: 'aa';
+  content: "aa";
 }

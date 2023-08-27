@@ -1,43 +1,26 @@
 .apresentacao {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
   padding-bottom: 20px;
 }
-
 .apresentacao .foto {
   background-color: #ededed;
   width: 58%;
   height: 268px;
 }
-
 .apresentacao .explicacao {
   width: 37%;
 }
-
 .apresentacao .explicacao h1 {
   width: 303px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
 }
-
 .apresentacao .explicacao h1 img {
   width: 120px;
 }
-
 .apresentacao .explicacao p {
   margin-top: 20px;
   text-align: justify;

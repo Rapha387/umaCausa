@@ -1,0 +1,55 @@
+@import './../../abstracts/mixins';
+@import './../../abstracts/variables';
+
+main{
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
+}
+
+main{
+  nav{
+    width: 233px;
+    ul{
+      li{
+        margin-bottom: 20px;
+      }
+      a{
+        @include flexCenter(start, center);
+        gap: 10px;
+        font-size: 16px;
+        color: #000;
+        transition: 0.15s;
+
+        &:hover{
+          color: $primary-color;
+        }
+
+        img{
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+  }
+
+  .infos-configuracoes{
+    width: 610px;
+
+    .titulo-info{
+      @include flexCenter(start, center);
+      gap: 10px;
+      font-size: 16px;
+    }
+    .infos{
+      width: 100%;
+      @include flexCenter(space-between, start);
+      flex-wrap: wrap;
+      margin-top: 20px;
+
+      .input-label{
+        width: 295px;
+      }
+    }
+  }
+}
