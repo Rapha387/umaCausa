@@ -154,6 +154,7 @@
 }
 
 input, select, textarea {
+  width: 100%;
   border-radius: 4px;
   background-color: #fff;
   resize: none;
@@ -451,6 +452,14 @@ label {
   flex-direction: column;
 }
 .popup-doacao-item .infos-doacao input, .popup-doacao-item .infos-doacao select {
+  width: 100%;
+}
+
+.popup-item {
+  padding: 2rem;
+  padding-top: 3rem;
+}
+.popup-item button {
   width: 100%;
 }
 
