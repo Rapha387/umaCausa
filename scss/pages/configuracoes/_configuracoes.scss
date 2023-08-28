@@ -38,6 +38,8 @@ main{
 
     .titulo-info{
       @include flexCenter(start, center);
+      color: $primary-color;
+      font-family: $fonte-secundaria;
       gap: 10px;
       font-size: 16px;
     }
