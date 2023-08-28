@@ -55,3 +55,26 @@ main{
     }
   }
 }
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td{
+  font-family: $fonte-secundaria;
+  font-weight: 300;
+  padding: 0.6rem;
+  text-align: center;
+}
+
+tbody{
+  border-top: solid 2px #d3d3d3;
+}
+
+thead{
+  td{
+      font-weight: 500;
+      color: #8F97A3;
+  }
+}

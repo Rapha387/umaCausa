@@ -33,6 +33,10 @@
   width: 187px;
 }
 
+.campanhas .campanhas-flex .campanha img {
+  width: 187px;
+}
+
 .campanhas .campanhas-flex .campanha .sobre-campanha {
   background-color: #F5F5F5;
   padding-bottom: 10px;
@@ -759,6 +763,113 @@ main {
   padding: 0 3.438rem;
   padding-top: 3.438rem;
   padding-bottom: 3.438rem;
+}
+
+#cep {
+  width: 128px;
+}
+
+#cidade {
+  width: 158px;
+}
+
+#UF {
+  width: 80px;
+}
+
+#bairro {
+  width: 206px;
+}
+
+#logadouro {
+  width: 390px;
+}
+
+#numero {
+  width: 80px;
+}
+
+#complemento {
+  width: 113px;
+}
+
+#categoria {
+  width: 386px;
+}
+
+#logo {
+  width: 250px;
+}
+
+#dsOng, #itens, #categoria {
+  width: 335px;
+}
+
+#dsOng {
+  height: 104px;
+}
+
+#bannerOng {
+  width: 100%;
+  height: 167px;
+}
+
+#bannerOng .custom-file-upload {
+  bottom: 40px;
+}
+
+.espaco-imagem {
+  position: relative;
+  width: 250;
+  height: 250px;
+  border: 2px solid #d3d3d3;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.custom-file-upload {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #0063BF;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 140px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+
+.file-selected {
+  content: 'aa';
+}
+
+#nomeArquivo {
+  font-size: 14px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.button-salvar {
+  margin-top: 20px;
+  font-size: 16px;
+  width: 295px;
+  height: 40px;
 }
 
 /* --------------  --------------- */
