@@ -102,7 +102,49 @@ thead td {
   color: #fff;
 }
 
-.pesquisar {
+.infos {
+  margin-top: 0 !important;
+}
+
+.filtro-confirmacoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  margin: 0px 0 20px 0;
+  border-bottom: solid thin #000;
+  padding: 0.5rem 2rem;
+}
+.filtro-confirmacoes .filtros {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.confirmacoes {
+  width: 100%;
+}
+.confirmacoes .confirmacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+  padding: 1.5rem;
+  background-color: #F5F5F5;
+  border-radius: 4px;
+}
+.confirmacoes .confirmacao p:nth-child(2) {
+  margin: 10px 0;
+}
+.confirmacoes .confirmacao .botoes-confirmacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+.confirmacoes .confirmacao .botoes-confirmacao img {
+  width: 33px;
+  cursor: pointer;
 }

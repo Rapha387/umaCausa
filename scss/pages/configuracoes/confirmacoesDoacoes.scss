@@ -1,0 +1,49 @@
+@import './configuracoes';
+@import './../../abstracts/mixins';
+@import './../../abstracts/variables';
+
+.infos{
+  margin-top: 0 !important;
+}
+
+.filtro-confirmacoes{
+  @include flexCenter(space-between, center);
+  width: 100%;
+  border-bottom: solid thin #000;
+  padding: 0.5rem 2rem;
+
+  .filtros{
+    @include flexCenter(center, center);
+    gap: 5px;
+    cursor: pointer;
+  }
+}
+
+.confirmacoes{
+  width: 100%;
+
+  .confirmacao{
+    @include flexCenter(space-between, center);
+    width: 100%;
+    margin-top: 20px;
+    padding: 1.5rem;
+    background-color: $cinza-elementos;
+    border-radius: 4px;
+
+    p:nth-child(2){
+      margin: 10px 0;
+    }
+
+    .botoes-confirmacao{
+      @include flexCenter(space-between, center);
+      gap: 25px;
+
+      img{
+        width: 33px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+

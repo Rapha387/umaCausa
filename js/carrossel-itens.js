@@ -1,10 +1,10 @@
 const swiperCampanhasProximas = new Swiper('#campanhasProximas',{
-  slidesPerView: 5,
+  slidesPerView: 3,
   // Optional parameters
   direction: 'horizontal',
   
 
-  spaceBetween: 39,
+  spaceBetween: 103,
   // If we need pagination
   // Navigation arrows
   navigation: {
@@ -14,11 +14,11 @@ const swiperCampanhasProximas = new Swiper('#campanhasProximas',{
 });
 
 const swiperCampanhasAcabando = new Swiper('#campanhasAcabando',{
-  slidesPerView: 5,
+  slidesPerView: 3,
   // Optional parameters
   direction: 'horizontal',
 
-  spaceBetween: 39,
+  spaceBetween: 103,
   // If we need pagination
   // Navigation arrows
   navigation: {
@@ -28,11 +28,11 @@ const swiperCampanhasAcabando = new Swiper('#campanhasAcabando',{
 });
 
 const swiperCampanhasAtuais= new Swiper('#campanhasAtuais',{
-  slidesPerView: 3,
+  slidesPerView: 2,
   // Optional parameters
   direction: 'horizontal',
 
-  spaceBetween: 39,
+  spaceBetween: 50,
   // If we need pagination
   // Navigation arrows
   navigation: {

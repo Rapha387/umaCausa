@@ -102,7 +102,14 @@ thead td {
   color: #fff;
 }
 
-.pesquisar {
+.novaSenha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  margin: 0px 0 20px 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
 }

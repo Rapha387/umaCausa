@@ -1,0 +1,13 @@
+@import './configuracoes';
+@import './../../abstracts/mixins';
+@import './../../abstracts/variables';
+
+.novaSenha{
+  @include flexCenter(space-between, center);
+  width: 100%;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+}

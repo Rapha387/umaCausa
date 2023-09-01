@@ -1,6 +1,10 @@
 @import './../../abstracts/mixins';
 @import './../../abstracts/variables';
 
+body{
+  background: none;
+}
+
 main{
   display: flex;
   justify-content: space-between;
@@ -66,6 +70,12 @@ td{
   font-weight: 300;
   padding: 0.6rem;
   text-align: center;
+
+  img{
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+  }
 }
 
 tbody{
@@ -76,5 +86,27 @@ thead{
   td{
       font-weight: 500;
       color: #8F97A3;
+  }
+}
+
+
+.paginacao{
+  @include flexCenter(center, center);
+  margin-top: 20px;
+  width: 100%;
+  height: 47px;
+  background-color: $cinza-elementos;
+
+  .paginas{
+      @include flexCenter(center, center);
+      
+      .pagina{
+          padding: 5px 10px;
+      }
+
+      .pagina-selecionada{
+          background-color: $primary-color;
+          color: #fff;
+      }
   }
 }
