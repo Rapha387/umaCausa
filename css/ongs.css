@@ -18,21 +18,27 @@ main {
   width: 100%;
   border-radius: 4px;
 }
-.ongs .ong img {
+.ongs .ong .imagem-ong {
   width: 70px;
   height: 70px;
   border-radius: 4px;
   margin-bottom: -10px;
+  background: url(./../../images/ongs/ong1.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .ongs .ong .infos-ong {
   display: flex;
-  justify-content: flex-start;
   align-items: flex-start;
   gap: 20px;
   border-radius: 4px 4px 0 0;
   background-color: #F5F5F5;
   padding: 0.938rem 0.75rem;
   padding-bottom: 0;
+}
+.ongs .ong .infos-ong .descricao {
+  width: 507px;
 }
 .ongs .ong .infos-ong .descricao h3 {
   color: #000;
