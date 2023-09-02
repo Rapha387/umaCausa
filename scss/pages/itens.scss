@@ -29,10 +29,14 @@ main{
     display: flex;
     flex-direction: column;
 
-    img{
+    .imagem-item{
       width: 100%;
       height: 182px;
       border-radius: 4px 4px 0 0;
+      background: url(./../../images/itens/item1.png);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     .sobre-item{

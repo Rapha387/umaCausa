@@ -1,4 +1,8 @@
 .banner {
+  background: url(./../../images/bannerOng/banner1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   height: 266px;
 }
@@ -12,9 +16,15 @@ main .logo-nome {
   gap: 12px;
 }
 main .logo-nome .logo-ong {
+  width: 150px;
+  height: 150px;
   margin-top: -105px;
   border: solid 2px #AFB1B6;
   border-radius: 8px;
+  background: url(./../../images/ongs/ong1.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 main .logo-nome h1 {
   padding-top: 5px;

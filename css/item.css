@@ -6,9 +6,14 @@ main {
 .foto-descricao-item {
   width: 675px;
 }
-.foto-descricao-item img {
+.foto-descricao-item .imagem-item {
+  border-radius: 4px 4px 0 0;
   width: 100%;
   height: 416px;
+  background: url(./../../images/itens/item1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .foto-descricao-item .descricao-item {
   border-radius: 4px;

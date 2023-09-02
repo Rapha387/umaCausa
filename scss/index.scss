@@ -1,35 +1,8 @@
-
 /* -------------- ABSTRACTS --------------- */
 
 @import './abstracts/mixins';
 @import './abstracts/variables';
 
-/* -------------- COMPONENTES --------------- */
-
-@import './components/sliderCampanhas';
-@import './components/slider';
-@import './components/filtro';
-@import './components/inputs';
-@import './components/input-pesquisa';
-@import './components/botoesCarrosel';
-@import './components/denunciaCompartilhar';
-@import './components/caixaFlutuante';
-@import './components/popupDenuncia';
-@import './components/popupCompartilhar';
-@import './components/popupDoacao';
-@import './components/popupDoacaoMonetaria';
-@import './components/popupDoacaoItem';
-@import './components/popupItem';
-
-/* -------------- LAYOUT --------------- */
-
-@import './layout/header';
-@import './layout/footer';
-@import './layout/body';
-@import './layout/main';
-@import './layout/cadastro';
-
-/* --------------  --------------- */
 
 *{
   margin: 0;
@@ -69,6 +42,37 @@ h1, h2{
 h2{
   letter-spacing: 5.5px;
 }
+
+
+/* -------------- LAYOUT --------------- */
+
+@import './layout/header';
+@import './layout/footer';
+@import './layout/body';
+@import './layout/main';
+@import './layout/cadastro';
+
+/* -------------- COMPONENTES --------------- */
+
+
+@import './components/sliderCampanhas';
+@import './components/slider';
+@import './components/filtro';
+@import './components/inputs';
+@import './components/input-pesquisa';
+@import './components/botoesCarrosel';
+@import './components/denunciaCompartilhar';
+@import './components/caixaFlutuante';
+@import './components/popupDenuncia';
+@import './components/popupCompartilhar';
+@import './components/popupDoacao';
+@import './components/popupDoacaoMonetaria';
+@import './components/popupDoacaoItem';
+@import './components/popupItem';
+
+
+/* --------------  --------------- */
+
 
 
 @media screen and (max-width: 1199px){

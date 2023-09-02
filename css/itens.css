@@ -26,10 +26,14 @@ main {
   display: flex;
   flex-direction: column;
 }
-.itens .item img {
+.itens .item .imagem-item {
   width: 100%;
   height: 182px;
   border-radius: 4px 4px 0 0;
+  background: url(./../../images/itens/item1.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .itens .item .sobre-item {
   background-color: #F5F5F5;
