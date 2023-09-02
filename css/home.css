@@ -13,10 +13,10 @@
   width: 37%;
 }
 .apresentacao .explicacao h1 {
-  width: 303px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
+  gap: 8px;
 }
 .apresentacao .explicacao h1 img {
   width: 120px;

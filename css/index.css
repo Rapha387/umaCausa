@@ -12,19 +12,24 @@
 .campanhas .campanhas-flex a {
   color: #000;
   display: flex;
+  height: 100%;
   flex-direction: column;
 }
 .campanhas .campanhas-flex .campanha {
   border-radius: 5px;
   width: 295px;
-  height: 270px;
 }
-.campanhas .campanhas-flex .campanha img {
-  width: 295px;
+.campanhas .campanhas-flex .campanha .imagem-campanha {
+  background: url(./../../images/campanhas/campanha1.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
   height: 182px;
   border-radius: 4px 4px 0 0;
 }
 .campanhas .campanhas-flex .campanha .sobre-campanha {
+  width: 100%;
   background-color: #F5F5F5;
   padding-bottom: 10px;
   border-radius: 0 0 5px 5px;
@@ -607,7 +612,6 @@ main {
 
 .espaco-imagem {
   position: relative;
-  width: 250;
   height: 250px;
   border: 2px solid #d3d3d3;
   border-radius: 4px;
@@ -692,4 +696,10 @@ h1, h2 {
 
 h2 {
   letter-spacing: 5.5px;
+}
+
+@media screen and (max-width: 1199px) {
+  main {
+    width: 100%;
+  }
 }

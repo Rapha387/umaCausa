@@ -1,0 +1,59 @@
+@import "./../abstracts/mixins";
+@import "./../abstracts/variables";
+
+body{
+  background: none;
+}
+
+.tituloDivulgacaoItem{
+  width: 60%;
+  color: #0063bf;
+  margin: auto;
+  padding-bottom: 40px;
+}
+
+.inputs{
+  @include flexCenter(space-between, center);
+  flex-wrap: wrap;
+
+  button{
+    width: 49%;
+  }
+}
+
+.input-label{
+  width: 49%;
+}
+
+.tudo{
+  margin: auto;
+  width: 60%;
+}
+
+input[type="file"], textarea{
+  height: 178px;
+}
+
+.espaco-imagem{
+  height: 178px;
+}
+
+.custom-file-upload{
+  bottom: 65px;
+}
+
+.cancelar{
+  background-color: #CB6868;
+}
+
+.separar-inputs{
+  width: 49%;
+
+  .input-label{
+    width: 100%;
+  }
+}
+
+textarea{
+  height: 95px;
+}

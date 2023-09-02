@@ -69,3 +69,10 @@ h1, h2{
 h2{
   letter-spacing: 5.5px;
 }
+
+
+@media screen and (max-width: 1199px){
+  main{
+    width: 100%;
+  }
+}

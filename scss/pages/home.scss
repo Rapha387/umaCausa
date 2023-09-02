@@ -15,8 +15,8 @@
     width: 37%;
 
     h1{
-      width: 303px;
-      @include flexCenter(space-between, flex-start);
+      @include flexCenter(flex-start, flex-start);
+      gap: 8px;
 
       img{
         width: 120px;

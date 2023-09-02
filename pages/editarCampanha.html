@@ -11,7 +11,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="./../css/index.css">
-  <link rel="stylesheet" href="./../css/divulgacaoItem.css">
+  <link rel="stylesheet" href="./../css/criarCampanha.css">
   <title>Criar divulgação de item</title>
 </head>
 
@@ -30,35 +30,42 @@
 
   <main>
     <div class="tituloDivulgacaoItem">
-      <h1>Criar Divulgação de Item</h1>
+      <h1>Editar Campanha</h1>
     </div>
 
     <div class="tudo">
       <div class="inputs">
         <div class="input-label">
           <label>Nome:</label>
-          <input placeholder="Ração premium 7KG">
+          <input placeholder="Campanha do Agasalho">
         </div>
         <div class="input-label">
-          <label>Tipo do item:</label>
-          <input placeholder="Ração">
-        </div>
-        <div class="input-label">
-          <label>Quantidade do item:</label>
-          <input placeholder="5">
-        </div>
-        <div class="input-label">
-          <label>Estado do item:</label>
-          <select>
-            <option>Ótimo</option>
-            <option>Bom</option>
-            <option>Regular</option>
+          <label>Tipo da Campanha:</label>
+          <select name="" id="">
+            <option value="monetaria">Montária</option>
+            <option value="item">Item</option>
           </select>
         </div>
-
         <div class="input-label">
-          <label>Descrição do Item:</label>
-          <textarea placeholder="descrição..."></textarea>
+          <label>Quantidade desejada:</label>
+          <input type="number" placeholder="5">
+        </div>
+        <div class="input-label">
+          <label>Data de Finalização:</label>
+          <input type="date" placeholder="5">
+        </div>
+        <div class="separar-inputs">
+          <div class="input-label">
+            <label>Tipo do Item:</label>
+            <select name="" id="">
+              <option value="">Ração</option>
+            </select>
+          </div>
+          <div class="input-label">
+            <label>Descrição da Campanha:</label>
+            <textarea placeholder="descrição..."></textarea>
+          </div>
+  
         </div>
 
         <div class="input-label">
@@ -71,7 +78,8 @@
             <span id="nomeArquivo">Imagem Retangular em JPG</span>
           </div>
         </div>
-        <button>Criar Divulgação</button>
+        <button>Salvar Alterações</button>
+        <button class="cancelar">Cancelar Alterações</button>
       </div>
     </div>
   </main>
