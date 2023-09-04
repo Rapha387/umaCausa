@@ -1,3 +1,5 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cadastroOng.aspx.cs" Inherits="prjUmaCausaTcc.pages.cadastroOng" %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -12,11 +14,12 @@
     />
     <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./../css/index.css" />
-    <link rel="stylesheet" href="./../css/cadastroDoador.css" />
+    <link rel="stylesheet" href="./../css/cadastroOng.css" />
     <title>nome da pagina</title>
   </head>
-  <body>
-    <header>
+<body>
+    <form id="form1" runat="server">
+        <header>
       <nav>
         <a href="./index.html"
           ><img src="./../images/logo/logo.png" alt=""
@@ -47,7 +50,7 @@
             <input type="text" placeholder="ex: Cennin">
           </div>
           <div class="input-label">
-            <label for="">CPF:</label>
+            <label for="">CNPJ:</label>
             <input type="number" placeholder="ex: 111.111.111-00">
           </div>
           <div class="input-label">
@@ -55,14 +58,6 @@
             <input type="email" placeholder="ex: cennin@gmail.com" >
           </div>
           <div class="input-label">
-            <label for="">Telefone:</label>
-            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="ex: +55 (13) 997845669">
-          </div>
-          <div class="input-label">
-            <label for="">Telefone:</label>
-            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="ex: +55 (13) 997845669">
-          </div>
-           <div class="input-label">
             <label for="">Telefone:</label>
             <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="ex: +55 (13) 997845669">
           </div>
@@ -131,8 +126,60 @@
           </div>
         </div>
         
-        <button class="button-criar">Criar conta de Doador</button>
-
+        <div class="titulo-info">
+          <p>Informações Gerais:</p>
+        </div>
+        <div class="infos">
+          <div class="input-label">
+            <label for="">Pix:</label>
+            <input type="text">
+          </div>
+          <div class="input-label">
+            <label for="">WebSite:</label>
+            <input type="url">
+          </div>
+          <div>
+            <div class="input-label" id="categoria">
+              <label for="">Categoria:</label>
+              <select name="" id="">
+                <option value="">Selecione a Categoria</option>
+              </select>
+            </div>
+            <div class="input-label" id="itens">
+              <label for="">Itens Aceitos:</label>
+              <select name="" id="">
+                <option value="">Selecione o tipo do Item</option>
+              </select>
+            </div>
+            <div class="input-label" id="dsOng">
+              <label for="">Resumo da Ong:</label>
+              <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+          </div>
+          <div class="input-label" id="logo">
+            <label for="">Logo da Ong:</label>
+            <div class="espaco-imagem">
+              <label class="custom-file-upload">
+                <input type="file" id="fileInput" accept="image/*" />
+                <span class="textoInputFile">Carregar Foto</span>
+              </label>
+              <span id="nomeArquivo">Foto quadrada em JPG</span>
+            </div>
+          </div>
+          <div class="input-label" id="bannerOng">
+            <label for="">Banner da Ong:</label>
+            <div class="espaco-imagem">
+              <label class="custom-file-upload">
+                <input type="file" id="fileInput" accept="image/*" />
+                <span class="textoInputFile">Carregar Foto</span>
+              </label>
+              <span id="nomeArquivo">Imagem Retangular em JPG</span>
+            </div>
+          </div>
+  
+          <button class="button-criar">Criar conta de Ong</button>
+  
+        </div>
       </div>
     </main>
 
@@ -161,6 +208,6 @@
 
     <script src="./../../js/inputFile.js"></script>
     <script src="./../../js/cep.js"></script>
-
-  </body>
+    </form>
+</body>
 </html>

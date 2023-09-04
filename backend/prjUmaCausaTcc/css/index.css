@@ -13,6 +13,23 @@ button, a {
   cursor: pointer;
 }
 
+input[type=submit] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    background-color: #0063BF;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+}
+
+input[type=submit] img{
+    padding-right: 4.5px;
+    width: 19px;
+}
+
 button {
   display: flex;
   justify-content: center;

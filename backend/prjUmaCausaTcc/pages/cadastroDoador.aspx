@@ -61,7 +61,15 @@
           </div>
           <div class="input-label">
             <label for="">Telefone:</label>
-            <asp:TextBox ID="txtTelefone" AutoCompleteType="Cellular" runat="server" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+            <asp:TextBox ID="txtTelefone" AutoCompleteType="Cellular" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+          </div>
+            <div class="input-label">
+            <label for="">Senha:</label>
+            <asp:TextBox ID="txtSenha" runat="server"></asp:TextBox>
+          </div>
+            <div class="input-label">
+            <label for="">Confirmar a Senha:</label>
+            <asp:TextBox ID="txtConfirmarSenha" runat="server"></asp:TextBox>
           </div>
         </div>
 
@@ -71,7 +79,7 @@
         <div class="infos">
           <div class="input-label" id="cep">
             <label for="">CEP:</label>
-            <asp:TextBox ID="txtCep" runat="server" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="ex: 11538105"></asp:TextBox>
+            <asp:TextBox ID="txtCep" runat="server" placeholder="ex: 11538105"></asp:TextBox>
           </div>
           <div class="input-label" id="UF">
               
@@ -129,8 +137,8 @@
             <asp:TextBox ID="txtComplemento" runat="server" placeholder="ex:Apt. 14"></asp:TextBox>
           </div>
         </div>
-        
-        <button class="button-criar">Criar conta de Doador</button>
+
+        <asp:Button class="button-criar" ID="btnCadastrarDoador" runat="server" Text="Criar conta de Doador" onclick="btnCadastrarDoador_Click"/>
 
       </div>
     </main>

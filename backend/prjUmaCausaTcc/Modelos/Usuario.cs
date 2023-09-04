@@ -195,6 +195,7 @@ public class Usuario : Banco
             new Parametro("pSenha", senha),
             new Parametro("pTelefone", telefone),
             new Parametro("pNomeIdentificacao", identificacao),
+            new Parametro("pCep",cep),
             new Parametro("pEstado",estado),
             new Parametro("pCidade",cidade),
             new Parametro("pRua",rua),
@@ -203,7 +204,6 @@ public class Usuario : Banco
             new Parametro("pComplemento",complemento),
             new Parametro("pLongitude",longitude),
             new Parametro("pLatitude",latitude),
-            new Parametro("pCep",cep),
         };
         try
         {
