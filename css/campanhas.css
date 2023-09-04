@@ -1,18 +1,26 @@
 main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .campanhas {
   width: 621px;
 }
+
 .campanhas h2 {
   margin-top: 0;
 }
+
 .campanhas .campanhas-flex {
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 14px;
 }
+
 .campanhas .campanhas-flex a {
   color: #000;
 }
@@ -46,13 +54,17 @@ main {
     height: 60% !important;
   }
 }
+
 @media screen and (min-width: 481px) and (max-width: 768px) {
   nav {
     width: 100% !important;
   }
   main {
     width: 100%;
-    flex-direction: column-reverse;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
   }
   .campanhas {
     width: 100%;

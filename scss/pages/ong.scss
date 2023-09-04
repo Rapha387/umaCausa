@@ -2,7 +2,7 @@
 @import './../abstracts/variables';
 
 .banner{
-  background:url(./../../images/bannerOng/banner1.png);
+  background:url(./../images/bannerOng/banner1.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -24,7 +24,7 @@ main{
       margin-top: -105px;
       border: solid 2px #AFB1B6;
       border-radius: 8px ;
-      background: url(./../../images/ongs/ong1.png);
+      background: url(./../images/ongs/ong1.png);
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
