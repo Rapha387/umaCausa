@@ -1,0 +1,37 @@
+body {
+  background: none;
+}
+
+.titulo-info {
+  border-bottom: solid thin #000;
+  padding-bottom: 0.3rem;
+}
+.titulo-info p {
+  font-size: 18px;
+}
+
+.infos-cadastro {
+  width: 610px;
+  margin: auto;
+}
+
+.infos {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.infos .input-label {
+  width: 295px;
+}
+
+.button-criar {
+  margin-top: 20px;
+  font-size: 16px;
+  width: 295px;
+  height: 40px;
+  margin: auto;
+}
