@@ -47,19 +47,27 @@
         <div class="infos">
           <div class="input-label">
             <label for="">Nome:</label>
-            <input type="text" placeholder="ex: Cennin">
+              <asp:TextBox ID="txtNome" runat="server" placeholder="ex: Cennin"></asp:TextBox>
           </div>
           <div class="input-label">
             <label for="">CNPJ:</label>
-            <input type="number" placeholder="ex: 111.111.111-00">
+            <asp:TextBox ID="txtCnpj" runat="server" placeholder="ex: 111.111.111-00"></asp:TextBox>
           </div>
           <div class="input-label">
             <label for="">Email:</label>
-            <input type="email" placeholder="ex: cennin@gmail.com" >
+            <asp:TextBox ID="txtEmail" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com"></asp:TextBox>
           </div>
           <div class="input-label">
             <label for="">Telefone:</label>
-            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="ex: +55 (13) 997845669">
+            <asp:TextBox ID="txtTelefone" AutoCompleteType="Cellular" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+          </div>
+            <div class="input-label">
+            <label for="">Senha:</label>
+            <asp:TextBox ID="txtSenha" runat="server"></asp:TextBox>
+          </div>
+            <div class="input-label">
+            <label for="">Confirmar a Senha:</label>
+            <asp:TextBox ID="txtConfirmarSenha" runat="server"></asp:TextBox>
           </div>
         </div>
 
@@ -69,60 +77,62 @@
         <div class="infos">
           <div class="input-label" id="cep">
             <label for="">CEP:</label>
-            <input type="number" id="txtCep" placeholder="ex: 11538105">
+            <asp:TextBox ID="txtCep" runat="server" placeholder="ex: 11538105"></asp:TextBox>
           </div>
           <div class="input-label" id="UF">
+              
             <label for="">UF:</label>
-            <select name="" id="txtUF">
-              <option value=""></option>
-              <option value="AC">AC</option>
-              <option value="AL">AL</option>
-              <option value="AP">AP</option>
-              <option value="AM">AM</option>
-              <option value="BA">BA</option>
-              <option value="CE">CE</option>
-              <option value="DF">DF</option>
-              <option value="ES">ES</option>
-              <option value="GO">GO</option>
-              <option value="MA">MA</option>
-              <option value="MT">MT</option>
-              <option value="MS">MS</option>
-              <option value="MG">MG</option>
-              <option value="PA">PA</option>
-              <option value="PB">PB</option>
-              <option value="PR">PR</option>
-              <option value="PE">PE</option>
-              <option value="PI">PI</option>
-              <option value="RJ">RJ</option>
-              <option value="RN">RN</option>
-              <option value="RS">RS</option>
-              <option value="RO">RO</option>
-              <option value="RR">RR</option>
-              <option value="SC">SC</option>
-              <option value="SP">SP</option>
-              <option value="SE">SE</option>
-              <option value="TO">TO</option>
-            </select>
+              <asp:DropDownList ID="txtUF" runat="server">
+                  <asp:ListItem value="" Text=""/>
+                  <asp:ListItem value="AC" Text="AC"/>
+                  <asp:ListItem value="AL" Text="AL"/>
+                  <asp:ListItem value="AP" Text="AP"/>
+                  <asp:ListItem value="AM" Text="AM"/>
+                  <asp:ListItem value="BA" Text="BA"/>
+                  <asp:ListItem value="CE" Text="CE"/>
+                  <asp:ListItem value="DF" Text="DF"/>
+                  <asp:ListItem value="ES" Text="ES"/>
+                  <asp:ListItem value="GO" Text="GO"/>
+                  <asp:ListItem value="MA" Text="MA"/>
+                  <asp:ListItem value="MT" Text="MT"/>
+                  <asp:ListItem value="MS" Text="MS"/>
+                  <asp:ListItem value="MG" Text="MG"/>
+                  <asp:ListItem value="PA" Text="PA"/>
+                  <asp:ListItem value="PB" Text="PB"/>
+                  <asp:ListItem value="PR" Text="PR"/>
+                  <asp:ListItem value="PE" Text="PE"/>
+                  <asp:ListItem value="PI" Text="PI"/>
+                  <asp:ListItem value="RJ" Text="RJ"/>
+                  <asp:ListItem value="RN" Text="RN"/>
+                  <asp:ListItem value="RS" Text="RS"/>
+                  <asp:ListItem value="RO" Text="RO"/>
+                  <asp:ListItem value="RR" Text="RR"/>
+                  <asp:ListItem value="SC" Text="SC"/>
+                  <asp:ListItem value="SP" Text="SP"/>
+                  <asp:ListItem value="SE" Text="SE"/>
+                  <asp:ListItem value="TO" Text="TO"/>
+              </asp:DropDownList>
+           
           </div>
           <div class="input-label" id="cidade">
             <label for="">Cidade:</label>
-            <input type="text" placeholder="ex: Santos" id="txtCidade">
+            <asp:TextBox ID="txtCidade" runat="server" placeholder="ex: Santos"></asp:TextBox>
           </div>
           <div class="input-label" id="bairro">
             <label for="">Bairro:</label>
-            <input type="text" placeholder="ex: Rua Alexandre Martins" id="txtBairro">
+            <asp:TextBox ID="txtBairro" runat="server" placeholder="ex: Rua Alexandre Martins"></asp:TextBox>
           </div>
           <div class="input-label" id="logradouro">
             <label for="">Logradouro:</label>
-            <input type="text" placeholder="ex: +55 (13) 997845669" id="txtLogadouro">
+            <asp:TextBox ID="txtLogadouro" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
           </div>
           <div class="input-label" id="numero">
             <label for="">Número:</label>
-            <input type="number" placeholder="ex:54" id="txtNumero">
+            <asp:TextBox ID="txtNumero" runat="server" placeholder="ex:54"></asp:TextBox>
           </div>
           <div class="input-label" id="complemento">
             <label for="">Complemento:</label>
-            <input type="text" id="txtComplemento">
+            <asp:TextBox ID="txtComplemento" runat="server" placeholder="ex:Apt. 14"></asp:TextBox>
           </div>
         </div>
         
@@ -132,35 +142,31 @@
         <div class="infos">
           <div class="input-label">
             <label for="">Pix:</label>
-            <input type="text">
+              <asp:TextBox ID="txtPix" placeholder="(13)99999-9999" runat="server"></asp:TextBox>
           </div>
           <div class="input-label">
             <label for="">WebSite:</label>
-            <input type="url">
+              <asp:TextBox ID="txtWebSite" TextMode="Url" runat="server"></asp:TextBox>
           </div>
           <div>
             <div class="input-label" id="categoria">
               <label for="">Categoria:</label>
-              <select name="" id="">
-                <option value="">Selecione a Categoria</option>
-              </select>
+              <asp:DropDownList ID="cmbCategoria" runat="server"></asp:DropDownList>
             </div>
             <div class="input-label" id="itens">
               <label for="">Itens Aceitos:</label>
-              <select name="" id="">
-                <option value="">Selecione o tipo do Item</option>
-              </select>
+              <asp:DropDownList ID="cmbItensAceitos" runat="server"></asp:DropDownList>
             </div>
             <div class="input-label" id="dsOng">
               <label for="">Resumo da Ong:</label>
-              <textarea name="" id="" cols="30" rows="10"></textarea>
+              <asp:TextBox ID="txt" TextMode="MultiLine" Columns="30" Rows="10" runat="server"></asp:TextBox>
             </div>
           </div>
           <div class="input-label" id="logo">
             <label for="">Logo da Ong:</label>
             <div class="espaco-imagem">
               <label class="custom-file-upload">
-                <input type="file" id="fileInput" accept="image/*" />
+                <asp:FileUpload ID="fileInputLogo"  runat="server" accept="image/*" />
                 <span class="textoInputFile">Carregar Foto</span>
               </label>
               <span id="nomeArquivo">Foto quadrada em JPG</span>
@@ -170,7 +176,7 @@
             <label for="">Banner da Ong:</label>
             <div class="espaco-imagem">
               <label class="custom-file-upload">
-                <input type="file" id="fileInput" accept="image/*" />
+                <asp:FileUpload ID="fileInputBanner"  runat="server" accept="image/*" />
                 <span class="textoInputFile">Carregar Foto</span>
               </label>
               <span id="nomeArquivo">Imagem Retangular em JPG</span>

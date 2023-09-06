@@ -1,6 +1,4 @@
-body {
-  background: none;
-}
+
 
 .titulo-info {
   border-bottom: solid thin #000;
@@ -25,7 +23,7 @@ body {
   margin-top: 20px;
 }
 .infos .input-label {
-  width: 295px;
+  width: 49%;
 }
 
 .button-criar {
