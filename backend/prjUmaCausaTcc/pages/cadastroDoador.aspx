@@ -50,26 +50,32 @@
           <div class="input-label">
             <label for="">Nome:</label>
               <asp:TextBox ID="txtNome" runat="server" placeholder="ex: Cennin"></asp:TextBox>
+              <span id="erroNome" class="spanErro"></span>
           </div>
           <div class="input-label">
             <label for="">CPF:</label>
-            <asp:TextBox ID="txtCpf" runat="server" placeholder="ex: 111.111.111-00"></asp:TextBox>
+            <asp:TextBox ID="txtIdentificacao" TextMode="Number" runat="server" placeholder="ex: 111.111.111-00"></asp:TextBox>
+            <span id="erroIdentificacao" class="spanErro"></span>
           </div>
           <div class="input-label">
             <label for="">Email:</label>
-            <asp:TextBox ID="txtEmail" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com"></asp:TextBox>
+            <span id="erroEmail" class="spanErro"></span>
           </div>
           <div class="input-label">
             <label for="">Telefone:</label>
-            <asp:TextBox ID="txtTelefone" AutoCompleteType="Cellular" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+            <asp:TextBox ID="txtTelefone" TextMode="Number" AutoCompleteType="Cellular" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+            <span id="erroTelefone" class="spanErro"></span>
           </div>
             <div class="input-label">
             <label for="">Senha:</label>
-            <asp:TextBox ID="txtSenha" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSenha" TextMode="Password" runat="server"></asp:TextBox>
+            <span id="erroSenha" class="spanErro"></span>
           </div>
             <div class="input-label">
             <label for="">Confirmar a Senha:</label>
-            <asp:TextBox ID="txtConfirmarSenha" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtConfirmarSenha" TextMode="Password" runat="server"></asp:TextBox>
+            <span id="erroConfirmarSenha" class="spanErro"></span>
           </div>
         </div>
 
@@ -79,10 +85,9 @@
         <div class="infos">
           <div class="input-label" id="cep">
             <label for="">CEP:</label>
-            <asp:TextBox ID="txtCep" runat="server" placeholder="ex: 11538105"></asp:TextBox>
+            <asp:TextBox ID="txtCep" TextMode="Number" runat="server" placeholder="ex: 11538105"></asp:TextBox>
           </div>
           <div class="input-label" id="UF">
-              
             <label for="">UF:</label>
               <asp:DropDownList ID="txtUF" runat="server">
                   <asp:ListItem value="" Text=""/>
@@ -114,7 +119,6 @@
                   <asp:ListItem value="SE" Text="SE"/>
                   <asp:ListItem value="TO" Text="TO"/>
               </asp:DropDownList>
-           
           </div>
           <div class="input-label" id="cidade">
             <label for="">Cidade:</label>
@@ -126,19 +130,20 @@
           </div>
           <div class="input-label" id="logradouro">
             <label for="">Logradouro:</label>
-            <asp:TextBox ID="txtLogadouro" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+            <asp:TextBox ID="txtLogradouro" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
           </div>
           <div class="input-label" id="numero">
             <label for="">Número:</label>
-            <asp:TextBox ID="txtNumero" runat="server" placeholder="ex:54"></asp:TextBox>
+            <asp:TextBox ID="txtNumero" TextMode="Number" runat="server" placeholder="ex:54"></asp:TextBox>
           </div>
           <div class="input-label" id="complemento">
             <label for="">Complemento:</label>
             <asp:TextBox ID="txtComplemento" runat="server" placeholder="ex:Apt. 14"></asp:TextBox>
           </div>
+          <span id="erroEndereco" class="spanErro"></span>
         </div>
-
-        <asp:Button class="button-criar" ID="btnCadastrarDoador" runat="server" Text="Criar conta de Doador" onclick="btnCadastrarDoador_Click"/>
+          <asp:Label ID="lblErro" runat="server"></asp:Label>
+        <asp:Button class="button-criar" ID="btnCadastrar" runat="server" Text="Criar conta de Doador" onclick="btnCadastrarDoador_Click"/>
 
       </div>
     </main>
@@ -166,7 +171,7 @@
       </nav>
     </footer>
 
-    <script src="./../js/inputFile.js"></script>
+    <script src="./../js/verificacoesInputs.js"></script>
     <script src="./../js/cep.js"></script>
 
     </form>

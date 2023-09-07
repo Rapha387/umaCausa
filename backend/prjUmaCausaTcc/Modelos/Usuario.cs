@@ -13,8 +13,10 @@ public class Usuario : Banco
         get => _nome; 
         set
         {
-            if (String.IsNullOrEmpty(_nome))
+            if (!String.IsNullOrEmpty(value))
                 _nome = value;
+            else
+                throw new Exception("O nome não pode estar vazio!");
         }
     }
     private string _email;
@@ -23,8 +25,10 @@ public class Usuario : Banco
         get => _email;
         set
         {
-            if (String.IsNullOrEmpty(_email))
+            if (!String.IsNullOrEmpty(value))
                 _email = value;
+            else
+                throw new Exception("O email não deve estar vazio!");
         }
     }
     private string _emailContato;
@@ -33,8 +37,10 @@ public class Usuario : Banco
         get => _emailContato;
         set
         {
-            if (String.IsNullOrEmpty(_emailContato))
+            if (!String.IsNullOrEmpty(_emailContato))
                 _emailContato = value;
+            else
+                throw new Exception("O email de contato não deve estar vazio!");
         }
     }
     
@@ -46,6 +52,8 @@ public class Usuario : Banco
         {
             if (!String.IsNullOrEmpty(value))
                 _telefone = value;
+            else
+                throw new Exception("O número de telefone não deve estar vazio!");
         }
     }
 
@@ -57,6 +65,8 @@ public class Usuario : Banco
         {
             if (!String.IsNullOrEmpty(value))
                 _identificacao = value;
+            else
+                throw new Exception("O documento não pode estar vazio!");
         }
     }
 
@@ -68,6 +78,8 @@ public class Usuario : Banco
         {
             if (!String.IsNullOrEmpty(value))
                 _descricao = value;
+            else
+                throw new Exception("A descrição não pode estar vazia!");
         }
     }
 
@@ -77,7 +89,9 @@ public class Usuario : Banco
         get => _cep;
         set
         {
-            if (_cep != 0)
+            if (value.ToString().Length != 8)
+                throw new Exception("O cep deve conter 8 caracteres");
+            else
                 _cep = value;
         }
     }
@@ -90,6 +104,21 @@ public class Usuario : Banco
         {
             if (!String.IsNullOrEmpty(value))
                 _estado = value;
+            else
+                throw new Exception("O nome do estado não deve estar vazio!");
+        }
+    }
+
+    private string _cidade;
+    public string Cidade
+    {
+        get => _cidade;
+        set
+        {
+            if (!String.IsNullOrEmpty(value))
+                _cidade = value;
+            else
+                throw new Exception("O nome da cidade não deve estar vazio!");
         }
     }
 
@@ -101,6 +130,8 @@ public class Usuario : Banco
         {
             if (!String.IsNullOrEmpty(value))
                 _rua = value;
+            else
+                throw new Exception("O nome da rua não deve estar vazio!");
         }
     }
     private string _numero;
@@ -111,6 +142,8 @@ public class Usuario : Banco
         {
             if (!String.IsNullOrEmpty(value))
                 _numero = value;
+            else
+                throw new Exception("O numero do endereço não deve estar vazio!");
         }
     }
     private string _bairro;
@@ -121,18 +154,17 @@ public class Usuario : Banco
         {
             if (!String.IsNullOrEmpty(value))
                 _bairro = value;
+            else
+                throw new Exception("O nome do bairro não deve estar vazio!");
         }
     }
     private string _complemento;
     public string Complemento
     {
         get => _complemento;
-        set
-        {
-            if (!String.IsNullOrEmpty(value))
-                _complemento = value;
-        }
+        set { _complemento = value; }
     }
+
     public string Latitude { get; private set; }
     public string Longitude { get; private set; }
     
@@ -140,31 +172,19 @@ public class Usuario : Banco
     public string FotoPerfil
     {
         get => _fotoPerfil;
-        set
-        {
-            if (!string.IsNullOrEmpty(value))
-                _fotoPerfil = value;
-        }
+        set { _fotoPerfil = value; }
     }
     private string _website;
     public string Website
     {
         get => _website;
-        set
-        {
-            if (!string.IsNullOrEmpty(value))
-                _website = value;
-        }
+        set { _website = value; }
     }
     private string _banner;
     public string Banner
     {
         get => _banner;
-        set
-        {
-            if (!string.IsNullOrEmpty(value))
-                _banner = value;
-        }
+        set { _banner = value; }
     }
     private string _numeroPix;
     public string NumeroPix
@@ -172,8 +192,10 @@ public class Usuario : Banco
         get => _numeroPix;
         set
         {
-            if (!string.IsNullOrEmpty(value))
+            if (!String.IsNullOrEmpty(value))
                 _numeroPix = value;
+            else
+                throw new Exception("O pix não deve estar vazio!");
         }
     }
     

@@ -33,13 +33,13 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.TextBox txtNome;
 
         /// <summary>
-        /// Controle txtCnpj.
+        /// Controle txtIdentificacao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCnpj;
+        protected global::System.Web.UI.WebControls.TextBox txtIdentificacao;
 
         /// <summary>
         /// Controle txtEmail.
@@ -114,13 +114,13 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.TextBox txtBairro;
 
         /// <summary>
-        /// Controle txtLogadouro.
+        /// Controle txtLogradouro.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLogadouro;
+        protected global::System.Web.UI.WebControls.TextBox txtLogradouro;
 
         /// <summary>
         /// Controle txtNumero.
@@ -168,22 +168,31 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.DropDownList cmbCategoria;
 
         /// <summary>
-        /// Controle cmbItensAceitos.
+        /// Controle txtEmailContato.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbItensAceitos;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailContato;
 
         /// <summary>
-        /// Controle txt.
+        /// Controle fileInputBanner.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt;
+        protected global::System.Web.UI.WebControls.FileUpload fileInputBanner;
+
+        /// <summary>
+        /// Controle txtDescricao.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescricao;
 
         /// <summary>
         /// Controle fileInputLogo.
@@ -195,12 +204,30 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.FileUpload fileInputLogo;
 
         /// <summary>
-        /// Controle fileInputBanner.
+        /// Controle cmbItensAceitos.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileInputBanner;
+        protected global::System.Web.UI.WebControls.DropDownList cmbItensAceitos;
+
+        /// <summary>
+        /// Controle cmbDiasDisponiveis.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmbDiasDisponiveis;
+
+        /// <summary>
+        /// Controle btnCadastrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCadastrar;
     }
 }

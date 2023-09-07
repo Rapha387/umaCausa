@@ -25,18 +25,14 @@ namespace prjUmaCausaTcc.pages
                 Usuario usuario = new Usuario();
 
                 string nome = txtNome.Text;
-
-                if (txtSenha.Text != txtConfirmarSenha.Text)
-                    return;
-
                 string senha = txtConfirmarSenha.Text;
                 string email = txtEmail.Text;
                 string telefone = txtTelefone.Text;
-                string cpf = txtCpf.Text;
+                string cpf = txtIdentificacao.Text;
                 string cep = txtCep.Text;
                 string uf = txtUF.Text;
                 string cidade = txtCidade.Text;
-                string lougradouto = txtLogadouro.Text;
+                string lougradouto = txtLogradouro.Text;
                 string numero = txtNumero.Text;
                 string bairro = txtBairro.Text;
                 string complemento = txtComplemento.Text;
@@ -49,11 +45,11 @@ namespace prjUmaCausaTcc.pages
 
                 (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
 
-                usuario.CadastrarDoador(nome, senha, email, telefone, cpf, cep, uf, cidade, lougradouto, numero, bairro, complemento, latitude, longitude);
+                //usuario.CadastrarDoador(nome, senha, email, telefone, cpf, cep, uf, cidade, lougradouto, numero, bairro, complemento, latitude, longitude);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Endereço Inválido");
+                lblErro.Text = ex.Message;
             }
         }
     }

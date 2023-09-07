@@ -1,6 +1,6 @@
 const cep = document.querySelector("#txtCep");
 const numero = document.querySelector("#txtNumero");
-const logadouro = document.querySelector("#txtLogadouro");
+const logradouro = document.querySelector("#txtLogradouro");
 const bairro = document.querySelector("#txtBairro");
 const complemento = document.querySelector("#txtComplemento");
 const cidade = document.querySelector("#txtCidade");
@@ -16,7 +16,7 @@ function validarCep(cep) {
 }
 
 function clearInputs() {
-  logadouro.value = "";
+  logradouro.value = "";
   bairro.value = "";
   complemento.value = "";
   cidade.value = "";
@@ -29,7 +29,7 @@ function changeInputs(endereco) {
     return clearInputs();
   }
 
-  logadouro.value = endereco.logradouro;
+  logradouro.value = endereco.logradouro;
   bairro.value = endereco.bairro;
   complemento.value = endereco.complemento;
   cidade.value = endereco.localidade;

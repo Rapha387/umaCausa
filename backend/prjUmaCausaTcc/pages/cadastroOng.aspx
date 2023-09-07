@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./../css/index.css" />
     <link rel="stylesheet" href="./../css/cadastroOng.css" />
-    <title>nome da pagina</title>
+    <title>UmaCausa - CadastroOng</title>
   </head>
 <body>
     <form id="form1" runat="server">
@@ -48,26 +48,32 @@
           <div class="input-label">
             <label for="">Nome:</label>
               <asp:TextBox ID="txtNome" runat="server" placeholder="ex: Cennin"></asp:TextBox>
+              <span id="erroNome" class="spanErro"></span>
           </div>
           <div class="input-label">
-            <label for="">CNPJ:</label>
-            <asp:TextBox ID="txtCnpj" runat="server" placeholder="ex: 111.111.111-00"></asp:TextBox>
+            <label for="">CPF:</label>
+            <asp:TextBox ID="txtIdentificacao" TextMode="Number" runat="server" placeholder="ex: 111.111.111-00"></asp:TextBox>
+            <span id="erroIdentificacao" class="spanErro"></span>
           </div>
           <div class="input-label">
             <label for="">Email:</label>
-            <asp:TextBox ID="txtEmail" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com"></asp:TextBox>
+            <span id="erroEmail" class="spanErro"></span>
           </div>
           <div class="input-label">
             <label for="">Telefone:</label>
-            <asp:TextBox ID="txtTelefone" AutoCompleteType="Cellular" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+            <asp:TextBox ID="txtTelefone" TextMode="Number" AutoCompleteType="Cellular" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+            <span id="erroTelefone" class="spanErro"></span>
           </div>
             <div class="input-label">
             <label for="">Senha:</label>
-            <asp:TextBox ID="txtSenha" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSenha" TextMode="Password" runat="server"></asp:TextBox>
+            <span id="erroSenha" class="spanErro"></span>
           </div>
             <div class="input-label">
             <label for="">Confirmar a Senha:</label>
-            <asp:TextBox ID="txtConfirmarSenha" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtConfirmarSenha" TextMode="Password" runat="server"></asp:TextBox>
+            <span id="erroConfirmarSenha" class="spanErro"></span>
           </div>
         </div>
 
@@ -75,12 +81,11 @@
           <p>Endereço:</p>
         </div>
         <div class="infos">
-          <div class="input-label" id="cep">
+         <div class="input-label" id="cep">
             <label for="">CEP:</label>
-            <asp:TextBox ID="txtCep" runat="server" placeholder="ex: 11538105"></asp:TextBox>
+            <asp:TextBox ID="txtCep" TextMode="Number" runat="server" placeholder="ex: 11538105"></asp:TextBox>
           </div>
           <div class="input-label" id="UF">
-              
             <label for="">UF:</label>
               <asp:DropDownList ID="txtUF" runat="server">
                   <asp:ListItem value="" Text=""/>
@@ -112,7 +117,6 @@
                   <asp:ListItem value="SE" Text="SE"/>
                   <asp:ListItem value="TO" Text="TO"/>
               </asp:DropDownList>
-           
           </div>
           <div class="input-label" id="cidade">
             <label for="">Cidade:</label>
@@ -124,53 +128,38 @@
           </div>
           <div class="input-label" id="logradouro">
             <label for="">Logradouro:</label>
-            <asp:TextBox ID="txtLogadouro" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+            <asp:TextBox ID="txtLogradouro" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
           </div>
           <div class="input-label" id="numero">
             <label for="">Número:</label>
-            <asp:TextBox ID="txtNumero" runat="server" placeholder="ex:54"></asp:TextBox>
+            <asp:TextBox ID="txtNumero" TextMode="Number" runat="server" placeholder="ex:54"></asp:TextBox>
           </div>
           <div class="input-label" id="complemento">
             <label for="">Complemento:</label>
             <asp:TextBox ID="txtComplemento" runat="server" placeholder="ex:Apt. 14"></asp:TextBox>
           </div>
+          <span id="erroEndereco" class="spanErro"></span>
         </div>
         
         <div class="titulo-info">
           <p>Informações Gerais:</p>
         </div>
         <div class="infos">
-          <div class="input-label">
+          <div class="input-label" id="pix">
             <label for="">Pix:</label>
               <asp:TextBox ID="txtPix" placeholder="(13)99999-9999" runat="server"></asp:TextBox>
           </div>
-          <div class="input-label">
+          <div class="input-label" id="website">
             <label for="">WebSite:</label>
               <asp:TextBox ID="txtWebSite" TextMode="Url" runat="server"></asp:TextBox>
           </div>
-          <div>
-            <div class="input-label" id="categoria">
-              <label for="">Categoria:</label>
-              <asp:DropDownList ID="cmbCategoria" runat="server"></asp:DropDownList>
-            </div>
-            <div class="input-label" id="itens">
-              <label for="">Itens Aceitos:</label>
-              <asp:DropDownList ID="cmbItensAceitos" runat="server"></asp:DropDownList>
-            </div>
-            <div class="input-label" id="dsOng">
-              <label for="">Resumo da Ong:</label>
-              <asp:TextBox ID="txt" TextMode="MultiLine" Columns="30" Rows="10" runat="server"></asp:TextBox>
-            </div>
+          <div class="input-label">
+            <label for="">Categoria:</label>
+            <asp:DropDownList ID="cmbCategoria" runat="server"></asp:DropDownList>
           </div>
-          <div class="input-label" id="logo">
-            <label for="">Logo da Ong:</label>
-            <div class="espaco-imagem">
-              <label class="custom-file-upload">
-                <asp:FileUpload ID="fileInputLogo"  runat="server" accept="image/*" />
-                <span class="textoInputFile">Carregar Foto</span>
-              </label>
-              <span id="nomeArquivo">Foto quadrada em JPG</span>
-            </div>
+          <div class="input-label">
+            <label for="">Email de Contato:</label>
+            <asp:TextBox ID="txtEmailContato" TextMode="Email" runat="server"></asp:TextBox>
           </div>
           <div class="input-label" id="bannerOng">
             <label for="">Banner da Ong:</label>
@@ -182,10 +171,31 @@
               <span id="nomeArquivo">Imagem Retangular em JPG</span>
             </div>
           </div>
-  
-          <button class="button-criar">Criar conta de Ong</button>
-  
+          <div class="input-label" id="dsOng">
+             <label for="">Resumo da Ong:</label>
+             <asp:TextBox ID="txtDescricao" TextMode="MultiLine" Columns="30" Rows="10" runat="server"></asp:TextBox>
+          </div>
+          <div class="input-label" id="logo">
+            <label for="">Logo da Ong:</label>
+            <div class="espaco-imagem">
+              <label class="custom-file-upload">
+                <asp:FileUpload ID="fileInputLogo" runat="server" accept="image/*" />
+                <span class="textoInputFile">Carregar Foto</span>
+              </label>
+              <span id="nomeArquivo">Foto quadrada em JPG</span>
+            </div>
+          </div>
+           <div class="input-label">
+             <label for="">Itens Aceitos:</label>
+             <asp:DropDownList ID="cmbItensAceitos" runat="server"></asp:DropDownList>
+           </div>
+           <div class="input-label">
+             <label for="">Dias Disponíveis:</label>
+             <asp:DropDownList ID="cmbDiasDisponiveis" runat="server"></asp:DropDownList>
+           </div>
         </div>
+
+        <asp:Button class="button-criar" ID="btnCadastrar" runat="server" Text="Criar conta de ONG" />
       </div>
     </main>
 
@@ -212,8 +222,9 @@
       </nav>
     </footer>
 
-    <script src="./../../js/inputFile.js"></script>
-    <script src="./../../js/cep.js"></script>
+    <script src="./../js/inputFile.js"></script>
+    <script src="./../js/cep.js"></script>
+    <script src="./../js/verificacoesInputs.js"></script>
     </form>
 </body>
 </html>
