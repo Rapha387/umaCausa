@@ -9,8 +9,12 @@
   text-decoration: none;
 }
 
+input:focus {
+    border-color: #0063BF;
+}
+
 .inputInvalido {
-    border-color: #f71c1c;
+    border-color: #f71c1c !important;
 }
 
 .spanErro {

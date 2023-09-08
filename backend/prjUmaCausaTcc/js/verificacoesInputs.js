@@ -18,8 +18,10 @@ const txtWebSite = document.getElementById('txtWebSite');
 const cmbCategorias = document.getElementById('cmbCategorias');
 const txtEmailContado = document.getElementById('txtEmailContato');
 const txtDescricao = document.getElementById('txtDescricao');
-const cmbItensAceitos = document.getElementById('cmbItensAceitos');
-const cmbDiasDisponiveis = document.getElementById('cmbDiasDisponiveis');
+const cmbItensAceitos = document.querySelector('.select-items');
+const cmbDiasDisponiveis = document.querySelector('.select-dias');
+const listaItens = document.getElementById('selectedItems');
+const listaDias = document.getElementById('selectedDias');
 
 const botaoCadastrarDoador = document.getElementById('btnCadastrarDoador');
 const botaoCadastrarOng = document.getElementById('btnCadastrarOng');
@@ -44,6 +46,27 @@ if (botaoCadastrarOng != null) {
 }
 
 function VerificarDadosPadraoCadastro(event) {
+    txtNome.classList.remove('inputInvalido');
+    erroNome.textContent = ""
+    txtIdentificacao.classList.remove('inputInvalido');
+    erroIdentificacao.textContent = ""
+    txtEmail.classList.remove('inputInvalido');
+    erroEmail.textContent = ""
+    txtTelefone.classList.remove('inputInvalido');
+    erroTelefone.textContent = ""
+    txtSenha.classList.remove('inputInvalido');
+    erroSenha.textContent = ""
+    txtConfirmarSenha.classList.remove('inputInvalido');
+    erroConfirmarSenha.textContent = ""
+    txtCep.classList.remove('inputInvalido');
+    txtUf.classList.remove('inputInvalido');
+    txtCidade.classList.remove('inputInvalido');
+    txtBairro.classList.remove('inputInvalido');
+    txtLogradouro.classList.remove('inputInvalido');
+    txtNumero.classList.remove('inputInvalido');
+    txtComplemento.classList.remove('inputInvalido');
+    erroEndereco.textContent = "";
+
     if (txtNome.value == "") {
         txtNome.classList.add('inputInvalido');
         event.preventDefault();
@@ -79,7 +102,7 @@ function VerificarDadosPadraoCadastro(event) {
         event.preventDefault();
         erroEndereco.textContent = "O cep precisa ter 8 digitos";
     }
-    if (txtUf.options[txtUf.selectedIndex].value == 0) {
+    if (txtUf.selectedIndex == 0) {
         txtUf.classList.add('inputInvalido');
         event.preventDefault();
         erroEndereco.textContent = "Preencha todos os campos de endereço";
@@ -112,12 +135,26 @@ function VerificarDadosPadraoCadastro(event) {
 }
 
 function VerificarDadosOng(event) {
+    txtPix.classList.remove('inputInvalido');
+    erroPix.textContent = "";
+    cmbCategorias.classList.remove('inputInvalido');
+    erroCategorias.textContent = "";
+    txtEmailContato.classList.remove('inputInvalido');
+    erroEmailContato.textContent = "";
+    txtDescricao.classList.remove('inputInvalido');
+    erroDescricao.textContent = "";
+    cmbItensAceitos.classList.remove('inputInvalido');
+    erroItensAceitos.textContent = "";
+    cmbDiasDisponiveis.classList.remove('inputInvalido');
+    erroDiasDisponiveis.textContent = "";
+
+
     if (txtPix.value == "") {
         txtPix.classList.add('inputInvalido');
         event.preventDefault();
         erroPix.textContent = "O valor do pix não pode estar vazio";
     }
-    if (cmbCategorias.options[cmbCategorias.selectedIndex] == 0) {
+    if (cmbCategorias.selectedIndex == 0) {
         cmbCategorias.classList.add('inputInvalido');
         event.preventDefault();
         erroCategorias.textContent = "Selecione uma categoria para a sua ONG";
@@ -132,20 +169,15 @@ function VerificarDadosOng(event) {
         event.preventDefault();
         erroDescricao.textContent = "A descrição não pode estar vazia";
     }
-    if (txtDescricao.value == "") {
-        txtDescricao.classList.add('inputInvalido');
+    if (listaItens.textContent == "") {
+        cmbItensAceitos.classList.add('inputInvalido');
         event.preventDefault();
-        erroDescricao.textContent = "A descrição não pode estar vazia";
+        erroItensAceitos.textContent = "Selecione pelo menos 1 item para doação";
     }
-    //if (cmbItensAceitos.value == "") {
-    //    cmbItensAceitos.classList.add('inputInvalido');
-    //    event.preventDefault();
-    //    erroDescricao.textContent = "Selecione pelo menos 1 item para doação";
-    //}
-    //if (cmbDiasDisponiveis.value == "") {
-    //    cmbDiasDisponiveis.classList.add('inputInvalido');
-    //    event.preventDefault();
-    //    erroDescricao.textContent = "Selecione pelo menos 1 dia disponivel";
-    //}
+    if (listaDias.textContent == "") {
+        cmbDiasDisponiveis.classList.add('inputInvalido');
+        event.preventDefault();
+        erroDiasDisponiveis.textContent = "Selecione pelo menos 1 dia disponivel";
+    }
 }
 

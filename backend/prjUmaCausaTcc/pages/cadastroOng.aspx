@@ -192,10 +192,10 @@
               <span id="nomeArquivoLogo">Foto quadrada em JPG</span>
             </div>
           </div>
-           <div class="input-label">
+          <div class="input-label">
              <label for="">Itens Aceitos:</label>
-             <div class="select">
-                <div class="ver" onclick="esconderSelect()">
+             <div class="select-items">
+                <div class="ver" onclick="esconderSelectItens()">
                     Selecione os Itens de seu interesse
                 </div>
                 <ul id="itemList" class="invisivel">
@@ -205,16 +205,34 @@
                     <li onclick="selecionarItem(this)" value="4">Item 4</li>
                 </ul>
              </div>
-             <ul id="selectedItems">
-             </ul>
+             <span id="erroItensAceitos" class="spanErro"></span>
+             <asp:Panel ID="selectedItems" runat="server">
+
+             </asp:Panel>
            </div>
            <div class="input-label">
              <label for="">Dias Disponíveis:</label>
-             <asp:DropDownList ID="cmbDiasDisponiveis" runat="server"></asp:DropDownList>
+             <div class="select-dias">
+                <div class="ver" onclick="esconderSelectDias()">
+                    Selecione os Dias Disponiveis
+                </div>
+                <ul id="diasList" class="invisivel">
+                    <li onclick="selecionarDia(this)" value="1">Domingo</li>
+                    <li onclick="selecionarDia(this)" value="2">Segunda</li>
+                    <li onclick="selecionarDia(this)" value="3">Terça</li>
+                    <li onclick="selecionarDia(this)" value="4">Quarta</li>
+                    <li onclick="selecionarDia(this)" value="5">Quinta</li>
+                    <li onclick="selecionarDia(this)" value="6">Sexta</li>
+                    <li onclick="selecionarDia(this)" value="7">Sábado</li>        
+                </ul>
+             </div>
              <span id="erroDiasDisponiveis" class="spanErro"></span>
+             <asp:Panel ID="selectedDias" runat="server">
+                 
+             </asp:Panel>
            </div>
         </div>
-
+        <asp:Label ID="lblErro" runat="server"></asp:Label>
         <asp:Button class="button-criar" ID="btnCadastrarOng" runat="server" Text="Criar conta de ONG" OnClick="btnCadastrarOng_Click" />
       </div>
     </main>

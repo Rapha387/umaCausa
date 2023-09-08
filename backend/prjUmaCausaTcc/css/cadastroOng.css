@@ -35,11 +35,11 @@
 }
 
 
-.select {
+.select-items, .select-dias {
     position: relative;
     width: 200px;
     background-color: #fff;
-    border: solid thin #d3d3d3;
+    border: solid 2px #d3d3d3;
     border-radius: 4px;
     width: 100%;
     margin-bottom: 3px;
@@ -55,12 +55,12 @@
     padding: 0.594rem 1rem;
 }
 
-#itemList {
+#itemList, #diasList {
     width: 100%;
     position: absolute;
 }
 
-#itemList li {
+#itemList li, #diasList li{
     padding: 0.2rem 1rem;
     text-decoration: none;
     list-style: none;
@@ -68,7 +68,7 @@
     font-size: 14px;
 }
 
-#itemList li:hover {
+#itemList li:hover,  #diasList li:hover {
     background-color: #007aff;
     color: #fff;
 }
@@ -77,12 +77,13 @@ ul {
     background-color: #fff;
 }
 
-#selectedItems {
+#selectedItems, #selectedDias {
     width: 100%;
     display: flex;
+    align-content: flex-start;
     flex-wrap: wrap;
     gap: 4px;
-    height: 40px;
+    height: 70px;
 }
 
 .itens {
