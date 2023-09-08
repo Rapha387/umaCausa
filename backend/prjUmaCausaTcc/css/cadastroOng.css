@@ -33,3 +33,86 @@
   height: 40px;
   margin: auto;
 }
+
+
+.select {
+    position: relative;
+    width: 200px;
+    background-color: #fff;
+    border: solid thin #d3d3d3;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 3px;
+    cursor: default;
+    user-select: none;
+}
+
+.invisivel {
+    display: none;
+}
+
+.ver {
+    padding: 0.594rem 1rem;
+}
+
+#itemList {
+    width: 100%;
+    position: absolute;
+}
+
+#itemList li {
+    padding: 0.2rem 1rem;
+    text-decoration: none;
+    list-style: none;
+    border: solid thin #d3d3d3;
+    font-size: 14px;
+}
+
+#itemList li:hover {
+    background-color: #007aff;
+    color: #fff;
+}
+
+ul {
+    background-color: #fff;
+}
+
+#selectedItems {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    height: 40px;
+}
+
+.itens {
+    height: 25px;
+    background-color: #0063BF;
+    color: #fff;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.textoItem{
+    font-size: 12px;
+}
+
+.textoItem {
+    padding: 0.4rem;
+}
+
+.botao-remover-item {
+    border-radius:0px;
+    border: none;
+    width: 27px;
+    border-left: solid thin rgb(228, 228, 228);
+    padding: 0.4rem;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+}

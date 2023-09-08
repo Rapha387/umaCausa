@@ -1,7 +1,6 @@
 ﻿const txtNome = document.getElementById('txtNome');
 const txtIdentificacao = document.getElementById('txtIdentificacao');
 const txtEmail = document.getElementById('txtEmail');
-const txtEmailContado = document.getElementById('txtEmailContato');
 const txtTelefone = document.getElementById('txtTelefone');
 const txtSenha = document.getElementById('txtSenha');
 const txtConfirmarSenha = document.getElementById('txtConfirmarSenha');
@@ -16,13 +15,14 @@ const txtComplemento = document.getElementById('txtComplemento');
 
 const txtPix = document.getElementById('txtPix');
 const txtWebSite = document.getElementById('txtWebSite');
+const cmbCategorias = document.getElementById('cmbCategorias');
+const txtEmailContado = document.getElementById('txtEmailContato');
+const txtDescricao = document.getElementById('txtDescricao');
+const cmbItensAceitos = document.getElementById('cmbItensAceitos');
+const cmbDiasDisponiveis = document.getElementById('cmbDiasDisponiveis');
 
 const botaoCadastrarDoador = document.getElementById('btnCadastrarDoador');
 const botaoCadastrarOng = document.getElementById('btnCadastrarOng');
-const cmbCategoria = document.getElementById('cmbCategoria');
-const cmbItensAceitos = document.getElementById('cmbItensAceitos');
-const txtDescricao = document.getElementById('txtDescricao');
-
 
 
 txtCep.addEventListener('input', function () {
@@ -30,11 +30,17 @@ txtCep.addEventListener('input', function () {
         this.value = this.value.slice(0, 8);
 })
 
-botaoCadastrarDoador.onclick = function (event) {
-    VerificarDadosPadraoCadastro(event);
+if (botaoCadastrarDoador != null) {
+    botaoCadastrarDoador.onclick = function (event) {
+        VerificarDadosPadraoCadastro(event);
+    }
 }
-botaoCadastrarOng.onclick = function (event) {
-    VerificarDadosOng(event);
+
+if (botaoCadastrarOng != null) {
+    botaoCadastrarOng.onclick = function (event) {
+        VerificarDadosPadraoCadastro(event);
+        VerificarDadosOng(event);
+    }
 }
 
 function VerificarDadosPadraoCadastro(event) {
@@ -106,8 +112,40 @@ function VerificarDadosPadraoCadastro(event) {
 }
 
 function VerificarDadosOng(event) {
-    if () {
-         
+    if (txtPix.value == "") {
+        txtPix.classList.add('inputInvalido');
+        event.preventDefault();
+        erroPix.textContent = "O valor do pix não pode estar vazio";
     }
+    if (cmbCategorias.options[cmbCategorias.selectedIndex] == 0) {
+        cmbCategorias.classList.add('inputInvalido');
+        event.preventDefault();
+        erroCategorias.textContent = "Selecione uma categoria para a sua ONG";
+    }
+    if (txtEmailContado.value == "") {
+        txtEmailContado.classList.add('inputInvalido');
+        event.preventDefault();
+        erroEmailContato.textContent = "O valor do email de contato não pode estar vazio";
+    }
+    if (txtDescricao.value == "") {
+        txtDescricao.classList.add('inputInvalido');
+        event.preventDefault();
+        erroDescricao.textContent = "A descrição não pode estar vazia";
+    }
+    if (txtDescricao.value == "") {
+        txtDescricao.classList.add('inputInvalido');
+        event.preventDefault();
+        erroDescricao.textContent = "A descrição não pode estar vazia";
+    }
+    //if (cmbItensAceitos.value == "") {
+    //    cmbItensAceitos.classList.add('inputInvalido');
+    //    event.preventDefault();
+    //    erroDescricao.textContent = "Selecione pelo menos 1 item para doação";
+    //}
+    //if (cmbDiasDisponiveis.value == "") {
+    //    cmbDiasDisponiveis.classList.add('inputInvalido');
+    //    event.preventDefault();
+    //    erroDescricao.textContent = "Selecione pelo menos 1 dia disponivel";
+    //}
 }
 

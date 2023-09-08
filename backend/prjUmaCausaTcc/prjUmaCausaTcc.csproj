@@ -131,6 +131,7 @@
     <Content Include="js\home.js" />
     <Content Include="js\inputFile.js" />
     <Content Include="js\popup.js" />
+    <Content Include="js\selectPersonalizado.js" />
     <Content Include="js\verificacoesInputs.js" />
     <Content Include="pages\cadastroDoador.aspx" />
     <Content Include="pages\cadastroDoador.html" />

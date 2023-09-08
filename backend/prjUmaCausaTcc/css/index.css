@@ -213,12 +213,20 @@ main {
   bottom: 40px;
 }
 
-.espaco-imagem {
+.espaco-imagem-logo {
   position: relative;
   height: 250px;
   border: 2px solid #d3d3d3;
   border-radius: 4px;
   background-color: #fff;
+}
+
+.espaco-imagem-banner {
+    position: relative;
+    height: 143px;
+    border: 2px solid #d3d3d3;
+    border-radius: 4px;
+    background-color: #fff;
 }
 
 .custom-file-upload {
@@ -245,7 +253,7 @@ main {
   content: "aa";
 }
 
-#nomeArquivo {
+#nomeArquivoLogo, #nomeArquivoBanner {
   font-size: 14px;
   position: absolute;
   bottom: 10px;

@@ -159,13 +159,13 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.TextBox txtWebSite;
 
         /// <summary>
-        /// Controle cmbCategoria.
+        /// Controle cmbCategorias.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbCategoria;
+        protected global::System.Web.UI.WebControls.DropDownList cmbCategorias;
 
         /// <summary>
         /// Controle txtEmailContato.
@@ -204,15 +204,6 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.FileUpload fileInputLogo;
 
         /// <summary>
-        /// Controle cmbItensAceitos.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbItensAceitos;
-
-        /// <summary>
         /// Controle cmbDiasDisponiveis.
         /// </summary>
         /// <remarks>
@@ -222,12 +213,12 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.DropDownList cmbDiasDisponiveis;
 
         /// <summary>
-        /// Controle btnCadastrar.
+        /// Controle btnCadastrarOng.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCadastrar;
+        protected global::System.Web.UI.WebControls.Button btnCadastrarOng;
     }
 }

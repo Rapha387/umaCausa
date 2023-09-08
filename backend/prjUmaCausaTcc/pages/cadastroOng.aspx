@@ -147,7 +147,8 @@
         <div class="infos">
           <div class="input-label" id="pix">
             <label for="">Pix:</label>
-              <asp:TextBox ID="txtPix" placeholder="(13)99999-9999" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPix" placeholder="(13)99999-9999" runat="server"></asp:TextBox>
+            <span id="erroPix" class="spanErro"></span>
           </div>
           <div class="input-label" id="website">
             <label for="">WebSite:</label>
@@ -155,47 +156,66 @@
           </div>
           <div class="input-label">
             <label for="">Categoria:</label>
-            <asp:DropDownList ID="cmbCategoria" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="cmbCategorias" runat="server">
+                <asp:ListItem>Selecione uma Categoria</asp:ListItem>
+                <asp:ListItem>Saúde</asp:ListItem>
+            </asp:DropDownList>
+            <span id="erroCategorias" class="spanErro"></span>
           </div>
           <div class="input-label">
             <label for="">Email de Contato:</label>
             <asp:TextBox ID="txtEmailContato" TextMode="Email" runat="server"></asp:TextBox>
+            <span id="erroEmailContato" class="spanErro"></span>
           </div>
           <div class="input-label" id="bannerOng">
             <label for="">Banner da Ong:</label>
-            <div class="espaco-imagem">
+            <div class="espaco-imagem-banner">
               <label class="custom-file-upload">
                 <asp:FileUpload ID="fileInputBanner"  runat="server" accept="image/*" />
                 <span class="textoInputFile">Carregar Foto</span>
               </label>
-              <span id="nomeArquivo">Imagem Retangular em JPG</span>
+              <span id="nomeArquivoBanner">Imagem Retangular em JPG</span>
             </div>
           </div>
           <div class="input-label" id="dsOng">
              <label for="">Resumo da Ong:</label>
              <asp:TextBox ID="txtDescricao" TextMode="MultiLine" Columns="30" Rows="10" runat="server"></asp:TextBox>
+             <span id="erroDescricao" class="spanErro"></span>
           </div>
           <div class="input-label" id="logo">
             <label for="">Logo da Ong:</label>
-            <div class="espaco-imagem">
+            <div class="espaco-imagem-logo">
               <label class="custom-file-upload">
                 <asp:FileUpload ID="fileInputLogo" runat="server" accept="image/*" />
                 <span class="textoInputFile">Carregar Foto</span>
               </label>
-              <span id="nomeArquivo">Foto quadrada em JPG</span>
+              <span id="nomeArquivoLogo">Foto quadrada em JPG</span>
             </div>
           </div>
            <div class="input-label">
              <label for="">Itens Aceitos:</label>
-             <asp:DropDownList ID="cmbItensAceitos" runat="server"></asp:DropDownList>
+             <div class="select">
+                <div class="ver" onclick="esconderSelect()">
+                    Selecione os Itens de seu interesse
+                </div>
+                <ul id="itemList" class="invisivel">
+                    <li onclick="selecionarItem(this)" value="1">Item 1</li>
+                    <li onclick="selecionarItem(this)" value="2">Item 2 </li>
+                    <li onclick="selecionarItem(this)" value="3">Item 3 </li>
+                    <li onclick="selecionarItem(this)" value="4">Item 4</li>
+                </ul>
+             </div>
+             <ul id="selectedItems">
+             </ul>
            </div>
            <div class="input-label">
              <label for="">Dias Disponíveis:</label>
              <asp:DropDownList ID="cmbDiasDisponiveis" runat="server"></asp:DropDownList>
+             <span id="erroDiasDisponiveis" class="spanErro"></span>
            </div>
         </div>
 
-        <asp:Button class="button-criar" ID="btnCadastrar" runat="server" Text="Criar conta de ONG" />
+        <asp:Button class="button-criar" ID="btnCadastrarOng" runat="server" Text="Criar conta de ONG" OnClick="btnCadastrarOng_Click" />
       </div>
     </main>
 
@@ -222,9 +242,10 @@
       </nav>
     </footer>
 
-    <script src="./../js/inputFile.js"></script>
-    <script src="./../js/cep.js"></script>
     <script src="./../js/verificacoesInputs.js"></script>
+    <script src="./../js/inputFile.js"></script>
+    <script src="./../js/selectPersonalizado.js"></script>
+    <script src="./../js/cep.js"></script>
     </form>
 </body>
 </html>

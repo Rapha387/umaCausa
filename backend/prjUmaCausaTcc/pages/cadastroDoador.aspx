@@ -143,7 +143,7 @@
           <span id="erroEndereco" class="spanErro"></span>
         </div>
           <asp:Label ID="lblErro" runat="server"></asp:Label>
-        <asp:Button class="button-criar" ID="btnCadastrar" runat="server" Text="Criar conta de Doador" onclick="btnCadastrarDoador_Click"/>
+        <asp:Button class="button-criar" ID="btnCadastrarDoador" runat="server" Text="Criar conta de Doador" onclick="btnCadastrarDoador_Click"/>
 
       </div>
     </main>

@@ -13,5 +13,10 @@ namespace prjUmaCausaTcc.pages
         {
 
         }
+
+        protected void btnCadastrarOng_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
