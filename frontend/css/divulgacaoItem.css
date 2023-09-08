@@ -10,19 +10,11 @@ body {
 }
 
 .inputs {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
-
 .inputs button {
   width: 49%;
 }
@@ -36,7 +28,7 @@ body {
   width: 60%;
 }
 
-input[type="file"], textarea {
+input[type=file], textarea {
   height: 178px;
 }
 

@@ -3,85 +3,53 @@ body {
 }
 
 main {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   width: 1000px;
 }
 
 main nav {
   width: 233px;
 }
-
 main nav ul li {
   margin-bottom: 20px;
 }
-
 main nav ul a {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: start;
+  align-items: center;
   gap: 10px;
   font-size: 16px;
   color: #000;
-  -webkit-transition: 0.15s;
   transition: 0.15s;
 }
-
 main nav ul a:hover {
   color: #0063BF;
 }
-
 main nav ul a img {
   width: 28px;
   height: 28px;
 }
-
 main .infos-configuracoes {
   width: 610px;
 }
-
 main .infos-configuracoes .titulo-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: start;
+  align-items: center;
   color: #0063BF;
   font-family: "Roboto", sans-serif;
   gap: 10px;
   font-size: 16px;
 }
-
 main .infos-configuracoes .infos {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
-
 main .infos-configuracoes .infos .input-label {
   width: 295px;
 }
@@ -97,7 +65,6 @@ td {
   padding: 0.6rem;
   text-align: center;
 }
-
 td img {
   cursor: pointer;
   width: 18px;
@@ -114,37 +81,22 @@ thead td {
 }
 
 .paginacao {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
   width: 100%;
   height: 47px;
   background-color: #F5F5F5;
 }
-
 .paginacao .paginas {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 .paginacao .paginas .pagina {
   padding: 5px 10px;
 }
-
 .paginacao .paginas .pagina-selecionada {
   background-color: #0063BF;
   color: #fff;
@@ -155,30 +107,17 @@ thead td {
 }
 
 .filtro-confirmacoes {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   border-bottom: solid thin #000;
   padding: 0.5rem 2rem;
 }
-
 .filtro-confirmacoes .filtros {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   cursor: pointer;
 }
@@ -186,41 +125,25 @@ thead td {
 .confirmacoes {
   width: 100%;
 }
-
 .confirmacoes .confirmacao {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin-top: 20px;
   padding: 1.5rem;
   background-color: #F5F5F5;
   border-radius: 4px;
 }
-
 .confirmacoes .confirmacao p:nth-child(2) {
   margin: 10px 0;
 }
-
 .confirmacoes .confirmacao .botoes-confirmacao {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   gap: 25px;
 }
-
 .confirmacoes .confirmacao .botoes-confirmacao img {
   width: 33px;
   cursor: pointer;

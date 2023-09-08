@@ -6,7 +6,6 @@ body {
   border-bottom: solid thin #000;
   padding-bottom: 0.3rem;
 }
-
 .titulo-info p {
   font-size: 18px;
 }
@@ -19,20 +18,12 @@ body {
 .infos {
   margin-bottom: 20px;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
-
 .infos .input-label {
   width: 295px;
 }

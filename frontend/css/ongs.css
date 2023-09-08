@@ -1,10 +1,6 @@
 main {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .pesquisa {
@@ -14,17 +10,14 @@ main {
 .ongs {
   width: 621px;
 }
-
 .ongs h2 {
   margin-bottom: 30px;
 }
-
 .ongs .ong {
   margin-bottom: 15px;
   width: 100%;
   border-radius: 4px;
 }
-
 .ongs .ong .imagem-ong {
   width: 70px;
   height: 70px;
@@ -35,52 +28,39 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
 }
-
 .ongs .ong .infos-ong {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  align-items: flex-start;
   gap: 20px;
   border-radius: 4px 4px 0 0;
   background-color: #F5F5F5;
   padding: 0.938rem 0.75rem;
   padding-bottom: 0;
 }
-
 .ongs .ong .infos-ong .descricao {
   width: 507px;
 }
-
 .ongs .ong .infos-ong .descricao h3 {
   color: #000;
   font-weight: 700;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 10px;
 }
-
 .ongs .ong .infos-ong .descricao h3 img {
   width: 20px;
   height: 20px;
 }
-
 .ongs .ong .infos-ong .descricao p {
   color: #403C3C;
   margin-top: 4px;
   font-size: 14px;
 }
-
 .ongs .ong .tags {
   background-color: #373434;
   border-radius: 0 0 4px 4px;
   padding: 0.1rem;
   padding-left: 6.4rem;
 }
-
 .ongs .ong .tags .tag {
   font-size: 14px;
   color: #1876F2;
