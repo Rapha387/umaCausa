@@ -199,10 +199,7 @@
                     Selecione os Itens de seu interesse
                 </div>
                 <ul id="itemList" class="invisivel">
-                    <li onclick="selecionarItem(this)" value="1">Item 1</li>
-                    <li onclick="selecionarItem(this)" value="2">Item 2 </li>
-                    <li onclick="selecionarItem(this)" value="3">Item 3 </li>
-                    <li onclick="selecionarItem(this)" value="4">Item 4</li>
+                    <asp:Literal ID="listaItens" runat="server"></asp:Literal>
                 </ul>
              </div>
              <span id="erroItensAceitos" class="spanErro"></span>

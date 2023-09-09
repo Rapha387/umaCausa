@@ -1,6 +1,8 @@
-﻿using prjUmaCausaTcc.Logicas;
+﻿using Google.Protobuf.WellKnownTypes;
+using prjUmaCausaTcc.Logicas;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,7 +15,30 @@ namespace prjUmaCausaTcc.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                CategoriasOng categoriasOng = new CategoriasOng();
 
+                var listaCategoriasOng = categoriasOng.ListarCategoriasOng();
+
+                foreach (var categoria in listaCategoriasOng)
+                {
+                    cmbCategorias.Items.Add(categoria.Nome);
+                }
+
+                Itens tiposItens = new Itens();
+
+                var listaTiposItens = tiposItens.ListarTiposItens();
+
+                foreach (var item in listaTiposItens)
+                {
+                    listaItens.Text += $"<li onclick='selecionarItem(this)' value='{item.Codigo}'>{item.Nome}</li>";
+                }
+            }
+            catch
+            {
+                Response.Redirect('erro.aspx');
+            }
         }
 
         protected void btnCadastrarOng_Click(object sender, EventArgs e)
@@ -38,7 +63,7 @@ namespace prjUmaCausaTcc.pages
                 string longitude = "";
                 string pix = txtPix.Text;
                 string webSite = txtWebSite.Text;
-                string categoria = cmbCategorias.SelectedItem.Text;
+                int categoria = cmbCategorias.SelectedIndex;
                 string emailContao = txtEmailContato.Text;
                 string descricao = txtDescricao.Text;
                 List<TipoItem> itemsAceitos = new List<TipoItem>();
@@ -53,7 +78,6 @@ namespace prjUmaCausaTcc.pages
                             HtmlGenericControl listItem = (HtmlGenericControl)control;
                             string value = listItem.Attributes["value"];
 
-                            // Faça o que você precisa com o valor da <li>
                             Response.Write("Valor da <li>: " + value + "<br>");
                         }
                     }
