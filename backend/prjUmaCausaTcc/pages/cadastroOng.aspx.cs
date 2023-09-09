@@ -37,7 +37,7 @@ namespace prjUmaCausaTcc.pages
             }
             catch
             {
-                Response.Redirect('erro.aspx');
+                //Response.Redirect('erro.aspx');
             }
         }
 

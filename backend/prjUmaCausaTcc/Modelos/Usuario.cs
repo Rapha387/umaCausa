@@ -318,6 +318,41 @@ public class Usuario : Banco
         }
     }
 
+    public void BuscarDadosQrCodePixOng(int codigo)
+    {
+
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdUsuario", codigo.ToString()),
+        };
+
+        try
+        {
+            var dados = Consultar("BuscarDadosQrCodePixOng", parametros);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    Codigo = dados.GetInt32("id_usuario");
+                    Nome = dados.GetString("nm_usuario");
+                    Cidade = dados.GetString("nm_cidade");
+                    NumeroPix = dados.GetString("nm_pix");
+                }
+            }
+
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch(Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
+
     #endregion
     public Usuario()
     {

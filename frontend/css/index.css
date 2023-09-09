@@ -672,6 +672,9 @@ label {
   width: 187px;
   height: 100%;
 }
+.popup-doacao-monetaria .monetaria-flex .qrcode img{
+  display: none;
+}
 .popup-doacao-monetaria .botao-finalizar-doacao {
   margin-top: 2rem;
   width: 100%;

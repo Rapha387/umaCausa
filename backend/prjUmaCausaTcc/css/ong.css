@@ -1,0 +1,114 @@
+.banner {
+  background: url(./../images/bannerOng/banner1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 266px;
+}
+
+main {
+  position: relative;
+  padding-top: 0;
+}
+main .logo-nome {
+  display: flex;
+  gap: 12px;
+}
+main .logo-nome .logo-ong {
+  width: 150px;
+  height: 150px;
+  margin-top: -105px;
+  border: solid 2px #AFB1B6;
+  border-radius: 8px;
+  background: url(./../images/ongs/ong1.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+main .logo-nome h1 {
+  padding-top: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 6px;
+}
+main .logo-nome h1 .img-categoria-ong {
+  width: 22px;
+  height: 22px;
+}
+main .infos {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+main .infos .infos1 {
+  width: 640px;
+}
+main .infos .infos1 .sobre-nos {
+  border-radius: 4px;
+  background-color: #F5F5F5;
+  padding: 1rem;
+}
+main .infos .infos1 .sobre-nos h3 {
+  font-size: 16px;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
+}
+main .infos .infos1 .sobre-nos .descricao {
+  margin-top: 11px;
+  text-align: justify;
+}
+main .infos .infos2 {
+  width: 339px;
+}
+main .infos .infos2 .doar {
+  width: 100%;
+  height: 32px;
+}
+main .infos .infos2 .card-infos {
+  margin: 30px 0;
+}
+main .infos .infos2 .card-infos .card {
+  width: 339px;
+  border-radius: 4px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 62px;
+  padding: 1rem;
+  background-color: #F5F5F5;
+}
+main .infos .infos2 .card-infos .card img {
+  width: 22px;
+  height: 22px;
+}
+main .infos .infos2 .card-infos .card p {
+  max-width: 279px;
+  color: #1876F2;
+  word-wrap: break-word;
+}
+main .infos .infos2 .card-infos .card h3 {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+main .infos .infos2 .fotos h2 {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+main .infos .infos2 .fotos .fotos-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+main .infos .infos2 .fotos .fotos-flex .foto {
+  width: 111px;
+  height: 111px;
+  border-radius: 4px;
+}

@@ -126,10 +126,14 @@
     <Content Include="css\cadastroOng.css" />
     <Content Include="css\home.css" />
     <Content Include="css\index.css" />
+    <Content Include="css\ong.css" />
+    <Content Include="JsonResponses\BuscarDadosPixOng.aspx" />
     <Content Include="js\carrossel-itens.js" />
     <Content Include="js\cep.js" />
+    <Content Include="js\gerarPix.js" />
     <Content Include="js\home.js" />
     <Content Include="js\inputFile.js" />
+    <Content Include="js\pix.js" />
     <Content Include="js\popup.js" />
     <Content Include="js\selectPersonalizado.js" />
     <Content Include="js\verificacoesInputs.js" />
@@ -137,6 +141,7 @@
     <Content Include="pages\cadastroDoador.html" />
     <Content Include="pages\cadastroOng.aspx" />
     <Content Include="pages\cadastroOng.html" />
+    <Content Include="pages\ong.html" />
     <Content Include="swiper\swiper-bundle.min.css" />
     <Content Include="swiper\swiper-bundle.min.js" />
     <Content Include="TesteDeMetodos.aspx" />
@@ -146,9 +151,17 @@
     <Compile Include="Banco\Banco.cs" />
     <Compile Include="Banco\Conexao.cs" />
     <Compile Include="Banco\Parametro.cs" />
+    <Compile Include="JsonResponses\BuscarDadosPixOng.aspx.cs">
+      <DependentUpon>BuscarDadosPixOng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\BuscarDadosPixOng.aspx.designer.cs">
+      <DependentUpon>BuscarDadosPixOng.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Logicas\CapturarGeolocalizacao.cs" />
     <Compile Include="Logicas\CategoriasOng.cs" />
     <Compile Include="Logicas\Itens.cs" />
+    <Compile Include="Logicas\Ongs.cs" />
     <Compile Include="Modelos\Campanha.cs" />
     <Compile Include="Modelos\CampanhaODS.cs" />
     <Compile Include="Modelos\CategoriaCampanha.cs" />
