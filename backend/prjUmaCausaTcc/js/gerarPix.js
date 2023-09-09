@@ -12,7 +12,7 @@ if (btnGerarPix) {
 
     let valorTxt = parseFloat(txtValor.value);
     const urlParams = new URLSearchParams(window.location.search);
-    const ong = urlParams.get('o');
+    const ong = urlParams.get('ong');
     
     btnGerarPix.setAttribute('disabled', 'true');
   

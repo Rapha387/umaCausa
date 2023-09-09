@@ -37,10 +37,10 @@ public class Usuario : Banco
         get => _emailContato;
         set
         {
-            if (!String.IsNullOrEmpty(_emailContato))
+            if (!String.IsNullOrEmpty(value))
                 _emailContato = value;
             else
-                throw new Exception("O email de contato não deve estar vazio!");
+                throw new Exception("O email não deve estar vazio!");
         }
     }
     
@@ -83,13 +83,13 @@ public class Usuario : Banco
         }
     }
 
-    private int _cep;
-    public int Cep
+    private string _cep;
+    public string Cep
     {
         get => _cep;
         set
         {
-            if (value.ToString().Length != 8)
+            if (value.Length != 8)
                 throw new Exception("O cep deve conter 8 caracteres");
             else
                 _cep = value;
@@ -198,16 +198,16 @@ public class Usuario : Banco
                 throw new Exception("O pix não deve estar vazio!");
         }
     }
-    
+
     public bool Banido { get; private set; }
     public DateTime DataDesbloqueio { get; private set; }
     public bool PosssibilidadeBusca { get; private set; }
-
+    public CategoriaOng CategoriaOng { get; set; }
     public TipoUsuario TipoDoUsuario { get; set; }
     #endregion
 
     #region Metodos
-    
+
     public bool CadastrarDoador(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -318,6 +318,50 @@ public class Usuario : Banco
         }
     }
 
+    public void BuscarOng(int codigo)
+    {
+        // Usuario usuario = new Usuario();
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdUsuario", codigo.ToString())
+        };
+        try
+        {
+            Conectar();
+            MySqlDataReader dados = Consultar("BuscarDadosOng", parametros);
+            if (dados.Read())
+            {
+                Nome = dados.GetString("nm_usuario");
+                Banner = dados.GetString("img_banner");
+                FotoPerfil = dados.GetString("img_fotoPerfil");
+                Descricao = dados.GetString("ds_usuario");
+                EmailContato = dados.GetString("nm_emailContato");
+                Telefone = dados.GetString("nm_telefone");
+                Identificacao = dados.GetString("nm_indentificacao");
+                Website = dados.GetString("nm_website");
+                Cep = dados.GetString("nm_cep");
+                Estado = dados.GetString("nm_estado");
+                Cidade = dados.GetString("nm_cidade");
+                Rua = dados.GetString("nm_rua");
+                Numero = dados.GetString("nm_numero");
+                Bairro = dados.GetString("nm_bairro");
+                Complemento = dados.GetString("nm_complemento");
+                CategoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
+            }
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+        finally
+        {
+
+            Desconectar();
+        }
+    }
+
     public void BuscarDadosQrCodePixOng(int codigo)
     {
 
@@ -358,7 +402,7 @@ public class Usuario : Banco
     {
     }
 
-    public Usuario(int codigo, string nome, string email, string emailContato, string telefone, string identificacao, int cEP, string estado, string rua, string numero, string bairro, string complemento, string latitude, string longitude, bool posssibilidadeBusca, TipoUsuario tipoDoUsuario)
+    public Usuario(int codigo, string nome, string email, string emailContato, string telefone, string identificacao, string cEP, string estado, string rua, string numero, string bairro, string complemento, string latitude, string longitude, bool posssibilidadeBusca, TipoUsuario tipoDoUsuario)
     {
        this.Codigo = codigo;
        this.Nome = nome;

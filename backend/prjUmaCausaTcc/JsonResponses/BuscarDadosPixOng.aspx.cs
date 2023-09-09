@@ -13,13 +13,13 @@ namespace prjUmaCausaTcc.JsonResponses
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Request["o"]))
+            if (!String.IsNullOrEmpty(Request["ong"]))
             {
                 Response.ContentType = "application/json";
 
                 Usuario ong = new Usuario();
 
-                ong.BuscarDadosQrCodePixOng(int.Parse(Request["o"].ToString()));
+                ong.BuscarDadosQrCodePixOng(int.Parse(Request["ong"].ToString()));
 
                 JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
                 string dadosJSON = jsSerializer.Serialize(ong);

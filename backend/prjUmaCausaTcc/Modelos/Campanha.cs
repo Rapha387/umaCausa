@@ -10,15 +10,16 @@ using System.Web.Management;
 public class Campanha : Banco
 {
     #region Propriedades
-    protected int Codigo { get; set; }
+    public int Codigo { get; set; }
 
     private string _nome;
     public string Nome
     {
         get => _nome;
-        set { 
+        set
+        {
             if (String.IsNullOrEmpty(_nome))
-                _nome = value; 
+                _nome = value;
         }
     }
 
@@ -26,7 +27,8 @@ public class Campanha : Banco
     public string Descricao
     {
         get => _descricao;
-        set {
+        set
+        {
             if (String.IsNullOrEmpty(_descricao))
                 _descricao = value;
         }
@@ -66,7 +68,7 @@ public class Campanha : Banco
                 _quantidadeMeta = value;
         }
     }
-    
+
     private int _quantidadeArrecadada;
     public int QuantidadeArrecadada
     {
@@ -78,6 +80,8 @@ public class Campanha : Banco
         }
     }
 
+    public int PorcentagemArrecadado { get; set; }
+
     private string _banner;
     public string Banner
     {
@@ -88,14 +92,14 @@ public class Campanha : Banco
                 _banner = value;
         }
     }
-    
+
     private int _quantidadeDenuncias;
     public int QuantidadeDenuncias
     {
         get => _quantidadeDenuncias;
         set { _quantidadeDenuncias = value; }
     }
-    
+
     public CategoriaCampanha Categoria { get; set; }
     public Usuario ONG { get; set; }
     public TipoItem TipoItemArrecadado { get; set; }

@@ -141,10 +141,17 @@
     <Content Include="pages\cadastroDoador.html" />
     <Content Include="pages\cadastroOng.aspx" />
     <Content Include="pages\cadastroOng.html" />
+    <Content Include="pages\ong.aspx" />
     <Content Include="pages\ong.html" />
     <Content Include="swiper\swiper-bundle.min.css" />
     <Content Include="swiper\swiper-bundle.min.js" />
     <Content Include="TesteDeMetodos.aspx" />
+    <Content Include="uploads\campanhas\banners\1.jpg" />
+    <Content Include="uploads\campanhas\banners\14.jpg" />
+    <Content Include="uploads\campanhas\banners\7.jpg" />
+    <Content Include="uploads\ongs\42\icone\42.jpg" />
+    <Content Include="uploads\ongs\43\icone\43.jpg" />
+    <Content Include="uploads\ongs\45\icone\45.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +165,7 @@
     <Compile Include="JsonResponses\BuscarDadosPixOng.aspx.designer.cs">
       <DependentUpon>BuscarDadosPixOng.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logicas\Campanhas.cs" />
     <Compile Include="Logicas\CapturarGeolocalizacao.cs" />
     <Compile Include="Logicas\CategoriasOng.cs" />
     <Compile Include="Logicas\Itens.cs" />
@@ -202,6 +210,13 @@
     <Compile Include="pages\cadastroOng.aspx.designer.cs">
       <DependentUpon>cadastroOng.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\ong.aspx.cs">
+      <DependentUpon>ong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\ong.aspx.designer.cs">
+      <DependentUpon>ong.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TesteDeMetodos.aspx.cs">
       <DependentUpon>TesteDeMetodos.aspx</DependentUpon>
@@ -222,6 +237,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />
+    <Folder Include="pages\configuracoes\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
