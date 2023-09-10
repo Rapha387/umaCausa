@@ -127,11 +127,22 @@
           <p>Informações Gerais:</p>
         </div>
         <div class="infos">
-          <div class="input-label">
+          <div class="input-label" id="pix">
+            <form action="">
             <label for="">Pix:</label>
-            <input type="text">
+            <div>
+              <select name="" id="cmbTiposPix">
+                <option value="telefone">Telefone</option>
+                <option value="email">Email</option>
+                <option value="cpf">CPF</option>
+                <option value="cnpj">CNPJ</option>
+                <option value="chaveAleatoria">Outro</option>
+              </select>
+              <input type="phone" pattern="^\(\d{2}\)\d{5}-\d{4}$" id="txtPix" placeholder="(99)99999-9999" required>
+            </div>
+          </form>
           </div>
-          <div class="input-label">
+          <div class="input-label" id="website">
             <label for="">WebSite:</label>
             <input type="url">
           </div>
@@ -174,7 +185,7 @@
             </div>
           </div>
   
-          <button class="button-criar">Criar conta de Ong</button>
+          <button id="btnCadastrarOng" class="button-criar">Criar conta de Ong</button>
   
         </div>
       </div>
@@ -203,7 +214,9 @@
       </nav>
     </footer>
 
-    <script src="./../../js/inputFile.js"></script>
-    <script src="./../../js/cep.js"></script>
+    <script src="./../js/verificacoesInputs.js"></script>
+    <script src="./../js/inputFile.js"></script>
+    <script src="./../js/selectPersonalizado.js"></script>
+    <script src="./../js/cep.js"></script>
   </body>
 </html>

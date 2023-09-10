@@ -69,19 +69,19 @@ namespace prjUmaCausaTcc.pages
                 List<TipoItem> itemsAceitos = new List<TipoItem>();
 
 
-                if (selectedItems != null)
-                {
-                    foreach (Control control in selectedItems.Controls)
-                    {
-                        if (control is HtmlGenericControl && ((HtmlGenericControl)control).TagName == "LI")
-                        {
-                            HtmlGenericControl listItem = (HtmlGenericControl)control;
-                            string value = listItem.Attributes["value"];
+                //if (selectedItems != null)
+                //{
+                //    foreach (Control control in selectedItems.Controls)
+                //    {
+                //        if (control is HtmlGenericControl && ((HtmlGenericControl)control).TagName == "LI")
+                //        {
+                //            HtmlGenericControl listItem = (HtmlGenericControl)control;
+                //            string value = listItem.Attributes["value"];
 
-                            Response.Write("Valor da <li>: " + value + "<br>");
-                        }
-                    }
-                }
+                //            Response.Write("Valor da <li>: " + value + "<br>");
+                //        }
+                //    }
+                //}
 
                 string endereco = $"{lougradouto}, {numero}, {cidade}, {uf}";
 

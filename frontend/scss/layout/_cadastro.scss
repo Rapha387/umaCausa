@@ -1,3 +1,29 @@
+
+#pix{
+  width: 100%;
+
+  div{
+    display: flex;
+
+  }
+
+  select{
+    width: 25%;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+  }
+
+  input{
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+  }
+
+}
+
+#website{
+  width: 100%;
+}
+
 #cep{
     width: 128px;
   }

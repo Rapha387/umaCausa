@@ -15,15 +15,22 @@ namespace prjUmaCausaTcc.JsonResponses
         {
             if (!String.IsNullOrEmpty(Request["ong"]))
             {
-                Response.ContentType = "application/json";
+                try
+                {
+                    Response.ContentType = "application/json";
 
-                Usuario ong = new Usuario();
+                    Usuario ong = new Usuario();
 
-                ong.BuscarDadosQrCodePixOng(int.Parse(Request["ong"].ToString()));
+                    ong.BuscarDadosQrCodePixOng(int.Parse(Request["ong"].ToString()));
 
-                JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
-                string dadosJSON = jsSerializer.Serialize(ong);
-                Response.Write(dadosJSON);
+                    JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
+                    string dadosJSON = jsSerializer.Serialize(ong);
+                    Response.Write(dadosJSON);
+                }
+                catch(Exception ex)
+                {
+                    Response.Redirect("erro.aspx?" + ex.Message);
+                }
             }
             else
             {

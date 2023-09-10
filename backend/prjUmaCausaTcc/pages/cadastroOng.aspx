@@ -203,9 +203,7 @@
                 </ul>
              </div>
              <span id="erroItensAceitos" class="spanErro"></span>
-             <asp:Panel ID="selectedItems" runat="server">
-
-             </asp:Panel>
+             <ul id="selectedItems"></ul>
            </div>
            <div class="input-label">
              <label for="">Dias Disponíveis:</label>
@@ -224,9 +222,7 @@
                 </ul>
              </div>
              <span id="erroDiasDisponiveis" class="spanErro"></span>
-             <asp:Panel ID="selectedDias" runat="server">
-                 
-             </asp:Panel>
+             <ul id="selectedDias"></ul>
            </div>
         </div>
         <asp:Label ID="lblErro" runat="server"></asp:Label>
