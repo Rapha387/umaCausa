@@ -327,7 +327,6 @@ public class Usuario : Banco
         };
         try
         {
-            Conectar();
             MySqlDataReader dados = Consultar("BuscarDadosOng", parametros);
             if (dados.Read())
             {
@@ -357,7 +356,6 @@ public class Usuario : Banco
         }
         finally
         {
-
             Desconectar();
         }
     }

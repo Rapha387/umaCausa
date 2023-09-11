@@ -18,7 +18,6 @@ namespace prjUmaCausaTcc.Logicas
 
             try
             {
-                Conectar();
                 MySqlDataReader dados = Consultar("ListarDadosMinimosCampanhasDaOng", parametros);
                 if (dados.HasRows)
                 {
@@ -35,7 +34,6 @@ namespace prjUmaCausaTcc.Logicas
                 }
                 if (!dados.IsClosed)
                 { dados.Close(); }
-                return campanhas;
             }
             catch (Exception)
             {
@@ -43,6 +41,8 @@ namespace prjUmaCausaTcc.Logicas
                 throw new Exception("Houve um problema a realizar a busca");
             }
             finally { Desconectar(); }
+
+            return campanhas;
         }
 
         public List<Campanha> ListarDadosMinimosCampanhasFinalizadasDaOng(int codigo)
@@ -55,7 +55,6 @@ namespace prjUmaCausaTcc.Logicas
 
             try
             {
-                Conectar();
                 MySqlDataReader dados = Consultar("ListarDadosMinimosCampanhasFinalizadasDaOng", parametros);
                 if (dados.HasRows)
                 {
@@ -72,7 +71,7 @@ namespace prjUmaCausaTcc.Logicas
                 }
                 if (!dados.IsClosed)
                 { dados.Close(); }
-                return campanhas;
+                
             }
             catch (Exception)
             {
@@ -80,6 +79,8 @@ namespace prjUmaCausaTcc.Logicas
                 throw new Exception("Houve um problema a realizar a busca");
             }
             finally { Desconectar(); }
+
+            return campanhas;
         }
     }
 }
