@@ -28,12 +28,16 @@ const botaoCadastrarDoador = document.getElementById('btnCadastrarDoador');
 const botaoCadastrarOng = document.getElementById('btnCadastrarOng');
 
 
+let cpf = txtPix.value.replace(/\D/g, '');
+
 cmbTiposPix.addEventListener('change', function(){
+    txtPix.removeAttribute("pattern");
     txtPix.value = "";
+    txtPix.setAttribute("maxlength", 11);
     if(cmbTiposPix.value == "telefone"){
         txtPix.placeholder = "(99)99999-9999";
-        txtPix.type = "phone";
-        txtPix.setAttribute("pattern", "^\\(\\d{2}\\)\\d{5}-\\d{4}$");
+        txtPix.type = "text";
+        txtPix.setAttribute("pattern", "^\\(\\d{2}\\) \\d{5}-\\d{4}$");
         return;
     }
     if(cmbTiposPix.value == "email"){
@@ -43,19 +47,48 @@ cmbTiposPix.addEventListener('change', function(){
     }
     if(cmbTiposPix.value == "cpf"){
         txtPix.placeholder = "999.999.999-99";
+        txtPix.setAttribute("pattern", "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}");
         txtPix.type = "text";
         return;
     }
     if(cmbTiposPix.value == "cnpj"){
         txtPix.placeholder = "99.999.999/9999-99";
-        txtPix.type = "text";
+        
+        txtPix.type = "number";
         return;
     }
 })
 
-txtPix.addEventListener('change', function(){
+txtPix.addEventListener('input', function(event){
     if(cmbTiposPix.value == "telefone"){
+        let valorInput = event.target.value;
+        let valorNumerico = valorInput.replace(/[^0-9]/g, '');
+        event.target.value = valorNumerico;
         
+        let telefone = txtPix.value.replace(/\D/g, '');
+        if(telefone.length === 11){
+            telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3',);
+            txtPix.value = telefone;
+        }
+    }
+
+    if(cmbTiposPix.value == "cpf"){
+        let valorInput = event.target.value;
+        let valorNumerico = valorInput.replace(/[^0-9]/g, '');
+        event.target.value = valorNumerico;
+
+        let cpf = txtPix.value.replace(/\D/g, '');
+        if (cpf.length === 11) {
+            cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            txtPix.value = cpf;
+        }
+    }
+
+    if(cmbTiposPix.value == "cnpj"){
+        
+        let txtPix = event.target.value;
+        let valorNumerico = txtPix.replace(/[^0-9]/g, '');
+        event.target.value = valorNumerico;
     }
 })
 
