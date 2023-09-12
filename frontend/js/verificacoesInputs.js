@@ -35,9 +35,9 @@ cmbTiposPix.addEventListener('change', function(){
     txtPix.value = "";
     txtPix.setAttribute("maxlength", 11);
     if(cmbTiposPix.value == "telefone"){
-        txtPix.placeholder = "(99)99999-9999";
+        txtPix.placeholder = "+5513999999999 (somente numeros)";
         txtPix.type = "text";
-        txtPix.setAttribute("pattern", "^\\(\\d{2}\\) \\d{5}-\\d{4}$");
+        txtPix.setAttribute("pattern", "^+55\\d{11}$");
         return;
     }
     if(cmbTiposPix.value == "email"){
@@ -46,15 +46,15 @@ cmbTiposPix.addEventListener('change', function(){
         return;
     }
     if(cmbTiposPix.value == "cpf"){
-        txtPix.placeholder = "999.999.999-99";
-        txtPix.setAttribute("pattern", "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}");
+        txtPix.placeholder = "12312312312 (somente numeros)";
+        txtPix.setAttribute("pattern", "\\d{11}");
         txtPix.type = "text";
         return;
     }
     if(cmbTiposPix.value == "cnpj"){
-        txtPix.placeholder = "99.999.999/9999-99";
+        txtPix.placeholder = "12123123123412 (somente numeros)";
         txtPix.setAttribute("maxlength", 14);
-        txtPix.setAttribute("pattern", "\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}-\\d{2}");
+        txtPix.setAttribute("pattern", "\\d{14}");
         txtPix.type = "text";
         return;
     }
@@ -63,13 +63,45 @@ cmbTiposPix.addEventListener('change', function(){
 txtPix.addEventListener('input', function(event){
     if(cmbTiposPix.value == "telefone"){
         let valorInput = event.target.value;
-        let valorNumerico = valorInput.replace(/[^0-9+]/g, '');
+        let valorNumerico = valorInput.replace(/[^0-9]/g, '');
         event.target.value = valorNumerico;
+        
+        let telefone = txtPix.value.replace(/\D/g, '');
+        if(telefone.length === 11){
+            telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3',);
+            txtPix.value = telefone;
+        }
     }
-    if(cmbTiposPix.value == "cpf" ||cmbTiposPix.value == "cnpj"){
+
+    if(cmbTiposPix.value == "cpf"){
         let valorInput = event.target.value;
         let valorNumerico = valorInput.replace(/[^0-9]/g, '');
         event.target.value = valorNumerico;
+
+        let cpf = txtPix.value.replace(/\D/g, '');
+        if (cpf.length === 11) {
+            cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            txtPix.value = cpf;
+        }
+    }
+
+    if(cmbTiposPix.value == "cnpj"){
+        
+        let txtPix = event.target.value;
+        let valorNumerico = txtPix.replace(/[^0-9]/g, '');
+        event.target.value = valorNumerico;
+    }
+})
+
+txtTelefone.addEventListener('input', function(event){
+    let valorInput = event.target.value;
+    let valorNumerico = valorInput.replace(/[^0-9]/g, '');
+    event.target.value = valorNumerico;
+        
+    let telefone = txtTelefone.value.replace(/\D/g, '');
+    if(telefone.length === 11){
+        telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3',);
+        txtTelefone.value = telefone;
     }
 })
 

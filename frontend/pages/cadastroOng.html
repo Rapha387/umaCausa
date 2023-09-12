@@ -48,7 +48,7 @@
           </div>
           <div class="input-label">
             <label for="">CNPJ:</label>
-            <input type="number" placeholder="ex: 111.111.111-00">
+            <input type="number" id="txtCnpj" placeholder="ex: 111.111.111-00">
           </div>
           <div class="input-label">
             <label for="">Email:</label>
@@ -56,7 +56,7 @@
           </div>
           <div class="input-label">
             <label for="">Telefone:</label>
-            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="ex: +55 (13) 997845669">
+            <input type="tel" maxlength="11" id="txtTelefone" placeholder="ex: +55 (13) 997845669">
           </div>
         </div>
 
@@ -138,7 +138,7 @@
                 <option value="cnpj">CNPJ</option>
                 <option value="chaveAleatoria">Outro</option>
               </select>
-              <input type="phone" maxlength="11" pattern="^\(\d{2}\) \d{5}-\d{4}$" id="txtPix" placeholder="(99)99999-9999" required>
+              <input type="phone" maxlength="11" pattern="^+55\d{11}$" id="txtPix" placeholder="(99)99999-9999" required>
             </div>
           </form>
           </div>
