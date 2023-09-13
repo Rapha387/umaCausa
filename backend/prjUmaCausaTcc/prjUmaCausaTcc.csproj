@@ -141,6 +141,7 @@
     <Content Include="pages\cadastroDoador.html" />
     <Content Include="pages\cadastroOng.aspx" />
     <Content Include="pages\cadastroOng.html" />
+    <Content Include="pages\home.aspx" />
     <Content Include="pages\ong.aspx" />
     <Content Include="pages\ong.html" />
     <Content Include="swiper\swiper-bundle.min.css" />
@@ -209,6 +210,13 @@
     </Compile>
     <Compile Include="pages\cadastroOng.aspx.designer.cs">
       <DependentUpon>cadastroOng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\ong.aspx.cs">
       <DependentUpon>ong.aspx</DependentUpon>

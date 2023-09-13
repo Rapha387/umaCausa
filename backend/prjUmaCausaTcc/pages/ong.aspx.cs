@@ -42,7 +42,11 @@ namespace prjUmaCausaTcc.pages
         {
             List<Campanha> campanhasAtivas = new Campanhas().ListarDadosMinimosCampanhasDaOng(codigoUsuario);
             if (campanhasAtivas.Count <= 0)
+            {
                 litCampanhasAtivas.Text = "<p>Não temos campanhas ainda :/</p>";
+                return;
+            }
+
             foreach (Campanha campanha in campanhasAtivas)
             {
                 litCampanhasAtivas.Text += $@"
