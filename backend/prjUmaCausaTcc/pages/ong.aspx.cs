@@ -52,7 +52,7 @@ namespace prjUmaCausaTcc.pages
                 litCampanhasAtivas.Text += $@"
                 <div class='campanha swiper-slide'>
                     <a href='{campanha.Codigo}'>
-                     <div style='background: url({campanha.Banner});'class='imagem-campanha'></div>
+                     <div style='background-image: url({campanha.Banner});'class='imagem-campanha'></div>
                 <div class='sobre-campanha'>
                   <div class='nome-campanha'>
                     {campanha.Nome}
@@ -79,7 +79,7 @@ namespace prjUmaCausaTcc.pages
                 litCampanhasInativas.Text += $@"
                 <div class='campanha swiper-slide'>
                     <a href='{campanha.Codigo}'>
-                     <div style='background: url({campanha.Banner});' class='imagem-campanha'></div>
+                     <div style='background-image: url({campanha.Banner});' class='imagem-campanha'></div>
                 <div class='sobre-campanha'>
                   <div class='nome-campanha'>
                     {campanha.Nome}

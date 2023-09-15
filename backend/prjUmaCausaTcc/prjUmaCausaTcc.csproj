@@ -169,6 +169,7 @@
     <Compile Include="Logicas\Campanhas.cs" />
     <Compile Include="Logicas\CapturarGeolocalizacao.cs" />
     <Compile Include="Logicas\CategoriasOng.cs" />
+    <Compile Include="Logicas\GerarHeader.cs" />
     <Compile Include="Logicas\Itens.cs" />
     <Compile Include="Logicas\Ongs.cs" />
     <Compile Include="Modelos\Campanha.cs" />

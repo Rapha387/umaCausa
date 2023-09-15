@@ -17,27 +17,23 @@
     <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./../css/index.css" />
     <link rel="stylesheet" href="./../css/home.css" />
-    <title>nome da pagina</title>
+    <title>UmaCausa - Home</title>
 </head>
 <body>
     <form id="form1" runat="server">
+
         <header>
             <nav>
-              <a href="./index.html"><img src="./../images/logo/logo.png" alt=""></a>
-              <ul>
-                <li><a href="./ongs.html">Ongs</a></li>
-                <li><a href="./campanhas.html">Campanhas</a></li>
-                <li><a href="./login.html">Login</a></li>
-                <li><a href="./cadastro.html"><button><img src="./../images/icons/user.png" />Cadastre-se</button></a></li>
-              </ul>
+              <a href="./index.html"><img src="./../images/logo/logo.png" alt="" /></a>
+              <asp:Literal ID="litHeader" runat="server"></asp:Literal>
             </nav>
           </header>
           <div class="carrossel">
             <div class="slides">
 
-              <input type="radio" name="slide" id="slide1" checked>
-              <input type="radio" name="slide" id="slide2">
-              <input type="radio" name="slide" id="slide3">
+              <input type="radio" name="slide" id="slide1" checked="checked" />
+              <input type="radio" name="slide" id="slide2" />
+              <input type="radio" name="slide" id="slide3" />
 
               <div class="slide s1"></div>
               <div class="slide s2"></div>
@@ -53,9 +49,9 @@
           <main>
             <div class="apresentacao">
               <div class="foto"></div>
-              <!--<img src="" alt="fotoApresentacao">-->
+              <!--<img src="" class="foto" alt="fotoApresentacao">-->
               <div class="explicacao">
-                <h1>Por que doar para <img src="./../images/logo/logo.png" alt="logo"></h1>
+                <h1>Por que doar para <img src="./../images/logo/logo.png" alt="logo" /></h1>
                 <p>
                   Doar é fundamental porque permite ajudar aqueles que estão em situação de vulnerabilidade, 
                   contribuindo para a equidade social. Além disso, promove a solidariedade e a empatia entre as pessoas. 
@@ -65,312 +61,34 @@
               </div>
             </div>
             
-            <%--<div class="campanhas swiper" id="campanhasProximas">
-              <h2>CAMPANHAS PRÓXIMAS</h2>
+            <div class="campanhas swiper" id="ongs">
+              <h2>ONGS PRÓXIMAS DE VOCÊ</h2>
               <div class="campanhas-flex swiper-wrapper">
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+                <asp:Literal ID="litOngsProximas" runat="server"></asp:Literal>
               </div>
               <div class="botoes-carrossel">
-                <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar"></button>
-                <button class="avancar swiper-button-next"><img src="./../images/botoes/seta.png" alt="botao avançar"></button>
+                <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar" /></button>
+                <button class="avancar swiper-button-next"><img src="./../images/botoes/seta.png" alt="botao avançar" /></button>
               </div>
-            </div>--%>
+            </div>
             <div class="campanhas swiper" id="campanhasAcabando">
               <h2>CAMPANHAS PERTO DE ACABAR</h2>
               <div class="campanhas-flex swiper-wrapper">
                   <asp:Localize ID="litCampanhasPertoAcabar" runat="server"></asp:Localize>
-                <%--<div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>--%>
               </div>
               <div class="botoes-carrossel">
-                <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar"></button>
-                <button class="avancar swiper-button-next"><img src="./../images/botoes/seta.png" alt="botao avançar"></button>
+                <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar"/></button>
+                <button class="avancar swiper-button-next"><img src="./../images/botoes/seta.png" alt="botao avançar"/></button>
               </div>
             </div>
             <div class="campanhas swiper" id="ongs">
               <h2>ONGS</h2>
               <div class="campanhas-flex swiper-wrapper">
-                <div class="ong swiper-slide">
-                  <a href="">
-                    <div class="imagem-ong"></div>
-                    <div class="nome-ong">
-                        Instituto Viva Bichos
-                    </div>
-                  </a>
-                </div>
-                <div class="ong swiper-slide">
-                  <a href="">
-                    <div class="imagem-ong"></div>
-                    <div class="nome-ong">
-                        Instituto Viva Bichos
-                    </div>
-                  </a>
-                </div>
-                <div class="ong swiper-slide">
-                  <a href="">
-                    <div class="imagem-ong"></div>
-                    <div class="nome-ong">
-                        Instituto Viva Bichos
-                    </div>
-                  </a>
-                </div>
-                <div class="ong swiper-slide">
-                  <a href="">
-                    <div class="imagem-ong"></div>
-                    <div class="nome-ong">
-                        Instituto Viva Bichos
-                    </div>
-                  </a>
-                </div>
-                <div class="ong swiper-slide">
-                  <a href="">
-                    <div class="imagem-ong"></div>
-                    <div class="nome-ong">
-                        Instituto Viva Bichos
-                    </div>
-                  </a>
-                </div>
-                <div class="ong swiper-slide">
-                  <a href="">
-                    <div class="imagem-ong"></div>
-                    <div class="nome-ong">
-                        Instituto Viva Bichos
-                    </div>
-                  </a>
-                </div>
-                <div class="ong swiper-slide">
-                  <a href="">
-                    <div class="imagem-ong"></div>
-                    <div class="nome-ong">
-                        Instituto Viva Bichos
-                    </div>
-                  </a>
-                </div>
+                  <asp:Literal ID="litOngsAleatorias" runat="server"></asp:Literal>
               </div>
               <div class="botoes-carrossel">
-                <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar"></button>
-                <button class="avancar swiper-button-next"><img src="./../images/botoes/seta.png" alt="botao avançar"></button>
+                <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar"/></button>
+                <button class="avancar swiper-button-next"><img src="./../images/botoes/seta.png" alt="botao avançar"/></button>
               </div>
             </div>
           </main>

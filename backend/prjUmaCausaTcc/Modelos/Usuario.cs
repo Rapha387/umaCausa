@@ -297,7 +297,7 @@ public class Usuario : Banco
             return false;
         }
     }
-     public bool AlterarSenhaUsuario(int codigo, string senhaAntiga, string senhaAtual )
+    public bool AlterarSenhaUsuario(int codigo, string senhaAntiga, string senhaAtual )
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -317,7 +317,6 @@ public class Usuario : Banco
             return false;
         }
     }
-
     public void BuscarOng(int codigo)
     {
         // Usuario usuario = new Usuario();
@@ -386,6 +385,37 @@ public class Usuario : Banco
                 dados.Close();
         }
         catch(Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
+    public void BuscarLocalizacaoUsuario(int codigo)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdUsuario", codigo.ToString())
+        };
+
+        try
+        {
+            var dados = Consultar("BuscarLocalizacaoUsuario", parametros);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    Latitude = dados.GetString("nm_lat");
+                    Longitude = dados.GetString("nm_log");
+                }
+            }
+
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception e)
         {
             throw new Exception(e.Message);
         }

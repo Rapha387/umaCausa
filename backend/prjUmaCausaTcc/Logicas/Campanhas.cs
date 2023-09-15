@@ -112,8 +112,7 @@ namespace prjUmaCausaTcc.Logicas
 
             }
             catch (Exception ex)
-            {
-
+            { 
                 throw new Exception(ex.Message);
             }
             finally { Desconectar(); }

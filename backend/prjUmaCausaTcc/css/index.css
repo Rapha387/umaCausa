@@ -100,9 +100,16 @@ header nav ul {
 header nav ul li {
   padding-left: 16px;
 }
+header nav ul li img{
+    margin-top: 3px;
+    border: solid thin;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 26px;
+}
 header nav ul a {
-  color: #000;
-  transition: 0.15s;
+    color: #000;
+    transition: 0.15s;
 }
 header nav ul a:hover {
   color: #0063BF;
@@ -293,7 +300,6 @@ main {
   width: 295px;
 }
 .campanhas .campanhas-flex .campanha .imagem-campanha {
-  background: url(./../../images/campanhas/campanha1.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -343,7 +349,6 @@ main {
 .campanhas .campanhas-flex .ong .imagem-ong {
   width: 100%;
   height: 149px;
-  background: url(./../../images/ongs/ong1.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
