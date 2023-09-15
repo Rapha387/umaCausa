@@ -126,7 +126,9 @@
     <Content Include="css\cadastroOng.css" />
     <Content Include="css\home.css" />
     <Content Include="css\index.css" />
+    <Content Include="css\login.css" />
     <Content Include="css\ong.css" />
+    <Content Include="css\ongs.css" />
     <Content Include="JsonResponses\BuscarDadosPixOng.aspx" />
     <Content Include="js\carrossel-itens.js" />
     <Content Include="js\cep.js" />
@@ -142,17 +144,42 @@
     <Content Include="pages\cadastroOng.aspx" />
     <Content Include="pages\cadastroOng.html" />
     <Content Include="pages\home.aspx" />
+    <Content Include="pages\login.aspx" />
     <Content Include="pages\ong.aspx" />
     <Content Include="pages\ong.html" />
+    <Content Include="pages\ongs.aspx" />
     <Content Include="swiper\swiper-bundle.min.css" />
     <Content Include="swiper\swiper-bundle.min.js" />
     <Content Include="TesteDeMetodos.aspx" />
     <Content Include="uploads\campanhas\banners\1.jpg" />
     <Content Include="uploads\campanhas\banners\14.jpg" />
+    <Content Include="uploads\campanhas\banners\25.jpg" />
     <Content Include="uploads\campanhas\banners\7.jpg" />
+    <Content Include="uploads\ongs\42\banner\42.jpg" />
+    <Content Include="uploads\ongs\42\fotos\1.jpg" />
+    <Content Include="uploads\ongs\42\fotos\2.jpg" />
     <Content Include="uploads\ongs\42\icone\42.jpg" />
+    <Content Include="uploads\ongs\43\banner\43.jpg" />
     <Content Include="uploads\ongs\43\icone\43.jpg" />
     <Content Include="uploads\ongs\45\icone\45.jpg" />
+    <Content Include="uploads\ongs\47\icone\47.jpg" />
+    <Content Include="uploads\ongs\48\icone\48.jpg" />
+    <Content Include="uploads\ongs\49\icone\49.jpg" />
+    <Content Include="uploads\ongs\51\icone\51.jpg" />
+    <Content Include="uploads\ongs\51\icone\69.jpg" />
+    <Content Include="uploads\ongs\51\icone\70.jpg" />
+    <Content Include="uploads\ongs\51\icone\71.jpg" />
+    <Content Include="uploads\ongs\69\icone\69.jpg" />
+    <Content Include="uploads\ongs\70\icone\70.jpg" />
+    <Content Include="uploads\ongs\71\icone\71.jpg" />
+    <Content Include="uploads\ongs\72\icone\72.jpg" />
+    <Content Include="uploads\ongs\73\icone\73.jpg" />
+    <Content Include="uploads\ongs\74\icone\74.jpg" />
+    <Content Include="uploads\ongs\75\icone\75.jpg" />
+    <Content Include="uploads\ongs\76\icone\76.jpg" />
+    <Content Include="uploads\ongs\78\icone\45.jpg" />
+    <Content Include="uploads\ongs\79\icone\45.jpg" />
+    <Content Include="uploads\ongs\80\icone\45.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +196,7 @@
     <Compile Include="Logicas\Campanhas.cs" />
     <Compile Include="Logicas\CapturarGeolocalizacao.cs" />
     <Compile Include="Logicas\CategoriasOng.cs" />
+    <Compile Include="Logicas\FotosOng.cs" />
     <Compile Include="Logicas\GerarHeader.cs" />
     <Compile Include="Logicas\Itens.cs" />
     <Compile Include="Logicas\Ongs.cs" />
@@ -185,6 +213,7 @@
     <Compile Include="Modelos\DoacaoItem.cs" />
     <Compile Include="Modelos\DoacaoMonetaria.cs" />
     <Compile Include="Modelos\EstadoItem.cs" />
+    <Compile Include="Modelos\FotoOng.cs" />
     <Compile Include="Modelos\FotosOng.cs" />
     <Compile Include="Modelos\InteresseItem.cs" />
     <Compile Include="Modelos\MotivoDenunciaCampanha.cs" />
@@ -219,12 +248,26 @@
     <Compile Include="pages\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\ong.aspx.cs">
       <DependentUpon>ong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="pages\ong.aspx.designer.cs">
       <DependentUpon>ong.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\ongs.aspx.cs">
+      <DependentUpon>ongs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\ongs.aspx.designer.cs">
+      <DependentUpon>ongs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TesteDeMetodos.aspx.cs">

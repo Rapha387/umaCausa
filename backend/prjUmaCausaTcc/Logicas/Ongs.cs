@@ -77,5 +77,22 @@ namespace prjUmaCausaTcc.Logicas
             }
             return ongs;
         }
+        public void ListarOngs(int limite)
+        {
+            List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("pValor", limite.ToString())
+            };
+            MySqlDataReader dados = Consultar("ListarOngs", parametros);
+            if (dados.HasRows)
+            {
+                while (dados.Read())
+                {
+
+                }
+            }
+            if (dados.IsClosed)
+                dados.Close();
+        }
     }
 }

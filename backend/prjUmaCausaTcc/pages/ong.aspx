@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ong.aspx.cs" Inherits="prjUmaCausaTcc.pages.ong" %>
+﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ong.aspx.cs" Inherits="prjUmaCausaTcc.pages.ong" %>
 
 <!DOCTYPE html>
 
@@ -30,7 +30,8 @@
     </nav>
   </header>
   
-  <div class="banner"></div>
+    <asp:Literal ID="litBanner" runat="server"></asp:Literal>
+<%--  <div class="banner"></div>--%>
   
   <div class="bloqueio escondido"></div>
 
@@ -124,7 +125,8 @@
 
   <main>
     <div class="logo-nome"> 
-      <div class="logo-ong"></div>
+     <asp:Literal ID="litIcone" runat="server"></asp:Literal>
+      <%--<div class="logo-ong"></div>--%>
       <h1><asp:Literal ID="litNome" runat="server"></asp:Literal> <img src="./../images/categorias/categoria1.png" alt="" class="img-categoria-ong"></h1>
     </div>
 
@@ -211,19 +213,9 @@
         </div>
 
         
-        <div class="fotos">
-          <h2>
-            fotos
-          </h2>
-          <div class="fotos-flex">
-            <img src="./../images/fotosOng/foto1.png" alt="" class="foto">
-            <img src="./../images/fotosOng/foto1.png" alt="" class="foto">
-            <img src="./../images/fotosOng/foto1.png" alt="" class="foto">
-            <img src="./../images/fotosOng/foto1.png" alt="" class="foto">
-            <img src="./../images/fotosOng/foto1.png" alt="" class="foto">
-            <img src="./../images/fotosOng/foto1.png" alt="" class="foto">
-          </div>
-        </div>
+        <asp:Literal ID="litInicioFotos" runat="server"></asp:Literal>
+        <asp:Literal ID="litFotos" runat="server"></asp:Literal>
+        <asp:Literal ID="litFimFotos" runat="server"></asp:Literal>
 
 
         <div class="denunciar-compartilhar">

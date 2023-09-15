@@ -16,4 +16,8 @@ public class DoacaoItem
     public TipoItem TipoItem { get; set; }
     public TipoEntrega TipoEntrega { get; set; }
     #endregion
+
+    #region Metodos
+
+    #endregion
 }

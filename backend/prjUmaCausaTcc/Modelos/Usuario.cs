@@ -240,7 +240,6 @@ public class Usuario : Banco
         }
         
     }
-
     public bool CadastrarOng(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string imagemFotoPerfil, string webSite, string imagemBanner, string pix, string descricao, string emailContato)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -358,7 +357,6 @@ public class Usuario : Banco
             Desconectar();
         }
     }
-
     public void BuscarDadosQrCodePixOng(int codigo)
     {
 
@@ -423,6 +421,36 @@ public class Usuario : Banco
         {
             Desconectar();
         }
+    }
+    public bool VerificarSenha(string senha, string email)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pEmail", email.ToString()),
+            new Parametro ("pSenhaDigitada", senha.ToString()),
+        };
+        try
+        {
+            MySqlDataReader dados = Consultar("VerificarSenha", parametros);
+            if (dados.Read())
+            {
+                return dados.GetBoolean(0);
+            }
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception)
+        {
+
+            throw new Exception("Erro ao fazer a verificação");
+        }
+        finally
+        {
+            Desconectar();
+        }
+
+
+        return false;
     }
 
     #endregion

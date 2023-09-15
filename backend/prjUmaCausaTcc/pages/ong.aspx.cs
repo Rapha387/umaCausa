@@ -28,31 +28,30 @@ namespace prjUmaCausaTcc.pages
             Usuario usuario = new Usuario();
             usuario.BuscarOng(codigoUsuario);
             litNomeNavegador.Text = usuario.Nome + " - umaCausa";
-            litCNPJ.Text = usuario.Identificacao;
+            litCNPJ.Text = $"<a href='https://cnpj.info/{usuario.Identificacao.Replace(".", "").Replace("/", "").Replace("-", "")}'>" + usuario.Identificacao + "<a/>";
             litDescricao.Text = usuario.Descricao;
-            litEmailContato.Text = usuario.EmailContato;
+            litEmailContato.Text = $"<a href='mailto:{usuario.EmailContato}'>" + usuario.EmailContato + "</a>";
             litEndereco.Text = $"{usuario.Rua}, {usuario.Numero} - {usuario.Bairro}, {usuario.Cidade} - {usuario.Estado}, {usuario.Cep}";
             litNome.Text = usuario.Nome;
-            litSite.Text = usuario.Website;
-            litTelefone.Text = usuario.Telefone;
-            litCampanha.Text = $"<a src='#/{usuario.CategoriaOng.Codigo}'><p>#{usuario.CategoriaOng.Nome}</p></a>";
+            litSite.Text = $"<a href='{usuario.Website}'>" + usuario.Website + "</a>";
+            litTelefone.Text = $"<a href='tel:{usuario.Telefone}'>" + usuario.Telefone + "</a>";
+            litCampanha.Text = $"<a src='ongs.aspx?categoria{usuario.CategoriaOng.Codigo}'><p>#{usuario.CategoriaOng.Nome}</p></a>";
+            litBanner.Text = $"<div class='banner' style='background: url(../{usuario.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
+            litIcone.Text = $"<div class='logo-ong' style='background: url(../{usuario.FotoPerfil}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
         }
 
         private void ExibirCampanhasAtivas(int codigoUsuario)
         {
             List<Campanha> campanhasAtivas = new Campanhas().ListarDadosMinimosCampanhasDaOng(codigoUsuario);
             if (campanhasAtivas.Count <= 0)
-            {
                 litCampanhasAtivas.Text = "<p>Não temos campanhas ainda :/</p>";
-                return;
-            }
 
             foreach (Campanha campanha in campanhasAtivas)
             {
                 litCampanhasAtivas.Text += $@"
                 <div class='campanha swiper-slide'>
-                    <a href='{campanha.Codigo}'>
-                     <div style='background-image: url({campanha.Banner});'class='imagem-campanha'></div>
+                    <a href='camapanha.aspx?campanha={campanha.Codigo}'>
+                     <div style='background: url(../{campanha.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;'class='imagem-campanha'></div>
                 <div class='sobre-campanha'>
                   <div class='nome-campanha'>
                     {campanha.Nome}
@@ -78,8 +77,8 @@ namespace prjUmaCausaTcc.pages
             {
                 litCampanhasInativas.Text += $@"
                 <div class='campanha swiper-slide'>
-                    <a href='{campanha.Codigo}'>
-                     <div style='background-image: url({campanha.Banner});' class='imagem-campanha'></div>
+                    <a href='camapanha.aspx?campanha={campanha.Codigo}'>
+                     <div style='background: url(../{campanha.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;' class='imagem-campanha'></div>
                 <div class='sobre-campanha'>
                   <div class='nome-campanha'>
                     {campanha.Nome}
@@ -91,8 +90,8 @@ namespace prjUmaCausaTcc.pages
                     <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
                   </div>
                 </div>
-              </a>
-            </div>";
+                </a>
+                </div>";
             }
         }
     }
