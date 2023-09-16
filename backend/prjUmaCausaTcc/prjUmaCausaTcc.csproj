@@ -143,7 +143,7 @@
     <Content Include="pages\cadastroDoador.html" />
     <Content Include="pages\cadastroOng.aspx" />
     <Content Include="pages\cadastroOng.html" />
-    <Content Include="pages\home.aspx" />
+    <Content Include="pages\index.aspx" />
     <Content Include="pages\login.aspx" />
     <Content Include="pages\ong.aspx" />
     <Content Include="pages\ong.html" />
@@ -241,12 +241,12 @@
     <Compile Include="pages\cadastroOng.aspx.designer.cs">
       <DependentUpon>cadastroOng.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\home.aspx.cs">
-      <DependentUpon>home.aspx</DependentUpon>
+    <Compile Include="pages\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\home.aspx.designer.cs">
-      <DependentUpon>home.aspx</DependentUpon>
+    <Compile Include="pages\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

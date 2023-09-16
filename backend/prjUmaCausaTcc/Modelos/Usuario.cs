@@ -452,6 +452,40 @@ public class Usuario : Banco
 
         return false;
     }
+    public void BuscarUsuarioPeloEmail(string email)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pEmail", email),
+        };
+
+        try
+        {
+            var dados = Consultar("BuscarUsuarioPeloEmail", parametros);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    Codigo = dados.GetInt32("id_usuario");
+                    TipoDoUsuario = new TipoUsuario
+                    {
+                        Codigo = dados.GetInt32("id_tipoUsuario")
+                    };
+                }
+            }
+
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
 
     #endregion
     public Usuario()

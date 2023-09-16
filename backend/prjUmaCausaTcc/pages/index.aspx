@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="prjUmaCausaTcc.pages.home" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="prjUmaCausaTcc.pages.home" %>
 
 <!DOCTYPE html>
 
@@ -60,17 +60,18 @@
                 </p>
               </div>
             </div>
-            
-            <div class="campanhas swiper" id="ongs">
-              <h2>ONGS PRÓXIMAS DE VOCÊ</h2>
-              <div class="campanhas-flex swiper-wrapper">
-                <asp:Literal ID="litOngsProximas" runat="server"></asp:Literal>
-              </div>
-              <div class="botoes-carrossel">
-                <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar" /></button>
-                <button class="avancar swiper-button-next"><img src="./../images/botoes/seta.png" alt="botao avançar" /></button>
-              </div>
-            </div>
+            <asp:Panel ID="pnlOngsProximas" Visible="false" runat="server">
+                <div class="campanhas swiper" id="ongs">
+                  <h2>ONGS PRÓXIMAS DE VOCÊ</h2>
+                  <div class="campanhas-flex swiper-wrapper">
+                    <asp:Literal ID="litOngsProximas" runat="server"></asp:Literal>
+                  </div>
+                  <div class="botoes-carrossel">
+                    <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar" /></button>
+                    <button class="avancar swiper-button-next"><img src="./../images/botoes/seta.png" alt="botao avançar" /></button>
+                  </div>
+                </div>
+            </asp:Panel>
             <div class="campanhas swiper" id="campanhasAcabando">
               <h2>CAMPANHAS PERTO DE ACABAR</h2>
               <div class="campanhas-flex swiper-wrapper">
@@ -98,9 +99,9 @@
               <a href="./index.html"><img src="./../images/logo/logoBranca.png" alt="logo umaCausa" /></a>
               <div>
                 <h3>Inicio</h3>
-                <p><a href="./index.html">Home</a></p>
-                <p><a href="./campanhas.html">Campanhas</a></p>
-                <p><a href="./ongs.html">ONGs</a></p>
+                <p><a href="./index.aspx">Home</a></p>
+                <p><a href="./campanhas.aspx">Campanhas</a></p>
+                <p><a href="./ongs.aspx">ONGs</a></p>
               </div>
               <div>
                 <h3>Sobre Nós</h3>

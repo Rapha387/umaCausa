@@ -15,43 +15,58 @@ namespace prjUmaCausaTcc.pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+
+            if (Session["email"] != null)
+            {
+                try
+                {
+                    Usuario usuario = new Usuario();
+
+                    usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
+
+                    GerarHeader gerarHeader = new GerarHeader();
+
+                    litHeader.Text = gerarHeader.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+
+                    usuario.BuscarLocalizacaoUsuario(usuario.Codigo);
+
+                    latideUsuario = usuario.Latitude;
+                    longitudeUsuario = usuario.Longitude;
+
+                    ExibirOngProximas();
+                }
+                catch(Exception ex)
+                {
+                    //Response.Redirect("erro.aspx")
+                }
+            }
+            else
             {
                 GerarHeader gerarHeader = new GerarHeader();
-                litHeader.Text = gerarHeader.MudarNavegacao(true, 1);
-
-                Usuario usuario = new Usuario();
-                usuario.BuscarLocalizacaoUsuario(45);
-
-                latideUsuario = usuario.Latitude;
-                longitudeUsuario = usuario.Longitude;
-
-                ExibirOngProximas();
-
-                ExibirCampanhasPertoDeAcabar();
-
-                ExibirOngsAleatorias();
+                litHeader.Text = gerarHeader.MudarNavegacao(false, 0);
             }
-            catch(Exception ex)
-            {
-                //
-            }
+
+            ExibirCampanhasPertoDeAcabar();
+
+            ExibirOngsAleatorias();
         }
 
         public void ExibirOngProximas()
         {
             List<Usuario> ongsProximas = new Ongs().ListarOngsProximas(latideUsuario, longitudeUsuario);
-            //if (ongsProximas.Count <= 0)
-            //{
-            //    return;
-            //}
+            if (ongsProximas.Count <= 0)
+            {
+                pnlOngsProximas.Visible = false;
+                return;
+            }
+            pnlOngsProximas.Visible = true;
 
             foreach (Usuario ong in ongsProximas)
             {
                 litOngsProximas.Text += $@"
                 <div class='ong swiper-slide'>
                   <a href='campanha.aspx?ong={ong.Codigo}'>
-                    <div class='imagem-ong' background-image=url(../{ong.FotoPerfil})></div>
+                    <div class='imagem-ong' style='background-image:url(../{ong.FotoPerfil})'></div>
                     <div class='nome-ong'>
                         {ong.Nome}
                     </div>
@@ -103,7 +118,7 @@ namespace prjUmaCausaTcc.pages
                 litOngsAleatorias.Text += $@"
                 <div class='ong swiper-slide'>
                   <a href='campanha.aspx?ong={ong.Codigo}'>
-                    <div class='imagem-ong' background-image=url(../{ong.FotoPerfil})></div>
+                    <div class='imagem-ong' style='background-image:url(../{ong.FotoPerfil})'></div>
                     <div class='nome-ong'>
                         {ong.Nome}
                     </div>

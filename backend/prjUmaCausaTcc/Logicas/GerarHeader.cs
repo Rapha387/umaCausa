@@ -13,10 +13,10 @@ namespace prjUmaCausaTcc.Logicas
             {
                 string nav = $@"
                     <ul>
-                        <li><a href='./ongs.html'>Ongs</a></li>
-                        <li><a href='./campanhas.html'>Campanhas</a></li>
-                        <li><a href='./login.html'>Login</a></li>
-                        <li><a href='./cadastro.html'><button><img src='./../images/icons/user.png' />Cadastre-se</button></a></li>
+                        <li><a href='./ongs.aspx'>Ongs</a></li>
+                        <li><a href='./campanhas.aspx'>Campanhas</a></li>
+                        <li><a href='./login.aspx'>Login</a></li>
+                        <li><a href='./cadastro.aspx'><button><img src='./../images/icons/user.png' />Cadastre-se</button></a></li>
                     </ul>";
 
                 return nav;
@@ -26,10 +26,10 @@ namespace prjUmaCausaTcc.Logicas
             {
                 string nav = $@"
                     <ul>
-                        <li><a href='./ongs.html'>Ongs</a></li>
-                        <li><a href='./campanhas.html'>Campanhas</a></li>
-                        <li><a href='./itens.html'>Doações Disponiveis</a></li>
-                        <li><img src=../images/icons/userPreto.png></li>
+                        <li><a href='./ongs.aspx'>Ongs</a></li>
+                        <li><a href='./campanhas.aspx'>Campanhas</a></li>
+                        <li><a href='./itens.aspx'>Doações Disponiveis</a></li>
+                        <li><img class='img-user-preto' src=../images/icons/userPreto.png></li>
                     </ul>";
 
                 return nav;
@@ -38,8 +38,8 @@ namespace prjUmaCausaTcc.Logicas
             {
                 string nav = $@"
                     <ul>
-                        <li><a href='./ongs.html'>Ongs</a></li>
-                        <li><a href='./campanhas.html'>Campanhas</a></li>
+                        <li><a href='./ongs.aspx'>Ongs</a></li>
+                        <li><a href='./campanhas.apx'>Campanhas</a></li>
                         <li><img src=../images/icons/userPreto.png></li>
                     </ul>";
 

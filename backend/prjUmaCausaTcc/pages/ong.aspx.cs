@@ -21,6 +21,22 @@ namespace prjUmaCausaTcc.pages
 
                 ExibirCampanhasInativas(codigoUsuario);
             }
+
+            if (Session["email"] != null)
+            {
+                Usuario usuario = new Usuario();
+
+                usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
+
+                GerarHeader gerarHeader = new GerarHeader();
+
+                litHeader.Text = gerarHeader.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+            }
+            else
+            {
+                GerarHeader gerarHeader = new GerarHeader();
+                litHeader.Text = gerarHeader.MudarNavegacao(false, 0);
+            }
         }
 
         private void ExibirDadosMinimosUsuario(int codigoUsuario)

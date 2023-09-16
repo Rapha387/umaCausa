@@ -11,7 +11,8 @@ namespace prjUmaCausaTcc.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["email"] != null)
+                Response.Redirect("index.aspx");
         }
 
         protected void btnConectar_Click(object sender, EventArgs e)

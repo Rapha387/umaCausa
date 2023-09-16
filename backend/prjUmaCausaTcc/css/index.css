@@ -100,7 +100,7 @@ header nav ul {
 header nav ul li {
   padding-left: 16px;
 }
-header nav ul li img{
+.img-user-preto {
     margin-top: 3px;
     border: solid thin;
     cursor: pointer;
@@ -343,10 +343,10 @@ main {
 }
 .campanhas .campanhas-flex .ong {
   width: 151px;
-  border-radius: 5px;
-  background-color: #F5F5F5;
+  border-radius: 4px;
 }
 .campanhas .campanhas-flex .ong .imagem-ong {
+  border-radius: 4px 4px 0 0;
   width: 100%;
   height: 149px;
   background-repeat: no-repeat;
@@ -362,6 +362,8 @@ main {
   padding: 14px 10px;
   font-size: 14px;
   font-weight: 700;
+  background-color: #F5F5F5;
+  border-radius: 0 0 4px 4px
 }
 
 .carrossel {
