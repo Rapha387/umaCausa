@@ -1,0 +1,29 @@
+@import './../abstracts/mixins';
+@import './../abstracts/variables';
+
+.menu-configuracoes{
+  background-color: $cinza-elementos;
+  position: absolute;
+  right: 3.438rem;;
+  top: 41.6px;
+  z-index: 3;
+  ul{
+    display: flex;
+    flex-direction: column;
+  }
+  a{
+    color: #000;
+  }
+  li{
+    width: 100%;
+    padding: 0.5rem;
+    cursor: pointer;
+    &:hover{
+      background-color: #d9d9d9;
+      color: $primary-color;
+      a{
+        color: $primary-color;
+      }
+    }
+  }
+}

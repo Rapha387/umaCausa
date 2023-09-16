@@ -53,6 +53,7 @@ header {
   box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.13);
 }
 header nav {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -239,6 +240,33 @@ main {
 }
 
 /* -------------- COMPONENTES --------------- */
+.menu-configuracoes {
+  background-color: #F5F5F5;
+  position: absolute;
+  right: 3.438rem;
+  top: 41.6px;
+  z-index: 3;
+}
+.menu-configuracoes ul {
+  display: flex;
+  flex-direction: column;
+}
+.menu-configuracoes a {
+  color: #000;
+}
+.menu-configuracoes li {
+  width: 100%;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.menu-configuracoes li:hover {
+  background-color: #d9d9d9;
+  color: #0063BF;
+}
+.menu-configuracoes li:hover a {
+  color: #0063BF;
+}
+
 .campanhas h2 {
   margin: 30px 0;
 }
