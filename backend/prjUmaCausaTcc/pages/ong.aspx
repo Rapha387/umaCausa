@@ -78,6 +78,12 @@
         <input type="text" id="txtNomeItem" placeholder="Nome do item">
       </div>
       <div class="input-label">
+        <label for="cmbTipoItem">Tipo do Item:</label>
+        <select name="cmbTipoItem" id="cmbTipoItem">
+          <option value="roupa">Roupa</option>
+        </select>
+      </div>
+      <div class="input-label">
         <label for="txtQuantidadeItem">Quantidade:</label>
         <input type="number" id="txtQuantidadeItem" placeholder="2">
       </div>
@@ -88,8 +94,12 @@
         </select>
       </div>
       <div class="input-label">
-        <label for="dtEnvio">Data de Envio:</label>
-        <input type="date" name="dtEnvio" id="txtData">
+        <label for="txtDataEnvio">Data de Envio:</label>
+        <input type="date" name="txtDataEnvio" id="txtDataEnvio" min="now" max="2023-12-31">
+      </div>
+      <div class="input-label">
+        <label for="txtHorario">Data de Envio:</label>
+        <input type="time" name="txtHorario" id="txtHorario"  min="08:00" max="18:00">
       </div>
       <button>Agendar Envio</button>
     </div>

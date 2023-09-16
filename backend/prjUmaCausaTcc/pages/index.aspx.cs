@@ -65,7 +65,7 @@ namespace prjUmaCausaTcc.pages
             {
                 litOngsProximas.Text += $@"
                 <div class='ong swiper-slide'>
-                  <a href='campanha.aspx?ong={ong.Codigo}'>
+                  <a href='ong.aspx?ong={ong.Codigo}'>
                     <div class='imagem-ong' style='background-image:url(../{ong.FotoPerfil})'></div>
                     <div class='nome-ong'>
                         {ong.Nome}
@@ -117,7 +117,7 @@ namespace prjUmaCausaTcc.pages
             {
                 litOngsAleatorias.Text += $@"
                 <div class='ong swiper-slide'>
-                  <a href='campanha.aspx?ong={ong.Codigo}'>
+                  <a href='ong.aspx?ong={ong.Codigo}'>
                     <div class='imagem-ong' style='background-image:url(../{ong.FotoPerfil})'></div>
                     <div class='nome-ong'>
                         {ong.Nome}
