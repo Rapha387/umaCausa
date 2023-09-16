@@ -29,8 +29,19 @@ namespace prjUmaCausaTcc.Logicas
                         <li><a href='./ongs.aspx'>Ongs</a></li>
                         <li><a href='./campanhas.aspx'>Campanhas</a></li>
                         <li><a href='./itens.aspx'>Doações Disponiveis</a></li>
-                        <li><img class='img-user-preto' src=../images/icons/userPreto.png></li>
-                    </ul>";
+                        <li><label for='menuConfig'><img class='img-user-preto' src=../images/icons/userPreto.png /></label></li>
+                        <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
+                    </ul>
+                    <div class='menu-configuracoes'>
+                        <ul>
+                          <li><a href='configuracoes/meuPerfil.html'>Meu Perfil</a></li>
+                          <li><a href='configuracoes/minhasColaboracoes.html'>Minhas Colaborações</a></li>
+                          <li><a href='configuracoes/minhasCampanhas.html'>Minhas Campanhas</a></li>
+                          <li><a href='configuracoes/meusItens.html'>Meus Itens</a></li>
+                          <li><a href='configuracoes/confirmacoesDoacoes.html'>Confirmações de Doações</a></li>
+                          <li>Sair</li>
+                        </ul>
+                    </div>";
 
                 return nav;
             }
@@ -40,8 +51,18 @@ namespace prjUmaCausaTcc.Logicas
                     <ul>
                         <li><a href='./ongs.aspx'>Ongs</a></li>
                         <li><a href='./campanhas.apx'>Campanhas</a></li>
-                        <li><img src=../images/icons/userPreto.png></li>
-                    </ul>";
+                        <li><label for='menuConfig'><img class='img-user-preto' src=../images/icons/userPreto.png /></label></li>
+                    </ul>
+                    <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
+                    <div class='menu-configuracoes'>
+                        <ul>
+                          <li><a href='configuracoes/meuPerfil.html'>Meu Perfil</a></li>
+                          <li><a href='configuracoes/minhasColaboracoes.html'>Minhas Colaborações</a></li>
+                          <li><a href='configuracoes/meusItens.html'>Meus Itens</a></li>
+                          <li><a href='configuracoes/confirmacoesDoacoes.html'>Confirmações de Doações</a></li>
+                          <li>Sair</li>
+                        </ul>
+                    </div>";
 
                 return nav;
             }

@@ -2,6 +2,7 @@
 @import './../abstracts/variables';
 
 .menu-configuracoes{
+  display: none;
   background-color: $cinza-elementos;
   position: absolute;
   right: 3.438rem;;
@@ -26,4 +27,7 @@
       }
     }
   }
+}
+#menuConfig:checked ~ .menu-configuracoes{
+  display: block;
 }

@@ -241,6 +241,7 @@ main {
 
 /* -------------- COMPONENTES --------------- */
 .menu-configuracoes {
+  display: none;
   background-color: #F5F5F5;
   position: absolute;
   right: 3.438rem;
@@ -265,6 +266,10 @@ main {
 }
 .menu-configuracoes li:hover a {
   color: #0063BF;
+}
+
+#menuConfig:checked ~ .menu-configuracoes {
+  display: block;
 }
 
 .campanhas h2 {
