@@ -43,11 +43,13 @@ bloqueio.addEventListener('click', function() {
   });
 });
 
-botaoDoar.addEventListener('click', (event) => {
-  event.preventDefault();
-	bloqueio.classList.remove("escondido");
-  popupDoar.classList.remove("escondido");
-});
+if (botaoDoar) {
+    botaoDoar.addEventListener('click', (event) => {
+      event.preventDefault();
+	    bloqueio.classList.remove("escondido");
+      popupDoar.classList.remove("escondido");
+    });
+}
 
 botaoDenunciar.addEventListener('click', (event) => {
   event.preventDefault();

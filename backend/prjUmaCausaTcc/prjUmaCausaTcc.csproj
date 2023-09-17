@@ -139,6 +139,7 @@
     <Content Include="js\popup.js" />
     <Content Include="js\selectPersonalizado.js" />
     <Content Include="js\verificacoesInputs.js" />
+    <Content Include="js\verificacoesInputsDoacao.js" />
     <Content Include="pages\cadastroDoador.aspx" />
     <Content Include="pages\cadastroDoador.html" />
     <Content Include="pages\cadastroOng.aspx" />

@@ -1,12 +1,14 @@
-const btnGerarPix = document.querySelector('#btnGerarPix');
+
 const qrcodeContainer = document.getElementById("qrcode");
-const txtValor = document.getElementById("txtValor");
+
 
 if (btnGerarPix) {
   btnGerarPix.addEventListener('click', function(e){
     e.preventDefault();
 
     if (txtValor.value == "") {
+        txtValor.classList.add('inputInvalido');
+        erroDoacaoMonetaria.textContent = "O valor nao pode estar vazio"
         return;
     }
 
@@ -28,12 +30,13 @@ if (btnGerarPix) {
         const pix = new Pix(
           dados["NumeroPix"],
           "",
-          dados["Nome"],
-          dados["Cidade"],
-            "1",
+          dados["Nome"].normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+          dados["Cidade"].normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+          "1",
           valorTxt
         );
         const payload = pix.getPayload();
+        console.log(payload);
         qrcodeContainer.innerHTML = "";
         new QRCode(qrcodeContainer, {
             text: payload,

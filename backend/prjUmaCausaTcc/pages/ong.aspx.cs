@@ -31,11 +31,14 @@ namespace prjUmaCausaTcc.pages
                 GerarHeader gerarHeader = new GerarHeader();
 
                 litHeader.Text = gerarHeader.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+                
+                pnlBtnDoar.Visible = true;
             }
             else
             {
                 GerarHeader gerarHeader = new GerarHeader();
                 litHeader.Text = gerarHeader.MudarNavegacao(false, 0);
+                pnlBtnDoar.Visible = false;
             }
         }
 
