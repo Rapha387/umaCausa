@@ -124,6 +124,7 @@
   <ItemGroup>
     <Content Include="css\cadastroDoador.css" />
     <Content Include="css\cadastroOng.css" />
+    <Content Include="css\erro.css" />
     <Content Include="css\home.css" />
     <Content Include="css\index.css" />
     <Content Include="css\login.css" />
@@ -144,6 +145,7 @@
     <Content Include="pages\cadastroDoador.html" />
     <Content Include="pages\cadastroOng.aspx" />
     <Content Include="pages\cadastroOng.html" />
+    <Content Include="pages\erro.aspx" />
     <Content Include="pages\index.aspx" />
     <Content Include="pages\login.aspx" />
     <Content Include="pages\ong.aspx" />
@@ -241,6 +243,13 @@
     </Compile>
     <Compile Include="pages\cadastroOng.aspx.designer.cs">
       <DependentUpon>cadastroOng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\erro.aspx.cs">
+      <DependentUpon>erro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\erro.aspx.designer.cs">
+      <DependentUpon>erro.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

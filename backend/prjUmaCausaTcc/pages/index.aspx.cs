@@ -15,6 +15,9 @@ namespace prjUmaCausaTcc.pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ExibirCampanhasPertoDeAcabar();
+
+            ExibirOngsAleatorias();
 
             if (Session["email"] != null)
             {
@@ -37,7 +40,7 @@ namespace prjUmaCausaTcc.pages
                 }
                 catch(Exception ex)
                 {
-                    //Response.Redirect("erro.aspx")
+                    return;
                 }
             }
             else
@@ -45,10 +48,6 @@ namespace prjUmaCausaTcc.pages
                 GerarHeader gerarHeader = new GerarHeader();
                 litHeader.Text = gerarHeader.MudarNavegacao(false, 0);
             }
-
-            ExibirCampanhasPertoDeAcabar();
-
-            ExibirOngsAleatorias();
         }
 
         public void ExibirOngProximas()

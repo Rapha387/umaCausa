@@ -24,18 +24,7 @@
         <a href="./index.html"
           ><img src="./../images/logo/logo.png" alt=""
         /></a>
-        <ul>
-          <li><a href="./ongs.html">Ongs</a></li>
-          <li><a href="./campanhas.html">Campanhas</a></li>
-          <li><a href="./login.html">Login</a></li>
-          <li>
-            <a href="./cadastro.html"
-              ><button>
-                <img src="./../images/icons/user.png" />Cadastre-se
-              </button></a
-            >
-          </li>
-        </ul>
+       <asp:Literal ID="litHeader" runat="server"></asp:Literal>
       </nav>
     </header>
 

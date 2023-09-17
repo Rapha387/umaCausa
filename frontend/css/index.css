@@ -106,7 +106,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: "cv11", "salt", "ss01", "ss03", "cv01", "cv02", "cv03", "cv04", "cv05", "cv06", "cv09", "cv10";
-  min-height: 110vh;
   padding-top: 50px;
   position: relative;
   background-image: url(./../images/background/background-body.png);
@@ -114,6 +113,7 @@ body {
 
 main {
   margin: auto;
+  min-height: 90vh;
   width: 1200px;
   padding: 0 3.438rem;
   padding-top: 3.438rem;

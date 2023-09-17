@@ -1,0 +1,36 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .mensagem-erro {
+  position: relative;
+  width: 400px;
+}
+main .mensagem-erro h1 {
+  color: #0063BF;
+  font-size: 2rem;
+}
+main .mensagem-erro h2 {
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+main .mensagem-erro .talvez-auxilie {
+  font-size: 17px;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+main .mensagem-erro a {
+  color: #000;
+  transition: 0.15s;
+}
+main .mensagem-erro a:hover {
+  color: #1876F2;
+}
+main .mensagem-erro .msg-erro {
+  position: absolute;
+  bottom: -90px;
+}
+main .img-erro {
+  width: 270px;
+}

@@ -1,0 +1,46 @@
+@import './../abstracts/variables';
+@import './../abstracts/mixins';
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+
+  .mensagem-erro{
+    position: relative;
+    width: 400px;
+
+    h1{
+      color: $primary-color;
+      font-size: 2rem;
+    }
+    h2{
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+    
+    .talvez-auxilie{
+      font-size: 17px;
+      margin-bottom: 2px;
+      font-weight: 700;
+    }
+
+    a{  
+      color: #000;
+      transition: 0.15s;
+      &:hover{
+        color: $link;
+      }
+    }
+
+    .msg-erro{
+      position: absolute;
+      bottom: -90px;
+    }
+  }
+
+  .img-erro{
+    width: 270px;
+  }
+}
+

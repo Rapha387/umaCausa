@@ -148,12 +148,12 @@ body {
   padding-top: 50px;
   position: relative;
   background-image: url(./../images/background/background-body.png);
-  min-height: 100vh;
 }
 
 main {
   margin: auto;
   width: 1200px;
+  min-height: 90vh;
   padding: 0 3.438rem;
   padding-top: 3.438rem;
   padding-bottom: 3.438rem;

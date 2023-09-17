@@ -38,8 +38,3 @@ h1 {
   border-bottom: solid thin #000000;
   padding-bottom: 0.3rem;
 }
-
-footer {
-  position: absolute;
-  bottom: 0;
-}

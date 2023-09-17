@@ -14,12 +14,23 @@ namespace prjUmaCausaTcc.pages
         {
             if (!String.IsNullOrEmpty(Request["ong"]))
             {
-                int codigoUsuario = int.Parse(Request["ong"]);
-                ExibirDadosMinimosUsuario(codigoUsuario);
+                try
+                {
+                    int codigoUsuario = int.Parse(Request["ong"]);
+                    ExibirDadosMinimosUsuario(codigoUsuario);
 
-                ExibirCampanhasAtivas(codigoUsuario);
+                    ExibirCampanhasAtivas(codigoUsuario);
 
-                ExibirCampanhasInativas(codigoUsuario);
+                    ExibirCampanhasInativas(codigoUsuario);
+                }
+                catch(Exception ex)
+                {
+                    Response.Redirect("erro.aspx?e="+ex.Message);
+                }
+            }
+            else
+            {
+                Response.Redirect("erro.aspx?e=Página não encontrada");
             }
 
             if (Session["email"] != null)

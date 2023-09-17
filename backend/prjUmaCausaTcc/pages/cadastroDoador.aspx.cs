@@ -14,8 +14,21 @@ namespace prjUmaCausaTcc.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["email"] != null)
+            {
+                Usuario usuario = new Usuario();
 
-            
+                usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
+
+                GerarHeader gerarHeader = new GerarHeader();
+
+                litHeader.Text = gerarHeader.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+            }
+            else
+            {
+                GerarHeader gerarHeader = new GerarHeader();
+                litHeader.Text = gerarHeader.MudarNavegacao(false, 0);
+            }
         }
 
         protected void btnCadastrarDoador_Click(object sender, EventArgs e)
