@@ -145,8 +145,11 @@
     <Content Include="images\equipe\rapha.jpg" />
     <Content Include="images\fotosOng\foto1.png" />
     <Content Include="images\home\pqdoar.svg" />
+    <Content Include="images\home\slider\01.jpg" />
     <Content Include="images\home\slider\01.svg" />
+    <Content Include="images\home\slider\02.jpg" />
     <Content Include="images\home\slider\02.svg" />
+    <Content Include="images\home\slider\03.jpg" />
     <Content Include="images\home\slider\03.svg" />
     <Content Include="images\icone.svg" />
     <Content Include="images\icons\bolsa.png" />
@@ -172,6 +175,7 @@
     <Content Include="images\icons\telefone.png" />
     <Content Include="images\icons\user.png" />
     <Content Include="images\icons\userAzul.png" />
+    <Content Include="images\icons\userPreto.png" />
     <Content Include="images\icons\website.png" />
     <Content Include="images\imgLogin\backgroundLogin.png" />
     <Content Include="images\itens\item1.png" />

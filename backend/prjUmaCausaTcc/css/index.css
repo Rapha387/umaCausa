@@ -428,19 +428,19 @@ li label {
   transition: 1.5s;
 }
 .carrossel .slides .s1 {
-    background-image: url(../images/home/slider/01.svg);
+    background-image: url(../images/home/slider/01.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .carrossel .slides .s2 {
-    background-image: url(../images/home/slider/02.svg);
+    background-image: url(../images/home/slider/02.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .carrossel .slides .s3 {
-    background-image: url(../images/home/slider/03.svg);
+    background-image: url(../images/home/slider/03.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
