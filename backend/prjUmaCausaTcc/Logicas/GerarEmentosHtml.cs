@@ -5,13 +5,14 @@ using System.Web;
 
 namespace prjUmaCausaTcc.Logicas
 {
-    public class GerarHeader
+    public class GerarEmentosHtml
     {
         public string MudarNavegacao(bool logado, int tipoUsuario)
         {
             if (!logado)
             {
                 string nav = $@"
+                    <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
                     <ul>
                         <li><a href='./ongs.aspx'>Ongs</a></li>
                         <li><a href='./campanhas.aspx'>Campanhas</a></li>
@@ -25,6 +26,7 @@ namespace prjUmaCausaTcc.Logicas
             if (tipoUsuario == 1)
             {
                 string nav = $@"
+                    <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
                     <ul>
                         <li><a href='./ongs.aspx'>Ongs</a></li>
                         <li><a href='./campanhas.aspx'>Campanhas</a></li>
@@ -48,6 +50,7 @@ namespace prjUmaCausaTcc.Logicas
             else
             {
                 string nav = $@"
+                    <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
                     <ul>
                         <li><a href='./ongs.aspx'>Ongs</a></li>
                         <li><a href='./campanhas.apx'>Campanhas</a></li>
@@ -66,6 +69,30 @@ namespace prjUmaCausaTcc.Logicas
 
                 return nav;
             }
+        }
+
+        public string GerarFooter()
+        {
+            string footer = $@"
+                        <nav>
+                          <a href='./index.html'><img class='logo-footer' src='./../images/logo/logoBranco.svg' alt='logo umaCausa' /></a>
+                          <div>
+                            <h3>Inicio</h3>
+                            <p><a href='./index.aspx'>Home</a></p>
+                            <p><a href='./campanhas.aspx'>Campanhas</a></p>
+                            <p><a href='./ongs.aspx'>ONGs</a></p>
+                          </div>
+                          <div>
+                            <h3>Sobre Nós</h3>
+                            <p><a href='./sobre.html'>Sobre</a></p>
+                            <p><a href='./nossaEquipe.html'>Nossa Equipe</a></p>
+                          </div>
+                          <div>
+                            <h3>Suporte</h3>
+                            <p><a href='./faq.html'>FAQ</a></p>
+                          </div>
+                        </nav>";
+            return footer;
         }
     }
 }

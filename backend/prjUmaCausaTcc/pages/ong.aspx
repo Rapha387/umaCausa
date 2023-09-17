@@ -4,10 +4,11 @@
 
 <html lang="pt-br">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
- <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./../images/icone.svg" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@900&display=swap" rel="stylesheet">
@@ -20,7 +21,6 @@
     <form id="form1" runat="server">
         <header>
             <nav>
-              <a href="./index.aspx"><img src="./../images/logo/logo.png" alt=""></a>
               <asp:Literal ID="litHeader" runat="server"></asp:Literal>
             </nav>
          </header>
@@ -247,24 +247,7 @@
       </main>
 
       <footer>
-        <nav>
-          <a href="./index.html"><img src="./../images/logo/logoBranca.png" alt="logo umaCausa" /></a>
-          <div>
-            <h3>Inicio</h3>
-            <p><a href="./index.html">Home</a></p>
-            <p><a href="./campanhas.html">Campanhas</a></p>
-            <p><a href="./ongs.html">ONGs</a></p>
-          </div>
-          <div>
-            <h3>Sobre Nós</h3>
-            <p><a href="./sobre.html">Sobre</a></p>
-            <p><a href="./nossaEquipe.html">Nossa Equipe</a></p>
-          </div>
-          <div>
-            <h3>Suporte</h3>
-            <p><a href="./faq.html">FAQ</a></p>
-          </div>
-        </nav>
+          <asp:Literal ID="litFooter" runat="server"></asp:Literal>
       </footer>
 
       <script src="../js/verificacoesInputsDoacao.js"></script>

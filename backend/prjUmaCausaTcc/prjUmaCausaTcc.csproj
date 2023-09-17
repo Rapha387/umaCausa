@@ -130,6 +130,58 @@
     <Content Include="css\login.css" />
     <Content Include="css\ong.css" />
     <Content Include="css\ongs.css" />
+    <Content Include="images\background\background-body.png" />
+    <Content Include="images\bannerOng\banner1.png" />
+    <Content Include="images\botoes\seta.png" />
+    <Content Include="images\botoes\setaDireitraTabela.png" />
+    <Content Include="images\botoes\setaEsquerdaTabela.png" />
+    <Content Include="images\campanhas\campanha1.png" />
+    <Content Include="images\categorias\categoria1.png" />
+    <Content Include="images\equipe\alisson.png" />
+    <Content Include="images\equipe\gu.png" />
+    <Content Include="images\equipe\gui.png" />
+    <Content Include="images\equipe\lau.jpg" />
+    <Content Include="images\equipe\ma.jpg" />
+    <Content Include="images\equipe\rapha.jpg" />
+    <Content Include="images\fotosOng\foto1.png" />
+    <Content Include="images\home\pqdoar.svg" />
+    <Content Include="images\home\slider\01.svg" />
+    <Content Include="images\home\slider\02.svg" />
+    <Content Include="images\home\slider\03.svg" />
+    <Content Include="images\icone.svg" />
+    <Content Include="images\icons\bolsa.png" />
+    <Content Include="images\icons\btnFechar.png" />
+    <Content Include="images\icons\btnVoltar.png" />
+    <Content Include="images\icons\cadeado.png" />
+    <Content Include="images\icons\caixa.png" />
+    <Content Include="images\icons\cnpj.png" />
+    <Content Include="images\icons\compartilhar.png" />
+    <Content Include="images\icons\confirmacao.png" />
+    <Content Include="images\icons\confirmado.png" />
+    <Content Include="images\icons\copiar.png" />
+    <Content Include="images\icons\denunciar.png" />
+    <Content Include="images\icons\editar.png" />
+    <Content Include="images\icons\email.png" />
+    <Content Include="images\icons\endereco.png" />
+    <Content Include="images\icons\excluir.png" />
+    <Content Include="images\icons\maos.png" />
+    <Content Include="images\icons\megafone.png" />
+    <Content Include="images\icons\prancheta.png" />
+    <Content Include="images\icons\recusar.png" />
+    <Content Include="images\icons\search.png" />
+    <Content Include="images\icons\telefone.png" />
+    <Content Include="images\icons\user.png" />
+    <Content Include="images\icons\userAzul.png" />
+    <Content Include="images\icons\website.png" />
+    <Content Include="images\imgLogin\backgroundLogin.png" />
+    <Content Include="images\itens\item1.png" />
+    <Content Include="images\logo\logoAzul.svg" />
+    <Content Include="images\logo\logoBranco.svg" />
+    <Content Include="images\ods\ods15.png" />
+    <Content Include="images\ongs\ong1.png" />
+    <Content Include="images\pagErro\imgErro.svg" />
+    <Content Include="images\tipoDoacao\doacao-item.png" />
+    <Content Include="images\tipoDoacao\doacao-monetaria.png" />
     <Content Include="JsonResponses\BuscarDadosPixOng.aspx" />
     <Content Include="js\carrossel-itens.js" />
     <Content Include="js\cep.js" />
@@ -200,7 +252,7 @@
     <Compile Include="Logicas\CapturarGeolocalizacao.cs" />
     <Compile Include="Logicas\CategoriasOng.cs" />
     <Compile Include="Logicas\FotosOng.cs" />
-    <Compile Include="Logicas\GerarHeader.cs" />
+    <Compile Include="Logicas\GerarEmentosHtml.cs" />
     <Compile Include="Logicas\Itens.cs" />
     <Compile Include="Logicas\Ongs.cs" />
     <Compile Include="Modelos\Campanha.cs" />
@@ -298,7 +350,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="images\" />
     <Folder Include="pages\configuracoes\" />
   </ItemGroup>
   <PropertyGroup>

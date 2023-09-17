@@ -19,6 +19,9 @@ namespace prjUmaCausaTcc.pages
 
             ExibirOngsAleatorias();
 
+            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
+            litFooter.Text = gerarHtml.GerarFooter();
+
             if (Session["email"] != null)
             {
                 try
@@ -27,9 +30,7 @@ namespace prjUmaCausaTcc.pages
 
                     usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
 
-                    GerarHeader gerarHeader = new GerarHeader();
-
-                    litHeader.Text = gerarHeader.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+                    litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
 
                     usuario.BuscarLocalizacaoUsuario(usuario.Codigo);
 
@@ -45,8 +46,7 @@ namespace prjUmaCausaTcc.pages
             }
             else
             {
-                GerarHeader gerarHeader = new GerarHeader();
-                litHeader.Text = gerarHeader.MudarNavegacao(false, 0);
+                litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
             }
         }
 

@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="icon" href="./../images/icone.svg" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@900&display=swap"
@@ -21,10 +22,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
         <header>
             <nav>
-              <a href="./index.html"><img src="./../images/logo/logo.png" alt="" /></a>
+              
               <asp:Literal ID="litHeader" runat="server"></asp:Literal>
             </nav>
           </header>
@@ -48,10 +48,9 @@
           </div>
           <main>
             <div class="apresentacao">
-              <div class="foto"></div>
-              <!--<img src="" class="foto" alt="fotoApresentacao">-->
+              <img class="foto" src="./../images/home/pqdoar.svg" alt="fotoApresentacao" />
               <div class="explicacao">
-                <h1>Por que doar para <img src="./../images/logo/logo.png" alt="logo" /></h1>
+                <h1>Por que doar para <img src="./../images/logo/logoAzul.svg" alt="logo" /></h1>
                 <p>
                   Doar é fundamental porque permite ajudar aqueles que estão em situação de vulnerabilidade, 
                   contribuindo para a equidade social. Além disso, promove a solidariedade e a empatia entre as pessoas. 
@@ -95,24 +94,7 @@
           </main>
 
           <footer>
-            <nav>
-              <a href="./index.html"><img src="./../images/logo/logoBranca.png" alt="logo umaCausa" /></a>
-              <div>
-                <h3>Inicio</h3>
-                <p><a href="./index.aspx">Home</a></p>
-                <p><a href="./campanhas.aspx">Campanhas</a></p>
-                <p><a href="./ongs.aspx">ONGs</a></p>
-              </div>
-              <div>
-                <h3>Sobre Nós</h3>
-                <p><a href="./sobre.html">Sobre</a></p>
-                <p><a href="./nossaEquipe.html">Nossa Equipe</a></p>
-              </div>
-              <div>
-                <h3>Suporte</h3>
-                <p><a href="./faq.html">FAQ</a></p>
-              </div>
-            </nav>
+              <asp:Literal ID="litFooter" runat="server"></asp:Literal>
           </footer>
 
           <script src="./../swiper/swiper-bundle.min.js"></script>

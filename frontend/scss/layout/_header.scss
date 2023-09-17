@@ -21,6 +21,10 @@ header
     width: $espacamento-principal;
     margin: auto;
 
+    .logo-header{
+      width: 138px;
+    }
+
     ul{
       @include flexCenter(space-between, center);
 

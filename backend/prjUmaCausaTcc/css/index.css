@@ -93,6 +93,9 @@ header nav {
   width: 1200px;
   margin: auto;
 }
+.logo-header {
+    width: 138px;
+}
 header nav ul {
   display: flex;
   justify-content: space-between;
@@ -122,6 +125,9 @@ footer {
   height: 200px;
   width: 100%;
   background-color: #0063BF;
+}
+.logo-footer{
+    width: 138px;
 }
 footer nav {
   display: flex;
@@ -323,7 +329,6 @@ li label {
 }
 .campanhas .campanhas-flex {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
 }
@@ -423,16 +428,22 @@ li label {
   transition: 1.5s;
 }
 .carrossel .slides .s1 {
-  background-image: url(../images/bannerHome/01.jpg);
-  background-position: center;
+    background-image: url(../images/home/slider/01.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .carrossel .slides .s2 {
-  background-image: url(../images/bannerHome/02.jpg);
-  background-position: center;
+    background-image: url(../images/home/slider/02.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .carrossel .slides .s3 {
-  background-image: url(../images/bannerHome/03.jpg);
-  background-position: center;
+    background-image: url(../images/home/slider/03.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .carrossel .indicadores {
   position: absolute;

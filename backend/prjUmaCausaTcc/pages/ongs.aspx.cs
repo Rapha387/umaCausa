@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjUmaCausaTcc.Logicas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,21 @@ namespace prjUmaCausaTcc.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
+            litFooter.Text = gerarHtml.GerarFooter();
 
+            if (Session["email"] != null)
+            {
+                Usuario usuario = new Usuario();
+
+                usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
+
+                litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+            }
+            else
+            {
+                litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
+            }
         }
     }
 }

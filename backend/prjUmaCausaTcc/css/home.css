@@ -5,7 +5,6 @@
   padding-bottom: 20px;
 }
 .apresentacao .foto {
-  background-color: #ededed;
   width: 58%;
   height: 268px;
 }
@@ -19,7 +18,7 @@
   gap: 8px;
 }
 .apresentacao .explicacao h1 img {
-  width: 120px;
+  width: 100px;
 }
 .apresentacao .explicacao p {
   margin-top: 20px;

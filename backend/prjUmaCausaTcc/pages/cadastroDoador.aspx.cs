@@ -14,19 +14,20 @@ namespace prjUmaCausaTcc.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
+            litFooter.Text = gerarHtml.GerarFooter();
+
             if (Session["email"] != null)
             {
                 Usuario usuario = new Usuario();
 
                 usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
 
-                GerarHeader gerarHeader = new GerarHeader();
-
-                litHeader.Text = gerarHeader.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+                litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
             }
             else
             {
-                GerarHeader gerarHeader = new GerarHeader();
+                GerarEmentosHtml gerarHeader = new GerarEmentosHtml();
                 litHeader.Text = gerarHeader.MudarNavegacao(false, 0);
             }
         }

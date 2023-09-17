@@ -12,6 +12,9 @@ namespace prjUmaCausaTcc.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
+            litFooter.Text = gerarHtml.GerarFooter();
+
             if (!String.IsNullOrEmpty(Request["ong"]))
             {
                 try
@@ -39,16 +42,13 @@ namespace prjUmaCausaTcc.pages
 
                 usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
 
-                GerarHeader gerarHeader = new GerarHeader();
-
-                litHeader.Text = gerarHeader.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+                litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
                 
                 pnlBtnDoar.Visible = true;
             }
             else
             {
-                GerarHeader gerarHeader = new GerarHeader();
-                litHeader.Text = gerarHeader.MudarNavegacao(false, 0);
+                litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
                 pnlBtnDoar.Visible = false;
             }
         }
