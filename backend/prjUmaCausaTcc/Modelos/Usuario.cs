@@ -231,12 +231,15 @@ public class Usuario : Banco
         {
             Conectar();
             Executar("CadastrarDoador", parametros);
-            Desconectar();
             return true;
         }
         catch (Exception)
         {
             return false;
+        }
+        finally
+        {
+            Desconectar();
         }
         
     }
@@ -269,12 +272,15 @@ public class Usuario : Banco
         {
             Conectar();
             Executar("CadastrarOng", parametros);
-            Desconectar();
             return true;
         }
         catch (Exception)
         {
             return false;
+        }
+        finally
+        {
+            Desconectar();
         }
 
     }
