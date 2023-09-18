@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-public class DoacaoItem
+public class DoacaoItem : Banco
 {
     #region Propriedades
     public Usuario Doador { get; set; }
@@ -18,6 +18,32 @@ public class DoacaoItem
     #endregion
 
     #region Metodos
+    public bool CadastrarDoacaoItem(string nome, int doador, int ong, int quantidade, TipoItem tipo, TipoEntrega entrega)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro("pIdUsuarioDoador",doador.ToString()),
+            new Parametro("pIdUsuarioOng",ong.ToString()),
+            new Parametro("pNmItem", nome),
+            new Parametro("pQtItem", quantidade.ToString()),
+            new Parametro("pIdTipoItem", tipo.Codigo.ToString()),
+            new Parametro("pIdTipoEntrega", entrega.Codigo.ToString())
+        };
+        try
+        {
+            Conectar();
+            Executar("CadastrarDoacaoItem", parametros);
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
 
     #endregion
 }

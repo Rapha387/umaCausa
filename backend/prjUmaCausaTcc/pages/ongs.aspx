@@ -28,7 +28,7 @@
       <main>
         <div class="ongs">
           <h2>ONGS</h2>
-          <a href="./ong.html">
+          <%--<a href="./ong.html">
             <div class="ong">
               <div class="infos-ong">
                 <div class="imagem-ong"></div>
@@ -44,7 +44,9 @@
                 <div class="tag"></div>
               </div>
             </div>
-          </a>
+          </a>--%>
+            <asp:Literal ID="litOngs" runat="server"></asp:Literal>
+
         </div>
         <div class="pesquisa">
           <div class="pesquisar">
