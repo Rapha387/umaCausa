@@ -187,6 +187,10 @@
     <Content Include="images\tipoDoacao\doacao-item.png" />
     <Content Include="images\tipoDoacao\doacao-monetaria.png" />
     <Content Include="JsonResponses\BuscarDadosPixOng.aspx" />
+    <Content Include="JsonResponses\DoarItemCampanha.aspx" />
+    <Content Include="JsonResponses\DoarItemOng.aspx" />
+    <Content Include="JsonResponses\DoarMonetarioCampanha.aspx" />
+    <Content Include="JsonResponses\DoarMonetarioOng.aspx" />
     <Content Include="js\carrossel-itens.js" />
     <Content Include="js\cep.js" />
     <Content Include="js\gerarPix.js" />
@@ -194,6 +198,7 @@
     <Content Include="js\inputFile.js" />
     <Content Include="js\pix.js" />
     <Content Include="js\popup.js" />
+    <Content Include="js\RealizarDoacaoOng.js" />
     <Content Include="js\selectPersonalizado.js" />
     <Content Include="js\verificacoesInputs.js" />
     <Content Include="js\verificacoesInputsDoacao.js" />
@@ -251,6 +256,34 @@
     </Compile>
     <Compile Include="JsonResponses\BuscarDadosPixOng.aspx.designer.cs">
       <DependentUpon>BuscarDadosPixOng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JsonResponses\DoarItemCampanha.aspx.cs">
+      <DependentUpon>DoarItemCampanha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\DoarItemCampanha.aspx.designer.cs">
+      <DependentUpon>DoarItemCampanha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JsonResponses\DoarItemOng.aspx.cs">
+      <DependentUpon>DoarItemOng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\DoarItemOng.aspx.designer.cs">
+      <DependentUpon>DoarItemOng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JsonResponses\DoarMonetarioCampanha.aspx.cs">
+      <DependentUpon>DoarMonetarioCampanha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\DoarMonetarioCampanha.aspx.designer.cs">
+      <DependentUpon>DoarMonetarioCampanha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JsonResponses\DoarMonetarioOng.aspx.cs">
+      <DependentUpon>DoarMonetarioOng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\DoarMonetarioOng.aspx.designer.cs">
+      <DependentUpon>DoarMonetarioOng.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logicas\Campanhas.cs" />
     <Compile Include="Logicas\CapturarGeolocalizacao.cs" />

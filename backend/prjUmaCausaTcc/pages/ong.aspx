@@ -257,6 +257,7 @@
       <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
       <script src="./../js/pix.js"></script>
       <script src="./../js/gerarPix.js"></script>
+      <script src="../js/RealizarDoacaoOng.js"></script>
   </form>
 </body>
 </html>

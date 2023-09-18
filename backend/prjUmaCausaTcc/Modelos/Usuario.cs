@@ -231,14 +231,17 @@ public class Usuario : Banco
         {
             Conectar();
             Executar("CadastrarDoador", parametros);
-            Desconectar();
             return true;
         }
         catch (Exception)
         {
             return false;
         }
-        
+        finally
+        {
+            Desconectar();
+        }
+
     }
     public bool CadastrarOng(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string imagemFotoPerfil, string webSite, string imagemBanner, string pix, string descricao, string emailContato)
     {
@@ -269,12 +272,15 @@ public class Usuario : Banco
         {
             Conectar();
             Executar("CadastrarOng", parametros);
-            Desconectar();
             return true;
         }
         catch (Exception)
         {
             return false;
+        }
+        finally
+        {
+            Desconectar();
         }
 
     }
@@ -288,12 +294,15 @@ public class Usuario : Banco
         {
             Conectar();
             Executar("ExcluirUsuario", parametros);
-            Desconectar();
             return true;
         }
         catch (Exception)
         {
             return false;
+        }
+        finally
+        {
+            Desconectar();
         }
     }
     public bool AlterarSenhaUsuario(int codigo, string senhaAntiga, string senhaAtual )
