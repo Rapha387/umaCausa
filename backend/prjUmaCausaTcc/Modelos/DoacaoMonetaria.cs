@@ -8,9 +8,6 @@ public class DoacaoMonetaria : Banco
 {
     #region Propriedades
     public Usuario Doador { get; set; }
-    public Usuario ONG { get; set; }
-    public string ImagemComprovante { get; set; }
-    public bool DoacaoConfirmada { get; set; }
     public double ValorDoacao { get; set; }
     public DateTime DataDoacao { get; set; }
     #endregion
@@ -28,7 +25,7 @@ public class DoacaoMonetaria : Banco
         try
         {
             Conectar();
-            Executar("CadastrarDoacaoMonetaria", parametros);  
+            Executar("CadastrarDoacaoMonetaria", parametros);
             return true;
         }
         catch (Exception)

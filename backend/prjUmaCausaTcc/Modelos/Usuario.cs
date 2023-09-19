@@ -294,12 +294,15 @@ public class Usuario : Banco
         {
             Conectar();
             Executar("ExcluirUsuario", parametros);
-            Desconectar();
             return true;
         }
         catch (Exception)
         {
             return false;
+        }
+        finally
+        {
+            Desconectar();
         }
     }
     public bool AlterarSenhaUsuario(int codigo, string senhaAntiga, string senhaAtual )

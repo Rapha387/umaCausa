@@ -28,23 +28,6 @@
       <main>
         <div class="ongs">
           <h2>ONGS</h2>
-          <%--<a href="./ong.html">
-            <div class="ong">
-              <div class="infos-ong">
-                <div class="imagem-ong"></div>
-                <div class="descricao">  
-                  <h3>Viva Bichos Santos e Região <img src="./../images/categorias/categoria1.png" alt=""></h3>
-                  <p>
-                    Idealizada por protetores, a ONG Viva Bicho foi fundada em 2000, sendo a primeira ONG
-                     (Organização Não Governamental da Cidade de Santos...
-                  </p>
-                </div>  
-              </div>
-              <div class="tags">
-                <div class="tag"></div>
-              </div>
-            </div>
-          </a>--%>
             <asp:Literal ID="litOngs" runat="server"></asp:Literal>
 
         </div>

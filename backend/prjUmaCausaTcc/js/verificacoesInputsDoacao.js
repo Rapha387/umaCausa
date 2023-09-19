@@ -20,11 +20,6 @@ if (btnAgendarItem) {
     }
 }
 
-if (btnRelizarDoacaoMonetaria) {
-    btnRelizarDoacaoMonetaria.onclick = function (event) {
-        VerificarDadosDoacaoMonetaria(event);
-    }
-}
 
 
 function VerificarDadosDoacaoItem(event) {
