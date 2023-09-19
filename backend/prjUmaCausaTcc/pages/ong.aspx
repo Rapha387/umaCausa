@@ -25,8 +25,7 @@
             </nav>
          </header>
   
-        <asp:Literal ID="litBanner" runat="server"></asp:Literal>
-    <%--  <div class="banner"></div>--%>
+        <asp:Literal ID="litBanner" runat="server"></asp:Literal>s
   
       <div class="bloqueio escondido"></div>
 
@@ -56,7 +55,7 @@
             <input type="number" placeholder="10,00" id="txtValor">
             <button id="btnGerarPix">Gerar QRCODE</button>
             <label for="txtComprovante">Comprovante:</label>
-            <input type="file" id="txtComprovante">
+            <input type="file" id="txtComprovante" accept="image/*">
           </div>
 
           <div class="espacamento"></div>
