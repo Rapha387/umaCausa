@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pt-br">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="UTF-8" />
@@ -38,10 +38,10 @@
           </div>
           <div class="filtro">
             <h3>Filtrar Por:</h3>
-            <select name="Categoria" id="">
+            <select name="Categoria" id="a">
               <option value="Categoria">Categoria</option>
             </select>
-            <select name="DataCricacao" id="">
+            <select name="DataCricacao" id="b">
               <option value="DataCricacao">Data de Criação</option>
             </select>
           </div>
