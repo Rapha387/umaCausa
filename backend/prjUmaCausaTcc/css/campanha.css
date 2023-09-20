@@ -1,0 +1,109 @@
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.foto-descricao-campanha {
+  width: 675px;
+}
+.foto-descricao-campanha .imagem-campanha {
+  width: 100%;
+  height: 416px;
+  border-radius: 4px 4px 0 0;
+  background: url(./../images/campanhas/campanha1.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.foto-descricao-campanha .descricao-campanha {
+  border-radius: 4px;
+  padding: 1.25rem;
+  margin-top: 10px;
+  min-height: 220px;
+  width: 100%;
+  background-color: #F5F5F5;
+}
+.foto-descricao-campanha .descricao-campanha h3 {
+  margin: 5px 0;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  color: #585858;
+}
+.foto-descricao-campanha .descricao-campanha p {
+  font-size: 14px;
+  text-align: justify;
+}
+
+.infos-campanha {
+  width: 360px;
+}
+.infos-campanha .meta h3 {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+}
+.infos-campanha .meta button {
+  width: 100%;
+  margin: 15px 0 20px 0;
+}
+.infos-campanha .meta .barra-meta {
+  margin-top: 10px;
+  border: solid thin #8B8B8B;
+  border-radius: 4px;
+  background-color: #D9D9D9;
+  width: 100%;
+  height: 18px;
+}
+.infos-campanha .meta .progresso {
+  width: 30%;
+  height: 100%;
+  background-color: #B66D6D;
+}
+.infos-campanha .realizador-campanha h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  letter-spacing: 4px;
+  font-weight: 900;
+}
+.infos-campanha .realizador-campanha .infos-realizador {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.infos-campanha .realizador-campanha .infos-realizador img {
+  border: solid thin #8B8B8B;
+  border-radius: 4px;
+  width: 60px;
+  height: 60px;
+}
+.infos-campanha .realizador-campanha .infos-realizador h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0px;
+}
+.infos-campanha .realizador-campanha .infos-realizador p {
+  font-size: 14px;
+}
+
+.ods-campanha {
+  margin-top: 20px;
+}
+.ods-campanha h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  letter-spacing: 4px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+.ods-campanha .flex-ods {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.ods-campanha .flex-ods img {
+  width: 68px;
+}

@@ -1,0 +1,18 @@
+.principalTermo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fundoTermo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FCFBFB;
+  border: 2px solid #CDC7C7;
+  padding: 6.001rem;
+  margin-top: 20px;
+}

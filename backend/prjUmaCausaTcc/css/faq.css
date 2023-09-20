@@ -1,0 +1,40 @@
+summary {
+  list-style: revert;
+  font-size: 20px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+details div {
+  font-size: 18px;
+}
+
+.principalFaq {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: justify;
+}
+
+.fundoFaq {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #FCFBFB;
+  border: 2px solid #CDC7C7;
+  padding: 2.001rem;
+  margin-top: 20px;
+  flex-direction: column;
+  gap: 36px;
+}
+
+h1 {
+  text-align: center;
+  border-bottom: solid thin #000000;
+  padding-bottom: 0.3rem;
+}

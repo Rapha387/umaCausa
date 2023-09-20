@@ -122,14 +122,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\alterarSenha.css" />
+    <Content Include="css\cadastro.css" />
     <Content Include="css\cadastroDoador.css" />
     <Content Include="css\cadastroOng.css" />
+    <Content Include="css\campanha.css" />
+    <Content Include="css\campanhas.css" />
+    <Content Include="css\confirmacoesDoacoes.css" />
+    <Content Include="css\criarCampanha.css" />
+    <Content Include="css\divulgacaoItem.css" />
     <Content Include="css\erro.css" />
+    <Content Include="css\faq.css" />
     <Content Include="css\home.css" />
     <Content Include="css\index.css" />
+    <Content Include="css\item.css" />
+    <Content Include="css\itens.css" />
     <Content Include="css\login.css" />
+    <Content Include="css\meuPerfil.css" />
+    <Content Include="css\meusItens.css" />
+    <Content Include="css\minhasCampanhas.css" />
+    <Content Include="css\minhasColaboracoes.css" />
+    <Content Include="css\nossaEquipe.css" />
     <Content Include="css\ong.css" />
     <Content Include="css\ongs.css" />
+    <Content Include="css\sobre.css" />
+    <Content Include="css\termos.css" />
     <Content Include="images\background\background-body.png" />
     <Content Include="images\bannerOng\banner1.png" />
     <Content Include="images\botoes\seta.png" />
@@ -203,14 +220,12 @@
     <Content Include="js\verificacoesInputs.js" />
     <Content Include="js\verificacoesInputsDoacao.js" />
     <Content Include="pages\cadastroDoador.aspx" />
-    <Content Include="pages\cadastroDoador.html" />
     <Content Include="pages\cadastroOng.aspx" />
-    <Content Include="pages\cadastroOng.html" />
+    <Content Include="pages\campanhas.aspx" />
     <Content Include="pages\erro.aspx" />
     <Content Include="pages\index.aspx" />
     <Content Include="pages\login.aspx" />
     <Content Include="pages\ong.aspx" />
-    <Content Include="pages\ong.html" />
     <Content Include="pages\ongs.aspx" />
     <Content Include="swiper\swiper-bundle.min.css" />
     <Content Include="swiper\swiper-bundle.min.js" />
@@ -332,6 +347,13 @@
     </Compile>
     <Compile Include="pages\cadastroOng.aspx.designer.cs">
       <DependentUpon>cadastroOng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\campanhas.aspx.cs">
+      <DependentUpon>campanhas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\campanhas.aspx.designer.cs">
+      <DependentUpon>campanhas.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\erro.aspx.cs">
       <DependentUpon>erro.aspx</DependentUpon>

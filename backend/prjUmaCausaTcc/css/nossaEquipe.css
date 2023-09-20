@@ -1,0 +1,32 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  border-bottom: solid thin #0063BF;
+  padding-bottom: 0.3rem;
+}
+
+.foto {
+  width: 175px;
+  border-radius: 50%;
+  height: 175px;
+}
+
+.infos {
+  width: 32%;
+  margin-top: 91px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.equipeImg {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,46 @@
+.principalSobre {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fotoLogo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.titulo h1 {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 4px;
+  margin-top: 19px;
+}
+
+.imagemBanner {
+  width: 100%;
+  height: 160px;
+  background-color: #EFEFF0;
+  margin-top: 19px;
+}
+
+.textoPrincipal {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.infosSobre {
+  width: 327px;
+  margin-top: 19px;
+}
+.infosSobre h3 {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 4px;
+  font-size: 16px;
+}
+.infosSobre p {
+  text-align: justify;
+}
