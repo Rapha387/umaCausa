@@ -33,13 +33,20 @@
       <div class="principalLogin">
         <img class="bannerLogin" src="./../images/imgLogin/backgroundLogin.png" alt="">
         <div class="login">
-            <h3>Sign In</h3>
-            <asp:TextBox ID="txtEmail" runat="server" placeholder="Email" TextMode="Email"></asp:TextBox>
-            <asp:TextBox ID="txtSenha" runat="server" placeholder="Senha"></asp:TextBox>
+            <h1 style="text-align:center">Sign In</h1>
+            <div class="input-label">
+                <label>Email:</label>
+                <asp:TextBox ID="txtEmail" runat="server" placeholder="Email" TextMode="Email"></asp:TextBox>
+            </div>
+            <div class="input-label">
+                <label>Senha:</label>
+                <asp:TextBox ID="txtSenha" runat="server" placeholder="Senha"></asp:TextBox>
+            </div>
+
             <asp:Label ID="lblErroMSG" runat="server" Text="" CssClass="erromsg"></asp:Label>
              <p><strong>Esqueceu a senha?</strong></p>
-            <asp:Button ID="btnConectar" runat="server" Text="Conectar" OnClick="btnConectar_Click"/>
-            <p>Novo por Aqui?<strong> Crie uma conta</strong></p>
+             <asp:Button ID="btnConectar" runat="server" Text="Logar" OnClick="btnConectar_Click"/>
+             <p>Novo por Aqui?<strong> Crie uma conta</strong></p>
         </div>
       </div>
 

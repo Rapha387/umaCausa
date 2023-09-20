@@ -71,7 +71,7 @@ function VerificarDadosDoacaoItem(event) {
 function VerificarDadosDoacaoMonetaria(event) {
     txtValor.classList.remove('inputInvalido');
     txtComprovante.classList.remove('inputInvalido');
-    erroDoacaoMonetaria = "";
+    erroDoacaoMonetaria.textContent = "";
 
     if (txtValor.value == "") {
         txtValor.classList.add('inputInvalido');

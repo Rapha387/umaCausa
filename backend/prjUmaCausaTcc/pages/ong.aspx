@@ -163,23 +163,6 @@
               <h2>CAMPANHAS INATIVAS</h2>
               <div class="campanhas-flex swiper-wrapper">
                   <asp:Literal ID="litCampanhasInativas" runat="server"></asp:Literal>
-                <%--<div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>--%>
-            
               </div>
               <div class="botoes-carrossel">
                 <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar"></button>
