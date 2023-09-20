@@ -25,7 +25,7 @@
             </nav>
          </header>
   
-        <asp:Literal ID="litBanner" runat="server"></asp:Literal>s
+        <asp:Literal ID="litBanner" runat="server"></asp:Literal>
   
       <div class="bloqueio escondido"></div>
 
@@ -79,9 +79,9 @@
           </div>
           <div class="input-label">
             <label for="cmbTipoItem">Tipo do Item:</label>
-            <select name="cmbTipoItem" id="cmbTipoItem">
-              <option value="roupa">Roupa</option>
-            </select>
+            <asp:DropDownList ID="cmbTipoItem" runat="server">
+                <asp:ListItem>Selecione o tipo do Item</asp:ListItem>
+            </asp:DropDownList>
             <span id="erroTipoItem" class="spanErro"></span>
           </div>
           <div class="input-label">
@@ -91,9 +91,7 @@
           </div>
           <div class="input-label">
             <label for="cmbTipoEntrega">Tipo da Entrega:</label>
-            <select name="cmbTipoEntrega" id="cmbTipoEntrega">
-              <option value="">Levar Item ao Local</option>
-            </select>
+              <asp:DropDownList ID="cmbTipoEntrega" runat="server"></asp:DropDownList>
             <span id="erroTipoEntrega" class="spanErro"></span>
           </div>
           <div class="input-label">

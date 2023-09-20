@@ -292,6 +292,7 @@
     <Compile Include="Logicas\GerarEmentosHtml.cs" />
     <Compile Include="Logicas\Itens.cs" />
     <Compile Include="Logicas\Ongs.cs" />
+    <Compile Include="Logicas\TiposEntrega.cs" />
     <Compile Include="Modelos\Campanha.cs" />
     <Compile Include="Modelos\CampanhaODS.cs" />
     <Compile Include="Modelos\CategoriaCampanha.cs" />
