@@ -241,7 +241,7 @@ public class Usuario : Banco
         {
             Desconectar();
         }
-
+        
     }
     public bool CadastrarOng(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string imagemFotoPerfil, string webSite, string imagemBanner, string pix, string descricao, string emailContato)
     {

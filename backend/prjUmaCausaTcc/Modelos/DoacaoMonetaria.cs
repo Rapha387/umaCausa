@@ -37,7 +37,5 @@ public class DoacaoMonetaria : Banco
             Desconectar();
         }
     }
-
-
     #endregion
 }

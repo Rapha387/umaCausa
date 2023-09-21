@@ -1,0 +1,48 @@
+body {
+  background: none;
+}
+
+.principalInfos {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.fundoCadastro {
+  width: 453px;
+  height: 262px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #FCFBFB;
+  border: 2px solid #CDC7C7;
+  padding: 6.001rem;
+  margin-top: 20px;
+}
+
+.fundoCadastro button {
+  margin-top: 20px;
+  width: 384px;
+}
+
+.fundoCadastro a {
+  color: #0063BF;
+}
+
+.fundoCadastro p {
+  text-align: center;
+  width: 382px;
+}
+
+h1 {
+  text-align: center;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+}

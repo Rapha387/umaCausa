@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./../css/index.css" />
   <link rel="stylesheet" href="./../css/erro.css" />
-  <title>nome da pagina</title>
+  <title>ERRO - umaCausa</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -29,8 +29,8 @@
               <h1>OOPS!</h1>
               <h2>PARECE QUE O QUE VOCÊ PROCURA NÃO ESTÁ DISPONÍVEL</h2>
               <p class="talvez-auxilie">Talvez isso te auxilie:</p>
-              <p><a href="./index.html">Página Inicial</a></p>
-              <p><a href="./faq.html">Faq</a></p>
+              <p><a href="./index.aspx">Página Inicial</a></p>
+              <p><a href="./faq.aspx">Faq</a></p>
               
                 
               

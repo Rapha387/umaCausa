@@ -58,29 +58,11 @@ public class Campanha : Banco
         }
     }
 
-    private int _quantidadeMeta;
-    public int QuantidadeMeta
-    {
-        get => _quantidadeMeta;
-        set
-        {
-            if (_quantidadeMeta != 0)
-                _quantidadeMeta = value;
-        }
-    }
+    public double QuantidadeMeta { get; set; }
 
-    private int _quantidadeArrecadada;
-    public int QuantidadeArrecadada
-    {
-        get => _quantidadeArrecadada;
-        set
-        {
-            if (_quantidadeArrecadada != 0)
-                _quantidadeArrecadada = value;
-        }
-    }
+    public double QuantidadeArrecadada { get; set; }
 
-    public int PorcentagemArrecadado { get; set; }
+    public double PorcentagemArrecadado { get; set; }
 
     private string _banner;
     public string Banner
@@ -122,7 +104,6 @@ public class Campanha : Banco
         };
         try
         {
-            Conectar();
             Executar("CriarCampanha", parametros);
             return true;
         }
@@ -145,7 +126,6 @@ public class Campanha : Banco
         };
         try
         {
-            Conectar();
             Executar("EncerrarCampanha", parametros);
             return true;
         }
@@ -166,7 +146,6 @@ public class Campanha : Banco
         };
         try
         {
-            Conectar();
             Executar("ExcluirCampanha", parametros);
             return true;
         }
@@ -178,6 +157,44 @@ public class Campanha : Banco
         {
             Desconectar();
         }
+    }
+
+    public void BuscarCampanha(int codigo)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdCampanha", codigo.ToString())
+        };
+
+        try
+        {
+            var dados = Consultar("BuscarCampanha", parametros);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    Codigo = codigo;
+                    Nome = dados.GetString("nm_campanha");
+                    Banner = dados.GetString("img_bannerCampanha");
+                    Descricao = dados.GetString("ds_campanha");
+                    QuantidadeArrecadada = dados.GetDouble("qt_arrecadado");
+                    QuantidadeMeta = dados.GetDouble("qt_meta");
+                    PorcentagemArrecadado = dados.GetDouble("perc");
+                }
+            }
+
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+
     }
 
 

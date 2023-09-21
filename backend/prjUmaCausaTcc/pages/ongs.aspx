@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pt-br">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="UTF-8" />
@@ -28,23 +28,8 @@
       <main>
         <div class="ongs">
           <h2>ONGS</h2>
-          <a href="./ong.html">
-            <div class="ong">
-              <div class="infos-ong">
-                <div class="imagem-ong"></div>
-                <div class="descricao">  
-                  <h3>Viva Bichos Santos e Região <img src="./../images/categorias/categoria1.png" alt=""></h3>
-                  <p>
-                    Idealizada por protetores, a ONG Viva Bicho foi fundada em 2000, sendo a primeira ONG
-                     (Organização Não Governamental da Cidade de Santos...
-                  </p>
-                </div>  
-              </div>
-              <div class="tags">
-                <div class="tag"></div>
-              </div>
-            </div>
-          </a>
+            <asp:Literal ID="litOngs" runat="server"></asp:Literal>
+
         </div>
         <div class="pesquisa">
           <div class="pesquisar">
@@ -53,10 +38,10 @@
           </div>
           <div class="filtro">
             <h3>Filtrar Por:</h3>
-            <select name="Categoria" id="">
+            <select name="Categoria" id="a">
               <option value="Categoria">Categoria</option>
             </select>
-            <select name="DataCricacao" id="">
+            <select name="DataCricacao" id="b">
               <option value="DataCricacao">Data de Criação</option>
             </select>
           </div>

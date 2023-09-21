@@ -1,0 +1,63 @@
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pesquisa {
+  width: 336px;
+}
+
+.itens {
+  width: 621px;
+}
+.itens h2 {
+  margin-bottom: 30px;
+}
+.itens .itens-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.itens .item {
+  min-height: 285px;
+  width: 295px;
+  display: flex;
+  flex-direction: column;
+}
+.itens .item .imagem-item {
+  width: 100%;
+  height: 182px;
+  border-radius: 4px 4px 0 0;
+  background: url(./../../images/itens/item1.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.itens .item .sobre-item {
+  background-color: #F5F5F5;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 0 4px 4px;
+}
+.itens .item .sobre-item h3 {
+  color: #000;
+  font-weight: 700;
+  font-size: 14px;
+}
+.itens .item .sobre-item p {
+  font-size: 14px;
+  color: #403C3C;
+}
+.itens .item .sobre-item .infos {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.itens .item .sobre-item .infos .estado, .itens .item .sobre-item .infos .data-publicacao {
+  color: #7C7C7C;
+  font-size: 12px;
+}

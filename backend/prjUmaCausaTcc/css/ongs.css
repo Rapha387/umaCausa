@@ -19,8 +19,8 @@
   border-radius: 4px;
 }
 .ongs .ong .imagem-ong {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 4px;
   margin-bottom: -10px;
   background: url(./../images/ongs/ong1.png);
@@ -51,18 +51,23 @@
   height: 20px;
 }
 .ongs .ong .infos-ong .descricao p {
-  color: #403C3C;
-  margin-top: 4px;
-  font-size: 14px;
+    color: #403C3C;
+    margin-top: 4px;
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /** número de linhas que você quer exibir */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-.ongs .ong .tags {
-  background-color: #373434;
-  border-radius: 0 0 4px 4px;
-  padding: 0.1rem;
-  padding-left: 6.4rem;
-}
+    .ongs .ong .tags {
+        background-color: #8AB6DE;
+        border-radius: 0 0 4px 4px;
+        padding: 0.1rem;
+        padding-left: 6.4rem;
+    }
 .ongs .ong .tags .tag {
-  font-size: 14px;
-  color: #1876F2;
-  display: inline-block;
+    font-size: 14px;
+    color: #8AB6DE;
+    display: inline-block;
 }

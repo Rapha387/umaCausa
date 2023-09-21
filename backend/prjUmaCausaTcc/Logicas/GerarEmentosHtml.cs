@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace prjUmaCausaTcc.Logicas
-{
     public class GerarEmentosHtml
     {
         public string MudarNavegacao(bool logado, int tipoUsuario)
@@ -95,4 +93,3 @@ namespace prjUmaCausaTcc.Logicas
             return footer;
         }
     }
-}

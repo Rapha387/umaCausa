@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace prjUmaCausaTcc.Logicas
 {
@@ -77,22 +78,48 @@ namespace prjUmaCausaTcc.Logicas
             }
             return ongs;
         }
-        public void ListarOngs(int limite)
+        public void ListarIndiceOngs()
         {
+
+        }
+        public List<Usuario> ListarOngs(int limite)
+        {
+            List<Usuario> usuarios= new List<Usuario>();
             List<Parametro> parametros = new List<Parametro>()
             {
                 new Parametro ("pValor", limite.ToString())
             };
-            MySqlDataReader dados = Consultar("ListarOngs", parametros);
-            if (dados.HasRows)
+            try
             {
-                while (dados.Read())
+                MySqlDataReader dados = Consultar("ListarOngs", parametros);
+                if (dados.HasRows)
                 {
-
+                    while (dados.Read())
+                    {
+                        Usuario usuario = new Usuario()
+                        {
+                            Codigo = dados.GetInt32("id_usuario"),
+                            Nome = dados.GetString("nm_usuario"),
+                            Descricao = dados.GetString("ds_usuario"),
+                            FotoPerfil = dados.GetString("img_fotoPerfil")
+                        };
+                        CategoriaOng categoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
+                        usuario.CategoriaOng = categoriaOng;
+                        usuarios.Add(usuario);
+                    }
                 }
+                if (dados.IsClosed)
+                    dados.Close();
+
+                return usuarios;
             }
-            if (dados.IsClosed)
-                dados.Close();
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { Desconectar(); }
+
         }
     }
 }

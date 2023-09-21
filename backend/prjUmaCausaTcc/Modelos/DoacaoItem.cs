@@ -22,10 +22,14 @@ public class DoacaoItem : Banco
     #endregion
 
     #region Metodos
+<<<<<<< HEAD
 
     #endregion
 
     public bool CadastrarDoacaoItem(int doador, int ong, string nome, int quantidade, TipoItem tipo, TipoEntrega entrega, string dataDesejada, string horaDesejado)
+=======
+    public bool CadastrarDoacaoItem(string nome, int doador, int ong, int quantidade, TipoItem tipo, TipoEntrega entrega)
+>>>>>>> origin/alisson2
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -53,4 +57,6 @@ public class DoacaoItem : Banco
             Desconectar();
         }
     }
+
+    #endregion
 }
