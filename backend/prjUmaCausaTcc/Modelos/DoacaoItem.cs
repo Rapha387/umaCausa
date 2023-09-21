@@ -22,14 +22,8 @@ public class DoacaoItem : Banco
     #endregion
 
     #region Metodos
-<<<<<<< HEAD
 
-    #endregion
-
-    public bool CadastrarDoacaoItem(int doador, int ong, string nome, int quantidade, TipoItem tipo, TipoEntrega entrega, string dataDesejada, string horaDesejado)
-=======
-    public bool CadastrarDoacaoItem(string nome, int doador, int ong, int quantidade, TipoItem tipo, TipoEntrega entrega)
->>>>>>> origin/alisson2
+    public bool CadastrarDoacaoItem(int doador, int ong, string nome, int quantidade, TipoItem tipo, TipoEntrega entrega, string dataDesejada, string horaDesejada)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -39,7 +33,7 @@ public class DoacaoItem : Banco
             new Parametro("pQtItem", quantidade.ToString()),
             new Parametro("pIdTipoItem", tipo.Codigo.ToString()),
             new Parametro("pIdTipoEntrega", entrega.Codigo.ToString()),
-            new Parametro("pHoraDoacao", horaDesejado.ToString()),
+            new Parametro("pHoraDoacao", horaDesejada),
             new Parametro("pDataDoacao", dataDesejada.ToString()),
         };
         try

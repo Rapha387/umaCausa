@@ -28,39 +28,32 @@ namespace prjUmaCausaTcc.pages
 
                     var ListaTipoItens = new Itens().ListarTiposItens();
 
-                    for(int i = 0; i < ListaTipoItens.Count; i++)
+                    foreach (TipoItem tipoItem in ListaTipoItens)
                     {
-                        if (i == 0)
+                        if (cmbTipoItem.Items.Count == 0)
                         {
                             cmbTipoItem.Items.Add("Selcione o Tipo do Item");
                         }
-                        else
-                        {
-                            cmbTipoEntrega.Items.Add(ListaTipoItens[i -1].Nome);
-                            cmbTipoEntrega.Items[i -1].Value = ListaTipoItens[i -1].Codigo.ToString();
-                        }
+                        cmbTipoItem.Items.Add(tipoItem.Nome);
+                        cmbTipoItem.Items[tipoItem.Codigo].Value = tipoItem.Codigo.ToString();
                     }
 
                     var ListaTipoEntrega = new TiposEntrega().ListarTiposEntrega();
 
-                    for (int i = 0; i < ListaTipoEntrega.Count; i++)
+                    foreach (TipoEntrega tipoEntrega in ListaTipoEntrega)
                     {
-                        if (i == 0)
+                        if (cmbTipoEntrega.Items.Count == 0)
                         {
-                            cmbTipoEntrega.Items.Add("Selecione o Tipo da Entrega");
+                            cmbTipoEntrega.Items.Add("Selcione o Tipo da Entrega");
                         }
-                        else
-                        {
-                            cmbTipoEntrega.Items.Add(ListaTipoEntrega[i -1].Nome);
-                            cmbTipoEntrega.Items[i -1].Value = ListaTipoEntrega[i -1].Codigo.ToString();
-                        }
-                        
+                        cmbTipoEntrega.Items.Add(tipoEntrega.Nome);
+                        cmbTipoEntrega.Items[tipoEntrega.Codigo].Value = tipoEntrega.Codigo.ToString();
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    Response.Redirect("erro.aspx?e=" + ex.Message);
+                    Response.Redirect($"erro.aspx?e=Nao foi possivel carregar a página");
                 }
             }
             else

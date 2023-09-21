@@ -40,17 +40,18 @@ namespace prjUmaCausaTcc.JsonResponses
                 tipoEntrega.Codigo = int.Parse(Request["te"].ToString());
 
                 string data = Request["dt"].ToString();
-                string horario = Request["hr"].ToString();
+                string horario = Request["hr"].ToString() + ":00";
 
                 DateTime.Parse(data).ToString("yyyy-MM-dd");
+                DateTime.Parse(horario).ToString("HH:mm:ss");
 
                 DoacaoItem doacaoItem = new DoacaoItem();
 
                 doacaoItem.CadastrarDoacaoItem(doador, ong, nomeItem, qtItem, tipoItem, tipoEntrega, data, horario);
             }
-            catch
+            catch(Exception ex)
             {
-                resposta = "{'situacao': 'false'}";
+                resposta = "{'situacao': '" + ex.Message + "'}";
                 resposta = resposta.Replace('\'', '\"');
                 Response.Write(resposta);
                 return;
