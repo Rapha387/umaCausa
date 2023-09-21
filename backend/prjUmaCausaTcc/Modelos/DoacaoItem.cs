@@ -23,7 +23,7 @@ public class DoacaoItem : Banco
 
     #region Metodos
 
-    public bool CadastrarDoacaoItem(int doador, int ong, string nome, int quantidade, TipoItem tipo, TipoEntrega entrega, string dataDesejada, string horaDesejada)
+    public void CadastrarDoacaoItem(int doador, int ong, string nome, int quantidade, TipoItem tipo, TipoEntrega entrega, string dataDesejada, string horaDesejada)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -40,7 +40,6 @@ public class DoacaoItem : Banco
         {
             Conectar();
             Executar("CadastrarDoacaoItem", parametros);
-            return true;
         }
         catch (Exception ex)
         {
