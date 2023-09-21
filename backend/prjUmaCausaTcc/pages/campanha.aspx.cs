@@ -33,7 +33,7 @@ namespace prjUmaCausaTcc.pages
             }
 
             Campanha campanha = new Campanha();
-            campanha.BuscarCampanha(int.Parse(Request["campanha"]));
+            campanha.BuscarCampanha(int.Parse(Request["c"]));
             litArrecadado.Text = campanha.QuantidadeArrecadada.ToString().Replace(".",",");
             litMeta.Text = campanha.QuantidadeMeta.ToString().Replace(".", ",");
             litDescricao.Text = campanha.Descricao;

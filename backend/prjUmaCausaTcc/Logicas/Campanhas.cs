@@ -65,7 +65,7 @@ namespace prjUmaCausaTcc.Logicas
                             Banner = dados.GetString("img_bannerCampanha"),
                             Nome = dados.GetString("nm_campanha"),
                             Codigo = dados.GetInt32("id_campanha"),
-                            //PorcentagemArrecadado = dados.GetInt32("perc")
+                            PorcentagemArrecadado = dados.GetInt32("perc")
                         });
                     }
                 }

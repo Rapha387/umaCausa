@@ -362,12 +362,10 @@ li label {
     padding: 10px;
     font-size: 14px;
     font-weight: 700;
-    margin-bottom: 10px;
-    display: -webkit-box;
-    -webkit-line-clamp: 1; /** número de linhas que você quer exibir */
-    -webkit-box-orient: vertical;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    word-wrap: break-word;
 }
 .campanhas .campanhas-flex .campanha .sobre-campanha .progresso {
   display: flex;

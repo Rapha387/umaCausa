@@ -18,18 +18,18 @@ namespace prjUmaCausaTcc.pages
             foreach (Campanha campanha in campanhas.ListarCampanhasASC(0))
             {
                 litCampanhas.Text += $@"
-                <a href='./campanha.aspx?campanha={campanha.Codigo}'>
+                <a href='./campanha.aspx?c={campanha.Codigo}'>
                   <div class='campanha'>
-                    <div class='imagem-campanha'></div>
+                    <div style='background-image: url(../{campanha.Banner});'class='imagem-campanha'></div>
                     <div class='sobre-campanha'>
                       <div class='nome-campanha'>
                         {campanha.Nome}
                       </div>
                       <div class='progresso'>
                         <div class='barra-progresso'>
-                          <div class='quantidade-progresso'></div>
+                          <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%;'></div>
                         </div>
-                        <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
+                        <div class='porcentagem' >{campanha.PorcentagemArrecadado}%</div>
                       </div>
                     </div>
                   </div>

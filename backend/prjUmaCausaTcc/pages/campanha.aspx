@@ -87,7 +87,8 @@
         <h3>R$<asp:Literal ID="litMeta" runat="server"></asp:Literal></h3>
         <p>Arrecadados da meta de R$<asp:Literal ID="litArrecadado" runat="server"></asp:Literal></p>
         <div class="barra-meta">
-          <div class="progresso"></div>
+            <asp:Literal ID="litProgresso" runat="server"></asp:Literal>
+          <%--<div class="progresso"></div>--%>
         </div>
         <button id="btnDoar">DOAR</button>
       </div>
