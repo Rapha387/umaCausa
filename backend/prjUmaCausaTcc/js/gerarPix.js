@@ -5,6 +5,7 @@ const qrcodeContainer = document.getElementById("qrcode");
 if (btnGerarPix) {
   btnGerarPix.addEventListener('click', function(e){
     e.preventDefault();
+    erroDoacaoMonetaria.textContent = ""
 
     if (txtValor.value == "") {
         txtValor.classList.add('inputInvalido');

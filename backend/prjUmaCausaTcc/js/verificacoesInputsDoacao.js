@@ -14,27 +14,9 @@ const btnRelizarDoacaoMonetaria = document.getElementById("btnRelizarDoacaoMonet
 const btnGerarPix = document.getElementById("btnGerarPix");
 
 
-if (btnAgendarItem) {
-    btnAgendarItem.onclick = function (event) {
-        VerificarDadosDoacaoItem(event);
-    }
-}
-
-
 
 function VerificarDadosDoacaoItem(event) {
-    txtNomeItem.classList.remove('inputInvalido');
-    cmbTipoItem.classList.remove('inputInvalido');
-    txtQuantidadeItem.classList.remove('inputInvalido');
-    cmbTipoEntrega.classList.remove('inputInvalido');
-    txtHorario.classList.remove('inputInvalido');
-    txtDataEnvio.classList.remove('inputInvalido');
-    erroNomeItem.textContent = ""
-    erroTipoItem.textContent = ""
-    erroQuantidadeItem.textContent = ""
-    erroTipoEntrega.textContent = ""
-    erroHorario.textContent = ""
-    erroDataEnvio.textContent = ""
+    LimparInputsItem();
 
     if (txtNomeItem.value == "") {
         txtNomeItem.classList.add('inputInvalido');
@@ -69,9 +51,7 @@ function VerificarDadosDoacaoItem(event) {
 }
 
 function VerificarDadosDoacaoMonetaria(event) {
-    txtValor.classList.remove('inputInvalido');
-    txtComprovante.classList.remove('inputInvalido');
-    erroDoacaoMonetaria = "";
+    LimparInputsMonetario();
 
     if (txtValor.value == "") {
         txtValor.classList.add('inputInvalido');
@@ -84,3 +64,27 @@ function VerificarDadosDoacaoMonetaria(event) {
         erroDoacaoMonetaria.textContent = "O comprovante de pagamento precisa ser anexado"
     }
 }
+
+
+function LimparInputsMonetario() {
+    txtValor.classList.remove('inputInvalido');
+    txtComprovante.classList.remove('inputInvalido');
+    erroDoacaoMonetaria.textContent = "";
+}
+
+function LimparInputsItem() {
+    txtNomeItem.classList.remove('inputInvalido');
+    cmbTipoItem.classList.remove('inputInvalido');
+    txtQuantidadeItem.classList.remove('inputInvalido');
+    cmbTipoEntrega.classList.remove('inputInvalido');
+    txtHorario.classList.remove('inputInvalido');
+    txtDataEnvio.classList.remove('inputInvalido');
+    erroNomeItem.textContent = ""
+    erroTipoItem.textContent = ""
+    erroQuantidadeItem.textContent = ""
+    erroTipoEntrega.textContent = ""
+    erroHorario.textContent = ""
+    erroDataEnvio.textContent = ""
+}
+
+

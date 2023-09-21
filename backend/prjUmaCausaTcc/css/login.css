@@ -2,6 +2,10 @@
     height: 7.4vh;
 }
 
+﻿h1 {
+    margin-bottom: 10px;
+}
+
 body {
     padding-top: 7.4vh;
 }
@@ -24,15 +28,17 @@ body {
     height: 289px;
     justify-content: space-between;
 }
+.login input {
+    width: 395px;
+    height: 45px;
+}
 
-    .login input {
-        width: 395px;
-        height: 55px;
-    }
-
-    .login button {
-        height: 45px;
-    }
+.login input[type=submit] {
+    margin: 10px 0;
+    height: 45px;
+    padding: 0.594rem 1rem;
+    font-size: 16px;
+}
 
 p {
     text-align: center;

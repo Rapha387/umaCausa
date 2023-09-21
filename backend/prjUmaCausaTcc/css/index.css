@@ -337,6 +337,7 @@ li label {
   display: flex;
   height: 100%;
   flex-direction: column;
+  user-select:none;
 }
 .campanhas .campanhas-flex .campanha {
   border-radius: 5px;
@@ -554,6 +555,7 @@ label {
   -webkit-appearance: none;
   appearance: none;
   display: none;
+  user-select:none;
 }
 .pesquisar img {
   cursor: pointer;
@@ -567,6 +569,7 @@ label {
   width: 86px;
   height: 22px;
   margin: auto;
+  user-select:none;
 }
 .botoes-carrossel button {
   justify-content: center;

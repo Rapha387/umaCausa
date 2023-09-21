@@ -26,7 +26,6 @@
          </header>
   
         <asp:Literal ID="litBanner" runat="server"></asp:Literal>
-    <%--  <div class="banner"></div>--%>
   
       <div class="bloqueio escondido"></div>
 
@@ -56,7 +55,7 @@
             <input type="number" placeholder="10,00" id="txtValor">
             <button id="btnGerarPix">Gerar QRCODE</button>
             <label for="txtComprovante">Comprovante:</label>
-            <input type="file" id="txtComprovante">
+            <input type="file" id="txtComprovante" accept="image/*">
           </div>
 
           <div class="espacamento"></div>
@@ -80,9 +79,9 @@
           </div>
           <div class="input-label">
             <label for="cmbTipoItem">Tipo do Item:</label>
-            <select name="cmbTipoItem" id="cmbTipoItem">
-              <option value="roupa">Roupa</option>
-            </select>
+            <asp:DropDownList ID="cmbTipoItem" runat="server">
+                <asp:ListItem>Selecione o tipo do Item</asp:ListItem>
+            </asp:DropDownList>
             <span id="erroTipoItem" class="spanErro"></span>
           </div>
           <div class="input-label">
@@ -92,9 +91,7 @@
           </div>
           <div class="input-label">
             <label for="cmbTipoEntrega">Tipo da Entrega:</label>
-            <select name="cmbTipoEntrega" id="cmbTipoEntrega">
-              <option value="">Levar Item ao Local</option>
-            </select>
+              <asp:DropDownList ID="cmbTipoEntrega" runat="server"></asp:DropDownList>
             <span id="erroTipoEntrega" class="spanErro"></span>
           </div>
           <div class="input-label">
@@ -164,23 +161,6 @@
               <h2>CAMPANHAS INATIVAS</h2>
               <div class="campanhas-flex swiper-wrapper">
                   <asp:Literal ID="litCampanhasInativas" runat="server"></asp:Literal>
-                <%--<div class="campanha swiper-slide">
-                  <a href="">
-                    <div class="imagem-campanha"></div>
-                    <div class="sobre-campanha">
-                      <div class="nome-campanha">
-                        Evento De Doação de Ca...
-                      </div>
-                      <div class="progresso">
-                        <div class="barra-progresso">
-                          <div class="quantidade-progresso"></div>
-                        </div>
-                        <div class="porcentagem">15%</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>--%>
-            
               </div>
               <div class="botoes-carrossel">
                 <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar"></button>

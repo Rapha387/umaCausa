@@ -12,29 +12,51 @@ namespace prjUmaCausaTcc.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
-            litFooter.Text = gerarHtml.GerarFooter();
-
             if (!String.IsNullOrEmpty(Request["ong"]))
             {
                 try
                 {
+                    cmbTipoEntrega.Items.Clear();
+                    cmbTipoEntrega.Items.Add("Selecione o Tipo da Entrega");
+                    cmbTipoItem.Items.Clear();
+                    cmbTipoItem.Items.Add("Selcione o Tipo do Item");
+
                     int codigoUsuario = int.Parse(Request["ong"]);
                     ExibirDadosMinimosUsuario(codigoUsuario);
 
                     ExibirCampanhasAtivas(codigoUsuario);
 
                     ExibirCampanhasInativas(codigoUsuario);
+
+                    var ListaTipoItens = new Itens().ListarTiposItens();
+
+                    for(int i = 0; i < ListaTipoItens.Count; i++)
+                    {
+                        cmbTipoItem.Items.Add(ListaTipoItens[i].Nome);
+                        cmbTipoItem.Items[i].Value = ListaTipoItens[i].Codigo.ToString();
+                    }
+
+                    var ListaTipoEntrega = new TiposEntrega().ListarTiposEntrega();
+
+                    for (int i = 0; i < ListaTipoEntrega.Count; i++)
+                    {
+                        cmbTipoEntrega.Items.Add(ListaTipoEntrega[i].Nome);
+                        cmbTipoEntrega.Items[i].Value = ListaTipoEntrega[i].Codigo.ToString();
+                    }
+
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    Response.Redirect("erro.aspx?e="+ex.Message);
+                    Response.Redirect("erro.aspx?e=" + ex.Message);
                 }
             }
             else
             {
                 Response.Redirect("erro.aspx?e=Página não encontrada");
             }
+
+            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
+            litFooter.Text = gerarHtml.GerarFooter();
 
             if (Session["email"] != null)
             {
@@ -55,6 +77,7 @@ namespace prjUmaCausaTcc.pages
 
         private void ExibirDadosMinimosUsuario(int codigoUsuario)
         {
+
             Usuario usuario = new Usuario();
             usuario.BuscarOng(codigoUsuario);
             litNomeNavegador.Text = usuario.Nome + " - umaCausa";
@@ -68,10 +91,13 @@ namespace prjUmaCausaTcc.pages
             litCampanha.Text = $"<a src='ongs.aspx?categoria{usuario.CategoriaOng.Codigo}'><p>#{usuario.CategoriaOng.Nome}</p></a>";
             litBanner.Text = $"<div class='banner' style='background: url(../{usuario.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
             litIcone.Text = $"<div class='logo-ong' style='background: url(../{usuario.FotoPerfil}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
+            
         }
 
         private void ExibirCampanhasAtivas(int codigoUsuario)
         {
+            litCampanhasAtivas.Text = "";
+
             List<Campanha> campanhasAtivas = new Campanhas().ListarDadosMinimosCampanhasDaOng(codigoUsuario);
             if (campanhasAtivas.Count <= 0)
                 litCampanhasAtivas.Text = "<p>Não temos campanhas ainda :/</p>";
@@ -88,7 +114,7 @@ namespace prjUmaCausaTcc.pages
                   </div>
                   <div class='progresso'>
                     <div class='barra-progresso'>
-                      <div class='quantidade-progresso'></div>
+                      <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%'></div>
                     </div>
                     <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
                   </div>
@@ -100,6 +126,8 @@ namespace prjUmaCausaTcc.pages
 
         private void ExibirCampanhasInativas(int codigoUsuario)
         {
+            litCampanhasInativas.Text = "";
+
             List<Campanha> campanhasInativas = new Campanhas().ListarDadosMinimosCampanhasFinalizadasDaOng(codigoUsuario);
             if (campanhasInativas.Count <= 0)
                 litCampanhasInativas.Text = "<p>Não há campanhas inativas</p>";
@@ -115,7 +143,7 @@ namespace prjUmaCausaTcc.pages
                   </div>
                   <div class='progresso'>
                     <div class='barra-progresso'>
-                      <div class='quantidade-progresso'></div>
+                      <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%'></div>
                     </div>
                     <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
                   </div>
