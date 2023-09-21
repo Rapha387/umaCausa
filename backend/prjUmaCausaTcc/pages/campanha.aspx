@@ -2,10 +2,19 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pt-br">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./../images/icone.svg" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./../css/index.css">
+  <link rel="stylesheet" href="./../css/campanha.css">
+    <title><asp:Literal ID="litWebNome" runat="server"></asp:Literal></title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -68,20 +77,15 @@
     <div class="foto-descricao-campanha">
       <div class="imagem-campanha"></div>
       <div class="descricao-campanha">
-        <h1>Evento de Adoção de cães</h1>
+        <h1><asp:Literal ID="litNome" runat="server"></asp:Literal></h1>
         <h3>SOBRE</h3>
-        <p>É HOJEEEE.. 
-          COMPARTILHEM MUITOOOO
-          EVENTO DE ADOÇÃO DE CÃES
-          O Instituto Viva Bicho em parceria com o @molecaopetshop irá realizar um evento de adoção de cães no dia 24/06 (sábado)
-          O evento ocorrerá no próprio Petshop Molecão, na Rua Ricardo Pinto, 89, entre 10 e 13 hrs.
-          Contamos com sua presença e com a sua divulgação</p>
+        <p><asp:Literal ID="litDescricao" runat="server"></asp:Literal></p>
       </div>
     </div>
     <div class="infos-campanha">
       <div class="meta">
-        <h3>R$30,00</h3>
-        <p>Arrecadados da meta de R$500,00</p>
+        <h3>R$<asp:Literal ID="litMeta" runat="server"></asp:Literal></h3>
+        <p>Arrecadados da meta de R$<asp:Literal ID="litArrecadado" runat="server"></asp:Literal></p>
         <div class="barra-meta">
           <div class="progresso"></div>
         </div>

@@ -92,11 +92,11 @@ namespace prjUmaCausaTcc.pages
                             <div class='nome-campanha'>
                              {campanha.Nome}
                             </div>
-                           <div class='progresso'>
+                           <div class='progresso'> 
                             <div class='barra-progresso'>
-                                <div class='quantidade-progresso'></div>
+                                <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%;'></div>
                             </div>
-                            <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
+                            <div class='porcentagem' >{campanha.PorcentagemArrecadado}%</div>
                            </div>
                         </div>
                     </a>

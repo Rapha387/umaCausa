@@ -359,10 +359,15 @@ li label {
   height: 71px;
 }
 .campanhas .campanhas-flex .campanha .sobre-campanha .nome-campanha {
-  padding: 10px;
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /** número de linhas que você quer exibir */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .campanhas .campanhas-flex .campanha .sobre-campanha .progresso {
   display: flex;

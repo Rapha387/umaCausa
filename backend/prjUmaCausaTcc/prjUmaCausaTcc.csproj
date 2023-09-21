@@ -221,6 +221,7 @@
     <Content Include="js\verificacoesInputsDoacao.js" />
     <Content Include="pages\cadastroDoador.aspx" />
     <Content Include="pages\cadastroOng.aspx" />
+    <Content Include="pages\campanha.aspx" />
     <Content Include="pages\campanhas.aspx" />
     <Content Include="pages\erro.aspx" />
     <Content Include="pages\index.aspx" />
@@ -348,6 +349,13 @@
     </Compile>
     <Compile Include="pages\cadastroOng.aspx.designer.cs">
       <DependentUpon>cadastroOng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\campanha.aspx.cs">
+      <DependentUpon>campanha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\campanha.aspx.designer.cs">
+      <DependentUpon>campanha.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\campanhas.aspx.cs">
       <DependentUpon>campanhas.aspx</DependentUpon>
