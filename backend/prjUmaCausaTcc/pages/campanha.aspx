@@ -75,7 +75,8 @@
 
   <main>
     <div class="foto-descricao-campanha">
-      <div class="imagem-campanha"></div>
+      <%--<div class="imagem-campanha"></div>--%>
+        <asp:Literal ID="litImagem" runat="server"></asp:Literal>
       <div class="descricao-campanha">
         <h1><asp:Literal ID="litNome" runat="server"></asp:Literal></h1>
         <h3>SOBRE</h3>
@@ -94,23 +95,14 @@
       </div>
       <div class="realizador-campanha">
         <h3>Realizador dessa campanha</h3>
-        <div class="infos-realizador">
-          <img src="../images/ongs/ong1.png" alt="">
-          <div>
-            <h3>Instituto Viva Bichos Brasil</h3>
-            <p>Idealizada por protetores, a ONG Viva Bicho foi fundada em 2000...</p>
-          </div>
-        </div>
+        <asp:Literal ID="litONG" runat="server"></asp:Literal>
+        
       </div>
       <div class="ods-campanha">
         <h3>Objetivos do Desenvolvimento Sustentável desta campanha</h3>
         <div class="flex-ods">
-          <img src="../images/ods/ods15.png" alt="">
-          <img src="../images/ods/ods15.png" alt="">
-          <img src="../images/ods/ods15.png" alt="">
-          <img src="../images/ods/ods15.png" alt="">
-          <img src="../images/ods/ods15.png" alt="">
-          <img src="../images/ods/ods15.png" alt="">
+            <asp:Literal ID="litOds" runat="server"></asp:Literal>
+          <%--<img src="../images/ods/ods15.png" alt="">--%>
         </div>
       </div>
 

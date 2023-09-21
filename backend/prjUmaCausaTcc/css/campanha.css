@@ -85,7 +85,12 @@ main {
   letter-spacing: 0px;
 }
 .infos-campanha .realizador-campanha .infos-realizador p {
-  font-size: 14px;
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /** número de linhas que você quer exibir */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .ods-campanha {

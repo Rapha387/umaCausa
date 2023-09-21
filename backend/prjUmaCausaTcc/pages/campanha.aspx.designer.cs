@@ -42,6 +42,15 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.Literal litHeader;
 
         /// <summary>
+        /// Controle litImagem.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litImagem;
+
+        /// <summary>
         /// Controle litNome.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,24 @@ namespace prjUmaCausaTcc.pages
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litProgresso;
+
+        /// <summary>
+        /// Controle litONG.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litONG;
+
+        /// <summary>
+        /// Controle litOds.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litOds;
 
         /// <summary>
         /// Controle litFooter.

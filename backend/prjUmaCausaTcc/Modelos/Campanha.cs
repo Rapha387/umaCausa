@@ -180,6 +180,7 @@ public class Campanha : Banco
                     QuantidadeArrecadada = dados.GetDouble("qt_arrecadado");
                     QuantidadeMeta = dados.GetDouble("qt_meta");
                     PorcentagemArrecadado = dados.GetDouble("perc");
+                    ONG = new Usuario() { Codigo = dados.GetInt32("id_usuario") };
                 }
             }
 

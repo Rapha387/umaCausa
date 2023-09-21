@@ -495,7 +495,36 @@ public class Usuario : Banco
             Desconectar();
         }
     }
+    public void BuscarDadosMinimosOng(int codigo)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("pIdUsuario", codigo.ToString())
+            };
+        try
+        {
+            MySqlDataReader dados = Consultar("BuscarDadosMinimosOng", parametros);
+            if (dados.HasRows)
+            {
+                while (dados.Read())
+                {
+                    Codigo = codigo;
+                    Nome = dados.GetString("nm_usuario");
+                    Descricao = dados.GetString("ds_usuario");
+                    FotoPerfil = dados.GetString("img_fotoPerfil");
+                }
+            }
+            if (dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception)
+        {
 
+            throw;
+        }
+        finally { Desconectar(); }
+
+    }
     #endregion
     public Usuario()
     {

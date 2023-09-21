@@ -9,8 +9,8 @@ namespace prjUmaCausaTcc.pages
 {
 	public partial class campanha : System.Web.UI.Page
 	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
+        protected void Page_Load(object sender, EventArgs e)
+        {
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
 
@@ -31,14 +31,51 @@ namespace prjUmaCausaTcc.pages
             {
                 litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
             }
+            try
+            {
+                int cd_campanha = int.Parse(Request["c"]);
+                Campanha campanha = new Campanha();
+                BuscarCampanha(cd_campanha, campanha);
+                BuscarONG(campanha);
 
-            Campanha campanha = new Campanha();
-            campanha.BuscarCampanha(int.Parse(Request["c"]));
-            litArrecadado.Text = campanha.QuantidadeArrecadada.ToString().Replace(".",",");
+                odesses odesses = new odesses();
+
+                foreach (ODS ods in odesses.BuscarOdsCampanha(cd_campanha))
+                {
+                    litOds.Text += $"<img src='../{ods.Foto}'' alt=''>";
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            
+
+        }
+
+        private void BuscarCampanha(int cd_campanha, Campanha campanha)
+        {
+            campanha.BuscarCampanha(cd_campanha);
+            litArrecadado.Text = campanha.QuantidadeArrecadada.ToString().Replace(".", ",");
             litMeta.Text = campanha.QuantidadeMeta.ToString().Replace(".", ",");
             litDescricao.Text = campanha.Descricao;
-            litWebNome.Text = campanha.Nome;
-            litNome.Text = campanha.Nome + " - umaCausa";
+            litWebNome.Text = campanha.Nome + " - umaCausa";
+            litNome.Text = campanha.Nome;
+            litProgresso.Text = $"<div class='progresso' style='width: {campanha.PorcentagemArrecadado}%;'></div>";
+            litImagem.Text = $"<div style='background-image: url(../{campanha.Banner});'class='imagem-campanha'></div>";
         }
-	}
+
+        private void BuscarONG(Campanha campanha)
+        {
+            Usuario ong = new Usuario();
+            ong.BuscarDadosMinimosOng(campanha.ONG.Codigo);
+            litONG.Text = $@"<a href='ong.aspx?ong={ong.Codigo}' style='color: #000;'><div class='infos-realizador'>
+            <img src = '../{ong.FotoPerfil}'>
+              <div>
+              <h3>{ong.Nome}</h3>
+              <p>{ong.Descricao}</p>
+            </div>
+          </div></a>";
+        }
+    }
 }

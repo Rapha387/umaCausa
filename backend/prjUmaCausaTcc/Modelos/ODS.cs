@@ -6,8 +6,8 @@ using System.Web;
 public class ODS
 {
     #region Propriedades
-    public int Codigo { get; private set; }
-    public string Nome { get; private set; }
-    public string Foto { get; private set; }
+    public int Codigo { get; set; }
+    public string Nome { get; set; }
+    public string Foto { get; set; }
     #endregion
 }
