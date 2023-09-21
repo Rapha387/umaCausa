@@ -15,13 +15,17 @@ public class DoacaoItem : Banco
     public bool DoacaoConfirmada { get; set; }
     public TipoItem TipoItem { get; set; }
     public TipoEntrega TipoEntrega { get; set; }
+
+    public string DataDesejada { get; set; }
+    public string HorarioDesejado { get; set; }
+
     #endregion
 
     #region Metodos
 
     #endregion
 
-    public bool CadastrarDoacaoItem(string nome, int doador, int ong, int quantidade, TipoItem tipo, TipoEntrega entrega)
+    public bool CadastrarDoacaoItem(int doador, int ong, string nome, int quantidade, TipoItem tipo, TipoEntrega entrega, string dataDesejada, string horaDesejado)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -30,7 +34,9 @@ public class DoacaoItem : Banco
             new Parametro("pNmItem", nome),
             new Parametro("pQtItem", quantidade.ToString()),
             new Parametro("pIdTipoItem", tipo.Codigo.ToString()),
-            new Parametro("pIdTipoEntrega", entrega.Codigo.ToString())
+            new Parametro("pIdTipoEntrega", entrega.Codigo.ToString()),
+            new Parametro("pHoraDoacao", horaDesejado.ToString()),
+            new Parametro("pDataDoacao", dataDesejada.ToString()),
         };
         try
         {

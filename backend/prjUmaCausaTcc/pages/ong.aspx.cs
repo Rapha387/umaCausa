@@ -17,9 +17,7 @@ namespace prjUmaCausaTcc.pages
                 try
                 {
                     cmbTipoEntrega.Items.Clear();
-                    cmbTipoEntrega.Items.Add("Selecione o Tipo da Entrega");
                     cmbTipoItem.Items.Clear();
-                    cmbTipoItem.Items.Add("Selcione o Tipo do Item");
 
                     int codigoUsuario = int.Parse(Request["ong"]);
                     ExibirDadosMinimosUsuario(codigoUsuario);
@@ -32,16 +30,31 @@ namespace prjUmaCausaTcc.pages
 
                     for(int i = 0; i < ListaTipoItens.Count; i++)
                     {
-                        cmbTipoItem.Items.Add(ListaTipoItens[i].Nome);
-                        cmbTipoItem.Items[i].Value = ListaTipoItens[i].Codigo.ToString();
+                        if (i == 0)
+                        {
+                            cmbTipoItem.Items.Add("Selcione o Tipo do Item");
+                        }
+                        else
+                        {
+                            cmbTipoEntrega.Items.Add(ListaTipoItens[i -1].Nome);
+                            cmbTipoEntrega.Items[i -1].Value = ListaTipoItens[i -1].Codigo.ToString();
+                        }
                     }
 
                     var ListaTipoEntrega = new TiposEntrega().ListarTiposEntrega();
 
                     for (int i = 0; i < ListaTipoEntrega.Count; i++)
                     {
-                        cmbTipoEntrega.Items.Add(ListaTipoEntrega[i].Nome);
-                        cmbTipoEntrega.Items[i].Value = ListaTipoEntrega[i].Codigo.ToString();
+                        if (i == 0)
+                        {
+                            cmbTipoEntrega.Items.Add("Selecione o Tipo da Entrega");
+                        }
+                        else
+                        {
+                            cmbTipoEntrega.Items.Add(ListaTipoEntrega[i -1].Nome);
+                            cmbTipoEntrega.Items[i -1].Value = ListaTipoEntrega[i -1].Codigo.ToString();
+                        }
+                        
                     }
 
                 }
@@ -77,19 +90,19 @@ namespace prjUmaCausaTcc.pages
 
         private void ExibirDadosMinimosUsuario(int codigoUsuario)
         {
-            Usuario usuario = new Usuario();
-            usuario.BuscarOng(codigoUsuario);
-            litNomeNavegador.Text = usuario.Nome + " - umaCausa";
-            litCNPJ.Text = $"<a href='https://cnpj.info/{usuario.Identificacao.Replace(".", "").Replace("/", "").Replace("-", "")}'>" + usuario.Identificacao + "<a/>";
-            litDescricao.Text = usuario.Descricao;
-            litEmailContato.Text = $"<a href='mailto:{usuario.EmailContato}'>" + usuario.EmailContato + "</a>";
-            litEndereco.Text = $"{usuario.Rua}, {usuario.Numero} - {usuario.Bairro}, {usuario.Cidade} - {usuario.Estado}, {usuario.Cep}";
-            litNome.Text = usuario.Nome;
-            litSite.Text = $"<a href='{usuario.Website}'>" + usuario.Website + "</a>";
-            litTelefone.Text = $"<a href='tel:{usuario.Telefone}'>" + usuario.Telefone + "</a>";
-            litCampanha.Text = $"<a src='ongs.aspx?categoria{usuario.CategoriaOng.Codigo}'><p>#{usuario.CategoriaOng.Nome}</p></a>";
-            litBanner.Text = $"<div class='banner' style='background: url(../{usuario.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
-            litIcone.Text = $"<div class='logo-ong' style='background: url(../{usuario.FotoPerfil}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
+                Usuario usuario = new Usuario();
+                usuario.BuscarOng(codigoUsuario);
+                litNomeNavegador.Text = usuario.Nome + " - umaCausa";
+                litCNPJ.Text = $"<a href='https://cnpj.info/{usuario.Identificacao.Replace(".", "").Replace("/", "").Replace("-", "")}'>" + usuario.Identificacao + "<a/>";
+                litDescricao.Text = usuario.Descricao;
+                litEmailContato.Text = $"<a href='mailto:{usuario.EmailContato}'>" + usuario.EmailContato + "</a>";
+                litEndereco.Text = $"{usuario.Rua}, {usuario.Numero} - {usuario.Bairro}, {usuario.Cidade} - {usuario.Estado}, {usuario.Cep}";
+                litNome.Text = usuario.Nome;
+                litSite.Text = $"<a href='{usuario.Website}'>" + usuario.Website + "</a>";
+                litTelefone.Text = $"<a href='tel:{usuario.Telefone}'>" + usuario.Telefone + "</a>";
+                litCampanha.Text = $"<a src='ongs.aspx?categoria{usuario.CategoriaOng.Codigo}'><p>#{usuario.CategoriaOng.Nome}</p></a>";
+                litBanner.Text = $"<div class='banner' style='background: url(../{usuario.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
+                litIcone.Text = $"<div class='logo-ong' style='background: url(../{usuario.FotoPerfil}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
         }
 
         private void ExibirCampanhasAtivas(int codigoUsuario)
