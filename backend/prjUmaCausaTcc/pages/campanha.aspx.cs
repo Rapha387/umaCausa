@@ -38,7 +38,7 @@ namespace prjUmaCausaTcc.pages
                 BuscarCampanha(cd_campanha, campanha);
                 BuscarONG(campanha);
 
-                odesses odesses = new odesses();
+                Odesses odesses = new Odesses();
 
                 foreach (ODS ods in odesses.BuscarOdsCampanha(cd_campanha))
                 {

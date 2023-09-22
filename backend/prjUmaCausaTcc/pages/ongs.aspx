@@ -38,9 +38,7 @@
           </div>
           <div class="filtro">
             <h3>Filtrar Por:</h3>
-            <select name="Categoria" id="a">
-              <option value="Categoria">Categoria</option>
-            </select>
+              <asp:DropDownList ID="ddlCategoria" AutoPostBack="true" OnTextChanged="ddlCategoria_TextChanged" runat="server"></asp:DropDownList>
             <select name="DataCricacao" id="b">
               <option value="DataCricacao">Data de Criação</option>
             </select>

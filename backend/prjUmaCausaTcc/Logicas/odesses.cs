@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 
 
-public class odesses : Banco
+public class Odesses : Banco
 {
     public List<ODS> BuscarOdsCampanha(int codigo)
     {

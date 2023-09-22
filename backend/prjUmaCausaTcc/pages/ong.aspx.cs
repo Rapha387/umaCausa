@@ -106,7 +106,7 @@ namespace prjUmaCausaTcc.pages
             {
                 litCampanhasAtivas.Text += $@"
                 <div class='campanha swiper-slide'>
-                    <a href='camapanha.aspx?campanha={campanha.Codigo}'>
+                    <a href='campanha.aspx?c={campanha.Codigo}'>
                      <div style='background: url(../{campanha.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;'class='imagem-campanha'></div>
                 <div class='sobre-campanha'>
                   <div class='nome-campanha'>
@@ -135,7 +135,7 @@ namespace prjUmaCausaTcc.pages
             {
                 litCampanhasInativas.Text += $@"
                 <div class='campanha swiper-slide'>
-                    <a href='camapanha.aspx?campanha={campanha.Codigo}'>
+                    <a href='campanha.aspx?c={campanha.Codigo}'>
                      <div style='background: url(../{campanha.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;' class='imagem-campanha'></div>
                 <div class='sobre-campanha'>
                   <div class='nome-campanha'>

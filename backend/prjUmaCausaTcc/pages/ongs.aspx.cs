@@ -11,8 +11,10 @@ namespace prjUmaCausaTcc.pages
 {
     public partial class ongs : System.Web.UI.Page
     {
+        string c;
         protected void Page_Load(object sender, EventArgs e)
         {
+            c = Request["c"];
             litOngs.Text = "";
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
@@ -30,8 +32,27 @@ namespace prjUmaCausaTcc.pages
                 litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
             }
 
-            Ongs ongs = new Ongs(); 
-            foreach (Usuario ong in ongs.ListarOngs(1))
+            ddlCategoria.Items.Add("Categoria");
+            foreach (CategoriaOng categoriaOng in new CategoriasOng().ListarCategoriasOng())
+            {
+                ddlCategoria.Items.Insert(categoriaOng.Codigo, new ListItem(categoriaOng.Nome, categoriaOng.Codigo.ToString()));
+            }
+             
+            if (!String.IsNullOrEmpty(c))
+            {
+                List<Usuario> ongs = new Ongs().ListarOngsPorCategoria(0, int.Parse(c));
+                GerarOngs(ongs);
+            }
+            else
+            {
+                List<Usuario> ongs = new Ongs().ListarOngs(1);
+                GerarOngs(ongs);
+            }
+        }
+
+        private void GerarOngs(List<Usuario> ongs)
+        {
+            foreach (Usuario ong in ongs)
             {
                 litOngs.Text += $@"
 <a href='ong.aspx?ong={ong.Codigo}'>
@@ -52,5 +73,11 @@ namespace prjUmaCausaTcc.pages
           </a>";
             }
         }
+
+        protected void ddlCategoria_TextChanged(object sender, EventArgs e)
+        {
+            Response.Redirect($"ongs.aspx?c={ddlCategoria.SelectedValue}");
+        }
+
     }
 }
