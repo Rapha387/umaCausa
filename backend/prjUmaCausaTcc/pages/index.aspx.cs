@@ -1,6 +1,7 @@
 ﻿using prjUmaCausaTcc.Logicas;
 using System;
 using System.Collections.Generic;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,6 +19,8 @@ namespace prjUmaCausaTcc.pages
             ExibirCampanhasPertoDeAcabar();
 
             ExibirOngsAleatorias();
+
+            ExibirCampanhasAleatorias();
 
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
@@ -79,9 +82,12 @@ namespace prjUmaCausaTcc.pages
             List<Campanha> campanhasAtivas = new Campanhas().ListarCampanhasPertoDeAcabar();
             if (campanhasAtivas.Count <= 0)
             {
-                litCampanhasPertoAcabar.Text = "<p>Não temos campanhas ainda :/</p>";
+                pnlCampanhasAcabando.Visible = false;
                 return;
             }
+
+            pnlCampanhasAcabando.Visible = true;
+
             foreach (Campanha campanha in campanhasAtivas)
             {
                 litCampanhasPertoAcabar.Text += $@"
@@ -122,6 +128,39 @@ namespace prjUmaCausaTcc.pages
                         {ong.Nome}
                     </div>
                   </a>
+                </div>";
+            }
+        }
+
+        public void ExibirCampanhasAleatorias()
+        {
+            List<Campanha> campanhas = new Campanhas().ListarCampanhasAleatorias();
+            //if (campanhasAtivas.Count <= 0)
+            //{
+            //    pnlCampanhasAcabando.Visible = false;
+            //    return;
+            //}
+
+            //pnlCampanhasAcabando.Visible = true;
+
+            foreach (Campanha campanha in campanhas)
+            {
+                litCampanhasAleatorias.Text += $@"
+                <div class='campanha swiper-slide'>
+                    <a href='campanha.aspx?c={campanha.Codigo}'>
+                        <div style='background-image: url(../{campanha.Banner});'class='imagem-campanha'></div>
+                        <div class='sobre-campanha'>
+                            <div class='nome-campanha'>
+                             {campanha.Nome}
+                            </div>
+                           <div class='progresso'> 
+                            <div class='barra-progresso'>
+                                <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%;'></div>
+                            </div>
+                            <div class='porcentagem' >{campanha.PorcentagemArrecadado}%</div>
+                           </div>
+                        </div>
+                    </a>
                 </div>";
             }
         }

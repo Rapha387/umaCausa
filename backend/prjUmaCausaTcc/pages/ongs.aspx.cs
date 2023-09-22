@@ -55,22 +55,22 @@ namespace prjUmaCausaTcc.pages
             foreach (Usuario ong in ongs)
             {
                 litOngs.Text += $@"
-<a href='ong.aspx?ong={ong.Codigo}'>
-            <div class='ong'>
-              <div class='infos-ong'>
-                <div class='imagem-ong' style='background: url(../{ong.FotoPerfil}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>
-                <div class='descricao'>  
-                  <h3>{ong.Nome}</h3>
-                  <p>
-                    {ong.Descricao}
-                  </p>
-                </div>  
-              </div>
-              <div class='tags'>
-                <div class='tag'></div>
-              </div>
-            </div>
-          </a>";
+                    <a href='ong.aspx?ong={ong.Codigo}'>
+                    <div class='ong'>
+                      <div class='infos-ong'>
+                        <div class='imagem-ong' style='background: url(../{ong.FotoPerfil}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>
+                        <div class='descricao'>  
+                          <h3>{ong.Nome}</h3>
+                          <p>
+                            {ong.Descricao}
+                          </p>
+                        </div>  
+                      </div>
+                      <div class='tags'>
+                        <div class='tag'></div>
+                      </div>
+                    </div>
+                  </a>";
             }
         }
 

@@ -123,14 +123,10 @@ namespace prjUmaCausaTcc.Logicas
         public List<Campanha> ListarCampanhasPertoDeAcabar()
         {
             List<Campanha> campanhas = new List<Campanha>();
-            List<Parametro> parametros = new List<Parametro>()
-            {
-                new Parametro ("vIcData", 0.ToString())
-            };
 
             try
             {
-                MySqlDataReader dados = Consultar("ListarCampanhasPorData", parametros);
+                MySqlDataReader dados = Consultar("ListarCampanhasAcabando", null);
                 if (dados.HasRows)
                 {
                     while (dados.Read())
@@ -150,6 +146,39 @@ namespace prjUmaCausaTcc.Logicas
             }
             catch (Exception ex)
             { 
+                throw new Exception(ex.Message);
+            }
+            finally { Desconectar(); }
+
+            return campanhas;
+        }
+
+        public List<Campanha> ListarCampanhasAleatorias()
+        {
+            List<Campanha> campanhas = new List<Campanha>();
+
+            try
+            {
+                MySqlDataReader dados = Consultar("ListarCampanhasAleatorias", null);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        campanhas.Add(new Campanha()
+                        {
+                            Codigo = dados.GetInt32("id_campanha"),
+                            Nome = dados.GetString("nm_campanha"),
+                            Banner = dados.GetString("img_bannerCampanha"),
+                            PorcentagemArrecadado = dados.GetInt32("perc")
+                        });
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+
+            }
+            catch (Exception ex)
+            {
                 throw new Exception(ex.Message);
             }
             finally { Desconectar(); }

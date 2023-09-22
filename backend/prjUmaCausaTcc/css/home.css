@@ -21,6 +21,7 @@
   width: 100px;
 }
 .apresentacao .explicacao p {
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: justify;
+  line-height: 27px;
 }

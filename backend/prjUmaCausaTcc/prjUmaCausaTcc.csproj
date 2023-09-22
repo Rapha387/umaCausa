@@ -208,6 +208,7 @@
     <Content Include="JsonResponses\DoarItemOng.aspx" />
     <Content Include="JsonResponses\DoarMonetarioCampanha.aspx" />
     <Content Include="JsonResponses\DoarMonetarioOng.aspx" />
+    <Content Include="js\alteracaoCoresBarraPorcentagem.js" />
     <Content Include="js\carrossel-itens.js" />
     <Content Include="js\cep.js" />
     <Content Include="js\gerarPix.js" />

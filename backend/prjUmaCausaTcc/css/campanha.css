@@ -30,8 +30,10 @@ main {
   color: #585858;
 }
 .foto-descricao-campanha .descricao-campanha p {
-  font-size: 14px;
+  margin-top: 11px;
   text-align: justify;
+  letter-spacing: 0.2px;
+  line-height: 27px;
 }
 
 .infos-campanha {

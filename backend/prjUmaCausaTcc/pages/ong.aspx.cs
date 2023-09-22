@@ -19,41 +19,37 @@ namespace prjUmaCausaTcc.pages
                     cmbTipoEntrega.Items.Clear();
                     cmbTipoItem.Items.Clear();
 
-                    int codigoUsuario = int.Parse(Request["ong"]);
-                    ExibirDadosMinimosUsuario(codigoUsuario);
+                    int codigoOng = int.Parse(Request["ong"]);
+                    ExibirDadosMinimosUsuario(codigoOng);
 
-                    ExibirCampanhasAtivas(codigoUsuario);
+                    ExibirCampanhasAtivas(codigoOng);
 
-                    ExibirCampanhasInativas(codigoUsuario);
+                    ExibirCampanhasInativas(codigoOng);
 
-                    var ListaTipoItens = new Itens().ListarTiposItens();
+                    var ListaTipoItens = new Itens().ListarItensAceitosOng(codigoOng);
 
+                    cmbTipoItem.Items.Add("Selcione o Tipo do Item");
                     foreach (TipoItem tipoItem in ListaTipoItens)
                     {
-                        if (cmbTipoItem.Items.Count == 0)
-                        {
-                            cmbTipoItem.Items.Add("Selcione o Tipo do Item");
-                        }
+                        int contador = 0;
                         cmbTipoItem.Items.Add(tipoItem.Nome);
-                        cmbTipoItem.Items[tipoItem.Codigo].Value = tipoItem.Codigo.ToString();
+                        cmbTipoItem.Items[contador].Value = tipoItem.Codigo.ToString();
+                        contador++;
                     }
 
                     var ListaTipoEntrega = new TiposEntrega().ListarTiposEntrega();
 
+                    cmbTipoEntrega.Items.Add("Selcione o Tipo da Entrega");
                     foreach (TipoEntrega tipoEntrega in ListaTipoEntrega)
                     {
-                        if (cmbTipoEntrega.Items.Count == 0)
-                        {
-                            cmbTipoEntrega.Items.Add("Selcione o Tipo da Entrega");
-                        }
                         cmbTipoEntrega.Items.Add(tipoEntrega.Nome);
                         cmbTipoEntrega.Items[tipoEntrega.Codigo].Value = tipoEntrega.Codigo.ToString();
                     }
 
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
-                    Response.Redirect($"erro.aspx?e=Nao foi possivel carregar a página");
+                    Response.Redirect($"erro.aspx?e=");
                 }
             }
             else
@@ -83,6 +79,8 @@ namespace prjUmaCausaTcc.pages
 
         private void ExibirDadosMinimosUsuario(int codigoUsuario)
         {
+            try
+            {
                 Usuario usuario = new Usuario();
                 usuario.BuscarOng(codigoUsuario);
                 litNomeNavegador.Text = usuario.Nome + " - umaCausa";
@@ -96,35 +94,48 @@ namespace prjUmaCausaTcc.pages
                 litCampanha.Text = $"<a src='ongs.aspx?categoria{usuario.CategoriaOng.Codigo}'><p>#{usuario.CategoriaOng.Nome}</p></a>";
                 litBanner.Text = $"<div class='banner' style='background: url(../{usuario.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
                 litIcone.Text = $"<div class='logo-ong' style='background: url(../{usuario.FotoPerfil}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         private void ExibirCampanhasAtivas(int codigoUsuario)
         {
             litCampanhasAtivas.Text = "";
 
-            List<Campanha> campanhasAtivas = new Campanhas().ListarDadosMinimosCampanhasDaOng(codigoUsuario);
-            if (campanhasAtivas.Count <= 0)
-                litCampanhasAtivas.Text = "<p>Não temos campanhas ainda :/</p>";
-
-            foreach (Campanha campanha in campanhasAtivas)
+            try
             {
-                litCampanhasAtivas.Text += $@"
-                <div class='campanha swiper-slide'>
-                    <a href='campanha.aspx?c={campanha.Codigo}'>
-                     <div style='background: url(../{campanha.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;'class='imagem-campanha'></div>
-                <div class='sobre-campanha'>
-                  <div class='nome-campanha'>
-                    {campanha.Nome}
-                  </div>
-                  <div class='progresso'>
-                    <div class='barra-progresso'>
-                      <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%'></div>
+                List<Campanha> campanhasAtivas = new Campanhas().ListarDadosMinimosCampanhasDaOng(codigoUsuario);
+
+                if (campanhasAtivas.Count <= 0)
+                    litCampanhasAtivas.Text = "<p>Não temos campanhas ainda :/</p>";
+
+                foreach (Campanha campanha in campanhasAtivas)
+                {
+                    litCampanhasAtivas.Text += $@"
+                    <div class='campanha swiper-slide'>
+                        <a href='campanha.aspx?c={campanha.Codigo}'>
+                         <div style='background: url(../{campanha.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;'class='imagem-campanha'></div>
+                    <div class='sobre-campanha'>
+                      <div class='nome-campanha'>
+                        {campanha.Nome}
+                      </div>
+                      <div class='progresso'>
+                        <div class='barra-progresso'>
+                          <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%'></div>
+                        </div>
+                        <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
+                      </div>
                     </div>
-                    <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
-                  </div>
-                </div>
-              </a>
-            </div>";
+                    </a>
+                    </div>";
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -132,28 +143,35 @@ namespace prjUmaCausaTcc.pages
         {
             litCampanhasInativas.Text = "";
 
-            List<Campanha> campanhasInativas = new Campanhas().ListarDadosMinimosCampanhasFinalizadasDaOng(codigoUsuario);
-            if (campanhasInativas.Count <= 0)
-                litCampanhasInativas.Text = "<p>Não há campanhas inativas</p>";
-            foreach (Campanha campanha in campanhasInativas)
+            try
             {
-                litCampanhasInativas.Text += $@"
-                <div class='campanha swiper-slide'>
-                    <a href='campanha.aspx?c={campanha.Codigo}'>
-                     <div style='background: url(../{campanha.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;' class='imagem-campanha'></div>
-                <div class='sobre-campanha'>
-                  <div class='nome-campanha'>
-                    {campanha.Nome}
-                  </div>
-                  <div class='progresso'>
-                    <div class='barra-progresso'>
-                      <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%'></div>
+                List<Campanha> campanhasInativas = new Campanhas().ListarDadosMinimosCampanhasFinalizadasDaOng(codigoUsuario);
+                if (campanhasInativas.Count <= 0)
+                    litCampanhasInativas.Text = "<p>Não há campanhas inativas</p>";
+                foreach (Campanha campanha in campanhasInativas)
+                {
+                    litCampanhasInativas.Text += $@"
+                    <div class='campanha swiper-slide'>
+                        <a href='campanha.aspx?c={campanha.Codigo}'>
+                         <div style='background: url(../{campanha.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;' class='imagem-campanha'></div>
+                    <div class='sobre-campanha'>
+                      <div class='nome-campanha'>
+                        {campanha.Nome}
+                      </div>
+                      <div class='progresso'>
+                        <div class='barra-progresso'>
+                          <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%'></div>
+                        </div>
+                        <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
+                      </div>
                     </div>
-                    <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
-                  </div>
-                </div>
-                </a>
-                </div>";
+                    </a>
+                    </div>";
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

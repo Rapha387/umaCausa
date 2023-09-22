@@ -71,16 +71,18 @@
                   </div>
                 </div>
             </asp:Panel>
-            <div class="campanhas swiper" id="campanhasAcabando">
-              <h2>CAMPANHAS PERTO DE ACABAR</h2>
-              <div class="campanhas-flex swiper-wrapper">
-                  <asp:Localize ID="litCampanhasPertoAcabar" runat="server"></asp:Localize>
-              </div>
-              <div class="botoes-carrossel">
-                <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar"/></button>
-                <button class="avancar swiper-button-next"><img src="./../images/botoes/seta.png" alt="botao avançar"/></button>
-              </div>
-            </div>
+            <asp:Panel ID="pnlCampanhasAcabando" Visible="false" runat="server">
+                <div class="campanhas swiper" id="campanhasAcabando">
+                  <h2>CAMPANHAS PERTO DE ACABAR</h2>
+                  <div class="campanhas-flex swiper-wrapper">
+                      <asp:Localize ID="litCampanhasPertoAcabar" runat="server"></asp:Localize>
+                  </div>
+                  <div class="botoes-carrossel">
+                    <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar"/></button>
+                    <button class="avancar swiper-button-next"><img src="./../images/botoes/seta.png" alt="botao avançar"/></button>
+                  </div>
+                </div>
+            </asp:Panel>
             <div class="campanhas swiper" id="ongs">
               <h2>ONGS</h2>
               <div class="campanhas-flex swiper-wrapper">
@@ -91,15 +93,26 @@
                 <button class="avancar swiper-button-next"><img src="./../images/botoes/seta.png" alt="botao avançar"/></button>
               </div>
             </div>
+            <div class="campanhas swiper" id="campanhasAcabando">
+                <h2>CAMPANHAS</h2>
+                <div class="campanhas-flex swiper-wrapper">
+                    <asp:Localize ID="litCampanhasAleatorias" runat="server"></asp:Localize>
+                </div>
+                <div class="botoes-carrossel">
+                    <button class="voltar swiper-button-prev"><img src="./../images/botoes/seta.png" alt="botao voltar"/></button>
+                    <button class="avancar swiper-button-next"><img src="./../images/botoes/seta.png" alt="botao avançar"/></button>
+                </div>
+            </div>
           </main>
 
           <footer>
               <asp:Literal ID="litFooter" runat="server"></asp:Literal>
           </footer>
 
+          <script src="./../js/home.js"></script>
           <script src="./../swiper/swiper-bundle.min.js"></script>
           <script src="./../js/carrossel-itens.js"></script>
-          <script src="./../js/home.js"></script>
+          <script src="../js/alteracaoCoresBarraPorcentagem.js"></script>
     </form>
 </body>
 </html>

@@ -47,7 +47,7 @@ const swiperOngs = new Swiper('#ongs',{
   // Optional parameters
   direction: 'horizontal',
 
-  spaceBetween: 39,
+  spaceBetween: 49,
   // If we need pagination
   // Navigation arrows
   navigation: {
