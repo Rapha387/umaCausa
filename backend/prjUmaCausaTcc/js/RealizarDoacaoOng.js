@@ -41,10 +41,15 @@ if (btnRelizarDoacaoMonetaria) {
 
 if (btnAgendarItem) {
     btnAgendarItem.onclick = function (event) {
+        console.log("da");
         event.preventDefault();
         VerificarDadosDoacaoItem(event);
 
-        fetch(`http://localhost:50944/JsonResponses/DoarItemOng.aspx?o=${ong}&v=${txtValor.value}`)
+        if (txtNomeItem.value == "" || txtHorario.value == "" || cmbTipoEntrega.selectedIndex == 0 || cmbTipoItem.selectedIndex == 0 || txtQuantidadeItem.value == "" || txtDataEnvio.value == "") {
+            return;
+        }
+
+        fetch(`http://localhost:50944/JsonResponses/DoarItemOng.aspx?o=${ong}&n=${txtNomeItem.value}&te=${cmbTipoEntrega.options[cmbTipoEntrega.selectedIndex].value}&ti=${cmbTipoItem.options[cmbTipoItem.selectedIndex].value}&q=${txtQuantidadeItem.value}&dt=${txtDataEnvio.value}&hr=${txtHorario.value}`)
             .then(function (resposta) { return resposta.json() })
             .then(function (dados) {
                 console.log(dados);

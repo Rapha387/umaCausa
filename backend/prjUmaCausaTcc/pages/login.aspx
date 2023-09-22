@@ -40,7 +40,7 @@
             </div>
             <div class="input-label">
                 <label>Senha:</label>
-                <asp:TextBox ID="txtSenha" runat="server" placeholder="Senha"></asp:TextBox>
+                <asp:TextBox ID="txtSenha" TextMode="Password" runat="server" placeholder="Senha"></asp:TextBox>
             </div>
 
             <asp:Label ID="lblErroMSG" runat="server" Text="" CssClass="erromsg"></asp:Label>
