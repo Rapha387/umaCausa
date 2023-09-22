@@ -100,7 +100,7 @@ main .infos .infos2 .fotos h2 {
 }
 main .infos .infos2 .fotos .fotos-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 3px;
   flex-wrap: wrap;
