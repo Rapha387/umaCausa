@@ -51,7 +51,7 @@ namespace prjUmaCausaTcc.JsonResponses
             }
             catch(Exception ex)
             {
-                resposta = "{'situacao': '" + ex.Message + "'}";
+                resposta = "{'situacao': 'false'}";
                 resposta = resposta.Replace('\'', '\"');
                 Response.Write(resposta);
                 return;
