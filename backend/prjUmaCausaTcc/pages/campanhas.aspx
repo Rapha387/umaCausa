@@ -22,59 +22,41 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <header>
+         <header>
             <nav>
               <asp:Literal ID="litHeader" runat="server"></asp:Literal>
             </nav>
           </header>
-  </div>
-  <main>
-    <div class="campanhas">
-      <h2>CAMPANHAS</h2>
-      <div class="campanhas-flex">
-              <asp:Literal ID="litCampanhas" runat="server"></asp:Literal>
-<%--        <a href="./campanha.html">
-          <div class="campanha">
-            <div class="imagem-campanha"></div>
-            <div class="sobre-campanha">
-              <div class="nome-campanha">
-                Evento De Doação de Ca...
-              </div>
-              <div class="progresso">
-                <div class="barra-progresso">
-                  <div class="quantidade-progresso"></div>
-                </div>
-                <div class="porcentagem">15%</div>
+          <main>
+            <div class="campanhas">
+              <h2>CAMPANHAS</h2>
+              <div class="campanhas-flex">
+                <asp:Literal ID="litCampanhas" runat="server"></asp:Literal>
               </div>
             </div>
-          </div>
-        </a>--%>
-      </div>
-    </div>
-    <div class="pesquisa">
-      <div class="pesquisar">
-        <input type="search" placeholder="Pesquisar">
-        <img src="./../images/icons/search.png" alt="lupa">
-      </div>
-      <div class="filtro">
-        <h3>Filtrar Por:</h3>
-        <select name="Categoria" id="">
-          <option value="Categoria">Categoria</option>
-        </select>
-        <select name="DataCricacao" id="">
-          <option value="DataCricacao">Data de Criação</option>
-        </select>
-      </div>
-    </div>
-  </main>
+            <div class="pesquisa">
+              <div class="pesquisar">
+                <input type="search" placeholder="Pesquisar">
+                <img src="./../images/icons/search.png" alt="lupa">
+              </div>
+              <div class="filtro">
+                <h3>Filtrar Por:</h3>
+                <select name="Categoria" id="">
+                  <option value="Categoria">Categoria</option>
+                </select>
+                <select name="DataCricacao" id="">
+                  <option value="DataCricacao">Data de Criação</option>
+                </select>
+              </div>
+            </div>
+          </main>
 
-    <footer>
-        <asp:Literal ID="litFooter" runat="server"></asp:Literal>
-    </footer>
+          <footer>
+            <asp:Literal ID="litFooter" runat="server"></asp:Literal>
+          </footer>
 
-  <script src="./../swiper/swiper-bundle.min.js"></script>
-  <script src="./../js/carrossel-itens.js"></script>
-  <script src="./../js/home.js"></script>
+          <script src="./../swiper/swiper-bundle.min.js"></script>
+          <script src="./../js/carrossel-itens.js"></script>
     </form>
 </body>
 </html>

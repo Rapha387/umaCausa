@@ -15,7 +15,7 @@ using System.Web;
                         <li><a href='./ongs.aspx'>Ongs</a></li>
                         <li><a href='./campanhas.aspx'>Campanhas</a></li>
                         <li><a href='./login.aspx'>Login</a></li>
-                        <li><a href='./cadastro.aspx'><button><img src='./../images/icons/user.png' />Cadastre-se</button></a></li>
+                        <li><a class='button-header-cadastro' href='./cadastro.aspx'><img src='./../images/icons/user.png'/>Cadastre-se</a></li>
                     </ul>";
 
                 return nav;
@@ -51,7 +51,7 @@ using System.Web;
                     <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
                     <ul>
                         <li><a href='./ongs.aspx'>Ongs</a></li>
-                        <li><a href='./campanhas.apx'>Campanhas</a></li>
+                        <li><a href='./campanhas.aspx'>Campanhas</a></li>
                         <li><label for='menuConfig'><img class='img-user-preto' src=../images/icons/userPreto.png /></label></li>
                     </ul>
                     <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
@@ -82,12 +82,12 @@ using System.Web;
                           </div>
                           <div>
                             <h3>Sobre Nós</h3>
-                            <p><a href='./sobre.html'>Sobre</a></p>
-                            <p><a href='./nossaEquipe.html'>Nossa Equipe</a></p>
+                            <p><a href='./sobre.aspx'>Sobre</a></p>
+                            <p><a href='./nossaEquipe.aspx'>Nossa Equipe</a></p>
                           </div>
                           <div>
                             <h3>Suporte</h3>
-                            <p><a href='./faq.html'>FAQ</a></p>
+                            <p><a href='./faq.aspx'>FAQ</a></p>
                           </div>
                         </nav>";
             return footer;

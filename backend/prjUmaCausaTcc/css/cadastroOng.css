@@ -21,6 +21,7 @@
   align-items: start;
   flex-wrap: wrap;
   margin-top: 20px;
+  column-gap: 10px;
 }
 .infos .input-label {
   width: 49%;

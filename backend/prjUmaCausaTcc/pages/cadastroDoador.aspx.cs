@@ -16,20 +16,10 @@ namespace prjUmaCausaTcc.pages
         {
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
+            litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
 
-            if (Session["email"] != null)
-            {
-                Usuario usuario = new Usuario();
-
-                usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
-
-                litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
-            }
-            else
-            {
-                GerarEmentosHtml gerarHeader = new GerarEmentosHtml();
-                litHeader.Text = gerarHeader.MudarNavegacao(false, 0);
-            }
+            if (Session["usuario"] != null)
+                Response.Redirect("index.aspx");
         }
 
         protected void btnCadastrarDoador_Click(object sender, EventArgs e)

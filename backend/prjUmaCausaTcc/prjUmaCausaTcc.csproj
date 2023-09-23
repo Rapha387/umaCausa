@@ -204,6 +204,7 @@
     <Content Include="images\tipoDoacao\doacao-item.png" />
     <Content Include="images\tipoDoacao\doacao-monetaria.png" />
     <Content Include="JsonResponses\BuscarDadosPixOng.aspx" />
+    <Content Include="JsonResponses\DeslogarUsuario.aspx" />
     <Content Include="JsonResponses\DoarItemCampanha.aspx" />
     <Content Include="JsonResponses\DoarItemOng.aspx" />
     <Content Include="JsonResponses\DoarMonetarioCampanha.aspx" />
@@ -220,15 +221,19 @@
     <Content Include="js\selectPersonalizado.js" />
     <Content Include="js\verificacoesInputs.js" />
     <Content Include="js\verificacoesInputsDoacao.js" />
+    <Content Include="pages\cadastro.aspx" />
     <Content Include="pages\cadastroDoador.aspx" />
     <Content Include="pages\cadastroOng.aspx" />
     <Content Include="pages\campanha.aspx" />
     <Content Include="pages\campanhas.aspx" />
     <Content Include="pages\erro.aspx" />
+    <Content Include="pages\faq.aspx" />
     <Content Include="pages\index.aspx" />
     <Content Include="pages\login.aspx" />
+    <Content Include="pages\nossaEquipe.aspx" />
     <Content Include="pages\ong.aspx" />
     <Content Include="pages\ongs.aspx" />
+    <Content Include="pages\sobre.aspx" />
     <Content Include="swiper\swiper-bundle.min.css" />
     <Content Include="swiper\swiper-bundle.min.js" />
     <Content Include="TesteDeMetodos.aspx" />
@@ -270,6 +275,13 @@
     </Compile>
     <Compile Include="JsonResponses\BuscarDadosPixOng.aspx.designer.cs">
       <DependentUpon>BuscarDadosPixOng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JsonResponses\DeslogarUsuario.aspx.cs">
+      <DependentUpon>DeslogarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\DeslogarUsuario.aspx.designer.cs">
+      <DependentUpon>DeslogarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="JsonResponses\DoarItemCampanha.aspx.cs">
       <DependentUpon>DoarItemCampanha.aspx</DependentUpon>
@@ -334,6 +346,13 @@
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Modelos\UsuarioCategoriaOng.cs" />
     <Compile Include="Modelos\ValorMotivoDenuncia.cs" />
+    <Compile Include="pages\cadastro.aspx.cs">
+      <DependentUpon>cadastro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cadastro.aspx.designer.cs">
+      <DependentUpon>cadastro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\cadastroDoador.aspx.cs">
       <DependentUpon>cadastroDoador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -369,6 +388,13 @@
     <Compile Include="pages\erro.aspx.designer.cs">
       <DependentUpon>erro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\faq.aspx.cs">
+      <DependentUpon>faq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\faq.aspx.designer.cs">
+      <DependentUpon>faq.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -383,6 +409,13 @@
     <Compile Include="pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\nossaEquipe.aspx.cs">
+      <DependentUpon>nossaEquipe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\nossaEquipe.aspx.designer.cs">
+      <DependentUpon>nossaEquipe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\ong.aspx.cs">
       <DependentUpon>ong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -396,6 +429,13 @@
     </Compile>
     <Compile Include="pages\ongs.aspx.designer.cs">
       <DependentUpon>ongs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\sobre.aspx.cs">
+      <DependentUpon>sobre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\sobre.aspx.designer.cs">
+      <DependentUpon>sobre.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TesteDeMetodos.aspx.cs">

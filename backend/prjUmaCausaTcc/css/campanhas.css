@@ -11,7 +11,7 @@ main {
 }
 .campanhas .campanhas-flex {
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 31px;
 }
 .campanhas .campanhas-flex a {
   color: #000;

@@ -12,7 +12,26 @@ namespace prjUmaCausaTcc.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            GerarHeaderFooter();
+            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
+            litFooter.Text = gerarHtml.GerarFooter();
+
+            if (Session["usuario"] != null)
+            {
+                try
+                {
+                    Usuario usuario = (Usuario)Session["usuario"];
+                    litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("erro.aspx?e=" + ex.Message);
+                }
+            }
+            else
+            {
+                litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
+            }
+
 
             Campanhas campanhas= new Campanhas();
             foreach (Campanha campanha in campanhas.ListarCampanhasASC(0))
@@ -36,32 +55,6 @@ namespace prjUmaCausaTcc.pages
                 </a>";
             }
 
-        }
-
-        private void GerarHeaderFooter()
-        {
-            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
-            litFooter.Text = gerarHtml.GerarFooter();
-
-            if (Session["email"] != null)
-            {
-                try
-                {
-                    Usuario usuario = new Usuario();
-
-                    usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
-
-                    litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
-                }
-                catch (Exception ex)
-                {
-                    return;
-                }
-            }
-            else
-            {
-                litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
-            }
         }
     }
 }

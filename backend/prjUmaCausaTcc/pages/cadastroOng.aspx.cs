@@ -15,22 +15,12 @@ namespace prjUmaCausaTcc.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuario"] != null)
+                Response.Redirect("index.aspx");
+
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
-
-            if (Session["email"] != null)
-            {
-                Usuario usuario = new Usuario();
-
-                usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
-
-                litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
-            }
-            else
-            {
-                GerarEmentosHtml gerarHeader = new GerarEmentosHtml();
-                litHeader.Text = gerarHeader.MudarNavegacao(false, 0);
-            }
+            litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
 
             try
             {

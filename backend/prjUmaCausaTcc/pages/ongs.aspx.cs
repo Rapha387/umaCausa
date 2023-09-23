@@ -19,11 +19,9 @@ namespace prjUmaCausaTcc.pages
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
 
-            if (Session["email"] != null)
+            if (Session["usuario"] != null)
             {
-                Usuario usuario = new Usuario();
-
-                usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
+                Usuario usuario = (Usuario)Session["usuario"];
 
                 litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
             }

@@ -20,9 +20,10 @@
   align-items: start;
   flex-wrap: wrap;
   margin-top: 20px;
+  column-gap: 10px;
 }
 .infos .input-label {
-  width: 295px;
+  width: 49%
 }
 
 .button-criar {

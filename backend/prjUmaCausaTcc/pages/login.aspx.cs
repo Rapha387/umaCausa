@@ -12,7 +12,7 @@ namespace prjUmaCausaTcc.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["email"] != null)
+            if (Session["usuario"] != null)
                 Response.Redirect("index.aspx");
         }
 
@@ -40,7 +40,8 @@ namespace prjUmaCausaTcc.pages
                 if (usuario.VerificarSenha(senha, email))
                 {
                     lblErroMSG.Text = "Logado com sucesso!";
-                    Session["email"] = email;
+                    usuario.BuscarUsuarioPeloEmail(email);
+                    Session["usuario"] = usuario;
                     Response.Redirect("index.aspx");
                 }
             }
