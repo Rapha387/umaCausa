@@ -11,7 +11,25 @@ namespace prjUmaCausaTcc.JsonResponses
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.ContentType = "application/json";
 
+            string resposta;
+
+            try
+            {
+                Session.Abandon();
+            }
+            catch
+            {
+                resposta = "{'situacao': 'false'}";
+                resposta = resposta.Replace('\'', '\"');
+                Response.Write(resposta);
+                return;
+            }
+
+            resposta = "{'situacao': 'true'}";
+            resposta = resposta.Replace('\'', '\"');
+            Response.Write(resposta);
         }
     }
 }

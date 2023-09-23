@@ -230,6 +230,7 @@
           <asp:Literal ID="litFooter" runat="server"></asp:Literal>
       </footer>
 
+      <script src="../js/DeslogarUsuario.js"></script>
       <script src="../js/verificacoesInputsDoacao.js"></script>
       <script src="./../swiper/swiper-bundle.min.js"></script>
       <script src="./../js/carrossel-itens.js"></script>

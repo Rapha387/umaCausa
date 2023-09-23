@@ -39,7 +39,7 @@ using System.Web;
                           <li><a href='configuracoes/minhasCampanhas.html'>Minhas Campanhas</a></li>
                           <li><a href='configuracoes/meusItens.html'>Meus Itens</a></li>
                           <li><a href='configuracoes/confirmacoesDoacoes.html'>Confirmações de Doações</a></li>
-                          <li>Sair</li>
+                          <li id='btnSair'>Sair</li>
                         </ul>
                     </div>";
 
@@ -61,7 +61,7 @@ using System.Web;
                           <li><a href='configuracoes/minhasColaboracoes.html'>Minhas Colaborações</a></li>
                           <li><a href='configuracoes/meusItens.html'>Meus Itens</a></li>
                           <li><a href='configuracoes/confirmacoesDoacoes.html'>Confirmações de Doações</a></li>
-                          <li>Sair</li>
+                          <li id='btnSair'>Sair</li>
                         </ul>
                     </div>";
 

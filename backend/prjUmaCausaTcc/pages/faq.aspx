@@ -91,6 +91,8 @@
           <footer>
               <asp:Literal ID="litFooter" runat="server"></asp:Literal>
           </footer>
+
+        <script src="../js/DeslogarUsuario.js"></script>
     </form>
 </body>
 </html>

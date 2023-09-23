@@ -55,8 +55,7 @@
             <asp:Literal ID="litFooter" runat="server"></asp:Literal>
           </footer>
 
-          <script src="./../swiper/swiper-bundle.min.js"></script>
-          <script src="./../js/carrossel-itens.js"></script>
+          <script src="../js/DeslogarUsuario.js"></script>
     </form>
 </body>
 </html>

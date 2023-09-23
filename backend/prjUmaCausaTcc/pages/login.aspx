@@ -49,10 +49,6 @@
              <p>Novo por Aqui?<strong> Crie uma conta</strong></p>
         </div>
       </div>
-
-      <script src="./../swiper/swiper-bundle.min.js"></script>
-      <script src="./../js/carrossel-itens.js"></script>
-      <script src="./../js/home.js"></script>
     </form>
 </body>
 </html>
