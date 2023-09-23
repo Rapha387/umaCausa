@@ -4,7 +4,7 @@ main {
 }
 
 .foto-descricao-campanha {
-  width: 675px;
+    width: 62%;
 }
 .foto-descricao-campanha .imagem-campanha {
   width: 100%;
@@ -37,7 +37,7 @@ main {
 }
 
 .infos-campanha {
-  width: 360px;
+    width: 33%;
 }
 .infos-campanha .meta h3 {
   font-size: 16px;

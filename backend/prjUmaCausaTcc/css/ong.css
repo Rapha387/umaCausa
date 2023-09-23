@@ -44,7 +44,7 @@ main .infos {
   align-items: flex-start;
 }
 main .infos .infos1 {
-  width: 640px;
+  width: 59%;
 }
 main .infos .infos1 .sobre-nos {
   border-radius: 4px;
@@ -63,7 +63,7 @@ main .infos .infos1 .sobre-nos .descricao {
   line-height: 27px;
 }
 main .infos .infos2 {
-  width: 339px;
+  width: 31%;
 }
 main .infos .infos2 .doar {
   width: 100%;
@@ -71,7 +71,7 @@ main .infos .infos2 .doar {
   margin-bottom: 30px;
 }
 main .infos .infos2 .card-infos .card {
-  width: 339px;
+  width: 100%;
   border-radius: 4px;
   margin-bottom: 15px;
   display: flex;
@@ -102,9 +102,11 @@ main .infos .infos2 .fotos h2 {
 }
 main .infos .infos2 .fotos .fotos-flex {
   display: flex;
+  height: 226px;
   justify-content: flex-start;
   align-items: center;
   gap: 3px;
+  overflow: hidden;
   flex-wrap: wrap;
 }
 main .infos .infos2 .fotos .fotos-flex .foto {

@@ -1,20 +1,6 @@
-const swiperCampanhasProximas = new Swiper('#campanhasProximas',{
-  slidesPerView: 3,
-  // Optional parameters
-  direction: 'horizontal',
-  
 
-  spaceBetween: 103,
-  // If we need pagination
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
 
 const swiperCampanhasAcabando = new Swiper('#campanhasAcabando',{
-  slidesPerView: 3,
   // Optional parameters
   direction: 'horizontal',
 
@@ -24,7 +10,22 @@ const swiperCampanhasAcabando = new Swiper('#campanhasAcabando',{
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
-  },
+    },
+
+    breakpoints: {
+        550: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+        },
+        740: {
+            slidesPerView: 2,
+            spaceBetween: 110,
+        },
+        1000: {
+            slidesPerView: 3,
+            spaceBetween: 103,
+        }
+    }
 });
 
 const swiperCampanhasAtuais= new Swiper('#campanhasAtuais',{
@@ -43,7 +44,6 @@ const swiperCampanhasAtuais= new Swiper('#campanhasAtuais',{
 
 
 const swiperOngs = new Swiper('#ongs',{
-  slidesPerView: 6,
   // Optional parameters
   direction: 'horizontal',
 
@@ -53,5 +53,36 @@ const swiperOngs = new Swiper('#ongs',{
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
-  },
+    },
+
+    breakpoints: {
+        330: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        400: {
+            slidesPerView: 2,
+            spaceBetween: 50,
+        },
+        520: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+        },
+        660: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+        },
+        830: {
+            slidesPerView: 5,
+            spaceBetween: 30,
+        },
+        1000: {
+            slidesPerView: 6,
+            spaceBetween: 30,
+        },
+        1200: {
+            slidesPerView: 6,
+            spaceBetween: 49,
+        }
+    }
 });
