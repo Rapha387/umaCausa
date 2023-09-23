@@ -342,7 +342,12 @@ li label {
 .campanhas .campanhas-flex .campanha {
   border-radius: 5px;
   width: 295px;
+  transition: 0.2s;
 }
+.campanhas .campanhas-flex .campanha:hover{
+  transform: scale(1.05);
+}
+
 .campanhas .campanhas-flex .campanha .imagem-campanha {
   background-repeat: no-repeat;
   background-position: center;
@@ -391,6 +396,10 @@ li label {
 .campanhas .campanhas-flex .ong {
   width: 151px;
   border-radius: 4px;
+  transition: 0.2s;
+}
+.campanhas .campanhas-flex .ong:hover {
+  transform: scale(1.05);
 }
 .campanhas .campanhas-flex .ong .imagem-ong {
   border-radius: 4px 4px 0 0;
