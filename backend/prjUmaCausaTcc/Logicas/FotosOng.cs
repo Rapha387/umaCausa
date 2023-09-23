@@ -1,46 +1,43 @@
 ﻿using MySql.Data.MySqlClient;
-using prjUmaCausaTcc.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace prjUmaCausaTcc.Logicas
+
+public class FotosOng : Banco
 {
-    public class FotosOng : Banco
+    public List<FotoOng> ListarFotosOng(int codigo)
     {
-        public List<FotoOng> ListarFotosOng(int codigo)
+        List<FotoOng> fotoOngs = new List<FotoOng>();
+        try
         {
-            List<FotoOng> fotoOngs = new List<FotoOng>();
-            try
+            List<Parametro> parametros = new List<Parametro>()
+    {
+        new Parametro("pCodigo",codigo.ToString()),
+    };
+            MySqlDataReader dados = Consultar("ListarFotosOng", parametros);
+            if (dados.HasRows)
             {
-                List<Parametro> parametros = new List<Parametro>()
-        {
-            new Parametro("pCodigo",codigo.ToString()),
-        };
-                MySqlDataReader dados = Consultar("ListarFotosOng", parametros);
-                if (dados.HasRows)
+                while (dados.Read())
                 {
-                    while (dados.Read())
+                    fotoOngs.Add(new FotoOng()
                     {
-                        fotoOngs.Add(new FotoOng()
-                        {
-                            Codigo = dados.GetInt32("id_fotoOng"),
-                            Foto = dados.GetString("nm_refFoto")
-                        });
-                    }
+                        Codigo = dados.GetInt32("id_fotoOng"),
+                        Foto = dados.GetString("nm_refFoto")
+                    });
                 }
-                if (!dados.IsClosed)
-                    dados.Close();
             }
-            catch (Exception)
-            {
-
-                throw new Exception("Houve um erro ao listar as fotos da Ong");
-            }
-            finally { Desconectar(); }
-
-            return fotoOngs;
+            if (!dados.IsClosed)
+                dados.Close();
         }
+        catch (Exception)
+        {
+
+            throw new Exception("Houve um erro ao listar as fotos da Ong");
+        }
+        finally { Desconectar(); }
+
+        return fotoOngs;
     }
 }

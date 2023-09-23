@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace prjUmaCausaTcc.Modelos
+
+public class FotoOng
 {
-    public class FotoOng
-    {
-        #region Propriedades
-        public int Codigo { get; set; }
-        public Usuario ONG { get; set; }
-        public string Foto { get; set; }
-        #endregion
+    #region Propriedades
+    public int Codigo { get; set; }
+    public Usuario ONG { get; set; }
+    public string Foto { get; set; }
+    #endregion
 
-        #region Metodos
+    #region Metodos
 
-        #endregion
-    }
+    #endregion
 }

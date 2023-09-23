@@ -322,7 +322,6 @@
     <Compile Include="Modelos\DoacaoMonetaria.cs" />
     <Compile Include="Modelos\EstadoItem.cs" />
     <Compile Include="Modelos\FotoOng.cs" />
-    <Compile Include="Modelos\FotosOng.cs" />
     <Compile Include="Modelos\InteresseItem.cs" />
     <Compile Include="Modelos\MotivoDenunciaCampanha.cs" />
     <Compile Include="Modelos\MotivoDenunciaUsuario.cs" />

@@ -25,6 +25,10 @@ namespace prjUmaCausaTcc.pages
                     ExibirCampanhasAtivas(codigoOng);
 
                     ExibirCampanhasInativas(codigoOng);
+                    
+                    ExibirCampanhasInativas(codigoOng);
+                    
+                    ExibirFotosOng(codigoOng);
 
                     var ListaTipoItens = new Itens().ListarItensAceitosOng(codigoOng);
 
@@ -76,7 +80,27 @@ namespace prjUmaCausaTcc.pages
                 pnlBtnDoar.Visible = false;
             }
         }
-
+        private void ExibirFotosOng(int codigoUsuario)
+        {
+            List<FotoOng> fotosOng = new FotosOng().ListarFotosOng(codigoUsuario);
+            litFimFotos.Text = "";
+            litInicioFotos.Text = "";
+            if (fotosOng.Count > 0)
+            {
+                litInicioFotos.Text += $@"
+                    <div class='fotos'>
+                        <h2>
+                        fotos
+                        </h2>
+                        <div class='fotos-flex'>";
+            }
+            foreach (FotoOng foto in fotosOng)
+            {
+                litFotos.Text += $"<div style=' background: url(../{foto.Foto}); background-position: center;background-repeat: no-repeat;background-size: cover;' class='foto'></div>";
+            }
+            if (fotosOng.Count > 0)
+                litFimFotos.Text = "</div></div>";
+        }
         private void ExibirDadosMinimosUsuario(int codigoUsuario)
         {
             try
