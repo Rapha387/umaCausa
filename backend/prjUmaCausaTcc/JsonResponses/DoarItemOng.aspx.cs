@@ -12,19 +12,17 @@ namespace prjUmaCausaTcc.JsonResponses
         protected void Page_Load(object sender, EventArgs e)
         {
             Response.ContentType = "application/json";
-
             string resposta;
 
-            //if (String.IsNullOrEmpty(Request["n"]))
-            //{
-            //    resposta = "{'situacao': 'false'}";
-            //    resposta = resposta.Replace('\'', '\"');
-            //    Response.Write(resposta);
-            //    return;
-            //}
+            if (Session["usuario"] == null)
+            {
+                resposta = "{'situacao': 'false'}";
+                resposta = resposta.Replace('\'', '\"');
+                Response.Write(resposta);
+                return;
+            }
 
-            Usuario usuario = new Usuario();
-            usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
+            Usuario usuario = (Usuario)Session["usuario"];
 
             try
             {
@@ -49,7 +47,7 @@ namespace prjUmaCausaTcc.JsonResponses
 
                 doacaoItem.CadastrarDoacaoItem(doador, ong, nomeItem, qtItem, tipoItem, tipoEntrega, data, horario);
             }
-            catch(Exception ex)
+            catch
             {
                 resposta = "{'situacao': 'false'}";
                 resposta = resposta.Replace('\'', '\"');

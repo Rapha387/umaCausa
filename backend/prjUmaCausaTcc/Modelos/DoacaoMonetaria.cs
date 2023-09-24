@@ -13,7 +13,7 @@ public class DoacaoMonetaria : Banco
     #endregion
 
     #region Metodos
-    public bool CadastrarDoacaoMonetaria(int doador, int ong, double valor, string refcomprovante)
+    public void CadastrarDoacaoMonetaria(int doador, int ong, double valor, string refcomprovante)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -26,11 +26,10 @@ public class DoacaoMonetaria : Banco
         {
             Conectar();
             Executar("CadastrarDoacaoMonetaria", parametros);
-            return true;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            return false;
+            throw new Exception(ex.Message);
         }
         finally
         {

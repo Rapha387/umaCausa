@@ -24,9 +24,9 @@ namespace prjUmaCausaTcc
            // Literal1.Text = diaUsuario.CadastrarDiaUsuario(usuario,dia,datainicio,datafim).ToString();
            DoacaoMonetaria monetaria = new DoacaoMonetaria();
             // Sucesso
-            double valor = 54.4;
+            //double valor = 54.4;
 
-            Literal1.Text = monetaria.CadastrarDoacaoMonetaria(81,42, valor ,"uploads/temp/comprovantes/1.jpg").ToString();
+            //Literal1.Text = monetaria.CadastrarDoacaoMonetaria(81,42, valor ,"uploads/temp/comprovantes/1.jpg").ToString();
             //Literal1.Text = campanha.CriarCampanha("Campanha Solidaria", "Vamos dar sopa", datainicio, datafim, 23, null, usuario, categoria, tipo).ToString();
             //Literal1.Text = usuario.CadastrarDoador("Igary Doacoes","123","igary@gmail.com","(13) 9975-6473","948.956.094-09", "11538030","SP","Cubatão","R. dos Girassois", "340", "Vila Natal", "Casa", null,null).ToString();
             //Literal1.Text = usuario.CadastrarOng("Igary Doacoes", "123", "igary@gmail.com", "(13) 9975-6473", "948.956.094-09", "11538030", "SP", "Cubatão", "R. dos Girassois", "340", "Vila Natal", "Casa", null, null,"website.com/ooioioi.jpg", "website.com", "website.com/banner.jpg","(13)99753-2875","doações","igaryContato@gmail.com").ToString();

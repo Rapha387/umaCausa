@@ -51,7 +51,7 @@ namespace prjUmaCausaTcc.pages
                     }
 
                 }
-                catch(Exception ex)
+                catch
                 {
                     Response.Redirect($"erro.aspx?e=");
                 }

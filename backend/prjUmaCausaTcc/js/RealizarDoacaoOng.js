@@ -12,22 +12,22 @@ if (btnRelizarDoacaoMonetaria) {
             return;
         }
 
-        fetch(`http://localhost:50944/JsonResponses/DoarMonetarioOng.aspx?o=${ong}&v=${txtValor.value}`)
+        const formData = new FormData();
+
+        if (txtComprovante.files.length > 0) {
+            formData.append('comprovante', txtComprovante.files[0]);
+            formData.append('valor', txtValor.value);
+            formData.append('ong', ong)
+        }
+
+        fetch(`./../JsonResponses/DoarMonetarioOng.aspx`, {
+            method: 'POST',
+            body: formData
+        })
         .then(function (resposta) { return resposta.json() })
         .then(function (dados) {
             console.log(dados);
             if (dados['situacao'] == 'true') {
-                const formData = new FormData();
-
-                if (txtComprovante.files.length > 0) {
-                    formData.append('imagem', fileInput.files[0]);
-
-                    fetch('/comprovante1', {
-                        method: 'POST',
-                        body: formData
-                    })
-                }
-
                 alert("Doação realizada!");
             }
             else {

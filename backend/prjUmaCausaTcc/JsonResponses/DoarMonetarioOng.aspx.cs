@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+
 
 namespace prjUmaCausaTcc.JsonResponses
 {
@@ -13,31 +15,45 @@ namespace prjUmaCausaTcc.JsonResponses
         protected void Page_Load(object sender, EventArgs e)
         {
             Response.ContentType = "application/json";
-
             string resposta;
 
-            //if (String.IsNullOrEmpty(Request["n"]))
-            //{
-            //    resposta = "{'situacao': 'false'}";
-            //    resposta = resposta.Replace('\'', '\"');
-            //    Response.Write(resposta);
-            //    return;
-            //}
-
-            Usuario usuario = new Usuario();
-            usuario.BuscarUsuarioPeloEmail(Session["email"].ToString());
-
-            int doador = usuario.Codigo;
-            int ong = int.Parse(Request["o"].ToString());
-            double valor = double.Parse(Request["v"].ToString());
-            //string comprovante = Request["c"].ToString();
-
-            DoacaoMonetaria doacaoMonetaria = new DoacaoMonetaria();
-            try
+            if (Session["usuario"] == null)
             {
-                doacaoMonetaria.CadastrarDoacaoMonetaria(doador, ong, valor, "");
+                resposta = "{'situacao': 'false'}";
+                resposta = resposta.Replace('\'', '\"');
+                Response.Write(resposta);
+                return;
             }
-            catch
+                
+            string nomeComprovante;
+
+            Usuario usuario = (Usuario)Session["usuario"];
+            
+            if (Request.Files.Count > 0)
+            {
+                try
+                {
+                    HttpPostedFile comprovante = Request.Files[0];
+                    nomeComprovante = comprovante.FileName;
+
+                    int doador = usuario.Codigo;
+                    int ong = int.Parse(Request.Form["ong"].ToString());
+                    double valor = double.Parse(Request.Form["valor"].ToString());
+                    string referencia = "uploads/temp/comprovantes/" + nomeComprovante;
+
+                    DoacaoMonetaria doacaoMonetaria = new DoacaoMonetaria();
+                    doacaoMonetaria.CadastrarDoacaoMonetaria(doador, ong, valor, referencia);
+                    comprovante.SaveAs(Request.PhysicalApplicationPath + @"uploads\temp\comprovantes\" + nomeComprovante);
+                }
+                catch
+                {
+                    resposta = "{'situacao': 'false'}";
+                    resposta = resposta.Replace('\'', '\"');
+                    Response.Write(resposta);
+                    return;
+                }
+            }
+            else
             {
                 resposta = "{'situacao': 'false'}";
                 resposta = resposta.Replace('\'', '\"');
