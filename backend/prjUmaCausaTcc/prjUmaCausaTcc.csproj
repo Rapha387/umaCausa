@@ -458,7 +458,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="pages\configuracoes\" />
-    <Folder Include="uploads\comprovantes\" />
+    <Folder Include="uploads\temp\comprovantes\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
