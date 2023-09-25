@@ -109,7 +109,7 @@ namespace prjUmaCausaTcc.pages
                 litCNPJ.Text = $"<a href='https://cnpj.info/{usuario.Identificacao.Replace(".", "").Replace("/", "").Replace("-", "")}'>" + usuario.Identificacao + "<a/>";
                 litDescricao.Text = usuario.Descricao;
                 litEmailContato.Text = $"<a href='mailto:{usuario.EmailContato}'>" + usuario.EmailContato + "</a>";
-                litEndereco.Text = $"{usuario.Rua}, {usuario.Numero} - {usuario.Bairro}, {usuario.Cidade} - {usuario.Estado}, {usuario.Cep}";
+                litEndereco.Text = $"<a href='https://www.google.com/maps/search/{usuario.Latitude},{usuario.Longitude}/'>{usuario.Rua}, {usuario.Numero} - {usuario.Bairro}, {usuario.Cidade} - {usuario.Estado}, {usuario.Cep}<a/>";
                 litNome.Text = usuario.Nome;
                 litSite.Text = $"<a href='{usuario.Website}'>" + usuario.Website + "</a>";
                 litTelefone.Text = $"<a href='tel:{usuario.Telefone}'>" + usuario.Telefone + "</a>";

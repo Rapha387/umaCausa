@@ -29,7 +29,6 @@
         <div class="ongs">
           <h2>ONGS</h2>
             <asp:Literal ID="litOngs" runat="server"></asp:Literal>
-
         </div>
         <div class="pesquisa">
           <div class="pesquisar">
