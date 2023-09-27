@@ -90,6 +90,9 @@ main .infos .infos2 .card-infos .card p {
   color: #1876F2;
   word-wrap: break-word;
 }
+main .infos .infos2 .card-infos .card p a{
+  color: #1876F2;
+}
 main .infos .infos2 .card-infos .card h3 {
   font-size: 16px;
   font-family: "Roboto", sans-serif;

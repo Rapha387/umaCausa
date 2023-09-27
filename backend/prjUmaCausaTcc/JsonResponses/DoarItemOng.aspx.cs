@@ -38,7 +38,7 @@ namespace prjUmaCausaTcc.JsonResponses
                 tipoEntrega.Codigo = int.Parse(Request["te"].ToString());
 
                 string data = Request["dt"].ToString();
-                string horario = Request["hr"].ToString() + ":00";
+                string horario = Request["hr"].ToString();
 
                 DateTime.Parse(data).ToString("yyyy-MM-dd");
                 DateTime.Parse(horario).ToString("HH:mm:ss");

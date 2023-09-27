@@ -31,23 +31,24 @@ namespace prjUmaCausaTcc.pages
                     ExibirFotosOng(codigoOng);
 
                     var ListaTipoItens = new Itens().ListarItensAceitosOng(codigoOng);
-
+                    int contador = 1;
                     cmbTipoItem.Items.Add("Selcione o Tipo do Item");
                     foreach (TipoItem tipoItem in ListaTipoItens)
                     {
-                        int contador = 0;
+                        
                         cmbTipoItem.Items.Add(tipoItem.Nome);
                         cmbTipoItem.Items[contador].Value = tipoItem.Codigo.ToString();
                         contador++;
                     }
 
                     var ListaTipoEntrega = new TiposEntrega().ListarTiposEntrega();
-
+                    contador = 1;
                     cmbTipoEntrega.Items.Add("Selcione o Tipo da Entrega");
                     foreach (TipoEntrega tipoEntrega in ListaTipoEntrega)
                     {
                         cmbTipoEntrega.Items.Add(tipoEntrega.Nome);
-                        cmbTipoEntrega.Items[tipoEntrega.Codigo].Value = tipoEntrega.Codigo.ToString();
+                        cmbTipoEntrega.Items[contador].Value = tipoEntrega.Codigo.ToString();
+                        contador++;
                     }
 
                 }

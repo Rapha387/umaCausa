@@ -33,13 +33,23 @@ botoesVoltar.forEach(function(btn){
     let popup = this.parentNode;
     popup.classList.add("escondido");
     popupDoar.classList.remove("escondido");
+    if (botaoDoacaoItem)
+        LimparPopUpItem();
+        
+    if(botaoDoacaoMonetaria)
+        LimparPopupMonetario();
   });
 });
 
 bloqueio.addEventListener('click', function() {
   caixasFlutuantes.forEach(function(caixa){
     caixa.classList.add("escondido");
-    bloqueio.classList.add("escondido");
+      bloqueio.classList.add("escondido");
+    if(botaoDoacaoItem)
+          LimparPopUpItem();
+
+    if(botaoDoacaoMonetaria)
+        LimparPopupMonetario();
   });
 });
 
@@ -53,13 +63,13 @@ if (botaoDoar) {
 
 botaoDenunciar.addEventListener('click', (event) => {
   event.preventDefault();
-	bloqueio.classList.remove("escondido");
+  bloqueio.classList.remove("escondido");
   popupDenunciar.classList.remove("escondido");
 });
 
 botaoCompartilhar.addEventListener('click', (event) => {
   event.preventDefault();
-	bloqueio.classList.remove("escondido");
+  bloqueio.classList.remove("escondido");
   popupCompartilhar.classList.remove("escondido");
 });
 
