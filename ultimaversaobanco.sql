@@ -29,27 +29,30 @@ DROP TABLE IF EXISTS `Campanha`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Campanha` (
-  `id_campanha` int(11) NOT NULL AUTO_INCREMENT,
-  `nm_campanha` varchar(250) DEFAULT NULL,
-  `ds_campanha` varchar(1000) DEFAULT NULL,
-  `dt_inicioCampanha` datetime DEFAULT NULL,
-  `dt_fimEsperado` datetime DEFAULT NULL,
-  `dt_fimCampanha` datetime DEFAULT NULL,
-  `qt_meta` double DEFAULT NULL,
-  `qt_arrecadado` double DEFAULT NULL,
-  `img_bannerCampanha` varchar(500) DEFAULT NULL,
-  `qt_denuncias` int(11) DEFAULT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
-  `id_categoriaCampanha` int(11) DEFAULT NULL,
-  `id_tipoItem` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_campanha`),
-  KEY `fk_Campanha_Usuario` (`id_usuario`),
-  KEY `fk_Campanha_CategoriaCampanha` (`id_categoriaCampanha`),
-  KEY `fk_Campanha_TipoItem` (`id_tipoItem`),
-  CONSTRAINT `fk_Campanha_CategoriaCampanha` FOREIGN KEY (`id_categoriaCampanha`) REFERENCES `CategoriaCampanha` (`id_categoriaCampanha`),
-  CONSTRAINT `fk_Campanha_TipoItem` FOREIGN KEY (`id_tipoItem`) REFERENCES `TipoItem` (`id_tipoItem`),
-  CONSTRAINT `fk_Campanha_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=latin1;
+    `id_campanha` int(11) NOT NULL AUTO_INCREMENT,
+    `nm_campanha` varchar(250) DEFAULT NULL,
+    `ds_campanha` varchar(1000) DEFAULT NULL,
+    `dt_inicioCampanha` datetime DEFAULT NULL,
+    `dt_fimEsperado` datetime DEFAULT NULL,
+    `dt_fimCampanha` datetime DEFAULT NULL,
+    `qt_meta` double DEFAULT NULL,
+    `qt_arrecadado` double DEFAULT NULL,
+    `img_bannerCampanha` varchar(500) DEFAULT NULL,
+    `qt_denuncias` int(11) DEFAULT NULL,
+    `id_usuario` int(11) DEFAULT NULL,
+    `id_categoriaCampanha` int(11) DEFAULT NULL,
+    `id_tipoItem` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_campanha`),
+    KEY `fk_Campanha_Usuario` (`id_usuario`),
+    KEY `fk_Campanha_CategoriaCampanha` (`id_categoriaCampanha`),
+    KEY `fk_Campanha_TipoItem` (`id_tipoItem`),
+    CONSTRAINT `fk_Campanha_CategoriaCampanha` FOREIGN KEY (`id_categoriaCampanha`)
+        REFERENCES `CategoriaCampanha` (`id_categoriaCampanha`),
+    CONSTRAINT `fk_Campanha_TipoItem` FOREIGN KEY (`id_tipoItem`)
+        REFERENCES `TipoItem` (`id_tipoItem`),
+    CONSTRAINT `fk_Campanha_Usuario` FOREIGN KEY (`id_usuario`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,13 +73,15 @@ DROP TABLE IF EXISTS `Campanha_ODS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Campanha_ODS` (
-  `id_campanha` int(11) NOT NULL,
-  `id_ODS` int(11) NOT NULL,
-  PRIMARY KEY (`id_campanha`,`id_ODS`),
-  KEY `fk_Campanha_ODS_ODS` (`id_ODS`),
-  CONSTRAINT `fk_Campanha_ODS_Campanha` FOREIGN KEY (`id_campanha`) REFERENCES `Campanha` (`id_campanha`),
-  CONSTRAINT `fk_Campanha_ODS_ODS` FOREIGN KEY (`id_ODS`) REFERENCES `ODS` (`id_ods`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_campanha` int(11) NOT NULL,
+    `id_ODS` int(11) NOT NULL,
+    PRIMARY KEY (`id_campanha` , `id_ODS`),
+    KEY `fk_Campanha_ODS_ODS` (`id_ODS`),
+    CONSTRAINT `fk_Campanha_ODS_Campanha` FOREIGN KEY (`id_campanha`)
+        REFERENCES `Campanha` (`id_campanha`),
+    CONSTRAINT `fk_Campanha_ODS_ODS` FOREIGN KEY (`id_ODS`)
+        REFERENCES `ODS` (`id_ods`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,10 +102,10 @@ DROP TABLE IF EXISTS `CategoriaCampanha`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `CategoriaCampanha` (
-  `id_categoriaCampanha` int(11) NOT NULL,
-  `nm_categoriaCampanha` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_categoriaCampanha`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_categoriaCampanha` int(11) NOT NULL,
+    `nm_categoriaCampanha` varchar(45) DEFAULT NULL,
+    PRIMARY KEY (`id_categoriaCampanha`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,10 +126,10 @@ DROP TABLE IF EXISTS `CategoriaOng`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `CategoriaOng` (
-  `id_categoriaOng` int(11) NOT NULL,
-  `nm_categoria` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_categoriaOng`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_categoriaOng` int(11) NOT NULL,
+    `nm_categoria` varchar(45) DEFAULT NULL,
+    PRIMARY KEY (`id_categoriaOng`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,18 +150,21 @@ DROP TABLE IF EXISTS `DenunciaCampanha`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DenunciaCampanha` (
-  `id_campanha` int(11) NOT NULL,
-  `dt_denuncia` datetime NOT NULL,
-  `ds_denuncia` varchar(250) DEFAULT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_motivoDenuncia` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_campanha`,`id_usuario`,`dt_denuncia`),
-  KEY `fk_DenunciaCampanha_Usuario` (`id_usuario`),
-  KEY `fk_DenunciasCampanha_MotivoDenunciaCampanha` (`id_motivoDenuncia`),
-  CONSTRAINT `fk_DenunciaCampanha_Campanha` FOREIGN KEY (`id_campanha`) REFERENCES `Campanha` (`id_campanha`),
-  CONSTRAINT `fk_DenunciaCampanha_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`),
-  CONSTRAINT `fk_DenunciasCampanha_MotivoDenunciaCampanha` FOREIGN KEY (`id_motivoDenuncia`) REFERENCES `MotivoDenunciaCampanha` (`id_motivoDenuncia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_campanha` int(11) NOT NULL,
+    `dt_denuncia` datetime NOT NULL,
+    `ds_denuncia` varchar(250) DEFAULT NULL,
+    `id_usuario` int(11) NOT NULL,
+    `id_motivoDenuncia` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_campanha` , `id_usuario` , `dt_denuncia`),
+    KEY `fk_DenunciaCampanha_Usuario` (`id_usuario`),
+    KEY `fk_DenunciasCampanha_MotivoDenunciaCampanha` (`id_motivoDenuncia`),
+    CONSTRAINT `fk_DenunciaCampanha_Campanha` FOREIGN KEY (`id_campanha`)
+        REFERENCES `Campanha` (`id_campanha`),
+    CONSTRAINT `fk_DenunciaCampanha_Usuario` FOREIGN KEY (`id_usuario`)
+        REFERENCES `Usuario` (`id_usuario`),
+    CONSTRAINT `fk_DenunciasCampanha_MotivoDenunciaCampanha` FOREIGN KEY (`id_motivoDenuncia`)
+        REFERENCES `MotivoDenunciaCampanha` (`id_motivoDenuncia`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,18 +184,21 @@ DROP TABLE IF EXISTS `DenunciaUsuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DenunciaUsuario` (
-  `id_usuarioDenunciado` int(11) NOT NULL,
-  `id_usuarioDenunciante` int(11) NOT NULL,
-  `dt_denuncia` datetime NOT NULL,
-  `id_motivoDenuncia` int(11) DEFAULT NULL,
-  `ds_denuncia` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`id_usuarioDenunciado`,`id_usuarioDenunciante`,`dt_denuncia`),
-  KEY `fk_DenunciaUsuario_Usuario2` (`id_usuarioDenunciante`),
-  KEY `fk_DenunciaUsuario_MotivoDenunciaUsuario` (`id_motivoDenuncia`),
-  CONSTRAINT `fk_DenunciaUsuario_MotivoDenunciaUsuario` FOREIGN KEY (`id_motivoDenuncia`) REFERENCES `MotivoDenunciaUsuario` (`id_motivoDenuncia`),
-  CONSTRAINT `fk_DenunciaUsuario_Usuario1` FOREIGN KEY (`id_usuarioDenunciado`) REFERENCES `Usuario` (`id_usuario`),
-  CONSTRAINT `fk_DenunciaUsuario_Usuario2` FOREIGN KEY (`id_usuarioDenunciante`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_usuarioDenunciado` int(11) NOT NULL,
+    `id_usuarioDenunciante` int(11) NOT NULL,
+    `dt_denuncia` datetime NOT NULL,
+    `id_motivoDenuncia` int(11) DEFAULT NULL,
+    `ds_denuncia` varchar(250) DEFAULT NULL,
+    PRIMARY KEY (`id_usuarioDenunciado` , `id_usuarioDenunciante` , `dt_denuncia`),
+    KEY `fk_DenunciaUsuario_Usuario2` (`id_usuarioDenunciante`),
+    KEY `fk_DenunciaUsuario_MotivoDenunciaUsuario` (`id_motivoDenuncia`),
+    CONSTRAINT `fk_DenunciaUsuario_MotivoDenunciaUsuario` FOREIGN KEY (`id_motivoDenuncia`)
+        REFERENCES `MotivoDenunciaUsuario` (`id_motivoDenuncia`),
+    CONSTRAINT `fk_DenunciaUsuario_Usuario1` FOREIGN KEY (`id_usuarioDenunciado`)
+        REFERENCES `Usuario` (`id_usuario`),
+    CONSTRAINT `fk_DenunciaUsuario_Usuario2` FOREIGN KEY (`id_usuarioDenunciante`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,10 +218,10 @@ DROP TABLE IF EXISTS `Dia`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Dia` (
-  `id_dia` int(11) NOT NULL,
-  `nm_dia` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id_dia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_dia` int(11) NOT NULL,
+    `nm_dia` varchar(100) DEFAULT NULL,
+    PRIMARY KEY (`id_dia`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,15 +242,17 @@ DROP TABLE IF EXISTS `Dia_Usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Dia_Usuario` (
-  `id_usuario` int(11) NOT NULL,
-  `id_dia` int(11) NOT NULL,
-  `hr_inicio` time DEFAULT NULL,
-  `hr_fim` time DEFAULT NULL,
-  PRIMARY KEY (`id_usuario`,`id_dia`),
-  KEY `fk_Dia_Usuario_Dia` (`id_dia`),
-  CONSTRAINT `fk_Dia_Usuario_Dia` FOREIGN KEY (`id_dia`) REFERENCES `Dia` (`id_dia`),
-  CONSTRAINT `fk_Dia_Usuario_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_usuario` int(11) NOT NULL,
+    `id_dia` int(11) NOT NULL,
+    `hr_inicio` time DEFAULT NULL,
+    `hr_fim` time DEFAULT NULL,
+    PRIMARY KEY (`id_usuario` , `id_dia`),
+    KEY `fk_Dia_Usuario_Dia` (`id_dia`),
+    CONSTRAINT `fk_Dia_Usuario_Dia` FOREIGN KEY (`id_dia`)
+        REFERENCES `Dia` (`id_dia`),
+    CONSTRAINT `fk_Dia_Usuario_Usuario` FOREIGN KEY (`id_usuario`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -259,24 +272,27 @@ DROP TABLE IF EXISTS `DivulgacaoItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DivulgacaoItem` (
-  `id_divulgacao` int(11) NOT NULL AUTO_INCREMENT,
-  `ds_item` varchar(250) DEFAULT NULL,
-  `qt_item` int(11) DEFAULT NULL,
-  `nm_item` varchar(250) DEFAULT NULL,
-  `dt_divulgacao` datetime DEFAULT NULL,
-  `dt_fimDivulgacao` datetime DEFAULT NULL,
-  `img_divulgacaoItem` varchar(4250) DEFAULT NULL,
-  `id_estadoItem` int(11) DEFAULT NULL,
-  `id_tipoItem` int(11) DEFAULT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_divulgacao`),
-  KEY `fk_DivulgacaoItem_EstadoItem` (`id_estadoItem`),
-  KEY `fk_DivulgacaoItem_TipoItem` (`id_tipoItem`),
-  KEY `fk_DivulgacaoItem_Usuario` (`id_usuario`),
-  CONSTRAINT `fk_DivulgacaoItem_EstadoItem` FOREIGN KEY (`id_estadoItem`) REFERENCES `EstadoItem` (`id_estadoItem`),
-  CONSTRAINT `fk_DivulgacaoItem_TipoItem` FOREIGN KEY (`id_tipoItem`) REFERENCES `TipoItem` (`id_tipoItem`),
-  CONSTRAINT `fk_DivulgacaoItem_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+    `id_divulgacao` int(11) NOT NULL AUTO_INCREMENT,
+    `ds_item` varchar(250) DEFAULT NULL,
+    `qt_item` int(11) DEFAULT NULL,
+    `nm_item` varchar(250) DEFAULT NULL,
+    `dt_divulgacao` datetime DEFAULT NULL,
+    `dt_fimDivulgacao` datetime DEFAULT NULL,
+    `img_divulgacaoItem` varchar(4250) DEFAULT NULL,
+    `id_estadoItem` int(11) DEFAULT NULL,
+    `id_tipoItem` int(11) DEFAULT NULL,
+    `id_usuario` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_divulgacao`),
+    KEY `fk_DivulgacaoItem_EstadoItem` (`id_estadoItem`),
+    KEY `fk_DivulgacaoItem_TipoItem` (`id_tipoItem`),
+    KEY `fk_DivulgacaoItem_Usuario` (`id_usuario`),
+    CONSTRAINT `fk_DivulgacaoItem_EstadoItem` FOREIGN KEY (`id_estadoItem`)
+        REFERENCES `EstadoItem` (`id_estadoItem`),
+    CONSTRAINT `fk_DivulgacaoItem_TipoItem` FOREIGN KEY (`id_tipoItem`)
+        REFERENCES `TipoItem` (`id_tipoItem`),
+    CONSTRAINT `fk_DivulgacaoItem_Usuario` FOREIGN KEY (`id_usuario`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -297,16 +313,18 @@ DROP TABLE IF EXISTS `DoacaoCampanha`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DoacaoCampanha` (
-  `id_campanha` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `dt_doacao` datetime NOT NULL,
-  `qt_doado` int(11) DEFAULT NULL,
-  `ic_doacaoConfirmada` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id_campanha`,`id_usuario`,`dt_doacao`),
-  KEY `fk_DoacaoCampanha_Usuario` (`id_usuario`),
-  CONSTRAINT `fk_DoacaoCampanha_Campanha` FOREIGN KEY (`id_campanha`) REFERENCES `Campanha` (`id_campanha`),
-  CONSTRAINT `fk_DoacaoCampanha_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_campanha` int(11) NOT NULL,
+    `id_usuario` int(11) NOT NULL,
+    `dt_doacao` datetime NOT NULL,
+    `qt_doado` int(11) DEFAULT NULL,
+    `ic_doacaoConfirmada` tinyint(1) DEFAULT NULL,
+    PRIMARY KEY (`id_campanha` , `id_usuario` , `dt_doacao`),
+    KEY `fk_DoacaoCampanha_Usuario` (`id_usuario`),
+    CONSTRAINT `fk_DoacaoCampanha_Campanha` FOREIGN KEY (`id_campanha`)
+        REFERENCES `Campanha` (`id_campanha`),
+    CONSTRAINT `fk_DoacaoCampanha_Usuario` FOREIGN KEY (`id_usuario`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -326,26 +344,30 @@ DROP TABLE IF EXISTS `DoacaoItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DoacaoItem` (
-  `id_usuarioDoador` int(11) NOT NULL,
-  `id_usuarioOng` int(11) NOT NULL,
-  `dt_doacaoItem` datetime NOT NULL,
-  `nm_item` varchar(250) DEFAULT NULL,
-  `qt_item` int(11) DEFAULT NULL,
-  `dt_recebimentoItem` datetime DEFAULT NULL,
-  `ic_doacaoConfirmada` tinyint(1) DEFAULT NULL,
-  `id_tipoItem` int(11) DEFAULT NULL,
-  `id_tipoEntrega` int(11) DEFAULT NULL,
-  `hr_doacao` time DEFAULT NULL,
-  `dt_doacao` date DEFAULT NULL,
-  PRIMARY KEY (`id_usuarioDoador`,`id_usuarioOng`,`dt_doacaoItem`),
-  KEY `fk_DoacaoItem_Usuario2` (`id_usuarioOng`),
-  KEY `fk_DoacaoItem_TipoItem` (`id_tipoItem`),
-  KEY `fk_DoacaoItem_TipoEntrega` (`id_tipoEntrega`),
-  CONSTRAINT `fk_DoacaoItem_TipoEntrega` FOREIGN KEY (`id_tipoEntrega`) REFERENCES `TipoEntrega` (`id_tipoEntrega`),
-  CONSTRAINT `fk_DoacaoItem_TipoItem` FOREIGN KEY (`id_tipoItem`) REFERENCES `TipoItem` (`id_tipoItem`),
-  CONSTRAINT `fk_DoacaoItem_Usuario` FOREIGN KEY (`id_usuarioDoador`) REFERENCES `Usuario` (`id_usuario`),
-  CONSTRAINT `fk_DoacaoItem_Usuario2` FOREIGN KEY (`id_usuarioOng`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_usuarioDoador` int(11) NOT NULL,
+    `id_usuarioOng` int(11) NOT NULL,
+    `dt_doacaoItem` datetime NOT NULL,
+    `nm_item` varchar(250) DEFAULT NULL,
+    `qt_item` int(11) DEFAULT NULL,
+    `dt_recebimentoItem` datetime DEFAULT NULL,
+    `ic_doacaoConfirmada` tinyint(1) DEFAULT NULL,
+    `id_tipoItem` int(11) DEFAULT NULL,
+    `id_tipoEntrega` int(11) DEFAULT NULL,
+    `hr_doacao` time DEFAULT NULL,
+    `dt_doacao` date DEFAULT NULL,
+    PRIMARY KEY (`id_usuarioDoador` , `id_usuarioOng` , `dt_doacaoItem`),
+    KEY `fk_DoacaoItem_Usuario2` (`id_usuarioOng`),
+    KEY `fk_DoacaoItem_TipoItem` (`id_tipoItem`),
+    KEY `fk_DoacaoItem_TipoEntrega` (`id_tipoEntrega`),
+    CONSTRAINT `fk_DoacaoItem_TipoEntrega` FOREIGN KEY (`id_tipoEntrega`)
+        REFERENCES `TipoEntrega` (`id_tipoEntrega`),
+    CONSTRAINT `fk_DoacaoItem_TipoItem` FOREIGN KEY (`id_tipoItem`)
+        REFERENCES `TipoItem` (`id_tipoItem`),
+    CONSTRAINT `fk_DoacaoItem_Usuario` FOREIGN KEY (`id_usuarioDoador`)
+        REFERENCES `Usuario` (`id_usuario`),
+    CONSTRAINT `fk_DoacaoItem_Usuario2` FOREIGN KEY (`id_usuarioOng`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -365,19 +387,21 @@ DROP TABLE IF EXISTS `DoacaoMonetaria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DoacaoMonetaria` (
-  `id_usuarioDoador` int(11) NOT NULL,
-  `id_usuarioOng` int(11) NOT NULL,
-  `dt_doacao` datetime NOT NULL,
-  `ic_doacaoConfirmada` tinyint(1) DEFAULT NULL,
-  `vl_monetario` double DEFAULT NULL,
-  `nm_comprovante` varchar(250) DEFAULT NULL,
-  `id_doacao` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_usuarioDoador`,`id_usuarioOng`,`dt_doacao`),
-  UNIQUE KEY `id_doacao_UNIQUE` (`id_doacao`),
-  KEY `fk__DoacaoMonetaria_Usuario2` (`id_usuarioOng`),
-  CONSTRAINT `fk_DoacaoMonetaria_Usuario1` FOREIGN KEY (`id_usuarioDoador`) REFERENCES `Usuario` (`id_usuario`),
-  CONSTRAINT `fk__DoacaoMonetaria_Usuario2` FOREIGN KEY (`id_usuarioOng`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+    `id_usuarioDoador` int(11) NOT NULL,
+    `id_usuarioOng` int(11) NOT NULL,
+    `dt_doacao` datetime NOT NULL,
+    `ic_doacaoConfirmada` tinyint(1) DEFAULT NULL,
+    `vl_monetario` double DEFAULT NULL,
+    `nm_comprovante` varchar(250) DEFAULT NULL,
+    `id_doacao` int(11) NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (`id_usuarioDoador` , `id_usuarioOng` , `dt_doacao`),
+    UNIQUE KEY `id_doacao_UNIQUE` (`id_doacao`),
+    KEY `fk__DoacaoMonetaria_Usuario2` (`id_usuarioOng`),
+    CONSTRAINT `fk_DoacaoMonetaria_Usuario1` FOREIGN KEY (`id_usuarioDoador`)
+        REFERENCES `Usuario` (`id_usuario`),
+    CONSTRAINT `fk__DoacaoMonetaria_Usuario2` FOREIGN KEY (`id_usuarioOng`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -398,10 +422,10 @@ DROP TABLE IF EXISTS `EstadoItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `EstadoItem` (
-  `id_estadoItem` int(11) NOT NULL,
-  `nm_estadoItem` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_estadoItem`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_estadoItem` int(11) NOT NULL,
+    `nm_estadoItem` varchar(45) DEFAULT NULL,
+    PRIMARY KEY (`id_estadoItem`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -422,13 +446,14 @@ DROP TABLE IF EXISTS `FotosOng`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `FotosOng` (
-  `id_fotoOng` int(11) NOT NULL,
-  `nm_refFoto` varchar(250) DEFAULT NULL,
-  `id_usuario` int(11) NOT NULL,
-  PRIMARY KEY (`id_fotoOng`,`id_usuario`),
-  KEY `fk_FotosOng_Usuario` (`id_usuario`),
-  CONSTRAINT `fk_FotosOng_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_fotoOng` int(11) NOT NULL,
+    `nm_refFoto` varchar(250) DEFAULT NULL,
+    `id_usuario` int(11) NOT NULL,
+    PRIMARY KEY (`id_fotoOng` , `id_usuario`),
+    KEY `fk_FotosOng_Usuario` (`id_usuario`),
+    CONSTRAINT `fk_FotosOng_Usuario` FOREIGN KEY (`id_usuario`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -449,20 +474,23 @@ DROP TABLE IF EXISTS `InteresseItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `InteresseItem` (
-  `id_divulgacao` int(11) NOT NULL,
-  `id_usuarioOng` int(11) NOT NULL,
-  `dt_itemRecebido` datetime DEFAULT NULL,
-  `dt_interesseItem` datetime DEFAULT NULL,
-  `dt_buscaItem` datetime DEFAULT NULL,
-  `ic_interesseConfirmado` tinyint(1) DEFAULT NULL,
-  `id_tipoEntrega` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_divulgacao`,`id_usuarioOng`),
-  KEY `fk_InteresseItem_Usuario` (`id_usuarioOng`),
-  KEY `fk_InteresseItem_TipoEntrega` (`id_tipoEntrega`),
-  CONSTRAINT `fk_InteresseItem_DivulgacaoItem` FOREIGN KEY (`id_divulgacao`) REFERENCES `DivulgacaoItem` (`id_divulgacao`),
-  CONSTRAINT `fk_InteresseItem_TipoEntrega` FOREIGN KEY (`id_tipoEntrega`) REFERENCES `TipoEntrega` (`id_tipoEntrega`),
-  CONSTRAINT `fk_InteresseItem_Usuario` FOREIGN KEY (`id_usuarioOng`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_divulgacao` int(11) NOT NULL,
+    `id_usuarioOng` int(11) NOT NULL,
+    `dt_itemRecebido` datetime DEFAULT NULL,
+    `dt_interesseItem` datetime DEFAULT NULL,
+    `dt_buscaItem` datetime DEFAULT NULL,
+    `ic_interesseConfirmado` tinyint(1) DEFAULT NULL,
+    `id_tipoEntrega` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_divulgacao` , `id_usuarioOng`),
+    KEY `fk_InteresseItem_Usuario` (`id_usuarioOng`),
+    KEY `fk_InteresseItem_TipoEntrega` (`id_tipoEntrega`),
+    CONSTRAINT `fk_InteresseItem_DivulgacaoItem` FOREIGN KEY (`id_divulgacao`)
+        REFERENCES `DivulgacaoItem` (`id_divulgacao`),
+    CONSTRAINT `fk_InteresseItem_TipoEntrega` FOREIGN KEY (`id_tipoEntrega`)
+        REFERENCES `TipoEntrega` (`id_tipoEntrega`),
+    CONSTRAINT `fk_InteresseItem_Usuario` FOREIGN KEY (`id_usuarioOng`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -482,13 +510,14 @@ DROP TABLE IF EXISTS `MotivoDenunciaCampanha`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `MotivoDenunciaCampanha` (
-  `id_motivoDenuncia` int(11) NOT NULL,
-  `nm_motivoDenuncia` varchar(250) DEFAULT NULL,
-  `id_motivoValorDenuncia` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_motivoDenuncia`),
-  KEY `fk_MotivoDenunciaCampanha_ValorMotivoDenuncia` (`id_motivoValorDenuncia`),
-  CONSTRAINT `fk_MotivoDenunciaCampanha_ValorMotivoDenuncia` FOREIGN KEY (`id_motivoValorDenuncia`) REFERENCES `ValorMotivoDenuncia` (`id_motivoValorDenuncia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_motivoDenuncia` int(11) NOT NULL,
+    `nm_motivoDenuncia` varchar(250) DEFAULT NULL,
+    `id_motivoValorDenuncia` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_motivoDenuncia`),
+    KEY `fk_MotivoDenunciaCampanha_ValorMotivoDenuncia` (`id_motivoValorDenuncia`),
+    CONSTRAINT `fk_MotivoDenunciaCampanha_ValorMotivoDenuncia` FOREIGN KEY (`id_motivoValorDenuncia`)
+        REFERENCES `ValorMotivoDenuncia` (`id_motivoValorDenuncia`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -509,13 +538,14 @@ DROP TABLE IF EXISTS `MotivoDenunciaUsuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `MotivoDenunciaUsuario` (
-  `id_motivoDenuncia` int(11) NOT NULL,
-  `nm_motivoDenuncia` varchar(250) DEFAULT NULL,
-  `id_motivoValorDenuncia` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_motivoDenuncia`),
-  KEY `fk_MotivoDenunciaUsuario_ValorMotivoDenuncia` (`id_motivoValorDenuncia`),
-  CONSTRAINT `fk_MotivoDenunciaUsuario_ValorMotivoDenuncia` FOREIGN KEY (`id_motivoValorDenuncia`) REFERENCES `ValorMotivoDenuncia` (`id_motivoValorDenuncia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_motivoDenuncia` int(11) NOT NULL,
+    `nm_motivoDenuncia` varchar(250) DEFAULT NULL,
+    `id_motivoValorDenuncia` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_motivoDenuncia`),
+    KEY `fk_MotivoDenunciaUsuario_ValorMotivoDenuncia` (`id_motivoValorDenuncia`),
+    CONSTRAINT `fk_MotivoDenunciaUsuario_ValorMotivoDenuncia` FOREIGN KEY (`id_motivoValorDenuncia`)
+        REFERENCES `ValorMotivoDenuncia` (`id_motivoValorDenuncia`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -536,11 +566,11 @@ DROP TABLE IF EXISTS `ODS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ODS` (
-  `id_ods` int(11) NOT NULL,
-  `nm_ods` varchar(45) DEFAULT NULL,
-  `nm_hrefOds` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`id_ods`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_ods` int(11) NOT NULL,
+    `nm_ods` varchar(45) DEFAULT NULL,
+    `nm_hrefOds` varchar(250) DEFAULT NULL,
+    PRIMARY KEY (`id_ods`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -561,10 +591,10 @@ DROP TABLE IF EXISTS `TipoEntrega`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `TipoEntrega` (
-  `id_tipoEntrega` int(11) NOT NULL,
-  `nm_tipoEntrega` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`id_tipoEntrega`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_tipoEntrega` int(11) NOT NULL,
+    `nm_tipoEntrega` varchar(250) DEFAULT NULL,
+    PRIMARY KEY (`id_tipoEntrega`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -585,11 +615,11 @@ DROP TABLE IF EXISTS `TipoItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `TipoItem` (
-  `id_tipoItem` int(11) NOT NULL,
-  `nm_tipoItem` varchar(250) DEFAULT NULL,
-  `img_tipoItem` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`id_tipoItem`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_tipoItem` int(11) NOT NULL,
+    `nm_tipoItem` varchar(250) DEFAULT NULL,
+    `img_tipoItem` varchar(250) DEFAULT NULL,
+    PRIMARY KEY (`id_tipoItem`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -610,13 +640,15 @@ DROP TABLE IF EXISTS `TipoItem_Ong`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `TipoItem_Ong` (
-  `id_tipoItem` int(11) NOT NULL,
-  `id_usuarioOng` int(11) NOT NULL,
-  PRIMARY KEY (`id_tipoItem`,`id_usuarioOng`),
-  KEY `fk_TipoItem_Ong_Usuario` (`id_usuarioOng`),
-  CONSTRAINT `fk_TipoItem_Ong_TipoItem` FOREIGN KEY (`id_tipoItem`) REFERENCES `TipoItem` (`id_tipoItem`),
-  CONSTRAINT `fk_TipoItem_Ong_Usuario` FOREIGN KEY (`id_usuarioOng`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_tipoItem` int(11) NOT NULL,
+    `id_usuarioOng` int(11) NOT NULL,
+    PRIMARY KEY (`id_tipoItem` , `id_usuarioOng`),
+    KEY `fk_TipoItem_Ong_Usuario` (`id_usuarioOng`),
+    CONSTRAINT `fk_TipoItem_Ong_TipoItem` FOREIGN KEY (`id_tipoItem`)
+        REFERENCES `TipoItem` (`id_tipoItem`),
+    CONSTRAINT `fk_TipoItem_Ong_Usuario` FOREIGN KEY (`id_usuarioOng`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -637,10 +669,10 @@ DROP TABLE IF EXISTS `TipoUsuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `TipoUsuario` (
-  `id_tipoUsuario` int(11) NOT NULL,
-  `nm_tipoUsuario` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`id_tipoUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_tipoUsuario` int(11) NOT NULL,
+    `nm_tipoUsuario` varchar(30) DEFAULT NULL,
+    PRIMARY KEY (`id_tipoUsuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -661,39 +693,42 @@ DROP TABLE IF EXISTS `Usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Usuario` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nm_email` varchar(250) DEFAULT NULL,
-  `nm_emailContato` varchar(250) DEFAULT NULL,
-  `nm_usuario` varchar(100) DEFAULT NULL,
-  `nm_senha` varchar(45) DEFAULT NULL,
-  `nm_telefone` varchar(20) DEFAULT NULL,
-  `nm_indentificacao` varchar(45) DEFAULT NULL,
-  `ds_usuario` varchar(1000) DEFAULT NULL,
-  `nm_cep` varchar(10) DEFAULT NULL,
-  `nm_estado` varchar(45) DEFAULT NULL,
-  `nm_cidade` varchar(100) DEFAULT NULL,
-  `nm_rua` varchar(250) DEFAULT NULL,
-  `nm_numero` varchar(5) DEFAULT NULL,
-  `nm_bairro` varchar(45) DEFAULT NULL,
-  `nm_complemento` varchar(45) DEFAULT NULL,
-  `nm_log` varchar(45) DEFAULT NULL,
-  `nm_lat` varchar(45) DEFAULT NULL,
-  `img_fotoPerfil` varchar(400) DEFAULT NULL,
-  `nm_website` varchar(250) DEFAULT NULL,
-  `img_banner` varchar(400) DEFAULT NULL,
-  `nm_pix` varchar(250) DEFAULT NULL,
-  `ic_banido` tinyint(1) DEFAULT NULL,
-  `dt_desboloqueio` datetime DEFAULT NULL,
-  `ic_podeBuscar` tinyint(1) DEFAULT NULL,
-  `id_tipoUsuario` int(11) DEFAULT NULL,
-  `id_categoriaOng` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `nm_email_UNIQUE` (`nm_email`),
-  KEY `fk_Usuario_TipoUsuario` (`id_tipoUsuario`),
-  KEY `fk_Usuario_CategoriaOng_idx` (`id_categoriaOng`),
-  CONSTRAINT `fk_Usuario_CategoriaOng` FOREIGN KEY (`id_categoriaOng`) REFERENCES `CategoriaOng` (`id_categoriaOng`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Usuario_TipoUsuario` FOREIGN KEY (`id_tipoUsuario`) REFERENCES `TipoUsuario` (`id_tipoUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
+    `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+    `nm_email` varchar(250) DEFAULT NULL,
+    `nm_emailContato` varchar(250) DEFAULT NULL,
+    `nm_usuario` varchar(100) DEFAULT NULL,
+    `nm_senha` varchar(45) DEFAULT NULL,
+    `nm_telefone` varchar(20) DEFAULT NULL,
+    `nm_indentificacao` varchar(45) DEFAULT NULL,
+    `ds_usuario` varchar(1000) DEFAULT NULL,
+    `nm_cep` varchar(10) DEFAULT NULL,
+    `nm_estado` varchar(45) DEFAULT NULL,
+    `nm_cidade` varchar(100) DEFAULT NULL,
+    `nm_rua` varchar(250) DEFAULT NULL,
+    `nm_numero` varchar(5) DEFAULT NULL,
+    `nm_bairro` varchar(45) DEFAULT NULL,
+    `nm_complemento` varchar(45) DEFAULT NULL,
+    `nm_log` varchar(45) DEFAULT NULL,
+    `nm_lat` varchar(45) DEFAULT NULL,
+    `img_fotoPerfil` varchar(400) DEFAULT NULL,
+    `nm_website` varchar(250) DEFAULT NULL,
+    `img_banner` varchar(400) DEFAULT NULL,
+    `nm_pix` varchar(250) DEFAULT NULL,
+    `ic_banido` tinyint(1) DEFAULT NULL,
+    `dt_desboloqueio` datetime DEFAULT NULL,
+    `ic_podeBuscar` tinyint(1) DEFAULT NULL,
+    `id_tipoUsuario` int(11) DEFAULT NULL,
+    `id_categoriaOng` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_usuario`),
+    UNIQUE KEY `nm_email_UNIQUE` (`nm_email`),
+    KEY `fk_Usuario_TipoUsuario` (`id_tipoUsuario`),
+    KEY `fk_Usuario_CategoriaOng_idx` (`id_categoriaOng`),
+    CONSTRAINT `fk_Usuario_CategoriaOng` FOREIGN KEY (`id_categoriaOng`)
+        REFERENCES `CategoriaOng` (`id_categoriaOng`)
+        ON DELETE NO ACTION ON UPDATE NO ACTION,
+    CONSTRAINT `fk_Usuario_TipoUsuario` FOREIGN KEY (`id_tipoUsuario`)
+        REFERENCES `TipoUsuario` (`id_tipoUsuario`)
+)  ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -714,10 +749,10 @@ DROP TABLE IF EXISTS `ValorMotivoDenuncia`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ValorMotivoDenuncia` (
-  `id_motivoValorDenuncia` int(11) NOT NULL,
-  `nm_valorMotivoDenuncia` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_motivoValorDenuncia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_motivoValorDenuncia` int(11) NOT NULL,
+    `nm_valorMotivoDenuncia` varchar(45) DEFAULT NULL,
+    PRIMARY KEY (`id_motivoValorDenuncia`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2298,4 +2333,10 @@ delimiter ;
 
 -- Dump completed on 2023-09-25  3:08:14
 
-
+use umacausa;
+select 
+    *
+from
+    Usuario
+where
+    id_tipoUsuario = 1;

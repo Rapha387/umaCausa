@@ -158,12 +158,7 @@ public class Usuario : Banco
                 throw new Exception("O nome do bairro não deve estar vazio!");
         }
     }
-    private string _complemento;
-    public string Complemento
-    {
-        get => _complemento;
-        set { _complemento = value; }
-    }
+    public string Complemento { get; set; }
 
     public string Latitude { get; private set; }
     public string Longitude { get; private set; }
@@ -344,14 +339,14 @@ public class Usuario : Banco
                 EmailContato = dados.GetString("nm_emailContato");
                 Telefone = dados.GetString("nm_telefone");
                 Identificacao = dados.GetString("nm_indentificacao");
-                Website = dados.GetString("nm_website");
+                Website = dados["nm_website"].ToString();
                 Cep = dados.GetString("nm_cep");
                 Estado = dados.GetString("nm_estado");
                 Cidade = dados.GetString("nm_cidade");
                 Rua = dados.GetString("nm_rua");
                 Numero = dados.GetString("nm_numero");
                 Bairro = dados.GetString("nm_bairro");
-                Complemento = dados.GetString("nm_complemento");
+                Complemento = dados["nm_complemento"].ToString();
                 CategoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
             }
             if (!dados.IsClosed)
