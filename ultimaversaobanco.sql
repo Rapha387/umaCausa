@@ -2271,4 +2271,18 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+delimiter ;;
+Drop procedure if exists CadastrarDoacaoMonetaria;;
+CREATE PROCEDURE CadastrarDoacaoMonetaria(pIdUsuarioDoador int, pIdUsuarioOng int, pVlMonetario double)
+begin
+	declare comprovante int;
+
+	Insert into DoacaoMonetaria values(pIdUsuarioDoador, pIdUsuarioOng, now(), false, pVlMonetario, '', default);
+
+	select max(id_doacao) into comprovante from DoacaoMonetaria;
+
+	update DoacaoMonetaria set nm_comprovante = CONCAT('/uploads/temp/comprovantes/', comprovante, '.jpg') where id_doacao = comprovante;
+end;;
+delimiter ;
+
 -- Dump completed on 2023-09-25  3:08:14
