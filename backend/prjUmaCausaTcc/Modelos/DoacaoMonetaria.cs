@@ -13,14 +13,13 @@ public class DoacaoMonetaria : Banco
     #endregion
 
     #region Metodos
-    public void CadastrarDoacaoMonetaria(int doador, int ong, double valor, string refcomprovante)
+    public void CadastrarDoacaoMonetaria(int doador, int ong, double valor)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
             new Parametro("pIdUsuarioDoador",doador.ToString()),
             new Parametro("pIdUsuarioOng",ong.ToString()),
             new Parametro("pVlMonetario", valor.ToString().Replace(",",".")),
-            new Parametro("pNmComprovante", refcomprovante)
         };
         try
         {

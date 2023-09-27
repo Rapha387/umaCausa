@@ -42,8 +42,9 @@ namespace prjUmaCausaTcc.JsonResponses
                     string referencia = "uploads/temp/comprovantes/" + nomeComprovante;
 
                     DoacaoMonetaria doacaoMonetaria = new DoacaoMonetaria();
-                    doacaoMonetaria.CadastrarDoacaoMonetaria(doador, ong, valor, referencia);
-                    comprovante.SaveAs(Request.PhysicalApplicationPath + @"uploads\temp\comprovantes\" + nomeComprovante);
+                    doacaoMonetaria.CadastrarDoacaoMonetaria(doador, ong, valor);
+
+                    comprovante.SaveAs(Request.PhysicalApplicationPath + @"uploads\temp\comprovantes\" + "dsaddsa"+".jpg");
                 }
                 catch
                 {
