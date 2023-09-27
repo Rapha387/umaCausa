@@ -10,6 +10,8 @@ public class DoacaoMonetaria : Banco
     public Usuario Doador { get; set; }
     public double ValorDoacao { get; set; }
     public DateTime DataDoacao { get; set; }
+    public int CodigoComprovante { get; set; }  
+    public int CodigoDoacao { get; set; }   
     #endregion
 
     #region Metodos
@@ -35,5 +37,28 @@ public class DoacaoMonetaria : Banco
             Desconectar();
         }
     }
+
+    public int GerarComprovante()
+    {
+        try
+        {
+            var dados = Consultar("GerarCodigoComprovante", null);
+            if (dados.Read())
+            {
+                CodigoComprovante = dados.GetInt32("comprovante");
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+
+        return CodigoComprovante;
+    }
+
     #endregion
 }

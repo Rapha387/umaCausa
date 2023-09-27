@@ -73,6 +73,24 @@ botaoDoacaoItem.addEventListener('click', () => {
   popupDoacaoItem.classList.remove('escondido');
 });
 
+
+function LimparPopupMonetario(){
+    popupDoacaoMonetaria.classList.add('escondido');
+    txtValor.value = "";
+    txtComprovante.value = "";
+    qrcodeContainer.innerHTML = "";
+}
+
+function LimparPopUpItem() {
+    popupDoacaoItem.classList.add('escondido');
+    txtNomeItem.value = "";
+    cmbTipoItem.selectedIndex = 0;
+    cmbTipoEntrega.selectedIndex = 0;
+    txtDataEnvio.value = "";
+    txtHorario.value = "";
+    txtQuantidadeItem.value = "";
+}
+
 /*
   botaoCopiar.addEventListener("click", (event) => {
   event.preventDefault();

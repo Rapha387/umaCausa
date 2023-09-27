@@ -28,6 +28,9 @@ if (btnRelizarDoacaoMonetaria) {
         .then(function (dados) {
             console.log(dados);
             if (dados['situacao'] == 'true') {
+                LimparPopupMonetario();
+                bloqueio.classList.add('escondido');
+
                 alert("Doação realizada!");
             }
             else {
@@ -64,8 +67,10 @@ if (btnAgendarItem) {
                             body: formData
                         })
                     }
-
+                    LimparPopUpItem();
+                    
                     alert("Doação realizada!");
+                    
                 }
                 else {
                     alert('Erro na doação');

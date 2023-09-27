@@ -2285,4 +2285,15 @@ begin
 end;;
 delimiter ;
 
+delimiter $$
+
+drop procedure if exists GerarCodigoComprovante$$
+create procedure GerarCodigoComprovante()
+begin
+	select max(id_doacao) + 1 as comprovante from DoacaoMonetaria;
+end$$
+
+
+delimiter ;
+
 -- Dump completed on 2023-09-25  3:08:14
