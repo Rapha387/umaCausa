@@ -332,20 +332,20 @@ public class Usuario : Banco
             MySqlDataReader dados = Consultar("BuscarDadosOng", parametros);
             if (dados.Read())
             {
-                Nome = dados.GetString("nm_usuario");
-                Banner = dados.GetString("img_banner");
-                FotoPerfil = dados.GetString("img_fotoPerfil");
-                Descricao = dados.GetString("ds_usuario");
-                EmailContato = dados.GetString("nm_emailContato");
-                Telefone = dados.GetString("nm_telefone");
-                Identificacao = dados.GetString("nm_indentificacao");
+                Nome = dados["nm_usuario"].ToString();
+                Banner = dados["img_banner"].ToString();
+                FotoPerfil = dados["img_fotoPerfil"].ToString();
+                Descricao = dados["ds_usuario"].ToString();
+                EmailContato = dados["nm_emailContato"].ToString();
+                Telefone = dados["nm_telefone"].ToString();
+                Identificacao = dados["nm_indentificacao"].ToString();
                 Website = dados["nm_website"].ToString();
-                Cep = dados.GetString("nm_cep");
-                Estado = dados.GetString("nm_estado");
-                Cidade = dados.GetString("nm_cidade");
-                Rua = dados.GetString("nm_rua");
-                Numero = dados.GetString("nm_numero");
-                Bairro = dados.GetString("nm_bairro");
+                Cep = dados["nm_cep"].ToString();
+                Estado = dados["nm_estado"].ToString();
+                Cidade = dados["nm_cidade"].ToString();
+                Rua = dados["nm_rua"].ToString();
+                Numero = dados["nm_numero"].ToString();
+                Bairro = dados["nm_bairro"].ToString();
                 Complemento = dados["nm_complemento"].ToString();
                 CategoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
             }
@@ -519,6 +519,36 @@ public class Usuario : Banco
         }
         finally { Desconectar(); }
 
+    }
+    public void BuscarTipoDoUsuario(int codigo)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("pIdUsuario", codigo.ToString())
+            };
+        try
+        {
+            MySqlDataReader dados = Consultar("BuscarTipoUsuario", parametros);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    TipoDoUsuario = new TipoUsuario();  
+                    TipoDoUsuario.Codigo = int.Parse(dados["id_tipoUsuario"].ToString());
+                }
+            }
+            else
+            {
+                TipoDoUsuario = null;
+            }
+            if (dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally { Desconectar(); }
     }
     #endregion
     public Usuario()

@@ -113,9 +113,9 @@
         <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
         <div class="denuncia-flex">
           <h1>qual o motivo da denúncia?</h1>
-          <select name="motivoDenuncia" id="aa">
-            <option>Selecione o motivo</option>
-          </select>
+          <asp:DropDownList ID="cmbMotivoDenuncia" runat="server">
+
+          </asp:DropDownList>
           <label for="observacao">Observacao:</label>
           <textarea name="observacao" id="txtObservao" cols="30" rows="5"></textarea>
           <button>Denunciar</button>

@@ -318,6 +318,7 @@
     <Compile Include="Logicas\FotosOng.cs" />
     <Compile Include="Logicas\GerarEmentosHtml.cs" />
     <Compile Include="Logicas\Itens.cs" />
+    <Compile Include="Logicas\MotivosDenunciaUsuario.cs" />
     <Compile Include="Logicas\Odesses.cs" />
     <Compile Include="Logicas\Ongs.cs" />
     <Compile Include="Logicas\TiposEntrega.cs" />

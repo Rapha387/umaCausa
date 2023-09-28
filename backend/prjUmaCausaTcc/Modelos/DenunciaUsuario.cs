@@ -11,4 +11,10 @@ public class DenunciaUsuario
     public DateTime DataDenuncia { get; set; }
     public string Descricao { get; set; }
     #endregion
+
+    #region metodos
+    
+    
+
+    #endregion
 }
