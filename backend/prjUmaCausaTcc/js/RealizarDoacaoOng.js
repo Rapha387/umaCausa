@@ -68,7 +68,8 @@ if (btnAgendarItem) {
                         })
                     }
                     LimparPopUpItem();
-                    
+                    bloqueio.classList.add('escondido');
+
                     alert("Doação realizada!");
                     
                 }
