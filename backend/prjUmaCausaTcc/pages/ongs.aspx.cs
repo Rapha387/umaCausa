@@ -14,6 +14,8 @@ namespace prjUmaCausaTcc.pages
         string c;
         protected void Page_Load(object sender, EventArgs e)
         {
+            btnBack.ImageAlign = ImageAlign.Middle;
+            
             c = Request["c"];
             litOngs.Text = "";
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
