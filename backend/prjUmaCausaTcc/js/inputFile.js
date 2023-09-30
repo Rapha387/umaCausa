@@ -28,27 +28,26 @@ fileInputLogo.addEventListener('change', () => {
 });
 
 
+if (fileInputBanner) {
+    fileInputBanner.addEventListener('change', () => {
+        if (fileInputBanner.files.length > 0) {
+            const file = fileInputBanner.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                imagemBanner.style = `background: url(${e.target.result}) center no-repeat; background-size: cover`;
+            };
 
-fileInputBanner.addEventListener('change', () => {
-    if (fileInputBanner.files.length > 0) {
-        const file = fileInputBanner.files[0];
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            imagemBanner.style = `background: url(${e.target.result}) center no-repeat; background-size: cover`;
-        };
+            reader.readAsDataURL(file);
 
-        reader.readAsDataURL(file);
+            elementToStyle.classList.add('file-selected');
+            nomeArquivoBanner.textContent = `${fileInputBanner.files[0].name}`;
 
-        elementToStyle.classList.add('file-selected');
-        nomeArquivoBanner.textContent = `${fileInputBanner.files[0].name}`;
-
-    } else {
-        elementToStyle.classList.remove('file-selected');
-        nomeArquivoBanner.textContent = "Foto retangular em JPG"
-    }
-});
-
-
+        } else {
+            elementToStyle.classList.remove('file-selected');
+            nomeArquivoBanner.textContent = "Foto retangular em JPG"
+        }
+    });
+}
 
 
 

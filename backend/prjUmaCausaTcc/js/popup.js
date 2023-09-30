@@ -8,6 +8,8 @@ const popupDoar = document.getElementById('popupPrincipal');
 
 const botaoDenunciar = document.getElementById('btnDenunciar');
 const popupDenunciar = document.querySelector('.denuncia');
+const botaoCopiarPix = document.getElementById('btnCopiarPix');
+const txtPix = document.getElementById('txtPix')
 
 const botaoCompartilhar = document.getElementById('btnCompartilhar');
 const popupCompartilhar = document.querySelector('.popup-compartilhar');
@@ -16,6 +18,7 @@ const botaoCopiar = document.getElementById('btnCopiar');
 
 const popupDoacaoMonetaria = document.querySelector('.popup-doacao-monetaria');
 const botaoDoacaoMonetaria = document.getElementById('btnDoarMonetario');
+const fileInputComprovante = document.getElementById('txtComprovante');
 
 const popupDoacaoItem = document.querySelector('.popup-doacao-item');
 const botaoDoacaoItem = document.getElementById('btnDoarItem')
@@ -84,14 +87,18 @@ botaoDoacaoItem.addEventListener('click', () => {
 });
 
 
-function LimparPopupMonetario(){
+function LimparPopupMonetario() {
+    LimparInputsMonetario();
     popupDoacaoMonetaria.classList.add('escondido');
     txtValor.value = "";
     txtComprovante.value = "";
     qrcodeContainer.innerHTML = "";
+    spanComprovante.textContent = "Nenhum Comprovante Anexado"
+    fileInputComprovante.value = "";
 }
 
 function LimparPopUpItem() {
+    LimparInputsItem();
     popupDoacaoItem.classList.add('escondido');
     txtNomeItem.value = "";
     cmbTipoItem.selectedIndex = 0;
@@ -101,12 +108,33 @@ function LimparPopUpItem() {
     txtQuantidadeItem.value = "";
 }
 
-/*
-  botaoCopiar.addEventListener("click", (event) => {
-  event.preventDefault();
-  inputCompartilhar.select();
-  inputCompartilhar.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  alert("Texto copiado para a área de transferência!");
-});
-*/
+if (botaoCopiar) {
+    botaoCopiar.addEventListener("click", function (e) {
+        e.preventDefault();
+        inputCompartilhar.select();
+        document.execCommand("copy");
+        inputCompartilhar.setSelectionRange(0, 99999);
+        alert("Link copiado para a área de transferência!");
+    });
+}
+
+if (fileInputComprovante) {
+    fileInputComprovante.addEventListener('change', () => {
+        if (fileInputComprovante.files.length > 0) {
+            spanComprovante.textContent = `Documento Anexado: ${fileInputComprovante.files[0].name}`;
+
+        } else {
+            spanComprovante.textContent = "Nenhum Comprovante Anexado"
+        }
+    });
+}
+
+if (botaoCopiarPix) {
+    botaoCopiarPix.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (txtPix.value != "") {
+            navigator.clipboard.writeText(txtPix.value)
+            botaoCopiarPix.innerHTML = "<img src='./../images/icons/copiar.png' alt=''> Copiado";
+        }
+    });
+}

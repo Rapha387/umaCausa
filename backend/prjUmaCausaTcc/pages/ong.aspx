@@ -55,13 +55,20 @@
             <input type="number" placeholder="10,00" id="txtValor">
             <button id="btnGerarPix">Gerar QRCODE</button>
             <label for="txtComprovante">Comprovante:</label>
-            <input type="file" id="txtComprovante" accept="image/*">
+            <label class="custom-file-upload">
+                <input type="file" id="txtComprovante" accept="image/*">
+                <span class="textoInputFile">Anexar Comprovante</span>
+            </label>
+            <span id="spanComprovante">Nenhum Comprovante Anexado</span>
           </div>
 
           <div class="espacamento"></div>
-      
-          <div class="qrcode" id="qrcode">
+          <div class="containerQrCode">
+              <div class="qrcode" id="qrcode"></div>
+              <button id="btnCopiarPix"><img src="./../images/icons/copiar.png" alt="">Copiar Código Pix</button>
+              <input type="text" id="txtPix" class="escondido" />
           </div>
+
         </div>
         <span id="erroDoacaoMonetaria" class="spanErro"></span>
         <div class="botao-finalizar-doacao">
@@ -126,7 +133,7 @@
         <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
         <label for="compartilhar">Compartilhar:</label><br>
         <div class="compartilhar-flex">
-          <input type="text" name="compartilhar" id="inputCompartilhar" value="umacausa.com.br/ong/vivabichos" disabled>
+          <input type="text" name="compartilhar" id="inputCompartilhar" value="umacausa.com.br/ong/vivabichos" readonly="readonly">
           <button id="btnCopiar"><img src="./../images/icons/copiar.png" alt=""></button>
         </div>
       </div>
@@ -242,6 +249,7 @@
       <script src="./../js/pix.js"></script>
       <script src="./../js/gerarPix.js"></script>
       <script src="../js/RealizarDoacaoOng.js"></script>
+
   </form>
 </body>
 </html>

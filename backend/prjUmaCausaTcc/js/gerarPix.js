@@ -1,7 +1,6 @@
 
 const qrcodeContainer = document.getElementById("qrcode");
 
-
 if (btnGerarPix) {
   btnGerarPix.addEventListener('click', function(e){
     e.preventDefault();
@@ -37,7 +36,8 @@ if (btnGerarPix) {
           valorTxt
         );
         const payload = pix.getPayload();
-        console.log(payload);
+        botaoCopiarPix.innerHTML = "<img src='./../images/icons/copiar.png' alt=''> Copiar Codigo Pix"
+        txtPix.value = payload;
         qrcodeContainer.innerHTML = "";
         new QRCode(qrcodeContainer, {
             text: payload,
