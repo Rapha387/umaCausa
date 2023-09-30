@@ -188,10 +188,13 @@
                 <img src="./../images/icons/telefone.png" alt="icone telefone">
                 <p><asp:Literal ID="litTelefone" runat="server"></asp:Literal></p>
               </div>
-              <div class="card">
-                <img src="./../images/icons/website.png" alt="icone website">
-                <p><asp:Literal ID="litSite" runat="server"></asp:Literal></p>
-              </div>
+              <asp:Panel ID="pnlCardWebSite" runat="server" Visible="true">
+                  <div class="card">
+                    <img src="./../images/icons/website.png" alt="icone website">
+                    <p><asp:Literal ID="litSite" runat="server"></asp:Literal></p>
+                 </div>
+              </asp:Panel>
+              
               <div class="card">
                 <img src="./../images/icons/cnpj.png" alt="icone cnpj">
                 <p><asp:Literal ID="litCNPJ" runat="server"></asp:Literal></p>

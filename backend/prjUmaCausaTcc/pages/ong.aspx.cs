@@ -109,14 +109,18 @@ namespace prjUmaCausaTcc.pages
                 Usuario usuario = new Usuario();
                 usuario.BuscarOng(codigoOng);
                 litNomeNavegador.Text = usuario.Nome + " - umaCausa";
-                litCNPJ.Text = $"<a href='https://cnpj.info/{usuario.Identificacao.Replace(".", "").Replace("/", "").Replace("-", "")}'>" + usuario.Identificacao + "<a/>";
+                litCNPJ.Text = $"<a target='_blank' href='https://cnpj.info/{usuario.Identificacao.Replace(".", "").Replace("/", "").Replace("-", "")}'>" + usuario.Identificacao + "<a/>";
                 litDescricao.Text = usuario.Descricao;
-                litEmailContato.Text = $"<a href='mailto:{usuario.EmailContato}'>" + usuario.EmailContato + "</a>";
+                litEmailContato.Text = $"<a target='_blank' target='_blank' href='mailto:{usuario.EmailContato}'>" + usuario.EmailContato + "</a>";
                 litEndereco.Text = $"{usuario.Rua}, {usuario.Numero} - {usuario.Bairro}, {usuario.Cidade} - {usuario.Estado}, {usuario.Cep}";
                 litNome.Text = usuario.Nome;
-                litSite.Text = $"<a href='{usuario.Website}'>" + usuario.Website + "</a>";
-                litTelefone.Text = $"<a href='tel:{usuario.Telefone}'>" + usuario.Telefone + "</a>";
-                litCampanha.Text = $"<a src='ongs.aspx?categoria{usuario.CategoriaOng.Codigo}'><p>#{usuario.CategoriaOng.Nome}</p></a>";
+                if (!String.IsNullOrEmpty(usuario.Website))
+                    litSite.Text = $"<a target='_blank' href='{usuario.Website}'>" + usuario.Website + "</a>";
+                else
+                    pnlCardWebSite.Visible = false;
+
+                litTelefone.Text = $"<a target='_blank' href='tel:{usuario.Telefone}'>" + usuario.Telefone + "</a>";
+                litCampanha.Text = $"<a target='_blank' src='ongs.aspx?categoria{usuario.CategoriaOng.Codigo}'><p>#{usuario.CategoriaOng.Nome}</p></a>";
                 litBanner.Text = $"<div class='banner' style='background: url(../{usuario.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
                 litIcone.Text = $"<div class='logo-ong' style='background: url(../{usuario.FotoPerfil}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
             }

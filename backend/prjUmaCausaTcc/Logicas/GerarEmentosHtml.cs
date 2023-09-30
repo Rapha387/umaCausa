@@ -30,8 +30,8 @@ using System.Web;
                         <li><a href='./campanhas.aspx'>Campanhas</a></li>
                         <li><a href='./itens.aspx'>Doações Disponiveis</a></li>
                         <li><label for='menuConfig'><img class='img-user-preto' src=../images/icons/userPreto.png /></label></li>
-                        <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
                     </ul>
+                    <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
                     <div class='menu-configuracoes'>
                         <ul>
                           <li><a href='configuracoes/meuPerfil.html'>Meu Perfil</a></li>
