@@ -8,8 +8,9 @@ const popupDoar = document.getElementById('popupPrincipal');
 
 const botaoDenunciar = document.getElementById('btnDenunciar');
 const popupDenunciar = document.querySelector('.denuncia');
-const botaoCopiarPix = document.getElementById('btnCopiarPix');
-const txtPix = document.getElementById('txtPix')
+const txtDescricaoDenuncia = document.getElementById('txtObservao');
+const cmbMotivoDenuncia = document.getElementById('cmbMotivoDenuncia');
+const btnRealizarDenunciaUsuario = document.getElementById('btnRealizarDenunciaUsuario')
 
 const botaoCompartilhar = document.getElementById('btnCompartilhar');
 const popupCompartilhar = document.querySelector('.popup-compartilhar');
@@ -19,9 +20,13 @@ const botaoCopiar = document.getElementById('btnCopiar');
 const popupDoacaoMonetaria = document.querySelector('.popup-doacao-monetaria');
 const botaoDoacaoMonetaria = document.getElementById('btnDoarMonetario');
 const fileInputComprovante = document.getElementById('txtComprovante');
+const botaoCopiarPix = document.getElementById('btnCopiarPix');
+const txtPix = document.getElementById('txtPix');
 
 const popupDoacaoItem = document.querySelector('.popup-doacao-item');
-const botaoDoacaoItem = document.getElementById('btnDoarItem')
+const botaoDoacaoItem = document.getElementById('btnDoarItem');
+
+const url = window.location.href;
 
 botoesFechar.forEach(function(btn){
   btn.addEventListener('click', function() {
@@ -63,12 +68,13 @@ if (botaoDoar) {
       popupDoar.classList.remove("escondido");
     });
 }
-
-botaoDenunciar.addEventListener('click', (event) => {
-  event.preventDefault();
-  bloqueio.classList.remove("escondido");
-  popupDenunciar.classList.remove("escondido");
-});
+if (botaoDenunciar) {
+    botaoDenunciar.addEventListener('click', (event) => {
+      event.preventDefault();
+      bloqueio.classList.remove("escondido");
+      popupDenunciar.classList.remove("escondido");
+    });
+}
 
 botaoCompartilhar.addEventListener('click', (event) => {
   event.preventDefault();
@@ -108,7 +114,15 @@ function LimparPopUpItem() {
     txtQuantidadeItem.value = "";
 }
 
+function LimparPopUpDenuncia() {
+    txtDescricaoDenuncia.value = "";
+    cmbMotivoDenuncia.selectedIndex = 0;
+    popupDenunciar.classList.add('escondido');
+    bloqueio.classList.add('escondido');
+}
+
 if (botaoCopiar) {
+    inputCompartilhar.value = url
     botaoCopiar.addEventListener("click", function (e) {
         e.preventDefault();
         inputCompartilhar.select();

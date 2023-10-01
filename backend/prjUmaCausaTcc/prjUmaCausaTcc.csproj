@@ -204,6 +204,7 @@
     <Content Include="images\tipoDoacao\doacao-item.png" />
     <Content Include="images\tipoDoacao\doacao-monetaria.png" />
     <Content Include="JsonResponses\BuscarDadosPixOng.aspx" />
+    <Content Include="JsonResponses\DenunciarUsuario.aspx" />
     <Content Include="JsonResponses\DeslogarUsuario.aspx" />
     <Content Include="JsonResponses\DoarItemCampanha.aspx" />
     <Content Include="JsonResponses\DoarItemOng.aspx" />
@@ -212,6 +213,7 @@
     <Content Include="js\alteracaoCoresBarraPorcentagem.js" />
     <Content Include="js\carrossel-itens.js" />
     <Content Include="js\cep.js" />
+    <Content Include="js\DenunciarUsuario.js" />
     <Content Include="js\DeslogarUsuario.js" />
     <Content Include="js\gerarPix.js" />
     <Content Include="js\home.js" />
@@ -276,6 +278,13 @@
     </Compile>
     <Compile Include="JsonResponses\BuscarDadosPixOng.aspx.designer.cs">
       <DependentUpon>BuscarDadosPixOng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JsonResponses\DenunciarUsuario.aspx.cs">
+      <DependentUpon>DenunciarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\DenunciarUsuario.aspx.designer.cs">
+      <DependentUpon>DenunciarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="JsonResponses\DeslogarUsuario.aspx.cs">
       <DependentUpon>DeslogarUsuario.aspx</DependentUpon>

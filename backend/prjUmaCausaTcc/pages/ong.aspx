@@ -120,12 +120,10 @@
         <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
         <div class="denuncia-flex">
           <h1>qual o motivo da denúncia?</h1>
-          <asp:DropDownList ID="cmbMotivoDenuncia" runat="server">
-
-          </asp:DropDownList>
+          <asp:DropDownList ID="cmbMotivoDenuncia" runat="server"> </asp:DropDownList>
           <label for="observacao">Observacao:</label>
           <textarea name="observacao" id="txtObservao" cols="30" rows="5"></textarea>
-          <button>Denunciar</button>
+          <button id="btnRealizarDenunciaUsuario">Denunciar</button>
         </div>
       </div>
 
@@ -249,7 +247,7 @@
       <script src="./../js/pix.js"></script>
       <script src="./../js/gerarPix.js"></script>
       <script src="../js/RealizarDoacaoOng.js"></script>
-
+      <script src="../js/DenunciarUsuario.js"></script>
   </form>
 </body>
 </html>

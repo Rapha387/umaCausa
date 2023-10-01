@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DenunciarUsuario.aspx.cs" Inherits="prjUmaCausaTcc.JsonResponses.DenunciarUsuario" %>
