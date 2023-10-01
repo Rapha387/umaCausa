@@ -14,6 +14,10 @@ namespace prjUmaCausaTcc.pages
         {
             if (Session["usuario"] != null)
                 Response.Redirect("index.aspx");
+
+            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
+
+            litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
         }
 
         protected void btnConectar_Click(object sender, EventArgs e)

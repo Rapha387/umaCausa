@@ -211,6 +211,7 @@
     <Content Include="JsonResponses\DoarMonetarioCampanha.aspx" />
     <Content Include="JsonResponses\DoarMonetarioOng.aspx" />
     <Content Include="js\alteracaoCoresBarraPorcentagem.js" />
+    <Content Include="js\animarBtnHeader.js" />
     <Content Include="js\carrossel-itens.js" />
     <Content Include="js\cep.js" />
     <Content Include="js\DenunciarUsuario.js" />

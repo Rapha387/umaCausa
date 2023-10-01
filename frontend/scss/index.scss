@@ -82,3 +82,35 @@ h2{
   }
 }
 
+@media screen and (max-width: 600px){
+  main{
+    padding: 2rem;
+  }
+
+  header nav{
+    padding: 0 2rem;
+  }
+
+  header nav li{
+    display: none;
+  }
+
+  footer nav img, .aImg{
+    display: none !important;
+  }
+
+  h2{
+    font-size: 20px;
+    letter-spacing: 3.5px !important;
+  }
+  h1{
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 600px){
+  #btnMenuHeader,.navHeaderResponsivo{
+    display: none !important;
+  }
+}
+

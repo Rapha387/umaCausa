@@ -22,6 +22,11 @@
         <li><a href="./campanhas.html">Campanhas</a></li>
         <li><a href="./login.html">Login</a></li>
         <li><a href="./cadastro.html"><button><img src="./../images/icons/user.png" />Cadastre-se</button></a></li>
+        <label for="chkMenuHeader" id="btnMenuHeader">
+          <span class="linha"></span>
+          <span class="linha"></span>
+          <span class="linha"></span>
+        </label>
       </ul>
       <!--<label for="menuConfig">dsa</label>
       <input type="checkbox" name="menuConfig" id="menuConfig">
@@ -37,7 +42,22 @@
       </div>-->
     </nav>
   </header>
-  
+  <input type="checkbox" class="escondido" id="chkMenuHeader">
+  <div class="navHeaderResponsivo">
+    <div class="divisaoNavResposivo">
+      <h3>Páginas</h3>
+      <li><a href="./ongs.html">Ongs</a></li>
+      <li><a href="./campanhas.html">Campanhas</a></li>
+    </div>
+    <div class="divisaoNavResposivo">
+      <h3>Minhas Informações</h3>
+      <li><a href="./configuracoes/meuPerfil.html">Meu Perfil</a></li>
+      <li><a href="./configuracoes/minhasCampanhas.html">Minhas Campanhas</a></li>
+      <li><a href="./configuracoes/minhasColaboracoes.html">Minhas Colaborações</a></li>
+      <li><a href="./configuracoes/minhasColaboracoes.html">Confirmações de Doações</a></li>
+    </div>
+    <li class="btnSairNavResponsivo">Sair</li>
+  </div>
 
   <div class="carrossel">
     <div class="slides">
@@ -382,7 +402,7 @@
 
   <footer>
     <nav>
-      <a href="./index.html"><img class="logo-footer" src="./../images/logo/logoBranco.svg" alt="logo umaCausa" /></a>
+      <a href="./index.html" class="aImg"><img class="logo-footer" src="./../images/logo/logoBranco.svg" alt="logo umaCausa" /></a>
       <div>
         <h3>Inicio</h3>
         <p><a href="./index.html">Home</a></p>
@@ -401,6 +421,8 @@
     </nav>
   </footer>
 
+
+  <script src="./../js/animarBtnHeader.js"></script>
   <script src="./../swiper/swiper-bundle.min.js"></script>
   <script src="./../js/carrossel-itens.js"></script>
   <script src="./../js/home.js"></script>

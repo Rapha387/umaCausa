@@ -20,11 +20,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <header>
-          <nav>
-              <asp:Literal ID="litHeader" runat="server"></asp:Literal>
-          </nav>
-        </header>
+        <asp:Literal ID="litHeader" runat="server"></asp:Literal>
 
         <main>
           <div class="principalInfos">

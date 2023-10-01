@@ -19,17 +19,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-     <header>
-        <nav>
-          <a href="./index.aspx"><img class="logo-header" src="./../images/logo/logoAzul.svg" alt="" /></a>
-          <ul>
-            <li><a href="./ongs.aspx">Ongs</a></li>
-            <li><a href="./campanhas.aspx">Campanhas</a></li>
-            <li><a href="./login.aspx">Login</a></li>
-            <li><a href="./cadastro.aspx"><button><img src="./../images/icons/user.png" />Cadastre-se</button></a></li>
-          </ul>
-        </nav>
-      </header>
+
+      <asp:Literal ID="litHeader" runat="server"></asp:Literal>
+
       <div class="principalLogin">
         <img class="bannerLogin" src="./../images/imgLogin/backgroundLogin.png" alt="">
         <div class="login">
