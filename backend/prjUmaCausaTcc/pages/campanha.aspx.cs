@@ -11,6 +11,8 @@ namespace prjUmaCausaTcc.pages
 	{
         protected void Page_Load(object sender, EventArgs e)
         {
+            litOds.Text = "";
+
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
 
@@ -44,12 +46,10 @@ namespace prjUmaCausaTcc.pages
                     litOds.Text += $"<img src='../{ods.Foto}'' alt=''>";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Response.Redirect("erro.aspx");
             }
-            
-
         }
 
         private void BuscarCampanha(int cd_campanha, Campanha campanha)
