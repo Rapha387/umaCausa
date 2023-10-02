@@ -12,21 +12,29 @@ body {
 }
 
 .fundoCadastro {
-  width: 453px;
-  height: 262px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #FCFBFB;
-  border: 2px solid #CDC7C7;
-  padding: 6.001rem;
-  margin-top: 20px;
+    width: 453px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FCFBFB;
+    border: 2px solid #CDC7C7;
+    padding: 3rem;
+    margin-top: 20px;
 }
 
-.fundoCadastro button {
+#btnOng, #btnDoador {   
+  background-color: #0063BF;
+  border-radius: 4px;
+  text-align: center;
+  height: 31px;
+  color: #fff;
   margin-top: 20px;
   width: 384px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
 }
 
 .fundoCadastro a {

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./../css/index.css" />
     <link rel="stylesheet" href="./../css/cadastroDoador.css" />
-    <title>nome da pagina</title>
+    <title>UmaCausa - Cadastro Doador</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -30,32 +30,32 @@
             <div class="infos">
               <div class="input-label">
                 <label for="">Nome:</label>
-                  <asp:TextBox ID="txtNome" runat="server" placeholder="ex: Cennin"></asp:TextBox>
+                  <asp:TextBox ID="txtNome" runat="server" placeholder="ex: " required="required"></asp:TextBox>
                   <span id="erroNome" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">CPF:</label>
-                <asp:TextBox ID="txtIdentificacao" TextMode="Number" runat="server" placeholder="ex: 111.111.111-00"></asp:TextBox>
+                <asp:TextBox ID="txtIdentificacao" runat="server" maxlength="11" placeholder="ex: 31331561842" required="required"></asp:TextBox>
                 <span id="erroIdentificacao" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">Email:</label>
-                <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: exemplo@gmail.com" required="required"></asp:TextBox>
                 <span id="erroEmail" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">Telefone:</label>
-                <asp:TextBox ID="txtTelefone" TextMode="Number" AutoCompleteType="Cellular" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+                <asp:TextBox ID="txtTelefone" AutoCompleteType="Cellular" maxlength="11" runat="server" placeholder="ex: 13991217101" required="required"></asp:TextBox>
                 <span id="erroTelefone" class="spanErro"></span>
               </div>
                 <div class="input-label">
                 <label for="">Senha:</label>
-                <asp:TextBox ID="txtSenha" TextMode="Password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtSenha" TextMode="Password" runat="server" required="required"></asp:TextBox>
                 <span id="erroSenha" class="spanErro"></span>
               </div>
                 <div class="input-label">
                 <label for="">Confirmar a Senha:</label>
-                <asp:TextBox ID="txtConfirmarSenha" TextMode="Password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtConfirmarSenha" TextMode="Password" runat="server" required="required"></asp:TextBox>
                 <span id="erroConfirmarSenha" class="spanErro"></span>
               </div>
             </div>
@@ -111,7 +111,7 @@
               </div>
               <div class="input-label" id="logradouro">
                 <label for="">Logradouro:</label>
-                <asp:TextBox ID="txtLogradouro" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+                <asp:TextBox ID="txtLogradouro" runat="server" placeholder="ex: 13997845669"></asp:TextBox>
               </div>
               <div class="input-label" id="numero">
                 <label for="">Número:</label>

@@ -70,7 +70,6 @@ function LimparInputsMonetario() {
     txtValor.classList.remove('inputInvalido');
     txtComprovante.classList.remove('inputInvalido');
     erroDoacaoMonetaria.textContent = "";
-
 }
 
 function LimparInputsItem() {

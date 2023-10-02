@@ -203,7 +203,7 @@ public class Usuario : Banco
 
     #region Metodos
 
-    public bool CadastrarDoador(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude)
+    public void CadastrarDoador(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude)
     {
         List<Parametro> parametros = new List<Parametro>()
         { 
@@ -226,11 +226,10 @@ public class Usuario : Banco
         {
             Conectar();
             Executar("CadastrarDoador", parametros);
-            return true;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            return false;
+            throw new Exception(ex.Message);
         }
         finally
         {
