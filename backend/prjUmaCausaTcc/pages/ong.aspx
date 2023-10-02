@@ -186,7 +186,7 @@
                 <p><asp:Literal ID="litEmailContato" runat="server"></asp:Literal></p>
               </div>
               <div class="card">
-                <img src="./../images/icons/telefone.png" alt="icone telefone">
+                <img src="./../images/icons/telefone.png" alt="icone telefone" style="height: 30px;" />
                 <p><asp:Literal ID="litTelefone" runat="server"></asp:Literal></p>
               </div>
               <asp:Panel ID="pnlCardWebSite" runat="server" Visible="true">
