@@ -219,7 +219,7 @@ namespace prjUmaCausaTcc.pages
 
                 var ListaTipoItens = new Itens().ListarItensAceitosOng(codigoOng);
                 int contador = 1;
-                cmbTipoItem.Items.Add("Selcione o Tipo do Item");
+                cmbTipoItem.Items.Add("Selecione o Tipo do Item");
                 foreach (TipoItem tipoItem in ListaTipoItens)
                 {
                     cmbTipoItem.Items.Add(tipoItem.Nome);
@@ -229,7 +229,7 @@ namespace prjUmaCausaTcc.pages
 
                 var ListaTipoEntrega = new TiposEntrega().ListarTiposEntrega();
                 contador = 1;
-                cmbTipoEntrega.Items.Add("Selcione o Tipo da Entrega");
+                cmbTipoEntrega.Items.Add("Selecione o Tipo da Entrega");
                 foreach (TipoEntrega tipoEntrega in ListaTipoEntrega)
                 {
                     cmbTipoEntrega.Items.Add(tipoEntrega.Nome);

@@ -107,7 +107,7 @@
             <input type="time" name="txtHorario" id="txtHorario"  min="08:00" max="18:00">
              <span id="erroHorario" class="spanErro"></span>
           </div>
-          <button id="btnAgendarItem">Agendar Envio</button>
+          <button id="btnAgendarItem">Agendar Doação</button>
         </div>
       </div>
 

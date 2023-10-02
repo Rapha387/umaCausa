@@ -30,22 +30,38 @@
             <div class="infos">
               <div class="input-label">
                 <label for="">Nome:</label>
+<<<<<<< HEAD
                   <asp:TextBox ID="txtNome" runat="server" placeholder="Seu Nome" required="required"></asp:TextBox>
+=======
+                  <asp:TextBox ID="txtNome" runat="server" placeholder="Laura Felice" required="required"></asp:TextBox>
+>>>>>>> main
                   <span id="erroNome" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">CPF:</label>
+<<<<<<< HEAD
                 <asp:TextBox ID="txtIdentificacao" runat="server" maxlength="11" placeholder="000.000.000-00" required="required"></asp:TextBox>
+=======
+                <asp:TextBox ID="txtIdentificacao" runat="server" maxlength="11" placeholder="31331561842" required="required"></asp:TextBox>
+>>>>>>> main
                 <span id="erroIdentificacao" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">Email:</label>
+<<<<<<< HEAD
                 <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="seuemail@gmail.com" required="required"></asp:TextBox>
+=======
+                <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="exemplo@gmail.com" required="required"></asp:TextBox>
+>>>>>>> main
                 <span id="erroEmail" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">Telefone:</label>
+<<<<<<< HEAD
                 <asp:TextBox ID="txtTelefone" AutoCompleteType="Cellular" maxlength="11" runat="server" placeholder="1399999999" required="required"></asp:TextBox>
+=======
+                <asp:TextBox ID="txtTelefone" AutoCompleteType="Cellular" maxlength="11" runat="server" placeholder="13991217101" required="required"></asp:TextBox>
+>>>>>>> main
                 <span id="erroTelefone" class="spanErro"></span>
               </div>
                 <div class="input-label">
@@ -107,6 +123,7 @@
               </div>
               <div class="input-label" id="bairro">
                 <label for="">Bairro:</label>
+<<<<<<< HEAD
                 <asp:TextBox ID="txtBairro" runat="server" placeholder="Rua Alexandre Martins"></asp:TextBox>
               </div>
               <div class="input-label" id="logradouro">
@@ -120,6 +137,21 @@
               <div class="input-label" id="complemento">
                 <label for="">Complemento:</label>
                 <asp:TextBox ID="txtComplemento" runat="server" placeholder="Apt. 14"></asp:TextBox>
+=======
+                <asp:TextBox ID="txtBairro" runat="server" placeholder="Aparecida"></asp:TextBox>
+              </div>
+              <div class="input-label" id="logradouro">
+                <label for="">Logradouro:</label>
+                <asp:TextBox ID="txtLogradouro" runat="server" placeholder="Rua Alexandre Martins"></asp:TextBox>
+              </div>
+              <div class="input-label" id="numero">
+                <label for="">Número:</label>
+                <asp:TextBox ID="txtNumero" TextMode="Number" runat="server" placeholder="99"></asp:TextBox>
+              </div>
+              <div class="input-label" id="complemento">
+                <label for="">Complemento:</label>
+                <asp:TextBox ID="txtComplemento" runat="server" placeholder="Apto. 14"></asp:TextBox>
+>>>>>>> main
               </div>
               <span id="erroEndereco" class="spanErro"></span>
             </div>
