@@ -13,20 +13,48 @@ namespace prjUmaCausaTcc.pages
     {
         string c;
         bool mudar = false;
+        int indiceDePaginacao = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             litOngs.Text = "";
+            litItemPaginacao.Text = "";
+            
 
             if (!String.IsNullOrEmpty(Request["c"]))
             {
                 c = Request["c"].ToString();
                 List<Usuario> ongs = new Ongs().ListarOngsPorCategoria(0, int.Parse(c));
                 GerarOngs(ongs);
+                if (String.IsNullOrEmpty(litItemPaginacao.Text))
+                {
+                    btnNext.Visible = false;
+                    btnBack.Visible = false;
+                }
             }
             else
             {
-                List<Usuario> ongs = new Ongs().ListarOngs(1);
-                GerarOngs(ongs);
+                if (String.IsNullOrEmpty(Request["pagina"]))
+                {
+                    List<Usuario> ongs = new Ongs().ListarOngs(0);
+                    GerarOngs(ongs);
+                }
+                else
+                {
+                    List<Usuario> ongs = new Ongs().ListarOngs((int.Parse(Request["pagina"]) - 1));
+                    GerarOngs(ongs);
+                }
+                int indice = new Ongs().ListarIndiceOngs();
+                for (int i = 0; i < indice; i++)
+                {
+                    indiceDePaginacao = i + 1;
+                    litItemPaginacao.Text += $"<a href='ongs.aspx?pagina={(i + 1)}' class='itemPaginacao'>{(i + 1)}</a> <br />";
+                }
+                if (String.IsNullOrEmpty(litItemPaginacao.Text))
+                {
+                    btnNext.Visible = false;
+                    btnBack.Visible = false;
+                }
+
             }
 
             ddlCategoria.Items.Add("Categoria");
@@ -47,6 +75,7 @@ namespace prjUmaCausaTcc.pages
             {
                 litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
             }
+
         }             
 
         private void GerarOngs(List<Usuario> ongs)
@@ -76,6 +105,32 @@ namespace prjUmaCausaTcc.pages
         protected void ddlCategoria_TextChanged(object sender, EventArgs e)
         {
             Response.Redirect($"ongs.aspx?c={ddlCategoria.SelectedValue}");
+        }
+
+        protected void btnNext_Click(object sender, ImageClickEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(Request["pagina"]))
+            {
+                if (indiceDePaginacao > int.Parse(Request["pagina"]))
+                    Response.Redirect($"ongs.aspx?pagina={(int.Parse(Request["pagina"]) + 1)}");
+                //else
+                    //btnNext.Visible = false;
+            }
+            else
+                Response.Redirect($"ongs.aspx?pagina={1}");
+        }
+
+        protected void btnBack_Click(object sender, ImageClickEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(Request["pagina"]))
+            {
+                if (int.Parse(Request["pagina"]) > 1)
+                    Response.Redirect($"ongs.aspx?pagina={(int.Parse(Request["pagina"]) - 1)}");
+                //else
+                    //btnBack.Visible = false;
+            }
+            else
+                Response.Redirect($"ongs.aspx?pagina={1}");
         }
     }
 }

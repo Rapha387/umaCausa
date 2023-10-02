@@ -78,8 +78,9 @@ namespace prjUmaCausaTcc.Logicas
             }
             return ongs;
         }
-        public void ListarIndiceOngs()
+        public int ListarIndiceOngs()
         {
+            int indice = 0;
             try
             {
                 MySqlDataReader dados = Consultar("ListarIndiceOngs", null);
@@ -87,6 +88,7 @@ namespace prjUmaCausaTcc.Logicas
                 {
                     if (dados.Read())
                     {
+                        indice = dados.GetInt32("indice");
                     }
                 }
                 if (!dados.IsClosed)
@@ -100,7 +102,7 @@ namespace prjUmaCausaTcc.Logicas
             {
                 Desconectar();
             }
-            //return ongs;
+            return indice;
         }
         public List<Usuario> ListarOngs(int limite)
         {
