@@ -70,18 +70,10 @@ namespace prjUmaCausaTcc.pages
                     litOds.Text += $"<img src='../{ods.Foto}'' alt=''>";
                 }
             }
-<<<<<<< HEAD
             else
             {
                 Response.Redirect("erro.aspx?e=Página não encontrada");
             }
-
-=======
-            catch (Exception ex)
-            {
-                Response.Redirect("erro.aspx");
-            }
->>>>>>> main
         }
 
         private void BuscarCampanha(Campanha campanha)
