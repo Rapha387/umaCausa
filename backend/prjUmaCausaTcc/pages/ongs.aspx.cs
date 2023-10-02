@@ -15,12 +15,6 @@ namespace prjUmaCausaTcc.pages
         bool mudar = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            btnBack.ImageAlign = ImageAlign.Middle;
-            
-            c = Request["c"];
-=======
->>>>>>> main
             litOngs.Text = "";
 
             if (!String.IsNullOrEmpty(Request["c"]))

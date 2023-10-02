@@ -12,7 +12,7 @@ public class DenunciaUsuario : Banco
     public string Descricao { get; set; }
     #endregion
 
-    #region metodos
+    #region Metodos
     
     public void RealizarDenuncia(int codigoDenunciante, int codigoDenunciado, int codigoMotivoDenuncia, string dsDenuncia)
     {

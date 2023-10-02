@@ -331,25 +331,6 @@ public class Usuario : Banco
             MySqlDataReader dados = Consultar("BuscarDadosOng", parametros);
             if (dados.Read())
             {
-<<<<<<< HEAD
-                Nome = dados.GetString("nm_usuario");
-                Banner = dados.GetString("img_banner");
-                FotoPerfil = dados.GetString("img_fotoPerfil");
-                Descricao = dados.GetString("ds_usuario");
-                EmailContato = dados.GetString("nm_emailContato");
-                Telefone = dados.GetString("nm_telefone");
-                Identificacao = dados.GetString("nm_indentificacao");
-                Website = dados.GetString("nm_website");
-                Cep = dados.GetString("nm_cep");
-                Estado = dados.GetString("nm_estado");
-                Cidade = dados.GetString("nm_cidade");
-                Rua = dados.GetString("nm_rua");
-                Numero = dados.GetString("nm_numero");
-                Bairro = dados.GetString("nm_bairro");
-                Complemento = dados.GetString("nm_complemento");
-                Latitude = dados.GetString("nm_lat");
-                Longitude = dados.GetString("nm_log");
-=======
                 Nome = dados["nm_usuario"].ToString();
                 Banner = dados["img_banner"].ToString();
                 FotoPerfil = dados["img_fotoPerfil"].ToString();
@@ -365,7 +346,8 @@ public class Usuario : Banco
                 Numero = dados["nm_numero"].ToString();
                 Bairro = dados["nm_bairro"].ToString();
                 Complemento = dados["nm_complemento"].ToString();
->>>>>>> main
+                Latitude = dados["nm_lat"].ToString();
+                Longitude = dados["nm_log"].ToString();
                 CategoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
             }
             if (!dados.IsClosed)

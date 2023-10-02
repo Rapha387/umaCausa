@@ -14,7 +14,16 @@ namespace prjUmaCausaTcc.pages
         {
             if (!String.IsNullOrEmpty(Request["ong"]))
             {
-                int codigoOng = int.Parse(Request["ong"]);
+                int codigoOng = 0;
+                try
+                {
+                    codigoOng = int.Parse(Request["ong"]);
+
+                }
+                catch (Exception)
+                {
+                    Response.Redirect($"erro.aspx?e=pagina não encontrada");
+                }
 
                 #region Verificacoes
                 Usuario ong = new Usuario();
@@ -111,13 +120,8 @@ namespace prjUmaCausaTcc.pages
                 litNomeNavegador.Text = usuario.Nome + " - umaCausa";
                 litCNPJ.Text = $"<a target='_blank' href='https://cnpj.info/{usuario.Identificacao.Replace(".", "").Replace("/", "").Replace("-", "")}'>" + usuario.Identificacao + "<a/>";
                 litDescricao.Text = usuario.Descricao;
-<<<<<<< HEAD
-                litEmailContato.Text = $"<a href='mailto:{usuario.EmailContato}'>" + usuario.EmailContato + "</a>";
-                litEndereco.Text = $"<a href='https://www.google.com/maps/search/{usuario.Latitude},{usuario.Longitude}/'>{usuario.Rua}, {usuario.Numero} - {usuario.Bairro}, {usuario.Cidade} - {usuario.Estado}, {usuario.Cep}<a/>";
-=======
                 litEmailContato.Text = $"<a target='_blank' target='_blank' href='mailto:{usuario.EmailContato}'>" + usuario.EmailContato + "</a>";
-                litEndereco.Text = $"{usuario.Rua}, {usuario.Numero} - {usuario.Bairro}, {usuario.Cidade} - {usuario.Estado}, {usuario.Cep}";
->>>>>>> main
+                litEndereco.Text = $"<a href='https://www.google.com/maps/place/{usuario.Latitude},{usuario.Longitude}'>{usuario.Rua}, {usuario.Numero} - {usuario.Bairro}, {usuario.Cidade} - {usuario.Estado}, {usuario.Cep}<a/>";
                 litNome.Text = usuario.Nome;
                 if (!String.IsNullOrEmpty(usuario.Website))
                     litSite.Text = $"<a target='_blank' href='{usuario.Website}'>" + usuario.Website + "</a>";
