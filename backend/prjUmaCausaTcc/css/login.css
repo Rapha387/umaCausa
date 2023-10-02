@@ -17,7 +17,10 @@ body {
 }
 
 .bannerLogin {
-    width: 50%;
+    background: url(./../images/imgLogin/01.svg);
+    background-size: cover;
+    background-position: center;
+    width: 50vw;
     height: 100%;
 }
 

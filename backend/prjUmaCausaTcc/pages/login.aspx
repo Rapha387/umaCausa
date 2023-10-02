@@ -23,7 +23,7 @@
       <asp:Literal ID="litHeader" runat="server"></asp:Literal>
 
       <div class="principalLogin">
-        <img class="bannerLogin" src="./../images/imgLogin/backgroundLogin.png" alt="">
+        <div class="bannerLogin"></div>
         <div class="login">
             <h1 style="text-align:center">Sign In</h1>
             <div class="input-label">
