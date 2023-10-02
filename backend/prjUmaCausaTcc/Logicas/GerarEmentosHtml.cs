@@ -10,13 +10,30 @@ using System.Web;
             if (!logado)
             {
                 string nav = $@"
-                    <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
-                    <ul>
-                        <li><a href='./ongs.aspx'>Ongs</a></li>
-                        <li><a href='./campanhas.aspx'>Campanhas</a></li>
-                        <li><a href='./login.aspx'>Login</a></li>
-                        <li><a class='button-header-cadastro' href='./cadastro.aspx'><img src='./../images/icons/user.png'/>Cadastre-se</a></li>
-                    </ul>";
+                    <header>
+                        <nav>
+                            <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
+                            <ul>
+                                <li><a href='./ongs.aspx'>Ongs</a></li>
+                                <li><a href='./campanhas.aspx'>Campanhas</a></li>
+                                <li><a href='./login.aspx'>Login</a></li>
+                                <li><a class='button-header-cadastro' href='./cadastro.aspx'><img src='./../images/icons/user.png'/>Cadastre-se</a></li>
+                                <label for='chkMenuHeader' id='btnMenuHeader'>
+                                  <span class='linha'></span>
+                                  <span class='linha'></span>
+                                  <span class='linha'></span>
+                                </label>
+                            </ul>
+                        </nav>
+                    </header>
+                    <input type='checkbox' class='escondido' id='chkMenuHeader'>
+                    <div class='navHeaderResponsivo'>
+                        <div class='divisaoNavResposivo'>
+                          <h3>Páginas</h3>
+                          <li><a href='./ongs.aspx'>Ongs</a></li>
+                          <li><a href='./campanhas.aspx'>Campanhas</a></li>
+                        </div>
+                    </div>";
 
                 return nav;
             }
@@ -24,23 +41,47 @@ using System.Web;
             if (tipoUsuario == 1)
             {
                 string nav = $@"
-                    <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
-                    <ul>
-                        <li><a href='./ongs.aspx'>Ongs</a></li>
-                        <li><a href='./campanhas.aspx'>Campanhas</a></li>
-                        <li><a href='./itens.aspx'>Doações Disponiveis</a></li>
-                        <li><label for='menuConfig'><img class='img-user-preto' src=../images/icons/userPreto.png /></label></li>
-                        <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
-                    </ul>
-                    <div class='menu-configuracoes'>
-                        <ul>
-                          <li><a href='configuracoes/meuPerfil.html'>Meu Perfil</a></li>
-                          <li><a href='configuracoes/minhasColaboracoes.html'>Minhas Colaborações</a></li>
-                          <li><a href='configuracoes/minhasCampanhas.html'>Minhas Campanhas</a></li>
-                          <li><a href='configuracoes/meusItens.html'>Meus Itens</a></li>
-                          <li><a href='configuracoes/confirmacoesDoacoes.html'>Confirmações de Doações</a></li>
-                          <li id='btnSair'>Sair</li>
-                        </ul>
+                    <header>
+                        <nav>
+                            <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
+                            <ul>
+                                <li><a href='./ongs.aspx'>Ongs</a></li>
+                                <li><a href='./campanhas.aspx'>Campanhas</a></li>
+                                <li><a href='./itens.aspx'>Doações Disponiveis</a></li>
+                                <li><label for='menuConfig'><img class='img-user-preto' src=../images/icons/userPreto.png /></label></li>
+                                <label for='chkMenuHeader' id='btnMenuHeader'>
+                                    <span class='linha'></span>
+                                    <span class='linha'></span>
+                                    <span class='linha'></span>
+                                </label>
+                            </ul>
+                            <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
+                            <div class='menu-configuracoes'>
+                                <ul>
+                                  <li><a href='configuracoes/meuPerfil.aspx'>Meu Perfil</a></li>
+                                  <li><a href='configuracoes/minhasColaboracoes.aspx'>Minhas Colaborações</a></li>
+                                  <li><a href='configuracoes/minhasCampanhas.aspx'>Minhas Campanhas</a></li>
+                                  <li><a href='configuracoes/meusItens.aspx'>Meus Itens</a></li>
+                                  <li><a href='configuracoes/confirmacoesDoacoes.aspx'>Confirmações de Doações</a></li>
+                                  <li id='btnSair'>Sair</li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </header>
+                    <input type='checkbox' class='escondido' id='chkMenuHeader'>
+                    <div class='navHeaderResponsivo'>
+                        <div class='divisaoNavResposivo'>
+                          <h3>Páginas</h3>
+                          <li><a href='./ongs.aspx'>Ongs</a></li>
+                          <li><a href='./campanhas.aspx'>Campanhas</a></li>
+                        </div>
+                        <div class='divisaoNavResposivo'>
+                          <h3>Minhas Informações</h3>
+                          <li><a href='./configuracoes/meuPerfil.aspx'>Meu Perfil</a></li>
+                          <li><a href='./configuracoes/meusItens.aspx'>Minhas Campanhas</a></li>
+                          <li><a href='./configuracoes/minhasColaboracoes.aspx'>Minhas Colaborações</a></li>
+                        </div>
+                        <li class='btnSairNavResponsivo' id='btnSairNavResponsivo'>Sair</li>
                     </div>";
 
                 return nav;
@@ -48,21 +89,46 @@ using System.Web;
             else
             {
                 string nav = $@"
-                    <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
-                    <ul>
-                        <li><a href='./ongs.aspx'>Ongs</a></li>
-                        <li><a href='./campanhas.aspx'>Campanhas</a></li>
-                        <li><label for='menuConfig'><img class='img-user-preto' src=../images/icons/userPreto.png /></label></li>
-                    </ul>
-                    <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
-                    <div class='menu-configuracoes'>
-                        <ul>
-                          <li><a href='configuracoes/meuPerfil.html'>Meu Perfil</a></li>
-                          <li><a href='configuracoes/minhasColaboracoes.html'>Minhas Colaborações</a></li>
-                          <li><a href='configuracoes/meusItens.html'>Meus Itens</a></li>
-                          <li><a href='configuracoes/confirmacoesDoacoes.html'>Confirmações de Doações</a></li>
-                          <li id='btnSair'>Sair</li>
-                        </ul>
+                    <header>
+                        <nav>
+                            <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
+                            <ul>
+                                <li><a href='./ongs.aspx'>Ongs</a></li>
+                                <li><a href='./campanhas.aspx'>Campanhas</a></li>
+                                <li><label for='menuConfig'><img class='img-user-preto' src=../images/icons/userPreto.png /></label></li>
+                                <label for='chkMenuHeader' id='btnMenuHeader'>
+                                    <span class='linha'></span>
+                                    <span class='linha'></span>
+                                    <span class='linha'></span>
+                                </label>
+                            </ul>
+                            <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
+                            <div class='menu-configuracoes'>
+                                <ul>
+                                  <li><a href='configuracoes/meuPerfil.aspx'>Meu Perfil</a></li>
+                                  <li><a href='configuracoes/minhasColaboracoes.aspx'>Minhas Colaborações</a></li>
+                                  <li><a href='configuracoes/meusItens.aspx'>Meus Itens</a></li>
+                                  <li><a href='configuracoes/confirmacoesDoacoes.aspx'>Confirmações de Doações</a></li>
+                                  <li id='btnSair'>Sair</li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </header>
+                    <input type='checkbox' class='escondido' id='chkMenuHeader'>
+                    <div class='navHeaderResponsivo'>
+                        <div class='divisaoNavResposivo'>
+                          <h3>Páginas</h3>
+                          <li><a href='./ongs.aspx'>Ongs</a></li>
+                          <li><a href='./campanhas.aspx'>Campanhas</a></li>
+                        </div>
+                        <div class='divisaoNavResposivo'>
+                          <h3>Minhas Informações</h3>
+                          <li><a href='./configuracoes/meuPerfil.aspx'>Meu Perfil</a></li>
+                          <li><a href='./configuracoes/meusItens.aspx'>Minhas Campanhas</a></li>
+                          <li><a href='./configuracoes/minhasColaboracoes.aspx'>Minhas Colaborações</a></li>
+                          <li><a href='configuracoes/confirmacoesDoacoes.aspx'>Confirmações de Doações</a></li>
+                        </div>
+                        <li class='btnSairNavResponsivo' id='btnSairNavResponsivo'>Sair</li>
                     </div>";
 
                 return nav;
@@ -73,7 +139,7 @@ using System.Web;
         {
             string footer = $@"
                         <nav>
-                          <a href='./index.html'><img class='logo-footer' src='./../images/logo/logoBranco.svg' alt='logo umaCausa' /></a>
+                          <a class='aImg' href='./index.html'><img class='logo-footer' src='./../images/logo/logoBranco.svg' alt='logo umaCausa' /></a>
                           <div>
                             <h3>Inicio</h3>
                             <p><a href='./index.aspx'>Home</a></p>

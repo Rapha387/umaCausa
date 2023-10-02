@@ -20,11 +20,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <header>
-          <nav>
-              <asp:Literal ID="litHeader" runat="server"></asp:Literal>
-          </nav>
-        </header>
+        <asp:Literal ID="litHeader" runat="server"></asp:Literal>
 
         <main>
           <div class="principalInfos">
@@ -37,8 +33,8 @@
                 Aceito os <a href="./termos.html">Termos e Condições</a> e autorizo
                 o uso de meus dados de acordo com a Declaração de Privacidade.
               </p>
-              <a href="./cadastroDoador.html"><button id="btnDoador">Criar Conta como Doador</button></a>
-              <a href="./cadastroOng.html" ><button id="btnOng">Criar Conta como ONG</button></a>
+              <a id="btnDoador" href="cadastroDoador.aspx">Criar Conta como Doador</a>
+              <a id="btnOng">Criar Conta como ONG</a>
             </div>
           </div>
         </main>

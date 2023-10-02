@@ -19,11 +19,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <header>
-            <nav>
-              <asp:Literal ID="litHeader" runat="server"></asp:Literal>
-            </nav>
-         </header>
+        <asp:Literal ID="litHeader" runat="server"></asp:Literal>
   
         <asp:Literal ID="litBanner" runat="server"></asp:Literal>
   
@@ -55,13 +51,20 @@
             <input type="number" placeholder="10,00" id="txtValor">
             <button id="btnGerarPix">Gerar QRCODE</button>
             <label for="txtComprovante">Comprovante:</label>
-            <input type="file" id="txtComprovante" accept="image/*">
+            <label class="custom-file-upload">
+                <input type="file" id="txtComprovante" accept="image/*">
+                <span class="textoInputFile">Anexar Comprovante</span>
+            </label>
+            <span id="spanComprovante">Nenhum Comprovante Anexado</span>
           </div>
 
           <div class="espacamento"></div>
-      
-          <div class="qrcode" id="qrcode">
+          <div class="containerQrCode">
+              <div class="qrcode" id="qrcode"></div>
+              <button id="btnCopiarPix"><img src="./../images/icons/copiar.png" alt="">Copiar Código Pix</button>
+              <input type="text" id="txtPix" class="escondido" />
           </div>
+
         </div>
         <span id="erroDoacaoMonetaria" class="spanErro"></span>
         <div class="botao-finalizar-doacao">
@@ -113,12 +116,10 @@
         <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
         <div class="denuncia-flex">
           <h1>qual o motivo da denúncia?</h1>
-          <select name="motivoDenuncia" id="aa">
-            <option>Selecione o motivo</option>
-          </select>
+          <asp:DropDownList ID="cmbMotivoDenuncia" runat="server"> </asp:DropDownList>
           <label for="observacao">Observacao:</label>
           <textarea name="observacao" id="txtObservao" cols="30" rows="5"></textarea>
-          <button>Denunciar</button>
+          <button id="btnRealizarDenunciaUsuario">Denunciar</button>
         </div>
       </div>
 
@@ -126,7 +127,7 @@
         <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
         <label for="compartilhar">Compartilhar:</label><br>
         <div class="compartilhar-flex">
-          <input type="text" name="compartilhar" id="inputCompartilhar" value="umacausa.com.br/ong/vivabichos" disabled>
+          <input type="text" name="compartilhar" id="inputCompartilhar" value="umacausa.com.br/ong/vivabichos" readonly="readonly">
           <button id="btnCopiar"><img src="./../images/icons/copiar.png" alt=""></button>
         </div>
       </div>
@@ -188,10 +189,13 @@
                 <img src="./../images/icons/telefone.png" alt="icone telefone">
                 <p><asp:Literal ID="litTelefone" runat="server"></asp:Literal></p>
               </div>
-              <div class="card">
-                <img src="./../images/icons/website.png" alt="icone website">
-                <p><asp:Literal ID="litSite" runat="server"></asp:Literal></p>
-              </div>
+              <asp:Panel ID="pnlCardWebSite" runat="server" Visible="true">
+                  <div class="card">
+                    <img src="./../images/icons/website.png" alt="icone website">
+                    <p><asp:Literal ID="litSite" runat="server"></asp:Literal></p>
+                 </div>
+              </asp:Panel>
+              
               <div class="card">
                 <img src="./../images/icons/cnpj.png" alt="icone cnpj">
                 <p><asp:Literal ID="litCNPJ" runat="server"></asp:Literal></p>
@@ -239,6 +243,8 @@
       <script src="./../js/pix.js"></script>
       <script src="./../js/gerarPix.js"></script>
       <script src="../js/RealizarDoacaoOng.js"></script>
+      <script src="../js/DenunciarUsuario.js"></script>
+      <script src="../js/alteracaoCoresBarraPorcentagem.js"></script>
   </form>
 </body>
 </html>

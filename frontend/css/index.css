@@ -57,7 +57,7 @@ header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3.438rem;
+  padding: 0 3em;
   width: 1200px;
   margin: auto;
 }
@@ -79,6 +79,67 @@ header nav ul a {
 header nav ul a:hover {
   color: #0063BF;
 }
+header nav #btnMenuHeader {
+  width: 30px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+header nav #btnMenuHeader span {
+  height: 4px;
+  border-radius: 2px;
+  width: 100%;
+  transition: 0.1s;
+  background-color: #000;
+}
+
+#chkMenuHeader:checked ~ .navHeaderResponsivo {
+  display: block;
+}
+
+#chkMenuHeader:checked ~ #btnMenuHeader {
+  display: none;
+}
+
+#btnMenuHeader.animarMenu .linha:nth-child(1) {
+  transform: translateY(10px) rotate(-45deg);
+}
+
+#btnMenuHeader.animarMenu .linha:nth-child(2) {
+  display: none;
+}
+
+#btnMenuHeader.animarMenu .linha:nth-child(3) {
+  transform: translateY(-11px) rotate(45deg);
+}
+
+.navHeaderResponsivo {
+  background-color: #fff;
+  display: none;
+  width: 100%;
+  height: 100vh;
+}
+.navHeaderResponsivo li, .navHeaderResponsivo h3 {
+  margin-top: 20px;
+}
+.navHeaderResponsivo a {
+  color: #000;
+}
+
+.divisaoNavResposivo {
+  border-bottom: solid 2px #d3d3d3;
+  padding: 0 3em;
+  padding-bottom: 20px;
+}
+
+.btnSairNavResponsivo {
+  color: #0063BF;
+  padding: 0 3em;
+  font-weight: 600;
+}
 
 footer {
   display: flex;
@@ -91,7 +152,7 @@ footer nav {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 3.438rem;
+  padding: 0 3em;
   width: 1200px;
   margin: auto;
 }
@@ -121,7 +182,7 @@ main {
   margin: auto;
   min-height: 90vh;
   width: 1200px;
-  padding: 0 3.438rem;
+  padding: 0 3em;
   padding-top: 3.438rem;
   padding-bottom: 3.438rem;
 }
@@ -774,5 +835,31 @@ label {
 @media screen and (max-width: 1199px) {
   main {
     width: 100% !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  main {
+    padding: 2rem;
+  }
+  header nav {
+    padding: 0 2rem;
+  }
+  header nav li {
+    display: none;
+  }
+  footer nav img, .aImg {
+    display: none !important;
+  }
+  h2 {
+    font-size: 20px;
+    letter-spacing: 3.5px !important;
+  }
+  h1 {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 600px) {
+  #btnMenuHeader, .navHeaderResponsivo {
+    display: none !important;
   }
 }

@@ -12,34 +12,20 @@ namespace prjUmaCausaTcc.pages
     public partial class ongs : System.Web.UI.Page
     {
         string c;
+        bool mudar = false;
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             btnBack.ImageAlign = ImageAlign.Middle;
             
             c = Request["c"];
+=======
+>>>>>>> main
             litOngs.Text = "";
-            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
-            litFooter.Text = gerarHtml.GerarFooter();
 
-            if (Session["usuario"] != null)
+            if (!String.IsNullOrEmpty(Request["c"]))
             {
-                Usuario usuario = (Usuario)Session["usuario"];
-
-                litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
-            }
-            else
-            {
-                litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
-            }
-
-            ddlCategoria.Items.Add("Categoria");
-            foreach (CategoriaOng categoriaOng in new CategoriasOng().ListarCategoriasOng())
-            {
-                ddlCategoria.Items.Insert(categoriaOng.Codigo, new ListItem(categoriaOng.Nome, categoriaOng.Codigo.ToString()));
-            }
-             
-            if (!String.IsNullOrEmpty(c))
-            {
+                c = Request["c"].ToString();
                 List<Usuario> ongs = new Ongs().ListarOngsPorCategoria(0, int.Parse(c));
                 GerarOngs(ongs);
             }
@@ -48,7 +34,26 @@ namespace prjUmaCausaTcc.pages
                 List<Usuario> ongs = new Ongs().ListarOngs(1);
                 GerarOngs(ongs);
             }
-        }
+
+            ddlCategoria.Items.Add("Categoria");
+            foreach (CategoriaOng categoriaOng in new CategoriasOng().ListarCategoriasOng())
+            {
+                ddlCategoria.Items.Insert(categoriaOng.Codigo, new ListItem(categoriaOng.Nome, categoriaOng.Codigo.ToString()));
+            }
+
+            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
+            litFooter.Text = gerarHtml.GerarFooter();
+
+            if (Session["usuario"] != null)
+            {
+                Usuario usuario = (Usuario)Session["usuario"];
+                litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+            }
+            else
+            {
+                litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
+            }
+        }             
 
         private void GerarOngs(List<Usuario> ongs)
         {
@@ -78,6 +83,5 @@ namespace prjUmaCausaTcc.pages
         {
             Response.Redirect($"ongs.aspx?c={ddlCategoria.SelectedValue}");
         }
-
     }
 }

@@ -29,27 +29,30 @@ DROP TABLE IF EXISTS `Campanha`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Campanha` (
-  `id_campanha` int(11) NOT NULL AUTO_INCREMENT,
-  `nm_campanha` varchar(250) DEFAULT NULL,
-  `ds_campanha` varchar(1000) DEFAULT NULL,
-  `dt_inicioCampanha` datetime DEFAULT NULL,
-  `dt_fimEsperado` datetime DEFAULT NULL,
-  `dt_fimCampanha` datetime DEFAULT NULL,
-  `qt_meta` double DEFAULT NULL,
-  `qt_arrecadado` double DEFAULT NULL,
-  `img_bannerCampanha` varchar(500) DEFAULT NULL,
-  `qt_denuncias` int(11) DEFAULT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
-  `id_categoriaCampanha` int(11) DEFAULT NULL,
-  `id_tipoItem` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_campanha`),
-  KEY `fk_Campanha_Usuario` (`id_usuario`),
-  KEY `fk_Campanha_CategoriaCampanha` (`id_categoriaCampanha`),
-  KEY `fk_Campanha_TipoItem` (`id_tipoItem`),
-  CONSTRAINT `fk_Campanha_CategoriaCampanha` FOREIGN KEY (`id_categoriaCampanha`) REFERENCES `CategoriaCampanha` (`id_categoriaCampanha`),
-  CONSTRAINT `fk_Campanha_TipoItem` FOREIGN KEY (`id_tipoItem`) REFERENCES `TipoItem` (`id_tipoItem`),
-  CONSTRAINT `fk_Campanha_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=latin1;
+    `id_campanha` int(11) NOT NULL AUTO_INCREMENT,
+    `nm_campanha` varchar(250) DEFAULT NULL,
+    `ds_campanha` varchar(1000) DEFAULT NULL,
+    `dt_inicioCampanha` datetime DEFAULT NULL,
+    `dt_fimEsperado` datetime DEFAULT NULL,
+    `dt_fimCampanha` datetime DEFAULT NULL,
+    `qt_meta` double DEFAULT NULL,
+    `qt_arrecadado` double DEFAULT NULL,
+    `img_bannerCampanha` varchar(500) DEFAULT NULL,
+    `qt_denuncias` int(11) DEFAULT NULL,
+    `id_usuario` int(11) DEFAULT NULL,
+    `id_categoriaCampanha` int(11) DEFAULT NULL,
+    `id_tipoItem` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_campanha`),
+    KEY `fk_Campanha_Usuario` (`id_usuario`),
+    KEY `fk_Campanha_CategoriaCampanha` (`id_categoriaCampanha`),
+    KEY `fk_Campanha_TipoItem` (`id_tipoItem`),
+    CONSTRAINT `fk_Campanha_CategoriaCampanha` FOREIGN KEY (`id_categoriaCampanha`)
+        REFERENCES `CategoriaCampanha` (`id_categoriaCampanha`),
+    CONSTRAINT `fk_Campanha_TipoItem` FOREIGN KEY (`id_tipoItem`)
+        REFERENCES `TipoItem` (`id_tipoItem`),
+    CONSTRAINT `fk_Campanha_Usuario` FOREIGN KEY (`id_usuario`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +61,7 @@ CREATE TABLE `Campanha` (
 
 LOCK TABLES `Campanha` WRITE;
 /*!40000 ALTER TABLE `Campanha` DISABLE KEYS */;
-INSERT INTO `Campanha` VALUES (31,'Luz da Leitura: Alfabetizando o Futuro','A campanha \"Luz da Leitura: Alfabetizando o Futuro\" é uma iniciativa dedicada a promover a alfabetização e a educação básica para crianças, jovens e adultos em nossa comunidade. Nosso objetivo é proporcionar a todos o poder transformador da leitura e da escrita, capacitando-os para um futuro melhor.\n\nPor meio de doações generosas e voluntariado, pretendemos angariar recursos para a criação de programas de alfabetização, distribuição de materiais educativos e aulas de reforço. Juntos, podemos iluminar os caminhos daqueles que buscam a oportunidade de aprender e crescer.','2023-09-20 00:00:00','2023-12-07 00:00:00',NULL,2000,0,'uploads/campanhas/banners/31.jpg',NULL,42,1,1),(46,'Doação de Livros Infantis','Nossa campanha \"Doação de Livros\" tem como objetivo promover o acesso à educação e à cultura por meio da doação de livros. Acreditamos que os livros são uma janela para o conhecimento, uma fonte de inspiração e uma ferramenta fundamental para o desenvolvimento pessoal e comunitário. Com esta campanha, estamos empenhados em reunir livros para distribuí-los a escolas, bibliotecas, instituições de caridade e indivíduos que precisam de acesso a material de leitura de qualidade.','2023-09-20 00:00:00','2023-11-11 00:00:00',NULL,1000,200,'uploads/campanhas/banners/46.jpg',0,42,2,9),(47,'Campanha de Arrecadação de Fundos','A campanha de arrecadação de fundos tem como objetivo mobilizar a comunidade e angariar recursos financeiros para apoiar uma causa nobre. Essa campanha visa conscientizar as pessoas sobre a importância da causa e incentivá-las a contribuir financeiramente para fazer a diferença.','2023-09-20 00:00:00','2023-12-08 00:00:00',NULL,500,400,'uploads/campanhas/banners/47.jpg',0,42,1,NULL),(48,'Campanha de Materiais Escolares','É uma iniciativa comunitária que visa mobilizar pessoas, empresas e organizações em prol da educação, garantindo que todos os estudantes tenham as ferramentas necessárias para o sucesso escolar. A campanha envolve a coleta de materiais escolares e sua distribuição para estudantes em necessidade.','2023-09-20 00:00:00','2024-01-01 00:00:00',NULL,2000,500,'uploads/campanhas/banners/48.jpg',1,42,2,6),(50,'A fome tem Solução','A campanha \"A Fome Tem Solução\" tem como objetivo conscientizar as pessoas sobre a gravidade da fome e mobilizar recursos para arrecadar alimentos e ajudar a combater a insegurança alimentar em comunidades vulneráveis.','2023-09-20 00:00:00','2023-10-02 00:00:00',NULL,2000,0,'uploads/campanhas/banners/50.jpg',0,43,2,2),(51,'G 10 Favelas','Nós, do G10 Favelas, estamos mobilizados em uma causa que é essencial para o bem-estar da nossa sociedade: combater a fome que assola nosso país. Infelizmente, o mapa da fome aumenta em nosso país, enquanto as doações têm diminuído drasticamente. Por isso, nossa luta é ainda mais urgente. O número de famílias vivendo em extrema pobreza na cidade de São Paulo cresceu 10,5%. São 760 mil pessoas na cidade mais rica. No Brasil são 33 milhões de pessoas passando dificuldades. A distribuição de marmitas e cestas e criação de hortas comunitárias não parou. Desde março de 2020, temos vivido em um cenário de incertezas, com desemprego e insegurança alimentar batendo à porta da maioria da população brasileira. Nossas famílias buscam desesperadamente esperança para se reconstruir em meio a essa crise gerada pela pandemia. E nós, continuamos na linha de frente, cuidando da nossa gente.','2023-09-20 00:00:00','2023-07-07 00:00:00',NULL,1000,10,'uploads/campanhas/banners/51.jpg',2,43,1,NULL),(52,'Campanha do Agasalho','A campanha tem como objetivo arrecadar agasalhos e cobertores para distribuir a indivíduos e famílias em situação de vulnerabilidade durante o inverno. Queremos proporcionar conforto e aquecimento para aqueles que enfrentam as adversidades do clima gelado.','2023-09-20 00:00:00','2023-11-02 00:00:00',NULL,3000,2800,'uploads/campanhas/banners/52.jpg',1,45,2,1),(53,'Ação Moradia','O objetivo principal da campanha é arrecadar fundos para garantir que a Ação Moradia continue a oferecer serviços essenciais, como moradia acessível, capacitação profissional, apoio psicossocial e alimentação para aqueles que mais necessitam.','2023-09-20 00:00:00','2024-02-01 00:00:00',NULL,1500,30,'uploads/campanhas/banners/53.jpg',1,45,1,NULL),(54,'Campanha de Associação Comunitária da Leitura','O objetivo principal de nossa campanha é arrecadar uma quantidade significativa de livros para escolas, bibliotecas, instituições de caridade e indivíduos que não têm fácil acesso à leitura. Queremos promover o amor pela leitura e ajudar a construir um ambiente mais educado e informado em nossa comunidade.','2023-09-20 00:00:00','2024-04-10 00:00:00',NULL,3000,450,'uploads/campanhas/banners/54.jpg',2,45,2,9),(55,'Campanha da Creche Escola Maria De Nazaré de Osasco','Sabemos que nossa comunidade é cheia de corações generosos desejando fazer a diferença na vida das crianças. É por isso que lançamos a campanha de doação \"Doe amor, faça um sorriso florescer!\" e convidamos todos a se juntarem a nós nesta missão. Faça a doação de materiais como : Aceitamos doações de materiais essenciais, como brinquedos, livros, material de arte, móveis infantis, material de higiene, roupas e fraldas. Tudo isso contribui para criar um ambiente enriquecedor e confortável para as crianças.','2023-01-20 00:00:00','2023-07-10 00:00:00','2023-07-10 00:00:00',300,27,'uploads/campanhas/banners/55.jpg',1,45,2,4),(56,'Campanha de Promoção da Arte Local','Nossa campanha é uma chamada aberta para a generosidade e a paixão pela arte. Estamos buscando doações de diversos tipos de itens de arte, desde materiais básicos, como tintas, pincéis e papel, até obras de arte originais e esculturas.','2023-09-20 00:00:00','2024-01-10 00:00:00',NULL,50,23,'uploads/campanhas/banners/56.jpg',1,47,2,6),(57,'Campanha de Alfabetização','A campanha de alfabetização tem como objetivo promover a importância da leitura e da escrita, bem como mobilizar recursos e voluntários para alfabetizar adultos e crianças que enfrentam dificuldades na leitura e escrita, visando aprimorar suas habilidades e oportunidades na vida.','2023-08-27 00:00:00','2023-11-02 00:00:00','2023-09-09 00:00:00',100,100,'uploads/campanhas/banners/57.jpg',1,42,1,NULL),(58,'Água Potavél - 2023','O objetivo principal da nossa campanha é arrecadar fundos para fornecer água potável a comunidades carentes que atualmente não têm acesso a essa necessidade vital. Queremos garantir que ninguém tenha que passar sede e sofrer as consequências da falta de água limpa.','2023-09-20 00:00:00','2023-12-31 00:00:00',NULL,400,300,'uploads/campanhas/banners/58.jpg',0,49,1,NULL),(60,'Campanha de arrecadação para equipamentos para Bicicleta','A campanha visa promover a doação de equipamentos e acessórios para bicicletas com o objetivo de apoiar a comunidade ciclística local. A bicicleta é um meio de transporte e lazer sustentável que desempenha um papel vital na mobilidade urbana e na promoção de um estilo de vida mais saudável. No entanto, muitos ciclistas enfrentam dificuldades para adquirir ou manter seus equipamentos. Nossa campanha busca fazer a diferença na vida dessas pessoas.','2023-09-20 00:00:00','2023-11-10 00:00:00',NULL,330,100,'uploads/campanhas/banners/60.jpg',0,48,2,10),(61,'Campanha de produtos de Higiene e Limpeza','Como Você Pode Contribuir: Doação de Produtos: Aceitamos doações de produtos de higiene pessoal, como sabonetes, xampus, escovas de dente, creme dental, papel higiênico, além de itens de limpeza doméstica, como detergente, desinfetante, água sanitária e produtos de limpeza em geral. Sua generosidade fará uma diferença significativa na vida de muitas pessoas. Através da doação de produtos de higiene e limpeza, você estará ajudando a garantir que as famílias em situação de vulnerabilidade tenham acesso a condições mais dignas e higiênicas, promovendo um ambiente mais saudável para todos.','2023-09-20 00:00:00','2024-10-31 00:00:00',NULL,100,17,'uploads/campanhas/banners/61.jpg',2,49,2,5),(62,'Campanha de Alimentos não Pereciveis','A Campanha Solidária tem como objetivo arrecadar alimentos não perecíveis para ajudar aqueles que estão passando por dificuldades e garantir que todos tenham acesso a uma alimentação digna e saudável. Queremos fazer a diferença na vida das pessoas e mostrar que juntos podemos criar um impacto positivo em nossa comunidade. Doações de alimentos não perecíveis: Contribua com alimentos como arroz, feijão, macarrão, enlatados, leite em pó, óleo, açúcar, farinha, entre outros. Qualquer quantidade é bem-vinda e fará a diferença.','2023-09-20 00:00:00','2024-10-31 00:00:00',NULL,200,20,'uploads/campanhas/banners/62.jpg',1,49,2,2),(63,'Campanha de Bicicletas para Comunidades Carentes','campanha é uma iniciativa dedicada a promover a doação de bicicletas para aqueles que mais necessitam. Nosso objetivo é fornecer meios de transporte econômicos, sustentáveis e saudáveis para pessoas que enfrentam dificuldades de locomoção, especialmente em comunidades carentes e áreas rurais. Aceitamos doações de bicicletas em boas condições de uso. Se você tem uma bicicleta que não utiliza mais, ela pode fazer a diferença na vida de alguém. Entre em contato conosco para organizar a entrega.','2023-09-20 00:00:00','2023-12-16 00:00:00',NULL,50,10,'uploads/campanhas/banners/63.jpg',0,48,2,10),(64,'Água Potavél - 2022','O objetivo principal da nossa campanha é arrecadar fundos para fornecer água potável a comunidades carentes que atualmente não têm acesso a essa necessidade vital. Queremos garantir que ninguém tenha que passar sede e sofrer as consequências da falta de água limpa.','2022-01-01 00:00:00','2022-12-31 00:00:00','2022-08-09 00:00:00',400,400,'uploads/campanhas/banners/64.jpg',1,49,1,NULL),(65,'Assistência a Comunidades Religiosas Vulneráveis','Em meio aos desafios que o mundo enfrenta, muitas comunidades religiosas vulneráveis estão lutando para manter suas portas abertas, apoiar suas congregações e continuar desempenhando papéis vitais na promoção do bem-estar espiritual e social. É nossa responsabilidade ajudar e apoiar essas comunidades.','2022-11-23 00:00:00','2022-12-23 00:00:00','2022-12-23 00:00:00',5000,4800,'uploads/campanhas/banners/65.jpg',1,69,1,NULL),(66,'Campanha de Reflorestamento e Arborização Urbana','Nossa cidade enfrenta desafios ambientais significativos, desde o aumento das temperaturas devido às mudanças climáticas até a perda de espaços verdes devido ao crescimento urbano desenfreado. No entanto, a esperança nunca deve ser perdida, e a mudança é possível. Estamos lançando a campanha \"Renove Nossa Cidade\" para solicitar sua ajuda monetária para um ambicioso projeto de reflorestamento e arborização urbana que transformará nossa comunidade em um lugar mais saudável e sustentável.','2023-09-20 00:00:00','2023-12-31 00:00:00',NULL,4000,700,'uploads/campanhas/banners/66.jpg',1,70,1,NULL),(67,'Arrecadação para ração de cachorros','Nossa campanha visa fazer a diferença na vida dos nossos amigos de quatro patas que dependem da nossa ajuda para terem uma vida feliz e saudável. Cães são verdadeiros companheiros, leais e carinhosos, mas muitos deles enfrentam dificuldades para encontrar o alimento que precisam para sobreviver. A sua doação pode ser a diferença entre a fome e a felicidade para muitos cãezinhos indefesos.','2023-09-20 00:00:00','2023-10-10 00:00:00',NULL,5000,4800,'uploads/campanhas/banners/67.jpg',1,51,1,NULL),(68,'Campanha de arrecadação de Máscaras','Nosso principal objetivo é arrecadar um grande número de máscaras para distribuir entre indivíduos e comunidades que não têm acesso fácil a esse equipamento de proteção essencial. Queremos promover a segurança de todos e demonstrar que, juntos, podemos superar essa crise de saúde global. Doação de Máscaras: Aceitamos doações de máscaras de tecido, cirúrgicas ou N95 em boas condições. Se você puder costurar máscaras caseiras, também serão muito bem-vindas.','2023-09-20 00:00:00','2024-07-29 00:00:00',NULL,800,650,'uploads/campanhas/banners/68.jpg',0,70,2,7),(69,'Arrecadação para brinquedos dos animais','Estamos empolgados em lançar nossa campanha \"Brinque de Coração\" para trazer diversão e alegria aos nossos amigos de quatro patas que precisam de estímulos mentais e físicos para uma vida saudável e feliz. Brinquedos são uma parte essencial do bem-estar dos animais, e sua doação pode proporcionar momentos de felicidade inestimáveis aos nossos companheiros de quatro patas.','2023-09-20 00:00:00','2023-11-30 00:00:00',NULL,5000,4800,'uploads/campanhas/banners/69.jpg',0,51,2,3),(70,'Campanha de Produtos de Higiene','Nosso principal objetivo é arrecadar uma variedade de produtos de higiene, como sabonetes, escovas de dentes, pastas de dentes, xampus, fraldas, papel higiênico, absorventes e outros itens essenciais. Essas doações serão distribuídas entre indivíduos e comunidades em situação de vulnerabilidade, garantindo que todos tenham acesso a produtos de higiene de qualidade. Como Você Pode Ajudar: Doação de Produtos de Higiene: Aceitamos doações de produtos novos e não utilizados. Você pode contribuir com itens individuais ou montar kits de higiene que serão distribuídos.','2023-09-20 00:00:00','2023-11-23 00:00:00',NULL,900,250,'uploads/campanhas/banners/70.jpg',1,71,2,5),(71,'Campanha de Roupas Femininas e Masculinas','Arrecadação de Roupas: Estamos pedindo a colaboração de todos para doar roupas em bom estado. Aceitamos roupas para todas as idades,\ntamanhos e estações do ano, desde roupas de crianças até peças de adultos.','2023-09-20 00:00:00','2023-12-23 00:00:00',NULL,1000,250,'uploads/campanhas/banners/71.jpg',2,71,2,1),(72,'Arrecadação para curativos dos animais','É com grande entusiasmo que lançamos a campanha \"Cure com Amor\". Nossa missão é fornecer curativos essenciais e cuidados médicos para os animais que sofreram ferimentos ou estão em tratamento. Cada curativo representa um passo em direção à recuperação e ao bem-estar de nossos amigos de quatro patas que dependem de nossa ajuda.','2023-09-20 00:00:00','2024-02-10 00:00:00',NULL,1000,800,'uploads/campanhas/banners/72.jpg',0,51,2,7),(73,'Campanha de Alimentos não Pereciveis','Os alimentos não perecíveis são itens essenciais para a segurança alimentar de muitas famílias. Eles têm uma longa vida útil e são fáceis de armazenar, o que os torna ideais para doações. Com esses alimentos, podemos ajudar a combater a fome e a insegurança alimentar em nossa comunidade, garantindo que todos tenham acesso a refeições nutritivas.','2022-09-09 00:00:00','2023-11-23 00:00:00','2023-05-05 00:00:00',250,250,'uploads/campanhas/banners/73.jpg',1,71,2,2),(74,'Vamos Ajudar Fabrice a Voltar a Caminhar','DECIDI FAZER ESSA CAMPANHA, POIS PARA ADQUIRIR A MINHA PRÓTESE A 4 ANOS ATRÁS, PUDE CONTAR COM A AJUDA DE AMIGOS E FAMILIARES, E COMO ESTOU AFASTADO DAS MINHAS ATIVIDADES E O GASTO EM TRATAMENTO E REMÉDIOS , SÓ SERÁ POSSÍVEL INICIAR A READAPTAÇÃO COM AJUDA FINANCEIRA DE TERCEIROS','2023-09-20 00:00:00','2023-11-23 00:00:00',NULL,2500,290,'uploads/campanhas/banners/74.jpg',2,72,1,NULL),(75,'Campanha de Água Potavél','O objetivo principal da nossa campanha é arrecadar fundos para fornecer água potável a comunidades carentes que atualmente não têm acesso a essa necessidade vital. Queremos garantir que ninguém tenha que passar sede e sofrer as consequências da falta de água limpa.','2023-09-20 00:00:00','2024-05-23 00:00:00',NULL,700,390,'uploads/campanhas/banners/75.jpg',2,74,1,NULL),(77,'Campanha para arrecadação de Fundos','Nossa campanha é uma chamada à ação para todos aqueles que desejam fazer a diferença na vida de pessoas necessitadas e contribuir para um mundo melhor. Estamos buscando doações de fundos para apoiar nossa missão de impactar positivamente as vidas de indivíduos e comunidades em situações de vulnerabilidade.','2023-09-20 00:00:00','2023-10-10 00:00:00',NULL,950,700,'uploads/campanhas/banners/77.jpg',0,51,1,NULL),(78,'Campanha de MenstRUa','Mulheres encarceradas, em situação de prostituição e de rua ou em extrema pobreza, pessoas ovariadas em vulnerabilidade enfrentam cotidianamente as angústias e perigos da falta de absorventes. A pandemia tem escancarado as desigualdades múltiplas existentes na sociedade brasileira. A pobreza menstrual é uma face da desigualdade profunda de gênero que enfrentamos e que se acentuou diante do crescimento da miséria e da escassez por conta da crise atual e da pandemia. Doações de alimentos não perecíveis: Contribua com alimentos como arroz, feijão, macarrão, enlatados, leite em pó, óleo, açúcar, farinha, entre outros. Qualquer quantidade é bem-vinda e fará a diferença.','2023-09-20 00:00:00','2023-12-23 00:00:00',NULL,1800,1390,'uploads/campanhas/banners/78.jpg',1,74,2,2),(79,'Campanha de Alimentos Não pereciveis','A Campanha Solidária tem como objetivo arrecadar alimentos não perecíveis para ajudar aqueles que estão passando por dificuldades e garantir que todos tenham acesso a uma alimentação digna e saudável. Queremos fazer a diferença na vida das pessoas e mostrar que juntos podemos criar um impacto positivo em nossa comunidade.','2023-09-20 00:00:00','2024-06-23 00:00:00',NULL,800,390,'uploads/campanhas/banners/79.jpg',0,74,2,2),(80,'Campanha Dentistas Sem Fronteira','Estamos solicitando doações de itens essenciais para dentistas, como: Escovas de Dentes: Doações de escovas de dentes de boa qualidade para distribuição aos pacientes.Creme Dental: Tubos de creme dental para ajudar a manter a higiene bucal.Fio Dental: Fio dental é fundamental para prevenir cáries e doenças periodontais.Materiais Descartáveis: Luvas, máscaras, aventais e outros materiais descartáveis para garantir a segurança durante os procedimentos.Instrumentos Odontológicos: Equipamentos odontológicos usados em clínicas de atendimento.','2022-09-09 00:00:00','2023-03-03 00:00:00','2023-02-06 00:00:00',500,500,'uploads/ongs/.jpg',1,74,2,5),(81,'Campanha de Redução de Plástico','Nossa campanha visa arrecadar fundos para impulsionar a educação ambiental em comunidades locais e escolas. As doações serão usadas para: Programas de Educação Escolar: Desenvolver currículos e materiais educacionais que abordem tópicos ambientais, como conservação, reciclagem, eficiência energética e sustentabilidade. Workshops e Eventos Educativos: Realizar workshops, palestras e eventos educacionais para envolver crianças e adultos em questões ambientais.','2023-09-23 00:00:00','2023-11-20 00:00:00',NULL,5780,900,'uploads/ongs/.jpg',1,75,1,NULL),(82,'Campanha de Limpeza de Praias e Rios','Nossa campanha tem como objetivo arrecadar fundos para a realização de operações de limpeza em praias e rios em todo o país. As doações serão usadas para financiar: Limpeza e Coleta de Resíduos: Organizar equipes de voluntários para remover lixo e resíduos dos locais afetados, garantindo a sua disposição adequada.','2023-09-23 00:00:00','2023-12-20 00:00:00',NULL,780,10,'uploads/ongs/.jpg',2,75,1,NULL),(83,'Campanha de Roupas de Inverno Feminino','O inverno está se aproximando e, infelizmente, muitas mulheres em nossa comunidade não têm acesso às roupas quentes de que precisam para enfrentar o frio. É por isso que estamos lançando a campanha \"Aqueça um Coração, Vista Solidariedade\", para arrecadar roupas de inverno femininas e proporcionar conforto e calor às mulheres em situação de vulnerabilidade. Faça Doações Generosas: Revise seu armário e doe roupas de inverno femininas em boas condições que você não usa mais, como casacos, blusas de lã, cachecóis, luvas, meias e botas.','2023-09-23 00:00:00','2024-01-20 00:00:00',NULL,150,100,'uploads/ongs/.jpg',2,76,2,1),(84,'Campanha de Roupas de Inverno para Bebes','O inverno está chegando, e sabemos como é importante manter nossos pequenos bem aquecidos e confortáveis. Muitos bebês e suas famílias enfrentam dificuldades para garantir roupas de inverno adequadas. É por isso que lançamos a campanha para arrecadar roupas de inverno para bebês e ajudar a proteger esses pequenos tesouros do frio. Doações de Roupas Novas ou Usadas: Revise seu estoque de roupas de bebê e doe itens em bom estado, como macacões, toucas, luvas, mantas, meias, e qualquer outra peça de inverno.','2023-09-23 00:00:00','2024-02-20 00:00:00',NULL,200,0,'uploads/ongs/.jpg',0,76,2,1),(85,'Brotando Saúde','Hoje, estamos lançando uma campanha de solidariedade especial para ajudar aqueles que lutam diariamente para acessar medicamentos essenciais. Acreditamos que todos têm o direito à saúde e que juntos podemos fazer a diferença nas vidas das pessoas que precisam desesperadamente de medicamentos para enfrentar desafios de saúde.','2023-09-23 00:00:00','2023-12-20 00:00:00',NULL,200,20,'uploads/ongs/.jpg',1,78,1,NULL),(86,'Campanha de Cobertores e Travisseiros','O inverno está se aproximando e com ele vêm temperaturas baixas e noites frias que podem ser extremamente desafiadoras para muitas pessoas em nossa comunidade. Muitos não têm a sorte de ter um lugar quente e aconchegante para dormir, e é por isso que lançamos a campanha \"Aqueça Corações - Doe Cobertores e Travesseiros\". Convidamos você a se juntar a nós nesta nobre missão de fornecer conforto e calor para aqueles que mais precisam.','2023-01-01 00:00:00','2023-12-31 00:00:00','2023-11-23 00:00:00',300,300,'uploads/ongs/.jpg',1,78,2,10),(87,'Natal Sem Fome','O Natal é uma época de celebração, amor e partilha. No entanto, muitas famílias em nossa comunidade estão enfrentando a dura realidade da fome, tornando difícil para elas desfrutar do espírito natalino. Este ano, estamos lançando a campanha \"Natal Sem Fome\" e convidamos você a se juntar a nós nesta iniciativa de solidariedade e compaixão.','2023-09-23 00:00:00','2023-12-31 00:00:00',NULL,300,250,'uploads/ongs/.jpg',1,80,2,2),(88,'Casa Própria','Estamos construindo a nossa tão sonhada casa própria, porem como nada é fácil encontramos vários percalços ao longo dessa jornada desafiadora onde acabei ficando desempregado, temos 2 filhos e tivemos que dar uma pausa no projeto. estamos com 50% da construção pronta. Com o dinheiro arrecadado será feito a compra de materiais para a continuidade da obra.','2023-09-23 00:00:00','2023-12-31 00:00:00',NULL,1400,600,'uploads/ongs/.jpg',1,82,1,NULL),(89,'Projeto Sinal','Sonhávamos com um local maior. E no dia 01 de agosto de 2020 entramos em uma casa muito maior, com dois andares. Esse local funciona como centro de Treinamento (local de treinamento para pratica do Morganti Ju-jitsu, Capoeira, pilates, funcional e ballet. Também é um centro de educação, cultura e lazer. Precisamos sonhar. Mas desejamos sonhar com mais pessoas. Não podemos mudar o mundo. Mas podemos tentar mudar o nosso mundo. O nosso entorno. Quem mora ao nosso lado.','2023-09-23 00:00:00','2024-04-20 00:00:00',NULL,3000,1875,'uploads/ongs/.jpg',1,82,1,NULL);
+INSERT INTO `Campanha` VALUES (31,'Luz da Leitura: Alfabetizando o Futuro','A campanha \"Luz da Leitura: Alfabetizando o Futuro\" é uma iniciativa dedicada a promover a alfabetização e a educação básica para crianças, jovens e adultos em nossa comunidade. Nosso objetivo é proporcionar a todos o poder transformador da leitura e da escrita, capacitando-os para um futuro melhor.\n\nPor meio de doações generosas e voluntariado, pretendemos angariar recursos para a criação de programas de alfabetização, distribuição de materiais educativos e aulas de reforço. Juntos, podemos iluminar os caminhos daqueles que buscam a oportunidade de aprender e crescer.','2023-09-20 00:00:00','2023-12-07 00:00:00',NULL,2000,0,'uploads/campanhas/banners/31.jpg',NULL,42,1,1),(46,'Doação de Livros Infantis','Nossa campanha \"Doação de Livros\" tem como objetivo promover o acesso à educação e à cultura por meio da doação de livros. Acreditamos que os livros são uma janela para o conhecimento, uma fonte de inspiração e uma ferramenta fundamental para o desenvolvimento pessoal e comunitário. Com esta campanha, estamos empenhados em reunir livros para distribuí-los a escolas, bibliotecas, instituições de caridade e indivíduos que precisam de acesso a material de leitura de qualidade.','2023-09-20 00:00:00','2023-11-11 00:00:00',NULL,1000,200,'uploads/campanhas/banners/46.jpg',0,42,2,9),(47,'Campanha de Arrecadação de Fundos','A campanha de arrecadação de fundos tem como objetivo mobilizar a comunidade e angariar recursos financeiros para apoiar uma causa nobre. Essa campanha visa conscientizar as pessoas sobre a importância da causa e incentivá-las a contribuir financeiramente para fazer a diferença.','2023-09-20 00:00:00','2023-12-08 00:00:00',NULL,500,400,'uploads/campanhas/banners/47.jpg',0,42,1,NULL),(48,'Campanha de Materiais Escolares','É uma iniciativa comunitária que visa mobilizar pessoas, empresas e organizações em prol da educação, garantindo que todos os estudantes tenham as ferramentas necessárias para o sucesso escolar. A campanha envolve a coleta de materiais escolares e sua distribuição para estudantes em necessidade.','2023-09-20 00:00:00','2024-01-01 00:00:00',NULL,2000,500,'uploads/campanhas/banners/48.jpg',1,42,2,6),(50,'A fome tem Solução','A campanha \"A Fome Tem Solução\" tem como objetivo conscientizar as pessoas sobre a gravidade da fome e mobilizar recursos para arrecadar alimentos e ajudar a combater a insegurança alimentar em comunidades vulneráveis.','2023-09-20 00:00:00','2023-10-02 00:00:00',NULL,2000,0,'uploads/campanhas/banners/50.jpg',0,43,2,2),(51,'G 10 Favelas','Nós, do G10 Favelas, estamos mobilizados em uma causa que é essencial para o bem-estar da nossa sociedade: combater a fome que assola nosso país. Infelizmente, o mapa da fome aumenta em nosso país, enquanto as doações têm diminuído drasticamente. Por isso, nossa luta é ainda mais urgente. O número de famílias vivendo em extrema pobreza na cidade de São Paulo cresceu 10,5%. São 760 mil pessoas na cidade mais rica. No Brasil são 33 milhões de pessoas passando dificuldades. A distribuição de marmitas e cestas e criação de hortas comunitárias não parou. Desde março de 2020, temos vivido em um cenário de incertezas, com desemprego e insegurança alimentar batendo à porta da maioria da população brasileira. Nossas famílias buscam desesperadamente esperança para se reconstruir em meio a essa crise gerada pela pandemia. E nós, continuamos na linha de frente, cuidando da nossa gente.','2023-09-20 00:00:00','2023-07-07 00:00:00',NULL,1000,10,'uploads/campanhas/banners/51.jpg',2,43,1,NULL),(52,'Campanha do Agasalho','A campanha tem como objetivo arrecadar agasalhos e cobertores para distribuir a indivíduos e famílias em situação de vulnerabilidade durante o inverno. Queremos proporcionar conforto e aquecimento para aqueles que enfrentam as adversidades do clima gelado.','2023-09-20 00:00:00','2023-11-02 00:00:00',NULL,3000,2800,'uploads/campanhas/banners/52.jpg',1,45,2,1),(53,'Ação Moradia','O objetivo principal da campanha é arrecadar fundos para garantir que a Ação Moradia continue a oferecer serviços essenciais, como moradia acessível, capacitação profissional, apoio psicossocial e alimentação para aqueles que mais necessitam.','2023-09-20 00:00:00','2024-02-01 00:00:00',NULL,1500,30,'uploads/campanhas/banners/53.jpg',1,45,1,NULL),(54,'Campanha de Associação Comunitária da Leitura','O objetivo principal de nossa campanha é arrecadar uma quantidade significativa de livros para escolas, bibliotecas, instituições de caridade e indivíduos que não têm fácil acesso à leitura. Queremos promover o amor pela leitura e ajudar a construir um ambiente mais educado e informado em nossa comunidade.','2023-09-20 00:00:00','2024-04-10 00:00:00',NULL,3000,450,'uploads/campanhas/banners/54.jpg',2,45,2,9),(55,'Campanha da Creche Escola Maria De Nazaré de Osasco','Sabemos que nossa comunidade é cheia de corações generosos desejando fazer a diferença na vida das crianças. É por isso que lançamos a campanha de doação \"Doe amor, faça um sorriso florescer!\" e convidamos todos a se juntarem a nós nesta missão. Faça a doação de materiais como : Aceitamos doações de materiais essenciais, como brinquedos, livros, material de arte, móveis infantis, material de higiene, roupas e fraldas. Tudo isso contribui para criar um ambiente enriquecedor e confortável para as crianças.','2023-01-20 00:00:00','2023-07-10 00:00:00','2023-07-10 00:00:00',300,27,'uploads/campanhas/banners/55.jpg',1,45,2,4),(56,'Campanha de Promoção da Arte Local','Nossa campanha é uma chamada aberta para a generosidade e a paixão pela arte. Estamos buscando doações de diversos tipos de itens de arte, desde materiais básicos, como tintas, pincéis e papel, até obras de arte originais e esculturas.','2023-09-20 00:00:00','2024-01-10 00:00:00',NULL,50,23,'uploads/campanhas/banners/56.jpg',1,47,2,6),(57,'Campanha de Alfabetização','A campanha de alfabetização tem como objetivo promover a importância da leitura e da escrita, bem como mobilizar recursos e voluntários para alfabetizar adultos e crianças que enfrentam dificuldades na leitura e escrita, visando aprimorar suas habilidades e oportunidades na vida.','2023-08-27 00:00:00','2023-11-02 00:00:00','2023-09-09 00:00:00',100,100,'uploads/campanhas/banners/57.jpg',1,42,1,NULL),(58,'Água Potavél - 2023','O objetivo principal da nossa campanha é arrecadar fundos para fornecer água potável a comunidades carentes que atualmente não têm acesso a essa necessidade vital. Queremos garantir que ninguém tenha que passar sede e sofrer as consequências da falta de água limpa.','2023-09-20 00:00:00','2023-12-31 00:00:00',NULL,400,300,'uploads/campanhas/banners/58.jpg',0,49,1,NULL),(60,'Campanha de arrecadação para equipamentos para Bicicleta','A campanha visa promover a doação de equipamentos e acessórios para bicicletas com o objetivo de apoiar a comunidade ciclística local. A bicicleta é um meio de transporte e lazer sustentável que desempenha um papel vital na mobilidade urbana e na promoção de um estilo de vida mais saudável. No entanto, muitos ciclistas enfrentam dificuldades para adquirir ou manter seus equipamentos. Nossa campanha busca fazer a diferença na vida dessas pessoas.','2023-09-20 00:00:00','2023-11-10 00:00:00',NULL,330,100,'uploads/campanhas/banners/60.jpg',0,48,2,10),(61,'Campanha de produtos de Higiene e Limpeza','Como Você Pode Contribuir: Doação de Produtos: Aceitamos doações de produtos de higiene pessoal, como sabonetes, xampus, escovas de dente, creme dental, papel higiênico, além de itens de limpeza doméstica, como detergente, desinfetante, água sanitária e produtos de limpeza em geral. Sua generosidade fará uma diferença significativa na vida de muitas pessoas. Através da doação de produtos de higiene e limpeza, você estará ajudando a garantir que as famílias em situação de vulnerabilidade tenham acesso a condições mais dignas e higiênicas, promovendo um ambiente mais saudável para todos.','2023-09-20 00:00:00','2024-10-31 00:00:00',NULL,100,17,'uploads/campanhas/banners/61.jpg',2,49,2,5),(62,'Campanha de Alimentos não Pereciveis','A Campanha Solidária tem como objetivo arrecadar alimentos não perecíveis para ajudar aqueles que estão passando por dificuldades e garantir que todos tenham acesso a uma alimentação digna e saudável. Queremos fazer a diferença na vida das pessoas e mostrar que juntos podemos criar um impacto positivo em nossa comunidade. Doações de alimentos não perecíveis: Contribua com alimentos como arroz, feijão, macarrão, enlatados, leite em pó, óleo, açúcar, farinha, entre outros. Qualquer quantidade é bem-vinda e fará a diferença.','2023-09-20 00:00:00','2024-10-31 00:00:00',NULL,200,20,'uploads/campanhas/banners/62.jpg',1,49,2,2),(63,'Campanha de Bicicletas para Comunidades Carentes','campanha é uma iniciativa dedicada a promover a doação de bicicletas para aqueles que mais necessitam. Nosso objetivo é fornecer meios de transporte econômicos, sustentáveis e saudáveis para pessoas que enfrentam dificuldades de locomoção, especialmente em comunidades carentes e áreas rurais. Aceitamos doações de bicicletas em boas condições de uso. Se você tem uma bicicleta que não utiliza mais, ela pode fazer a diferença na vida de alguém. Entre em contato conosco para organizar a entrega.','2023-09-20 00:00:00','2023-12-16 00:00:00',NULL,50,10,'uploads/campanhas/banners/63.jpg',0,48,2,10),(64,'Água Potavél - 2022','O objetivo principal da nossa campanha é arrecadar fundos para fornecer água potável a comunidades carentes que atualmente não têm acesso a essa necessidade vital. Queremos garantir que ninguém tenha que passar sede e sofrer as consequências da falta de água limpa.','2022-01-01 00:00:00','2022-12-31 00:00:00','2022-08-09 00:00:00',400,400,'uploads/campanhas/banners/64.jpg',1,49,1,NULL),(65,'Assistência a Comunidades Religiosas Vulneráveis','Em meio aos desafios que o mundo enfrenta, muitas comunidades religiosas vulneráveis estão lutando para manter suas portas abertas, apoiar suas congregações e continuar desempenhando papéis vitais na promoção do bem-estar espiritual e social. É nossa responsabilidade ajudar e apoiar essas comunidades.','2022-11-23 00:00:00','2022-12-23 00:00:00','2022-12-23 00:00:00',5000,4800,'uploads/campanhas/banners/65.jpg',1,69,1,NULL),(66,'Campanha de Reflorestamento e Arborização Urbana','Nossa cidade enfrenta desafios ambientais significativos, desde o aumento das temperaturas devido às mudanças climáticas até a perda de espaços verdes devido ao crescimento urbano desenfreado. No entanto, a esperança nunca deve ser perdida, e a mudança é possível. Estamos lançando a campanha \"Renove Nossa Cidade\" para solicitar sua ajuda monetária para um ambicioso projeto de reflorestamento e arborização urbana que transformará nossa comunidade em um lugar mais saudável e sustentável.','2023-09-20 00:00:00','2023-12-31 00:00:00',NULL,4000,700,'uploads/campanhas/banners/66.jpg',1,70,1,NULL),(67,'Arrecadação para ração de cachorros','Nossa campanha visa fazer a diferença na vida dos nossos amigos de quatro patas que dependem da nossa ajuda para terem uma vida feliz e saudável. Cães são verdadeiros companheiros, leais e carinhosos, mas muitos deles enfrentam dificuldades para encontrar o alimento que precisam para sobreviver. A sua doação pode ser a diferença entre a fome e a felicidade para muitos cãezinhos indefesos.','2023-09-20 00:00:00','2023-10-10 00:00:00',NULL,5000,4800,'uploads/campanhas/banners/67.jpg',1,51,1,NULL),(68,'Campanha de arrecadação de Máscaras','Nosso principal objetivo é arrecadar um grande número de máscaras para distribuir entre indivíduos e comunidades que não têm acesso fácil a esse equipamento de proteção essencial. Queremos promover a segurança de todos e demonstrar que, juntos, podemos superar essa crise de saúde global. Doação de Máscaras: Aceitamos doações de máscaras de tecido, cirúrgicas ou N95 em boas condições. Se você puder costurar máscaras caseiras, também serão muito bem-vindas.','2023-09-20 00:00:00','2024-07-29 00:00:00',NULL,800,650,'uploads/campanhas/banners/68.jpg',0,70,2,7),(69,'Arrecadação para brinquedos dos animais','Estamos empolgados em lançar nossa campanha \"Brinque de Coração\" para trazer diversão e alegria aos nossos amigos de quatro patas que precisam de estímulos mentais e físicos para uma vida saudável e feliz. Brinquedos são uma parte essencial do bem-estar dos animais, e sua doação pode proporcionar momentos de felicidade inestimáveis aos nossos companheiros de quatro patas.','2023-09-20 00:00:00','2023-11-30 00:00:00',NULL,5000,4800,'uploads/campanhas/banners/69.jpg',0,51,2,3),(70,'Campanha de Produtos de Higiene','Nosso principal objetivo é arrecadar uma variedade de produtos de higiene, como sabonetes, escovas de dentes, pastas de dentes, xampus, fraldas, papel higiênico, absorventes e outros itens essenciais. Essas doações serão distribuídas entre indivíduos e comunidades em situação de vulnerabilidade, garantindo que todos tenham acesso a produtos de higiene de qualidade. Como Você Pode Ajudar: Doação de Produtos de Higiene: Aceitamos doações de produtos novos e não utilizados. Você pode contribuir com itens individuais ou montar kits de higiene que serão distribuídos.','2023-09-20 00:00:00','2023-11-23 00:00:00',NULL,900,250,'uploads/campanhas/banners/70.jpg',1,71,2,5),(71,'Campanha de Roupas Femininas e Masculinas','Arrecadação de Roupas: Estamos pedindo a colaboração de todos para doar roupas em bom estado. Aceitamos roupas para todas as idades,\ntamanhos e estações do ano, desde roupas de crianças até peças de adultos.','2023-09-20 00:00:00','2023-12-23 00:00:00',NULL,1000,250,'uploads/campanhas/banners/71.jpg',2,71,2,1),(72,'Arrecadação para curativos dos animais','É com grande entusiasmo que lançamos a campanha \"Cure com Amor\". Nossa missão é fornecer curativos essenciais e cuidados médicos para os animais que sofreram ferimentos ou estão em tratamento. Cada curativo representa um passo em direção à recuperação e ao bem-estar de nossos amigos de quatro patas que dependem de nossa ajuda.','2023-09-20 00:00:00','2024-02-10 00:00:00',NULL,1000,800,'uploads/campanhas/banners/72.jpg',0,51,2,7),(73,'Campanha de Alimentos não Pereciveis','Os alimentos não perecíveis são itens essenciais para a segurança alimentar de muitas famílias. Eles têm uma longa vida útil e são fáceis de armazenar, o que os torna ideais para doações. Com esses alimentos, podemos ajudar a combater a fome e a insegurança alimentar em nossa comunidade, garantindo que todos tenham acesso a refeições nutritivas.','2022-09-09 00:00:00','2023-11-23 00:00:00','2023-05-05 00:00:00',250,250,'uploads/campanhas/banners/73.jpg',1,71,2,2),(74,'Vamos Ajudar Fabrice a Voltar a Caminhar','DECIDI FAZER ESSA CAMPANHA, POIS PARA ADQUIRIR A MINHA PRÓTESE A 4 ANOS ATRÁS, PUDE CONTAR COM A AJUDA DE AMIGOS E FAMILIARES, E COMO ESTOU AFASTADO DAS MINHAS ATIVIDADES E O GASTO EM TRATAMENTO E REMÉDIOS , SÓ SERÁ POSSÍVEL INICIAR A READAPTAÇÃO COM AJUDA FINANCEIRA DE TERCEIROS','2023-09-20 00:00:00','2023-11-23 00:00:00',NULL,2500,290,'uploads/campanhas/banners/74.jpg',2,72,1,NULL),(75,'Campanha de Água Potavél','O objetivo principal da nossa campanha é arrecadar fundos para fornecer água potável a comunidades carentes que atualmente não têm acesso a essa necessidade vital. Queremos garantir que ninguém tenha que passar sede e sofrer as consequências da falta de água limpa.','2023-09-20 00:00:00','2024-05-23 00:00:00',NULL,700,390,'uploads/campanhas/banners/75.jpg',2,74,1,NULL),(77,'Campanha para arrecadação de Fundos','Nossa campanha é uma chamada à ação para todos aqueles que desejam fazer a diferença na vida de pessoas necessitadas e contribuir para um mundo melhor. Estamos buscando doações de fundos para apoiar nossa missão de impactar positivamente as vidas de indivíduos e comunidades em situações de vulnerabilidade.','2023-09-20 00:00:00','2023-10-10 00:00:00',NULL,950,700,'uploads/campanhas/banners/77.jpg',0,51,1,NULL),(78,'Campanha de MenstRUa','Mulheres encarceradas, em situação de prostituição e de rua ou em extrema pobreza, pessoas ovariadas em vulnerabilidade enfrentam cotidianamente as angústias e perigos da falta de absorventes. A pandemia tem escancarado as desigualdades múltiplas existentes na sociedade brasileira. A pobreza menstrual é uma face da desigualdade profunda de gênero que enfrentamos e que se acentuou diante do crescimento da miséria e da escassez por conta da crise atual e da pandemia. Doações de alimentos não perecíveis: Contribua com alimentos como arroz, feijão, macarrão, enlatados, leite em pó, óleo, açúcar, farinha, entre outros. Qualquer quantidade é bem-vinda e fará a diferença.','2023-09-20 00:00:00','2023-12-23 00:00:00',NULL,1800,1390,'uploads/campanhas/banners/78.jpg',1,74,2,2),(79,'Campanha de Alimentos Não pereciveis','A Campanha Solidária tem como objetivo arrecadar alimentos não perecíveis para ajudar aqueles que estão passando por dificuldades e garantir que todos tenham acesso a uma alimentação digna e saudável. Queremos fazer a diferença na vida das pessoas e mostrar que juntos podemos criar um impacto positivo em nossa comunidade.','2023-09-20 00:00:00','2024-06-23 00:00:00',NULL,800,390,'uploads/campanhas/banners/79.jpg',0,74,2,2),(80,'Campanha Dentistas Sem Fronteira','Estamos solicitando doações de itens essenciais para dentistas, como: Escovas de Dentes: Doações de escovas de dentes de boa qualidade para distribuição aos pacientes.Creme Dental: Tubos de creme dental para ajudar a manter a higiene bucal.Fio Dental: Fio dental é fundamental para prevenir cáries e doenças periodontais.Materiais Descartáveis: Luvas, máscaras, aventais e outros materiais descartáveis para garantir a segurança durante os procedimentos.Instrumentos Odontológicos: Equipamentos odontológicos usados em clínicas de atendimento.','2022-09-09 00:00:00','2023-03-03 00:00:00','2023-02-06 00:00:00',500,500,'uploads/campanhas/banners/80.jpg',1,74,2,5),(81,'Campanha de Redução de Plástico','Nossa campanha visa arrecadar fundos para impulsionar a educação ambiental em comunidades locais e escolas. As doações serão usadas para: Programas de Educação Escolar: Desenvolver currículos e materiais educacionais que abordem tópicos ambientais, como conservação, reciclagem, eficiência energética e sustentabilidade. Workshops e Eventos Educativos: Realizar workshops, palestras e eventos educacionais para envolver crianças e adultos em questões ambientais.','2023-09-23 00:00:00','2023-11-20 00:00:00',NULL,5780,900,'uploads/campanhas/banners/81.jpg',1,75,1,NULL),(82,'Campanha de Limpeza de Praias e Rios','Nossa campanha tem como objetivo arrecadar fundos para a realização de operações de limpeza em praias e rios em todo o país. As doações serão usadas para financiar: Limpeza e Coleta de Resíduos: Organizar equipes de voluntários para remover lixo e resíduos dos locais afetados, garantindo a sua disposição adequada.','2023-09-23 00:00:00','2023-12-20 00:00:00',NULL,780,10,'uploads/campanhas/banners/82.jpg',2,75,1,NULL),(83,'Campanha de Roupas de Inverno Feminino','O inverno está se aproximando e, infelizmente, muitas mulheres em nossa comunidade não têm acesso às roupas quentes de que precisam para enfrentar o frio. É por isso que estamos lançando a campanha \"Aqueça um Coração, Vista Solidariedade\", para arrecadar roupas de inverno femininas e proporcionar conforto e calor às mulheres em situação de vulnerabilidade. Faça Doações Generosas: Revise seu armário e doe roupas de inverno femininas em boas condições que você não usa mais, como casacos, blusas de lã, cachecóis, luvas, meias e botas.','2023-09-23 00:00:00','2024-01-20 00:00:00',NULL,150,100,'uploads/campanhas/banners/83.jpg',2,76,2,1),(84,'Campanha de Roupas de Inverno para Bebes','O inverno está chegando, e sabemos como é importante manter nossos pequenos bem aquecidos e confortáveis. Muitos bebês e suas famílias enfrentam dificuldades para garantir roupas de inverno adequadas. É por isso que lançamos a campanha para arrecadar roupas de inverno para bebês e ajudar a proteger esses pequenos tesouros do frio. Doações de Roupas Novas ou Usadas: Revise seu estoque de roupas de bebê e doe itens em bom estado, como macacões, toucas, luvas, mantas, meias, e qualquer outra peça de inverno.','2023-09-23 00:00:00','2024-02-20 00:00:00',NULL,200,0,'uploads/campanhas/banners/84.jpg',0,76,2,1),(85,'Brotando Saúde','Hoje, estamos lançando uma campanha de solidariedade especial para ajudar aqueles que lutam diariamente para acessar medicamentos essenciais. Acreditamos que todos têm o direito à saúde e que juntos podemos fazer a diferença nas vidas das pessoas que precisam desesperadamente de medicamentos para enfrentar desafios de saúde.','2023-09-23 00:00:00','2023-12-20 00:00:00',NULL,200,20,'uploads/campanhas/banners/85.jpg',1,78,1,NULL),(86,'Campanha de Cobertores e Travisseiros','O inverno está se aproximando e com ele vêm temperaturas baixas e noites frias que podem ser extremamente desafiadoras para muitas pessoas em nossa comunidade. Muitos não têm a sorte de ter um lugar quente e aconchegante para dormir, e é por isso que lançamos a campanha \"Aqueça Corações - Doe Cobertores e Travesseiros\". Convidamos você a se juntar a nós nesta nobre missão de fornecer conforto e calor para aqueles que mais precisam.','2023-01-01 00:00:00','2023-12-31 00:00:00','2023-11-23 00:00:00',300,300,'uploads/campanhas/banners/86.jpg',1,78,2,10),(87,'Natal Sem Fome','O Natal é uma época de celebração, amor e partilha. No entanto, muitas famílias em nossa comunidade estão enfrentando a dura realidade da fome, tornando difícil para elas desfrutar do espírito natalino. Este ano, estamos lançando a campanha \"Natal Sem Fome\" e convidamos você a se juntar a nós nesta iniciativa de solidariedade e compaixão.','2023-09-23 00:00:00','2023-12-31 00:00:00',NULL,300,250,'uploads/campanhas/banners/87.jpg',1,80,2,2),(88,'Casa Própria','Estamos construindo a nossa tão sonhada casa própria, porem como nada é fácil encontramos vários percalços ao longo dessa jornada desafiadora onde acabei ficando desempregado, temos 2 filhos e tivemos que dar uma pausa no projeto. estamos com 50% da construção pronta. Com o dinheiro arrecadado será feito a compra de materiais para a continuidade da obra.','2023-09-23 00:00:00','2023-12-31 00:00:00',NULL,1400,600,'uploads/campanhas/banners/88.jpg',1,82,1,NULL),(89,'Projeto Sinal','Sonhávamos com um local maior. E no dia 01 de agosto de 2020 entramos em uma casa muito maior, com dois andares. Esse local funciona como centro de Treinamento (local de treinamento para pratica do Morganti Ju-jitsu, Capoeira, pilates, funcional e ballet. Também é um centro de educação, cultura e lazer. Precisamos sonhar. Mas desejamos sonhar com mais pessoas. Não podemos mudar o mundo. Mas podemos tentar mudar o nosso mundo. O nosso entorno. Quem mora ao nosso lado.','2023-09-23 00:00:00','2024-04-20 00:00:00',NULL,3000,1875,'uploads/campanhas/banners/89.jpg',1,82,1,NULL);
 /*!40000 ALTER TABLE `Campanha` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -70,13 +73,15 @@ DROP TABLE IF EXISTS `Campanha_ODS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Campanha_ODS` (
-  `id_campanha` int(11) NOT NULL,
-  `id_ODS` int(11) NOT NULL,
-  PRIMARY KEY (`id_campanha`,`id_ODS`),
-  KEY `fk_Campanha_ODS_ODS` (`id_ODS`),
-  CONSTRAINT `fk_Campanha_ODS_Campanha` FOREIGN KEY (`id_campanha`) REFERENCES `Campanha` (`id_campanha`),
-  CONSTRAINT `fk_Campanha_ODS_ODS` FOREIGN KEY (`id_ODS`) REFERENCES `ODS` (`id_ods`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_campanha` int(11) NOT NULL,
+    `id_ODS` int(11) NOT NULL,
+    PRIMARY KEY (`id_campanha` , `id_ODS`),
+    KEY `fk_Campanha_ODS_ODS` (`id_ODS`),
+    CONSTRAINT `fk_Campanha_ODS_Campanha` FOREIGN KEY (`id_campanha`)
+        REFERENCES `Campanha` (`id_campanha`),
+    CONSTRAINT `fk_Campanha_ODS_ODS` FOREIGN KEY (`id_ODS`)
+        REFERENCES `ODS` (`id_ods`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,10 +102,10 @@ DROP TABLE IF EXISTS `CategoriaCampanha`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `CategoriaCampanha` (
-  `id_categoriaCampanha` int(11) NOT NULL,
-  `nm_categoriaCampanha` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_categoriaCampanha`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_categoriaCampanha` int(11) NOT NULL,
+    `nm_categoriaCampanha` varchar(45) DEFAULT NULL,
+    PRIMARY KEY (`id_categoriaCampanha`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,10 +126,10 @@ DROP TABLE IF EXISTS `CategoriaOng`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `CategoriaOng` (
-  `id_categoriaOng` int(11) NOT NULL,
-  `nm_categoria` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_categoriaOng`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_categoriaOng` int(11) NOT NULL,
+    `nm_categoria` varchar(45) DEFAULT NULL,
+    PRIMARY KEY (`id_categoriaOng`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,18 +150,21 @@ DROP TABLE IF EXISTS `DenunciaCampanha`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DenunciaCampanha` (
-  `id_campanha` int(11) NOT NULL,
-  `dt_denuncia` datetime NOT NULL,
-  `ds_denuncia` varchar(250) DEFAULT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_motivoDenuncia` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_campanha`,`id_usuario`,`dt_denuncia`),
-  KEY `fk_DenunciaCampanha_Usuario` (`id_usuario`),
-  KEY `fk_DenunciasCampanha_MotivoDenunciaCampanha` (`id_motivoDenuncia`),
-  CONSTRAINT `fk_DenunciaCampanha_Campanha` FOREIGN KEY (`id_campanha`) REFERENCES `Campanha` (`id_campanha`),
-  CONSTRAINT `fk_DenunciaCampanha_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`),
-  CONSTRAINT `fk_DenunciasCampanha_MotivoDenunciaCampanha` FOREIGN KEY (`id_motivoDenuncia`) REFERENCES `MotivoDenunciaCampanha` (`id_motivoDenuncia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_campanha` int(11) NOT NULL,
+    `dt_denuncia` datetime NOT NULL,
+    `ds_denuncia` varchar(250) DEFAULT NULL,
+    `id_usuario` int(11) NOT NULL,
+    `id_motivoDenuncia` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_campanha` , `id_usuario` , `dt_denuncia`),
+    KEY `fk_DenunciaCampanha_Usuario` (`id_usuario`),
+    KEY `fk_DenunciasCampanha_MotivoDenunciaCampanha` (`id_motivoDenuncia`),
+    CONSTRAINT `fk_DenunciaCampanha_Campanha` FOREIGN KEY (`id_campanha`)
+        REFERENCES `Campanha` (`id_campanha`),
+    CONSTRAINT `fk_DenunciaCampanha_Usuario` FOREIGN KEY (`id_usuario`)
+        REFERENCES `Usuario` (`id_usuario`),
+    CONSTRAINT `fk_DenunciasCampanha_MotivoDenunciaCampanha` FOREIGN KEY (`id_motivoDenuncia`)
+        REFERENCES `MotivoDenunciaCampanha` (`id_motivoDenuncia`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,18 +184,21 @@ DROP TABLE IF EXISTS `DenunciaUsuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DenunciaUsuario` (
-  `id_usuarioDenunciado` int(11) NOT NULL,
-  `id_usuarioDenunciante` int(11) NOT NULL,
-  `dt_denuncia` datetime NOT NULL,
-  `id_motivoDenuncia` int(11) DEFAULT NULL,
-  `ds_denuncia` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`id_usuarioDenunciado`,`id_usuarioDenunciante`,`dt_denuncia`),
-  KEY `fk_DenunciaUsuario_Usuario2` (`id_usuarioDenunciante`),
-  KEY `fk_DenunciaUsuario_MotivoDenunciaUsuario` (`id_motivoDenuncia`),
-  CONSTRAINT `fk_DenunciaUsuario_MotivoDenunciaUsuario` FOREIGN KEY (`id_motivoDenuncia`) REFERENCES `MotivoDenunciaUsuario` (`id_motivoDenuncia`),
-  CONSTRAINT `fk_DenunciaUsuario_Usuario1` FOREIGN KEY (`id_usuarioDenunciado`) REFERENCES `Usuario` (`id_usuario`),
-  CONSTRAINT `fk_DenunciaUsuario_Usuario2` FOREIGN KEY (`id_usuarioDenunciante`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_usuarioDenunciado` int(11) NOT NULL,
+    `id_usuarioDenunciante` int(11) NOT NULL,
+    `dt_denuncia` datetime NOT NULL,
+    `id_motivoDenuncia` int(11) DEFAULT NULL,
+    `ds_denuncia` varchar(250) DEFAULT NULL,
+    PRIMARY KEY (`id_usuarioDenunciado` , `id_usuarioDenunciante` , `dt_denuncia`),
+    KEY `fk_DenunciaUsuario_Usuario2` (`id_usuarioDenunciante`),
+    KEY `fk_DenunciaUsuario_MotivoDenunciaUsuario` (`id_motivoDenuncia`),
+    CONSTRAINT `fk_DenunciaUsuario_MotivoDenunciaUsuario` FOREIGN KEY (`id_motivoDenuncia`)
+        REFERENCES `MotivoDenunciaUsuario` (`id_motivoDenuncia`),
+    CONSTRAINT `fk_DenunciaUsuario_Usuario1` FOREIGN KEY (`id_usuarioDenunciado`)
+        REFERENCES `Usuario` (`id_usuario`),
+    CONSTRAINT `fk_DenunciaUsuario_Usuario2` FOREIGN KEY (`id_usuarioDenunciante`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,10 +218,10 @@ DROP TABLE IF EXISTS `Dia`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Dia` (
-  `id_dia` int(11) NOT NULL,
-  `nm_dia` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id_dia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_dia` int(11) NOT NULL,
+    `nm_dia` varchar(100) DEFAULT NULL,
+    PRIMARY KEY (`id_dia`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,15 +242,17 @@ DROP TABLE IF EXISTS `Dia_Usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Dia_Usuario` (
-  `id_usuario` int(11) NOT NULL,
-  `id_dia` int(11) NOT NULL,
-  `hr_inicio` time DEFAULT NULL,
-  `hr_fim` time DEFAULT NULL,
-  PRIMARY KEY (`id_usuario`,`id_dia`),
-  KEY `fk_Dia_Usuario_Dia` (`id_dia`),
-  CONSTRAINT `fk_Dia_Usuario_Dia` FOREIGN KEY (`id_dia`) REFERENCES `Dia` (`id_dia`),
-  CONSTRAINT `fk_Dia_Usuario_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_usuario` int(11) NOT NULL,
+    `id_dia` int(11) NOT NULL,
+    `hr_inicio` time DEFAULT NULL,
+    `hr_fim` time DEFAULT NULL,
+    PRIMARY KEY (`id_usuario` , `id_dia`),
+    KEY `fk_Dia_Usuario_Dia` (`id_dia`),
+    CONSTRAINT `fk_Dia_Usuario_Dia` FOREIGN KEY (`id_dia`)
+        REFERENCES `Dia` (`id_dia`),
+    CONSTRAINT `fk_Dia_Usuario_Usuario` FOREIGN KEY (`id_usuario`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -259,24 +272,27 @@ DROP TABLE IF EXISTS `DivulgacaoItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DivulgacaoItem` (
-  `id_divulgacao` int(11) NOT NULL AUTO_INCREMENT,
-  `ds_item` varchar(250) DEFAULT NULL,
-  `qt_item` int(11) DEFAULT NULL,
-  `nm_item` varchar(250) DEFAULT NULL,
-  `dt_divulgacao` datetime DEFAULT NULL,
-  `dt_fimDivulgacao` datetime DEFAULT NULL,
-  `img_divulgacaoItem` varchar(4250) DEFAULT NULL,
-  `id_estadoItem` int(11) DEFAULT NULL,
-  `id_tipoItem` int(11) DEFAULT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_divulgacao`),
-  KEY `fk_DivulgacaoItem_EstadoItem` (`id_estadoItem`),
-  KEY `fk_DivulgacaoItem_TipoItem` (`id_tipoItem`),
-  KEY `fk_DivulgacaoItem_Usuario` (`id_usuario`),
-  CONSTRAINT `fk_DivulgacaoItem_EstadoItem` FOREIGN KEY (`id_estadoItem`) REFERENCES `EstadoItem` (`id_estadoItem`),
-  CONSTRAINT `fk_DivulgacaoItem_TipoItem` FOREIGN KEY (`id_tipoItem`) REFERENCES `TipoItem` (`id_tipoItem`),
-  CONSTRAINT `fk_DivulgacaoItem_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+    `id_divulgacao` int(11) NOT NULL AUTO_INCREMENT,
+    `ds_item` varchar(250) DEFAULT NULL,
+    `qt_item` int(11) DEFAULT NULL,
+    `nm_item` varchar(250) DEFAULT NULL,
+    `dt_divulgacao` datetime DEFAULT NULL,
+    `dt_fimDivulgacao` datetime DEFAULT NULL,
+    `img_divulgacaoItem` varchar(4250) DEFAULT NULL,
+    `id_estadoItem` int(11) DEFAULT NULL,
+    `id_tipoItem` int(11) DEFAULT NULL,
+    `id_usuario` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_divulgacao`),
+    KEY `fk_DivulgacaoItem_EstadoItem` (`id_estadoItem`),
+    KEY `fk_DivulgacaoItem_TipoItem` (`id_tipoItem`),
+    KEY `fk_DivulgacaoItem_Usuario` (`id_usuario`),
+    CONSTRAINT `fk_DivulgacaoItem_EstadoItem` FOREIGN KEY (`id_estadoItem`)
+        REFERENCES `EstadoItem` (`id_estadoItem`),
+    CONSTRAINT `fk_DivulgacaoItem_TipoItem` FOREIGN KEY (`id_tipoItem`)
+        REFERENCES `TipoItem` (`id_tipoItem`),
+    CONSTRAINT `fk_DivulgacaoItem_Usuario` FOREIGN KEY (`id_usuario`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -297,16 +313,18 @@ DROP TABLE IF EXISTS `DoacaoCampanha`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DoacaoCampanha` (
-  `id_campanha` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `dt_doacao` datetime NOT NULL,
-  `qt_doado` int(11) DEFAULT NULL,
-  `ic_doacaoConfirmada` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id_campanha`,`id_usuario`,`dt_doacao`),
-  KEY `fk_DoacaoCampanha_Usuario` (`id_usuario`),
-  CONSTRAINT `fk_DoacaoCampanha_Campanha` FOREIGN KEY (`id_campanha`) REFERENCES `Campanha` (`id_campanha`),
-  CONSTRAINT `fk_DoacaoCampanha_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_campanha` int(11) NOT NULL,
+    `id_usuario` int(11) NOT NULL,
+    `dt_doacao` datetime NOT NULL,
+    `qt_doado` int(11) DEFAULT NULL,
+    `ic_doacaoConfirmada` tinyint(1) DEFAULT NULL,
+    PRIMARY KEY (`id_campanha` , `id_usuario` , `dt_doacao`),
+    KEY `fk_DoacaoCampanha_Usuario` (`id_usuario`),
+    CONSTRAINT `fk_DoacaoCampanha_Campanha` FOREIGN KEY (`id_campanha`)
+        REFERENCES `Campanha` (`id_campanha`),
+    CONSTRAINT `fk_DoacaoCampanha_Usuario` FOREIGN KEY (`id_usuario`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -326,26 +344,30 @@ DROP TABLE IF EXISTS `DoacaoItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DoacaoItem` (
-  `id_usuarioDoador` int(11) NOT NULL,
-  `id_usuarioOng` int(11) NOT NULL,
-  `dt_doacaoItem` datetime NOT NULL,
-  `nm_item` varchar(250) DEFAULT NULL,
-  `qt_item` int(11) DEFAULT NULL,
-  `dt_recebimentoItem` datetime DEFAULT NULL,
-  `ic_doacaoConfirmada` tinyint(1) DEFAULT NULL,
-  `id_tipoItem` int(11) DEFAULT NULL,
-  `id_tipoEntrega` int(11) DEFAULT NULL,
-  `hr_doacao` time DEFAULT NULL,
-  `dt_doacao` date DEFAULT NULL,
-  PRIMARY KEY (`id_usuarioDoador`,`id_usuarioOng`,`dt_doacaoItem`),
-  KEY `fk_DoacaoItem_Usuario2` (`id_usuarioOng`),
-  KEY `fk_DoacaoItem_TipoItem` (`id_tipoItem`),
-  KEY `fk_DoacaoItem_TipoEntrega` (`id_tipoEntrega`),
-  CONSTRAINT `fk_DoacaoItem_TipoEntrega` FOREIGN KEY (`id_tipoEntrega`) REFERENCES `TipoEntrega` (`id_tipoEntrega`),
-  CONSTRAINT `fk_DoacaoItem_TipoItem` FOREIGN KEY (`id_tipoItem`) REFERENCES `TipoItem` (`id_tipoItem`),
-  CONSTRAINT `fk_DoacaoItem_Usuario` FOREIGN KEY (`id_usuarioDoador`) REFERENCES `Usuario` (`id_usuario`),
-  CONSTRAINT `fk_DoacaoItem_Usuario2` FOREIGN KEY (`id_usuarioOng`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_usuarioDoador` int(11) NOT NULL,
+    `id_usuarioOng` int(11) NOT NULL,
+    `dt_doacaoItem` datetime NOT NULL,
+    `nm_item` varchar(250) DEFAULT NULL,
+    `qt_item` int(11) DEFAULT NULL,
+    `dt_recebimentoItem` datetime DEFAULT NULL,
+    `ic_doacaoConfirmada` tinyint(1) DEFAULT NULL,
+    `id_tipoItem` int(11) DEFAULT NULL,
+    `id_tipoEntrega` int(11) DEFAULT NULL,
+    `hr_doacao` time DEFAULT NULL,
+    `dt_doacao` date DEFAULT NULL,
+    PRIMARY KEY (`id_usuarioDoador` , `id_usuarioOng` , `dt_doacaoItem`),
+    KEY `fk_DoacaoItem_Usuario2` (`id_usuarioOng`),
+    KEY `fk_DoacaoItem_TipoItem` (`id_tipoItem`),
+    KEY `fk_DoacaoItem_TipoEntrega` (`id_tipoEntrega`),
+    CONSTRAINT `fk_DoacaoItem_TipoEntrega` FOREIGN KEY (`id_tipoEntrega`)
+        REFERENCES `TipoEntrega` (`id_tipoEntrega`),
+    CONSTRAINT `fk_DoacaoItem_TipoItem` FOREIGN KEY (`id_tipoItem`)
+        REFERENCES `TipoItem` (`id_tipoItem`),
+    CONSTRAINT `fk_DoacaoItem_Usuario` FOREIGN KEY (`id_usuarioDoador`)
+        REFERENCES `Usuario` (`id_usuario`),
+    CONSTRAINT `fk_DoacaoItem_Usuario2` FOREIGN KEY (`id_usuarioOng`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -365,19 +387,21 @@ DROP TABLE IF EXISTS `DoacaoMonetaria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `DoacaoMonetaria` (
-  `id_usuarioDoador` int(11) NOT NULL,
-  `id_usuarioOng` int(11) NOT NULL,
-  `dt_doacao` datetime NOT NULL,
-  `ic_doacaoConfirmada` tinyint(1) DEFAULT NULL,
-  `vl_monetario` double DEFAULT NULL,
-  `nm_comprovante` varchar(250) DEFAULT NULL,
-  `id_doacao` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_usuarioDoador`,`id_usuarioOng`,`dt_doacao`),
-  UNIQUE KEY `id_doacao_UNIQUE` (`id_doacao`),
-  KEY `fk__DoacaoMonetaria_Usuario2` (`id_usuarioOng`),
-  CONSTRAINT `fk_DoacaoMonetaria_Usuario1` FOREIGN KEY (`id_usuarioDoador`) REFERENCES `Usuario` (`id_usuario`),
-  CONSTRAINT `fk__DoacaoMonetaria_Usuario2` FOREIGN KEY (`id_usuarioOng`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+    `id_usuarioDoador` int(11) NOT NULL,
+    `id_usuarioOng` int(11) NOT NULL,
+    `dt_doacao` datetime NOT NULL,
+    `ic_doacaoConfirmada` tinyint(1) DEFAULT NULL,
+    `vl_monetario` double DEFAULT NULL,
+    `nm_comprovante` varchar(250) DEFAULT NULL,
+    `id_doacao` int(11) NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (`id_usuarioDoador` , `id_usuarioOng` , `dt_doacao`),
+    UNIQUE KEY `id_doacao_UNIQUE` (`id_doacao`),
+    KEY `fk__DoacaoMonetaria_Usuario2` (`id_usuarioOng`),
+    CONSTRAINT `fk_DoacaoMonetaria_Usuario1` FOREIGN KEY (`id_usuarioDoador`)
+        REFERENCES `Usuario` (`id_usuario`),
+    CONSTRAINT `fk__DoacaoMonetaria_Usuario2` FOREIGN KEY (`id_usuarioOng`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -398,10 +422,10 @@ DROP TABLE IF EXISTS `EstadoItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `EstadoItem` (
-  `id_estadoItem` int(11) NOT NULL,
-  `nm_estadoItem` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_estadoItem`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_estadoItem` int(11) NOT NULL,
+    `nm_estadoItem` varchar(45) DEFAULT NULL,
+    PRIMARY KEY (`id_estadoItem`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -422,13 +446,14 @@ DROP TABLE IF EXISTS `FotosOng`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `FotosOng` (
-  `id_fotoOng` int(11) NOT NULL,
-  `nm_refFoto` varchar(250) DEFAULT NULL,
-  `id_usuario` int(11) NOT NULL,
-  PRIMARY KEY (`id_fotoOng`,`id_usuario`),
-  KEY `fk_FotosOng_Usuario` (`id_usuario`),
-  CONSTRAINT `fk_FotosOng_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_fotoOng` int(11) NOT NULL,
+    `nm_refFoto` varchar(250) DEFAULT NULL,
+    `id_usuario` int(11) NOT NULL,
+    PRIMARY KEY (`id_fotoOng` , `id_usuario`),
+    KEY `fk_FotosOng_Usuario` (`id_usuario`),
+    CONSTRAINT `fk_FotosOng_Usuario` FOREIGN KEY (`id_usuario`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -449,20 +474,23 @@ DROP TABLE IF EXISTS `InteresseItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `InteresseItem` (
-  `id_divulgacao` int(11) NOT NULL,
-  `id_usuarioOng` int(11) NOT NULL,
-  `dt_itemRecebido` datetime DEFAULT NULL,
-  `dt_interesseItem` datetime DEFAULT NULL,
-  `dt_buscaItem` datetime DEFAULT NULL,
-  `ic_interesseConfirmado` tinyint(1) DEFAULT NULL,
-  `id_tipoEntrega` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_divulgacao`,`id_usuarioOng`),
-  KEY `fk_InteresseItem_Usuario` (`id_usuarioOng`),
-  KEY `fk_InteresseItem_TipoEntrega` (`id_tipoEntrega`),
-  CONSTRAINT `fk_InteresseItem_DivulgacaoItem` FOREIGN KEY (`id_divulgacao`) REFERENCES `DivulgacaoItem` (`id_divulgacao`),
-  CONSTRAINT `fk_InteresseItem_TipoEntrega` FOREIGN KEY (`id_tipoEntrega`) REFERENCES `TipoEntrega` (`id_tipoEntrega`),
-  CONSTRAINT `fk_InteresseItem_Usuario` FOREIGN KEY (`id_usuarioOng`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_divulgacao` int(11) NOT NULL,
+    `id_usuarioOng` int(11) NOT NULL,
+    `dt_itemRecebido` datetime DEFAULT NULL,
+    `dt_interesseItem` datetime DEFAULT NULL,
+    `dt_buscaItem` datetime DEFAULT NULL,
+    `ic_interesseConfirmado` tinyint(1) DEFAULT NULL,
+    `id_tipoEntrega` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_divulgacao` , `id_usuarioOng`),
+    KEY `fk_InteresseItem_Usuario` (`id_usuarioOng`),
+    KEY `fk_InteresseItem_TipoEntrega` (`id_tipoEntrega`),
+    CONSTRAINT `fk_InteresseItem_DivulgacaoItem` FOREIGN KEY (`id_divulgacao`)
+        REFERENCES `DivulgacaoItem` (`id_divulgacao`),
+    CONSTRAINT `fk_InteresseItem_TipoEntrega` FOREIGN KEY (`id_tipoEntrega`)
+        REFERENCES `TipoEntrega` (`id_tipoEntrega`),
+    CONSTRAINT `fk_InteresseItem_Usuario` FOREIGN KEY (`id_usuarioOng`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -482,13 +510,14 @@ DROP TABLE IF EXISTS `MotivoDenunciaCampanha`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `MotivoDenunciaCampanha` (
-  `id_motivoDenuncia` int(11) NOT NULL,
-  `nm_motivoDenuncia` varchar(250) DEFAULT NULL,
-  `id_motivoValorDenuncia` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_motivoDenuncia`),
-  KEY `fk_MotivoDenunciaCampanha_ValorMotivoDenuncia` (`id_motivoValorDenuncia`),
-  CONSTRAINT `fk_MotivoDenunciaCampanha_ValorMotivoDenuncia` FOREIGN KEY (`id_motivoValorDenuncia`) REFERENCES `ValorMotivoDenuncia` (`id_motivoValorDenuncia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_motivoDenuncia` int(11) NOT NULL,
+    `nm_motivoDenuncia` varchar(250) DEFAULT NULL,
+    `id_motivoValorDenuncia` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_motivoDenuncia`),
+    KEY `fk_MotivoDenunciaCampanha_ValorMotivoDenuncia` (`id_motivoValorDenuncia`),
+    CONSTRAINT `fk_MotivoDenunciaCampanha_ValorMotivoDenuncia` FOREIGN KEY (`id_motivoValorDenuncia`)
+        REFERENCES `ValorMotivoDenuncia` (`id_motivoValorDenuncia`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -509,13 +538,14 @@ DROP TABLE IF EXISTS `MotivoDenunciaUsuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `MotivoDenunciaUsuario` (
-  `id_motivoDenuncia` int(11) NOT NULL,
-  `nm_motivoDenuncia` varchar(250) DEFAULT NULL,
-  `id_motivoValorDenuncia` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_motivoDenuncia`),
-  KEY `fk_MotivoDenunciaUsuario_ValorMotivoDenuncia` (`id_motivoValorDenuncia`),
-  CONSTRAINT `fk_MotivoDenunciaUsuario_ValorMotivoDenuncia` FOREIGN KEY (`id_motivoValorDenuncia`) REFERENCES `ValorMotivoDenuncia` (`id_motivoValorDenuncia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_motivoDenuncia` int(11) NOT NULL,
+    `nm_motivoDenuncia` varchar(250) DEFAULT NULL,
+    `id_motivoValorDenuncia` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_motivoDenuncia`),
+    KEY `fk_MotivoDenunciaUsuario_ValorMotivoDenuncia` (`id_motivoValorDenuncia`),
+    CONSTRAINT `fk_MotivoDenunciaUsuario_ValorMotivoDenuncia` FOREIGN KEY (`id_motivoValorDenuncia`)
+        REFERENCES `ValorMotivoDenuncia` (`id_motivoValorDenuncia`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -536,11 +566,11 @@ DROP TABLE IF EXISTS `ODS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ODS` (
-  `id_ods` int(11) NOT NULL,
-  `nm_ods` varchar(45) DEFAULT NULL,
-  `nm_hrefOds` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`id_ods`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_ods` int(11) NOT NULL,
+    `nm_ods` varchar(45) DEFAULT NULL,
+    `nm_hrefOds` varchar(250) DEFAULT NULL,
+    PRIMARY KEY (`id_ods`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -561,10 +591,10 @@ DROP TABLE IF EXISTS `TipoEntrega`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `TipoEntrega` (
-  `id_tipoEntrega` int(11) NOT NULL,
-  `nm_tipoEntrega` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`id_tipoEntrega`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_tipoEntrega` int(11) NOT NULL,
+    `nm_tipoEntrega` varchar(250) DEFAULT NULL,
+    PRIMARY KEY (`id_tipoEntrega`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -585,11 +615,11 @@ DROP TABLE IF EXISTS `TipoItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `TipoItem` (
-  `id_tipoItem` int(11) NOT NULL,
-  `nm_tipoItem` varchar(250) DEFAULT NULL,
-  `img_tipoItem` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`id_tipoItem`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_tipoItem` int(11) NOT NULL,
+    `nm_tipoItem` varchar(250) DEFAULT NULL,
+    `img_tipoItem` varchar(250) DEFAULT NULL,
+    PRIMARY KEY (`id_tipoItem`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -610,13 +640,15 @@ DROP TABLE IF EXISTS `TipoItem_Ong`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `TipoItem_Ong` (
-  `id_tipoItem` int(11) NOT NULL,
-  `id_usuarioOng` int(11) NOT NULL,
-  PRIMARY KEY (`id_tipoItem`,`id_usuarioOng`),
-  KEY `fk_TipoItem_Ong_Usuario` (`id_usuarioOng`),
-  CONSTRAINT `fk_TipoItem_Ong_TipoItem` FOREIGN KEY (`id_tipoItem`) REFERENCES `TipoItem` (`id_tipoItem`),
-  CONSTRAINT `fk_TipoItem_Ong_Usuario` FOREIGN KEY (`id_usuarioOng`) REFERENCES `Usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_tipoItem` int(11) NOT NULL,
+    `id_usuarioOng` int(11) NOT NULL,
+    PRIMARY KEY (`id_tipoItem` , `id_usuarioOng`),
+    KEY `fk_TipoItem_Ong_Usuario` (`id_usuarioOng`),
+    CONSTRAINT `fk_TipoItem_Ong_TipoItem` FOREIGN KEY (`id_tipoItem`)
+        REFERENCES `TipoItem` (`id_tipoItem`),
+    CONSTRAINT `fk_TipoItem_Ong_Usuario` FOREIGN KEY (`id_usuarioOng`)
+        REFERENCES `Usuario` (`id_usuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -637,10 +669,10 @@ DROP TABLE IF EXISTS `TipoUsuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `TipoUsuario` (
-  `id_tipoUsuario` int(11) NOT NULL,
-  `nm_tipoUsuario` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`id_tipoUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_tipoUsuario` int(11) NOT NULL,
+    `nm_tipoUsuario` varchar(30) DEFAULT NULL,
+    PRIMARY KEY (`id_tipoUsuario`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -661,39 +693,42 @@ DROP TABLE IF EXISTS `Usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Usuario` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nm_email` varchar(250) DEFAULT NULL,
-  `nm_emailContato` varchar(250) DEFAULT NULL,
-  `nm_usuario` varchar(100) DEFAULT NULL,
-  `nm_senha` varchar(45) DEFAULT NULL,
-  `nm_telefone` varchar(20) DEFAULT NULL,
-  `nm_indentificacao` varchar(45) DEFAULT NULL,
-  `ds_usuario` varchar(1000) DEFAULT NULL,
-  `nm_cep` varchar(10) DEFAULT NULL,
-  `nm_estado` varchar(45) DEFAULT NULL,
-  `nm_cidade` varchar(100) DEFAULT NULL,
-  `nm_rua` varchar(250) DEFAULT NULL,
-  `nm_numero` varchar(5) DEFAULT NULL,
-  `nm_bairro` varchar(45) DEFAULT NULL,
-  `nm_complemento` varchar(45) DEFAULT NULL,
-  `nm_log` varchar(45) DEFAULT NULL,
-  `nm_lat` varchar(45) DEFAULT NULL,
-  `img_fotoPerfil` varchar(400) DEFAULT NULL,
-  `nm_website` varchar(250) DEFAULT NULL,
-  `img_banner` varchar(400) DEFAULT NULL,
-  `nm_pix` varchar(250) DEFAULT NULL,
-  `ic_banido` tinyint(1) DEFAULT NULL,
-  `dt_desboloqueio` datetime DEFAULT NULL,
-  `ic_podeBuscar` tinyint(1) DEFAULT NULL,
-  `id_tipoUsuario` int(11) DEFAULT NULL,
-  `id_categoriaOng` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `nm_email_UNIQUE` (`nm_email`),
-  KEY `fk_Usuario_TipoUsuario` (`id_tipoUsuario`),
-  KEY `fk_Usuario_CategoriaOng_idx` (`id_categoriaOng`),
-  CONSTRAINT `fk_Usuario_CategoriaOng` FOREIGN KEY (`id_categoriaOng`) REFERENCES `CategoriaOng` (`id_categoriaOng`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Usuario_TipoUsuario` FOREIGN KEY (`id_tipoUsuario`) REFERENCES `TipoUsuario` (`id_tipoUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
+    `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+    `nm_email` varchar(250) DEFAULT NULL,
+    `nm_emailContato` varchar(250) DEFAULT NULL,
+    `nm_usuario` varchar(100) DEFAULT NULL,
+    `nm_senha` varchar(45) DEFAULT NULL,
+    `nm_telefone` varchar(20) DEFAULT NULL,
+    `nm_indentificacao` varchar(45) DEFAULT NULL,
+    `ds_usuario` varchar(1000) DEFAULT NULL,
+    `nm_cep` varchar(10) DEFAULT NULL,
+    `nm_estado` varchar(45) DEFAULT NULL,
+    `nm_cidade` varchar(100) DEFAULT NULL,
+    `nm_rua` varchar(250) DEFAULT NULL,
+    `nm_numero` varchar(5) DEFAULT NULL,
+    `nm_bairro` varchar(45) DEFAULT NULL,
+    `nm_complemento` varchar(45) DEFAULT NULL,
+    `nm_log` varchar(45) DEFAULT NULL,
+    `nm_lat` varchar(45) DEFAULT NULL,
+    `img_fotoPerfil` varchar(400) DEFAULT NULL,
+    `nm_website` varchar(250) DEFAULT NULL,
+    `img_banner` varchar(400) DEFAULT NULL,
+    `nm_pix` varchar(250) DEFAULT NULL,
+    `ic_banido` tinyint(1) DEFAULT NULL,
+    `dt_desboloqueio` datetime DEFAULT NULL,
+    `ic_podeBuscar` tinyint(1) DEFAULT NULL,
+    `id_tipoUsuario` int(11) DEFAULT NULL,
+    `id_categoriaOng` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id_usuario`),
+    UNIQUE KEY `nm_email_UNIQUE` (`nm_email`),
+    KEY `fk_Usuario_TipoUsuario` (`id_tipoUsuario`),
+    KEY `fk_Usuario_CategoriaOng_idx` (`id_categoriaOng`),
+    CONSTRAINT `fk_Usuario_CategoriaOng` FOREIGN KEY (`id_categoriaOng`)
+        REFERENCES `CategoriaOng` (`id_categoriaOng`)
+        ON DELETE NO ACTION ON UPDATE NO ACTION,
+    CONSTRAINT `fk_Usuario_TipoUsuario` FOREIGN KEY (`id_tipoUsuario`)
+        REFERENCES `TipoUsuario` (`id_tipoUsuario`)
+)  ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -714,10 +749,10 @@ DROP TABLE IF EXISTS `ValorMotivoDenuncia`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ValorMotivoDenuncia` (
-  `id_motivoValorDenuncia` int(11) NOT NULL,
-  `nm_valorMotivoDenuncia` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_motivoValorDenuncia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    `id_motivoValorDenuncia` int(11) NOT NULL,
+    `nm_valorMotivoDenuncia` varchar(45) DEFAULT NULL,
+    PRIMARY KEY (`id_motivoValorDenuncia`)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2285,4 +2320,23 @@ begin
 end;;
 delimiter ;
 
+delimiter $$
+
+drop procedure if exists GerarCodigoComprovante$$
+create procedure GerarCodigoComprovante()
+begin
+	select max(id_doacao) + 1 as comprovante from DoacaoMonetaria;
+end$$
+
+
+delimiter ;
+
 -- Dump completed on 2023-09-25  3:08:14
+
+use umacausa;
+select 
+    *
+from
+    Usuario
+where
+    id_tipoUsuario = 1;

@@ -90,6 +90,9 @@ main .infos .infos2 .card-infos .card p {
   color: #1876F2;
   word-wrap: break-word;
 }
+main .infos .infos2 .card-infos .card p a{
+  color: #1876F2;
+}
 main .infos .infos2 .card-infos .card h3 {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
@@ -102,7 +105,7 @@ main .infos .infos2 .fotos h2 {
 }
 main .infos .infos2 .fotos .fotos-flex {
   display: flex;
-  height: 226px;
+  max-height: 226px;
   justify-content: flex-start;
   align-items: center;
   gap: 3px;
@@ -114,3 +117,4 @@ main .infos .infos2 .fotos .fotos-flex .foto {
   height: 111px;
   border-radius: 4px;
 }
+

@@ -22,12 +22,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <header>
-            <nav>
               
-              <asp:Literal ID="litHeader" runat="server"></asp:Literal>
-            </nav>
-          </header>
+          <asp:Literal ID="litHeader" runat="server"></asp:Literal>
+
           <div class="carrossel">
             <div class="slides">
 
@@ -109,6 +106,8 @@
               <asp:Literal ID="litFooter" runat="server"></asp:Literal>
           </footer>
 
+            
+          <script src="../js/animarBtnHeader.js"></script>
           <script src="../js/DeslogarUsuario.js"></script>
           <script src="./../js/home.js"></script>
           <script src="./../swiper/swiper-bundle.min.js"></script>

@@ -28,3 +28,20 @@
   }
 }
 
+@media screen and (min-width: 751px) and (max-width: 921px){
+  .explicacao{
+    width: 50% !important;
+  }
+  .apresentacao .foto{
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 750px){
+  .apresentacao .foto{
+    display: none;
+  }
+  .explicacao {
+    width: 100% !important;
+  }
+}

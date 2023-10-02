@@ -181,4 +181,30 @@ function VerificarDadosOng(event) {
     }
 }
 
+if (txtTelefone) {
+    txtTelefone.addEventListener('input', function (event) {
+        let valorInput = event.target.value;
+        let valorNumerico = valorInput.replace(/[^0-9]/g, '');
+        event.target.value = valorNumerico;
 
+        let telefone = txtTelefone.value.replace(/\D/g, '');
+        if (telefone.length === 11) {
+            telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '+55 ($1) $2-$3',);
+            txtTelefone.value = telefone;
+        }
+    })
+}
+
+if (txtIdentificacao) {
+    txtIdentificacao.addEventListener('input', function (event) {
+        let valorInput = event.target.value;
+        let valorNumerico = valorInput.replace(/[^0-9]/g, '');
+        event.target.value = valorNumerico;
+
+        let cpf = txtIdentificacao.value.replace(/\D/g, '');
+        if (cpf.length === 11) {
+            cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            txtIdentificacao.value = cpf;
+        }
+    })
+}

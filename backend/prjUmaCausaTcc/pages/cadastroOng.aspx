@@ -17,211 +17,208 @@
   </head>
 <body>
     <form id="form1" runat="server">
-        <header>
-          <nav>
-           <asp:Literal ID="litHeader" runat="server"></asp:Literal>
-          </nav>
-        </header>
 
-    <main>
-      <div class="infos-cadastro">
-        <div class="titulo-info">
-         <p>Dados Pessoais:</p>
-        </div>
-        <div class="infos">
-          <div class="input-label">
-            <label for="">Nome:</label>
-              <asp:TextBox ID="txtNome" runat="server" placeholder="ex: Cennin"></asp:TextBox>
-              <span id="erroNome" class="spanErro"></span>
-          </div>
-          <div class="input-label">
-            <label for="">CPF:</label>
-            <asp:TextBox ID="txtIdentificacao" TextMode="Number" runat="server" placeholder="ex: 111.111.111-00"></asp:TextBox>
-            <span id="erroIdentificacao" class="spanErro"></span>
-          </div>
-          <div class="input-label">
-            <label for="">Email:</label>
-            <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com"></asp:TextBox>
-            <span id="erroEmail" class="spanErro"></span>
-          </div>
-          <div class="input-label">
-            <label for="">Telefone:</label>
-            <asp:TextBox ID="txtTelefone" TextMode="Number" AutoCompleteType="Cellular" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
-            <span id="erroTelefone" class="spanErro"></span>
-          </div>
-            <div class="input-label">
-            <label for="">Senha:</label>
-            <asp:TextBox ID="txtSenha" TextMode="Password" runat="server"></asp:TextBox>
-            <span id="erroSenha" class="spanErro"></span>
-          </div>
-            <div class="input-label">
-            <label for="">Confirmar a Senha:</label>
-            <asp:TextBox ID="txtConfirmarSenha" TextMode="Password" runat="server"></asp:TextBox>
-            <span id="erroConfirmarSenha" class="spanErro"></span>
-          </div>
-        </div>
+        <asp:Literal ID="litHeader" runat="server"></asp:Literal>
 
-        <div class="titulo-info">
-          <p>Endereço:</p>
-        </div>
-        <div class="infos">
-         <div class="input-label" id="cep">
-            <label for="">CEP:</label>
-            <asp:TextBox ID="txtCep" TextMode="Number" runat="server" placeholder="ex: 11538105"></asp:TextBox>
-          </div>
-          <div class="input-label" id="UF">
-            <label for="">UF:</label>
-              <asp:DropDownList ID="txtUF" runat="server">
-                  <asp:ListItem value="" Text=""/>
-                  <asp:ListItem value="AC" Text="AC"/>
-                  <asp:ListItem value="AL" Text="AL"/>
-                  <asp:ListItem value="AP" Text="AP"/>
-                  <asp:ListItem value="AM" Text="AM"/>
-                  <asp:ListItem value="BA" Text="BA"/>
-                  <asp:ListItem value="CE" Text="CE"/>
-                  <asp:ListItem value="DF" Text="DF"/>
-                  <asp:ListItem value="ES" Text="ES"/>
-                  <asp:ListItem value="GO" Text="GO"/>
-                  <asp:ListItem value="MA" Text="MA"/>
-                  <asp:ListItem value="MT" Text="MT"/>
-                  <asp:ListItem value="MS" Text="MS"/>
-                  <asp:ListItem value="MG" Text="MG"/>
-                  <asp:ListItem value="PA" Text="PA"/>
-                  <asp:ListItem value="PB" Text="PB"/>
-                  <asp:ListItem value="PR" Text="PR"/>
-                  <asp:ListItem value="PE" Text="PE"/>
-                  <asp:ListItem value="PI" Text="PI"/>
-                  <asp:ListItem value="RJ" Text="RJ"/>
-                  <asp:ListItem value="RN" Text="RN"/>
-                  <asp:ListItem value="RS" Text="RS"/>
-                  <asp:ListItem value="RO" Text="RO"/>
-                  <asp:ListItem value="RR" Text="RR"/>
-                  <asp:ListItem value="SC" Text="SC"/>
-                  <asp:ListItem value="SP" Text="SP"/>
-                  <asp:ListItem value="SE" Text="SE"/>
-                  <asp:ListItem value="TO" Text="TO"/>
-              </asp:DropDownList>
-          </div>
-          <div class="input-label" id="cidade">
-            <label for="">Cidade:</label>
-            <asp:TextBox ID="txtCidade" runat="server" placeholder="ex: Santos"></asp:TextBox>
-          </div>
-          <div class="input-label" id="bairro">
-            <label for="">Bairro:</label>
-            <asp:TextBox ID="txtBairro" runat="server" placeholder="ex: Rua Alexandre Martins"></asp:TextBox>
-          </div>
-          <div class="input-label" id="logradouro">
-            <label for="">Logradouro:</label>
-            <asp:TextBox ID="txtLogradouro" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
-          </div>
-          <div class="input-label" id="numero">
-            <label for="">Número:</label>
-            <asp:TextBox ID="txtNumero" TextMode="Number" runat="server" placeholder="ex:54"></asp:TextBox>
-          </div>
-          <div class="input-label" id="complemento">
-            <label for="">Complemento:</label>
-            <asp:TextBox ID="txtComplemento" runat="server" placeholder="ex:Apt. 14"></asp:TextBox>
-          </div>
-          <span id="erroEndereco" class="spanErro"></span>
-        </div>
+        <main>
+          <div class="infos-cadastro">
+            <div class="titulo-info">
+             <p>Dados Pessoais:</p>
+            </div>
+            <div class="infos">
+              <div class="input-label">
+                <label for="">Nome:</label>
+                  <asp:TextBox ID="txtNome" runat="server" placeholder="ex: Cennin"></asp:TextBox>
+                  <span id="erroNome" class="spanErro"></span>
+              </div>
+              <div class="input-label">
+                <label for="">CPF:</label>
+                <asp:TextBox ID="txtIdentificacao" TextMode="Number" runat="server" placeholder="ex: 111.111.111-00"></asp:TextBox>
+                <span id="erroIdentificacao" class="spanErro"></span>
+              </div>
+              <div class="input-label">
+                <label for="">Email:</label>
+                <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com"></asp:TextBox>
+                <span id="erroEmail" class="spanErro"></span>
+              </div>
+              <div class="input-label">
+                <label for="">Telefone:</label>
+                <asp:TextBox ID="txtTelefone" TextMode="Number" AutoCompleteType="Cellular" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+                <span id="erroTelefone" class="spanErro"></span>
+              </div>
+                <div class="input-label">
+                <label for="">Senha:</label>
+                <asp:TextBox ID="txtSenha" TextMode="Password" runat="server"></asp:TextBox>
+                <span id="erroSenha" class="spanErro"></span>
+              </div>
+                <div class="input-label">
+                <label for="">Confirmar a Senha:</label>
+                <asp:TextBox ID="txtConfirmarSenha" TextMode="Password" runat="server"></asp:TextBox>
+                <span id="erroConfirmarSenha" class="spanErro"></span>
+              </div>
+            </div>
+
+            <div class="titulo-info">
+              <p>Endereço:</p>
+            </div>
+            <div class="infos">
+             <div class="input-label" id="cep">
+                <label for="">CEP:</label>
+                <asp:TextBox ID="txtCep" TextMode="Number" runat="server" placeholder="ex: 11538105"></asp:TextBox>
+              </div>
+              <div class="input-label" id="UF">
+                <label for="">UF:</label>
+                  <asp:DropDownList ID="txtUF" runat="server">
+                      <asp:ListItem value="" Text=""/>
+                      <asp:ListItem value="AC" Text="AC"/>
+                      <asp:ListItem value="AL" Text="AL"/>
+                      <asp:ListItem value="AP" Text="AP"/>
+                      <asp:ListItem value="AM" Text="AM"/>
+                      <asp:ListItem value="BA" Text="BA"/>
+                      <asp:ListItem value="CE" Text="CE"/>
+                      <asp:ListItem value="DF" Text="DF"/>
+                      <asp:ListItem value="ES" Text="ES"/>
+                      <asp:ListItem value="GO" Text="GO"/>
+                      <asp:ListItem value="MA" Text="MA"/>
+                      <asp:ListItem value="MT" Text="MT"/>
+                      <asp:ListItem value="MS" Text="MS"/>
+                      <asp:ListItem value="MG" Text="MG"/>
+                      <asp:ListItem value="PA" Text="PA"/>
+                      <asp:ListItem value="PB" Text="PB"/>
+                      <asp:ListItem value="PR" Text="PR"/>
+                      <asp:ListItem value="PE" Text="PE"/>
+                      <asp:ListItem value="PI" Text="PI"/>
+                      <asp:ListItem value="RJ" Text="RJ"/>
+                      <asp:ListItem value="RN" Text="RN"/>
+                      <asp:ListItem value="RS" Text="RS"/>
+                      <asp:ListItem value="RO" Text="RO"/>
+                      <asp:ListItem value="RR" Text="RR"/>
+                      <asp:ListItem value="SC" Text="SC"/>
+                      <asp:ListItem value="SP" Text="SP"/>
+                      <asp:ListItem value="SE" Text="SE"/>
+                      <asp:ListItem value="TO" Text="TO"/>
+                  </asp:DropDownList>
+              </div>
+              <div class="input-label" id="cidade">
+                <label for="">Cidade:</label>
+                <asp:TextBox ID="txtCidade" runat="server" placeholder="ex: Santos"></asp:TextBox>
+              </div>
+              <div class="input-label" id="bairro">
+                <label for="">Bairro:</label>
+                <asp:TextBox ID="txtBairro" runat="server" placeholder="ex: Rua Alexandre Martins"></asp:TextBox>
+              </div>
+              <div class="input-label" id="logradouro">
+                <label for="">Logradouro:</label>
+                <asp:TextBox ID="txtLogradouro" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+              </div>
+              <div class="input-label" id="numero">
+                <label for="">Número:</label>
+                <asp:TextBox ID="txtNumero" TextMode="Number" runat="server" placeholder="ex:54"></asp:TextBox>
+              </div>
+              <div class="input-label" id="complemento">
+                <label for="">Complemento:</label>
+                <asp:TextBox ID="txtComplemento" runat="server" placeholder="ex:Apt. 14"></asp:TextBox>
+              </div>
+              <span id="erroEndereco" class="spanErro"></span>
+            </div>
         
-        <div class="titulo-info">
-          <p>Informações Gerais:</p>
-        </div>
-        <div class="infos">
-          <div class="input-label" id="pix">
-            <label for="">Pix:</label>
-            <asp:TextBox ID="txtPix" placeholder="(13)99999-9999" runat="server"></asp:TextBox>
-            <span id="erroPix" class="spanErro"></span>
-          </div>
-          <div class="input-label" id="website">
-            <label for="">WebSite:</label>
-              <asp:TextBox ID="txtWebSite" TextMode="Url" runat="server"></asp:TextBox>
-          </div>
-          <div class="input-label">
-            <label for="">Categoria:</label>
-            <asp:DropDownList ID="cmbCategorias" runat="server">
-                <asp:ListItem>Selecione uma Categoria</asp:ListItem>
-                <asp:ListItem>Saúde</asp:ListItem>
-            </asp:DropDownList>
-            <span id="erroCategorias" class="spanErro"></span>
-          </div>
-          <div class="input-label">
-            <label for="">Email de Contato:</label>
-            <asp:TextBox ID="txtEmailContato" TextMode="Email" runat="server"></asp:TextBox>
-            <span id="erroEmailContato" class="spanErro"></span>
-          </div>
-          <div class="input-label" id="bannerOng">
-            <label for="">Banner da Ong:</label>
-            <div class="espaco-imagem-banner">
-              <label class="custom-file-upload">
-                <asp:FileUpload ID="fileInputBanner"  runat="server" accept="image/*" />
-                <span class="textoInputFile">Carregar Foto</span>
-              </label>
-              <span id="nomeArquivoBanner">Imagem Retangular em JPG</span>
+            <div class="titulo-info">
+              <p>Informações Gerais:</p>
             </div>
-          </div>
-          <div class="input-label" id="dsOng">
-             <label for="">Resumo da Ong:</label>
-             <asp:TextBox ID="txtDescricao" TextMode="MultiLine" Columns="30" Rows="10" runat="server"></asp:TextBox>
-             <span id="erroDescricao" class="spanErro"></span>
-          </div>
-          <div class="input-label" id="logo">
-            <label for="">Logo da Ong:</label>
-            <div class="espaco-imagem-logo">
-              <label class="custom-file-upload">
-                <asp:FileUpload ID="fileInputLogo" runat="server" accept="image/*" />
-                <span class="textoInputFile">Carregar Foto</span>
-              </label>
-              <span id="nomeArquivoLogo">Foto quadrada em JPG</span>
+            <div class="infos">
+              <div class="input-label" id="pix">
+                <label for="">Pix:</label>
+                <asp:TextBox ID="txtPix" placeholder="(13)99999-9999" runat="server"></asp:TextBox>
+                <span id="erroPix" class="spanErro"></span>
+              </div>
+              <div class="input-label" id="website">
+                <label for="">WebSite:</label>
+                  <asp:TextBox ID="txtWebSite" TextMode="Url" runat="server"></asp:TextBox>
+              </div>
+              <div class="input-label">
+                <label for="">Categoria:</label>
+                <asp:DropDownList ID="cmbCategorias" runat="server">
+                    <asp:ListItem>Selecione uma Categoria</asp:ListItem>
+                    <asp:ListItem>Saúde</asp:ListItem>
+                </asp:DropDownList>
+                <span id="erroCategorias" class="spanErro"></span>
+              </div>
+              <div class="input-label">
+                <label for="">Email de Contato:</label>
+                <asp:TextBox ID="txtEmailContato" TextMode="Email" runat="server"></asp:TextBox>
+                <span id="erroEmailContato" class="spanErro"></span>
+              </div>
+              <div class="input-label" id="bannerOng">
+                <label for="">Banner da Ong:</label>
+                <div class="espaco-imagem-banner">
+                  <label class="custom-file-upload">
+                    <asp:FileUpload ID="fileInputBanner"  runat="server" accept="image/*" />
+                    <span class="textoInputFile">Carregar Foto</span>
+                  </label>
+                  <span id="nomeArquivoBanner">Imagem Retangular em JPG</span>
+                </div>
+              </div>
+              <div class="input-label" id="dsOng">
+                 <label for="">Resumo da Ong:</label>
+                 <asp:TextBox ID="txtDescricao" TextMode="MultiLine" Columns="30" Rows="10" runat="server"></asp:TextBox>
+                 <span id="erroDescricao" class="spanErro"></span>
+              </div>
+              <div class="input-label" id="logo">
+                <label for="">Logo da Ong:</label>
+                <div class="espaco-imagem-logo">
+                  <label class="custom-file-upload">
+                    <asp:FileUpload ID="fileInputLogo" runat="server" accept="image/*" />
+                    <span class="textoInputFile">Carregar Foto</span>
+                  </label>
+                  <span id="nomeArquivoLogo">Foto quadrada em JPG</span>
+                </div>
+              </div>
+              <div class="input-label">
+                 <label for="">Itens Aceitos:</label>
+                 <div class="select-items">
+                    <div class="ver" onclick="esconderSelectItens()">
+                        Selecione os Itens de seu interesse
+                    </div>
+                    <ul id="itemList" class="invisivel">
+                        <asp:Literal ID="listaItens" runat="server"></asp:Literal>
+                    </ul>
+                 </div>
+                 <span id="erroItensAceitos" class="spanErro"></span>
+                 <ul id="selectedItems"></ul>
+               </div>
+               <div class="input-label">
+                 <label for="">Dias Disponíveis:</label>
+                 <div class="select-dias">
+                    <div class="ver" onclick="esconderSelectDias()">
+                        Selecione os Dias Disponiveis
+                    </div>
+                    <ul id="diasList" class="invisivel">
+                        <li onclick="selecionarDia(this)" value="1">Domingo</li>
+                        <li onclick="selecionarDia(this)" value="2">Segunda</li>
+                        <li onclick="selecionarDia(this)" value="3">Terça</li>
+                        <li onclick="selecionarDia(this)" value="4">Quarta</li>
+                        <li onclick="selecionarDia(this)" value="5">Quinta</li>
+                        <li onclick="selecionarDia(this)" value="6">Sexta</li>
+                        <li onclick="selecionarDia(this)" value="7">Sábado</li>        
+                    </ul>
+                 </div>
+                 <span id="erroDiasDisponiveis" class="spanErro"></span>
+                 <ul id="selectedDias"></ul>
+               </div>
             </div>
+            <asp:Label ID="lblErro" runat="server"></asp:Label>
+            <asp:Button class="button-criar" ID="btnCadastrarOng" runat="server" Text="Criar conta de ONG" OnClick="btnCadastrarOng_Click" />
           </div>
-          <div class="input-label">
-             <label for="">Itens Aceitos:</label>
-             <div class="select-items">
-                <div class="ver" onclick="esconderSelectItens()">
-                    Selecione os Itens de seu interesse
-                </div>
-                <ul id="itemList" class="invisivel">
-                    <asp:Literal ID="listaItens" runat="server"></asp:Literal>
-                </ul>
-             </div>
-             <span id="erroItensAceitos" class="spanErro"></span>
-             <ul id="selectedItems"></ul>
-           </div>
-           <div class="input-label">
-             <label for="">Dias Disponíveis:</label>
-             <div class="select-dias">
-                <div class="ver" onclick="esconderSelectDias()">
-                    Selecione os Dias Disponiveis
-                </div>
-                <ul id="diasList" class="invisivel">
-                    <li onclick="selecionarDia(this)" value="1">Domingo</li>
-                    <li onclick="selecionarDia(this)" value="2">Segunda</li>
-                    <li onclick="selecionarDia(this)" value="3">Terça</li>
-                    <li onclick="selecionarDia(this)" value="4">Quarta</li>
-                    <li onclick="selecionarDia(this)" value="5">Quinta</li>
-                    <li onclick="selecionarDia(this)" value="6">Sexta</li>
-                    <li onclick="selecionarDia(this)" value="7">Sábado</li>        
-                </ul>
-             </div>
-             <span id="erroDiasDisponiveis" class="spanErro"></span>
-             <ul id="selectedDias"></ul>
-           </div>
-        </div>
-        <asp:Label ID="lblErro" runat="server"></asp:Label>
-        <asp:Button class="button-criar" ID="btnCadastrarOng" runat="server" Text="Criar conta de ONG" OnClick="btnCadastrarOng_Click" />
-      </div>
-    </main>
+        </main>
 
-    <footer>
-        <asp:Literal ID="litFooter" runat="server"></asp:Literal>
-    </footer>
+        <footer>
+            <asp:Literal ID="litFooter" runat="server"></asp:Literal>
+        </footer>
 
-    <script src="./../js/verificacoesInputs.js"></script>
-    <script src="./../js/inputFile.js"></script>
-    <script src="./../js/selectPersonalizado.js"></script>
-    <script src="./../js/cep.js"></script>
+        <script src="./../js/verificacoesInputs.js"></script>
+        <script src="./../js/inputFile.js"></script>
+        <script src="./../js/selectPersonalizado.js"></script>
+        <script src="./../js/cep.js"></script>
     </form>
 </body>
 </html>

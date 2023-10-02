@@ -49,7 +49,11 @@ namespace prjUmaCausaTcc.pages
 
                 (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
 
-                //usuario.CadastrarDoador(nome, senha, email, telefone, cpf, cep, uf, cidade, lougradouto, numero, bairro, complemento, latitude, longitude);
+                usuario.CadastrarDoador(nome, senha, email, telefone, cpf, cep, uf, cidade, lougradouto, numero, bairro, complemento, latitude, longitude);
+
+                usuario.BuscarUsuarioPeloEmail(email);
+                Session["usuario"] = usuario;
+                Response.Redirect("index.aspx", false);
             }
             catch (Exception ex)
             {

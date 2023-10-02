@@ -158,12 +158,7 @@ public class Usuario : Banco
                 throw new Exception("O nome do bairro não deve estar vazio!");
         }
     }
-    private string _complemento;
-    public string Complemento
-    {
-        get => _complemento;
-        set { _complemento = value; }
-    }
+    public string Complemento { get; set; }
 
     public string Latitude { get; private set; }
     public string Longitude { get; private set; }
@@ -208,7 +203,7 @@ public class Usuario : Banco
 
     #region Metodos
 
-    public bool CadastrarDoador(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude)
+    public void CadastrarDoador(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude)
     {
         List<Parametro> parametros = new List<Parametro>()
         { 
@@ -231,11 +226,10 @@ public class Usuario : Banco
         {
             Conectar();
             Executar("CadastrarDoador", parametros);
-            return true;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            return false;
+            throw new Exception(ex.Message);
         }
         finally
         {
@@ -337,6 +331,7 @@ public class Usuario : Banco
             MySqlDataReader dados = Consultar("BuscarDadosOng", parametros);
             if (dados.Read())
             {
+<<<<<<< HEAD
                 Nome = dados.GetString("nm_usuario");
                 Banner = dados.GetString("img_banner");
                 FotoPerfil = dados.GetString("img_fotoPerfil");
@@ -354,6 +349,23 @@ public class Usuario : Banco
                 Complemento = dados.GetString("nm_complemento");
                 Latitude = dados.GetString("nm_lat");
                 Longitude = dados.GetString("nm_log");
+=======
+                Nome = dados["nm_usuario"].ToString();
+                Banner = dados["img_banner"].ToString();
+                FotoPerfil = dados["img_fotoPerfil"].ToString();
+                Descricao = dados["ds_usuario"].ToString();
+                EmailContato = dados["nm_emailContato"].ToString();
+                Telefone = dados["nm_telefone"].ToString();
+                Identificacao = dados["nm_indentificacao"].ToString();
+                Website = dados["nm_website"].ToString();
+                Cep = dados["nm_cep"].ToString();
+                Estado = dados["nm_estado"].ToString();
+                Cidade = dados["nm_cidade"].ToString();
+                Rua = dados["nm_rua"].ToString();
+                Numero = dados["nm_numero"].ToString();
+                Bairro = dados["nm_bairro"].ToString();
+                Complemento = dados["nm_complemento"].ToString();
+>>>>>>> main
                 CategoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
             }
             if (!dados.IsClosed)
@@ -526,6 +538,36 @@ public class Usuario : Banco
         }
         finally { Desconectar(); }
 
+    }
+    public void BuscarTipoDoUsuario(int codigo)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("pIdUsuario", codigo.ToString())
+            };
+        try
+        {
+            MySqlDataReader dados = Consultar("BuscarTipoUsuario", parametros);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    TipoDoUsuario = new TipoUsuario();  
+                    TipoDoUsuario.Codigo = int.Parse(dados["id_tipoUsuario"].ToString());
+                }
+            }
+            else
+            {
+                TipoDoUsuario = null;
+            }
+            if (dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally { Desconectar(); }
     }
     #endregion
     public Usuario()
