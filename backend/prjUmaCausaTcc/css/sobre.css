@@ -20,10 +20,13 @@
 }
 
 .imagemBanner {
-  width: 100%;
-  height: 160px;
-  background-color: #EFEFF0;
-  margin-top: 19px;
+    width: 100%;
+    height: 160px;
+    margin-top: 19px;
+    background: url(../images/sobre.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .textoPrincipal {

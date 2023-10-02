@@ -30,22 +30,22 @@
             <div class="infos">
               <div class="input-label">
                 <label for="">Nome:</label>
-                  <asp:TextBox ID="txtNome" runat="server" placeholder="ex: " required="required"></asp:TextBox>
+                  <asp:TextBox ID="txtNome" runat="server" placeholder="Seu Nome" required="required"></asp:TextBox>
                   <span id="erroNome" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">CPF:</label>
-                <asp:TextBox ID="txtIdentificacao" runat="server" maxlength="11" placeholder="ex: 31331561842" required="required"></asp:TextBox>
+                <asp:TextBox ID="txtIdentificacao" runat="server" maxlength="11" placeholder="000.000.000-00" required="required"></asp:TextBox>
                 <span id="erroIdentificacao" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">Email:</label>
-                <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: exemplo@gmail.com" required="required"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="seuemail@gmail.com" required="required"></asp:TextBox>
                 <span id="erroEmail" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">Telefone:</label>
-                <asp:TextBox ID="txtTelefone" AutoCompleteType="Cellular" maxlength="11" runat="server" placeholder="ex: 13991217101" required="required"></asp:TextBox>
+                <asp:TextBox ID="txtTelefone" AutoCompleteType="Cellular" maxlength="11" runat="server" placeholder="1399999999" required="required"></asp:TextBox>
                 <span id="erroTelefone" class="spanErro"></span>
               </div>
                 <div class="input-label">
@@ -66,7 +66,7 @@
             <div class="infos">
               <div class="input-label" id="cep">
                 <label for="">CEP:</label>
-                <asp:TextBox ID="txtCep" TextMode="Number" runat="server" placeholder="ex: 11538105"></asp:TextBox>
+                <asp:TextBox ID="txtCep" TextMode="Number" runat="server" placeholder="11538105"></asp:TextBox>
               </div>
               <div class="input-label" id="UF">
                 <label for="">UF:</label>
@@ -103,23 +103,23 @@
               </div>
               <div class="input-label" id="cidade">
                 <label for="">Cidade:</label>
-                <asp:TextBox ID="txtCidade" runat="server" placeholder="ex: Santos"></asp:TextBox>
+                <asp:TextBox ID="txtCidade" runat="server" placeholder="Santos"></asp:TextBox>
               </div>
               <div class="input-label" id="bairro">
                 <label for="">Bairro:</label>
-                <asp:TextBox ID="txtBairro" runat="server" placeholder="ex: Rua Alexandre Martins"></asp:TextBox>
+                <asp:TextBox ID="txtBairro" runat="server" placeholder="Rua Alexandre Martins"></asp:TextBox>
               </div>
               <div class="input-label" id="logradouro">
                 <label for="">Logradouro:</label>
-                <asp:TextBox ID="txtLogradouro" runat="server" placeholder="ex: 13997845669"></asp:TextBox>
+                <asp:TextBox ID="txtLogradouro" runat="server" placeholder="13997845669"></asp:TextBox>
               </div>
               <div class="input-label" id="numero">
                 <label for="">Número:</label>
-                <asp:TextBox ID="txtNumero" TextMode="Number" runat="server" placeholder="ex:54"></asp:TextBox>
+                <asp:TextBox ID="txtNumero" TextMode="Number" runat="server" placeholder="54"></asp:TextBox>
               </div>
               <div class="input-label" id="complemento">
                 <label for="">Complemento:</label>
-                <asp:TextBox ID="txtComplemento" runat="server" placeholder="ex:Apt. 14"></asp:TextBox>
+                <asp:TextBox ID="txtComplemento" runat="server" placeholder="Apt. 14"></asp:TextBox>
               </div>
               <span id="erroEndereco" class="spanErro"></span>
             </div>
