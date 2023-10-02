@@ -31,7 +31,7 @@ if (btnRelizarDoacaoMonetaria) {
                 LimparPopupMonetario();
                 bloqueio.classList.add('escondido');
 
-                alert("Doação realizada!");
+                alert("Doação Realizada com Sucesso!");
             }
             else {
                 alert('Erro na doação');
@@ -70,11 +70,11 @@ if (btnAgendarItem) {
                     LimparPopUpItem();
                     bloqueio.classList.add('escondido');
 
-                    alert("Doação realizada!");
+                    alert("Agendamento Realizado com Sucesso!");
                     
                 }
                 else {
-                    alert('Erro na doação');
+                    alert('Erro no Agendamento!');
                 }
             });
 
