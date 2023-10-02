@@ -148,7 +148,7 @@ header nav #btnMenuHeader {
   margin-bottom: 0;
 }
 header nav #btnMenuHeader span {
-  height: 4px;
+  height: 3px;
   border-radius: 2px;
   width: 100%;
   transition: 0.1s;

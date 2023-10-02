@@ -189,7 +189,7 @@ if (txtTelefone) {
 
         let telefone = txtTelefone.value.replace(/\D/g, '');
         if (telefone.length === 11) {
-            telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '+55 ($1) $2-$3',);
+            telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3',);
             txtTelefone.value = telefone;
         }
     })

@@ -31,7 +31,7 @@ if (btnRealizarDenunciaUsuario) {
                     alert("Denuncia Realizada!");
                 }
                 else {
-                    alert('Erro na doação');
+                    alert('Erro na Denuncia');
                 }
             });
     })
