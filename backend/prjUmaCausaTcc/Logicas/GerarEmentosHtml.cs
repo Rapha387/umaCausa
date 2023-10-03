@@ -158,4 +158,102 @@ using System.Web;
                         </nav>";
             return footer;
         }
+    public string GerarMenu(Usuario usuario) {
+
+        if (usuario.TipoDoUsuario.Codigo == 0)
+        {
+            string nav = $@"
+                        <nav>
+        <ul>
+          <li>
+            <a href='./ meuPerfil.aspx'>
+               <img src = './../../images/icons/userAzul.png' alt = '' />
+                  Meu Perfil
+                </a>
+    
+              </li>
+    
+              <li>
+    
+                <a href = './minhasColaboracoes.aspx'>
+     
+                   <img src = './../../images/icons/maos.png' alt = '' />
+                      Minhas Colaborações
+                    </a>
+        
+                  </li>
+                   <li>
+                                <a href = './alterarSenha.aspx'>
+                     
+                                   <img src = './../../images/icons/cadeado.png' alt = '' />
+                                      Alterar Senha
+                                    </a>
+                        
+                                  </li>
+                        
+                                </ul>
+                        
+                              </nav>";
+            return nav;
+        }
+        else
+        {
+            string nav = $@"
+                <nav>
+        <ul>
+          <li>
+            <a href = './meuPerfil.aspx'>
+ 
+               <img src = './../../images/icons/userAzul.png' alt = '' />
+                  Meu Perfil
+                </a>
+    
+              </li>
+    
+              <li>
+    
+                <a href = './minhasColaboracoes.aspx'>
+     
+                   <img src = './../../images/icons/maos.png' alt = '' />
+                      Minhas Colaborações
+                    </a>
+        
+                  </li>
+                  <li>
+            
+                        <a href = './confirmacoesDoacoes.aspx'>
+             
+                           <img src = './../../images/icons/confirmacao.png' alt = '' />
+                              Confirmações de Doações
+                            </a>
+                
+                          </li>
+                
+                          <li>
+                
+                            <a href = './minhasCampanhas.aspx'>
+                 
+                               <img src = './../../images/icons/megafone.png' alt = '' />
+                                  Minhas Campanhas
+                                </a>
+                    
+                              </li>
+                    
+                              <li>
+                    
+                                <a href = './alterarSenha.aspx'>
+                     
+                                   <img src = './../../images/icons/cadeado.png' alt = '' />
+                                      Alterar Senha
+                                    </a>
+                        
+                                  </li>
+                        
+                                </ul>
+                        
+                              </nav>";
+            return nav;
+        }
+    }
+ 
     }

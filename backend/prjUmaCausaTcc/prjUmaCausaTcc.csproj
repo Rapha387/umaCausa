@@ -230,11 +230,16 @@
     <Content Include="pages\cadastroOng.aspx" />
     <Content Include="pages\campanha.aspx" />
     <Content Include="pages\campanhas.aspx" />
+    <Content Include="pages\configuracoes\alterarSenha.aspx" />
     <Content Include="pages\configuracoes\alterarSenha.html" />
+    <Content Include="pages\configuracoes\confirmacoesDoacoes.aspx" />
     <Content Include="pages\configuracoes\confirmacoesDoacoes.html" />
+    <Content Include="pages\configuracoes\meuPerfil.aspx" />
     <Content Include="pages\configuracoes\meuPerfil.html" />
     <Content Include="pages\configuracoes\meusItens.html" />
+    <Content Include="pages\configuracoes\minhasCampanhas.aspx" />
     <Content Include="pages\configuracoes\minhasCampanhas.html" />
+    <Content Include="pages\configuracoes\minhasColaboracoes.aspx" />
     <Content Include="pages\configuracoes\minhasColaboracoes.html" />
     <Content Include="pages\erro.aspx" />
     <Content Include="pages\faq.aspx" />
@@ -398,6 +403,41 @@
     </Compile>
     <Compile Include="pages\campanhas.aspx.designer.cs">
       <DependentUpon>campanhas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\configuracoes\alterarSenha.aspx.cs">
+      <DependentUpon>alterarSenha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\configuracoes\alterarSenha.aspx.designer.cs">
+      <DependentUpon>alterarSenha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\configuracoes\confirmacoesDoacoes.aspx.cs">
+      <DependentUpon>confirmacoesDoacoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\configuracoes\confirmacoesDoacoes.aspx.designer.cs">
+      <DependentUpon>confirmacoesDoacoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\configuracoes\meuPerfil.aspx.cs">
+      <DependentUpon>meuPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\configuracoes\meuPerfil.aspx.designer.cs">
+      <DependentUpon>meuPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\configuracoes\minhasCampanhas.aspx.cs">
+      <DependentUpon>minhasCampanhas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\configuracoes\minhasCampanhas.aspx.designer.cs">
+      <DependentUpon>minhasCampanhas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\configuracoes\minhasColaboracoes.aspx.cs">
+      <DependentUpon>minhasColaboracoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\configuracoes\minhasColaboracoes.aspx.designer.cs">
+      <DependentUpon>minhasColaboracoes.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\erro.aspx.cs">
       <DependentUpon>erro.aspx</DependentUpon>
