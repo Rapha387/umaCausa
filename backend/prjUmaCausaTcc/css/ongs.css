@@ -1,15 +1,18 @@
 ﻿main {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
 }
 
 .pesquisa {
-  width: 336px;
+    width: 335px;
+    position: fixed;
+    left: 25rem;
 }
 
 .ongs {
     display: flex;
-    width: 621px;
+    width: 730px;
     flex-direction: column;
     align-items: flex-start;
 }
@@ -41,7 +44,7 @@
   padding-bottom: 0;
 }
 .ongs .ong .infos-ong .descricao {
-  width: 507px;
+    width: 605px;
 }
 .ongs .ong .infos-ong .descricao h3 {
   color: #000;

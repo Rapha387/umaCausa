@@ -12,7 +12,6 @@ namespace prjUmaCausaTcc.pages
     public partial class ongs : System.Web.UI.Page
     {
         string c;
-        bool mudar = false;
         int indiceDePaginacao = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -56,8 +55,6 @@ namespace prjUmaCausaTcc.pages
                 }
 
             }
-
-            ddlCategoria.Items.Add("Categoria");
             foreach (CategoriaOng categoriaOng in new CategoriasOng().ListarCategoriasOng())
             {
                 ddlCategoria.Items.Insert(categoriaOng.Codigo, new ListItem(categoriaOng.Nome, categoriaOng.Codigo.ToString()));
@@ -75,7 +72,9 @@ namespace prjUmaCausaTcc.pages
             {
                 litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
             }
-
+            if (!IsPostBack)
+                if (!String.IsNullOrEmpty(Request["c"]))
+                    ddlCategoria.SelectedIndex = int.Parse(Request["c"]);
         }             
 
         private void GerarOngs(List<Usuario> ongs)
