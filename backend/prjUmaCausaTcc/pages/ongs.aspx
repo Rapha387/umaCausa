@@ -29,6 +29,8 @@
               <asp:TextBox ID="txtPesquisa" runat="server" type="search" placeholder="Pesquisar"></asp:TextBox>
               <img src="./../images/icons/search.png" alt="lupa">
           </div>
+
+             
           <div class="filtro">
             <h3>Filtrar Por:</h3>
               <asp:DropDownList ID="ddlCategoria" AutoPostBack="true" OnTextChanged="ddlCategoria_TextChanged" runat="server">

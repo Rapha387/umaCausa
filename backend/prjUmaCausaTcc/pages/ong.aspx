@@ -176,6 +176,7 @@
                  <div>DOAR</div>
                 </button>
             </asp:Panel>
+              
             <div class="card-infos">
               <div class="card">
                 <img src="./../images/icons/endereco.png" alt="icone endereco">
@@ -207,6 +208,7 @@
                 </div>
               </div>
             </div>
+              
 
         
             <asp:Literal ID="litInicioFotos" runat="server"></asp:Literal>
