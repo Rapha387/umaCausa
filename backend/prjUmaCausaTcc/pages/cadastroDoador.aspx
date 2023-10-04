@@ -31,6 +31,7 @@
               <div class="input-label">
                 <label for="">Nome:</label>
                   <asp:TextBox ID="txtNome" runat="server" placeholder="Laura Felice" required="required"></asp:TextBox>
+
                   <span id="erroNome" class="spanErro"></span>
               </div>
               <div class="input-label">

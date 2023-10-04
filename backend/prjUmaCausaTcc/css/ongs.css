@@ -1,15 +1,22 @@
 ﻿main {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .pesquisa {
-  width: 336px;
+    width: 32%;
 }
 
 .ongs {
-  width: 621px;
+    width: 63%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
+.ongs a{
+    width: 100%;
+}
+
 .ongs h2 {
   margin-bottom: 30px;
 }
@@ -38,7 +45,7 @@
   padding-bottom: 0;
 }
 .ongs .ong .infos-ong .descricao {
-  width: 507px;
+    width: 605px;
 }
 .ongs .ong .infos-ong .descricao h3 {
   color: #000;
@@ -70,4 +77,28 @@
     font-size: 14px;
     color: #8AB6DE;
     display: inline-block;
+}
+.backButton {
+    width: 28px;
+    height: 22px;
+    background-color: #0063bf;
+    border: none;
+    margin-top: 0;
+    position: static;
+    padding: 3px 6px 3px 6px;
+    transform: rotate(180deg);
+}
+.nextButton 
+{
+    width: 28px;
+    height: 22px;
+    background-color: #0063bf;
+    border: none;
+    margin-top: 0;
+    position: static;
+    padding: 3px 6px 3px 6px;
+}
+.itemPaginacao {
+    margin-right: 3px;
+    margin-left: 3px;
 }

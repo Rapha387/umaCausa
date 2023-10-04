@@ -11,7 +11,5 @@ public class MotivoDenunciaUsuario
     public ValorMotivoDenuncia ValorMotivoDenuncia { get; set; }
     public TipoMotivoDenuncia TipoMotivoDenuncia { get; set; }
     #endregion
-
-
     
 }

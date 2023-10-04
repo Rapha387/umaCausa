@@ -32,12 +32,36 @@ namespace prjUmaCausaTcc.pages
             {
                 litHeader.Text = gerarHtml.MudarNavegacao(null);
             }
-            try
+            if (!String.IsNullOrEmpty(Request["c"]))
             {
-                int cd_campanha = int.Parse(Request["c"]);
+                int cd_campanha = 0;
+                try
+                {
+                    cd_campanha = int.Parse(Request["c"]);
+
+                }
+                catch (Exception)
+                {
+                    Response.Redirect($"erro.aspx?e=pagina não encontrada");
+                }
                 Campanha campanha = new Campanha();
-                BuscarCampanha(cd_campanha, campanha);
-                BuscarONG(campanha);
+                try
+                {
+                    campanha.BuscarCampanha(cd_campanha);
+                    BuscarCampanha(campanha);
+                }
+                catch (Exception)
+                {
+                    Response.Redirect($"erro.aspx?e=pagina não encontrada");
+                }
+                try
+                {
+                    BuscarONG(campanha);    
+                }
+                catch (Exception)
+                {
+                    Response.Redirect($"erro.aspx?e=pagina não encontrada");
+                }
 
                 Odesses odesses = new Odesses();
 
@@ -46,22 +70,34 @@ namespace prjUmaCausaTcc.pages
                     litOds.Text += $"<img src='../{ods.Foto}'' alt=''>";
                 }
             }
-            catch (Exception ex)
+            else
             {
-                Response.Redirect("erro.aspx");
+                Response.Redirect("erro.aspx?e=Página não encontrada");
             }
         }
 
-        private void BuscarCampanha(int cd_campanha, Campanha campanha)
+        private void BuscarCampanha(Campanha campanha)
         {
-            campanha.BuscarCampanha(cd_campanha);
-            litArrecadado.Text = campanha.QuantidadeArrecadada.ToString().Replace(".", ",");
-            litMeta.Text = campanha.QuantidadeMeta.ToString().Replace(".", ",");
-            litDescricao.Text = campanha.Descricao;
-            litWebNome.Text = campanha.Nome + " - umaCausa";
-            litNome.Text = campanha.Nome;
-            litProgresso.Text = $"<div class='progresso' style='width: {campanha.PorcentagemArrecadado}%;'></div>";
-            litImagem.Text = $"<div style='background-image: url(../{campanha.Banner});'class='imagem-campanha'></div>";
+            try
+            {
+                litMeta.Text = "R$" + campanha.QuantidadeMeta.ToString().Replace(".", ",");
+                litArrecadado.Text = "Arrecadados da meta de R$" + campanha.QuantidadeArrecadada.ToString().Replace(".", ",");
+                if (campanha.Categoria.Codigo == 2)
+                {
+                    litArrecadado.Text = "Arrecadados da meta: " + campanha.QuantidadeArrecadada.ToString().Replace(".", ",") +" "+ campanha.TipoItemArrecadado.Nome;
+                    litMeta.Text = campanha.QuantidadeMeta.ToString().Replace(".", ",") +" "+ campanha.TipoItemArrecadado.Nome;
+                }
+                litDescricao.Text = campanha.Descricao;
+                litWebNome.Text = campanha.Nome + " - umaCausa";
+                litNome.Text = campanha.Nome;
+                litProgresso.Text = $"<div class='progresso' style='width: {campanha.PorcentagemArrecadado}%;'></div>";
+                litImagem.Text = $"<div style='background-image: url(../{campanha.Banner});'class='imagem-campanha'></div>";
+
+            }
+            catch
+            {
+                Response.Redirect($"erro.aspx?e=pagina não encontrada");
+            }
         }
 
         private void BuscarONG(Campanha campanha)

@@ -80,8 +80,8 @@
             </div>
             <div class="infos-campanha">
               <div class="meta">
-                <h3>R$<asp:Literal ID="litMeta" runat="server"></asp:Literal></h3>
-                <p>Arrecadados da meta de R$<asp:Literal ID="litArrecadado" runat="server"></asp:Literal></p>
+                <h3><asp:Literal ID="litMeta" runat="server"></asp:Literal></h3>
+                <p><asp:Literal ID="litArrecadado" runat="server"></asp:Literal></p>
                 <div class="barra-meta">
                     <asp:Literal ID="litProgresso" runat="server"></asp:Literal>
                   <%--<div class="progresso"></div>--%>

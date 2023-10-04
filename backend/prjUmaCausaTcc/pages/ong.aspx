@@ -136,7 +136,7 @@
         <div class="logo-nome"> 
          <asp:Literal ID="litIcone" runat="server"></asp:Literal>
           <%--<div class="logo-ong"></div>--%>
-          <h1><asp:Literal ID="litNome" runat="server"></asp:Literal> <img src="./../images/categorias/categoria1.png" alt="" class="img-categoria-ong"></h1>
+          <h1><asp:Literal ID="litNome" runat="server"></asp:Literal> <%--<img src="./../images/categorias/categoria1.png" alt="" class="img-categoria-ong">--%></h1>
         </div>
 
         <div class="infos">
@@ -186,7 +186,7 @@
                 <p><asp:Literal ID="litEmailContato" runat="server"></asp:Literal></p>
               </div>
               <div class="card">
-                <img src="./../images/icons/telefone.png" alt="icone telefone">
+                <img src="./../images/icons/telefone.png" alt="icone telefone" style="height: 30px;" />
                 <p><asp:Literal ID="litTelefone" runat="server"></asp:Literal></p>
               </div>
               <asp:Panel ID="pnlCardWebSite" runat="server" Visible="true">

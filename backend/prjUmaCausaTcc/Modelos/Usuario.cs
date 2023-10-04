@@ -346,6 +346,8 @@ public class Usuario : Banco
                 Numero = dados["nm_numero"].ToString();
                 Bairro = dados["nm_bairro"].ToString();
                 Complemento = dados["nm_complemento"].ToString();
+                Latitude = dados["nm_lat"].ToString();
+                Longitude = dados["nm_log"].ToString();
                 CategoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
             }
             if (!dados.IsClosed)

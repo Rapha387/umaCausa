@@ -23,24 +23,36 @@
       <asp:Literal ID="litHeader" runat="server"></asp:Literal>
 
       <main>
-        <div class="ongs">
-          <h2>ONGS</h2>
-            <asp:Literal ID="litOngs" runat="server"></asp:Literal>
-
-        </div>
-        <div class="pesquisa">
+        
+         <div class="pesquisa">
           <div class="pesquisar">
               <asp:TextBox ID="txtPesquisa" runat="server" type="search" placeholder="Pesquisar"></asp:TextBox>
-                <img src="./../images/icons/search.png" alt="lupa">
+              <img src="./../images/icons/search.png" alt="lupa">
           </div>
           <div class="filtro">
             <h3>Filtrar Por:</h3>
-              <asp:DropDownList ID="ddlCategoria" AutoPostBack="true" OnTextChanged="ddlCategoria_TextChanged" runat="server"></asp:DropDownList>
+              <asp:DropDownList ID="ddlCategoria" AutoPostBack="true" OnTextChanged="ddlCategoria_TextChanged" runat="server">
+                  <asp:ListItem selected hidden>Categoria</asp:ListItem>
+              </asp:DropDownList>
             <select name="DataCricacao" id="b">
               <option value="DataCricacao">Data de Criação</option>
             </select>
+           </div>
           </div>
-        </div>
+          <div class="ongs">
+              <h2>ONGS</h2>
+
+              <asp:Literal ID="litOngs" runat="server"></asp:Literal>
+                <div style="display:flex; width: 100%; justify-content: center;">
+                    <asp:ImageButton ID="btnBack" OnClick="btnBack_Click" runat="server"
+                   ImageUrl="./../images/botoes/seta.png" CssClass="backButton itemPaginacao">
+                    </asp:ImageButton>
+                    <asp:Literal ID="litItemPaginacao" runat="server"></asp:Literal>
+                    <asp:ImageButton ID="btnNext" OnClick="btnNext_Click" runat="server"
+                   ImageUrl="./../images/botoes/seta.png" CssClass="nextButton itemPaginacao">
+                    </asp:ImageButton>
+                </div>
+         </div>
       </main>
 
       <footer>
