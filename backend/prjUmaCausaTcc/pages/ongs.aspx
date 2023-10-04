@@ -46,9 +46,10 @@
               <asp:DropDownList ID="ddlCategoria" AutoPostBack="true" OnTextChanged="ddlCategoria_TextChanged" runat="server">
                   <asp:ListItem selected hidden>Categoria</asp:ListItem>
               </asp:DropDownList>
-            <select name="DataCricacao" id="b">
-              <option value="DataCricacao">Data de Criação</option>
-            </select>
+              <asp:DropDownList ID="ddlEstado" AutoPostBack="true" OnTextChanged="ddlEstado_TextChanged"
+                  runat="server">
+                  <asp:ListItem selected hidden>Estado</asp:ListItem>
+              </asp:DropDownList>
           </div>
         </div>
       </main>

@@ -181,5 +181,43 @@ namespace prjUmaCausaTcc.Logicas
             }
             return ongs;
         }
+
+        public List<Usuario> ListarOngsPorEstado(int limite, string estado)
+        {
+            List<Usuario> ongs = new List<Usuario>();
+            List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("pValor", limite.ToString()),
+                new Parametro ("pEstado", estado.ToString().ToLower())
+            };
+            try
+            {
+                MySqlDataReader dados = Consultar("ListarOngsPorEstado", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        ongs.Add(new Usuario()
+                        {
+                            Codigo = dados.GetInt32("id_usuario"),
+                            Nome = dados.GetString("nm_usuario"),
+                            Descricao = dados.GetString("ds_usuario"),
+                            FotoPerfil = dados.GetString("img_fotoPerfil"),
+                        });
+                    }
+                }
+                if (!dados.IsClosed)
+                    dados.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+            return ongs;
+        }
     }
 }
