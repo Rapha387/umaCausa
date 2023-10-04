@@ -22,13 +22,20 @@ namespace prjUmaCausaTcc.Logicas
                 {
                     while (dados.Read())
                     {
-                        doacoes.Add(new DoacaoCampanha()
+                        Campanha campanha = new Campanha();
+                        campanha.BuscarCampanha(dados.GetInt32("id_campanha"));
+                        Usuario usuario = new Usuario(codigo);
+                        bool confirmado = false;
+                        if(dados.GetInt32("ic_doacaoConfirmada") == 0 || dados.GetInt32("ic_doacaoConfirmada") == null)
                         {
-                            //Banner = dados.GetString("img_bannerCampanha"),
-                            //Nome = dados.GetString("nm_campanha"),
-                            //Codigo = dados.GetInt32("id_campanha"),
-                            //PorcentagemArrecadado = dados.GetInt32("perc")
-                        });
+                            confirmado = false;
+                        }
+                        else
+                        {
+                            confirmado = true;
+                        };
+                        DoacaoCampanha doacao = new DoacaoCampanha(campanha, usuario, DateTime.Parse(dados.GetString("dt_doacao")), dados.GetInt32("qt_doado"), confirmado);
+                        doacoes.Add(doacao);
                     }
                 }
                 if (!dados.IsClosed)

@@ -575,4 +575,9 @@ public class Usuario : Banco
        this.PosssibilidadeBusca = posssibilidadeBusca;
        this.TipoDoUsuario = tipoDoUsuario;
     }
+
+    public Usuario(int codigo)
+    {
+        Codigo = codigo;
+    }
 }

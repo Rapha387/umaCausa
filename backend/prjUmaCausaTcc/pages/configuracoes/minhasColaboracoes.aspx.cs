@@ -20,8 +20,17 @@ namespace prjUmaCausaTcc.pages.configuracoes
             Footer.Text = footer;
             Navegacao.Text = nav;
             Menu.Text = menu;
+            Colaboracoes colaboracoes = new Colaboracoes();
+            int codigo = usuario.Codigo;
+            foreach (DoacaoCampanha doacao in colaboracoes.ListaDoacoesCampanhas(codigo))
+            {
+                Colaboracoes.Text += $@"<tr>
+                <td>{doacao.Campanha.Nome}</td>
+                <td>{doacao.QuantidadeDoado}</td>
+                <td>{doacao.DataDoacao}</td>
+              </tr>";
+            }
 
-            
 
         }
     }

@@ -12,5 +12,14 @@ public class DoacaoCampanha
     public DateTime DataDoacao { get; set; }
     public int QuantidadeDoado { get; set; }
     public bool DoacaoConfirmada { get; set; }
+
+    public DoacaoCampanha(Campanha campanha, Usuario doador, DateTime dataDoacao, int quantidadeDoado, bool doacaoConfirmada)
+    {
+        Campanha = campanha;
+        Doador = doador;
+        DataDoacao = dataDoacao;
+        QuantidadeDoado = quantidadeDoado;
+        DoacaoConfirmada = doacaoConfirmada;
+    }
     #endregion
 }
