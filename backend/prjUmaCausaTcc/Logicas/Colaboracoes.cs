@@ -26,7 +26,7 @@ namespace prjUmaCausaTcc.Logicas
                         campanha.BuscarCampanha(dados.GetInt32("id_campanha"));
                         Usuario usuario = new Usuario(codigo);
                         bool confirmado = false;
-                        if(dados.GetInt32("ic_doacaoConfirmada") == 0 || dados.GetInt32("ic_doacaoConfirmada") == null)
+                        if (dados.GetInt32("ic_doacaoConfirmada") == 0 || dados.GetInt32("ic_doacaoConfirmada") == null)
                         {
                             confirmado = false;
                         }
@@ -34,7 +34,14 @@ namespace prjUmaCausaTcc.Logicas
                         {
                             confirmado = true;
                         };
-                        DoacaoCampanha doacao = new DoacaoCampanha(campanha, usuario, DateTime.Parse(dados.GetString("dt_doacao")), dados.GetInt32("qt_doado"), confirmado);
+                        DoacaoCampanha doacao = new DoacaoCampanha() {
+                           Campanha = campanha,
+                            Doador = usuario,
+                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
+                            QuantidadeDoado = dados.GetString("qt_doado"),
+                            DoacaoConfirmada = confirmado};
+                        if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
+                            doacao.RespostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
                         doacoes.Add(doacao);
                     }
                 }

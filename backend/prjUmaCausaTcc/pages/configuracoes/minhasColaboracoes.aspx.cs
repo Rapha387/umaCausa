@@ -22,16 +22,44 @@ namespace prjUmaCausaTcc.pages.configuracoes
             Menu.Text = menu;
             Colaboracoes colaboracoes = new Colaboracoes();
             int codigo = usuario.Codigo;
-            foreach (DoacaoCampanha doacao in colaboracoes.ListaDoacoesCampanhas(codigo))
-            {
-                Colaboracoes.Text += $@"<tr>
+                foreach (DoacaoCampanha doacao in colaboracoes.ListaDoacoesCampanhas(codigo))
+                {
+                    string item = "";
+                    string qtdDoado = "";
+                    string estadoConfirmacao = "";
+                    if (doacao.Campanha.Categoria.Codigo == 1)
+                    {
+                        qtdDoado = $@"R${doacao.QuantidadeDoado}";
+                        item = "Monetário";
+                    }
+                    else
+                    {
+                        item = doacao.Campanha.TipoItemArrecadado.Nome;
+                        qtdDoado = doacao.QuantidadeDoado;
+                    }
+                    if (doacao.DoacaoConfirmada == true)
+                    {
+                        estadoConfirmacao = "Aceita";
+                    }
+                    else
+                    {
+                        if (doacao.RespostaOng == null)
+                        {
+                            estadoConfirmacao = "Pendente";
+                        }
+                        else
+                        {
+                            estadoConfirmacao = "Negada";
+                        }
+                    }
+                    Colaboracoes.Text += $@"<tr>
                 <td>{doacao.Campanha.Nome}</td>
-                <td>{doacao.QuantidadeDoado}</td>
-                <td>{doacao.DataDoacao}</td>
+                <td>{item}</td>
+                <td>{qtdDoado}</td>
+                <td>{doacao.DataDoacao.ToString().Substring(0, 10)}</td>
+                <td>{estadoConfirmacao}</td>
               </tr>";
-            }
-
-
+                }
         }
     }
 }

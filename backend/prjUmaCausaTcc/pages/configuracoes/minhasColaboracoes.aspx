@@ -94,12 +94,13 @@
 <%--            <input type="search" placeholder="Pesquisar..." />--%>
             <img src="./../../images/icons/search.png" alt="lupa" />
           </div>
-
           <table>
             <thead>
               <td>Campanha</td>
+              <td>Tipo</td>
               <td>Quantidade</td>
               <td>Data da colaboração</td>
+              <td>Confirmação</td>
             </thead>
             <tbody>
                 <asp:Literal ID="Colaboracoes" runat="server"></asp:Literal> 
