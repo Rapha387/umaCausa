@@ -43,14 +43,10 @@
               <h2>ONGS</h2>
 
               <asp:Literal ID="litOngs" runat="server"></asp:Literal>
-                <div style="display:flex; width: 100%; justify-content: center;">
-                    <asp:ImageButton ID="btnBack" OnClick="btnBack_Click" runat="server"
-                   ImageUrl="./../images/botoes/seta.png" CssClass="backButton itemPaginacao">
-                    </asp:ImageButton>
+                <div class="paginacao">
+                    <asp:ImageButton ID="btnBack" OnClick="btnBack_Click" runat="server" ImageUrl="./../images/botoes/seta.png" CssClass="backButton itemPaginacao"></asp:ImageButton>
                     <asp:Literal ID="litItemPaginacao" runat="server"></asp:Literal>
-                    <asp:ImageButton ID="btnNext" OnClick="btnNext_Click" runat="server"
-                   ImageUrl="./../images/botoes/seta.png" CssClass="nextButton itemPaginacao">
-                    </asp:ImageButton>
+                    <asp:ImageButton ID="btnNext" OnClick="btnNext_Click" runat="server" ImageUrl="./../images/botoes/seta.png" CssClass="nextButton itemPaginacao"></asp:ImageButton>
                 </div>
          </div>
       </main>

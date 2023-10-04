@@ -80,13 +80,10 @@ namespace prjUmaCausaTcc.pages
                 Usuario usuario = (Usuario)Session["usuario"];
 
                 litHeader.Text = gerarHtml.MudarNavegacao(usuario);
-                
-                pnlBtnDoar.Visible = true;
             }
             else
             {
                 litHeader.Text = gerarHtml.MudarNavegacao(null);
-                pnlBtnDoar.Visible = false;
             }
             #endregion
         }

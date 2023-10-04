@@ -991,6 +991,21 @@ label {
   width: 100%;
 }
 
+.paginacao {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.paginacao a{
+    color: #000;
+    width: auto;
+}
+
+.paginacao a:hover {
+    color: #0063BF;
+}
+
 /* --------------  RESPONSIVO --------------- */
 
 @media screen and (max-width: 1199px) {

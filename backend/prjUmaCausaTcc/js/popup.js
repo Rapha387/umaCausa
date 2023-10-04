@@ -63,11 +63,14 @@ bloqueio.addEventListener('click', function() {
 
 if (botaoDoar) {
     botaoDoar.addEventListener('click', (event) => {
-      event.preventDefault();
-	    bloqueio.classList.remove("escondido");
-      popupDoar.classList.remove("escondido");
+        event.preventDefault();
+        VerificarUsuario();
+        bloqueio.classList.remove("escondido");
+        popupDoar.classList.remove("escondido");
     });
 }
+
+
 if (botaoDenunciar) {
     botaoDenunciar.addEventListener('click', (event) => {
       event.preventDefault();
