@@ -474,6 +474,16 @@ public class Usuario : Banco
                     {
                         Codigo = dados.GetInt32("id_tipoUsuario")
                     };
+                    Nome = dados["nm_usuario"].ToString();
+                    Telefone = dados["nm_telefone"].ToString();
+                    Identificacao = dados["nm_indentificacao"].ToString();
+                    Cep = dados["nm_cep"].ToString();
+                    Estado = dados["nm_estado"].ToString();
+                    Cidade = dados["nm_cidade"].ToString();
+                    Rua = dados["nm_rua"].ToString();
+                    Numero = dados["nm_numero"].ToString();
+                    Bairro = dados["nm_bairro"].ToString();
+                    Complemento = dados["nm_complemento"].ToString();
                 }
             }
 

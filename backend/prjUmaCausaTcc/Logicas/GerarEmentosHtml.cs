@@ -5,9 +5,9 @@ using System.Web;
 
     public class GerarEmentosHtml
     {
-        public string MudarNavegacao(bool logado, int tipoUsuario)
+        public string MudarNavegacao(Usuario usuario)
         {
-            if (!logado)
+            if (usuario == null)
             {
                 string nav = $@"
                     <header>
@@ -38,7 +38,7 @@ using System.Web;
                 return nav;
             }
 
-            if (tipoUsuario == 1)
+            if (usuario.TipoDoUsuario.Codigo == 1)
             {
                 string nav = $@"
                     <header>
@@ -48,7 +48,7 @@ using System.Web;
                                 <li><a href='./ongs.aspx'>Ongs</a></li>
                                 <li><a href='./campanhas.aspx'>Campanhas</a></li>
                                 <li><a href='./itens.aspx'>Doações Disponiveis</a></li>
-                                <li><label for='menuConfig'><img class='img-user-preto' src=../images/icons/userPreto.png /></label></li>
+                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{usuario.Nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
                                     <span class='linha'></span>
@@ -95,7 +95,7 @@ using System.Web;
                             <ul>
                                 <li><a href='./ongs.aspx'>Ongs</a></li>
                                 <li><a href='./campanhas.aspx'>Campanhas</a></li>
-                                <li><label for='menuConfig'><img class='img-user-preto' src=../images/icons/userPreto.png /></label></li>
+                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{usuario.Nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
                                     <span class='linha'></span>

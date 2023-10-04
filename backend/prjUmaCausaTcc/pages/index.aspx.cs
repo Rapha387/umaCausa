@@ -25,13 +25,13 @@ namespace prjUmaCausaTcc.pages
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
 
+            Usuario usuario = (Usuario)Session["usuario"];
+
             if (Session["usuario"] != null)
             {
                 try
                 {
-                    Usuario usuario = (Usuario)Session["usuario"];
-
-                    litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+                    litHeader.Text = gerarHtml.MudarNavegacao(usuario);
 
                     usuario.BuscarLocalizacaoUsuario(usuario.Codigo);
 
@@ -47,7 +47,7 @@ namespace prjUmaCausaTcc.pages
             }
             else
             {
-                litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
+                litHeader.Text = gerarHtml.MudarNavegacao(usuario);
             }
         }
 

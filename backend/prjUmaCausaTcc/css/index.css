@@ -155,6 +155,14 @@ header nav #btnMenuHeader span {
   background-color: #000;
 }
 
+.btnMenuHeader{
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor:pointer;
+}
+
 #chkMenuHeader:checked ~ .navHeaderResponsivo {
   display: block;
 }
@@ -604,6 +612,7 @@ li label {
 }
 
 input, select, textarea {
+  height: 41px;
   width: 100%;
   border-radius: 4px;
   background-color: #fff;

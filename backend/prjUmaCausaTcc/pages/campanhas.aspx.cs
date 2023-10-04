@@ -20,7 +20,7 @@ namespace prjUmaCausaTcc.pages
                 try
                 {
                     Usuario usuario = (Usuario)Session["usuario"];
-                    litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+                    litHeader.Text = gerarHtml.MudarNavegacao(usuario);
                 }
                 catch (Exception ex)
                 {
@@ -29,7 +29,7 @@ namespace prjUmaCausaTcc.pages
             }
             else
             {
-                litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
+                litHeader.Text = gerarHtml.MudarNavegacao(null);
             }
 
 

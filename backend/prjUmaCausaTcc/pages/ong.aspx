@@ -76,16 +76,16 @@
         <img class="botao-voltar" src="./../images/icons/btnVoltar.png" alt="">
         <div class="infos-doacao">
           <div class="input-label">
-            <label for="txtNomeItem">Nome:</label>
-            <input type="text" id="txtNomeItem" placeholder="Nome do item">
-            <span id="erroNomeItem" class="spanErro"></span>
-          </div>
-          <div class="input-label">
             <label for="cmbTipoItem">Tipo do Item:</label>
             <asp:DropDownList ID="cmbTipoItem" runat="server">
                 <asp:ListItem>Selecione o tipo do Item</asp:ListItem>
             </asp:DropDownList>
             <span id="erroTipoItem" class="spanErro"></span>
+          </div>
+          <div class="input-label">
+            <label for="txtNomeItem">Nome:</label>
+            <input type="text" id="txtNomeItem" placeholder="Nome do item">
+            <span id="erroNomeItem" class="spanErro"></span>
           </div>
           <div class="input-label">
             <label for="txtQuantidadeItem">Quantidade:</label>
