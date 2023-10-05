@@ -13,7 +13,7 @@ namespace prjUmaCausaTcc.pages
     {
         string c;
         string es;
-        int indiceDePaginacao = 0;
+        int indiceDePaginacao = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -136,6 +136,7 @@ namespace prjUmaCausaTcc.pages
             ddlEstado.Items.Add(new ListItem("Tocantins", "to"));
         }
 
+        #region GerarOngs
         private void GerarOngs(List<Usuario> ongs)
         {
             foreach (Usuario ong in ongs)
@@ -159,6 +160,8 @@ namespace prjUmaCausaTcc.pages
                   </a>";
             }
         }
+        #endregion
+
         #region DDLTextChanged
         protected void ddlCategoria_TextChanged(object sender, EventArgs e)
         {
@@ -169,6 +172,8 @@ namespace prjUmaCausaTcc.pages
             Response.Redirect($"ongs.aspx?e={ddlEstado.SelectedValue}");
         }
         #endregion
+
+
         #region Botões NextBack
         protected void btnNext_Click(object sender, ImageClickEventArgs e)
         {

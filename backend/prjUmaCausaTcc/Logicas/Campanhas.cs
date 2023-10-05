@@ -44,7 +44,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
-
         public List<Campanha> ListarCampanhasASC(int codigo)
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -81,7 +80,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
-
         public List<Campanha> ListarDadosMinimosCampanhasFinalizadasDaOng(int codigo)
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -119,7 +117,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
-
         public List<Campanha> ListarCampanhasPertoDeAcabar()
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -152,7 +149,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
-
         public List<Campanha> ListarCampanhasAleatorias()
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -184,6 +180,32 @@ namespace prjUmaCausaTcc.Logicas
             finally { Desconectar(); }
 
             return campanhas;
+        }
+        public int ListarIndiceCampanhas()
+        {
+            int indice = 0;
+            try
+            {
+                MySqlDataReader dados = Consultar("ListarIndiceCampanhas", null);
+                if (dados.HasRows)
+                {
+                    if (dados.Read())
+                    {
+                        indice = dados.GetInt32("indice");
+                    }
+                }
+                if (!dados.IsClosed)
+                    dados.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+            return indice;
         }
     }
 }
