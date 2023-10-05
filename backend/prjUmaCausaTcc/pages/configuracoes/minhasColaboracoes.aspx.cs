@@ -43,7 +43,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     }
                     else
                     {
-                        if (doacao.RespostaOng == null)
+                        if (doacao.RespostaOng.ToString() == "01/01/0001 00:00:00")
                         {
                             estadoConfirmacao = "Pendente";
                         }

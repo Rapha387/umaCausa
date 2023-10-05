@@ -17,7 +17,7 @@ namespace prjUmaCausaTcc.Logicas
             
             try
             {
-                MySqlDataReader dados = Consultar("BuscarDadosMinimosColaboracoesDoUsuario", parametros);
+                MySqlDataReader dados = Consultar("BuscarDadosMinimosColaboracoesCampanhaDoUsuario", parametros);
                 if (dados.HasRows)
                 {
                     while (dados.Read())
@@ -55,6 +55,54 @@ namespace prjUmaCausaTcc.Logicas
             }
             finally { Desconectar(); }
             return doacoes;
-        }   
+        }
+        public List<DoacaoItem> ListaDoacoesItems(int codigo)
+        {
+            List<DoacaoItem> doacoes = new List<DoacaoItem>();
+            List<Parametro> parametros = new List<Parametro>();
+            Parametro parametro1 = new Parametro("pIdUsuario", codigo.ToString());
+            parametros.Add(parametro1);
+            try
+            {
+                MySqlDataReader dados = Consultar("BuscarDadosMinimosColaboracoesItemDoUsuario", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        Usuario ong = new Usuario(dados.GetString("nm_usuario"));
+                        Usuario usuario = new Usuario(codigo);
+                        bool confirmado = false;
+                        if (dados.GetInt32("ic_doacaoConfirmada") == 0)
+                        {
+                            confirmado = false;
+                        }
+                        else
+                        {
+                            confirmado = true;
+                        };
+                        DoacaoItem doacao = new DoacaoItem()
+                        {
+                            ONG = ong,
+                            Doador = usuario,
+                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
+                            Quantidade = dados.GetString("qt_item"),
+                            DoacaoConfirmada = confirmado
+                        };
+                        if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
+                            doacao.respostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
+                        doacoes.Add(doacao);
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Houve um problema a realizar a busca");
+            }
+            finally { Desconectar(); }
+            return doacoes;
+        }
     }
 }

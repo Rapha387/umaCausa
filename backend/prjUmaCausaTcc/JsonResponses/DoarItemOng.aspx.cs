@@ -29,7 +29,7 @@ namespace prjUmaCausaTcc.JsonResponses
                 int doador = usuario.Codigo;
                 int ong = int.Parse(Request["o"].ToString());
                 string nomeItem = Request["n"].ToString();
-                int qtItem = int.Parse(Request["q"].ToString());
+                string qtItem = Request["q"].ToString();
 
                 TipoItem tipoItem = new TipoItem();
                 tipoItem.Codigo = int.Parse(Request["ti"].ToString());

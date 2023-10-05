@@ -580,4 +580,10 @@ public class Usuario : Banco
     {
         Codigo = codigo;
     }
+
+    public Usuario(string nome)
+    {
+        Nome = nome;
+
+    }
 }

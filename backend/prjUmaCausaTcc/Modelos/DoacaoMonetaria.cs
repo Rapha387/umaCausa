@@ -12,6 +12,7 @@ public class DoacaoMonetaria : Banco
     public DateTime DataDoacao { get; set; }
     public int CodigoComprovante { get; set; }  
     public int CodigoDoacao { get; set; }   
+    public DateTime respostaOng { get; set; }
     #endregion
 
     #region Metodos

@@ -356,6 +356,7 @@
     <Compile Include="Modelos\DoacaoCampanha.cs" />
     <Compile Include="Modelos\DoacaoItem.cs" />
     <Compile Include="Modelos\DoacaoMonetaria.cs" />
+    <Compile Include="Logicas\Doacoes.cs" />
     <Compile Include="Modelos\EstadoItem.cs" />
     <Compile Include="Modelos\FotoOng.cs" />
     <Compile Include="Modelos\InteresseItem.cs" />
