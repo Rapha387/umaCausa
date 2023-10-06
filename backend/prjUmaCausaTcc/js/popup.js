@@ -64,9 +64,16 @@ bloqueio.addEventListener('click', function() {
 if (botaoDoar) {
     botaoDoar.addEventListener('click', (event) => {
         event.preventDefault();
-        VerificarUsuario();
-        bloqueio.classList.remove("escondido");
-        popupDoar.classList.remove("escondido");
+        VerificarUsuario().then(function (resultado) {
+            if (resultado == true) {
+                bloqueio.classList.remove("escondido");
+                popupDoar.classList.remove("escondido");
+            }
+            else {
+                window.location.href = "login.aspx";
+            }
+        });
+        
     });
 }
 
