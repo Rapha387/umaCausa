@@ -53,12 +53,12 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         }
                     }
                     Colaboracoes.Text += $@"<tr>
-                <td>{doacao.Campanha.Nome}</td>
-                <td>{item}</td>
-                <td>{qtdDoado}</td>
-                <td>{doacao.DataDoacao.ToString().Substring(0, 10)}</td>
-                <td>{estadoConfirmacao}</td>
-              </tr>";
+                        <td>{doacao.Campanha.Nome}</td>
+                        <td>{item}</td>
+                        <td>{qtdDoado}</td>
+                        <td>{doacao.DataDoacao.ToString().Substring(0, 10)}</td>
+                        <td>{estadoConfirmacao}</td>
+                      </tr>";
                 }
         }
     }
