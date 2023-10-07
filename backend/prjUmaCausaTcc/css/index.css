@@ -396,6 +396,7 @@ main {
 }
 .menu-configuracoes a {
   color: #000;
+  width: 100%;
 }
 .menu-configuracoes li {
   width: 100%;
@@ -454,7 +455,6 @@ li label {
 .campanhas .campanhas-flex .campanha .sobre-campanha {
   width: 100%;
   background-color: #F5F5F5;
-  padding-bottom: 15px;
   border-radius: 0 0 5px 5px;
 }
 .campanhas .campanhas-flex .campanha .sobre-campanha .nome-campanha {
@@ -488,6 +488,17 @@ li label {
   font-size: 12px;
   font-weight: 700;
 }
+
+.campanhas .campanhas-flex .campanha .infos-campanha{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.campanhas .campanhas-flex .campanha .infos-campanha .info-campanha{
+  font-size: 13px;
+}
+
 .campanhas .campanhas-flex .ong {
   width: 151px;
   border-radius: 4px;

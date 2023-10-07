@@ -13,6 +13,8 @@ namespace prjUmaCausaTcc.pages
         {
             litOds.Text = "";
 
+            #region gerarHTML
+
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
 
@@ -32,6 +34,8 @@ namespace prjUmaCausaTcc.pages
             {
                 litHeader.Text = gerarHtml.MudarNavegacao(null);
             }
+            #endregion
+
             if (!String.IsNullOrEmpty(Request["c"]))
             {
                 int cd_campanha = 0;
@@ -39,35 +43,22 @@ namespace prjUmaCausaTcc.pages
                 {
                     cd_campanha = int.Parse(Request["c"]);
 
-                }
-                catch (Exception)
-                {
-                    Response.Redirect($"erro.aspx?e=pagina não encontrada");
-                }
-                Campanha campanha = new Campanha();
-                try
-                {
+                    Campanha campanha = new Campanha();
+
                     campanha.BuscarCampanha(cd_campanha);
                     BuscarCampanha(campanha);
+                    BuscarONG(campanha);
+
+                    Odesses odesses = new Odesses();
+
+                    foreach (ODS ods in odesses.BuscarOdsCampanha(cd_campanha))
+                    {
+                        litOds.Text += $"<img src='../{ods.Foto}'' alt=''>";
+                    }
                 }
                 catch (Exception)
                 {
-                    Response.Redirect($"erro.aspx?e=pagina não encontrada");
-                }
-                try
-                {
-                    BuscarONG(campanha);    
-                }
-                catch (Exception)
-                {
-                    Response.Redirect($"erro.aspx?e=pagina não encontrada");
-                }
-
-                Odesses odesses = new Odesses();
-
-                foreach (ODS ods in odesses.BuscarOdsCampanha(cd_campanha))
-                {
-                    litOds.Text += $"<img src='../{ods.Foto}'' alt=''>";
+                    Response.Redirect($"erro.aspx?e=não foi possível carregar essa página");
                 }
             }
             else
@@ -82,7 +73,7 @@ namespace prjUmaCausaTcc.pages
             {
                 litMeta.Text = "R$" + campanha.QuantidadeMeta.ToString().Replace(".", ",");
                 litArrecadado.Text = "Arrecadados da meta de R$" + campanha.QuantidadeArrecadada.ToString().Replace(".", ",");
-                if (campanha.Categoria.Codigo == 2)
+                if (campanha.TipoItemArrecadado.Codigo != 0)
                 {
                     litArrecadado.Text = "Arrecadados da meta: " + campanha.QuantidadeArrecadada.ToString().Replace(".", ",") +" "+ campanha.TipoItemArrecadado.Nome;
                     litMeta.Text = campanha.QuantidadeMeta.ToString().Replace(".", ",") +" "+ campanha.TipoItemArrecadado.Nome;

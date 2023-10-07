@@ -50,6 +50,10 @@ namespace prjUmaCausaTcc.pages
                         </div>
                         <div class='porcentagem' >{campanha.PorcentagemArrecadado}%</div>
                       </div>
+                      <div class=infos-campanha>
+                          <div class=info-campanha>Tipo: {campanha.TipoItemArrecadado.Nome}</div>
+                          <div class=info-campanha>Finaliza: {campanha.DataPrevistaFim}</div>
+                      </div>
                     </div>
                   </div>
                 </a>";
