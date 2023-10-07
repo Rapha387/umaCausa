@@ -70,16 +70,25 @@
     text-overflow: ellipsis;
 }
 .ongs .ong .tags {
-    background-color: #8AB6DE;
+    font-size: 12px;
+    color: #fff;
+    background-color: #0063bfd4;
     border-radius: 0 0 4px 4px;
-    padding: 0.1rem;
+    padding: 0.4rem;
     padding-left: 6.4rem;
+    list-style-position: inside;
+    letter-spacing: 0.4px;
  }
-.ongs .ong .tags .tag {
-    font-size: 14px;
-    color: #8AB6DE;
-    display: inline-block;
-}
+    .ongs .ong .tags .tag {
+        font-size: 13px;
+        color: #fff;
+        padding-left: 0.3rem; 
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 .backButton {
     width: 28px;
     height: 22px;

@@ -81,6 +81,16 @@ namespace prjUmaCausaTcc.pages
         {
             foreach (Usuario ong in ongs)
             {
+                string categorias = "";
+
+                foreach (CategoriaOng categoria in ong.CategoriasOng)
+                {
+                    categorias += $"&nbsp; {categoria.Nome}  &nbsp; -";
+                }
+
+                categorias = categorias.Substring(0, categorias.Length - 1);
+
+
                 litOngs.Text += $@"
                     <a href='ong.aspx?ong={ong.Codigo}'>
                     <div class='ong'>
@@ -94,7 +104,7 @@ namespace prjUmaCausaTcc.pages
                         </div>  
                       </div>
                       <div class='tags'>
-                        <div class='tag'></div>
+                        <div class='tag'>{categorias}</div>
                       </div>
                     </div>
                   </a>";
