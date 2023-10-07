@@ -61,10 +61,16 @@ namespace prjUmaCausaTcc.Logicas
                     {
                         campanhas.Add(new Campanha()
                         {
-                            Banner = dados.GetString("img_bannerCampanha"),
-                            Nome = dados.GetString("nm_campanha"),
                             Codigo = dados.GetInt32("id_campanha"),
-                            PorcentagemArrecadado = dados.GetInt32("perc")
+                            Nome = dados.GetString("nm_campanha"),
+                            Banner = dados.GetString("img_bannerCampanha"),
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem()
+                            {
+                                Codigo = dados.GetInt32("id_tipoItem"),
+                                Nome = dados.GetString("nm_tipoItem")
+                            }
                         });
                     }
                 }
@@ -133,7 +139,9 @@ namespace prjUmaCausaTcc.Logicas
                             Codigo = dados.GetInt32("id_campanha"),
                             Nome = dados.GetString("nm_campanha"),
                             Banner = dados.GetString("img_bannerCampanha"),
-                            PorcentagemArrecadado = dados.GetInt32("perc")
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem() { Codigo = dados.GetInt32("id_tipoItem"), Nome = dados.GetString("nm_tipoItem")}
                         });
                     }
                 }
@@ -165,7 +173,13 @@ namespace prjUmaCausaTcc.Logicas
                             Codigo = dados.GetInt32("id_campanha"),
                             Nome = dados.GetString("nm_campanha"),
                             Banner = dados.GetString("img_bannerCampanha"),
-                            PorcentagemArrecadado = dados.GetInt32("perc")
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem() 
+                            { 
+                                Codigo = dados.GetInt32("id_tipoItem"), 
+                                Nome = dados.GetString("nm_tipoItem") 
+                            }
                         });
                     }
                 }

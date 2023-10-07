@@ -24,7 +24,7 @@ namespace prjUmaCausaTcc.pages
                 try
                 {
                     Usuario usuario = (Usuario)Session["usuario"];
-                    litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+                    litHeader.Text = gerarHtml.MudarNavegacao(usuario);
                 }
                 catch (Exception ex)
                 {
@@ -33,7 +33,7 @@ namespace prjUmaCausaTcc.pages
             }
             else
             {
-                litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
+                litHeader.Text = gerarHtml.MudarNavegacao(null);
             }
             #endregion
 
@@ -90,6 +90,10 @@ namespace prjUmaCausaTcc.pages
                           <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%;'></div>
                         </div>
                         <div class='porcentagem' >{campanha.PorcentagemArrecadado}%</div>
+                      </div>
+                      <div class=infos-campanha>
+                          <div class=info-campanha>Tipo: {campanha.TipoItemArrecadado.Nome}</div>
+                          <div class=info-campanha>Finaliza: {campanha.DataPrevistaFim}</div>
                       </div>
                     </div>
                   </div>

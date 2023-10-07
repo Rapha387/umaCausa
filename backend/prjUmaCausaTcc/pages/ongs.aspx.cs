@@ -45,6 +45,16 @@ namespace prjUmaCausaTcc.pages
                     btnBack.Visible = false;
                 }
             }
+            else if(!String.IsNullOrEmpty(Request["s"]))
+            { 
+                List<Usuario> ongs = new Ongs().ListarOngsPesquisa(Request["s"].ToString());
+                GerarOngs(ongs);
+                if (String.IsNullOrEmpty(litItemPaginacao.Text))
+                {
+                    btnNext.Visible = false;
+                    btnBack.Visible = false;
+                }
+            }
             else
             {
                 if (String.IsNullOrEmpty(Request["pagina"]))
@@ -68,7 +78,6 @@ namespace prjUmaCausaTcc.pages
                     btnNext.Visible = false;
                     btnBack.Visible = false;
                 }
-
             }
             #region DDLS
             foreach (CategoriaOng categoriaOng in new CategoriasOng().ListarCategoriasOng())
@@ -86,11 +95,11 @@ namespace prjUmaCausaTcc.pages
             if (Session["usuario"] != null)
             {
                 Usuario usuario = (Usuario)Session["usuario"];
-                litHeader.Text = gerarHtml.MudarNavegacao(true, usuario.TipoDoUsuario.Codigo);
+                litHeader.Text = gerarHtml.MudarNavegacao(usuario);
             }
             else
             {
-                litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
+                litHeader.Text = gerarHtml.MudarNavegacao(null);
             }
             #endregion
 
@@ -108,32 +117,32 @@ namespace prjUmaCausaTcc.pages
 
         private void GerarDadosDDLestados()
         {
-            ddlEstado.Items.Add(new ListItem("Acre", "ac"));
-            ddlEstado.Items.Add(new ListItem("Alagoas", "al"));
-            ddlEstado.Items.Add(new ListItem("Amapá", "am"));
-            ddlEstado.Items.Add(new ListItem("Bahia", "ba"));
-            ddlEstado.Items.Add(new ListItem("Ceará", "ce"));
-            ddlEstado.Items.Add(new ListItem("Distrito Federal", "df"));
-            ddlEstado.Items.Add(new ListItem("Espirito Santo", "es"));
-            ddlEstado.Items.Add(new ListItem("Goiás", "go"));
-            ddlEstado.Items.Add(new ListItem("Maranhão", "ma"));
-            ddlEstado.Items.Add(new ListItem("Mato Grosso", "mt"));
-            ddlEstado.Items.Add(new ListItem("Mato Grosso do Sul", "ms"));
-            ddlEstado.Items.Add(new ListItem("Minas Gerais", "mg"));
-            ddlEstado.Items.Add(new ListItem("Pará", "pa"));
-            ddlEstado.Items.Add(new ListItem("Paraíba", "pb"));
-            ddlEstado.Items.Add(new ListItem("Paraná", "pr"));
-            ddlEstado.Items.Add(new ListItem("Pernambuco", "pe"));
-            ddlEstado.Items.Add(new ListItem("Piauí", "pi"));
-            ddlEstado.Items.Add(new ListItem("Rio de Janeiro", "rj"));
-            ddlEstado.Items.Add(new ListItem("Rio Grande do Norte", "rn"));
-            ddlEstado.Items.Add(new ListItem("Rio Grande do Sul", "rs"));
-            ddlEstado.Items.Add(new ListItem("Rondônia", "ro"));
-            ddlEstado.Items.Add(new ListItem("Roraima", "rr"));
-            ddlEstado.Items.Add(new ListItem("Santa Catarina", "sc"));
-            ddlEstado.Items.Add(new ListItem("São Paulo", "sp"));
-            ddlEstado.Items.Add(new ListItem("Sergipe", "se"));
-            ddlEstado.Items.Add(new ListItem("Tocantins", "to"));
+            ddlEstado.Items.Add(new ListItem("Acre", "AC"));
+            ddlEstado.Items.Add(new ListItem("Alagoas", "AL"));
+            ddlEstado.Items.Add(new ListItem("Amapá", "AM"));
+            ddlEstado.Items.Add(new ListItem("Bahia", "BA"));
+            ddlEstado.Items.Add(new ListItem("Ceará", "CE"));
+            ddlEstado.Items.Add(new ListItem("Distrito Federal", "DF"));
+            ddlEstado.Items.Add(new ListItem("Espirito Santo", "ES"));
+            ddlEstado.Items.Add(new ListItem("Goiás", "GO"));
+            ddlEstado.Items.Add(new ListItem("Maranhão", "MA"));
+            ddlEstado.Items.Add(new ListItem("Mato Grosso", "MT"));
+            ddlEstado.Items.Add(new ListItem("Mato Grosso do Sul", "MS"));
+            ddlEstado.Items.Add(new ListItem("Minas Gerais", "MG"));
+            ddlEstado.Items.Add(new ListItem("Pará", "PA"));
+            ddlEstado.Items.Add(new ListItem("Paraíba", "PB"));
+            ddlEstado.Items.Add(new ListItem("Paraná", "PR"));
+            ddlEstado.Items.Add(new ListItem("Pernambuco", "PE"));
+            ddlEstado.Items.Add(new ListItem("Piauí", "PI"));
+            ddlEstado.Items.Add(new ListItem("Rio de Janeiro", "RJ"));
+            ddlEstado.Items.Add(new ListItem("Rio Grande do Norte", "RN"));
+            ddlEstado.Items.Add(new ListItem("Rio Grande do Sul", "RS"));
+            ddlEstado.Items.Add(new ListItem("Rondônia", "RO"));
+            ddlEstado.Items.Add(new ListItem("Roraima", "RR"));
+            ddlEstado.Items.Add(new ListItem("Santa Catarina", "SC"));
+            ddlEstado.Items.Add(new ListItem("São Paulo", "SP"));
+            ddlEstado.Items.Add(new ListItem("Sergipe", "SE"));
+            ddlEstado.Items.Add(new ListItem("Tocantins", "TO"));
         }
 
         #region GerarOngs
@@ -141,6 +150,16 @@ namespace prjUmaCausaTcc.pages
         {
             foreach (Usuario ong in ongs)
             {
+                string categorias = "";
+
+                foreach (CategoriaOng categoria in ong.CategoriasOng)
+                {
+                    categorias += $"&nbsp; {categoria.Nome}  &nbsp; -";
+                }
+
+                categorias = categorias.Substring(0, categorias.Length - 1);
+
+
                 litOngs.Text += $@"
                     <a href='ong.aspx?ong={ong.Codigo}'>
                     <div class='ong'>
@@ -154,7 +173,7 @@ namespace prjUmaCausaTcc.pages
                         </div>  
                       </div>
                       <div class='tags'>
-                        <div class='tag'></div>
+                        <div class='tag'>{categorias}</div>
                       </div>
                     </div>
                   </a>";
@@ -172,7 +191,6 @@ namespace prjUmaCausaTcc.pages
             Response.Redirect($"ongs.aspx?e={ddlEstado.SelectedValue}");
         }
         #endregion
-
 
         #region Botões NextBack
         protected void btnNext_Click(object sender, ImageClickEventArgs e)
@@ -197,6 +215,14 @@ namespace prjUmaCausaTcc.pages
                 Response.Redirect($"ongs.aspx?pagina={1}");
         }
         #endregion
+
+        protected void btnPesquisar_Click(object sender, ImageClickEventArgs e)
+        {
+            if (txtPesquisa.Text == "")
+                Response.Redirect("ongs.aspx");
+
+            Response.Redirect("ongs.aspx?s=" + txtPesquisa.Text);
+        }
 
     }
 }

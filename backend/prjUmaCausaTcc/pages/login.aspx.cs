@@ -17,7 +17,7 @@ namespace prjUmaCausaTcc.pages
 
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
 
-            litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
+            litHeader.Text = gerarHtml.MudarNavegacao(null);
         }
 
         protected void btnConectar_Click(object sender, EventArgs e)

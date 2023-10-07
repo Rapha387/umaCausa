@@ -63,11 +63,21 @@ bloqueio.addEventListener('click', function() {
 
 if (botaoDoar) {
     botaoDoar.addEventListener('click', (event) => {
-      event.preventDefault();
-	    bloqueio.classList.remove("escondido");
-      popupDoar.classList.remove("escondido");
+        event.preventDefault();
+        VerificarUsuario().then(function (resultado) {
+            if (resultado == true) {
+                bloqueio.classList.remove("escondido");
+                popupDoar.classList.remove("escondido");
+            }
+            else {
+                window.location.href = "login.aspx";
+            }
+        });
+        
     });
 }
+
+
 if (botaoDenunciar) {
     botaoDenunciar.addEventListener('click', (event) => {
       event.preventDefault();

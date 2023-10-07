@@ -76,16 +76,16 @@
         <img class="botao-voltar" src="./../images/icons/btnVoltar.png" alt="">
         <div class="infos-doacao">
           <div class="input-label">
-            <label for="txtNomeItem">Nome:</label>
-            <input type="text" id="txtNomeItem" placeholder="Nome do item">
-            <span id="erroNomeItem" class="spanErro"></span>
-          </div>
-          <div class="input-label">
             <label for="cmbTipoItem">Tipo do Item:</label>
             <asp:DropDownList ID="cmbTipoItem" runat="server">
                 <asp:ListItem>Selecione o tipo do Item</asp:ListItem>
             </asp:DropDownList>
             <span id="erroTipoItem" class="spanErro"></span>
+          </div>
+          <div class="input-label">
+            <label for="txtNomeItem">Nome:</label>
+            <input type="text" id="txtNomeItem" placeholder="Nome do item">
+            <span id="erroNomeItem" class="spanErro"></span>
           </div>
           <div class="input-label">
             <label for="txtQuantidadeItem">Quantidade:</label>
@@ -110,7 +110,6 @@
           <button id="btnAgendarItem">Agendar Doação</button>
         </div>
       </div>
-
 
       <div class="caixa-flutuante denuncia escondido">
         <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
@@ -170,12 +169,10 @@
             </div>
           </div>
           <div class="infos2">
-            <asp:Panel ID="pnlBtnDoar" Visible="true" runat="server">
-                <button class="doar" id="btnDoar">
-                  <%--<img src="./../images/icons/search.png" alt="DOAR">--%>
-                 <div>DOAR</div>
-                </button>
-            </asp:Panel>
+             <button class="doar" id="btnDoar">
+                <%--<img src="./../images/icons/search.png" alt="DOAR">--%>
+              <div>DOAR</div>
+             </button>
             <div class="card-infos">
               <div class="card">
                 <img src="./../images/icons/endereco.png" alt="icone endereco">
@@ -234,6 +231,8 @@
           <asp:Literal ID="litFooter" runat="server"></asp:Literal>
       </footer>
 
+
+      <script src="../js/VerificarUsuario.js"></script>
       <script src="../js/DeslogarUsuario.js"></script>
       <script src="../js/verificacoesInputsDoacao.js"></script>
       <script src="./../swiper/swiper-bundle.min.js"></script>

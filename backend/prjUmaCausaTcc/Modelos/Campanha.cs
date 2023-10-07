@@ -41,8 +41,8 @@ public class Campanha : Banco
         set { _dataInicio = value; }
     }
 
-    private DateTime _dataPrevistaFim;
-    public DateTime DataPrevistaFim
+    private string _dataPrevistaFim;
+    public string DataPrevistaFim
     {
         get => _dataPrevistaFim;
         set { _dataPrevistaFim = value; }
@@ -180,9 +180,7 @@ public class Campanha : Banco
                     QuantidadeArrecadada = dados.GetDouble("qt_arrecadado");
                     QuantidadeMeta = dados.GetDouble("qt_meta");
                     PorcentagemArrecadado = dados.GetDouble("perc");
-                    Categoria = new CategoriaCampanha() { Codigo = dados.GetInt32("id_categoriaCampanha") };
-                    if (Categoria.Codigo == 2)
-                        TipoItemArrecadado = new TipoItem() { Codigo = dados.GetInt32("id_tipoItem"), Nome = dados.GetString("nm_tipoItem") };
+                    TipoItemArrecadado = new TipoItem() { Codigo = dados.GetInt32("id_tipoItem"), Nome = dados.GetString("nm_tipoItem") };
                     ONG = new Usuario() { Codigo = dados.GetInt32("id_usuario") };
                 }
             }

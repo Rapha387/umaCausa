@@ -197,7 +197,7 @@ public class Usuario : Banco
     public bool Banido { get; private set; }
     public DateTime DataDesbloqueio { get; private set; }
     public bool PosssibilidadeBusca { get; private set; }
-    public CategoriaOng CategoriaOng { get; set; }
+    public List<CategoriaOng> CategoriasOng { get; set; }
     public TipoUsuario TipoDoUsuario { get; set; }
     #endregion
 
@@ -348,7 +348,24 @@ public class Usuario : Banco
                 Complemento = dados["nm_complemento"].ToString();
                 Latitude = dados["nm_lat"].ToString();
                 Longitude = dados["nm_log"].ToString();
-                CategoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
+
+                CategoriasOng = new List<CategoriaOng>();
+
+                string categorias = dados["nm_categorias"].ToString();
+                string idsCategoria = dados["id_categorias"].ToString();
+
+                string[] ListaCategorias = categorias.Split(',');
+                string[] ListaIdsCategoria = idsCategoria.Split(',');
+
+                for (int i = 0; i < ListaCategorias.Length; i++)
+                {
+                    CategoriaOng categoriaOng = new CategoriaOng();
+
+                    categoriaOng.Codigo = int.Parse(ListaIdsCategoria[i]);
+                    categoriaOng.Nome = ListaCategorias[i];
+
+                    CategoriasOng.Add(categoriaOng);
+                }
             }
             if (!dados.IsClosed)
                 dados.Close();
@@ -476,6 +493,16 @@ public class Usuario : Banco
                     {
                         Codigo = dados.GetInt32("id_tipoUsuario")
                     };
+                    Nome = dados["nm_usuario"].ToString();
+                    Telefone = dados["nm_telefone"].ToString();
+                    Identificacao = dados["nm_indentificacao"].ToString();
+                    Cep = dados["nm_cep"].ToString();
+                    Estado = dados["nm_estado"].ToString();
+                    Cidade = dados["nm_cidade"].ToString();
+                    Rua = dados["nm_rua"].ToString();
+                    Numero = dados["nm_numero"].ToString();
+                    Bairro = dados["nm_bairro"].ToString();
+                    Complemento = dados["nm_complemento"].ToString();
                 }
             }
 

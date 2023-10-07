@@ -16,7 +16,7 @@ namespace prjUmaCausaTcc.pages
         {
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
-            litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
+            litHeader.Text = gerarHtml.MudarNavegacao(null);
 
             if (Session["usuario"] != null)
                 Response.Redirect("index.aspx");

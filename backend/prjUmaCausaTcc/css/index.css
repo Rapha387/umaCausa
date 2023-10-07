@@ -13,6 +13,11 @@ input:focus {
     border-color: #0063BF;
 }
 
+button:hover{
+    transition: 0.2s ease;
+    background-color: #1d7dd7;
+}
+
 .inputInvalido {
     border-color: #f71c1c !important;
 }
@@ -153,6 +158,14 @@ header nav #btnMenuHeader span {
   width: 100%;
   transition: 0.1s;
   background-color: #000;
+}
+
+.btnMenuHeader{
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor:pointer;
 }
 
 #chkMenuHeader:checked ~ .navHeaderResponsivo {
@@ -383,6 +396,7 @@ main {
 }
 .menu-configuracoes a {
   color: #000;
+  width: 100%;
 }
 .menu-configuracoes li {
   width: 100%;
@@ -441,7 +455,6 @@ li label {
 .campanhas .campanhas-flex .campanha .sobre-campanha {
   width: 100%;
   background-color: #F5F5F5;
-  padding-bottom: 15px;
   border-radius: 0 0 5px 5px;
 }
 .campanhas .campanhas-flex .campanha .sobre-campanha .nome-campanha {
@@ -475,6 +488,17 @@ li label {
   font-size: 12px;
   font-weight: 700;
 }
+
+.campanhas .campanhas-flex .campanha .infos-campanha{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.campanhas .campanhas-flex .campanha .infos-campanha .info-campanha{
+  font-size: 13px;
+}
+
 .campanhas .campanhas-flex .ong {
   width: 151px;
   border-radius: 4px;
@@ -604,6 +628,7 @@ li label {
 }
 
 input, select, textarea {
+  height: 41px;
   width: 100%;
   border-radius: 4px;
   background-color: #fff;
@@ -639,12 +664,12 @@ label {
   align-items: center;
   border: solid 2px #B7B7B7;
   border-radius: 4px;
-  padding-right: 0.75rem;
+  padding-right: 0.3rem;
 }
 .pesquisar input[type=search] {
   border: none;
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.7rem;
   padding-right: 0;
 }
 .pesquisar input[type=search]:focus {
@@ -656,9 +681,11 @@ label {
   display: none;
   user-select:none;
 }
-.pesquisar img {
+.pesquisar input[type=image] {
   cursor: pointer;
-  width: 20px;
+  width: 40px;
+  border: none;
+  padding: 8px;
 }
 
 .botoes-carrossel {
@@ -975,6 +1002,21 @@ label {
 }
 .popup-item button {
   width: 100%;
+}
+
+.paginacao {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.paginacao a{
+    color: #000;
+    width: auto;
+}
+
+.paginacao a:hover {
+    color: #0063BF;
 }
 
 /* --------------  RESPONSIVO --------------- */
