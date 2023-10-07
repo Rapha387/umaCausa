@@ -17,12 +17,22 @@ namespace prjUmaCausaTcc.pages
         {
             litOngs.Text = "";
             litItemPaginacao.Text = "";
-            
+
 
             if (!String.IsNullOrEmpty(Request["c"]))
             {
                 c = Request["c"].ToString();
                 List<Usuario> ongs = new Ongs().ListarOngsPorCategoria(0, int.Parse(c));
+                GerarOngs(ongs);
+                if (String.IsNullOrEmpty(litItemPaginacao.Text))
+                {
+                    btnNext.Visible = false;
+                    btnBack.Visible = false;
+                }
+            }
+            else if(!String.IsNullOrEmpty(Request["s"]))
+            { 
+                List<Usuario> ongs = new Ongs().ListarOngsPesquisa(Request["s"].ToString());
                 GerarOngs(ongs);
                 if (String.IsNullOrEmpty(litItemPaginacao.Text))
                 {
@@ -53,7 +63,6 @@ namespace prjUmaCausaTcc.pages
                     btnNext.Visible = false;
                     btnBack.Visible = false;
                 }
-
             }
             foreach (CategoriaOng categoriaOng in new CategoriasOng().ListarCategoriasOng())
             {
@@ -140,6 +149,14 @@ namespace prjUmaCausaTcc.pages
             }
             else
                 Response.Redirect($"ongs.aspx?pagina={1}");
+        }
+
+        protected void btnPesquisar_Click(object sender, ImageClickEventArgs e)
+        {
+            if (txtPesquisa.Text == "")
+                Response.Redirect("ongs.aspx");
+
+            Response.Redirect("ongs.aspx?s=" + txtPesquisa.Text);
         }
     }
 }
