@@ -32,8 +32,8 @@
                   <span id="erroNome" class="spanErro"></span>
               </div>
               <div class="input-label">
-                <label for="">CPF:</label>
-                <asp:TextBox ID="txtCnpj" TextMode="Number" runat="server" placeholder="ex: 111.111.111-00"></asp:TextBox>
+                <label for="">CNPJ:</label>
+                <asp:TextBox ID="txtCnpj" MaxLength="14" runat="server" placeholder="ex: 99.999.999/9999-99"></asp:TextBox>
                 <span id="erroIdentificacao" class="spanErro"></span>
               </div>
               <div class="input-label">
@@ -43,7 +43,7 @@
               </div>
               <div class="input-label">
                 <label for="">Telefone:</label>
-                <asp:TextBox ID="txtTelefone" TextMode="Number" AutoCompleteType="Cellular" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+                <asp:TextBox ID="txtTelefone" MaxLength="11" AutoCompleteType="Cellular" runat="server" placeholder="ex: 13997845669"></asp:TextBox>
                 <span id="erroTelefone" class="spanErro"></span>
               </div>
                 <div class="input-label">
@@ -128,20 +128,22 @@
             <div class="infos">
               <div class="input-label" id="pix">
                 <label for="">Pix:</label>
-                <asp:TextBox ID="txtPix" placeholder="(13)99999-9999" runat="server"></asp:TextBox>
+                <div>
+                    <select name="" id="cmbTiposPix">
+                        <option value="telefone">Telefone</option>
+                        <option value="email">Email</option>
+                        <option value="cpf">CPF</option>
+                        <option value="cnpj">CNPJ</option>
+                        <option value="chaveAleatoria">Outro</option>
+                    </select>
+                    <asp:TextBox ID="txtPix" TextMode="Phone" MaxLength="11" pattern="^+55\d{11}$" placeholder="13999999999 (somente números)" runat="server" required="required"></asp:TextBox>
+                </div>
+
                 <span id="erroPix" class="spanErro"></span>
               </div>
-              <div class="input-label" id="website">
+              <div class="input-label">
                 <label for="">WebSite:</label>
                   <asp:TextBox ID="txtWebSite" TextMode="Url" runat="server"></asp:TextBox>
-              </div>
-              <div class="input-label">
-                <label for="">Categoria:</label>
-                <asp:DropDownList ID="cmbCategorias" runat="server">
-                    <asp:ListItem>Selecione uma Categoria</asp:ListItem>
-                    <asp:ListItem>Saúde</asp:ListItem>
-                </asp:DropDownList>
-                <span id="erroCategorias" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">Email de Contato:</label>

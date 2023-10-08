@@ -290,6 +290,17 @@ main {
 #pix{
     width: 100%;
 }
+#pix div {
+    display: flex;
+}
+#pix select {
+    width: 25%;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+}
+#pix input {
+    border-radius: 0 4px 4px 0;
+}
 
 #email-contato{
     width:100%;

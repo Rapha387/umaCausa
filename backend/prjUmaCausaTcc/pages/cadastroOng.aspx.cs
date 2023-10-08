@@ -28,10 +28,10 @@ namespace prjUmaCausaTcc.pages
 
                 var listaCategoriasOng = categoriasOng.ListarCategoriasOng();
 
-                foreach (var categoria in listaCategoriasOng)
-                {
-                    cmbCategorias.Items.Add(categoria.Nome);
-                }
+                //foreach (var categoria in listaCategoriasOng)
+                //{
+                //    cmbCategorias.Items.Add(categoria.Nome);
+                //}
 
                 Itens tiposItens = new Itens();
 
@@ -70,7 +70,7 @@ namespace prjUmaCausaTcc.pages
                 string longitude = "";
                 string pix = txtPix.Text;
                 string webSite = txtWebSite.Text;
-                int categoria = cmbCategorias.SelectedIndex;
+                //int categoria = cmbCategorias.SelectedIndex;
                 string emailContao = txtEmailContato.Text;
                 string descricao = txtDescricao.Text;
                 List<TipoItem> itemsAceitos = new List<TipoItem>();

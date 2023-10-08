@@ -15,6 +15,7 @@ const txtNumero = document.getElementById('txtNumero');
 const txtComplemento = document.getElementById('txtComplemento');  
 
 const txtPix = document.getElementById('txtPix');
+const cmbTiposPix = document.getElementById('cmbTiposPix');
 const txtWebSite = document.getElementById('txtWebSite');
 const cmbCategorias = document.getElementById('cmbCategorias');
 const txtEmailContado = document.getElementById('txtEmailContato');
@@ -27,11 +28,84 @@ const listaDias = document.getElementById('selectedDias');
 const botaoCadastrarDoador = document.getElementById('btnCadastrarDoador');
 const botaoCadastrarOng = document.getElementById('btnCadastrarOng');
 
+let cpf = txtPix.value.replace(/\D/g, '');
+
+cmbTiposPix.addEventListener('change', function () {
+    txtPix.removeAttribute("pattern");
+    txtPix.value = "";
+    txtPix.setAttribute("maxlength", 11);
+    if (cmbTiposPix.value == "telefone") {
+        txtPix.placeholder = "13999999999 (somente numeros)";
+        txtPix.type = "text";
+        txtPix.setAttribute("pattern", "^+55\\d{11}$");
+        return;
+    }
+    if (cmbTiposPix.value == "email") {
+        txtPix.placeholder = "exemplo@exemplo.com";
+        txtPix.type = "email";
+        return;
+    }
+    if (cmbTiposPix.value == "cpf") {
+        txtPix.placeholder = "12312312312 (somente numeros)";
+        txtPix.setAttribute("pattern", "\\d{11}");
+        txtPix.type = "text";
+        return;
+    }
+    if (cmbTiposPix.value == "cnpj") {
+        txtPix.placeholder = "12123123123412 (somente numeros)";
+        txtPix.setAttribute("maxlength", 14);
+        txtPix.setAttribute("pattern", "\\d{14}");
+        txtPix.type = "text";
+        return;
+    }
+    if (cmbTiposPix.value == "chaveAleatoria") {
+        txtPix.placeholder = "chave aleatória";
+        txtPix.removeAttribute("maxlength");
+        txtPix.removeAttribute("pattern");
+        txtPix.type = "text";
+        return;
+    }
+})
+
+txtPix.addEventListener('input', function (event) {
+    if (cmbTiposPix.value == "telefone") {
+        let valorInput = event.target.value;
+        let valorNumerico = valorInput.replace(/[^0-9]/g, '');
+        event.target.value = valorNumerico;
+
+        let telefone = txtPix.value.replace(/\D/g, '');
+        if (telefone.length === 11) {
+            telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3',);
+            txtPix.value = telefone;
+        }
+    }
+
+    if (cmbTiposPix.value == "cpf") {
+        let valorInput = event.target.value;
+        let valorNumerico = valorInput.replace(/[^0-9]/g, '');
+        event.target.value = valorNumerico;
+
+        let cpf = txtPix.value.replace(/\D/g, '');
+        if (cpf.length === 11) {
+            cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            txtPix.value = cpf;
+        }
+    }
+
+    if (cmbTiposPix.value == "cnpj") {
+
+        let txtPix = event.target.value;
+        let valorNumerico = txtPix.replace(/[^0-9]/g, '');
+        event.target.value = valorNumerico;
+    }
+})
 
 txtCep.addEventListener('input', function () {
     if (this.value.length > 8)
         this.value = this.value.slice(0, 8);
 })
+
+
 
 if (botaoCadastrarDoador != null) {
     botaoCadastrarDoador.onclick = function (event) {
@@ -45,6 +119,8 @@ if (botaoCadastrarOng != null) {
         VerificarDadosOng(event);
     }
 }
+
+
 
 function VerificarDadosPadraoCadastro(event) {
     txtNome.classList.remove('inputInvalido');
@@ -209,6 +285,7 @@ function VerificarDadosOng(event) {
         erroDiasDisponiveis.textContent = "Selecione pelo menos 1 dia disponivel";
     }
 }
+
 
 if (txtTelefone) {
     txtTelefone.addEventListener('input', function (event) {
