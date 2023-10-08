@@ -92,6 +92,47 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
+        public List<Campanha> ListarCampanhasPesquisa(string pesquisa)
+        {
+            List<Campanha> campanhas = new List<Campanha>();
+            List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pPesquisa", pesquisa.ToString())
+        };
+
+            try
+            {
+                MySqlDataReader dados = Consultar("ListarCampanhasPesquisa", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        campanhas.Add(new Campanha()
+                        {
+                            Codigo = dados.GetInt32("id_campanha"),
+                            Nome = dados.GetString("nm_campanha"),
+                            Banner = dados.GetString("img_bannerCampanha"),
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem()
+                            {
+                                Codigo = dados.GetInt32("id_tipoItem"),
+                                Nome = dados.GetString("nm_tipoItem")
+                            }
+                        });
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+            }
+            catch (Exception)
+            {
+                throw new Exception("Houve um problema a realizar a busca");
+            }
+            finally { Desconectar(); }
+
+            return campanhas;
+        }
         public List<Campanha> ListarDadosMinimosCampanhasFinalizadasDaOng(int codigo)
         {
             List<Campanha> campanhas = new List<Campanha>();

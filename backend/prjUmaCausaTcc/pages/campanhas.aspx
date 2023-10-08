@@ -26,34 +26,30 @@
           <asp:Literal ID="litHeader" runat="server"></asp:Literal>
 
           <main>
-            <div class="campanhas">
-              <h2>CAMPANHAS</h2>
-              <div class="campanhas-flex">
-                <asp:Literal ID="litCampanhas" runat="server"></asp:Literal>
-                  <div style="display:flex; width: 100%; justify-content: center;">
-                <asp:ImageButton ID="btnBack" OnClick="btnBack_Click" runat="server"
-               ImageUrl="./../images/botoes/seta.png" CssClass="backButton itemPaginacao">
-                </asp:ImageButton>
-                <asp:Literal ID="litItemPaginacao" runat="server"></asp:Literal>
-                <asp:ImageButton ID="btnNext" OnClick="btnNext_Click" runat="server"
-               ImageUrl="./../images/botoes/seta.png" CssClass="nextButton itemPaginacao">
-                </asp:ImageButton>
-            </div>
-              </div>
-            </div>
             <div class="pesquisa">
               <div class="pesquisar">
-                <input type="search" placeholder="Pesquisar">
-                <img src="./../images/icons/search.png" alt="lupa">
+                <asp:TextBox ID="txtPesquisa" Placeholder="Pesquisar" TextMode="Search" runat="server"></asp:TextBox>
+                <asp:ImageButton ID="btnPesquisar" OnClick="btnPesquisar_Click" runat="server" ImageUrl="./../images/icons/search.png"/>
               </div>
               <div class="filtro">
                 <h3>Filtrar Por:</h3>
                 <asp:DropDownList ID="ddlCategoria" AutoPostBack="true" OnTextChanged="ddlCategoria_TextChanged" runat="server">
-                  <asp:ListItem selected hidden>Categoria</asp:ListItem>
+                  <asp:ListItem selected="True" hidden>Categoria</asp:ListItem>
               </asp:DropDownList>
                 <select name="DataCricacao" id="">
                   <option value="DataCricacao">Data de Criação</option>
                 </select>
+              </div>
+            </div>
+            <div class="campanhas">
+              <h2>CAMPANHAS</h2>
+              <div class="campanhas-flex">
+                <asp:Literal ID="litCampanhas" runat="server"></asp:Literal>
+                <div class="paginacao">
+                   <asp:ImageButton ID="btnBack" OnClick="btnBack_Click" runat="server" ImageUrl="./../images/botoes/seta.png" CssClass="backButton itemPaginacao"></asp:ImageButton>
+                   <asp:Literal ID="litItemPaginacao" runat="server"></asp:Literal>
+                   <asp:ImageButton ID="btnNext" OnClick="btnNext_Click" runat="server" ImageUrl="./../images/botoes/seta.png" CssClass="nextButton itemPaginacao"> </asp:ImageButton>
+                </div>
               </div>
             </div>
           </main>

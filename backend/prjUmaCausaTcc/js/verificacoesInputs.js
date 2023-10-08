@@ -1,5 +1,6 @@
 ﻿const txtNome = document.getElementById('txtNome');
-const txtIdentificacao = document.getElementById('txtIdentificacao');
+const txtCpf = document.getElementById('txtCpf');
+const txtCnpj = document.getElementById('txtCnpj');
 const txtEmail = document.getElementById('txtEmail');
 const txtTelefone = document.getElementById('txtTelefone');
 const txtSenha = document.getElementById('txtSenha');
@@ -47,8 +48,13 @@ if (botaoCadastrarOng != null) {
 
 function VerificarDadosPadraoCadastro(event) {
     txtNome.classList.remove('inputInvalido');
-    erroNome.textContent = ""
-    txtIdentificacao.classList.remove('inputInvalido');
+    erroNome.textContent = "";
+    if (txtCpf) {
+        txtCpf.classList.remove('inputInvalido');
+    }
+    if (txtCnpj) {
+        txtCnpj.classList.remove('inputInvalido');
+    }
     erroIdentificacao.textContent = ""
     txtEmail.classList.remove('inputInvalido');
     erroEmail.textContent = ""
@@ -72,20 +78,44 @@ function VerificarDadosPadraoCadastro(event) {
         event.preventDefault();
         erroNome.textContent = "O nome não pode estar vazio"
     }
-    if (txtIdentificacao.value == "") {
-        txtIdentificacao.classList.add('inputInvalido');
-        event.preventDefault();
-        erroIdentificacao.textContent = "O documento não pode estar vazio"
+    if (txtCpf) {
+        if (txtCpf.value.length < 11) {
+            txtCpf.classList.add('inputInvalido');
+            event.preventDefault();
+            erroIdentificacao.textContent = "Documento Inválido";
+        }
+        if (txtCpf.value == "") {
+            txtCpf.classList.add('inputInvalido');
+            event.preventDefault();
+            erroIdentificacao.textContent = "O documento não pode estar vazio"
+        }
+    }
+    if (txtCnpj) {
+        if (txtCnpj.value.length < 14) {
+            txtCnpj.classList.add('inputInvalido');
+            event.preventDefault();
+            erroIdentificacao.textContent = "Documento Inválido";
+        }
+        if (txtCnpj.value == "") {
+            txtCnpj.classList.add('inputInvalido');
+            event.preventDefault();
+            erroIdentificacao.textContent = "O documento não pode estar vazio"
+        }
     }
     if (txtEmail.value == "") {
         txtEmail.classList.add('inputInvalido');
         event.preventDefault();
         erroEmail.textContent = "O email não pode estar vazio"
     }
+    if (txtTelefone.value.length < 11) {
+        txtTelefone.classList.add('inputInvalido');
+        event.preventDefault();
+        erroTelefone.textContent = "Número de telefone inválido";
+    }
     if (txtTelefone.value == "") {
         txtTelefone.classList.add('inputInvalido');
         event.preventDefault();
-        erroTelefone.textContent = "O telefone não pode estar vazio";
+        erroTelefone.textContent = "O número de telefone não pode estar vazio";
     }
     if (txtSenha.value.length < 8) {
         txtSenha.classList.add('inputInvalido');
@@ -133,7 +163,6 @@ function VerificarDadosPadraoCadastro(event) {
         erroEndereco.textContent = "Preencha todos os campos de endereço";
     }
 }
-
 function VerificarDadosOng(event) {
     txtPix.classList.remove('inputInvalido');
     erroPix.textContent = "";
@@ -195,16 +224,17 @@ if (txtTelefone) {
     })
 }
 
-if (txtIdentificacao) {
-    txtIdentificacao.addEventListener('input', function (event) {
+if (txtCpf) {
+    txtCpf.addEventListener('input', function (event) {
         let valorInput = event.target.value;
         let valorNumerico = valorInput.replace(/[^0-9]/g, '');
         event.target.value = valorNumerico;
 
-        let cpf = txtIdentificacao.value.replace(/\D/g, '');
+        let cpf = txtCpf.value.replace(/\D/g, '');
         if (cpf.length === 11) {
             cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-            txtIdentificacao.value = cpf;
+            txtCpf.value = cpf;
         }
     })
 }
+

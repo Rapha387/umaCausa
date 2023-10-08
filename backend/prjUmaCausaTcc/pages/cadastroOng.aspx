@@ -33,7 +33,7 @@
               </div>
               <div class="input-label">
                 <label for="">CPF:</label>
-                <asp:TextBox ID="txtIdentificacao" TextMode="Number" runat="server" placeholder="ex: 111.111.111-00"></asp:TextBox>
+                <asp:TextBox ID="txtCnpj" TextMode="Number" runat="server" placeholder="ex: 111.111.111-00"></asp:TextBox>
                 <span id="erroIdentificacao" class="spanErro"></span>
               </div>
               <div class="input-label">

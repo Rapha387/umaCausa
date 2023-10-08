@@ -58,7 +58,7 @@ namespace prjUmaCausaTcc.pages
                 string senha = txtConfirmarSenha.Text;
                 string email = txtEmail.Text;
                 string telefone = txtTelefone.Text;
-                string cnpj = txtIdentificacao.Text;
+                string cnpj = txtCnpj.Text;
                 string cep = txtCep.Text;
                 string uf = txtUF.Text;
                 string cidade = txtCidade.Text;

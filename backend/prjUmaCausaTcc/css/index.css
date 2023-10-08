@@ -1011,6 +1011,8 @@ label {
     display: flex;
     width: 100%;
     justify-content: center;
+    width: auto;
+    margin: auto;
 }
 
 .paginacao a{

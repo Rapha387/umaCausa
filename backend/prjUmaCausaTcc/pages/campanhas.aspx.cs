@@ -1,4 +1,5 @@
-﻿using prjUmaCausaTcc.Logicas;
+﻿using Org.BouncyCastle.Asn1.Ocsp;
+using prjUmaCausaTcc.Logicas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,9 @@ namespace prjUmaCausaTcc.pages
         protected void Page_Load(object sender, EventArgs e)
         {
             litItemPaginacao.Text = "";
+
+            List<Campanha> campanhas = new List<Campanha>();
+            Campanhas listarCampanhas = new Campanhas();
 
             #region Gerar Elementos Html
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
@@ -38,19 +42,16 @@ namespace prjUmaCausaTcc.pages
             #endregion
 
             #region GerarCampanhas
-            
+
             #endregion
 
-            if (String.IsNullOrEmpty(Request["pagina"]))
+            #region !PostBack
+            if (!IsPostBack)
             {
-                List<Campanha> campanhas = new Campanhas().ListarCampanhasASC(0);
-                GerarCampanhas(campanhas);
+                if (!String.IsNullOrEmpty(Request["c"]))
+                    ddlCategoria.SelectedIndex = int.Parse(Request["c"]);
             }
-            else
-            {
-                List<Campanha> campanhas = new Campanhas().ListarCampanhasASC((int.Parse(Request["pagina"]) - 1));
-                GerarCampanhas(campanhas);
-            }
+            #endregion
 
             int indice = new Campanhas().ListarIndiceCampanhas();
             for (int i = 0; i < indice; i++)
@@ -64,13 +65,23 @@ namespace prjUmaCausaTcc.pages
                 btnBack.Visible = false;
             }
 
-            #region !PostBack
-            if (!IsPostBack)
+            if (!String.IsNullOrEmpty(Request["pagina"]))
             {
-                if (!String.IsNullOrEmpty(Request["c"]))
-                    ddlCategoria.SelectedIndex = int.Parse(Request["c"]);
+                campanhas = listarCampanhas.ListarCampanhasASC((int.Parse(Request["pagina"]) - 1));
+                GerarCampanhas(campanhas);
+                return;
             }
-            #endregion
+
+            if (!String.IsNullOrEmpty(Request["s"]))
+            {
+                campanhas = listarCampanhas.ListarCampanhasPesquisa(Request["s"].ToString());
+                GerarCampanhas(campanhas);
+                return;
+            }
+
+            campanhas = listarCampanhas.ListarCampanhasASC(0);
+            GerarCampanhas(campanhas);
+
         }
 
         private void GerarCampanhas(List<Campanha> campanhas)
@@ -104,24 +115,20 @@ namespace prjUmaCausaTcc.pages
         #region Botões NextBack
         protected void btnNext_Click(object sender, ImageClickEventArgs e)
         {
-            if (!String.IsNullOrEmpty(Request["pagina"]))
-            {
-                if (indiceDePaginacao > int.Parse(Request["pagina"]))
-                    Response.Redirect($"campanhas.aspx?pagina={(int.Parse(Request["pagina"]) + 1)}");
-            }
-            else
-                Response.Redirect($"campanhas.aspx?pagina={1}");
+            if (String.IsNullOrEmpty(Request["pagina"]))
+                Response.Redirect($"campanhas.aspx?pagina=2");
+            
+            if (indiceDePaginacao > int.Parse(Request["pagina"]))
+                Response.Redirect($"campanhas.aspx?pagina={(int.Parse(Request["pagina"]) + 1)}");
         }
 
         protected void btnBack_Click(object sender, ImageClickEventArgs e)
         {
-            if (!String.IsNullOrEmpty(Request["pagina"]))
-            {
-                if (int.Parse(Request["pagina"]) > 1)
-                    Response.Redirect($"campanhas.aspx?pagina={(int.Parse(Request["pagina"]) - 1)}");
-            }
-            else
+            if (String.IsNullOrEmpty(Request["pagina"]))
                 Response.Redirect($"campanhas.aspx?pagina={1}");
+                
+            if (int.Parse(Request["pagina"]) > 1)
+                Response.Redirect($"campanhas.aspx?pagina={(int.Parse(Request["pagina"]) - 1)}");
         }
         #endregion
 
@@ -131,5 +138,13 @@ namespace prjUmaCausaTcc.pages
             Response.Redirect($"campanhas.aspx?c={ddlCategoria.SelectedValue}");
         }
         #endregion
+
+        protected void btnPesquisar_Click(object sender, ImageClickEventArgs e)
+        {
+            if (txtPesquisa.Text == "")
+                Response.Redirect("campanhas.aspx");
+
+            Response.Redirect("campanhas.aspx?s="+ txtPesquisa.Text);
+        }
     }
 }

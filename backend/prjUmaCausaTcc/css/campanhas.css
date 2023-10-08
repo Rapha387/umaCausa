@@ -4,21 +4,26 @@ main {
 }
 
 .campanhas {
-  width: 621px;
+  width: 63%;
 }
 .campanhas h2 {
   margin-top: 0;
 }
 .campanhas .campanhas-flex {
   flex-wrap: wrap;
-  gap: 31px;
+    justify-content: space-between;
+    row-gap: 31px;
 }
 .campanhas .campanhas-flex a {
-  color: #000;
+      color: #000;
+    width: 48%;
+}
+.campanhas .campanhas-flex .campanha{
+    width: 100%;
 }
 
 .pesquisa {
-  width: 336px;
+  width: 32%;
 }
 .backButton {
     width: 28px;
