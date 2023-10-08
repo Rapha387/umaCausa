@@ -114,6 +114,10 @@ namespace prjUmaCausaTcc.pages
             {
                 Usuario usuario = new Usuario();
                 usuario.BuscarOng(codigoOng);
+
+                if (usuario == null)
+                    Response.Redirect("erro.aspx?e=nao foi possivel carregar essa pagina");
+
                 litNomeNavegador.Text = usuario.Nome + " - umaCausa";
                 litCNPJ.Text = $"<a target='_blank' href='https://cnpj.info/{usuario.Identificacao.Replace(".", "").Replace("/", "").Replace("-", "")}'>" + usuario.Identificacao + "<a/>";
                 litDescricao.Text = usuario.Descricao;
@@ -167,6 +171,10 @@ namespace prjUmaCausaTcc.pages
                         </div>
                         <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
                       </div>
+                      <div class=infos-campanha>
+                          <div class=info-campanha>Tipo: {campanha.TipoItemArrecadado.Nome}</div>
+                          <div class=info-campanha>Finaliza: {campanha.DataPrevistaFim}</div>
+                      </div>
                     </div>
                     </a>
                     </div>";
@@ -201,6 +209,10 @@ namespace prjUmaCausaTcc.pages
                           <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%'></div>
                         </div>
                         <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
+                      </div>
+                      <div class=infos-campanha>
+                          <div class=info-campanha>Tipo: {campanha.TipoItemArrecadado.Nome}</div>
+                          <div class=info-campanha>Finaliza: {campanha.DataPrevistaFim}</div>
                       </div>
                     </div>
                     </a>

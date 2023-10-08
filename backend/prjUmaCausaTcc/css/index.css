@@ -627,8 +627,11 @@ li label {
   width: 100%;
 }
 
+input, select{
+    height: 41px;
+}
+
 input, select, textarea {
-  height: 41px;
   width: 100%;
   border-radius: 4px;
   background-color: #fff;

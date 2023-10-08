@@ -118,6 +118,7 @@
           <asp:DropDownList ID="cmbMotivoDenuncia" runat="server"> </asp:DropDownList>
           <label for="observacao">Observacao:</label>
           <textarea name="observacao" id="txtObservao" cols="30" rows="5"></textarea>
+          <span id="erroDenuncia" class="spanErro" style="text-align: center"></span>
           <button id="btnRealizarDenunciaUsuario">Denunciar</button>
         </div>
       </div>
@@ -134,7 +135,6 @@
       <main>
         <div class="logo-nome"> 
          <asp:Literal ID="litIcone" runat="server"></asp:Literal>
-          <%--<div class="logo-ong"></div>--%>
           <h1><asp:Literal ID="litNome" runat="server"></asp:Literal> <%--<img src="./../images/categorias/categoria1.png" alt="" class="img-categoria-ong">--%></h1>
         </div>
 

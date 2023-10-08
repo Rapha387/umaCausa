@@ -33,6 +33,7 @@ botoesFechar.forEach(function(btn){
     let popup = this.parentNode;
     popup.classList.add("escondido");
     bloqueio.classList.add("escondido");
+      LimparPopUpDenuncia();
   });
 });
 
@@ -57,7 +58,10 @@ bloqueio.addEventListener('click', function() {
           LimparPopUpItem();
 
     if(botaoDoacaoMonetaria)
-        LimparPopupMonetario();
+          LimparPopupMonetario();
+
+     if (botaoDenunciar)
+        LimparPopUpDenuncia();
   });
 });
 
@@ -73,7 +77,6 @@ if (botaoDoar) {
                 window.location.href = "login.aspx";
             }
         });
-        
     });
 }
 
@@ -81,8 +84,15 @@ if (botaoDoar) {
 if (botaoDenunciar) {
     botaoDenunciar.addEventListener('click', (event) => {
       event.preventDefault();
-      bloqueio.classList.remove("escondido");
-      popupDenunciar.classList.remove("escondido");
+        VerificarUsuario().then(function (resultado) {
+            if (resultado == true) {
+                bloqueio.classList.remove("escondido");
+                popupDenunciar.classList.remove("escondido");
+            }
+            else {
+                window.location.href = "login.aspx";
+            }
+        })
     });
 }
 
@@ -127,6 +137,8 @@ function LimparPopUpItem() {
 function LimparPopUpDenuncia() {
     txtDescricaoDenuncia.value = "";
     cmbMotivoDenuncia.selectedIndex = 0;
+    erroDenuncia.textContent = ""
+    cmbMotivoDenuncia.classList.remove('inputInvalido');
     popupDenunciar.classList.add('escondido');
     bloqueio.classList.add('escondido');
 }
