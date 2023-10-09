@@ -176,37 +176,13 @@
                 </div>
               </div>
               <div class="input-label">
-                 <label for="">Itens Aceitos:</label>
-                 <div class="select-items">
-                    <div class="ver" onclick="esconderSelectItens()">
-                        Selecione os Itens de seu interesse
-                    </div>
-                    <ul id="itemList" class="invisivel">
-                        <asp:Literal ID="listaItens" runat="server"></asp:Literal>
-                    </ul>
-                 </div>
-                 <span id="erroItensAceitos" class="spanErro"></span>
-                 <ul id="selectedItems"></ul>
-               </div>
-               <div class="input-label">
-                 <label for="">Dias Disponíveis:</label>
-                 <div class="select-dias">
-                    <div class="ver" onclick="esconderSelectDias()">
-                        Selecione os Dias Disponiveis
-                    </div>
-                    <ul id="diasList" class="invisivel">
-                        <li onclick="selecionarDia(this)" value="1">Domingo</li>
-                        <li onclick="selecionarDia(this)" value="2">Segunda</li>
-                        <li onclick="selecionarDia(this)" value="3">Terça</li>
-                        <li onclick="selecionarDia(this)" value="4">Quarta</li>
-                        <li onclick="selecionarDia(this)" value="5">Quinta</li>
-                        <li onclick="selecionarDia(this)" value="6">Sexta</li>
-                        <li onclick="selecionarDia(this)" value="7">Sábado</li>        
-                    </ul>
-                 </div>
-                 <span id="erroDiasDisponiveis" class="spanErro"></span>
-                 <ul id="selectedDias"></ul>
-               </div>
+                  <label for="">Categorias da Ong:</label>
+                  <asp:Panel ID="pnlCategorias" runat="server"></asp:Panel>
+              </div>
+              <div class="input-label">
+                  <label for="">Itens Aceitos:</label>
+                  <asp:Panel ID="pnlItensAceitos" runat="server"></asp:Panel>
+              </div>
             </div>
             <asp:Label ID="lblErro" runat="server"></asp:Label>
             <asp:Button class="button-criar" ID="btnCadastrarOng" runat="server" Text="Criar conta de ONG" OnClick="btnCadastrarOng_Click" />

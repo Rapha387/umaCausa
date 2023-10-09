@@ -384,6 +384,48 @@ main {
   transform: translate(-50%, -50%);
 }
 
+#pnlCategorias, #pnlItensAceitos {
+    background-color: #fff;
+    padding: 0.7rem 1rem;
+    border: solid thin #d3d3d3;
+    border-radius: 4px;
+    max-height: 250px;
+    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+#pnlCategorias::-webkit-scrollbar, #pnlItensAceitos::-webkit-scrollbar{
+    width:8px
+}
+
+#pnlItensAceitos::-webkit-scrollbar-track, #pnlCategorias::-webkit-scrollbar-track{
+    background-color: #f3f3f3;
+}
+
+#pnlItensAceitos::-webkit-scrollbar-thumb,#pnlCategorias::-webkit-scrollbar-thumb  {
+    background-color: #d3d3d3;
+    border-radius: 20px;
+    border: 3px solid #d3d3d3;
+}
+
+.pnlCheckBox {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.pnlCheckBox label{
+    margin: 0;
+    font-size: 14px;
+}
+
+.pnlCheckBox input{
+    width: auto;
+    height: auto;
+}
+
 .button-salvar {
   margin-top: 20px;
   font-size: 16px;
