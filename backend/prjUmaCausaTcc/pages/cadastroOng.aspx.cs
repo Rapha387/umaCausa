@@ -28,7 +28,7 @@ namespace prjUmaCausaTcc.pages
 
                 var listaCategoriasOng = categoriasOng.ListarCategoriasOng();
 
-                foreach (var categoria in listaCategoriasOng)
+                foreach (CategoriaOng categoria in listaCategoriasOng)
                 {
                     Panel pnlCheck = new Panel();
                     CheckBox chk = new CheckBox();
@@ -47,7 +47,7 @@ namespace prjUmaCausaTcc.pages
 
                 var listaTiposItens = tiposItens.ListarTiposItens();
 
-                foreach (var item in listaTiposItens)
+                foreach (TipoItem item in listaTiposItens)
                 {
                     if (item.Codigo != 0)
                     {
@@ -64,6 +64,43 @@ namespace prjUmaCausaTcc.pages
                         pnlItensAceitos.Controls.Add(pnlCheck);
                     }
                 }
+
+                Dias dias = new Dias();
+
+                var listaDias = dias.ListarDias();
+
+                foreach(Dia dia in listaDias)
+                {
+                    Panel pnlCheck = new Panel();
+                    Panel pnlInputs = new Panel();
+                    Panel pnlDia = new Panel();
+                    CheckBox chk = new CheckBox();
+                    TextBox txtComeco = new TextBox();
+                    TextBox txtFim = new TextBox();
+
+                    chk.ID = "chkDia" + dia.Codigo.ToString();
+                    chk.Text = dia.Nome;
+                    txtComeco.ID = "txtComecoDia" + dia.Codigo;
+                    txtFim.ID = "txtFimDia" + dia.Codigo;
+
+                    pnlCheck.CssClass = "pnlCheckBox";
+                    pnlCheck.ID = "pnlChkDia" + dia.Codigo.ToString();
+                    pnlCheck.Controls.Add(chk);
+
+                    pnlInputs.ID = "pnlInputsDia" + dia.Codigo.ToString();
+                    pnlInputs.CssClass = "pnlCheckBox";
+                    pnlInputs.Controls.Add(txtComeco);
+                    pnlInputs.Controls.Add(txtFim);
+
+                    pnlDia.ID = "pnlDia" + dia.Codigo.ToString();
+                    pnlDia.CssClass = "pnlCheckBox";
+
+                    pnlDia.Controls.Add(pnlCheck);
+                    pnlDia.Controls.Add(pnlInputs);
+
+                    pnlDiasDisponiveis.Controls.Add(pnlDia);
+                }
+
             }
             catch(Exception ex)
             {
@@ -95,6 +132,7 @@ namespace prjUmaCausaTcc.pages
                 string webSite = txtWebSite.Text;
                 string emailContao = txtEmailContato.Text;
                 string descricao = txtDescricao.Text;
+
 
                 List<CategoriaOng> categorias = new List<CategoriaOng>();
                 for (int i = 1; i < pnlCategorias.Controls.Count; i++)

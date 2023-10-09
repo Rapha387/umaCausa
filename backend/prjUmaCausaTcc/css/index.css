@@ -384,7 +384,7 @@ main {
   transform: translate(-50%, -50%);
 }
 
-#pnlCategorias, #pnlItensAceitos {
+#pnlCategorias, #pnlItensAceitos, #pnlDiasDisponiveis {
     background-color: #fff;
     padding: 0.7rem 1rem;
     border: solid thin #d3d3d3;
@@ -421,7 +421,7 @@ main {
     font-size: 14px;
 }
 
-.pnlCheckBox input{
+.pnlCheckBox input[type=checkbox]{
     width: auto;
     height: auto;
 }

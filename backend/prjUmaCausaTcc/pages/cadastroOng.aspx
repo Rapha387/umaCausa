@@ -28,32 +28,32 @@
             <div class="infos">
               <div class="input-label">
                 <label for="">Nome:</label>
-                  <asp:TextBox ID="txtNome" runat="server" placeholder="ex: Cennin"></asp:TextBox>
+                  <asp:TextBox ID="txtNome" runat="server" placeholder="ex: Cennin" required="required"></asp:TextBox>
                   <span id="erroNome" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">CNPJ:</label>
-                <asp:TextBox ID="txtCnpj" MaxLength="14" runat="server" placeholder="ex: 99.999.999/9999-99"></asp:TextBox>
+                <asp:TextBox ID="txtCnpj" MaxLength="14" runat="server" placeholder="ex: 99.999.999/9999-99" required="required"></asp:TextBox>
                 <span id="erroIdentificacao" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">Email:</label>
-                <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com" required="required"></asp:TextBox>
                 <span id="erroEmail" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">Telefone:</label>
-                <asp:TextBox ID="txtTelefone" MaxLength="11" AutoCompleteType="Cellular" runat="server" placeholder="ex: 13997845669"></asp:TextBox>
+                <asp:TextBox ID="txtTelefone" MaxLength="11" AutoCompleteType="Cellular" runat="server" placeholder="ex: 13997845669" required="required"></asp:TextBox>
                 <span id="erroTelefone" class="spanErro"></span>
               </div>
                 <div class="input-label">
                 <label for="">Senha:</label>
-                <asp:TextBox ID="txtSenha" TextMode="Password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtSenha" TextMode="Password" runat="server" required="required"></asp:TextBox>
                 <span id="erroSenha" class="spanErro"></span>
               </div>
                 <div class="input-label">
                 <label for="">Confirmar a Senha:</label>
-                <asp:TextBox ID="txtConfirmarSenha" TextMode="Password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtConfirmarSenha" TextMode="Password" runat="server" required="required"></asp:TextBox>
                 <span id="erroConfirmarSenha" class="spanErro"></span>
               </div>
             </div>
@@ -143,11 +143,11 @@
               </div>
               <div class="input-label">
                 <label for="">WebSite:</label>
-                  <asp:TextBox ID="txtWebSite" TextMode="Url" runat="server"></asp:TextBox>
+                  <asp:TextBox ID="txtWebSite" TextMode="Url" runat="server" ></asp:TextBox>
               </div>
               <div class="input-label">
                 <label for="">Email de Contato:</label>
-                <asp:TextBox ID="txtEmailContato" TextMode="Email" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmailContato" TextMode="Email" runat="server" required="required"></asp:TextBox>
                 <span id="erroEmailContato" class="spanErro"></span>
               </div>
               <div class="input-label" id="bannerOng">
@@ -183,6 +183,34 @@
                   <label for="">Itens Aceitos:</label>
                   <asp:Panel ID="pnlItensAceitos" runat="server"></asp:Panel>
               </div>
+
+              <div class="input-label">
+                  <label for="">Dias Disponíveis:</label>
+                  <asp:Panel ID="pnlDiasDisponiveis" runat="server">
+<%--                      <asp:Panel ID="pnlDia1" CssClass="pnlCheckBox" runat="server">
+                          <asp:CheckBox ID="chkDia1" runat="server" Text="Domingo"/>
+                      </asp:Panel>
+                      <asp:Panel ID="pnlDia2" CssClass="pnlCheckBox" runat="server">
+                          <asp:CheckBox ID="chkDia2" runat="server" Text="Segunda"/>
+                      </asp:Panel>
+                      <asp:Panel ID="pnlDia3" CssClass="pnlCheckBox" runat="server">
+                          <asp:CheckBox ID="chkDia3" runat="server" Text="Terça"/>
+                      </asp:Panel>
+                      <asp:Panel ID="pnlDia4" CssClass="pnlCheckBox" runat="server">
+                          <asp:CheckBox ID="chkDia4" runat="server" Text="Quarta"/>
+                      </asp:Panel>
+                      <asp:Panel ID="pnlDia5" CssClass="pnlCheckBox" runat="server">
+                          <asp:CheckBox ID="chkDia5" runat="server" Text="Quinta"/>
+                      </asp:Panel>
+                      <asp:Panel ID="pnlDia6" CssClass="pnlCheckBox" runat="server">
+                          <asp:CheckBox ID="chkDia6" runat="server" Text="Sexta"/>
+                      </asp:Panel>
+                      <asp:Panel ID="pnlDia7" CssClass="pnlCheckBox" runat="server">
+                          <asp:CheckBox ID="chkDia7" runat="server" Text="Sábado"/>
+                      </asp:Panel>--%>
+                  </asp:Panel>
+              </div>
+
             </div>
             <asp:Label ID="lblErro" runat="server"></asp:Label>
             <asp:Button class="button-criar" ID="btnCadastrarOng" runat="server" Text="Criar conta de ONG" OnClick="btnCadastrarOng_Click" />
