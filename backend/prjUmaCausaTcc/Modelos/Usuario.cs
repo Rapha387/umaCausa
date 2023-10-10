@@ -335,7 +335,9 @@ public class Usuario : Banco
                 Banner = dados["img_banner"].ToString();
                 FotoPerfil = dados["img_fotoPerfil"].ToString();
                 Descricao = dados["ds_usuario"].ToString();
+                Email = dados["nm_email"].ToString();
                 EmailContato = dados["nm_emailContato"].ToString();
+                NumeroPix = dados["nm_pix"].ToString();
                 Telefone = dados["nm_telefone"].ToString();
                 Identificacao = dados["nm_indentificacao"].ToString();
                 Website = dados["nm_website"].ToString();
@@ -348,7 +350,7 @@ public class Usuario : Banco
                 Complemento = dados["nm_complemento"].ToString();
                 Latitude = dados["nm_lat"].ToString();
                 Longitude = dados["nm_log"].ToString();
-                CategoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
+ //               CategoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
             }
             if (!dados.IsClosed)
                 dados.Close();
@@ -491,6 +493,76 @@ public class Usuario : Banco
             Desconectar();
         }
     }
+    public void BuscarDoador(int codigo)
+    {
+        // Usuario usuario = new Usuario();
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdUsuario", codigo.ToString())
+        };
+        try
+        {
+            MySqlDataReader dados = Consultar("BuscarDadosDoador", parametros);
+            if (dados.Read())
+            {
+                Nome = dados["nm_usuario"].ToString();
+                Email = dados["nm_email"].ToString();
+                Telefone = dados["nm_telefone"].ToString();
+                Identificacao = dados["nm_indentificacao"].ToString();
+                Cep = dados["nm_cep"].ToString();
+                Estado = dados["nm_estado"].ToString();
+                Cidade = dados["nm_cidade"].ToString();
+                Rua = dados["nm_rua"].ToString();
+                Numero = dados["nm_numero"].ToString();
+                Bairro = dados["nm_bairro"].ToString();
+                Complemento = dados["nm_complemento"].ToString();
+                Latitude = dados["nm_lat"].ToString();
+                Longitude = dados["nm_log"].ToString();
+            }
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
+    public void AlterarDadosdoador(int codigo, string nome, string email, string telefone, string cep, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude)
+    {
+        Conectar();
+        List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("pIdUsuario", codigo.ToString()),
+                new Parametro("pEmail", email.ToString()),
+                new Parametro("pNomeUsuario", nome.ToString()),
+                new Parametro("pTelefone", telefone.ToString()),
+                new Parametro("pCep", cep.ToString()),
+                // TODO: COLOCAR ESTADO NA PROCEDURE DEPOIS
+                 new Parametro("pCidade", cidade.ToString()),
+                 new Parametro("pRua", rua.ToString()),
+                 new Parametro("pNumero", numero.ToString()),
+                 new Parametro("pBairro", bairro.ToString()),
+                 new Parametro("pComplemento", complemento.ToString()),
+                 new Parametro("pLongitude", longitude.ToString()),
+                 new Parametro("pLatitude", latitude.ToString()),
+
+            };
+        try
+        {
+            Conectar();
+            Executar("AlterarDadosDoador", parametros);
+            Desconectar();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally { Desconectar(); }
+    }
     public void BuscarDadosMinimosOng(int codigo)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -574,6 +646,40 @@ public class Usuario : Banco
        this.Longitude = longitude;
        this.PosssibilidadeBusca = posssibilidadeBusca;
        this.TipoDoUsuario = tipoDoUsuario;
+    }
+   public Usuario(int codigo, string nome, string email, string telefone, string identificacao, string cEP, string rua, string numero, string bairro, string complemento, string latitude, string longitude, TipoUsuario tipoDoUsuario)
+
+    {
+
+        this.Codigo = codigo;
+
+        this.Nome = nome;
+
+        this.Email = email;
+
+
+        this.Telefone = telefone;
+
+        this.Identificacao = identificacao;
+
+        this.Cep = cEP;
+
+  //      this.Estado = estado;
+
+        this.Rua = rua;
+
+        this.Numero = numero;
+
+        this.Bairro = bairro;
+
+        this.Complemento = complemento;
+
+        this.Latitude = latitude;
+
+        this.Longitude = longitude;
+
+        this.TipoDoUsuario = tipoDoUsuario;
+
     }
 
     public Usuario(int codigo)

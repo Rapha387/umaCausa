@@ -166,7 +166,7 @@ using System.Web;
                         <nav>
         <ul>
           <li>
-            <a href='./ meuPerfil.aspx'>
+            <a href='./meuPerfil.aspx'>
                <img src = './../../images/icons/userAzul.png' alt = '' />
                   Meu Perfil
                 </a>

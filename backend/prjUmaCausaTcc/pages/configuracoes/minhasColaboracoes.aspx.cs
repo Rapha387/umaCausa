@@ -24,19 +24,17 @@ namespace prjUmaCausaTcc.pages.configuracoes
             int codigo = usuario.Codigo;
                 foreach (DoacaoCampanha doacao in colaboracoes.ListaDoacoesCampanhas(codigo))
                 {
-                    string item = "";
+                    string item = doacao.Campanha.TipoItemArrecadado.Nome;
                     string qtdDoado = "";
                     string estadoConfirmacao = "";
-                    if (doacao.Campanha.Categoria.Codigo == 1)
-                    {
-                        qtdDoado = $@"R${doacao.QuantidadeDoado}";
-                        item = "Monetário";
-                    }
-                    else
-                    {
-                        item = doacao.Campanha.TipoItemArrecadado.Nome;
-                        qtdDoado = doacao.QuantidadeDoado;
-                    }
+                if (doacao.Campanha.TipoItemArrecadado.Codigo == 0)
+                {
+                    qtdDoado = "R$" + doacao.QuantidadeDoado;
+                }
+                else
+                {
+                    qtdDoado = doacao.QuantidadeDoado;
+                }
                     if (doacao.DoacaoConfirmada == true)
                     {
                         estadoConfirmacao = "Aceita";

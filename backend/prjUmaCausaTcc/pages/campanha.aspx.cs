@@ -82,7 +82,7 @@ namespace prjUmaCausaTcc.pages
             {
                 litMeta.Text = "R$" + campanha.QuantidadeMeta.ToString().Replace(".", ",");
                 litArrecadado.Text = "Arrecadados da meta de R$" + campanha.QuantidadeArrecadada.ToString().Replace(".", ",");
-                if (campanha.Categoria.Codigo == 2)
+                if (campanha.TipoItemArrecadado.Codigo != 0)
                 {
                     litArrecadado.Text = "Arrecadados da meta: " + campanha.QuantidadeArrecadada.ToString().Replace(".", ",") +" "+ campanha.TipoItemArrecadado.Nome;
                     litMeta.Text = campanha.QuantidadeMeta.ToString().Replace(".", ",") +" "+ campanha.TipoItemArrecadado.Nome;
