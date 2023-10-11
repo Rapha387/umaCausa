@@ -350,6 +350,7 @@ public class Usuario : Banco
                 Complemento = dados["nm_complemento"].ToString();
                 Latitude = dados["nm_lat"].ToString();
                 Longitude = dados["nm_log"].ToString();
+                PosssibilidadeBusca = bool.Parse(dados["ic_podeBuscar"].ToString());
  //               CategoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
             }
             if (!dados.IsClosed)
@@ -555,6 +556,44 @@ public class Usuario : Banco
         {
             Conectar();
             Executar("AlterarDadosDoador", parametros);
+            Desconectar();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally { Desconectar(); }
+    }
+    public void AlterarDadosOng(int codigo, string nome, string email, string emailcontato, string telefone, string descricao, string cep, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string website, string pix, object podebuscar)
+    {
+        Conectar();
+        List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("pIdUsuario", codigo.ToString()),
+                new Parametro("pEmail", email.ToString()),
+                new Parametro("pEmailContato", emailcontato.ToString()),
+                new Parametro("pNomeUsuario", nome.ToString()),
+                new Parametro("pTelefone", telefone.ToString()),
+                new Parametro("pDescricao", descricao.ToString()),
+                new Parametro("pCep", cep.ToString()),
+                // TODO: COLOCAR ESTADO, IMG PERFIL, IMG BANNER, PODE BUSCAR NA PROCEDURE DEPOIS
+                 new Parametro("pCidade", cidade.ToString()),
+                 new Parametro("pRua", rua.ToString()),
+                 new Parametro("pNumero", numero.ToString()),
+                 new Parametro("pBairro", bairro.ToString()),
+                 new Parametro("pComplemento", complemento.ToString()),
+                 new Parametro("pLatitude", latitude.ToString()),
+                 new Parametro("pLongitude", longitude.ToString()),
+                 new Parametro("pWebSite", website.ToString()),
+                 new Parametro("pPix", pix.ToString()),
+                 new Parametro("pPodeBuscar", podebuscar.ToString()),
+
+
+            };
+        try
+        {
+            Conectar();
+            Executar("AlterarDadosOng", parametros);
             Desconectar();
         }
         catch (Exception ex)

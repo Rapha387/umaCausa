@@ -664,6 +664,34 @@
 
             </div>
 
+                          <div class="input-label">
+
+ 
+
+              <label for="">Email de Contato:</label>
+
+ 
+
+              <asp:TextBox ID="TxtEmailContato" runat="server"></asp:TextBox>
+
+ 
+
+            </div>
+
+ 
+
+            <div class="input-label">
+
+ 
+
+              <label for="">Disponivel para busca?:</label>
+
+ 
+                <asp:CheckBox ID="ckbPodeBuscar" runat="server" />
+ 
+
+            </div>
+
  
 
             <div>

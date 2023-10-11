@@ -36,6 +36,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     TxtCidade.Text = usuario.Cidade.ToString();
                     TxtCnpj.Text = usuario.Identificacao.ToString();
                     TxtEmail.Text = usuario.Email.ToString();
+                    TxtEmailContato.Text = usuario.EmailContato.ToString();
                     TxtLogadouro.Text = usuario.Rua.ToString();
                     TxtPix.Text = usuario.NumeroPix.ToString();
                     TxtTelefone.Text = usuario.Telefone.ToString();
@@ -48,6 +49,14 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     foreach (var categoria in listaCategoriasOng)
                     {
                         cmbCategorias.Items.Add(categoria.Nome);
+                    }
+                    if (usuario.PosssibilidadeBusca == true)
+                    {
+                        ckbPodeBuscar.Checked = true;
+                    }
+                    else
+                    {
+                        ckbPodeBuscar.Checked = false;
                     }
                 }
                 else
@@ -84,7 +93,46 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 Usuario usuario = (Usuario)Session["usuario"];
                 if (usuario.TipoDoUsuario.Codigo == 1)
                 {
+                    int codigo = usuario.Codigo;
+                    int tipo = usuario.TipoDoUsuario.Codigo;
+                    string nome = TxtNome.Text;
+                    string telefone = TxtTelefone.Text;
+                    string email = TxtEmail.Text;
+                    string emailcontato = TxtEmailContato.Text;
+                    string descricao = txtDescricao.Text;
+                    string bairro = TxtBairro.Text;
+                    string cidade = TxtCidade.Text;
+                    string rua = TxtLogadouro.Text;
+                    string numero = txtNumero.Text;
+                    string cep = TxtCep.Text;
+                    string complemento = txtComplemento.Text;
+                    string endereco = $"{rua}, {numero}, {cidade}, {usuario.Estado}";
+                    string latitude = "";
+                    string longitude = "";
+                    string website = TxtWebsite.Text;
+                    string pix = TxtPix.Text;
+                    object podebuscar = false;
+                    if (ckbPodeBuscar.Checked == true)
+                    {
+                        podebuscar = true;
+                        podebuscar = 1;
+                    }
+                    else
+                    {
+                        podebuscar = false;
+                        podebuscar = 0;
+                    }
 
+
+                    CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
+
+
+
+                    (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
+
+
+
+                    usuario.AlterarDadosOng(codigo, nome, email, emailcontato, telefone, descricao, cep, cidade, rua, numero, bairro, complemento, latitude, longitude, website, pix, podebuscar);
                 }
                 else
                 {
@@ -103,17 +151,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     string endereco = $"{rua}, {numero}, {cidade}, {usuario.Estado}";
                     string latitude = "";
                     string longitude = "";
-
-
-
                     CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
-
-
-
                     (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
-
-
-
                     usuario.AlterarDadosdoador(codigo, nome, email, telefone, cep, cidade, rua, numero, bairro, complemento, latitude, longitude);
                 }
             }
