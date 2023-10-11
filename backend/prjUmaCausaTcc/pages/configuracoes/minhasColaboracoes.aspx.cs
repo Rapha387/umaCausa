@@ -58,6 +58,62 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         <td>{estadoConfirmacao}</td>
                       </tr>";
                 }
+                foreach(DoacaoItem doacao in colaboracoes.ListaDoacoesItems(codigo))
+                {
+                    string item = doacao.NomeItem;
+                    string qtdDoado = doacao.Quantidade;
+                    string estadoConfirmacao = "";
+                    if (doacao.DoacaoConfirmada == true)
+                    {
+                        estadoConfirmacao = "Aceita";
+                    }
+                    else
+                    {
+                        if (doacao.respostaOng.ToString() == "01/01/0001 00:00:00")
+                        {
+                            estadoConfirmacao = "Pendente";
+                        }
+                        else
+                        {
+                            estadoConfirmacao = "Negada";
+                        }
+                    }
+                    Colaboracoes.Text += $@"<tr>
+                            <td>{doacao.ONG.Nome}</td>
+                            <td>{item}</td>
+                            <td>{qtdDoado}</td>
+                            <td>{doacao.DataDoacao.ToString().Substring(0, 10)}</td>
+                            <td>{estadoConfirmacao}</td>
+                          </tr>";
+                }
+            foreach(DoacaoMonetaria doacao in colaboracoes.ListaDoacoesMonetarias(codigo))
+            {
+                string item = "Monetário";
+                string qtdDoado = $@"R$" + doacao.ValorDoacao.ToString();
+                string estadoConfirmacao = "";
+                if (doacao.DoacaoConfirmada == true)
+                {
+                    estadoConfirmacao = "Aceita";
+                }
+                else
+                {
+                    if (doacao.respostaOng.ToString() == "01/01/0001 00:00:00")
+                    {
+                        estadoConfirmacao = "Pendente";
+                    }
+                    else
+                    {
+                        estadoConfirmacao = "Negada";
+                    }
+                }
+                Colaboracoes.Text += $@"<tr>
+                            <td>{doacao.ONG.Nome}</td>
+                            <td>{item}</td>
+                            <td>{qtdDoado}</td>
+                            <td>{doacao.DataDoacao.ToString().Substring(0, 10)}</td>
+                            <td>{estadoConfirmacao}</td>
+                          </tr>";
+            }
         }
     }
 }
