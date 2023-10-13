@@ -14,7 +14,7 @@ namespace prjUmaCausaTcc.Logicas
             List<Parametro> parametros = new List<Parametro>();
             Parametro parametro1 = new Parametro("pIdUsuario", codigo.ToString());
             parametros.Add(parametro1);
-            
+
             try
             {
                 MySqlDataReader dados = Consultar("BuscarDadosMinimosColaboracoesCampanhaDoUsuario", parametros);
@@ -34,12 +34,14 @@ namespace prjUmaCausaTcc.Logicas
                         {
                             confirmado = true;
                         };
-                        DoacaoCampanha doacao = new DoacaoCampanha() {
-                           Campanha = campanha,
+                        DoacaoCampanha doacao = new DoacaoCampanha()
+                        {
+                            Campanha = campanha,
                             Doador = usuario,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
-                            DoacaoConfirmada = confirmado};
+                            DoacaoConfirmada = confirmado
+                        };
                         if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
                             doacao.RespostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
                         doacoes.Add(doacao);
@@ -155,11 +157,11 @@ namespace prjUmaCausaTcc.Logicas
             return doacoes;
         }
 
-        public List<DoacaoCampanha> ListarDoacoesCampanhaNaoConfirmadas(int codigoOng)
+        public List<DoacaoCampanha> ListarDoacoesCampanhasMonetariasNaoConfirmadas(int codigoOng)
         {
             List<DoacaoCampanha> doacoes = new List<DoacaoCampanha>();
             List<Parametro> parametros = new List<Parametro>();
-            Parametro parametro1 = new Parametro("pIdUsuario", codigoOng.ToString());
+            Parametro parametro1 = new Parametro("pIdUsuarioOng", codigoOng.ToString());
             parametros.Add(parametro1);
             try
             {
@@ -177,6 +179,108 @@ namespace prjUmaCausaTcc.Logicas
                             Doador = doador,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
+                        };
+                        doacoes.Add(doacao);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception("Houve um problema a realizar a busca");
+            }
+            finally { Desconectar(); }
+            return doacoes;
+        }
+
+        public List<DoacaoCampanha> ListarDoacoesCampanhasItensNaoConfirmadas(int codigoOng)
+        {
+            List<DoacaoCampanha> doacoes = new List<DoacaoCampanha>();
+            List<Parametro> parametros = new List<Parametro>();
+            Parametro parametro1 = new Parametro("pIdUsuarioOng", codigoOng.ToString());
+            parametros.Add(parametro1);
+            try
+            {
+                MySqlDataReader dados = Consultar("BuscarDoacoesCampanhaItensNaoConfirmadas", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        Usuario doador = new Usuario(dados.GetString("nm_usuario"));
+                        Campanha campanha = new Campanha();
+                        campanha.BuscarCampanha(dados.GetInt32("id_campanha"));
+                        TipoItem tipoitem = new TipoItem(dados.GetString("nm_tipoItem"));
+                        DoacaoCampanha doacao = new DoacaoCampanha()
+                        {
+                            Campanha = campanha,
+                            Doador = doador,
+                            TipoItem = tipoitem,
+                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
+                            QuantidadeDoado = dados.GetString("qt_doado"),
+                        };
+                        doacoes.Add(doacao);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception("Houve um problema a realizar a busca");
+            }
+            finally { Desconectar(); }
+            return doacoes;
+        }
+        public List<DoacaoMonetaria> ListarDoacoesMonetariasNaoConfirmadas(int codigoOng)
+        {
+
+            List<DoacaoMonetaria> doacoes = new List<DoacaoMonetaria>();
+            List<Parametro> parametros = new List<Parametro>();
+            Parametro parametro1 = new Parametro("pIdUsuario", codigoOng.ToString());
+            parametros.Add(parametro1);
+            try
+            {
+                MySqlDataReader dados = Consultar("BuscarDoacoesMonetariasNaoConfirmadas", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        Usuario doador = new Usuario(dados.GetString("nm_usuario"));
+                        DoacaoMonetaria doacao = new DoacaoMonetaria()
+                        {
+                            Doador = doador,
+                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
+                            ValorDoacao = dados.GetDouble("vl_monetario"),
+                        };
+                        doacoes.Add(doacao);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception("Houve um problema a realizar a busca");
+            }
+            finally { Desconectar(); }
+            return doacoes;
+        }
+        public List<DoacaoItem> ListarDoacoesItensNaoConfirmadas(int codigoOng)
+        {
+            List<DoacaoItem> doacoes = new List<DoacaoItem>();
+            List<Parametro> parametros = new List<Parametro>();
+            Parametro parametro1 = new Parametro("pIdUsuario", codigoOng.ToString());
+            parametros.Add(parametro1);
+            try
+            {
+                MySqlDataReader dados = Consultar("BuscarDoacoesItensNaoConfirmadas", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        Usuario doador = new Usuario(dados.GetString("nm_usuario"));
+                        DoacaoItem doacao = new DoacaoItem()
+                        {
+                            Doador = doador,
+                            NomeItem = dados.GetString("nm_item"),
+                            Quantidade = dados.GetString("qt_item"),
+                            DataDesejada = dados.GetString("dt_doacao"),
+                            HorarioDesejado = dados.GetString("hr_doacao"),
                         };
                         doacoes.Add(doacao);
                     }

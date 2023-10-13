@@ -22,17 +22,63 @@ namespace prjUmaCausaTcc.pages.configuracoes
             Menu.Text = menu;
             Colaboracoes colaboracoes = new Colaboracoes();
             int codigo = usuario.Codigo;
-            foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhaNaoConfirmadas(codigo))
+            foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasMonetariasNaoConfirmadas(codigo))
             {  
                 Confirmacoes.Text += $@"<div class='confirmacao'>
-              < div class='infos-confirmacao'>
-                <p>Doador: {doacao.Doador.Nome}</p>
-                <p>Valor: R${doacao.QuantidadeDoado}</p>
-                <p>Data: {doacao.DataDoacao} - Horário: HH:mm</p>
+              <div class='infos-confirmacao'>
+                    <p>Doador: {doacao.Doador.Nome}</p>
+                    <p>Item: Monetário</p>
+                    <p>Valor: R${doacao.QuantidadeDoado}</p>
+                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)} - Horário: HH:mm</p>
               </div>
               <div class='botoes-confirmacao'>
-                <img src = './../../images/icons/confirmado.png' alt=''>
-                <img src = './../../images/icons/recusar.png' alt=''>
+                    <img src = './../../images/icons/confirmado.png' alt=''>
+                    <img src = './../../images/icons/recusar.png' alt=''>
+              </div>
+            </div>";
+            }
+            foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasItensNaoConfirmadas(codigo))
+            {
+                Confirmacoes.Text += $@"<div class='confirmacao'>
+              <div class='infos-confirmacao'>
+                    <p>Doador: {doacao.Doador.Nome}</p>
+                    <p>Item: {doacao.TipoItem.Nome}</p>
+                    <p>Quantidader: {doacao.QuantidadeDoado}</p>
+                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)} - Horário: HH:mm</p>
+              </div>
+              <div class='botoes-confirmacao'>
+                    <img src = './../../images/icons/confirmado.png' alt=''>
+                    <img src = './../../images/icons/recusar.png' alt=''>
+              </div>
+            </div>";
+            }
+            foreach (DoacaoMonetaria doacao in colaboracoes.ListarDoacoesMonetariasNaoConfirmadas(codigo))
+            {
+                Confirmacoes.Text += $@"<div class='confirmacao'>
+              <div class='infos-confirmacao'>
+                    <p>Doador: {doacao.Doador.Nome}</p>
+                    <p>Item: Monetário</p>
+                    <p>Quantidader: R${doacao.ValorDoacao}</p>
+                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)} - Horário: HH:mm</p>
+              </div>
+              <div class='botoes-confirmacao'>
+                    <img src = './../../images/icons/confirmado.png' alt=''>
+                    <img src = './../../images/icons/recusar.png' alt=''>
+              </div>
+            </div>";
+            }
+            foreach (DoacaoItem doacao in colaboracoes.ListarDoacoesItensNaoConfirmadas(codigo))
+            {
+                Confirmacoes.Text += $@"<div class='confirmacao'>
+              <div class='infos-confirmacao'>
+                    <p>Doador: {doacao.Doador.Nome}</p>
+                    <p>Item: {doacao.NomeItem}</p>
+                    <p>Quantidader: {doacao.Quantidade}</p>
+                    <p>Data: {doacao.DataDesejada.ToString().Substring(0, 10)} - Horário: {doacao.HorarioDesejado.ToString().Substring(0, 5)}</p>
+              </div>
+              <div class='botoes-confirmacao'>
+                    <img src = './../../images/icons/confirmado.png' alt=''>
+                    <img src = './../../images/icons/recusar.png' alt=''>
               </div>
             </div>";
             }

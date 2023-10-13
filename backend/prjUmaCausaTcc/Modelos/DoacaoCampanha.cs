@@ -13,8 +13,9 @@ public class DoacaoCampanha
     public string QuantidadeDoado { get; set; }
     public bool DoacaoConfirmada { get; set; }
     public DateTime RespostaOng { get; set; }
+    public TipoItem TipoItem { get; set; }
 
-    public DoacaoCampanha(Campanha campanha, Usuario doador, DateTime dataDoacao, string quantidadeDoado, bool doacaoConfirmada, DateTime respostaOng)
+    public DoacaoCampanha(Campanha campanha, Usuario doador, DateTime dataDoacao, string quantidadeDoado, bool doacaoConfirmada, DateTime respostaOng, TipoItem tipoItem)
     {
         Campanha = campanha;
         Doador = doador;
@@ -22,6 +23,7 @@ public class DoacaoCampanha
         QuantidadeDoado = quantidadeDoado;
         DoacaoConfirmada = doacaoConfirmada;
         RespostaOng = respostaOng;
+        TipoItem = tipoItem;
     }
 
     public DoacaoCampanha()
