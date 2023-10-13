@@ -23,7 +23,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
             Colaboracoes colaboracoes = new Colaboracoes();
             int codigo = usuario.Codigo;
             foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasMonetariasNaoConfirmadas(codigo))
-            {  
+            {
                 Confirmacoes.Text += $@"<div class='confirmacao'>
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
@@ -81,7 +81,9 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     <img src = './../../images/icons/recusar.png' alt=''>
               </div>
             </div>";
+
             }
+
         }
     }
-}
+}    

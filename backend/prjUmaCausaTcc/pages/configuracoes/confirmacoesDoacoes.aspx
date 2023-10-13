@@ -93,23 +93,23 @@
             </div>
             <div class="filtros">
               <img src="./../../images/icons/confirmacao.png" alt="" />Doações
-              já confirmadas
+               já confirmadas
             </div>
           </div>
             <div class="confirmacoes">
-                <asp:Literal ID="Confirmacoes" runat="server"></asp:Literal>
+                <asp:Literal ID="Confirmacoes" runat="server" ></asp:Literal>
          
-                <%--<div class="confirmacao">
+                <div class="confirmacao">
                       <div class="infos-confirmacao">
                             <p>Doador: Laura Felice Costa Bezerra</p>
                             <p>Valor: R$10,00</p>
                             <p>Data: dd/mm/aa - Horário: HH:mm</p>
                       </div>
                       <div class="botoes-confirmacao">
-                            <img src="./../../images/icons/confirmado.png" alt="">
-                            <img src="./../../images/icons/recusar.png" alt="">
+                            <img src="./../../images/icons/confirmado.png" alt="">                       
+                            <img src="./../../images/icons/recusar.png" alt="">               
                       </div>
-                </div>--%>
+                </div>
         </div>
       </div>
     </main>
