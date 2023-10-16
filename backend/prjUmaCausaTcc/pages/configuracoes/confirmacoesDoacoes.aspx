@@ -88,28 +88,28 @@
         <div class="infos">
           <div class="filtro-confirmacoes">
             <div class="filtros">
-              <img src="./../../images/icons/confirmacao.png" alt="" />Doações à
-              confirmar
+                <asp:ImageButton ID="BtnNaoConfirmadas" runat="server" src="./../../images/icons/confirmacao.png" OnClick="BtnNaoConfirmadas_Click"/>Doações à confirmar
             </div>
             <div class="filtros">
-              <img src="./../../images/icons/confirmacao.png" alt="" />Doações
-               já confirmadas
+                <asp:ImageButton ID="BtnJaConfirmadas" runat="server" src="./../../images/icons/confirmacao.png" OnClick="BtnJaConfirmadas_Click"/>Doações já confirmadas
             </div>
           </div>
-            <div class="confirmacoes">
-                <asp:Literal ID="Confirmacoes" runat="server" ></asp:Literal>
+            <asp:Panel ID="PnlConfirmacoes" runat="server">
+                <div class="confirmacoes">
+                    <asp:Literal ID="Confirmacoes" runat="server" ></asp:Literal>
          
-                <div class="confirmacao">
-                      <div class="infos-confirmacao">
-                            <p>Doador: Laura Felice Costa Bezerra</p>
-                            <p>Valor: R$10,00</p>
-                            <p>Data: dd/mm/aa - Horário: HH:mm</p>
-                      </div>
-                      <div class="botoes-confirmacao">
-                            <img src="./../../images/icons/confirmado.png" alt="">                       
-                            <img src="./../../images/icons/recusar.png" alt="">               
-                      </div>
-                </div>
+                    <%--<div class="confirmacao">
+                          <div class="infos-confirmacao">
+                                <p>Doador: Laura Felice Costa Bezerra</p>
+                                <p>Valor: R$10,00</p>
+                                <p>Data: dd/mm/aa - Horário: HH:mm</p>
+                          </div>
+                          <div class="botoes-confirmacao">
+                                <img src="./../../images/icons/confirmado.png" alt="">                       
+                                <img src="./../../images/icons/recusar.png" alt="">               
+                          </div>
+                    </div>--%>
+              </asp:Panel>
         </div>
       </div>
     </main>

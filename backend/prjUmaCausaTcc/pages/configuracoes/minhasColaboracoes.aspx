@@ -96,7 +96,7 @@
           </div>
           <table>
             <thead>
-              <td>Campanha</td>
+              <td>Nome</td>
               <td>Tipo</td>
               <td>Quantidade</td>
               <td>Data da colaboração</td>

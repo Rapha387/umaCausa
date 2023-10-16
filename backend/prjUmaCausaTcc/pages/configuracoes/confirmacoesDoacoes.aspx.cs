@@ -12,6 +12,11 @@ namespace prjUmaCausaTcc.pages.configuracoes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request["pagina"] == "1")
+            {
+                PnlConfirmacoes.Visible = false;
+            }
+
             GerarEmentosHtml gerarElementosHtml = new GerarEmentosHtml();
             Usuario usuario = (Usuario)Session["usuario"];
             string nav = gerarElementosHtml.MudarNavegacao(true, 1);
@@ -22,9 +27,9 @@ namespace prjUmaCausaTcc.pages.configuracoes
             Menu.Text = menu;
             Colaboracoes colaboracoes = new Colaboracoes();
             int codigo = usuario.Codigo;
-            foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasMonetariasNaoConfirmadas(codigo))
-            {
-                Confirmacoes.Text += $@"<div class='confirmacao'>
+                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasMonetariasNaoConfirmadas(codigo))
+                {
+                    Confirmacoes.Text += $@"<div class='confirmacao'>
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
                     <p>Item: Monetário</p>
@@ -36,10 +41,10 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     <img src = './../../images/icons/recusar.png' alt=''>
               </div>
             </div>";
-            }
-            foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasItensNaoConfirmadas(codigo))
-            {
-                Confirmacoes.Text += $@"<div class='confirmacao'>
+                }
+                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasItensNaoConfirmadas(codigo))
+                {
+                    Confirmacoes.Text += $@"<div class='confirmacao'>
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
                     <p>Item: {doacao.TipoItem.Nome}</p>
@@ -51,10 +56,10 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     <img src = './../../images/icons/recusar.png' alt=''>
               </div>
             </div>";
-            }
-            foreach (DoacaoMonetaria doacao in colaboracoes.ListarDoacoesMonetariasNaoConfirmadas(codigo))
-            {
-                Confirmacoes.Text += $@"<div class='confirmacao'>
+                }
+                foreach (DoacaoMonetaria doacao in colaboracoes.ListarDoacoesMonetariasNaoConfirmadas(codigo))
+                {
+                    Confirmacoes.Text += $@"<div class='confirmacao'>
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
                     <p>Item: Monetário</p>
@@ -66,10 +71,10 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     <img src = './../../images/icons/recusar.png' alt=''>
               </div>
             </div>";
-            }
-            foreach (DoacaoItem doacao in colaboracoes.ListarDoacoesItensNaoConfirmadas(codigo))
-            {
-                Confirmacoes.Text += $@"<div class='confirmacao'>
+                }
+                foreach (DoacaoItem doacao in colaboracoes.ListarDoacoesItensNaoConfirmadas(codigo))
+                {
+                    Confirmacoes.Text += $@"<div class='confirmacao'>
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
                     <p>Item: {doacao.NomeItem}</p>
@@ -81,9 +86,20 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     <img src = './../../images/icons/recusar.png' alt=''>
               </div>
             </div>";
+                }
+        }
 
-            }
+        protected void BtnJaConfirmadas_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("confirmacoesDoacoes.aspx?pagina=1");
+            
+        }
 
+        protected void BtnNaoConfirmadas_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("confirmacoesDoacoes.aspx");
+            Response.Redirect("confirmacoesDoacoes.aspx");
         }
     }
+    
 }    
