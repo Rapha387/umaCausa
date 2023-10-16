@@ -12,10 +12,6 @@ namespace prjUmaCausaTcc.pages.configuracoes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request["pagina"] == "1")
-            {
-                PnlConfirmacoes.Visible = false;
-            }
 
             GerarEmentosHtml gerarElementosHtml = new GerarEmentosHtml();
             Usuario usuario = (Usuario)Session["usuario"];
@@ -27,14 +23,106 @@ namespace prjUmaCausaTcc.pages.configuracoes
             Menu.Text = menu;
             Colaboracoes colaboracoes = new Colaboracoes();
             int codigo = usuario.Codigo;
-                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasMonetariasNaoConfirmadas(codigo))
+
+            if (Request["pagina"] == "1")
+            {
+                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasMonetariasConfirmadasOuNao(codigo, true))
                 {
+                    Confirmacoes.Text = "";
+                    string estado = "";
+                    if (doacao.DoacaoConfirmada == true)
+                    {
+                        estado = "Aceita";
+                    }
+                    else
+                    {
+                        estado = "Recusada";
+                    }
                     Confirmacoes.Text += $@"<div class='confirmacao'>
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
                     <p>Item: Monetário</p>
                     <p>Valor: R${doacao.QuantidadeDoado}</p>
-                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)} - Horário: HH:mm</p>
+                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
+                    <p>Estado: {estado}</p>
+              </div>
+            </div>";
+                }
+                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasItensConfirmadasOuNao(codigo, true))
+                {
+                    string estado = "";
+                    if (doacao.DoacaoConfirmada == true)
+                    {
+                        estado = "Aceita";
+                    }
+                    else
+                    {
+                        estado = "Recusada";
+                    }
+                    Confirmacoes.Text += $@"<div class='confirmacao'>
+              <div class='infos-confirmacao'>
+                    <p>Doador: {doacao.Doador.Nome}</p>
+                    <p>Item: {doacao.TipoItem.Nome}</p>
+                    <p>Quantidader: {doacao.QuantidadeDoado}</p>
+                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
+                    <p>Estado: {estado}</p>
+              </div>
+            </div>";
+                }
+                foreach (DoacaoMonetaria doacao in colaboracoes.ListarDoacoesMonetariasConfirmadasOuNao(codigo, true))
+                {
+                    string estado = "";
+                    if (doacao.DoacaoConfirmada == true)
+                    {
+                        estado = "Aceita";
+                    }
+                    else
+                    {
+                        estado = "Recusada";
+                    }
+                    Confirmacoes.Text += $@"<div class='confirmacao'>
+              <div class='infos-confirmacao'>
+                    <p>Doador: {doacao.Doador.Nome}</p>
+                    <p>Item: Monetário</p>
+                    <p>Quantidader: R${doacao.ValorDoacao}</p>
+                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
+                    <p>Estado: {estado}</p>
+              </div>
+            </div>";
+                }
+                foreach (DoacaoItem doacao in colaboracoes.ListarDoacoesItensConfirmadasOuNao(codigo, true))
+                {
+                    string estado = "";
+                    if (doacao.DoacaoConfirmada == true)
+                    {
+                        estado = "Aceita";
+                    }
+                    else
+                    {
+                        estado = "Recusada";
+                    }
+                    Confirmacoes.Text += $@"<div class='confirmacao'>
+              <div class='infos-confirmacao'>
+                    <p>Doador: {doacao.Doador.Nome}</p>
+                    <p>Item: {doacao.NomeItem}</p>
+                    <p>Quantidader: {doacao.Quantidade}</p>
+                    <p>Data: {doacao.DataDesejada.ToString().Substring(0, 10)} - Horário: {doacao.HorarioDesejado.ToString().Substring(0, 5)}</p>
+                    <p>Estado: {estado}</p>
+              </div>
+            </div>";
+                }
+            }
+            else
+            {
+                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasMonetariasConfirmadasOuNao(codigo, false))
+                {
+                    Confirmacoes.Text = "";
+                    Confirmacoes.Text += $@"<div class='confirmacao'>
+              <div class='infos-confirmacao'>
+                    <p>Doador: {doacao.Doador.Nome}</p>
+                    <p>Item: Monetário</p>
+                    <p>Valor: R${doacao.QuantidadeDoado}</p>
+                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
               </div>
               <div class='botoes-confirmacao'>
                     <img src = './../../images/icons/confirmado.png' alt=''>
@@ -42,14 +130,14 @@ namespace prjUmaCausaTcc.pages.configuracoes
               </div>
             </div>";
                 }
-                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasItensNaoConfirmadas(codigo))
+                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasItensConfirmadasOuNao(codigo, false))
                 {
                     Confirmacoes.Text += $@"<div class='confirmacao'>
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
                     <p>Item: {doacao.TipoItem.Nome}</p>
                     <p>Quantidader: {doacao.QuantidadeDoado}</p>
-                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)} - Horário: HH:mm</p>
+                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
               </div>
               <div class='botoes-confirmacao'>
                     <img src = './../../images/icons/confirmado.png' alt=''>
@@ -57,14 +145,14 @@ namespace prjUmaCausaTcc.pages.configuracoes
               </div>
             </div>";
                 }
-                foreach (DoacaoMonetaria doacao in colaboracoes.ListarDoacoesMonetariasNaoConfirmadas(codigo))
+                foreach (DoacaoMonetaria doacao in colaboracoes.ListarDoacoesMonetariasConfirmadasOuNao(codigo, false))
                 {
                     Confirmacoes.Text += $@"<div class='confirmacao'>
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
                     <p>Item: Monetário</p>
                     <p>Quantidader: R${doacao.ValorDoacao}</p>
-                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)} - Horário: HH:mm</p>
+                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
               </div>
               <div class='botoes-confirmacao'>
                     <img src = './../../images/icons/confirmado.png' alt=''>
@@ -72,7 +160,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
               </div>
             </div>";
                 }
-                foreach (DoacaoItem doacao in colaboracoes.ListarDoacoesItensNaoConfirmadas(codigo))
+                foreach (DoacaoItem doacao in colaboracoes.ListarDoacoesItensConfirmadasOuNao(codigo, false))
                 {
                     Confirmacoes.Text += $@"<div class='confirmacao'>
               <div class='infos-confirmacao'>
@@ -87,18 +175,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
               </div>
             </div>";
                 }
-        }
-
-        protected void BtnJaConfirmadas_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("confirmacoesDoacoes.aspx?pagina=1");
-            
-        }
-
-        protected void BtnNaoConfirmadas_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("confirmacoesDoacoes.aspx");
-            Response.Redirect("confirmacoesDoacoes.aspx");
+            }  
         }
     }
     

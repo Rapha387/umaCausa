@@ -120,6 +120,7 @@ thead td {
   align-items: center;
   gap: 5px;
   cursor: pointer;
+  color: black;
 }
 
 .confirmacoes {

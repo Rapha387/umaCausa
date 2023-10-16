@@ -87,14 +87,16 @@
       <div class="infos-configuracoes">
         <div class="infos">
           <div class="filtro-confirmacoes">
-            <div class="filtros">
-                <asp:ImageButton ID="BtnNaoConfirmadas" runat="server" src="./../../images/icons/confirmacao.png" OnClick="BtnNaoConfirmadas_Click"/>Doações à confirmar
-            </div>
-            <div class="filtros">
-                <asp:ImageButton ID="BtnJaConfirmadas" runat="server" src="./../../images/icons/confirmacao.png" OnClick="BtnJaConfirmadas_Click"/>Doações já confirmadas
-            </div>
+           <a href="confirmacoesDoacoes.aspx"><div class="filtros">
+              <img src="./../../images/icons/confirmacao.png" alt="" />Doações à
+              confirmar
+            </div></a>
+            <a href="confirmacoesDoacoes.aspx?pagina=1"><div class="filtros">
+              <img src="./../../images/icons/confirmacao.png" alt="" />Doações
+              já confirmadas
+            </div></a>
           </div>
-            <asp:Panel ID="PnlConfirmacoes" runat="server">
+            
                 <div class="confirmacoes">
                     <asp:Literal ID="Confirmacoes" runat="server" ></asp:Literal>
          
@@ -109,7 +111,6 @@
                                 <img src="./../../images/icons/recusar.png" alt="">               
                           </div>
                     </div>--%>
-              </asp:Panel>
         </div>
       </div>
     </main>
