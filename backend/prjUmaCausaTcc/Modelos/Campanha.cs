@@ -82,7 +82,6 @@ public class Campanha : Banco
         set { _quantidadeDenuncias = value; }
     }
 
-    public CategoriaCampanha Categoria { get; set; }
     public Usuario ONG { get; set; }
     public TipoItem TipoItemArrecadado { get; set; }
     #endregion
@@ -99,7 +98,6 @@ public class Campanha : Banco
             new Parametro ("pQtMeta", meta.ToString()),
             new Parametro ("pImgBannerCampanha",banner),
             new Parametro ("pIdUsuario", usuario.Codigo.ToString()),
-            new Parametro ("pIdCategoriaCampanha",categoria.Codigo.ToString()),
             new Parametro ("pIdTipoItem", tipo.Codigo.ToString())
         };
         try
@@ -181,7 +179,14 @@ public class Campanha : Banco
                     QuantidadeMeta = dados.GetDouble("qt_meta");
                     PorcentagemArrecadado = dados.GetDouble("perc");
                     TipoItemArrecadado = new TipoItem() { Codigo = dados.GetInt32("id_tipoItem"), Nome = dados.GetString("nm_tipoItem") };
+<<<<<<< HEAD
                     ONG = new Usuario() { Codigo = dados.GetInt32("id_usuario") };
+=======
+                    ONG = new Usuario() {
+                        Codigo = dados.GetInt32("id_usuario"),
+                        Nome = dados.GetString("nm_usuario"),
+                    };
+>>>>>>> origin/gemeos
                 }
             }
 

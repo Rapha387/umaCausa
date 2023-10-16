@@ -7,11 +7,14 @@ using System.Web;
 public class DoacaoMonetaria : Banco
 {
     #region Propriedades
+    public Usuario ONG { get; set; }
     public Usuario Doador { get; set; }
     public double ValorDoacao { get; set; }
     public DateTime DataDoacao { get; set; }
     public int CodigoComprovante { get; set; }  
     public int CodigoDoacao { get; set; }   
+    public DateTime respostaOng { get; set; }
+    public bool DoacaoConfirmada { get; set; }
     #endregion
 
     #region Metodos

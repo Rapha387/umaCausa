@@ -11,10 +11,11 @@ public class DoacaoItem : Banco
     public string NomeItem { get; set; }
     public DateTime DataDoacao { get; set; }
     public DateTime DataRecebimento { get; set; }
-    public int Quantidade { get; set; }
+    public string Quantidade { get; set; }
     public bool DoacaoConfirmada { get; set; }
     public TipoItem TipoItem { get; set; }
     public TipoEntrega TipoEntrega { get; set; }
+    public DateTime respostaOng { get; set; } 
 
     public string DataDesejada { get; set; }
     public string HorarioDesejado { get; set; }
@@ -23,7 +24,7 @@ public class DoacaoItem : Banco
 
     #region Metodos
 
-    public void CadastrarDoacaoItem(int doador, int ong, string nome, int quantidade, TipoItem tipo, TipoEntrega entrega, string dataDesejada, string horaDesejada)
+    public void CadastrarDoacaoItem(int doador, int ong, string nome, string quantidade, TipoItem tipo, TipoEntrega entrega, string dataDesejada, string horaDesejada)
     {
         List<Parametro> parametros = new List<Parametro>()
         {

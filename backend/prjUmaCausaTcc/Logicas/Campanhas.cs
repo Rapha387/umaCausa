@@ -248,6 +248,7 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
+<<<<<<< HEAD
         public int ListarIndiceCampanhas()
         {
             int indice = 0;
@@ -273,6 +274,44 @@ namespace prjUmaCausaTcc.Logicas
                 Desconectar();
             }
             return indice;
+=======
+
+        public List<Campanha> ListarDadosMinimosCampanhas(int codigo)
+        {
+            List<Campanha> campanhas = new List<Campanha>();
+            List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdUsuario", codigo.ToString())
+        };
+
+            try
+            {
+                MySqlDataReader dados = Consultar("BuscarDadosMinimosCampanhas", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        campanhas.Add(new Campanha()
+                        {
+                            DataInicio = dados.GetDateTime("dt_inicioCampanha"),
+                            Nome = dados.GetString("nm_campanha"),
+                            DataPrevistaFim = dados.GetDateTime("dt_fimEsperado"),
+                            QuantidadeMeta = dados.GetInt32("qt_meta")
+                        });
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Houve um problema a realizar a busca");
+            }
+            finally { Desconectar(); }
+
+            return campanhas;
+>>>>>>> origin/gemeos
         }
     }
 }
