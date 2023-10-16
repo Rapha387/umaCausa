@@ -187,27 +187,69 @@
               <div class="input-label">
                   <label for="">Dias Disponíveis:</label>
                   <asp:Panel ID="pnlDiasDisponiveis" runat="server">
-<%--                      <asp:Panel ID="pnlDia1" CssClass="pnlCheckBox" runat="server">
-                          <asp:CheckBox ID="chkDia1" runat="server" Text="Domingo"/>
+                      <asp:Panel ID="pnlDia1" CssClass="pnlCheckBox" runat="server">
+                          <div class="pnlCheckBoxDia">
+                            <asp:CheckBox ID="chkDia1" runat="server" Text="Domingo"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia1" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia1" runat="server"></asp:TextBox>
+                          </div>
                       </asp:Panel>
                       <asp:Panel ID="pnlDia2" CssClass="pnlCheckBox" runat="server">
-                          <asp:CheckBox ID="chkDia2" runat="server" Text="Segunda"/>
+                          <div class="pnlCheckBoxDia">
+                            <asp:CheckBox ID="chkDia2" runat="server" Text="Segunda"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia2" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia2" runat="server"></asp:TextBox>
+                          </div>
                       </asp:Panel>
                       <asp:Panel ID="pnlDia3" CssClass="pnlCheckBox" runat="server">
-                          <asp:CheckBox ID="chkDia3" runat="server" Text="Terça"/>
+                          <div class="pnlCheckBoxDia">
+                              <asp:CheckBox ID="chkDia3" runat="server" Text="Terça"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia3" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia3" runat="server"></asp:TextBox>
+                          </div>
                       </asp:Panel>
                       <asp:Panel ID="pnlDia4" CssClass="pnlCheckBox" runat="server">
-                          <asp:CheckBox ID="chkDia4" runat="server" Text="Quarta"/>
+                          <div class="pnlCheckBoxDia">
+                              <asp:CheckBox ID="chkDia4" runat="server" Text="Quarta"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia4" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia4" runat="server"></asp:TextBox>
+                          </div>
                       </asp:Panel>
                       <asp:Panel ID="pnlDia5" CssClass="pnlCheckBox" runat="server">
-                          <asp:CheckBox ID="chkDia5" runat="server" Text="Quinta"/>
+                          <div class="pnlCheckBoxDia">
+                              <asp:CheckBox ID="chkDia5" runat="server" Text="Quinta"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia5" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia5" runat="server"></asp:TextBox>
+                          </div>
                       </asp:Panel>
                       <asp:Panel ID="pnlDia6" CssClass="pnlCheckBox" runat="server">
-                          <asp:CheckBox ID="chkDia6" runat="server" Text="Sexta"/>
+                          <div class="pnlCheckBoxDia">
+                              <asp:CheckBox ID="chkDia6" runat="server" Text="Sexta"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia6" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia6" runat="server"></asp:TextBox>
+                          </div>
                       </asp:Panel>
                       <asp:Panel ID="pnlDia7" CssClass="pnlCheckBox" runat="server">
-                          <asp:CheckBox ID="chkDia7" runat="server" Text="Sábado"/>
-                      </asp:Panel>--%>
+                          <div class="pnlCheckBoxDia">
+                              <asp:CheckBox ID="chkDia7" runat="server" Text="Sábado"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia7" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia" runat="server"></asp:TextBox>
+                          </div>
+                      </asp:Panel>
                   </asp:Panel>
               </div>
 

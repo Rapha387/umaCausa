@@ -395,15 +395,15 @@ main {
     overflow-y: auto;
 }
 
-#pnlCategorias::-webkit-scrollbar, #pnlItensAceitos::-webkit-scrollbar{
+#pnlCategorias::-webkit-scrollbar, #pnlItensAceitos::-webkit-scrollbar, #pnlDiasDisponiveis::-webkit-scrollbar{
     width:8px
 }
 
-#pnlItensAceitos::-webkit-scrollbar-track, #pnlCategorias::-webkit-scrollbar-track{
+#pnlItensAceitos::-webkit-scrollbar-track, #pnlCategorias::-webkit-scrollbar-track, #pnlDiasDisponiveis::-webkit-scrollbar-track{
     background-color: #f3f3f3;
 }
 
-#pnlItensAceitos::-webkit-scrollbar-thumb,#pnlCategorias::-webkit-scrollbar-thumb  {
+#pnlItensAceitos::-webkit-scrollbar-thumb,#pnlCategorias::-webkit-scrollbar-thumb,#pnlDiasDisponiveis::-webkit-scrollbar-thumb   {
     background-color: #d3d3d3;
     border-radius: 20px;
     border: 3px solid #d3d3d3;
@@ -413,7 +413,26 @@ main {
     display: flex;
     gap: 5px;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.pnlInputsDia {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.pnlInputsDia input{
+    padding: 3px;
+    height: 30px;
+    font-size: 14px;
+}
+
+.pnlCheckBoxDia {
+    width: 100px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
 }
 
 .pnlCheckBox label{

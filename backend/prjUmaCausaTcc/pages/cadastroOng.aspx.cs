@@ -69,38 +69,6 @@ namespace prjUmaCausaTcc.pages
 
                 var listaDias = dias.ListarDias();
 
-                foreach(Dia dia in listaDias)
-                {
-                    Panel pnlCheck = new Panel();
-                    Panel pnlInputs = new Panel();
-                    Panel pnlDia = new Panel();
-                    CheckBox chk = new CheckBox();
-                    TextBox txtComeco = new TextBox();
-                    TextBox txtFim = new TextBox();
-
-                    chk.ID = "chkDia" + dia.Codigo.ToString();
-                    chk.Text = dia.Nome;
-                    txtComeco.ID = "txtComecoDia" + dia.Codigo;
-                    txtFim.ID = "txtFimDia" + dia.Codigo;
-
-                    pnlCheck.CssClass = "pnlCheckBox";
-                    pnlCheck.ID = "pnlChkDia" + dia.Codigo.ToString();
-                    pnlCheck.Controls.Add(chk);
-
-                    pnlInputs.ID = "pnlInputsDia" + dia.Codigo.ToString();
-                    pnlInputs.CssClass = "pnlCheckBox";
-                    pnlInputs.Controls.Add(txtComeco);
-                    pnlInputs.Controls.Add(txtFim);
-
-                    pnlDia.ID = "pnlDia" + dia.Codigo.ToString();
-                    pnlDia.CssClass = "pnlCheckBox";
-
-                    pnlDia.Controls.Add(pnlCheck);
-                    pnlDia.Controls.Add(pnlInputs);
-
-                    pnlDiasDisponiveis.Controls.Add(pnlDia);
-                }
-
             }
             catch(Exception ex)
             {
