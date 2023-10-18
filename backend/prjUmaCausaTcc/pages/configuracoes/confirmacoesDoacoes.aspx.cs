@@ -19,8 +19,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             GerarEmentosHtml gerarElementosHtml = new GerarEmentosHtml();
             Usuario usuario = (Usuario)Session["usuario"];
-            string nav = gerarElementosHtml.MudarNavegacao(true, 1);
-            string footer = gerarElementosHtml.GerarFooter();
+            string nav = gerarElementosHtml.GerarHeaderConfiguracoes(usuario);
+            string footer = gerarElementosHtml.GerarFooterConfiguracoes();
             string menu = gerarElementosHtml.GerarMenu(usuario);
             Footer.Text = footer;
             Navegacao.Text = nav;

@@ -36,21 +36,24 @@
                 <asp:DropDownList ID="ddlCategoria" AutoPostBack="true" OnTextChanged="ddlCategoria_TextChanged" runat="server">
                   <asp:ListItem selected="True" hidden>Categoria</asp:ListItem>
               </asp:DropDownList>
-                <select name="DataCricacao" id="">
-                  <option value="DataCricacao">Data de Criação</option>
-                </select>
+              <asp:DropDownList ID="ddlTipo" AutoPostBack="true" OnTextChanged="ddlTipo_TextChanged" runat="server">
+                  <asp:ListItem selected="True" hidden>Tipo</asp:ListItem>
+              </asp:DropDownList>
+            <asp:DropDownList ID="ddlData" AutoPostBack="true" OnTextChanged="ddlData_TextChanged" runat="server">
+            <asp:ListItem selected="True" hidden>Data de Criação</asp:ListItem>
+        </asp:DropDownList>
               </div>
             </div>
             <div class="campanhas">
               <h2>CAMPANHAS</h2>
               <div class="campanhas-flex">
                 <asp:Literal ID="litCampanhas" runat="server"></asp:Literal>
+              </div>
                 <div class="paginacao">
                    <asp:ImageButton ID="btnBack" OnClick="btnBack_Click" runat="server" ImageUrl="./../images/botoes/seta.png" CssClass="backButton itemPaginacao"></asp:ImageButton>
                    <asp:Literal ID="litItemPaginacao" runat="server"></asp:Literal>
                    <asp:ImageButton ID="btnNext" OnClick="btnNext_Click" runat="server" ImageUrl="./../images/botoes/seta.png" CssClass="nextButton itemPaginacao"> </asp:ImageButton>
                 </div>
-              </div>
             </div>
           </main>
 

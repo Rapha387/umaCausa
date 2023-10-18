@@ -250,9 +250,6 @@ public class GerarEmentosHtml
                             <p><a href='./faq.aspx'>FAQ</a></p>
                           </div>
                         </nav>";
-<<<<<<< HEAD
-        return footer;
-=======
             return footer;
         }
     public string GerarMenu(Usuario usuario) {
@@ -352,9 +349,7 @@ public class GerarEmentosHtml
             return nav;
         }
     }
- 
->>>>>>> origin/gemeos
-    }
+    
 
     public string GerarFooterConfiguracoes()
     {

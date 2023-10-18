@@ -350,8 +350,6 @@ public class Usuario : Banco
                 Complemento = dados["nm_complemento"].ToString();
                 Latitude = dados["nm_lat"].ToString();
                 Longitude = dados["nm_log"].ToString();
-<<<<<<< HEAD
-
                 CategoriasOng = new List<CategoriaOng>();
 
                 string categorias = dados["nm_categorias"].ToString();
@@ -369,10 +367,7 @@ public class Usuario : Banco
 
                     CategoriasOng.Add(categoriaOng);
                 }
-=======
                 PosssibilidadeBusca = bool.Parse(dados["ic_podeBuscar"].ToString());
- //               CategoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
->>>>>>> origin/gemeos
             }
             if (!dados.IsClosed)
                 dados.Close();

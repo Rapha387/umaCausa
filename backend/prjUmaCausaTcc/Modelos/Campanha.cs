@@ -179,14 +179,10 @@ public class Campanha : Banco
                     QuantidadeMeta = dados.GetDouble("qt_meta");
                     PorcentagemArrecadado = dados.GetDouble("perc");
                     TipoItemArrecadado = new TipoItem() { Codigo = dados.GetInt32("id_tipoItem"), Nome = dados.GetString("nm_tipoItem") };
-<<<<<<< HEAD
-                    ONG = new Usuario() { Codigo = dados.GetInt32("id_usuario") };
-=======
                     ONG = new Usuario() {
                         Codigo = dados.GetInt32("id_usuario"),
                         Nome = dados.GetString("nm_usuario"),
                     };
->>>>>>> origin/gemeos
                 }
             }
 
