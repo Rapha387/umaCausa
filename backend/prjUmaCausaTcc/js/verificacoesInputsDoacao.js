@@ -1,6 +1,4 @@
-﻿
-
-const txtNomeItem = document.getElementById("txtNomeItem");
+﻿const txtNomeItem = document.getElementById("txtNomeItem");
 const cmbTipoItem = document.getElementById("cmbTipoItem");
 const txtQuantidadeItem = document.getElementById("txtQuantidadeItem");
 const cmbTipoEntrega = document.getElementById("cmbTipoEntrega");
@@ -64,7 +62,6 @@ function VerificarDadosDoacaoMonetaria(event) {
         erroDoacaoMonetaria.textContent = "O comprovante de pagamento precisa ser anexado"
     }
 }
-
 
 function LimparInputsMonetario() {
     txtValor.classList.remove('inputInvalido');

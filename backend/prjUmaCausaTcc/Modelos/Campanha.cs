@@ -41,8 +41,8 @@ public class Campanha : Banco
         set { _dataInicio = value; }
     }
 
-    private DateTime _dataPrevistaFim;
-    public DateTime DataPrevistaFim
+    private string _dataPrevistaFim;
+    public string DataPrevistaFim
     {
         get => _dataPrevistaFim;
         set { _dataPrevistaFim = value; }
@@ -183,6 +183,7 @@ public class Campanha : Banco
                         Codigo = dados.GetInt32("id_usuario"),
                         Nome = dados.GetString("nm_usuario"),
                     };
+
                 }
             }
 

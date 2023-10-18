@@ -210,6 +210,7 @@
     <Content Include="JsonResponses\DoarItemOng.aspx" />
     <Content Include="JsonResponses\DoarMonetarioCampanha.aspx" />
     <Content Include="JsonResponses\DoarMonetarioOng.aspx" />
+    <Content Include="JsonResponses\VerificarUsuario.aspx" />
     <Content Include="js\alteracaoCoresBarraPorcentagem.js" />
     <Content Include="js\animarBtnHeader.js" />
     <Content Include="js\carrossel-itens.js" />
@@ -225,6 +226,7 @@
     <Content Include="js\selectPersonalizado.js" />
     <Content Include="js\verificacoesInputs.js" />
     <Content Include="js\verificacoesInputsDoacao.js" />
+    <Content Include="js\VerificarUsuario.js" />
     <Content Include="pages\cadastro.aspx" />
     <Content Include="pages\cadastroDoador.aspx" />
     <Content Include="pages\cadastroOng.aspx" />
@@ -332,6 +334,13 @@
     </Compile>
     <Compile Include="JsonResponses\DoarMonetarioOng.aspx.designer.cs">
       <DependentUpon>DoarMonetarioOng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JsonResponses\VerificarUsuario.aspx.cs">
+      <DependentUpon>VerificarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\VerificarUsuario.aspx.designer.cs">
+      <DependentUpon>VerificarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logicas\Campanhas.cs" />
     <Compile Include="Logicas\CapturarGeolocalizacao.cs" />

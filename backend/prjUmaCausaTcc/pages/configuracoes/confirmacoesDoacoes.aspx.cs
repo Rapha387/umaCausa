@@ -15,8 +15,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             GerarEmentosHtml gerarElementosHtml = new GerarEmentosHtml();
             Usuario usuario = (Usuario)Session["usuario"];
-            string nav = gerarElementosHtml.MudarNavegacao(true, 1);
-            string footer = gerarElementosHtml.GerarFooter();
+            string nav = gerarElementosHtml.GerarHeaderConfiguracoes(usuario);
+            string footer = gerarElementosHtml.GerarFooterConfiguracoes();
             string menu = gerarElementosHtml.GerarMenu(usuario);
             Footer.Text = footer;
             Navegacao.Text = nav;
@@ -63,7 +63,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
                     <p>Item: {doacao.TipoItem.Nome}</p>
-                    <p>Quantidader: {doacao.QuantidadeDoado}</p>
+                    <p>Quantidade: {doacao.QuantidadeDoado}</p>
                     <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                     <p>Estado: {estado}</p>
               </div>
@@ -84,7 +84,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
                     <p>Item: Monetário</p>
-                    <p>Quantidader: R${doacao.ValorDoacao}</p>
+                    <p>Quantidade: R${doacao.ValorDoacao}</p>
                     <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                     <p>Estado: {estado}</p>
               </div>
@@ -105,7 +105,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
                     <p>Item: {doacao.NomeItem}</p>
-                    <p>Quantidader: {doacao.Quantidade}</p>
+                    <p>Quantidade: {doacao.Quantidade}</p>
                     <p>Data: {doacao.DataDesejada.ToString().Substring(0, 10)} - Horário: {doacao.HorarioDesejado.ToString().Substring(0, 5)}</p>
                     <p>Estado: {estado}</p>
               </div>
@@ -116,6 +116,15 @@ namespace prjUmaCausaTcc.pages.configuracoes
             {
                 foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasMonetariasConfirmadasOuNao(codigo, false))
                 {
+                    //Panel pnlBotoes = new Panel();
+                    //ImageButton imagebuttonConfirmar = new ImageButton();
+                    //ImageButton imagebuttonRecusar = new ImageButton();
+
+                    //pnlBotoes.CssClass = "botoes-confirmacao";
+                    //imagebuttonConfirmar.ImageUrl = "./../../images/icons/confirmado.png";
+                    //imagebuttonRecusar.ImageUrl = "./../../images/icons/recusar.png";
+                    //imagebuttonConfirmar.ID =
+
                     Confirmacoes.Text = "";
                     Confirmacoes.Text += $@"<div class='confirmacao'>
               <div class='infos-confirmacao'>
@@ -125,10 +134,10 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
               </div>
               <div class='botoes-confirmacao'>
-                    <img src = './../../images/icons/confirmado.png' alt=''>
-                    <img src = './../../images/icons/recusar.png' alt=''>
-              </div>
-            </div>";
+                    <asp:ImageButton ID='ImgBtnConfirmar' runat='server' src='./../../images/icons/confirmado.png'/>           
+                    <asp:ImageButton ID='ImgBtnRecusar' runat='server' src='./../../images/icons/recusar.png' OnClick='ImgBtnRecusar_Click'/>
+                       </ div>
+                </div>";
                 }
                 foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasItensConfirmadasOuNao(codigo, false))
                 {
@@ -140,8 +149,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
               </div>
               <div class='botoes-confirmacao'>
-                    <img src = './../../images/icons/confirmado.png' alt=''>
-                    <img src = './../../images/icons/recusar.png' alt=''>
+                    <asp:ImageButton ID='ImgBtnConfirmar' runat='server' src='./../../images/icons/confirmado.png' OnClick='ImgBtnConfirmar_Click'/>           
+                    <asp:ImageButton ID='ImgBtnRecusar' runat='server' src='./../../images/icons/recusar.png' OnClick='ImgBtnRecusar_Click'/>
               </div>
             </div>";
                 }
@@ -151,12 +160,12 @@ namespace prjUmaCausaTcc.pages.configuracoes
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
                     <p>Item: Monetário</p>
-                    <p>Quantidader: R${doacao.ValorDoacao}</p>
+                    <p>Quantidade: R${doacao.ValorDoacao}</p>
                     <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
               </div>
               <div class='botoes-confirmacao'>
-                    <img src = './../../images/icons/confirmado.png' alt=''>
-                    <img src = './../../images/icons/recusar.png' alt=''>
+                    <asp:ImageButton ID='ImgBtnConfirmar' runat='server' src='./../../images/icons/confirmado.png' OnClick='ImgBtnConfirmar_Click'/>    
+                    <asp:ImageButton ID='ImgBtnRecusar' runat='server' src='./../../images/icons/recusar.png' OnClick='ImgBtnRecusar_Click'/>
               </div>
             </div>";
                 }
@@ -166,16 +175,26 @@ namespace prjUmaCausaTcc.pages.configuracoes
               <div class='infos-confirmacao'>
                     <p>Doador: {doacao.Doador.Nome}</p>
                     <p>Item: {doacao.NomeItem}</p>
-                    <p>Quantidader: {doacao.Quantidade}</p>
+                    <p>Quantidade: {doacao.Quantidade}</p>
                     <p>Data: {doacao.DataDesejada.ToString().Substring(0, 10)} - Horário: {doacao.HorarioDesejado.ToString().Substring(0, 5)}</p>
               </div>
               <div class='botoes-confirmacao'>
-                    <img src = './../../images/icons/confirmado.png' alt=''>
-                    <img src = './../../images/icons/recusar.png' alt=''>
+                    <asp:ImageButton ID='ImgBtnConfirmar' runat='server' src='./../../images/icons/confirmado.png' OnClick='ImgBtnConfirmar_Click'/>           
+                    <asp:ImageButton ID='ImgBtnRecusar' runat='server' src='./../../images/icons/recusar.png' OnClick='ImgBtnRecusar_Click'/>
               </div>
             </div>";
                 }
             }  
+        }
+
+        protected void ImgBtnConfirmar_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
+
+        protected void ImgBtnRecusar_Click(object sender, ImageClickEventArgs e)
+        {
+
         }
     }
     

@@ -16,7 +16,7 @@ namespace prjUmaCausaTcc.pages
         {
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
-            litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
+            litHeader.Text = gerarHtml.MudarNavegacao(null);
 
             if (Session["usuario"] != null)
                 Response.Redirect("index.aspx");
@@ -32,7 +32,7 @@ namespace prjUmaCausaTcc.pages
                 string senha = txtConfirmarSenha.Text;
                 string email = txtEmail.Text;
                 string telefone = txtTelefone.Text;
-                string cpf = txtIdentificacao.Text;
+                string cpf = txtCpf.Text;
                 string cep = txtCep.Text;
                 string uf = txtUF.Text;
                 string cidade = txtCidade.Text;

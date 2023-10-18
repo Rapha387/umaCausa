@@ -20,7 +20,7 @@ namespace prjUmaCausaTcc.pages
 
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
-            litHeader.Text = gerarHtml.MudarNavegacao(false, 0);
+            litHeader.Text = gerarHtml.MudarNavegacao(null);
 
             try
             {
@@ -30,7 +30,17 @@ namespace prjUmaCausaTcc.pages
 
                 foreach (var categoria in listaCategoriasOng)
                 {
-                    cmbCategorias.Items.Add(categoria.Nome);
+                    Panel pnlCheck = new Panel();
+                    CheckBox chk = new CheckBox();
+                    chk.ID = "chkCategoria" + categoria.Codigo.ToString();
+                    chk.Text = categoria.Nome;
+
+                    pnlCheck.CssClass = "pnlCheckBox";
+
+                    pnlCheck.ID = "pnlCategoria" + categoria.Codigo.ToString();
+                    pnlCheck.Controls.Add(chk);
+
+                    pnlCategorias.Controls.Add(pnlCheck);
                 }
 
                 Itens tiposItens = new Itens();
@@ -39,7 +49,20 @@ namespace prjUmaCausaTcc.pages
 
                 foreach (var item in listaTiposItens)
                 {
-                    listaItens.Text += $"<li onclick='selecionarItem(this)' value='{item.Codigo}'>{item.Nome}</li>";
+                    if (item.Codigo != 0)
+                    {
+                        Panel pnlCheck = new Panel();
+                        CheckBox chk = new CheckBox();
+                        chk.ID = "chkItem" + item.Codigo.ToString();
+                        chk.Text = item.Nome;
+
+                        pnlCheck.CssClass = "pnlCheckBox";
+
+                        pnlCheck.ID = "pnlItem" + item.Codigo.ToString();
+                        pnlCheck.Controls.Add(chk);
+
+                        pnlItensAceitos.Controls.Add(pnlCheck);
+                    }
                 }
             }
             catch(Exception ex)
@@ -58,7 +81,7 @@ namespace prjUmaCausaTcc.pages
                 string senha = txtConfirmarSenha.Text;
                 string email = txtEmail.Text;
                 string telefone = txtTelefone.Text;
-                string cnpj = txtIdentificacao.Text;
+                string cnpj = txtCnpj.Text;
                 string cep = txtCep.Text;
                 string uf = txtUF.Text;
                 string cidade = txtCidade.Text;
@@ -70,31 +93,52 @@ namespace prjUmaCausaTcc.pages
                 string longitude = "";
                 string pix = txtPix.Text;
                 string webSite = txtWebSite.Text;
-                int categoria = cmbCategorias.SelectedIndex;
                 string emailContao = txtEmailContato.Text;
                 string descricao = txtDescricao.Text;
+
+                List<CategoriaOng> categorias = new List<CategoriaOng>();
+                for (int i = 1; i < pnlCategorias.Controls.Count; i++)
+                {
+                    Panel painel = (Panel)pnlCategorias.FindControl("pnlCategoria" + i.ToString());
+
+                    CheckBox chk = (CheckBox)painel.FindControl("chkCategoria" + i.ToString());
+
+                    if (chk.Checked)
+                    {
+                        CategoriaOng categoria = new CategoriaOng();
+                        categoria.Nome = chk.Text;
+                        categoria.Codigo = i;
+
+                        categorias.Add(categoria);
+                    }
+                }
+
+
                 List<TipoItem> itemsAceitos = new List<TipoItem>();
+                for(int i = 1; i < pnlItensAceitos.Controls.Count; i++)
+                {
+                    Panel painel = (Panel)pnlItensAceitos.FindControl("pnlItem" + i.ToString());
 
+                    CheckBox chk = (CheckBox)painel.FindControl("chkItem" + i.ToString());
 
-                //if (selectedItems != null)
-                //{
-                //    foreach (Control control in selectedItems.Controls)
-                //    {
-                //        if (control is HtmlGenericControl && ((HtmlGenericControl)control).TagName == "LI")
-                //        {
-                //            HtmlGenericControl listItem = (HtmlGenericControl)control;
-                //            string value = listItem.Attributes["value"];
+                    if (chk.Checked)
+                    {
+                        TipoItem item = new TipoItem();
+                        item.Nome = chk.Text;
+                        item.Codigo = i;
 
-                //            Response.Write("Valor da <li>: " + value + "<br>");
-                //        }
-                //    }
-                //}
+                        itemsAceitos.Add(item);
+                    }
+                }
+
 
                 string endereco = $"{lougradouto}, {numero}, {cidade}, {uf}";
 
                 CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
 
                 (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
+
+
 
                 //usuario.CadastrarOng(nome, senha, email, telefone, cnpj, cep, uf, cidade, lougradouto, numero, bairro, complemento, latitude, longitude);
             }

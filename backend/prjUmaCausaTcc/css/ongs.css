@@ -1,18 +1,22 @@
 ﻿main {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .pesquisa {
-  width: 336px;
+    width: 32%;
 }
 
 .ongs {
+    width: 63%;
     display: flex;
-    width: 621px;
     flex-direction: column;
     align-items: flex-start;
 }
+.ongs a{
+    width: 100%;
+}
+
 .ongs h2 {
   margin-bottom: 30px;
 }
@@ -22,7 +26,7 @@
   border-radius: 4px;
 }
 .ongs .ong .imagem-ong {
-  width: 80px;
+  width: 94px;
   height: 80px;
   border-radius: 4px;
   margin-bottom: -10px;
@@ -32,16 +36,17 @@
   background-repeat: no-repeat;
 }
 .ongs .ong .infos-ong {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  border-radius: 4px 4px 0 0;
-  background-color: #F5F5F5;
-  padding: 0.938rem 0.75rem;
-  padding-bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border-radius: 4px 4px 0 0;
+    background-color: #F5F5F5;
+    padding: 0.938rem 0.75rem;
+    padding-bottom: 0;
 }
 .ongs .ong .infos-ong .descricao {
-  width: 507px;
+    width: 100%;
 }
 .ongs .ong .infos-ong .descricao h3 {
   color: #000;
@@ -54,26 +59,36 @@
   height: 20px;
 }
 .ongs .ong .infos-ong .descricao p {
+    width: 100%;
     color: #403C3C;
     margin-top: 4px;
     font-size: 14px;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /** número de linhas que você quer exibir */
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-    .ongs .ong .tags {
-        background-color: #8AB6DE;
-        border-radius: 0 0 4px 4px;
-        padding: 0.1rem;
-        padding-left: 6.4rem;
+.ongs .ong .tags {
+    font-size: 12px;
+    color: #fff;
+    background-color: #0063bfd4;
+    border-radius: 0 0 4px 4px;
+    padding: 0.4rem;
+    padding-left: 6.4rem;
+    list-style-position: inside;
+    letter-spacing: 0.4px;
+ }
+    .ongs .ong .tags .tag {
+        font-size: 13px;
+        color: #fff;
+        padding-left: 0.3rem; 
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
-.ongs .ong .tags .tag {
-    font-size: 14px;
-    color: #8AB6DE;
-    display: inline-block;
-}
 .backButton {
     width: 28px;
     height: 22px;
@@ -84,6 +99,11 @@
     padding: 3px 6px 3px 6px;
     transform: rotate(180deg);
 }
+.paginacao a {
+    color: #000;
+    width: auto;
+}
+
 .nextButton 
 {
     width: 28px;

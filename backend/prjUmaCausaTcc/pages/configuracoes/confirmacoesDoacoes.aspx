@@ -107,8 +107,10 @@
                                 <p>Data: dd/mm/aa - Horário: HH:mm</p>
                           </div>
                           <div class="botoes-confirmacao">
-                                <img src="./../../images/icons/confirmado.png" alt="">                       
-                                <img src="./../../images/icons/recusar.png" alt="">               
+                                <img src="./../../images/icons/confirmado.png" alt="">        
+                              <asp:ImageButton ID="ImgBtnConfirmar" runat="server" src="./../../images/icons/confirmado.png" OnClick="ImgBtnConfirmar_Click"/>              
+                                <img src="./../../images/icons/recusar.png" alt="">              
+                              <asp:ImageButton ID="ImgBtnRecusar" runat="server" src="./../../images/icons/recusar.png" OnClick="ImgBtnRecusar_Click"/>
                           </div>
                     </div>--%>
         </div>
