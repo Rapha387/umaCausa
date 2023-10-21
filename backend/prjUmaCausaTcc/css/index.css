@@ -568,7 +568,12 @@ li label {
   padding: 10px;
 }
 .campanhas .campanhas-flex .campanha .infos-campanha .info-campanha{
-  font-size: 13px;
+    font-size: 13px;
+    max-width: 147px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
 }
 
 .campanhas .campanhas-flex .ong {

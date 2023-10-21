@@ -65,10 +65,6 @@ namespace prjUmaCausaTcc.pages
                     }
                 }
 
-                Dias dias = new Dias();
-
-                var listaDias = dias.ListarDias();
-
             }
             catch(Exception ex)
             {
@@ -136,7 +132,7 @@ namespace prjUmaCausaTcc.pages
                         itemsAceitos.Add(item);
                     }
                 }
-
+                    
 
                 string endereco = $"{lougradouto}, {numero}, {cidade}, {uf}";
 

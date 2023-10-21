@@ -13,18 +13,23 @@ namespace prjUmaCausaTcc.pages.configuracoes
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuario usuario = (Usuario)Session["usuario"];
+
+            if (usuario == null)
+                Response.Redirect("../index.aspx");
+
             if (TxtNome.Text != "")
             {
                 BtnSalvarAlteraçoes_Click(sender, new EventArgs());
             }
             GerarEmentosHtml gerarEmentosHtml = new GerarEmentosHtml();
-            // gerarEmentosHtml.MudarNavegacao(true,usuario)
             string header = gerarEmentosHtml.GerarHeaderConfiguracoes(usuario);
             string footer = gerarEmentosHtml.GerarFooterConfiguracoes();
+            string menu = gerarEmentosHtml.GerarMenu(usuario);
+
             LitHeader.Text = header;
             LitFooter.Text = footer;
-            string menu = gerarEmentosHtml.GerarMenu(usuario);
             Litmenu.Text = menu;
+
             try
             {
                 if (usuario.TipoDoUsuario.Codigo == 1)
@@ -74,9 +79,6 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     txtComplemento.Text = usuario.Complemento.ToString();
                     txtNumero.Text = usuario.Numero;
                 }
-
-
-
             }
             catch
             {
@@ -123,14 +125,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         podebuscar = 0;
                     }
 
-
                     CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
-
-
-
                     (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
-
-
 
                     usuario.AlterarDadosOng(codigo, nome, email, emailcontato, telefone, descricao, cep, cidade, rua, numero, bairro, complemento, latitude, longitude, website, pix, podebuscar);
                 }

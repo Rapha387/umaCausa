@@ -56,13 +56,13 @@ public class GerarEmentosHtml
                             </ul>
                             <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
                             <div class='menu-configuracoes'>
-                                <ul>
+                                <div>
                                   <a href='configuracoes/meuPerfil.aspx'><li>Meu Perfil</li></a>
                                   <a href='configuracoes/minhasColaboracoes.aspx'><li>Minhas Colaborações</li></a>
                                   <a href='configuracoes/minhasCampanhas.aspx'><li>Minhas Campanhas</li></a>
                                   <a href='configuracoes/confirmacoesDoacoes.aspx'><li>Confirmações de Doações</li></a>
                                   <li id='btnSair'>Sair</li>
-                                </ul>
+                                </div>
                             </div>
                         </nav>
                     </header>
@@ -102,11 +102,11 @@ public class GerarEmentosHtml
                             </ul>
                             <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
                             <div class='menu-configuracoes'>
-                                <ul>
-                                  <a href='configuracoes/meuPerfil.aspx'><li>Meu Perfil</a></li>
-                                  <a href='configuracoes/minhasColaboracoes.aspx'><li>Minhas Colaborações</a></li>
+                                <div>
+                                  <a href='configuracoes/meuPerfil.aspx'><li>Meu Perfil</li></a>
+                                  <a href='configuracoes/minhasColaboracoes.aspx'><li>Minhas Colaborações</li></a>
                                   <li id='btnSair'>Sair</li>
-                                </ul>
+                                </div>
                             </div>
                         </nav>
                     </header>
@@ -120,7 +120,6 @@ public class GerarEmentosHtml
                         <div class='divisaoNavResposivo'>
                           <h3>Minhas Informações</h3>
                           <li><a href='./configuracoes/meuPerfil.aspx'>Meu Perfil</a></li>
-                          <li><a href='./configuracoes/meusItens.aspx'>Minhas Campanhas</a></li>
                           <li><a href='./configuracoes/minhasColaboracoes.aspx'>Minhas Colaborações</a></li>
                           <li><a href='configuracoes/confirmacoesDoacoes.aspx'>Confirmações de Doações</a></li>
                         </div>
@@ -154,13 +153,13 @@ public class GerarEmentosHtml
                             </ul>
                             <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
                             <div class='menu-configuracoes'>
-                                <ul>
+                                <div>
                                   <a href='./meuPerfil.aspx'><li>Meu Perfil</li></a>
                                   <a href='./minhasColaboracoes.aspx'><li>Minhas Colaborações</li></a>
                                   <a href='./minhasCampanhas.aspx'><li>Minhas Campanhas</li></a>
                                   <a href='./confirmacoesDoacoes.aspx'><li>Confirmações de Doações</li></a>
                                   <li id='btnSair'>Sair</li>
-                                </ul>
+                                </div>
                             </div>
                         </nav>
                     </header>
