@@ -11,7 +11,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="./../../css/index.css">
   <link rel="stylesheet" href="./../../css/meuPerfil.css">
   <title>UmaCausa - Meu Perfil</title>
@@ -36,26 +35,26 @@
           <div class="infos">
             <div class="input-label">
               <label for="">Nome:</label>
-              <asp:TextBox ID="TxtNome" runat="server" ></asp:TextBox>
+              <asp:TextBox ID="txtNome" runat="server" ></asp:TextBox>
             </div>
             <div class="input-label">
               <label for="">CNPJ:</label>
-                <asp:TextBox ID="TxtCnpj" runat="server" disabled=""></asp:TextBox>
+                <asp:TextBox ID="txtCnpj" runat="server" disabled=""></asp:TextBox>
             </div>
             <div class="input-label">
               <label for="">Email:</label>
-               <asp:TextBox ID="TxtEmail" runat="server" TextMode="Email"></asp:TextBox>
+               <asp:TextBox ID="txtEmail" runat="server" TextMode="Email"></asp:TextBox>
             </div>
             <div class="input-label">
               <label for="">Telefone:</label>
-              <asp:TextBox ID="TxtTelefone" runat="server" AutoCompleteType="Cellular" maxlength="12"></asp:TextBox>
+              <asp:TextBox ID="txtTelefone" runat="server" AutoCompleteType="Cellular" maxlength="11"></asp:TextBox>
             </div>
           </div>
 
           <div class="infos">
                 <div class="input-label" id="cep">
                   <label for="">CEP:</label>
-                  <asp:TextBox ID="TxtCep" runat="server" TextMode="Number" placeholder="11538105"></asp:TextBox>
+                  <asp:TextBox ID="txtCep" runat="server" MaxLength="8" TextMode="Number" placeholder="11538105"></asp:TextBox>
                 </div>
                 <div class="input-label" id="UF">
                   <label for="">UF:</label>
@@ -93,15 +92,15 @@
 
                 <div class="input-label" id="cidade">
                   <label for="">Cidade:</label>
-                  <asp:TextBox ID="TxtCidade" runat="server"></asp:TextBox>
+                  <asp:TextBox ID="txtCidade" runat="server"></asp:TextBox>
                 </div>
                 <div class="input-label" id="bairro">
                   <label for="">Bairro:</label>
-                  <asp:TextBox ID="TxtBairro" runat="server" MaxLength="45"></asp:TextBox>
+                  <asp:TextBox ID="txtBairro" runat="server" MaxLength="45"></asp:TextBox>
                 </div>
                 <div class="input-label" id="logradouro">
                   <label for="">Logradouro:</label>
-                   <asp:TextBox ID="TxtLogadouro" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtLogradouro" runat="server"></asp:TextBox>
                 </div>
                 <div class="input-label" id="numero">
                   <label for="">Número:</label>
@@ -117,16 +116,16 @@
               <div class="infos">
                 <div class="input-label">
                   <label for="">Pix:</label>
-                  <asp:TextBox ID="TxtPix" runat="server"></asp:TextBox>
+                  <asp:TextBox ID="txtPix" runat="server"></asp:TextBox>
                 </div>
                 <div class="input-label">
                   <label for="">WebSite:</label>
-                  <asp:TextBox ID="TxtWebsite" runat="server" TextMode="Url"></asp:TextBox>
+                  <asp:TextBox ID="txtWebsite" runat="server" TextMode="Url"></asp:TextBox>
                 </div>
 
                 <div class="input-label">
                   <label for="">Email de Contato:</label>
-                  <asp:TextBox ID="TxtEmailContato" runat="server"></asp:TextBox>
+                  <asp:TextBox ID="txtEmailContato" runat="server"></asp:TextBox>
                 </div>
                 <div class="input-label">
                   <label for="">Disponivel para busca?:</label>
@@ -157,24 +156,25 @@
                   <label for="">Logo da Ong:</label>
                   <div class="espaco-imagem">
                     <label class="custom-file-upload">
-                      <input type="file" id="fileInput" accept="image/*" />
+                      <input type="file" id="fileInputLogo" accept="image/*" />
                       <span class="textoInputFile">Carregar Foto</span>
                     </label>
 
-                    <span id="nomeArquivo">Foto quadrada em JPG</span>
+                    <span id="nomeArquivoLogo">Foto quadrada em JPG</span>
                   </div>
                 </div>
                 <div class="input-label" id="bannerOng">
                   <label for="">Banner da Ong:</label>
                   <div class="espaco-imagem">
                     <label class="custom-file-upload">
-                      <input type="file" id="fileInput" accept="image/*" />
+                      <input type="file" id="fileInputBannner" accept="image/*" />
                       <span class="textoInputFile">Carregar Foto</span>
                     </label>
-                    <span id="nomeArquivo">Imagem Retangular em JPG</span>
+                    <span id="nomeArquivoBanner">Imagem Retangular em JPG</span>
                   </div>
                 </div>
-              </asp:Panel>
+               </div>
+             </asp:Panel>
 
              <asp:Button ID="BtnSalvarAlteraçoes" runat="server" Text="Salvar Alterações" class="button-salvar" OnClick="BtnSalvarAlteraçoes_Click"/>
           </div>
@@ -187,10 +187,9 @@
 
 
 
-      <script src="./../../js/DeslogarUsuario.js"></script>
-      <script src="./../../js/inputFile.js"></script>
-      <script src="./../../js/cep.js"></script>
-
+        <script src="../../js/verificacoesInputs.js"></script>
+        <script src="./../../js/inputFile.js"></script>
+        <script src="./../../js/DeslogarUsuario.js"></script>
     </form>
 </body>
 </html>

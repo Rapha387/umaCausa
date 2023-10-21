@@ -1,10 +1,24 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 public class GerarEmentosHtml
 {
+    string nome = "";
+    private void EditarNome(string nomeUsuario)
+    {
+        string[] nomes = nomeUsuario.Split(' ');
+
+        for (int i = 0; i < nomes.Length; i++)
+        {
+            if (i == 3)
+                break;
+
+            nome += " " + nomes[i];
+        }
+    }
+
     public string MudarNavegacao(Usuario usuario)
     {
         if (usuario == null)
@@ -38,6 +52,8 @@ public class GerarEmentosHtml
             return nav;
         }
 
+        EditarNome(usuario.Nome);
+
         if (usuario.TipoDoUsuario.Codigo == 1)
         {
             string nav = $@"
@@ -47,7 +63,7 @@ public class GerarEmentosHtml
                             <ul>
                                 <li><a href='./ongs.aspx'>Ongs</a></li>
                                 <li><a href='./campanhas.aspx'>Campanhas</a></li>
-                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{usuario.Nome}</span></label></li>
+                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
                                     <span class='linha'></span>
@@ -93,7 +109,7 @@ public class GerarEmentosHtml
                             <ul>
                                 <li><a href='./ongs.aspx'>Ongs</a></li>
                                 <li><a href='./campanhas.aspx'>Campanhas</a></li>
-                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{usuario.Nome}</span></label></li>
+                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
                                     <span class='linha'></span>
@@ -135,6 +151,8 @@ public class GerarEmentosHtml
         if (usuario == null)
             return "";
 
+        EditarNome(usuario.Nome);
+
         if (usuario.TipoDoUsuario.Codigo == 1)
         {
             string nav = $@"
@@ -144,7 +162,7 @@ public class GerarEmentosHtml
                             <ul>
                                 <li><a href='./../ongs.aspx'>Ongs</a></li>
                                 <li><a href='./../campanhas.aspx'>Campanhas</a></li>
-                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=./../../images/icons/userPreto.png /><span>{usuario.Nome}</span></label></li>
+                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=./../../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
                                     <span class='linha'></span>
@@ -190,7 +208,7 @@ public class GerarEmentosHtml
                             <ul>
                                 <li><a href='./../ongs.aspx'>Ongs</a></li>
                                 <li><a href='./../campanhas.aspx'>Campanhas</a></li>
-                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=./../../images/icons/userPreto.png /><span>{usuario.Nome}</span></label></li>
+                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=./../../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
                                     <span class='linha'></span>
