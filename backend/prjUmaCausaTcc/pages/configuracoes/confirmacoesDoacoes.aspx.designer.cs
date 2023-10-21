@@ -7,11 +7,11 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace prjUmaCausaTcc.pages
+namespace prjUmaCausaTcc.pages.configuracoes
 {
 
 
-    public partial class campanhas
+    public partial class confirmacoesDoacoes
     {
 
         /// <summary>
@@ -24,102 +24,66 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controle litHeader.
+        /// Controle Navegacao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litHeader;
+        protected global::System.Web.UI.WebControls.Literal Navegacao;
 
         /// <summary>
-        /// Controle txtPesquisa.
+        /// Controle Menu.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPesquisa;
+        protected global::System.Web.UI.WebControls.Literal Menu;
 
         /// <summary>
-        /// Controle btnPesquisar.
+        /// Controle BtnNaoConfirmadas.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnPesquisar;
+        protected global::System.Web.UI.WebControls.ImageButton BtnNaoConfirmadas;
 
         /// <summary>
-        /// Controle ddlCategoria.
+        /// Controle BtnJaConfirmadas.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCategoria;
+        protected global::System.Web.UI.WebControls.ImageButton BtnJaConfirmadas;
 
         /// <summary>
-        /// Controle ddlTipo.
+        /// Controle PnlConfirmacoes.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipo;
+        protected global::System.Web.UI.WebControls.Panel PnlConfirmacoes;
 
         /// <summary>
-        /// Controle ddlData.
+        /// Controle Confirmacoes.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlData;
+        protected global::System.Web.UI.WebControls.Literal Confirmacoes;
 
         /// <summary>
-        /// Controle litCampanhas.
+        /// Controle Footer.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litCampanhas;
-
-        /// <summary>
-        /// Controle btnBack.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnBack;
-
-        /// <summary>
-        /// Controle litItemPaginacao.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litItemPaginacao;
-
-        /// <summary>
-        /// Controle btnNext.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnNext;
-
-        /// <summary>
-        /// Controle litFooter.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litFooter;
+        protected global::System.Web.UI.WebControls.Literal Footer;
     }
 }

@@ -45,6 +45,11 @@ namespace prjUmaCausaTcc.pages
 
             #endregion
 
+            #region DDLS
+            ddlCategoria.Items.Insert(0, new ListItem("Monetário", "0"));
+            ddlCategoria.Items.Insert(1, new ListItem("Item", "1"));
+            #endregion
+
             #region !PostBack
             if (!IsPostBack)
             {
@@ -75,6 +80,13 @@ namespace prjUmaCausaTcc.pages
             if (!String.IsNullOrEmpty(Request["s"]))
             {
                 campanhas = listarCampanhas.ListarCampanhasPesquisa(Request["s"].ToString());
+                GerarCampanhas(campanhas);
+                return;
+            }
+
+            if (!String.IsNullOrEmpty(Request["c"]) && ddlCategoria.SelectedIndex == 0)
+            {
+                campanhas = listarCampanhas.ListarCampanhasMonetarias();
                 GerarCampanhas(campanhas);
                 return;
             }
@@ -145,6 +157,16 @@ namespace prjUmaCausaTcc.pages
                 Response.Redirect("campanhas.aspx");
 
             Response.Redirect("campanhas.aspx?s="+ txtPesquisa.Text);
+        }
+
+        protected void ddlTipo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlData_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
