@@ -12,9 +12,9 @@ namespace prjUmaCausaTcc.Logicas
         {
             List<Campanha> campanhas = new List<Campanha>();
             List<Parametro> parametros = new List<Parametro>()
-        {
-            new Parametro ("pIdUsuario", codigo.ToString())
-        };
+            {
+                new Parametro ("pIdUsuario", codigo.ToString())
+            };
 
             try
             {

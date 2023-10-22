@@ -65,10 +65,65 @@ namespace prjUmaCausaTcc.pages
                     }
                 }
 
+                Dias dias = new Dias();
+
+                var listaDias = dias.ListarDias();
+
+                foreach (Dia dia in listaDias)
+                {
+                    int codigo = dia.Codigo;
+
+                    Panel pnlDia = new Panel();
+                    pnlDia.ID = "pnlDia" + codigo;
+                    pnlDia.CssClass = "inputsDia";
+
+                    Panel pnlCheckBox = new Panel();
+                    pnlCheckBox.ID = "pnlCheckBoxDia" + codigo;
+                    pnlCheckBox.CssClass = "pnlCheckBoxDia";
+
+                    CheckBox checkBoxDia = new CheckBox();
+                    checkBoxDia.ID = "chkDia" + codigo;
+                    checkBoxDia.Text = dia.Nome;
+
+                    pnlCheckBox.Controls.Add(checkBoxDia);
+
+                    Panel pnlInputsDia = new Panel();
+                    pnlInputsDia.ID = "pnlInputsDia" + codigo;
+                    pnlInputsDia.CssClass = "pnlInputsDia";
+
+                    Label lblInputInicio = new Label();
+                    lblInputInicio.ID = "lblInputInicio" + codigo;
+                    lblInputInicio.Text = "De:";
+
+                    TextBox txtComecoDia = new TextBox();
+                    txtComecoDia.ID = "txtComecoDia" + codigo;
+                    txtComecoDia.TextMode = TextBoxMode.Time;
+                    txtComecoDia.Enabled = false;
+
+                    Label lblFimDia = new Label();
+                    lblFimDia.ID = "lblFimDia" + codigo;
+                    lblFimDia.Text = "Até:";
+
+                    TextBox txtFimDia = new TextBox();
+                    txtFimDia.ID = "txtFimDia" + codigo;
+                    txtFimDia.TextMode = TextBoxMode.Time;
+                    txtFimDia.Enabled = false;
+
+                    pnlInputsDia.Controls.Add(lblInputInicio);
+                    pnlInputsDia.Controls.Add(txtComecoDia);
+                    pnlInputsDia.Controls.Add(lblFimDia);
+                    pnlInputsDia.Controls.Add(txtFimDia);
+
+                    pnlDia.Controls.Add(pnlCheckBox);
+                    pnlDia.Controls.Add(pnlInputsDia);
+
+                    pnlDiasDisponiveis.Controls.Add(pnlDia);
+                }
             }
-            catch(Exception ex)
+
+            catch (Exception ex)
             {
-                Response.Redirect("erro.aspx?"+ex.Message);
+                Response.Redirect("erro.aspx?" + ex.Message);
             }
         }
 
@@ -79,16 +134,16 @@ namespace prjUmaCausaTcc.pages
                 Usuario usuario = new Usuario();
 
                 string nome = txtNome.Text;
-                string senha = txtConfirmarSenha.Text;
+                string cnpj = txtCnpj.Text;
                 string email = txtEmail.Text;
                 string telefone = txtTelefone.Text;
-                string cnpj = txtCnpj.Text;
+                string senha = txtConfirmarSenha.Text;
                 string cep = txtCep.Text;
                 string uf = txtUF.Text;
                 string cidade = txtCidade.Text;
+                string bairro = txtBairro.Text;
                 string lougradouto = txtLogradouro.Text;
                 string numero = txtNumero.Text;
-                string bairro = txtBairro.Text;
                 string complemento = txtComplemento.Text;
                 string latitude = "";
                 string longitude = "";
@@ -96,6 +151,16 @@ namespace prjUmaCausaTcc.pages
                 string webSite = txtWebSite.Text;
                 string emailContao = txtEmailContato.Text;
                 string descricao = txtDescricao.Text;
+                bool buscaDoacoes = chkConfirmaoBuscaDoacoes.Checked;
+
+                string endereco = $"{lougradouto}, {numero}, {cidade}, {uf}";
+
+                CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
+
+                (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
+
+
+                //usuario.CadastrarOng(nome, senha, email, telefone, cnpj, cep, uf, cidade, lougradouto, numero, bairro, complemento, latitude, longitude);
 
 
                 List<CategoriaOng> categorias = new List<CategoriaOng>();
@@ -132,17 +197,39 @@ namespace prjUmaCausaTcc.pages
                         itemsAceitos.Add(item);
                     }
                 }
+
+
+                List<DiaUsuario> diasDisponiveis = new List<DiaUsuario>();
+                for (int i = 1; i <= pnlDiasDisponiveis.Controls.Count; i++)
+                {
+                    if (i > 7)
+                        break;
+
+                    int codigo = i;
+
+                    Panel painel = (Panel)pnlDiasDisponiveis.FindControl("pnlDia" + codigo);
                     
+                    Panel pnlCheckBox = (Panel)painel.FindControl("pnlCheckBoxDia" + codigo);
+                    CheckBox chkDia = (CheckBox)pnlCheckBox.FindControl("chkDia" + codigo);
 
-                string endereco = $"{lougradouto}, {numero}, {cidade}, {uf}";
+                    if (chkDia.Checked)
+                    {
+                        Panel pnlInputsDia = (Panel)painel.FindControl("pnlInputsDia" + codigo);
+                        TextBox txtIncioDia = (TextBox)pnlInputsDia.FindControl("txtComecoDia" + codigo);
+                        TextBox txtFimDia = (TextBox)pnlInputsDia.FindControl("txtFimDia" + codigo);
 
-                CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
+                        Dia dia = new Dia();
+                        dia.Codigo = codigo;
 
-                (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
+                        DateTime hrIncioDia = DateTime.Parse(txtIncioDia.Text);
+                        DateTime hrFimDia = DateTime.Parse(txtFimDia.Text);
 
+                        DiaUsuario diaDisponivel = new DiaUsuario();
 
+                        //diaDisponivel.CadastrarDiaUsuario(codigoOng, dia, hrIncioDia, hrFimDia);
+                    }
+                }
 
-                //usuario.CadastrarOng(nome, senha, email, telefone, cnpj, cep, uf, cidade, lougradouto, numero, bairro, complemento, latitude, longitude);
             }
             catch (Exception ex)
             {

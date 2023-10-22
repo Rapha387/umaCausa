@@ -12,6 +12,9 @@
 input:focus {
     border-color: #0063BF;
 }
+input[type=checkbox]{
+    width:auto;
+}
 
 button:hover{
     transition: 0.2s ease;
@@ -447,7 +450,7 @@ main {
     gap: 5px;
 }
 
-.pnlCheckBox label, .pnlCheckBoxDia label{
+.pnlCheckBox label, #pnlDiasDisponiveis label, .pnlInputsDia span {
     margin: 0;
     font-size: 14px;
 }
@@ -457,11 +460,17 @@ main {
     height: auto;
 }
 
+#chkConfirmaoBuscaDoacoes {
+    width: 17px;
+    border: solid thin #d3d3d3 !important;
+    height: 17px;
+}
+
 .button-salvar {
-  margin-top: 20px;
-  font-size: 16px;
-  width: 295px;
-  height: 40px;
+    margin-top: 20px;
+    font-size: 16px;
+    width: 295px;
+    height: 40px;
 }
 
 /* -------------- COMPONENTES --------------- */

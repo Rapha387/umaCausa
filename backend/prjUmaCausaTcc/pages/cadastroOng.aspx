@@ -187,14 +187,16 @@
               <div class="input-label">
                   <label for="">Dias Disponíveis:</label>
                   <asp:Panel ID="pnlDiasDisponiveis" runat="server">
-                      <asp:Panel ID="pnlDia1" CssClass="inputsDia" runat="server">
-                          <div class="pnlCheckBoxDia">
-                            <asp:CheckBox ID="chkDia1" runat="server" Text="Domingo"/>
-                          </div>
-                          <div class="pnlInputsDia">
+                      <%--<asp:Panel ID="pnlDia1" CssClass="inputsDia" runat="server">
+                          <asp:Panel ID="pnlCheckBoxDia1" CssClass="pnlCheckBoxDia" runat="server">
+                              <asp:CheckBox ID="chkDia1" runat="server" Text="Domingo"/>
+                          </asp:Panel>
+                          <asp:Panel ID="pnlInputsDia1" class="pnlInputsDia" runat="server">
+                              <asp:Label ID="Label1" runat="server" Text="De:"></asp:Label>
                               <asp:TextBox TextMode="Time" ID="txtComecoDia1" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:Label ID="Label2" runat="server" Text="Até:"></asp:Label>
                               <asp:TextBox TextMode="Time" ID="txtFimDia1" Enabled="false" runat="server"></asp:TextBox>
-                          </div>
+                          </asp:Panel>
                       </asp:Panel>
                       <asp:Panel ID="pnlDia2" CssClass="inputsDia" runat="server">
                           <div class="pnlCheckBoxDia">
@@ -249,10 +251,13 @@
                               <asp:TextBox TextMode="Time" ID="txtComecoDia7" Enabled="false" runat="server"></asp:TextBox>
                               <asp:TextBox TextMode="Time" ID="txtFimDia7" Enabled="false" runat="server"></asp:TextBox>
                           </div>
-                      </asp:Panel>
+                      </asp:Panel>--%>
                   </asp:Panel>
               </div>
-
+                  <div class="pnlCheckBox" style="margin: 20px 0">
+                      <asp:CheckBox ID="chkConfirmaoBuscaDoacoes" runat="server" />
+                      <label style="font-size:16px" for="chkConfirmaoBuscaDoacoes">Posso buscar doações</label>
+                  </div>
             </div>
             <asp:Label ID="lblErro" runat="server"></asp:Label>
             <asp:Button class="button-criar" ID="btnCadastrarOng" runat="server" Text="Criar conta de ONG" OnClick="btnCadastrarOng_Click" />
