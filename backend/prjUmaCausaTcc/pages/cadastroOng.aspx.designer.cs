@@ -186,15 +186,6 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.FileUpload fileInputBanner;
 
         /// <summary>
-        /// Controle txtDescricao.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescricao;
-
-        /// <summary>
         /// Controle fileInputLogo.
         /// </summary>
         /// <remarks>
@@ -202,6 +193,15 @@ namespace prjUmaCausaTcc.pages
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fileInputLogo;
+
+        /// <summary>
+        /// Controle txtDescricao.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescricao;
 
         /// <summary>
         /// Controle pnlCategorias.
@@ -474,13 +474,13 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.TextBox txtComecoDia7;
 
         /// <summary>
-        /// Controle txtFimDia.
+        /// Controle txtFimDia7.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFimDia;
+        protected global::System.Web.UI.WebControls.TextBox txtFimDia7;
 
         /// <summary>
         /// Controle lblErro.

@@ -220,6 +220,7 @@
     <Content Include="js\gerarPix.js" />
     <Content Include="js\home.js" />
     <Content Include="js\inputFile.js" />
+    <Content Include="js\inputsDias.js" />
     <Content Include="js\pix.js" />
     <Content Include="js\popup.js" />
     <Content Include="js\RealizarDoacaoOng.js" />

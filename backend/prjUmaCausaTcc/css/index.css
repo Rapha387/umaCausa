@@ -213,8 +213,6 @@ header nav #btnMenuHeader span {
   font-weight: 600;
 }
 
-
-
 footer {
   display: flex;
   align-items: center;
@@ -222,9 +220,11 @@ footer {
   width: 100%;
   background-color: #0063BF;
 }
+
 .logo-footer{
     width: 138px;
 }
+
 footer nav {
   display: flex;
   justify-content: space-between;
@@ -233,10 +233,12 @@ footer nav {
   width: 1200px;
   margin: auto;
 }
+
 footer nav h3 {
   font-size: 16px;
   color: #fff;
 }
+
 footer nav a {
   font-size: 14px;
   color: #fff;
@@ -260,44 +262,47 @@ main {
 }
 
 #cep {
-  width: 128px;
-}
-
-#cidade {
-  width: 158px;
+  width: 21%;
 }
 
 #UF {
-  width: 80px;
+  width: 14%;
+}
+
+#cidade {
+  width: 30%;
 }
 
 #bairro {
-  width: 206px;
+  width: 30%;
 }
 
 #logradouro {
-  width: 390px;
+  width: 61%;
 }
 
 #numero {
-  width: 80px;
+  width: 16%;
 }
 
 #complemento {
-  width: 113px;
+  width: 20%;
 }
 
 #pix{
     width: 100%;
 }
+
 #pix div {
     display: flex;
 }
+
 #pix select {
     width: 25%;
     border-right: none;
     border-radius: 4px 0 0 4px;
 }
+
 #pix input {
     border-radius: 0 4px 4px 0;
 }
@@ -315,12 +320,7 @@ main {
 }
 
 #logo {
-  width: 250px;
-}
-
-
-#dsOng {
-  width: 56%;
+  width: 30%;
 }
 
 #dsOng textarea{
@@ -329,24 +329,25 @@ main {
 }
 
 #bannerOng {
-  width: 100%;
-  height: 167px;
+  width: 67%;
+  height: 239px;
 }
+
 #bannerOng .custom-file-upload {
   bottom: 40px;
 }
 
 .espaco-imagem-logo {
-  position: relative;
-  height: 250px;
-  border: 2px solid #d3d3d3;
-  border-radius: 4px;
-  background-color: #fff;
+    position: relative;
+    height: 214px;
+    border: 2px solid #d3d3d3;
+    border-radius: 4px;
+    background-color: #fff;
 }
 
 .espaco-imagem-banner {
     position: relative;
-    height: 143px;
+    height: 214px;
     border: 2px solid #d3d3d3;
     border-radius: 4px;
     background-color: #fff;
@@ -385,6 +386,9 @@ main {
 }
 
 #pnlCategorias, #pnlItensAceitos, #pnlDiasDisponiveis {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     background-color: #fff;
     padding: 0.7rem 1rem;
     border: solid thin #d3d3d3;
@@ -393,6 +397,16 @@ main {
     overflow: scroll;
     overflow-x: auto;
     overflow-y: auto;
+}
+
+#pnlDiasDisponiveis{
+    gap:15px;
+}
+
+.inputsDia {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #pnlCategorias::-webkit-scrollbar, #pnlItensAceitos::-webkit-scrollbar, #pnlDiasDisponiveis::-webkit-scrollbar{
@@ -413,7 +427,6 @@ main {
     display: flex;
     gap: 5px;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .pnlInputsDia {
@@ -422,7 +435,7 @@ main {
     align-items: center;
 }
 
-.pnlInputsDia input{
+.pnlInputsDia input {
     padding: 3px;
     height: 30px;
     font-size: 14px;
@@ -432,15 +445,14 @@ main {
     width: 100px;
     display: flex;
     gap: 5px;
-    align-items: center;
 }
 
-.pnlCheckBox label{
+.pnlCheckBox label, .pnlCheckBoxDia label{
     margin: 0;
     font-size: 14px;
 }
 
-.pnlCheckBox input[type=checkbox]{
+.pnlCheckBox input[type=checkbox], .pnlCheckBoxDia input[type=checkbox] {
     width: auto;
     height: auto;
 }

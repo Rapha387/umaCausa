@@ -160,11 +160,6 @@
                   <span id="nomeArquivoBanner">Imagem Retangular em JPG</span>
                 </div>
               </div>
-              <div class="input-label" id="dsOng">
-                 <label for="">Resumo da Ong:</label>
-                 <asp:TextBox ID="txtDescricao" TextMode="MultiLine" Columns="30" Rows="10" runat="server"></asp:TextBox>
-                 <span id="erroDescricao" class="spanErro"></span>
-              </div>
               <div class="input-label" id="logo">
                 <label for="">Logo da Ong:</label>
                 <div class="espaco-imagem-logo">
@@ -174,6 +169,11 @@
                   </label>
                   <span id="nomeArquivoLogo">Foto quadrada em JPG</span>
                 </div>
+              </div>
+              <div class="input-label" id="dsOng">
+                 <label for="">Resumo da Ong:</label>
+                 <asp:TextBox ID="txtDescricao" TextMode="MultiLine" Columns="30" Rows="10" runat="server"></asp:TextBox>
+                 <span id="erroDescricao" class="spanErro"></span>
               </div>
               <div class="input-label">
                   <label for="">Categorias da Ong:</label>
@@ -187,67 +187,67 @@
               <div class="input-label">
                   <label for="">Dias Disponíveis:</label>
                   <asp:Panel ID="pnlDiasDisponiveis" runat="server">
-                      <asp:Panel ID="pnlDia1" CssClass="pnlCheckBox" runat="server">
+                      <asp:Panel ID="pnlDia1" CssClass="inputsDia" runat="server">
                           <div class="pnlCheckBoxDia">
                             <asp:CheckBox ID="chkDia1" runat="server" Text="Domingo"/>
                           </div>
                           <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia1" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia1" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia1" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia1" Enabled="false" runat="server"></asp:TextBox>
                           </div>
                       </asp:Panel>
-                      <asp:Panel ID="pnlDia2" CssClass="pnlCheckBox" runat="server">
+                      <asp:Panel ID="pnlDia2" CssClass="inputsDia" runat="server">
                           <div class="pnlCheckBoxDia">
                             <asp:CheckBox ID="chkDia2" runat="server" Text="Segunda"/>
                           </div>
                           <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia2" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia2" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia2" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia2" Enabled="false" runat="server"></asp:TextBox>
                           </div>
                       </asp:Panel>
-                      <asp:Panel ID="pnlDia3" CssClass="pnlCheckBox" runat="server">
+                      <asp:Panel ID="pnlDia3" CssClass="inputsDia" runat="server">
                           <div class="pnlCheckBoxDia">
                               <asp:CheckBox ID="chkDia3" runat="server" Text="Terça"/>
                           </div>
                           <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia3" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia3" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia3" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia3" Enabled="false" runat="server"></asp:TextBox>
                           </div>
                       </asp:Panel>
-                      <asp:Panel ID="pnlDia4" CssClass="pnlCheckBox" runat="server">
+                      <asp:Panel ID="pnlDia4" CssClass="inputsDia"  runat="server">
                           <div class="pnlCheckBoxDia">
                               <asp:CheckBox ID="chkDia4" runat="server" Text="Quarta"/>
                           </div>
                           <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia4" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia4" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia4" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia4" Enabled="false" runat="server"></asp:TextBox>
                           </div>
                       </asp:Panel>
-                      <asp:Panel ID="pnlDia5" CssClass="pnlCheckBox" runat="server">
+                      <asp:Panel ID="pnlDia5" CssClass="inputsDia" runat="server">
                           <div class="pnlCheckBoxDia">
                               <asp:CheckBox ID="chkDia5" runat="server" Text="Quinta"/>
                           </div>
                           <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia5" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia5" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia5" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia5" Enabled="false" runat="server"></asp:TextBox>
                           </div>
                       </asp:Panel>
-                      <asp:Panel ID="pnlDia6" CssClass="pnlCheckBox" runat="server">
+                      <asp:Panel ID="pnlDia6" CssClass="inputsDia" runat="server">
                           <div class="pnlCheckBoxDia">
                               <asp:CheckBox ID="chkDia6" runat="server" Text="Sexta"/>
                           </div>
                           <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia6" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia6" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia6" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia6" Enabled="false" runat="server"></asp:TextBox>
                           </div>
                       </asp:Panel>
-                      <asp:Panel ID="pnlDia7" CssClass="pnlCheckBox" runat="server">
+                      <asp:Panel ID="pnlDia7" CssClass="inputsDia" runat="server">
                           <div class="pnlCheckBoxDia">
                               <asp:CheckBox ID="chkDia7" runat="server" Text="Sábado"/>
                           </div>
                           <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia7" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia7" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia7" Enabled="false" runat="server"></asp:TextBox>
                           </div>
                       </asp:Panel>
                   </asp:Panel>
@@ -263,6 +263,7 @@
             <asp:Literal ID="litFooter" runat="server"></asp:Literal>
         </footer>
 
+        <script src="../js/inputsDias.js"></script>
         <script src="./../js/verificacoesInputs.js"></script>
         <script src="./../js/inputFile.js"></script>
         <script src="./../js/selectPersonalizado.js"></script>
