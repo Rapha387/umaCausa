@@ -276,7 +276,7 @@ namespace prjUmaCausaTcc.Logicas
         }
         public List<DoacaoMonetaria> ListarDoacoesMonetariasConfirmadasOuNao(int codigoOng, bool confirmacao)
         {
-
+            Usuario ong = new Usuario(codigoOng);
             List<DoacaoMonetaria> doacoes = new List<DoacaoMonetaria>();
             List<Parametro> parametros = new List<Parametro>();
             Parametro parametro1 = new Parametro("pIdUsuario", codigoOng.ToString());
@@ -311,6 +311,7 @@ namespace prjUmaCausaTcc.Logicas
                         }
                         DoacaoMonetaria doacao = new DoacaoMonetaria()
                         {
+                            ONG = ong,
                             Doador = doador,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             ValorDoacao = dados.GetDouble("vl_monetario"),

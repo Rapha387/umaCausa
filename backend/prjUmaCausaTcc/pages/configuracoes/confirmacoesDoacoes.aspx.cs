@@ -13,6 +13,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuario usuario = (Usuario)Session["usuario"];
+            Doacoes doacoes = new Doacoes();
 
             if (usuario == null)
                 Response.Redirect("../index.aspx");
@@ -128,23 +129,14 @@ namespace prjUmaCausaTcc.pages.configuracoes
             }
             else
             {
-                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasMonetariasConfirmadasOuNao(codigo, false))
+                Confirmacoes.Text = "";
+                foreach(Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
                 {
-                    //Panel pnlBotoes = new Panel();
-                    //ImageButton imagebuttonConfirmar = new ImageButton();
-                    //ImageButton imagebuttonRecusar = new ImageButton();
-
-                    //pnlBotoes.CssClass = "botoes-confirmacao";
-                    //imagebuttonConfirmar.ImageUrl = "./../../images/icons/confirmado.png";
-                    //imagebuttonRecusar.ImageUrl = "./../../images/icons/recusar.png";
-                    //imagebuttonConfirmar.ID =
-
-                    Confirmacoes.Text = "";
                     Confirmacoes.Text += $@"<div class='confirmacao'>
               <div class='infos-confirmacao'>
-                    <p>Doador: {doacao.Doador.Nome}</p>
-                    <p>Item: Monetário</p>
-                    <p>Valor: R${doacao.QuantidadeDoado}</p>
+                    <p>Doador: {doacao.NomeDoador}</p>
+                    <p>Item: {doacao.NomeTipoItem}</p>
+                    <p>Valor:{doacao.Quantidade}</p>
                     <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
               </div>
               <div class='botoes-confirmacao'>
@@ -152,52 +144,78 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     <asp:ImageButton ID='ImgBtnRecusar' runat='server' src='./../../images/icons/recusar.png' OnClick='ImgBtnRecusar_Click'/>
                        </ div>
                 </div>";
+
                 }
-                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasItensConfirmadasOuNao(codigo, false))
-                {
-                    Confirmacoes.Text += $@"<div class='confirmacao'>
-                      <div class='infos-confirmacao'>
-                            <p>Doador: {doacao.Doador.Nome}</p>
-                            <p>Item: {doacao.TipoItem.Nome}</p>
-                            <p>Quantidader: {doacao.QuantidadeDoado}</p>
-                            <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)} - Horário: HH:mm</p>
-                      </div>
-                      <div class='botoes-confirmacao'>
-                            <img src = './../../images/icons/confirmado.png' alt=''>
-                            <img src = './../../images/icons/recusar.png' alt=''>
-                      </div>
-                    </div>";
-                }
-                foreach (DoacaoMonetaria doacao in colaboracoes.ListarDoacoesMonetariasConfirmadasOuNao(codigo, false))
-                {
-                    Confirmacoes.Text += $@"<div class='confirmacao'>
-                      <div class='infos-confirmacao'>
-                            <p>Doador: {doacao.Doador.Nome}</p>
-                            <p>Item: Monetário</p>
-                            <p>Quantidader: R${doacao.ValorDoacao}</p>
-                            <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)} - Horário: HH:mm</p>
-                      </div>
-                      <div class='botoes-confirmacao'>
-                            <img src = './../../images/icons/confirmado.png' alt=''>
-                            <img src = './../../images/icons/recusar.png' alt=''>
-                      </div>
-                    </div>";
-                }
-                foreach (DoacaoItem doacao in colaboracoes.ListarDoacoesItensConfirmadasOuNao(codigo, false))
-                {
-                    Confirmacoes.Text += $@"<div class='confirmacao'>
-                      <div class='infos-confirmacao'>
-                            <p>Doador: {doacao.Doador.Nome}</p>
-                            <p>Item: {doacao.NomeItem}</p>
-                            <p>Quantidader: {doacao.Quantidade}</p>
-                            <p>Data: {doacao.DataDesejada.ToString().Substring(0, 10)} - Horário: {doacao.HorarioDesejado.ToString().Substring(0, 5)}</p>
-                      </div>
-                      <div class='botoes-confirmacao'>
-                            <img src = './../../images/icons/confirmado.png' alt=''>
-                            <img src = './../../images/icons/recusar.png' alt=''>
-                      </div>
-                    </div>";
-                }
+              //  foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasMonetariasConfirmadasOuNao(codigo, false))
+              //  {
+              //      //Panel pnlBotoes = new Panel();
+              //      //ImageButton imagebuttonConfirmar = new ImageButton();
+              //      //ImageButton imagebuttonRecusar = new ImageButton();
+
+              //      //pnlBotoes.CssClass = "botoes-confirmacao";
+              //      //imagebuttonConfirmar.ImageUrl = "./../../images/icons/confirmado.png";
+              //      //imagebuttonRecusar.ImageUrl = "./../../images/icons/recusar.png";
+              //      //imagebuttonConfirmar.ID =
+
+              //      Confirmacoes.Text = "";
+              //      Confirmacoes.Text += $@"<div class='confirmacao'>
+              //<div class='infos-confirmacao'>
+              //      <p>Doador: {doacao.Doador.Nome}</p>
+              //      <p>Item: Monetário</p>
+              //      <p>Valor: R${doacao.QuantidadeDoado}</p>
+              //      <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
+              //</div>
+              //<div class='botoes-confirmacao'>
+              //      <asp:ImageButton ID='ImgBtnConfirmar' runat='server' src='./../../images/icons/confirmado.png'/>           
+              //      <asp:ImageButton ID='ImgBtnRecusar' runat='server' src='./../../images/icons/recusar.png' OnClick='ImgBtnRecusar_Click'/>
+              //         </ div>
+              //  </div>";
+              //  }
+              //  foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasItensConfirmadasOuNao(codigo, false))
+              //  {
+              //      Confirmacoes.Text += $@"<div class='confirmacao'>
+              //        <div class='infos-confirmacao'>
+              //              <p>Doador: {doacao.Doador.Nome}</p>
+              //              <p>Item: {doacao.TipoItem.Nome}</p>
+              //              <p>Quantidader: {doacao.QuantidadeDoado}</p>
+              //              <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)} - Horário: HH:mm</p>
+              //        </div>
+              //        <div class='botoes-confirmacao'>
+              //              <img src = './../../images/icons/confirmado.png' alt=''>
+              //              <img src = './../../images/icons/recusar.png' alt=''>
+              //        </div>
+              //      </div>";
+              //  }
+              //  foreach (DoacaoMonetaria doacao in colaboracoes.ListarDoacoesMonetariasConfirmadasOuNao(codigo, false))
+              //  {
+              //      Confirmacoes.Text += $@"<div class='confirmacao'>
+              //        <div class='infos-confirmacao'>
+              //              <p>Doador: {doacao.Doador.Nome}</p>
+              //              <p>Item: Monetário</p>
+              //              <p>Quantidader: R${doacao.ValorDoacao}</p>
+              //              <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)} - Horário: HH:mm</p>
+              //        </div>
+              //        <div class='botoes-confirmacao'>
+              //              <img src = './../../images/icons/confirmado.png' alt=''>
+              //              <img src = './../../images/icons/recusar.png' alt=''>
+              //        </div>
+              //      </div>";
+              //  }
+              //  foreach (DoacaoItem doacao in colaboracoes.ListarDoacoesItensConfirmadasOuNao(codigo, false))
+              //  {
+              //      Confirmacoes.Text += $@"<div class='confirmacao'>
+              //        <div class='infos-confirmacao'>
+              //              <p>Doador: {doacao.Doador.Nome}</p>
+              //              <p>Item: {doacao.NomeItem}</p>
+              //              <p>Quantidader: {doacao.Quantidade}</p>
+              //              <p>Data: {doacao.DataDesejada.ToString().Substring(0, 10)} - Horário: {doacao.HorarioDesejado.ToString().Substring(0, 5)}</p>
+              //        </div>
+              //        <div class='botoes-confirmacao'>
+              //              <img src = './../../images/icons/confirmado.png' alt=''>
+              //              <img src = './../../images/icons/recusar.png' alt=''>
+              //        </div>
+              //      </div>";
+              //  }
             }  
         }
 

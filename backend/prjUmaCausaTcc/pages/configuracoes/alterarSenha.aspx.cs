@@ -19,10 +19,35 @@ namespace prjUmaCausaTcc.pages.configuracoes
             string header = gerarEmentosHtml.GerarHeaderConfiguracoes(usuario);
             string footer = gerarEmentosHtml.GerarFooterConfiguracoes();
             string menu = gerarEmentosHtml.GerarMenu(usuario);
-
             LitHeader.Text = header;
             LitFooter.Text = footer;
             LitMenu.Text = menu;
+
+        }
+
+        protected void BtnSalvar_Click(object sender, EventArgs e)
+        {
+            string senhaAntiga = TxtSenhaAtual.Text;
+            string senhaNova = TxtNovaSenha.Text;
+            string repeticao = TxtRepeticao.Text;
+            Usuario usuario = (Usuario)Session["usuario"];
+            string email = usuario.Email;
+            if (senhaNova == repeticao)
+            {
+               if(usuario.VerificarSenha(senhaAntiga, email) == true)
+                {
+                    usuario.AlterarSenhaUsuario(usuario.Codigo, senhaNova);
+                    LitErro.Text = "Senha alterada com sucesso!";
+                }
+                else
+                {
+                    LitErro.Text = "Senha incorreta!";
+                }
+            }
+            else
+            {
+                LitErro.Text = "Nâo foi possivel alterar sua senha, coloque senhas iguais!";
+            }
         }
     }
 }

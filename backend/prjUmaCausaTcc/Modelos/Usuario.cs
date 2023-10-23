@@ -299,26 +299,7 @@ public class Usuario : Banco
             Desconectar();
         }
     }
-    public bool AlterarSenhaUsuario(int codigo, string senhaAntiga, string senhaAtual )
-    {
-        List<Parametro> parametros = new List<Parametro>()
-        {
-            new Parametro ("pIdUsuario", codigo.ToString()),
-            new Parametro ("pSenhaDigitada", senhaAntiga),
-            new Parametro ("pNovaSenha", senhaAtual)
-        };
-        try
-        {
-            Conectar();
-            Executar("ExcluirUsuario", parametros);
-            Desconectar();
-            return true;
-        }
-        catch (Exception)
-        {
-            return false;
-        }
-    }
+    
     public void BuscarOng(int codigo)
     {
         // Usuario usuario = new Usuario();
@@ -450,8 +431,8 @@ public class Usuario : Banco
     {
         List<Parametro> parametros = new List<Parametro>()
         {
-            new Parametro ("pEmail", email.ToString()),
             new Parametro ("pSenhaDigitada", senha.ToString()),
+            new Parametro ("pEmail", email.ToString()),
         };
         try
         {
@@ -476,6 +457,25 @@ public class Usuario : Banco
 
         return false;
     }
+    public bool AlterarSenhaUsuario(int codigo, string senhaAtual )
+    {
+        List<Parametro> parametros2 = new List<Parametro>()
+        {
+            new Parametro ("pIdUsuario", codigo.ToString()),
+            new Parametro ("pNovaSenha", senhaAtual)
+        };
+        try
+        {
+            Conectar();
+            Executar("AlterarSenhaUsuario", parametros2);
+            Desconectar();
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+    }
     public void BuscarUsuarioPeloEmail(string email)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -491,6 +491,7 @@ public class Usuario : Banco
                 if (dados.Read())
                 {
                     Codigo = dados.GetInt32("id_usuario");
+                    Email = email;
                     TipoDoUsuario = new TipoUsuario
                     {
                         Codigo = dados.GetInt32("id_tipoUsuario")

@@ -96,7 +96,8 @@
           </div>
         </div>
       </div>
-        <asp:Button ID="BtnSalvar" runat="server" Text="Salvar Alterações" class="button-salvar"/>
+        <asp:Literal ID="LitErro" runat="server"></asp:Literal>
+        <asp:Button ID="BtnSalvar" runat="server" Text="Salvar Alterações" class="button-salvar" OnClick="BtnSalvar_Click"/>
 
       </div>
     </div>

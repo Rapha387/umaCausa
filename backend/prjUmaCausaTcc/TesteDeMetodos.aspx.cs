@@ -11,7 +11,7 @@ namespace prjUmaCausaTcc
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Doacoes> doacoes = new Doacoes().ListarDoacoes(81);
+            List<Doacoes> doacoes = new Doacoes().ListarDoacoesNaoConfirmadas(83);
             foreach (Doacoes doacao in doacoes)
             {
                 Literal1.Text += "<br/>" + doacao.DataDoacao;
