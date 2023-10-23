@@ -32,7 +32,7 @@ namespace prjUmaCausaTcc.pages
                 string senha = txtConfirmarSenha.Text;
                 string email = txtEmail.Text;
                 string telefone = txtTelefone.Text;
-                string cpf = txtIdentificacao.Text;
+                string cpf = txtCpf.Text;
                 string cep = txtCep.Text;
                 string uf = txtUF.Text;
                 string cidade = txtCidade.Text;

@@ -26,26 +26,34 @@
           <asp:Literal ID="litHeader" runat="server"></asp:Literal>
 
           <main>
+            <div class="pesquisa">
+              <div class="pesquisar">
+                <asp:TextBox ID="txtPesquisa" Placeholder="Pesquisar" TextMode="Search" runat="server"></asp:TextBox>
+                <asp:ImageButton ID="btnPesquisar" OnClick="btnPesquisar_Click" runat="server" ImageUrl="./../images/icons/search.png"/>
+              </div>
+              <div class="filtro">
+                <h3>Filtrar Por:</h3>
+                <asp:DropDownList ID="ddlCategoria" AutoPostBack="true" OnTextChanged="ddlCategoria_TextChanged" runat="server">
+                  <asp:ListItem selected="True" hidden>Categoria</asp:ListItem>
+              </asp:DropDownList>
+              <asp:DropDownList ID="ddlTipo" AutoPostBack="true" OnTextChanged="ddlTipo_TextChanged" runat="server">
+                  <asp:ListItem selected="True" hidden>Tipo</asp:ListItem>
+              </asp:DropDownList>
+            <asp:DropDownList ID="ddlData" AutoPostBack="true" OnTextChanged="ddlData_TextChanged" runat="server">
+            <asp:ListItem selected="True" hidden>Data de Criação</asp:ListItem>
+        </asp:DropDownList>
+              </div>
+            </div>
             <div class="campanhas">
               <h2>CAMPANHAS</h2>
               <div class="campanhas-flex">
                 <asp:Literal ID="litCampanhas" runat="server"></asp:Literal>
               </div>
-            </div>
-            <div class="pesquisa">
-              <div class="pesquisar">
-                <input type="search" placeholder="Pesquisar">
-                <img src="./../images/icons/search.png" alt="lupa">
-              </div>
-              <div class="filtro">
-                <h3>Filtrar Por:</h3>
-                <select name="Categoria" id="">
-                  <option value="Categoria">Categoria</option>
-                </select>
-                <select name="DataCricacao" id="">
-                  <option value="DataCricacao">Data de Criação</option>
-                </select>
-              </div>
+                <div class="paginacao">
+                   <asp:ImageButton ID="btnBack" OnClick="btnBack_Click" runat="server" ImageUrl="./../images/botoes/seta.png" CssClass="backButton itemPaginacao"></asp:ImageButton>
+                   <asp:Literal ID="litItemPaginacao" runat="server"></asp:Literal>
+                   <asp:ImageButton ID="btnNext" OnClick="btnNext_Click" runat="server" ImageUrl="./../images/botoes/seta.png" CssClass="nextButton itemPaginacao"> </asp:ImageButton>
+                </div>
             </div>
           </main>
 

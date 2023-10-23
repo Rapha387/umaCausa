@@ -42,13 +42,13 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.TextBox txtNome;
 
         /// <summary>
-        /// Controle txtIdentificacao.
+        /// Controle txtCnpj.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdentificacao;
+        protected global::System.Web.UI.WebControls.TextBox txtCnpj;
 
         /// <summary>
         /// Controle txtEmail.
@@ -168,15 +168,6 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.TextBox txtWebSite;
 
         /// <summary>
-        /// Controle cmbCategorias.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbCategorias;
-
-        /// <summary>
         /// Controle txtEmailContato.
         /// </summary>
         /// <remarks>
@@ -195,15 +186,6 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.FileUpload fileInputBanner;
 
         /// <summary>
-        /// Controle txtDescricao.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescricao;
-
-        /// <summary>
         /// Controle fileInputLogo.
         /// </summary>
         /// <remarks>
@@ -213,13 +195,49 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.FileUpload fileInputLogo;
 
         /// <summary>
-        /// Controle listaItens.
+        /// Controle txtDescricao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal listaItens;
+        protected global::System.Web.UI.WebControls.TextBox txtDescricao;
+
+        /// <summary>
+        /// Controle pnlCategorias.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCategorias;
+
+        /// <summary>
+        /// Controle pnlItensAceitos.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlItensAceitos;
+
+        /// <summary>
+        /// Controle pnlDiasDisponiveis.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlDiasDisponiveis;
+
+        /// <summary>
+        /// Controle chkConfirmaoBuscaDoacoes.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkConfirmaoBuscaDoacoes;
 
         /// <summary>
         /// Controle lblErro.

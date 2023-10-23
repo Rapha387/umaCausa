@@ -210,6 +210,7 @@
     <Content Include="JsonResponses\DoarItemOng.aspx" />
     <Content Include="JsonResponses\DoarMonetarioCampanha.aspx" />
     <Content Include="JsonResponses\DoarMonetarioOng.aspx" />
+    <Content Include="JsonResponses\VerificarUsuario.aspx" />
     <Content Include="js\alteracaoCoresBarraPorcentagem.js" />
     <Content Include="js\animarBtnHeader.js" />
     <Content Include="js\carrossel-itens.js" />
@@ -219,22 +220,29 @@
     <Content Include="js\gerarPix.js" />
     <Content Include="js\home.js" />
     <Content Include="js\inputFile.js" />
+    <Content Include="js\inputsDias.js" />
     <Content Include="js\pix.js" />
     <Content Include="js\popup.js" />
     <Content Include="js\RealizarDoacaoOng.js" />
     <Content Include="js\selectPersonalizado.js" />
     <Content Include="js\verificacoesInputs.js" />
     <Content Include="js\verificacoesInputsDoacao.js" />
+    <Content Include="js\VerificarUsuario.js" />
     <Content Include="pages\cadastro.aspx" />
     <Content Include="pages\cadastroDoador.aspx" />
     <Content Include="pages\cadastroOng.aspx" />
     <Content Include="pages\campanha.aspx" />
     <Content Include="pages\campanhas.aspx" />
+    <Content Include="pages\configuracoes\alterarSenha.aspx" />
     <Content Include="pages\configuracoes\alterarSenha.html" />
+    <Content Include="pages\configuracoes\confirmacoesDoacoes.aspx" />
     <Content Include="pages\configuracoes\confirmacoesDoacoes.html" />
+    <Content Include="pages\configuracoes\meuPerfil.aspx" />
     <Content Include="pages\configuracoes\meuPerfil.html" />
     <Content Include="pages\configuracoes\meusItens.html" />
+    <Content Include="pages\configuracoes\minhasCampanhas.aspx" />
     <Content Include="pages\configuracoes\minhasCampanhas.html" />
+    <Content Include="pages\configuracoes\minhasColaboracoes.aspx" />
     <Content Include="pages\configuracoes\minhasColaboracoes.html" />
     <Content Include="pages\erro.aspx" />
     <Content Include="pages\faq.aspx" />
@@ -328,9 +336,18 @@
     <Compile Include="JsonResponses\DoarMonetarioOng.aspx.designer.cs">
       <DependentUpon>DoarMonetarioOng.aspx</DependentUpon>
     </Compile>
+    <Compile Include="JsonResponses\VerificarUsuario.aspx.cs">
+      <DependentUpon>VerificarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\VerificarUsuario.aspx.designer.cs">
+      <DependentUpon>VerificarUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Logicas\Campanhas.cs" />
     <Compile Include="Logicas\CapturarGeolocalizacao.cs" />
     <Compile Include="Logicas\CategoriasOng.cs" />
+    <Compile Include="Logicas\Colaboracoes.cs" />
+    <Compile Include="Logicas\Dias.cs" />
     <Compile Include="Logicas\FotosOng.cs" />
     <Compile Include="Logicas\GerarEmentosHtml.cs" />
     <Compile Include="Logicas\Itens.cs" />
@@ -350,6 +367,7 @@
     <Compile Include="Modelos\DoacaoCampanha.cs" />
     <Compile Include="Modelos\DoacaoItem.cs" />
     <Compile Include="Modelos\DoacaoMonetaria.cs" />
+    <Compile Include="Logicas\Doacoes.cs" />
     <Compile Include="Modelos\EstadoItem.cs" />
     <Compile Include="Modelos\FotoOng.cs" />
     <Compile Include="Modelos\InteresseItem.cs" />
@@ -398,6 +416,41 @@
     </Compile>
     <Compile Include="pages\campanhas.aspx.designer.cs">
       <DependentUpon>campanhas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\configuracoes\alterarSenha.aspx.cs">
+      <DependentUpon>alterarSenha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\configuracoes\alterarSenha.aspx.designer.cs">
+      <DependentUpon>alterarSenha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\configuracoes\confirmacoesDoacoes.aspx.cs">
+      <DependentUpon>confirmacoesDoacoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\configuracoes\confirmacoesDoacoes.aspx.designer.cs">
+      <DependentUpon>confirmacoesDoacoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\configuracoes\meuPerfil.aspx.cs">
+      <DependentUpon>meuPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\configuracoes\meuPerfil.aspx.designer.cs">
+      <DependentUpon>meuPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\configuracoes\minhasCampanhas.aspx.cs">
+      <DependentUpon>minhasCampanhas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\configuracoes\minhasCampanhas.aspx.designer.cs">
+      <DependentUpon>minhasCampanhas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\configuracoes\minhasColaboracoes.aspx.cs">
+      <DependentUpon>minhasColaboracoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\configuracoes\minhasColaboracoes.aspx.designer.cs">
+      <DependentUpon>minhasColaboracoes.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\erro.aspx.cs">
       <DependentUpon>erro.aspx</DependentUpon>

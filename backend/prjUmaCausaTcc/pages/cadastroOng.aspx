@@ -28,32 +28,32 @@
             <div class="infos">
               <div class="input-label">
                 <label for="">Nome:</label>
-                  <asp:TextBox ID="txtNome" runat="server" placeholder="ex: Cennin"></asp:TextBox>
+                  <asp:TextBox ID="txtNome" runat="server" placeholder="ex: Cennin" required="required"></asp:TextBox>
                   <span id="erroNome" class="spanErro"></span>
               </div>
               <div class="input-label">
-                <label for="">CPF:</label>
-                <asp:TextBox ID="txtIdentificacao" TextMode="Number" runat="server" placeholder="ex: 111.111.111-00"></asp:TextBox>
+                <label for="">CNPJ:</label>
+                <asp:TextBox ID="txtCnpj" MaxLength="14" runat="server" placeholder="ex: 99.999.999/9999-99" required="required"></asp:TextBox>
                 <span id="erroIdentificacao" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">Email:</label>
-                <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com" required="required"></asp:TextBox>
                 <span id="erroEmail" class="spanErro"></span>
               </div>
               <div class="input-label">
                 <label for="">Telefone:</label>
-                <asp:TextBox ID="txtTelefone" TextMode="Number" AutoCompleteType="Cellular" runat="server" placeholder="ex: +55 (13) 997845669"></asp:TextBox>
+                <asp:TextBox ID="txtTelefone" MaxLength="11" AutoCompleteType="Cellular" runat="server" placeholder="ex: 13997845669" required="required"></asp:TextBox>
                 <span id="erroTelefone" class="spanErro"></span>
               </div>
                 <div class="input-label">
                 <label for="">Senha:</label>
-                <asp:TextBox ID="txtSenha" TextMode="Password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtSenha" TextMode="Password" runat="server" required="required"></asp:TextBox>
                 <span id="erroSenha" class="spanErro"></span>
               </div>
                 <div class="input-label">
                 <label for="">Confirmar a Senha:</label>
-                <asp:TextBox ID="txtConfirmarSenha" TextMode="Password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtConfirmarSenha" TextMode="Password" runat="server" required="required"></asp:TextBox>
                 <span id="erroConfirmarSenha" class="spanErro"></span>
               </div>
             </div>
@@ -128,24 +128,26 @@
             <div class="infos">
               <div class="input-label" id="pix">
                 <label for="">Pix:</label>
-                <asp:TextBox ID="txtPix" placeholder="(13)99999-9999" runat="server"></asp:TextBox>
+                <div>
+                    <select name="" id="cmbTiposPix">
+                        <option value="telefone">Telefone</option>
+                        <option value="email">Email</option>
+                        <option value="cpf">CPF</option>
+                        <option value="cnpj">CNPJ</option>
+                        <option value="chaveAleatoria">Outro</option>
+                    </select>
+                    <asp:TextBox ID="txtPix" TextMode="Phone" MaxLength="11" pattern="^+55\d{11}$" placeholder="13999999999 (somente números)" runat="server" required="required"></asp:TextBox>
+                </div>
+
                 <span id="erroPix" class="spanErro"></span>
               </div>
-              <div class="input-label" id="website">
-                <label for="">WebSite:</label>
-                  <asp:TextBox ID="txtWebSite" TextMode="Url" runat="server"></asp:TextBox>
-              </div>
               <div class="input-label">
-                <label for="">Categoria:</label>
-                <asp:DropDownList ID="cmbCategorias" runat="server">
-                    <asp:ListItem>Selecione uma Categoria</asp:ListItem>
-                    <asp:ListItem>Saúde</asp:ListItem>
-                </asp:DropDownList>
-                <span id="erroCategorias" class="spanErro"></span>
+                <label for="">WebSite:</label>
+                  <asp:TextBox ID="txtWebSite" TextMode="Url" runat="server" ></asp:TextBox>
               </div>
               <div class="input-label">
                 <label for="">Email de Contato:</label>
-                <asp:TextBox ID="txtEmailContato" TextMode="Email" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmailContato" TextMode="Email" runat="server" required="required"></asp:TextBox>
                 <span id="erroEmailContato" class="spanErro"></span>
               </div>
               <div class="input-label" id="bannerOng">
@@ -158,11 +160,6 @@
                   <span id="nomeArquivoBanner">Imagem Retangular em JPG</span>
                 </div>
               </div>
-              <div class="input-label" id="dsOng">
-                 <label for="">Resumo da Ong:</label>
-                 <asp:TextBox ID="txtDescricao" TextMode="MultiLine" Columns="30" Rows="10" runat="server"></asp:TextBox>
-                 <span id="erroDescricao" class="spanErro"></span>
-              </div>
               <div class="input-label" id="logo">
                 <label for="">Logo da Ong:</label>
                 <div class="espaco-imagem-logo">
@@ -173,38 +170,94 @@
                   <span id="nomeArquivoLogo">Foto quadrada em JPG</span>
                 </div>
               </div>
+              <div class="input-label" id="dsOng">
+                 <label for="">Resumo da Ong:</label>
+                 <asp:TextBox ID="txtDescricao" TextMode="MultiLine" Columns="30" Rows="10" runat="server"></asp:TextBox>
+                 <span id="erroDescricao" class="spanErro"></span>
+              </div>
               <div class="input-label">
-                 <label for="">Itens Aceitos:</label>
-                 <div class="select-items">
-                    <div class="ver" onclick="esconderSelectItens()">
-                        Selecione os Itens de seu interesse
-                    </div>
-                    <ul id="itemList" class="invisivel">
-                        <asp:Literal ID="listaItens" runat="server"></asp:Literal>
-                    </ul>
-                 </div>
-                 <span id="erroItensAceitos" class="spanErro"></span>
-                 <ul id="selectedItems"></ul>
-               </div>
-               <div class="input-label">
-                 <label for="">Dias Disponíveis:</label>
-                 <div class="select-dias">
-                    <div class="ver" onclick="esconderSelectDias()">
-                        Selecione os Dias Disponiveis
-                    </div>
-                    <ul id="diasList" class="invisivel">
-                        <li onclick="selecionarDia(this)" value="1">Domingo</li>
-                        <li onclick="selecionarDia(this)" value="2">Segunda</li>
-                        <li onclick="selecionarDia(this)" value="3">Terça</li>
-                        <li onclick="selecionarDia(this)" value="4">Quarta</li>
-                        <li onclick="selecionarDia(this)" value="5">Quinta</li>
-                        <li onclick="selecionarDia(this)" value="6">Sexta</li>
-                        <li onclick="selecionarDia(this)" value="7">Sábado</li>        
-                    </ul>
-                 </div>
-                 <span id="erroDiasDisponiveis" class="spanErro"></span>
-                 <ul id="selectedDias"></ul>
-               </div>
+                  <label for="">Categorias da Ong:</label>
+                  <asp:Panel ID="pnlCategorias" runat="server"></asp:Panel>
+              </div>
+              <div class="input-label">
+                  <label for="">Itens Aceitos:</label>
+                  <asp:Panel ID="pnlItensAceitos" runat="server"></asp:Panel>
+              </div>
+
+              <div class="input-label">
+                  <label for="">Dias Disponíveis:</label>
+                  <asp:Panel ID="pnlDiasDisponiveis" runat="server">
+                      <%--<asp:Panel ID="pnlDia1" CssClass="inputsDia" runat="server">
+                          <asp:Panel ID="pnlCheckBoxDia1" CssClass="pnlCheckBoxDia" runat="server">
+                              <asp:CheckBox ID="chkDia1" runat="server" Text="Domingo"/>
+                          </asp:Panel>
+                          <asp:Panel ID="pnlInputsDia1" class="pnlInputsDia" runat="server">
+                              <asp:Label ID="Label1" runat="server" Text="De:"></asp:Label>
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia1" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:Label ID="Label2" runat="server" Text="Até:"></asp:Label>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia1" Enabled="false" runat="server"></asp:TextBox>
+                          </asp:Panel>
+                      </asp:Panel>
+                      <asp:Panel ID="pnlDia2" CssClass="inputsDia" runat="server">
+                          <div class="pnlCheckBoxDia">
+                            <asp:CheckBox ID="chkDia2" runat="server" Text="Segunda"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia2" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia2" Enabled="false" runat="server"></asp:TextBox>
+                          </div>
+                      </asp:Panel>
+                      <asp:Panel ID="pnlDia3" CssClass="inputsDia" runat="server">
+                          <div class="pnlCheckBoxDia">
+                              <asp:CheckBox ID="chkDia3" runat="server" Text="Terça"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia3" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia3" Enabled="false" runat="server"></asp:TextBox>
+                          </div>
+                      </asp:Panel>
+                      <asp:Panel ID="pnlDia4" CssClass="inputsDia"  runat="server">
+                          <div class="pnlCheckBoxDia">
+                              <asp:CheckBox ID="chkDia4" runat="server" Text="Quarta"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia4" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia4" Enabled="false" runat="server"></asp:TextBox>
+                          </div>
+                      </asp:Panel>
+                      <asp:Panel ID="pnlDia5" CssClass="inputsDia" runat="server">
+                          <div class="pnlCheckBoxDia">
+                              <asp:CheckBox ID="chkDia5" runat="server" Text="Quinta"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia5" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia5" Enabled="false" runat="server"></asp:TextBox>
+                          </div>
+                      </asp:Panel>
+                      <asp:Panel ID="pnlDia6" CssClass="inputsDia" runat="server">
+                          <div class="pnlCheckBoxDia">
+                              <asp:CheckBox ID="chkDia6" runat="server" Text="Sexta"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia6" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia6" Enabled="false" runat="server"></asp:TextBox>
+                          </div>
+                      </asp:Panel>
+                      <asp:Panel ID="pnlDia7" CssClass="inputsDia" runat="server">
+                          <div class="pnlCheckBoxDia">
+                              <asp:CheckBox ID="chkDia7" runat="server" Text="Sábado"/>
+                          </div>
+                          <div class="pnlInputsDia">
+                              <asp:TextBox TextMode="Time" ID="txtComecoDia7" Enabled="false" runat="server"></asp:TextBox>
+                              <asp:TextBox TextMode="Time" ID="txtFimDia7" Enabled="false" runat="server"></asp:TextBox>
+                          </div>
+                      </asp:Panel>--%>
+                  </asp:Panel>
+              </div>
+                  <div class="pnlCheckBox" style="margin: 20px 0">
+                      <asp:CheckBox ID="chkConfirmaoBuscaDoacoes" runat="server" />
+                      <label style="font-size:16px" for="chkConfirmaoBuscaDoacoes">Posso buscar doações</label>
+                  </div>
             </div>
             <asp:Label ID="lblErro" runat="server"></asp:Label>
             <asp:Button class="button-criar" ID="btnCadastrarOng" runat="server" Text="Criar conta de ONG" OnClick="btnCadastrarOng_Click" />
@@ -215,6 +268,7 @@
             <asp:Literal ID="litFooter" runat="server"></asp:Literal>
         </footer>
 
+        <script src="../js/inputsDias.js"></script>
         <script src="./../js/verificacoesInputs.js"></script>
         <script src="./../js/inputFile.js"></script>
         <script src="./../js/selectPersonalizado.js"></script>

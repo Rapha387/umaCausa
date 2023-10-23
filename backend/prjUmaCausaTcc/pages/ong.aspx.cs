@@ -80,13 +80,10 @@ namespace prjUmaCausaTcc.pages
                 Usuario usuario = (Usuario)Session["usuario"];
 
                 litHeader.Text = gerarHtml.MudarNavegacao(usuario);
-                
-                pnlBtnDoar.Visible = true;
             }
             else
             {
                 litHeader.Text = gerarHtml.MudarNavegacao(null);
-                pnlBtnDoar.Visible = false;
             }
             #endregion
         }
@@ -117,11 +114,15 @@ namespace prjUmaCausaTcc.pages
             {
                 Usuario usuario = new Usuario();
                 usuario.BuscarOng(codigoOng);
+
+                if (usuario == null)
+                    Response.Redirect("erro.aspx?e=nao foi possivel carregar essa pagina");
+
                 litNomeNavegador.Text = usuario.Nome + " - umaCausa";
                 litCNPJ.Text = $"<a target='_blank' href='https://cnpj.info/{usuario.Identificacao.Replace(".", "").Replace("/", "").Replace("-", "")}'>" + usuario.Identificacao + "<a/>";
                 litDescricao.Text = usuario.Descricao;
                 litEmailContato.Text = $"<a target='_blank' target='_blank' href='mailto:{usuario.EmailContato}'>" + usuario.EmailContato + "</a>";
-                litEndereco.Text = $"<a href='https://www.google.com/maps/place/{usuario.Latitude},{usuario.Longitude}'>{usuario.Rua}, {usuario.Numero} - {usuario.Bairro}, {usuario.Cidade} - {usuario.Estado}, {usuario.Cep}<a/>";
+                litEndereco.Text = $"<a target='_blank' href='https://www.google.com/maps/place/{usuario.Latitude},{usuario.Longitude}'>{usuario.Rua}, {usuario.Numero} - {usuario.Bairro}, {usuario.Cidade} - {usuario.Estado}, {usuario.Cep}<a/>";
                 litNome.Text = usuario.Nome;
                 if (!String.IsNullOrEmpty(usuario.Website))
                     litSite.Text = $"<a target='_blank' href='{usuario.Website}'>" + usuario.Website + "</a>";
@@ -129,7 +130,12 @@ namespace prjUmaCausaTcc.pages
                     pnlCardWebSite.Visible = false;
 
                 litTelefone.Text = $"<a target='_blank' href='tel:{usuario.Telefone}'>" + usuario.Telefone + "</a>";
-                litCampanha.Text = $"<a target='_blank' src='ongs.aspx?categoria{usuario.CategoriaOng.Codigo}'><p>#{usuario.CategoriaOng.Nome}</p></a>";
+
+                foreach (CategoriaOng categoria in usuario.CategoriasOng)
+                {
+                    litCampanha.Text += $"<a href='ongs.aspx?c={categoria.Codigo}'><p>#{categoria.Nome}</p></a>";
+                }
+
                 litBanner.Text = $"<div class='banner' style='background: url(../{usuario.Banner}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
                 litIcone.Text = $"<div class='logo-ong' style='background: url(../{usuario.FotoPerfil}); background-position: center;background-repeat: no-repeat;background-size: cover;'></div>";
             }
@@ -165,6 +171,10 @@ namespace prjUmaCausaTcc.pages
                         </div>
                         <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
                       </div>
+                      <div class=infos-campanha>
+                          <div class=info-campanha>Tipo: {campanha.TipoItemArrecadado.Nome}</div>
+                          <div class=info-campanha>Finaliza: {campanha.DataPrevistaFim}</div>
+                      </div>
                     </div>
                     </a>
                     </div>";
@@ -199,6 +209,10 @@ namespace prjUmaCausaTcc.pages
                           <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%'></div>
                         </div>
                         <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
+                      </div>
+                      <div class=infos-campanha>
+                          <div class=info-campanha>Tipo: {campanha.TipoItemArrecadado.Nome}</div>
+                          <div class=info-campanha>Finaliza: {campanha.DataPrevistaFim}</div>
                       </div>
                     </div>
                     </a>

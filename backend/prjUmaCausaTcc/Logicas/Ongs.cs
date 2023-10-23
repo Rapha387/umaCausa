@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
@@ -106,7 +107,7 @@ namespace prjUmaCausaTcc.Logicas
         }
         public List<Usuario> ListarOngs(int limite)
         {
-            List<Usuario> usuarios= new List<Usuario>();
+            List<Usuario> ongs = new List<Usuario>();
             List<Parametro> parametros = new List<Parametro>()
             {
                 new Parametro ("pValor", limite.ToString())
@@ -118,32 +119,46 @@ namespace prjUmaCausaTcc.Logicas
                 {
                     while (dados.Read())
                     {
-                        Usuario usuario = new Usuario()
+                        Usuario ong = new Usuario()
                         {
                             Codigo = dados.GetInt32("id_usuario"),
                             Nome = dados.GetString("nm_usuario"),
                             Descricao = dados.GetString("ds_usuario"),
                             FotoPerfil = dados.GetString("img_fotoPerfil")
                         };
-                        CategoriaOng categoriaOng = new CategoriaOng() { Nome = dados.GetString("nm_categoria"), Codigo = dados.GetInt32("id_categoriaOng") };
-                        usuario.CategoriaOng = categoriaOng;
-                        usuarios.Add(usuario);
+                        ong.CategoriasOng = new List<CategoriaOng>();
+
+                        string categorias = dados["nm_categorias"].ToString();
+                        string idsCategoria = dados["id_categorias"].ToString();
+
+                        string[] ListaCategorias = categorias.Split(',');
+                        string[] ListaIdsCategoria = idsCategoria.Split(',');
+
+                        for(int i = 0; i < ListaCategorias.Length; i++)
+                        {
+                            CategoriaOng categoriaOng = new CategoriaOng();
+
+                            categoriaOng.Codigo = int.Parse(ListaIdsCategoria[i]);
+                            categoriaOng.Nome = ListaCategorias[i];
+
+                            ong.CategoriasOng.Add(categoriaOng);
+                        }
+
+                        ongs.Add(ong);
                     }
                 }
                 if (dados.IsClosed)
                     dados.Close();
 
-                return usuarios;
+                return ongs;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new Exception(ex.Message);
             }
             finally { Desconectar(); }
 
         }
-
         public List<Usuario> ListarOngsPorCategoria(int limite, int categoria)
         {
             List<Usuario> ongs = new List<Usuario>();
@@ -159,13 +174,140 @@ namespace prjUmaCausaTcc.Logicas
                 {
                     while (dados.Read())
                     {
-                        ongs.Add(new Usuario()
+                        Usuario ong = new Usuario()
                         {
                             Codigo = dados.GetInt32("id_usuario"),
                             Nome = dados.GetString("nm_usuario"),
                             Descricao = dados.GetString("ds_usuario"),
                             FotoPerfil = dados.GetString("img_fotoPerfil"),
-                        });
+                        };
+                        ong.CategoriasOng = new List<CategoriaOng>();
+
+                        string categorias = dados["nm_categorias"].ToString();
+                        string idsCategoria = dados["id_categorias"].ToString();
+
+                        string[] ListaCategorias = categorias.Split(',');
+                        string[] ListaIdsCategoria = idsCategoria.Split(',');
+
+                        for (int i = 0; i < ListaCategorias.Length; i++)
+                        {
+                            CategoriaOng categoriaOng = new CategoriaOng();
+
+                            categoriaOng.Codigo = int.Parse(ListaIdsCategoria[i]);
+                            categoriaOng.Nome = ListaCategorias[i];
+
+                            ong.CategoriasOng.Add(categoriaOng);
+                        }
+                        ongs.Add(ong);
+                    }
+                }
+                if (!dados.IsClosed)
+                    dados.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+            return ongs;
+        }
+        public List<Usuario> ListarOngsPesquisa(string pesquisa)
+        {
+            List<Usuario> ongs = new List<Usuario>();
+            List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("pPesquisa", pesquisa)
+            };
+            try
+            {
+                MySqlDataReader dados = Consultar("ListarOngsPesquisa", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        Usuario ong = new Usuario()
+                        {
+                            Codigo = dados.GetInt32("id_usuario"),
+                            Nome = dados.GetString("nm_usuario"),
+                            Descricao = dados.GetString("ds_usuario"),
+                            FotoPerfil = dados.GetString("img_fotoPerfil"),
+                        };
+                        ong.CategoriasOng = new List<CategoriaOng>();
+
+                        string categorias = dados["nm_categorias"].ToString();
+                        string idsCategoria = dados["id_categorias"].ToString();
+
+                        string[] ListaCategorias = categorias.Split(',');
+                        string[] ListaIdsCategoria = idsCategoria.Split(',');
+
+                        for (int i = 0; i < ListaCategorias.Length; i++)
+                        {
+                            CategoriaOng categoriaOng = new CategoriaOng();
+
+                            categoriaOng.Codigo = int.Parse(ListaIdsCategoria[i]);
+                            categoriaOng.Nome = ListaCategorias[i];
+
+                            ong.CategoriasOng.Add(categoriaOng);
+                        }
+                        ongs.Add(ong);
+                    }
+                }
+                if (!dados.IsClosed)
+                    dados.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+            return ongs;
+        }
+        public List<Usuario> ListarOngsPorEstado(int limite, string estado)
+        {
+            List<Usuario> ongs = new List<Usuario>();
+            List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("pValor", limite.ToString()),
+                new Parametro ("pEstado", estado.ToString().ToLower())
+            };
+            try
+            {
+                MySqlDataReader dados = Consultar("ListarOngsPorEstado", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        Usuario ong = new Usuario()
+                        {
+                            Codigo = dados.GetInt32("id_usuario"),
+                            Nome = dados.GetString("nm_usuario"),
+                            Descricao = dados.GetString("ds_usuario"),
+                            FotoPerfil = dados.GetString("img_fotoPerfil"),
+                        };
+                        ong.CategoriasOng = new List<CategoriaOng>();
+
+                        string categorias = dados["nm_categorias"].ToString();
+                        string idsCategoria = dados["id_categorias"].ToString();
+
+                        string[] ListaCategorias = categorias.Split(',');
+                        string[] ListaIdsCategoria = idsCategoria.Split(',');
+
+                        for (int i = 0; i < ListaCategorias.Length; i++)
+                        {
+                            CategoriaOng categoriaOng = new CategoriaOng();
+
+                            categoriaOng.Codigo = int.Parse(ListaIdsCategoria[i]);
+                            categoriaOng.Nome = ListaCategorias[i];
+
+                            ong.CategoriasOng.Add(categoriaOng);
+                        }
+                        ongs.Add(ong);
                     }
                 }
                 if (!dados.IsClosed)

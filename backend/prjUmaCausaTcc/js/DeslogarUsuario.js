@@ -18,14 +18,35 @@ if (btnSairNavResponsivo) {
 }
 
 function Deslogar() {
-    fetch("./../JsonResponses/DeslogarUsuario.aspx")
-        .then(function (resposta) {
-            return resposta.json();
-        }).then(function (dados) {
-            console.log(dados)
-            if (dados['situacao'] == 'true') {
-                console.log("ss");
-                window.location.href = "index.aspx"
-            }
-        });
+    let url = "./../JsonResponses/DeslogarUsuario.aspx"
+
+    fetch(url).then(function (resposta) {
+        if (resposta.status === 200) {
+            fetch(url)
+                .then(function (resposta) {
+                    return resposta.json();
+                }).then(function (dados) {
+                    console.log(dados)
+                    if (dados['situacao'] == 'true') {
+                        console.log("ss");
+                        window.location.href = "index.aspx"
+                    }
+                });
+        }
+        else {
+            fetch("./../../JsonResponses/DeslogarUsuario.aspx")
+                .then(function (resposta) {
+                    return resposta.json();
+                }).then(function (dados) {
+                    console.log(dados)
+                    if (dados['situacao'] == 'true') {
+                        console.log("ss");
+                        window.location.href = "../index.aspx"
+                    }
+                });
+        }
+    })
+
+
+
 }

@@ -27,7 +27,7 @@
          <div class="pesquisa">
           <div class="pesquisar">
               <asp:TextBox ID="txtPesquisa" runat="server" type="search" placeholder="Pesquisar"></asp:TextBox>
-              <img src="./../images/icons/search.png" alt="lupa">
+              <asp:ImageButton ID="btnPesquisar" OnClick="btnPesquisar_Click" runat="server" ImageUrl="./../images/icons/search.png"></asp:ImageButton>
           </div>
 
              
@@ -36,24 +36,20 @@
               <asp:DropDownList ID="ddlCategoria" AutoPostBack="true" OnTextChanged="ddlCategoria_TextChanged" runat="server">
                   <asp:ListItem selected hidden>Categoria</asp:ListItem>
               </asp:DropDownList>
-            <select name="DataCricacao" id="b">
-              <option value="DataCricacao">Data de Criação</option>
-            </select>
+              <asp:DropDownList ID="ddlEstado" AutoPostBack="true" OnTextChanged="ddlEstado_TextChanged"
+                  runat="server">
+                  <asp:ListItem selected hidden>Estado</asp:ListItem>
+              </asp:DropDownList>
            </div>
           </div>
           <div class="ongs">
               <h2>ONGS</h2>
-
               <asp:Literal ID="litOngs" runat="server"></asp:Literal>
-                <div style="display:flex; width: 100%; justify-content: center;">
-                    <asp:ImageButton ID="btnBack" OnClick="btnBack_Click" runat="server"
-                   ImageUrl="./../images/botoes/seta.png" CssClass="backButton itemPaginacao">
-                    </asp:ImageButton>
-                    <asp:Literal ID="litItemPaginacao" runat="server"></asp:Literal>
-                    <asp:ImageButton ID="btnNext" OnClick="btnNext_Click" runat="server"
-                   ImageUrl="./../images/botoes/seta.png" CssClass="nextButton itemPaginacao">
-                    </asp:ImageButton>
-                </div>
+              <div class="paginacao">
+                <asp:ImageButton ID="btnBack" OnClick="btnBack_Click" runat="server" ImageUrl="./../images/botoes/seta.png" CssClass="backButton itemPaginacao"></asp:ImageButton>
+                <asp:Literal ID="litItemPaginacao" runat="server"></asp:Literal>
+                <asp:ImageButton ID="btnNext" OnClick="btnNext_Click" runat="server" ImageUrl="./../images/botoes/seta.png" CssClass="nextButton itemPaginacao"></asp:ImageButton>
+              </div>
          </div>
       </main>
 

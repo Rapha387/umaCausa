@@ -36,7 +36,7 @@
               </div>
               <div class="input-label">
                 <label for="">CPF:</label>
-                <asp:TextBox ID="txtIdentificacao" runat="server" maxlength="11" placeholder="31331561842" required="required"></asp:TextBox>
+                <asp:TextBox ID="txtCpf" runat="server" maxlength="11" placeholder="31331561842" required="required"></asp:TextBox>
                 <span id="erroIdentificacao" class="spanErro"></span>
               </div>
               <div class="input-label">

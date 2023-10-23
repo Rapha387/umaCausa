@@ -12,9 +12,9 @@ namespace prjUmaCausaTcc.Logicas
         {
             List<Campanha> campanhas = new List<Campanha>();
             List<Parametro> parametros = new List<Parametro>()
-        {
-            new Parametro ("pIdUsuario", codigo.ToString())
-        };
+            {
+                new Parametro ("pIdUsuario", codigo.ToString())
+            };
 
             try
             {
@@ -25,10 +25,16 @@ namespace prjUmaCausaTcc.Logicas
                     {
                         campanhas.Add(new Campanha()
                         {
-                            Banner = dados.GetString("img_bannerCampanha"),
-                            Nome = dados.GetString("nm_campanha"),
                             Codigo = dados.GetInt32("id_campanha"),
-                            PorcentagemArrecadado = dados.GetInt32("perc")
+                            Nome = dados.GetString("nm_campanha"),
+                            Banner = dados.GetString("img_bannerCampanha"),
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem()
+                            {
+                                Codigo = dados.GetInt32("id_tipoItem"),
+                                Nome = dados.GetString("nm_tipoItem")
+                            }
                         });
                     }
                 }
@@ -44,7 +50,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
-
         public List<Campanha> ListarCampanhasASC(int codigo)
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -62,10 +67,16 @@ namespace prjUmaCausaTcc.Logicas
                     {
                         campanhas.Add(new Campanha()
                         {
-                            Banner = dados.GetString("img_bannerCampanha"),
-                            Nome = dados.GetString("nm_campanha"),
                             Codigo = dados.GetInt32("id_campanha"),
-                            PorcentagemArrecadado = dados.GetInt32("perc")
+                            Nome = dados.GetString("nm_campanha"),
+                            Banner = dados.GetString("img_bannerCampanha"),
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem()
+                            {
+                                Codigo = dados.GetInt32("id_tipoItem"),
+                                Nome = dados.GetString("nm_tipoItem")
+                            }
                         });
                     }
                 }
@@ -81,7 +92,47 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
+        public List<Campanha> ListarCampanhasPesquisa(string pesquisa)
+        {
+            List<Campanha> campanhas = new List<Campanha>();
+            List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pPesquisa", pesquisa.ToString())
+        };
 
+            try
+            {
+                MySqlDataReader dados = Consultar("ListarCampanhasPesquisa", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        campanhas.Add(new Campanha()
+                        {
+                            Codigo = dados.GetInt32("id_campanha"),
+                            Nome = dados.GetString("nm_campanha"),
+                            Banner = dados.GetString("img_bannerCampanha"),
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem()
+                            {
+                                Codigo = dados.GetInt32("id_tipoItem"),
+                                Nome = dados.GetString("nm_tipoItem")
+                            }
+                        });
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+            }
+            catch (Exception)
+            {
+                throw new Exception("Houve um problema a realizar a busca");
+            }
+            finally { Desconectar(); }
+
+            return campanhas;
+        }
         public List<Campanha> ListarDadosMinimosCampanhasFinalizadasDaOng(int codigo)
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -99,10 +150,16 @@ namespace prjUmaCausaTcc.Logicas
                     {
                         campanhas.Add(new Campanha()
                         {
-                            Banner = dados.GetString("img_bannerCampanha"),
-                            Nome = dados.GetString("nm_campanha"),
                             Codigo = dados.GetInt32("id_campanha"),
-                            PorcentagemArrecadado = dados.GetInt32("perc")
+                            Nome = dados.GetString("nm_campanha"),
+                            Banner = dados.GetString("img_bannerCampanha"),
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem()
+                            {
+                                Codigo = dados.GetInt32("id_tipoItem"),
+                                Nome = dados.GetString("nm_tipoItem")
+                            }
                         });
                     }
                 }
@@ -119,7 +176,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
-
         public List<Campanha> ListarCampanhasPertoDeAcabar()
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -136,7 +192,9 @@ namespace prjUmaCausaTcc.Logicas
                             Codigo = dados.GetInt32("id_campanha"),
                             Nome = dados.GetString("nm_campanha"),
                             Banner = dados.GetString("img_bannerCampanha"),
-                            PorcentagemArrecadado = dados.GetInt32("perc")
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem() { Codigo = dados.GetInt32("id_tipoItem"), Nome = dados.GetString("nm_tipoItem")}
                         });
                     }
                 }
@@ -152,7 +210,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
-
         public List<Campanha> ListarCampanhasAleatorias()
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -169,7 +226,114 @@ namespace prjUmaCausaTcc.Logicas
                             Codigo = dados.GetInt32("id_campanha"),
                             Nome = dados.GetString("nm_campanha"),
                             Banner = dados.GetString("img_bannerCampanha"),
-                            PorcentagemArrecadado = dados.GetInt32("perc")
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem() 
+                            { 
+                                Codigo = dados.GetInt32("id_tipoItem"), 
+                                Nome = dados.GetString("nm_tipoItem") 
+                            }
+                        });
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { Desconectar(); }
+
+            return campanhas;
+        }
+        public int ListarIndiceCampanhas()
+        {
+            int indice = 0;
+            try
+            {
+                MySqlDataReader dados = Consultar("ListarIndiceCampanhas", null);
+                if (dados.HasRows)
+                {
+                    if (dados.Read())
+                    {
+                        indice = dados.GetInt32("indice");
+                    }
+                }
+                if (!dados.IsClosed)
+                    dados.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Desconectar();
+            }
+            return indice;
+        }
+        public List<Campanha> ListarDadosMinimosCampanhas(int codigo)
+        {
+            List<Campanha> campanhas = new List<Campanha>();
+            List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("pIdUsuario", codigo.ToString())
+            };
+
+            try
+            {
+                MySqlDataReader dados = Consultar("BuscarDadosMinimosCampanhas", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        campanhas.Add(new Campanha()
+                        {
+                            DataInicio = dados.GetDateTime("dt_inicioCampanha"),
+                            Nome = dados.GetString("nm_campanha"),
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            QuantidadeMeta = dados.GetInt32("qt_meta")
+                        });
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Houve um problema a realizar a busca");
+            }
+            finally { Desconectar(); }
+
+            return campanhas;
+        }
+
+        public List<Campanha> ListarCampanhasMonetarias()
+        {
+            List<Campanha> campanhas = new List<Campanha>();
+
+            try
+            {
+                MySqlDataReader dados = Consultar("ListarCampanhasMonetarias", null);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        campanhas.Add(new Campanha()
+                        {
+                            Codigo = dados.GetInt32("id_campanha"),
+                            Nome = dados.GetString("nm_campanha"),
+                            Banner = dados.GetString("img_bannerCampanha"),
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem()
+                            {
+                                Codigo = dados.GetInt32("id_tipoItem"),
+                                Nome = dados.GetString("nm_tipoItem")
+                            }
                         });
                     }
                 }

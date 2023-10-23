@@ -5,7 +5,9 @@ if (btnRealizarDenunciaUsuario) {
     btnRealizarDenunciaUsuario.addEventListener('click', function(e) {
         e.preventDefault();
 
-        if (txtDescricaoDenuncia.value == '' || cmbMotivoDenuncia.selectedIndex == 0) {
+        if (cmbMotivoDenuncia.selectedIndex == 0) {
+            cmbMotivoDenuncia.classList.add('inputInvalido');
+            erroDenuncia.textContent = "Selecione o motivo da denuncia"
             return;
         }
 
