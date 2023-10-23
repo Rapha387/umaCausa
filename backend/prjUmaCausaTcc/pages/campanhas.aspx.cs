@@ -11,10 +11,13 @@ namespace prjUmaCausaTcc.pages
 {
     public partial class campanhas : System.Web.UI.Page
     {
+        string c = "";
+        string d = "";
         int indiceDePaginacao = 0;
         protected void Page_Load(object sender, EventArgs e)
-        {
+        { 
             litItemPaginacao.Text = "";
+            litCampanhas.Text = "";
             List<Campanha> campanhas = new List<Campanha>();
             Campanhas listarCampanhas = new Campanhas();
             #region Gerar Elementos Html
@@ -39,25 +42,58 @@ namespace prjUmaCausaTcc.pages
             }
             #endregion
 
+
+
             #region GerarCampanhas
-            if (!String.IsNullOrEmpty(Request["c"]) && ddlCategoria.SelectedIndex == 0)
+            if (!String.IsNullOrEmpty(Request["c"]))
+                c = Request["c"].ToString();
+
+            if (!String.IsNullOrEmpty(Request["d"]))
+                d = Request["d"].ToString();
+
+
+            if (!String.IsNullOrEmpty(Request["d"]) && d == "0")
+            {
+                campanhas = listarCampanhas.ListarCampanhasPorData(0, 0);
+                GerarCampanhas(campanhas);
+            }
+            
+            if (!String.IsNullOrEmpty(Request["d"]) && d == "1")
+            {
+                campanhas = listarCampanhas.ListarCampanhasPorData(0, 1);
+                GerarCampanhas(campanhas);
+            }
+            
+
+            
+
+            if (!String.IsNullOrEmpty(Request["c"]) && c == "0")
             {
                 campanhas = listarCampanhas.ListarCampanhasMonetarias(0);
                 GerarCampanhas(campanhas);
-                return;
             }
-            if (!String.IsNullOrEmpty(Request["t"]))
+            
+            if (!String.IsNullOrEmpty(Request["c"]) && c == "1")
+            {
+                campanhas = listarCampanhas.ListarCampanhasItens(0);
+                GerarCampanhas(campanhas);
+            }
+            else if (!String.IsNullOrEmpty(Request["t"]))
             {
                 campanhas = listarCampanhas.ListarCampanhasPorTipo(0, int.Parse(Request["t"]));
                 GerarCampanhas(campanhas);
-                return;
             }
 
+                campanhas = listarCampanhas.ListarCampanhasASC(0);
+                GerarCampanhas(campanhas);
             #endregion
 
             #region DDLS
             ddlCategoria.Items.Insert(0, new ListItem("Monetário", "0"));
             ddlCategoria.Items.Insert(1, new ListItem("Item", "1"));
+
+            ddlData.Items.Insert(0, new ListItem("Mais Recente", "0"));
+            ddlData.Items.Insert(1, new ListItem("Mais Antigo", "1"));
 
             foreach (TipoItem item in new Itens().ListarTiposItens())
             {
@@ -79,6 +115,8 @@ namespace prjUmaCausaTcc.pages
                 btnBack.Visible = false;
             }
 
+
+
             if (!String.IsNullOrEmpty(Request["pagina"]))
             {
                 campanhas = listarCampanhas.ListarCampanhasASC((int.Parse(Request["pagina"]) - 1));
@@ -99,13 +137,15 @@ namespace prjUmaCausaTcc.pages
                 if (!String.IsNullOrEmpty(Request["c"]))
                     ddlCategoria.SelectedIndex = int.Parse(Request["c"]);
 
+                if (!String.IsNullOrEmpty(Request["d"]))
+                    ddlData.SelectedIndex = int.Parse(Request["d"]);
+
                 if (!String.IsNullOrEmpty(Request["t"]))
-                    ddlTipo.SelectedIndex = int.Parse(Request["t"]);
+                    ddlTipo.SelectedValue = Request["t"];
             }
             #endregion
 
-            campanhas = listarCampanhas.ListarCampanhasASC(0);
-            GerarCampanhas(campanhas);
+            
 
         }
 
@@ -164,12 +204,14 @@ namespace prjUmaCausaTcc.pages
         }
         protected void ddlTipo_TextChanged(object sender, EventArgs e)
         {
+
+
             Response.Redirect($"campanhas.aspx?t={ddlTipo.SelectedValue}");
         }
 
         protected void ddlData_TextChanged(object sender, EventArgs e)
         {
-
+            Response.Redirect($"campanhas.aspx?d={ddlData.SelectedValue}");
         }
         #endregion
 

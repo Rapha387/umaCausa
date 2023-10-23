@@ -395,5 +395,90 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
+
+        public List<Campanha> ListarCampanhasItens(int codigo)
+        {
+            List<Campanha> campanhas = new List<Campanha>();
+            List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pValor", codigo.ToString())
+        };
+            try
+            {
+                MySqlDataReader dados = Consultar("ListarCampanhasItens", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        campanhas.Add(new Campanha()
+                        {
+                            Codigo = dados.GetInt32("id_campanha"),
+                            Nome = dados.GetString("nm_campanha"),
+                            Banner = dados.GetString("img_bannerCampanha"),
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem()
+                            {
+                                Codigo = dados.GetInt32("id_tipoItem"),
+                                Nome = dados.GetString("nm_tipoItem")
+                            }
+                        });
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { Desconectar(); }
+
+            return campanhas;
+        }
+
+        public List<Campanha> ListarCampanhasPorData(int codigo, int data)
+        {
+            List<Campanha> campanhas = new List<Campanha>();
+            List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("vValor", codigo.ToString()),
+                new Parametro ("vIcData", data.ToString())
+            };
+            try
+            {
+                MySqlDataReader dados = Consultar("ListarCampanhasPorData", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        campanhas.Add(new Campanha()
+                        {
+                            Codigo = dados.GetInt32("id_campanha"),
+                            Nome = dados.GetString("nm_campanha"),
+                            Banner = dados.GetString("img_bannerCampanha"),
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            PorcentagemArrecadado = dados.GetInt32("perc"),
+                            TipoItemArrecadado = new TipoItem()
+                            {
+                                Codigo = dados.GetInt32("id_tipoItem"),
+                                Nome = dados.GetString("nm_tipoItem")
+                            }
+                        });
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { Desconectar(); }
+
+            return campanhas;
+        }
     }
 }
