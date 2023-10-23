@@ -28,6 +28,13 @@ const listaDias = document.getElementById('selectedDias');
 const botaoCadastrarDoador = document.getElementById('btnCadastrarDoador');
 const botaoCadastrarOng = document.getElementById('btnCadastrarOng');
 
+const chkItem1 = document.getElementById('chkItem1');
+const chkItem2 = document.getElementById('chkItem2');
+const chkItem3 = document.getElementById('chkItem3');
+const chkItem4 = document.getElementById('chkItem4');
+const chkItem5 = document.getElementById('chkItem5');
+const chkItem6 = document.getElementById('chkItem6');
+const chkItem7 = document.getElementById('chkItem7');
 
 if (txtPix) {
     let cpf = txtPix.value.replace(/\D/g, '');
@@ -106,7 +113,6 @@ if (txtCep) {
         if (this.value.length > 8)
             this.value = this.value.slice(0, 8);
     })
-
 }
 
 if (botaoCadastrarDoador) {
@@ -247,6 +253,7 @@ function VerificarDadosOng(event) {
     erroEmailContato.textContent = "";
     txtDescricao.classList.remove('inputInvalido');
     erroDescricao.textContent = "";
+    erroDias.textContent = "";
 
     if (cmbTiposPix.value == "telefone" || cmbTiposPix.value == "cpf" && txtPix.value.length < 11) {
         txtPix.classList.add('inputInvalido');
@@ -273,8 +280,11 @@ function VerificarDadosOng(event) {
         event.preventDefault();
         erroDescricao.textContent = "A descrição não pode estar vazia";
     }
-}
+    if (VerificarDias() == 0) {
+        erroDias.textContent = "Selecione pelo menos um dia disponível"
+    }
 
+}
 
 if (txtTelefone) {
     txtTelefone.addEventListener('input', function (event) {

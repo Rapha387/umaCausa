@@ -64,3 +64,29 @@ function mudarEstadoInputs(chkDia,txtComecoDia, txtFimDia){
     }
 }
 
+function VerificarDias() {
+    let contador = 0;
+
+    if (chkDia1.checked)
+        contador++
+
+    if (chkDia2.checked)
+        contador++
+
+    if (chkDia3.checked)
+        contador++
+
+    if (chkDia4.checked)
+        contador++
+
+    if (chkDia5.checked)
+        contador++
+
+    if (chkDia6.checked)
+        contador++
+
+    if (chkDia7.checked)
+        contador++
+
+    return contador;
+}

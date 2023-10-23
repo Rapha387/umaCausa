@@ -5,7 +5,7 @@ body {
 main {
   display: flex;
   justify-content: space-between;
-  width: 1000px;
+  width: 1200px;
 }
 
 main nav {
@@ -31,7 +31,7 @@ main nav ul a img {
   height: 28px;
 }
 main .infos-configuracoes {
-  width: 610px;
+  width: 800px;
 }
 main .infos-configuracoes .titulo-info {
   display: flex;
@@ -50,8 +50,8 @@ main .infos-configuracoes .infos {
   flex-wrap: wrap;
   margin-top: 20px;
 }
-main .infos-configuracoes .infos .input-label {
-  width: 295px;
+.input-label{
+    width: 49%;
 }
 
 table {

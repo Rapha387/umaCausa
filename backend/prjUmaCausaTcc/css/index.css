@@ -47,6 +47,13 @@ input[type=submit] {
     cursor: pointer;
 }
 
+.add-padding-borda {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    padding-right: 16px;
+    border-right: solid thin #000;
+}
 
 input[type=submit] img{
     padding-right: 4.5px;
@@ -479,7 +486,7 @@ main {
   display: none;
   background-color: #F5F5F5;
   position: absolute;
-  right: 3.438rem;
+  right: 3rem;
   top: 41.6px;
   z-index: 3;
 }

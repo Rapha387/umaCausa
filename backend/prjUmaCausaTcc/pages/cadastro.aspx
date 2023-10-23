@@ -34,7 +34,7 @@
                 o uso de meus dados de acordo com a Declaração de Privacidade.
               </p>
               <a id="btnDoador" href="cadastroDoador.aspx">Criar Conta como Doador</a>
-              <a id="btnOng">Criar Conta como ONG</a>
+              <a id="btnOng" href="cadastroOng.aspx">Criar Conta como ONG</a>
             </div>
           </div>
         </main>

@@ -178,10 +178,12 @@
               <div class="input-label">
                   <label for="">Categorias da Ong:</label>
                   <asp:Panel ID="pnlCategorias" runat="server"></asp:Panel>
+                  <span id="erroCategorias" class="spanErro"></span>
               </div>
               <div class="input-label">
                   <label for="">Itens Aceitos:</label>
                   <asp:Panel ID="pnlItensAceitos" runat="server"></asp:Panel>
+                  <span id="erroItensAceitos" class="spanErro"></span>
               </div>
 
               <div class="input-label">
@@ -253,6 +255,7 @@
                           </div>
                       </asp:Panel>--%>
                   </asp:Panel>
+                  <span id="erroDias" class="spanErro"></span>
               </div>
                   <div class="pnlCheckBox" style="margin: 20px 0">
                       <asp:CheckBox ID="chkConfirmaoBuscaDoacoes" runat="server" />
