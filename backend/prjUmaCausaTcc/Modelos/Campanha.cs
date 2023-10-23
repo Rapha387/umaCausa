@@ -183,7 +183,6 @@ public class Campanha : Banco
                         Codigo = dados.GetInt32("id_usuario"),
                         Nome = dados.GetString("nm_usuario"),
                     };
-
                 }
             }
 

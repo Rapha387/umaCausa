@@ -1,10 +1,24 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 public class GerarEmentosHtml
 {
+    string nome = "";
+    private void EditarNome(string nomeUsuario)
+    {
+        string[] nomes = nomeUsuario.Split(' ');
+
+        for (int i = 0; i < nomes.Length; i++)
+        {
+            if (i == 3)
+                break;
+
+            nome += " " + nomes[i];
+        }
+    }
+
     public string MudarNavegacao(Usuario usuario)
     {
         if (usuario == null)
@@ -38,6 +52,8 @@ public class GerarEmentosHtml
             return nav;
         }
 
+        EditarNome(usuario.Nome);
+
         if (usuario.TipoDoUsuario.Codigo == 1)
         {
             string nav = $@"
@@ -47,7 +63,7 @@ public class GerarEmentosHtml
                             <ul>
                                 <li><a href='./ongs.aspx'>Ongs</a></li>
                                 <li><a href='./campanhas.aspx'>Campanhas</a></li>
-                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{usuario.Nome}</span></label></li>
+                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
                                     <span class='linha'></span>
@@ -56,13 +72,13 @@ public class GerarEmentosHtml
                             </ul>
                             <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
                             <div class='menu-configuracoes'>
-                                <ul>
+                                <div>
                                   <a href='configuracoes/meuPerfil.aspx'><li>Meu Perfil</li></a>
                                   <a href='configuracoes/minhasColaboracoes.aspx'><li>Minhas Colaborações</li></a>
                                   <a href='configuracoes/minhasCampanhas.aspx'><li>Minhas Campanhas</li></a>
                                   <a href='configuracoes/confirmacoesDoacoes.aspx'><li>Confirmações de Doações</li></a>
                                   <li id='btnSair'>Sair</li>
-                                </ul>
+                                </div>
                             </div>
                         </nav>
                     </header>
@@ -93,7 +109,7 @@ public class GerarEmentosHtml
                             <ul>
                                 <li><a href='./ongs.aspx'>Ongs</a></li>
                                 <li><a href='./campanhas.aspx'>Campanhas</a></li>
-                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{usuario.Nome}</span></label></li>
+                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
                                     <span class='linha'></span>
@@ -102,11 +118,11 @@ public class GerarEmentosHtml
                             </ul>
                             <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
                             <div class='menu-configuracoes'>
-                                <ul>
-                                  <a href='configuracoes/meuPerfil.aspx'><li>Meu Perfil</a></li>
-                                  <a href='configuracoes/minhasColaboracoes.aspx'><li>Minhas Colaborações</a></li>
+                                <div>
+                                  <a href='configuracoes/meuPerfil.aspx'><li>Meu Perfil</li></a>
+                                  <a href='configuracoes/minhasColaboracoes.aspx'><li>Minhas Colaborações</li></a>
                                   <li id='btnSair'>Sair</li>
-                                </ul>
+                                </div>
                             </div>
                         </nav>
                     </header>
@@ -120,7 +136,6 @@ public class GerarEmentosHtml
                         <div class='divisaoNavResposivo'>
                           <h3>Minhas Informações</h3>
                           <li><a href='./configuracoes/meuPerfil.aspx'>Meu Perfil</a></li>
-                          <li><a href='./configuracoes/meusItens.aspx'>Minhas Campanhas</a></li>
                           <li><a href='./configuracoes/minhasColaboracoes.aspx'>Minhas Colaborações</a></li>
                           <li><a href='configuracoes/confirmacoesDoacoes.aspx'>Confirmações de Doações</a></li>
                         </div>
@@ -136,6 +151,8 @@ public class GerarEmentosHtml
         if (usuario == null)
             return "";
 
+        EditarNome(usuario.Nome);
+
         if (usuario.TipoDoUsuario.Codigo == 1)
         {
             string nav = $@"
@@ -145,7 +162,7 @@ public class GerarEmentosHtml
                             <ul>
                                 <li><a href='./../ongs.aspx'>Ongs</a></li>
                                 <li><a href='./../campanhas.aspx'>Campanhas</a></li>
-                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=./../../images/icons/userPreto.png /><span>{usuario.Nome}</span></label></li>
+                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=./../../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
                                     <span class='linha'></span>
@@ -154,13 +171,13 @@ public class GerarEmentosHtml
                             </ul>
                             <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
                             <div class='menu-configuracoes'>
-                                <ul>
+                                <div>
                                   <a href='./meuPerfil.aspx'><li>Meu Perfil</li></a>
                                   <a href='./minhasColaboracoes.aspx'><li>Minhas Colaborações</li></a>
                                   <a href='./minhasCampanhas.aspx'><li>Minhas Campanhas</li></a>
                                   <a href='./confirmacoesDoacoes.aspx'><li>Confirmações de Doações</li></a>
                                   <li id='btnSair'>Sair</li>
-                                </ul>
+                                </div>
                             </div>
                         </nav>
                     </header>
@@ -191,7 +208,7 @@ public class GerarEmentosHtml
                             <ul>
                                 <li><a href='./../ongs.aspx'>Ongs</a></li>
                                 <li><a href='./../campanhas.aspx'>Campanhas</a></li>
-                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=./../../images/icons/userPreto.png /><span>{usuario.Nome}</span></label></li>
+                                <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=./../../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
                                     <span class='linha'></span>
@@ -349,7 +366,6 @@ public class GerarEmentosHtml
             return nav;
         }
     }
-
     
 
     public string GerarFooterConfiguracoes()

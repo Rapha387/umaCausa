@@ -12,16 +12,23 @@ namespace prjUmaCausaTcc.pages.configuracoes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            GerarEmentosHtml gerarElementosHtml = new GerarEmentosHtml();
             Usuario usuario = (Usuario)Session["usuario"];
+
+            if (usuario == null)
+                Response.Redirect("../index.aspx");
+
+            GerarEmentosHtml gerarElementosHtml = new GerarEmentosHtml();
             string nav = gerarElementosHtml.GerarHeaderConfiguracoes(usuario);
             string footer = gerarElementosHtml.GerarFooterConfiguracoes();
             string menu = gerarElementosHtml.GerarMenu(usuario);
+
             LitFooter.Text = footer;
             LitHeader.Text = nav;
             LitMenu.Text = menu;
+
             Campanhas campanhas = new Campanhas();
             int codigo = usuario.Codigo;
+
             foreach (Campanha campanha in campanhas.ListarDadosMinimosCampanhas(codigo))
             {
                 LitCampanhas.Text += $@"<tr>

@@ -11,6 +11,10 @@
     <form id="form1" runat="server">
         <div>
         </div>
+
+
+        <script src="./../../js/DeslogarUsuario.js"></script>
+
     </form>
 </body>
 </html>

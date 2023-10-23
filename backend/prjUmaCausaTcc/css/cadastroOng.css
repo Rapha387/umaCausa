@@ -1,4 +1,6 @@
-
+main{
+    width: 900px
+}
 
 .titulo-info {
   border-bottom: solid thin #000;
@@ -9,7 +11,7 @@
 }
 
 .infos-cadastro {
-  width: 610px;
+  width: 100%;
   margin: auto;
 }
 

@@ -368,7 +368,6 @@ public class Usuario : Banco
                     CategoriasOng.Add(categoriaOng);
                 }
                 PosssibilidadeBusca = bool.Parse(dados["ic_podeBuscar"].ToString());
-
             }
             if (!dados.IsClosed)
                 dados.Close();

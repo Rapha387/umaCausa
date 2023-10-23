@@ -22,66 +22,13 @@
       <form id="form1" runat="server">
             <header>
                 <asp:Literal ID="LitHeader" runat="server"></asp:Literal>
-             <%-- <nav>
-                <a href="./../index.html"><img class="logo-header" src="./../images/logo/logoAzul.svg" alt=""></a>
-                <ul>
-                  <li><a href="./../ongs.html">Ongs</a></li>
-                  <li><a href="./../campanhas.html">Campanhas</a></li>
-                  <li><a href="./../login.html">Login</a></li>
-                  <li>
-                    <a href="./../cadastro.html"
-                      ><button>
-                        <img src="./../../images/icons/user.png" />Cadastre-se
-                      </button></a
-                    >
-                  </li>
-                </ul>
-              </nav>--%>
             </header>
 
             <main>
                 <asp:Literal ID="LitMenu" runat="server"></asp:Literal>
-              <%--<nav>
-                <ul>
-                  <li>
-                    <a href="./meuPerfil.html">
-                      <img src="./../../images/icons/userAzul.png" alt="" />
-                      Meu Perfil
-                    </a>
-                  </li>
-                  <li>
-                    <a href="./minhasColaboracoes.html">
-                      <img src="./../../images/icons/maos.png" alt="" />
-                      Minhas Colaborações
-                    </a>
-                  </li>
-                  <li>
-                    <a href="./meusItens.html">
-                      <img src="./../../images/icons/caixa.png" alt="" />
-                      Meus Itens
-                    </a>
-                  </li>
-                  <li>
-                    <a href="./confirmacoesDoacoes.html">
-                      <img src="./../../images/icons/confirmacao.png" alt="" />
-                      Confirmações de Doações
-                    </a>
-                  </li>
-                  <li>
-                    <a href="./minhasCampanhas.html">
-                      <img src="./../../images/icons/megafone.png" alt="" />
-                      Minhas Campanhas
-                    </a>
-                  </li>
-                  <li>
-                    <a href="./alterarSenha.html">
-                      <img src="./../../images/icons/cadeado.png" alt="" />
-                      Alterar Senha
-                    </a>
-                  </li>
-                </ul>
-              </nav>--%>
+
               <hr />
+
               <div class="infos-configuracoes">
                 <div class="titulo-info">
                   <img src="./../../images/icons/megafone.png" alt="" />

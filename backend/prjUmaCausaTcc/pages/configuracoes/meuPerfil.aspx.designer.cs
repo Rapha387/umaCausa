@@ -42,49 +42,49 @@ namespace prjUmaCausaTcc.pages.configuracoes
         protected global::System.Web.UI.WebControls.Literal Litmenu;
 
         /// <summary>
-        /// Controle TxtNome.
+        /// Controle txtNome.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNome;
+        protected global::System.Web.UI.WebControls.TextBox txtNome;
 
         /// <summary>
-        /// Controle TxtCnpj.
+        /// Controle txtCnpj.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCnpj;
+        protected global::System.Web.UI.WebControls.TextBox txtCnpj;
 
         /// <summary>
-        /// Controle TxtEmail.
+        /// Controle txtEmail.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// Controle TxtTelefone.
+        /// Controle txtTelefone.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtTelefone;
+        protected global::System.Web.UI.WebControls.TextBox txtTelefone;
 
         /// <summary>
-        /// Controle TxtCep.
+        /// Controle txtCep.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCep;
+        protected global::System.Web.UI.WebControls.TextBox txtCep;
 
         /// <summary>
         /// Controle txtUF.
@@ -96,31 +96,31 @@ namespace prjUmaCausaTcc.pages.configuracoes
         protected global::System.Web.UI.WebControls.DropDownList txtUF;
 
         /// <summary>
-        /// Controle TxtCidade.
+        /// Controle txtCidade.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCidade;
+        protected global::System.Web.UI.WebControls.TextBox txtCidade;
 
         /// <summary>
-        /// Controle TxtBairro.
+        /// Controle txtBairro.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtBairro;
+        protected global::System.Web.UI.WebControls.TextBox txtBairro;
 
         /// <summary>
-        /// Controle TxtLogadouro.
+        /// Controle txtLogradouro.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtLogadouro;
+        protected global::System.Web.UI.WebControls.TextBox txtLogradouro;
 
         /// <summary>
         /// Controle txtNumero.
@@ -150,31 +150,31 @@ namespace prjUmaCausaTcc.pages.configuracoes
         protected global::System.Web.UI.WebControls.Panel PnlItensOngs;
 
         /// <summary>
-        /// Controle TxtPix.
+        /// Controle txtPix.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtPix;
+        protected global::System.Web.UI.WebControls.TextBox txtPix;
 
         /// <summary>
-        /// Controle TxtWebsite.
+        /// Controle txtWebsite.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtWebsite;
+        protected global::System.Web.UI.WebControls.TextBox txtWebsite;
 
         /// <summary>
-        /// Controle TxtEmailContato.
+        /// Controle txtEmailContato.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtEmailContato;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailContato;
 
         /// <summary>
         /// Controle ckbPodeBuscar.
