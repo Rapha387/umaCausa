@@ -15,11 +15,8 @@ namespace prjUmaCausaTcc.pages
         protected void Page_Load(object sender, EventArgs e)
         {
             litItemPaginacao.Text = "";
-            
-
             List<Campanha> campanhas = new List<Campanha>();
             Campanhas listarCampanhas = new Campanhas();
-
             #region Gerar Elementos Html
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
@@ -43,6 +40,18 @@ namespace prjUmaCausaTcc.pages
             #endregion
 
             #region GerarCampanhas
+            if (!String.IsNullOrEmpty(Request["c"]) && ddlCategoria.SelectedIndex == 0)
+            {
+                campanhas = listarCampanhas.ListarCampanhasMonetarias(0);
+                GerarCampanhas(campanhas);
+                return;
+            }
+            if (!String.IsNullOrEmpty(Request["t"]))
+            {
+                campanhas = listarCampanhas.ListarCampanhasPorTipo(0, int.Parse(Request["t"]));
+                GerarCampanhas(campanhas);
+                return;
+            }
 
             #endregion
 
@@ -54,15 +63,9 @@ namespace prjUmaCausaTcc.pages
             {
                 ddlTipo.Items.Insert(item.Codigo - 1, new ListItem(item.Nome, item.Codigo.ToString()));
             }
+
             #endregion
 
-            #region !PostBack
-            if (!IsPostBack)
-            {
-                if (!String.IsNullOrEmpty(Request["c"]))
-                    ddlCategoria.SelectedIndex = int.Parse(Request["c"]);
-            }
-            #endregion
 
             int indice = new Campanhas().ListarIndiceCampanhas();
             for (int i = 0; i < indice; i++)
@@ -90,12 +93,16 @@ namespace prjUmaCausaTcc.pages
                 return;
             }
 
-            if (!String.IsNullOrEmpty(Request["c"]) && ddlCategoria.SelectedIndex == 0)
+            #region !PostBack
+            if (!IsPostBack)
             {
-                campanhas = listarCampanhas.ListarCampanhasMonetarias();
-                GerarCampanhas(campanhas);
-                return;
+                if (!String.IsNullOrEmpty(Request["c"]))
+                    ddlCategoria.SelectedIndex = int.Parse(Request["c"]);
+
+                if (!String.IsNullOrEmpty(Request["t"]))
+                    ddlTipo.SelectedIndex = int.Parse(Request["t"]);
             }
+            #endregion
 
             campanhas = listarCampanhas.ListarCampanhasASC(0);
             GerarCampanhas(campanhas);
@@ -155,6 +162,15 @@ namespace prjUmaCausaTcc.pages
         {
             Response.Redirect($"campanhas.aspx?c={ddlCategoria.SelectedValue}");
         }
+        protected void ddlTipo_TextChanged(object sender, EventArgs e)
+        {
+            Response.Redirect($"campanhas.aspx?t={ddlTipo.SelectedValue}");
+        }
+
+        protected void ddlData_TextChanged(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         protected void btnPesquisar_Click(object sender, ImageClickEventArgs e)
@@ -165,14 +181,5 @@ namespace prjUmaCausaTcc.pages
             Response.Redirect("campanhas.aspx?s="+ txtPesquisa.Text);
         }
 
-        protected void ddlTipo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void ddlData_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
