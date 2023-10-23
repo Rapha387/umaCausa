@@ -37,3 +37,54 @@ main{
   height: 40px;
   margin: auto;
 }
+
+/*RESPONSIVO*/
+
+@media screen and (max-width: 1199px) {
+    main {
+        width: 100% !important;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .infos .input-label{
+        width:100%;
+    }
+
+    #cep{
+        width:100%
+    }
+
+    #UF {
+        width: 100%
+    }
+
+    #cidade {
+        width: 100%
+    }
+
+    #bairro {
+        width: 100%
+
+    }
+
+    #logradouro {
+        width: 100%
+    }
+
+    #numero {
+        width: 100%
+    }
+
+
+    #complemento {
+        width: 100%
+    }
+}

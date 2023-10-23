@@ -139,9 +139,7 @@ main .infos .infos2 .fotos .fotos-flex .foto {
             width: 100%;
         }
 
-            main .infos .infos1 {
-                width: auto;
-            }
+
 
     .campanhas .campanhas-flex .campanha {
         width: 100% !important;
@@ -161,7 +159,11 @@ main .infos .infos2 .fotos .fotos-flex .foto {
             height: 106px;
         }
 
-         .fotos-flex {
-            max-height: 217px;
-        }
+    .fotos-flex {
+        max-height: 217px;
+    }
+
+    main .infos .infos1 {
+        width: 100%;
+    }
 }
