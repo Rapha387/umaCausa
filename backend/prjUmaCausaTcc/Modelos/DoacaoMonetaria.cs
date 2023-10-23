@@ -10,7 +10,7 @@ public class DoacaoMonetaria : Banco
     public Usuario ONG { get; set; }
     public Usuario Doador { get; set; }
     public double ValorDoacao { get; set; }
-    public DateTime dataDoacao { get; set; }
+    public DateTime DataDoacao { get; set; }
     public int CodigoComprovante { get; set; }  
     public int CodigoDoacao { get; set; }   
     public DateTime respostaOng { get; set; }

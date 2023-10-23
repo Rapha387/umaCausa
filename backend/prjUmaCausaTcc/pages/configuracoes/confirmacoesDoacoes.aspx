@@ -96,7 +96,6 @@
               já confirmadas
             </div></a>
           </div>
-            
                 <div class="confirmacoes">
                     <asp:Literal ID="Confirmacoes" runat="server" ></asp:Literal>
          

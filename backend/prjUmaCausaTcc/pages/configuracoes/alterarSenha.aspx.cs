@@ -15,6 +15,14 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             if (usuario == null)
                 Response.Redirect("../index.aspx");
+            GerarEmentosHtml gerarEmentosHtml = new GerarEmentosHtml();
+            string header = gerarEmentosHtml.GerarHeaderConfiguracoes(usuario);
+            string footer = gerarEmentosHtml.GerarFooterConfiguracoes();
+            string menu = gerarEmentosHtml.GerarMenu(usuario);
+
+            LitHeader.Text = header;
+            LitFooter.Text = footer;
+            LitMenu.Text = menu;
         }
     }
 }

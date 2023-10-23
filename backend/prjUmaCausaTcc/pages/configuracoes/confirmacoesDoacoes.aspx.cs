@@ -19,7 +19,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             if (Request["pagina"] == "1")
             {
-                PnlConfirmacoes.Visible = false;
+                Confirmacoes.Text = "";
             }
 
             GerarEmentosHtml gerarElementosHtml = new GerarEmentosHtml();
