@@ -3,81 +3,79 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace prjUmaCausaTcc.Logicas
+
+public class Itens : Banco
 {
-    public class Itens : Banco
+    public List<TipoItem> ListarTiposItens()
     {
-        public List<TipoItem> ListarTiposItens()
+        var listaItens = new List<TipoItem>();
+
+        try
         {
-            var listaItens = new List<TipoItem>();
+            var dados = Consultar("ListarTiposItens", null);
 
-            try
+            if (dados.HasRows)
             {
-                var dados = Consultar("ListarTiposItens", null);
-
-                if (dados.HasRows)
+                while (dados.Read())
                 {
-                    while (dados.Read())
-                    {
-                        TipoItem tipoItem = new TipoItem();
-                        tipoItem.Codigo = dados.GetInt32("id_tipoItem");
-                        tipoItem.Nome = dados.GetString("nm_tipoItem");
-                        listaItens.Add(tipoItem);
-                    }
+                    TipoItem tipoItem = new TipoItem();
+                    tipoItem.Codigo = dados.GetInt32("id_tipoItem");
+                    tipoItem.Nome = dados.GetString("nm_tipoItem");
+                    listaItens.Add(tipoItem);
                 }
-
-                if (!dados.IsClosed)
-                    dados.Close();
-            }
-            catch (Exception)
-            {
-                throw new Exception("Ocorreu um problema na busca");
-            }
-            finally
-            {
-                Desconectar();
             }
 
-            return listaItens;
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception)
+        {
+            throw new Exception("Ocorreu um problema na busca");
+        }
+        finally
+        {
+            Desconectar();
         }
 
-        public List<TipoItem> ListarItensAceitosOng(int codigoOng)
+        return listaItens;
+    }
+
+    public List<TipoItem> ListarItensAceitosOng(int codigoOng)
+    {
+        var listaItens = new List<TipoItem>();
+
+        var listaParametros = new List<Parametro>()
         {
-            var listaItens = new List<TipoItem>();
+            new Parametro("pIdUsuario", codigoOng.ToString())
+        };
 
-            var listaParametros = new List<Parametro>()
+        try
+        {
+            var dados = Consultar("ListarItensAceitosOng", listaParametros);
+
+            if (dados.HasRows)
             {
-                new Parametro("pIdUsuario", codigoOng.ToString())
-            };
-
-            try
-            {
-                var dados = Consultar("ListarItensAceitosOng", listaParametros);
-
-                if (dados.HasRows)
+                while (dados.Read())
                 {
-                    while (dados.Read())
-                    {
-                        TipoItem tipoItem = new TipoItem();
-                        tipoItem.Codigo = dados.GetInt32("id_tipoItem");
-                        tipoItem.Nome = dados.GetString("nm_tipoItem");
-                        listaItens.Add(tipoItem);
-                    }
+                    TipoItem tipoItem = new TipoItem();
+                    tipoItem.Codigo = dados.GetInt32("id_tipoItem");
+                    tipoItem.Nome = dados.GetString("nm_tipoItem");
+                    listaItens.Add(tipoItem);
                 }
-
-                if (!dados.IsClosed)
-                    dados.Close();
-            }
-            catch (Exception)
-            {
-                throw new Exception("Ocorreu um problema na busca");
-            }
-            finally
-            {
-                Desconectar();
             }
 
-            return listaItens;
+            if (!dados.IsClosed)
+                dados.Close();
         }
+        catch (Exception)
+        {
+            throw new Exception("Ocorreu um problema na busca");
+        }
+        finally
+        {
+            Desconectar();
+        }
+
+        return listaItens;
     }
 }

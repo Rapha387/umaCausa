@@ -15,6 +15,7 @@ namespace prjUmaCausaTcc.pages
         protected void Page_Load(object sender, EventArgs e)
         {
             litItemPaginacao.Text = "";
+            
 
             List<Campanha> campanhas = new List<Campanha>();
             Campanhas listarCampanhas = new Campanhas();
@@ -48,6 +49,11 @@ namespace prjUmaCausaTcc.pages
             #region DDLS
             ddlCategoria.Items.Insert(0, new ListItem("Monetário", "0"));
             ddlCategoria.Items.Insert(1, new ListItem("Item", "1"));
+
+            foreach (TipoItem item in new Itens().ListarTiposItens())
+            {
+                ddlTipo.Items.Insert(item.Codigo - 1, new ListItem(item.Nome, item.Codigo.ToString()));
+            }
             #endregion
 
             #region !PostBack
