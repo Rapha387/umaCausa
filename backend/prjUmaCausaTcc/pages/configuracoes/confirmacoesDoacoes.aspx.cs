@@ -50,18 +50,6 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     {
                         estado = "Recusada";
                     }
-                    Confirmacoes.Text += $@"<div class='confirmacao'>
-                      <div class='infos-confirmacao'>
-                            <p>Doador: {doacao.Doador.Nome}</p>
-                            <p>Item: Monetário</p>
-                            <p>Valor: R${doacao.QuantidadeDoado}</p>
-                            <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)} - Horário: HH:mm</p>
-                      </div>
-                      <div class='botoes-confirmacao'>
-                            <img src = './../../images/icons/confirmado.png' alt=''>
-                            <img src = './../../images/icons/recusar.png' alt=''>
-                      </div>
-                    </div>";
                 }
                 foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasItensConfirmadasOuNao(codigo, true))
                 {
@@ -141,7 +129,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                       </div>
                       <div class='botoes-confirmacao'>
                                  <img src='./../../images/icons/confirmado.png' alt=''>
-                                     <img src = './../../images/icons/recusar.png' alt = ''>
+                                 <img src = './../../images/icons/recusar.png' alt = ''>
                       </div>
                 </div>";
 

@@ -185,6 +185,7 @@
 
             <script src="./../../js/inputFile.js"></script>
             <script src="./../../js/cep.js"></script>
+              <script src="./../../js/DeslogarUsuario.js"></script>
        </form>
   </body>
 </html>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Web;
 
 namespace prjUmaCausaTcc.Logicas
@@ -376,6 +377,161 @@ namespace prjUmaCausaTcc.Logicas
             }
             catch (Exception)
             {
+                throw new Exception("Houve um problema a realizar a busca");
+            }
+            finally { Desconectar(); }
+            return doacoes;
+        }
+
+        public List<DoacaoCampanha> ListaDoacoesCampanhasPesquisa(int codigo, string pesquisa)
+        {
+            List<DoacaoCampanha> doacoes = new List<DoacaoCampanha>();
+            List<Parametro> parametros = new List<Parametro>();
+            Parametro parametro1 = new Parametro("pIdUsuario", codigo.ToString());
+            Parametro parametro2 = new Parametro("pPesquisa", pesquisa);
+            parametros.Add(parametro1);
+            parametros.Add(parametro2);
+
+            try
+            {
+                MySqlDataReader dados = Consultar("BuscarDadosMinimosColaboracoesCampanhaDoUsuarioPesquisa", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        Campanha campanha = new Campanha();
+                        campanha.BuscarCampanha(dados.GetInt32("id_campanha"));
+                        Usuario usuario = new Usuario(codigo);
+                        bool confirmado = false;
+                        if (dados.GetInt32("ic_doacaoConfirmada") == 0 || dados.GetInt32("ic_doacaoConfirmada") == null)
+                        {
+                            confirmado = false;
+                        }
+                        else
+                        {
+                            confirmado = true;
+                        };
+                        DoacaoCampanha doacao = new DoacaoCampanha()
+                        {
+                            Campanha = campanha,
+                            Doador = usuario,
+                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
+                            QuantidadeDoado = dados.GetString("qt_doado"),
+                            DoacaoConfirmada = confirmado
+                        };
+                        if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
+                            doacao.RespostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
+                        doacoes.Add(doacao);
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Houve um problema a realizar a busca");
+            }
+            finally { Desconectar(); }
+            return doacoes;
+        }
+        public List<DoacaoItem> ListaDoacoesItemsPesquisa(int codigo, string pesquisa)
+        {
+            List<DoacaoItem> doacoes = new List<DoacaoItem>();
+            List<Parametro> parametros = new List<Parametro>();
+            Parametro parametro1 = new Parametro("pIdUsuario", codigo.ToString());
+            Parametro parametro2 = new Parametro("pPesquisa", pesquisa);
+            parametros.Add(parametro1);
+            parametros.Add(parametro2);
+            try
+            {
+                MySqlDataReader dados = Consultar("BuscarDadosMinimosColaboracoesItemDoUsuarioPesquisa", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        Usuario ong = new Usuario(dados.GetString("nm_usuario"));
+                        Usuario usuario = new Usuario(codigo);
+                        bool confirmado = false;
+                        if (dados.GetInt32("ic_doacaoConfirmada") == 0)
+                        {
+                            confirmado = false;
+                        }
+                        else
+                        {
+                            confirmado = true;
+                        };
+                        DoacaoItem doacao = new DoacaoItem()
+                        {
+                            ONG = ong,
+                            Doador = usuario,
+                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
+                            Quantidade = dados.GetString("qt_item"),
+                            DoacaoConfirmada = confirmado,
+                            NomeItem = dados.GetString("nm_item"),
+                        };
+                        if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
+                            doacao.respostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
+                        doacoes.Add(doacao);
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Houve um problema a realizar a busca");
+            }
+            finally { Desconectar(); }
+            return doacoes;
+        }
+
+        public List<DoacaoMonetaria> ListaDoacoesMonetariasPesquisa(int codigo, string pesquisa)
+        {
+            List<DoacaoMonetaria> doacoes = new List<DoacaoMonetaria>();
+            List<Parametro> parametros = new List<Parametro>();
+            Parametro parametro1 = new Parametro("pIdUsuario", codigo.ToString());
+            Parametro parametro2 = new Parametro("pPesquisa", pesquisa);
+            parametros.Add(parametro1);
+            parametros.Add(parametro2);
+            try
+            {
+                MySqlDataReader dados = Consultar("BuscarDadosMinimosColaboracoesMonetariaDoUsuarioPesquisa", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        Usuario ong = new Usuario(dados.GetString("nm_usuario"));
+                        Usuario usuario = new Usuario(codigo);
+                        bool confirmado = false;
+                        if (dados.GetInt32("ic_doacaoConfirmada") == 0)
+                        {
+                            confirmado = false;
+                        }
+                        else
+                        {
+                            confirmado = true;
+                        };
+                        DoacaoMonetaria doacao = new DoacaoMonetaria()
+                        {
+                            ONG = ong,
+                            Doador = usuario,
+                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
+                            ValorDoacao = dados.GetDouble("vl_monetario"),
+                            DoacaoConfirmada = confirmado
+                        };
+                        if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
+                            doacao.respostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
+                        doacoes.Add(doacao);
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+            }
+            catch (Exception)
+            {
+
                 throw new Exception("Houve um problema a realizar a busca");
             }
             finally { Desconectar(); }

@@ -63,5 +63,49 @@ namespace prjUmaCausaTcc.pages.configuracoes
                       </tr>";
             }
         }
+
+        protected void ImgPesquisar_Click(object sender, ImageClickEventArgs e)
+        {
+            string pesquisa = TxtPesquisa.Text;
+            Colaboracoes.Text = "";
+            Doacoes doacoes = new Doacoes();
+            Usuario usuario = (Usuario)Session["usuario"];
+            int codigo = usuario.Codigo;
+            foreach (Doacoes doacao in doacoes.ListarDoacoesPesquisa(codigo, pesquisa))
+            {
+                string estadoConfirmacao = "";
+                string nomeOng = "";
+                if (doacao.DoacaoConfirmada == true)
+                {
+                    estadoConfirmacao = "Aceita";
+                }
+                else
+                {
+                    if (doacao.RespostaOng.ToString() == "01/01/0001 00:00:00")
+                    {
+                        estadoConfirmacao = "Pendente";
+                    }
+                    else
+                    {
+                        estadoConfirmacao = "Negada";
+                    }
+                }
+                if (doacao.Nome != null)
+                {
+                    nomeOng = doacao.NomeONG + ": ";
+                }
+                else
+                {
+                    nomeOng = doacao.NomeONG;
+                }
+                Colaboracoes.Text += $@"<tr>
+                        <td>{nomeOng}{doacao.Nome}</td>
+                        <td>{doacao.NomeTipoItem}</td>
+                        <td>{doacao.Quantidade}</td>
+                        <td>{doacao.DataDoacao.ToString().Substring(0, 10)}</td>
+                        <td>{estadoConfirmacao}</td>
+                      </tr>";
+            }
+        }
     }
 }

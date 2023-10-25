@@ -10,6 +10,8 @@ public class Doacoes : Banco
     public string NomeDoador { get; set; }
     public string NomeONG { get; set; }
     public string Nome { get; set; }
+    public string DataDesejada { get; set; }
+    public string HorarioEsperado { get; set; }
     public DateTime DataDoacao { get; set; }
     public string Quantidade { get; set; }
     public bool DoacaoConfirmada { get; set; }
@@ -37,7 +39,7 @@ public class Doacoes : Banco
             listarDoacoes.Add(new Doacoes
             {
                 NomeONG = item.ONG.Nome,
-                DataDoacao = item.DataDoacao,
+                DataDoacao= item.DataDoacao,
                 Quantidade = item.Quantidade,
                 NomeTipoItem = char.ToUpper(item.NomeItem[0]) + item.NomeItem.Substring(1),
                 DoacaoConfirmada = item.DoacaoConfirmada,
@@ -108,6 +110,8 @@ public class Doacoes : Banco
             {
                 NomeDoador = item.Doador.Nome,
                 DataDoacao = item.DataDoacao,
+                DataDesejada = item.DataDesejada,
+                HorarioEsperado = item.HorarioDesejado,
                 Quantidade = item.Quantidade,
                 NomeTipoItem = char.ToUpper(item.NomeItem[0]) + item.NomeItem.Substring(1),
                 DoacaoConfirmada = false,
@@ -117,4 +121,50 @@ public class Doacoes : Banco
         var listarDoacoesOrdernada = listarDoacoes.OrderByDescending(item => item.DataDoacao).ToList();
         return listarDoacoesOrdernada;
     }
+    public List<Doacoes> ListarDoacoesPesquisa(int IdUsuario, string pesquisa )
+    {
+        List<Doacoes> listarDoacoes = new List<Doacoes>();
+        Colaboracoes colaboracoes = new Colaboracoes();
+
+        foreach (DoacaoCampanha item in colaboracoes.ListaDoacoesCampanhasPesquisa(IdUsuario, pesquisa))
+        {
+            listarDoacoes.Add(new Doacoes
+            {
+                Nome = item.Campanha.Nome,
+                NomeONG = item.Campanha.ONG.Nome,
+                DataDoacao = item.DataDoacao,
+                Quantidade = item.QuantidadeDoado,
+                NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
+                DoacaoConfirmada = item.DoacaoConfirmada,
+                RespostaOng = item.RespostaOng,
+            });
+        }; 
+        foreach (DoacaoItem item in colaboracoes.ListaDoacoesItemsPesquisa(IdUsuario, pesquisa))
+        {
+            listarDoacoes.Add(new Doacoes
+            {
+                NomeONG = item.ONG.Nome,
+                DataDoacao = item.DataDoacao,
+                Quantidade = item.Quantidade,
+                NomeTipoItem = char.ToUpper(item.NomeItem[0]) + item.NomeItem.Substring(1),
+                DoacaoConfirmada = item.DoacaoConfirmada,
+                RespostaOng = item.respostaOng,
+            });
+        };
+        foreach (DoacaoMonetaria item in colaboracoes.ListaDoacoesMonetariasPesquisa(IdUsuario, pesquisa))
+        {
+            listarDoacoes.Add(new Doacoes
+            {
+                NomeONG = item.ONG.Nome,
+                DataDoacao = item.DataDoacao,
+                Quantidade = "R$" + item.ValorDoacao.ToString(),
+                NomeTipoItem = "Monetário",
+                DoacaoConfirmada = item.DoacaoConfirmada,
+                RespostaOng = item.respostaOng,
+            });
+        };
+
+        var listarDoacoesOrdernada = listarDoacoes.OrderByDescending(item => item.DataDoacao).ToList();
+        return listarDoacoesOrdernada;
     }
+}
