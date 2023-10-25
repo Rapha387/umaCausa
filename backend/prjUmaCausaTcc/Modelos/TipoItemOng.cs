@@ -4,11 +4,29 @@ using System.Linq;
 using System.Web;
 
 
-public class TipoItemOng
+public class TipoItemOng : Banco
 {
     #region Propriedades
-    public int Codigo { get; private set; }
-    public string Nome { get; private set; }
-    public string Foto { get; private set; }
+    public Usuario Ong { get; set; }
+    public TipoItem TipoItem { get; set; }
     #endregion
+
+    public void CadastrarTipoItem(TipoItem tipoItem, Usuario ong)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdItem", tipoItem.ToString()),
+            new Parametro ("pIdOng", ong.ToString()),
+        };
+        try
+        {
+            Conectar();
+            Executar("CadastrarItemAceitoOng", parametros);
+            Desconectar();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
 }

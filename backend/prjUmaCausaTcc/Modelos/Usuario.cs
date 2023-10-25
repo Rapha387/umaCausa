@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using MySql.Data.MySqlClient;
 public class Usuario : Banco
@@ -236,7 +237,7 @@ public class Usuario : Banco
         }
         
     }
-    public bool CadastrarOng(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string imagemFotoPerfil, string webSite, string imagemBanner, string pix, string descricao, string emailContato, bool buscaDoacoes)
+    public void CadastrarOng(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string imagemFotoPerfil, string webSite, string imagemBanner, string pix, string descricao, string emailContato, bool buscaDoacoes)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -255,8 +256,6 @@ public class Usuario : Banco
             new Parametro("pLatitude",latitude),
             new Parametro("pCep",cep),
             new Parametro("pEmailContato",emailContato),
-            new Parametro("pLatitude", latitude),
-            new Parametro("pLongitude", longitude),
             new Parametro("pImagemFotoPerfil",imagemFotoPerfil),
             new Parametro("pWebSite",webSite),
             new Parametro("pImagemBanner",imagemBanner),
@@ -268,11 +267,10 @@ public class Usuario : Banco
         {
             Conectar();
             Executar("CadastrarOng", parametros);
-            return true;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            return false;
+            throw new Exception(ex.Message);
         }
         finally
         {
@@ -654,7 +652,6 @@ public class Usuario : Banco
         }
         catch (Exception)
         {
-
             throw;
         }
         finally { Desconectar(); }
@@ -694,7 +691,7 @@ public class Usuario : Banco
     {
         try
         {
-            MySqlDataReader dados = Consultar("BuscarTipoUsuario", null);
+            MySqlDataReader dados = Consultar("BuscarNovoCodigoUsuario", null);
             if (dados.HasRows)
             {
                 if (dados.Read())
@@ -712,6 +709,35 @@ public class Usuario : Banco
         finally { Desconectar(); }
 
         return Codigo;
+    }
+    public bool VerificarEmailIdentificacao(string email, string identificacao)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("pEmail", email.ToString()),
+                new Parametro ("pIdentificacao", email.ToString())
+            };
+
+        bool existe;
+
+        try
+        {
+            MySqlDataReader dados = Consultar("VerificarEmailIdentificacao", parametros);
+            if (dados.HasRows)
+                existe = true;
+            else
+                existe = false;
+
+            if (dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        finally { Desconectar(); }
+
+        return existe;
     }
 
     #endregion
