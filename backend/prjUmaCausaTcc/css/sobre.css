@@ -56,6 +56,11 @@
         width: 100% !important;
     }
 
+    .textoPrincipal{
+        display:flex;
+        flex-wrap:wrap;
+    }
+
 }
 
 

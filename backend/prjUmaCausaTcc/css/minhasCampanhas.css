@@ -115,3 +115,21 @@ thead td {
   padding: 0.75rem;
   height: 45px;
 }
+
+/*RESPONSIVO*/
+
+@media screen and (max-width: 1199px) {
+    main {
+        width: 100% !important;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

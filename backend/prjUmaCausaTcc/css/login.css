@@ -57,6 +57,16 @@ p {
     main {
         width: 100% !important;
     }
+
+    .bannerLogin{
+        width:0px;
+    }
+
+    header{
+        height:45px;
+    }
+
+   
 }
 
 
@@ -71,5 +81,11 @@ p {
         display:none;
     }
 
-   
+    .login input{
+        width:353px;
+    }
+
+    .login {
+        margin-top: 134px;
+    }
 }

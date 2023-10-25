@@ -137,6 +137,7 @@ main .infos .infos2 .fotos .fotos-flex .foto {
         main .infos {
             flex-direction: column;
             width: 100%;
+            margin-top: 35px;
         }
 
 
@@ -165,5 +166,14 @@ main .infos .infos2 .fotos .fotos-flex .foto {
 
     main .infos .infos1 {
         width: 100%;
+    }
+
+    main .logo-nome{
+       display:block;
+       margin-top:71px;
+    }
+
+    .banner {
+        height: 175px;
     }
 }
