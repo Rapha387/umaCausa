@@ -15,8 +15,8 @@ public class TipoItemOng : Banco
     {
         List<Parametro> parametros = new List<Parametro>()
         {
-            new Parametro ("pIdItem", tipoItem.ToString()),
-            new Parametro ("pIdOng", ong.ToString()),
+            new Parametro ("pIdItem", tipoItem.Codigo.ToString()),
+            new Parametro ("pIdOng", ong.Codigo.ToString()),
         };
         try
         {
