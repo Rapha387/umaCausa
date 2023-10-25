@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using System.IO;
 using System.Web.UI.WebControls;
 
 namespace prjUmaCausaTcc.pages
@@ -142,25 +143,56 @@ namespace prjUmaCausaTcc.pages
                 string uf = txtUF.Text;
                 string cidade = txtCidade.Text;
                 string bairro = txtBairro.Text;
-                string lougradouto = txtLogradouro.Text;
+                string logradouro = txtLogradouro.Text;
                 string numero = txtNumero.Text;
                 string complemento = txtComplemento.Text;
                 string latitude = "";
                 string longitude = "";
                 string pix = txtPix.Text;
                 string webSite = txtWebSite.Text;
-                string emailContao = txtEmailContato.Text;
+                string emailContato = txtEmailContato.Text;
                 string descricao = txtDescricao.Text;
                 bool buscaDoacoes = chkConfirmaoBuscaDoacoes.Checked;
 
-                string endereco = $"{lougradouto}, {numero}, {cidade}, {uf}";
+                string endereco = $"{logradouro}, {numero}, {cidade}, {uf}";
+
+                int novoCodigo;
+                novoCodigo = usuario.BuscarNovoCodigoUsuario();
+
+                Directory.CreateDirectory(Request.PhysicalApplicationPath + $@"uploads\ongs\{novoCodigo}");
+                Directory.CreateDirectory(Request.PhysicalApplicationPath + $@"uploads\ongs\{novoCodigo}\banner");
+                Directory.CreateDirectory(Request.PhysicalApplicationPath + $@"uploads\ongs\{novoCodigo}\icone");
+                Directory.CreateDirectory(Request.PhysicalApplicationPath + $@"uploads\ongs\{novoCodigo}\fotos");
+
+
+                if (fileInputLogo.PostedFile != null)
+                {
+                    HttpPostedFile fotoPerfil = fileInputLogo.PostedFile;
+                    fotoPerfil.SaveAs(Request.PhysicalApplicationPath + $@"uploads\ongs\{novoCodigo}\icone\{novoCodigo}.jpg");
+                }
+                else
+                {
+                    
+                }
+
+                if (fileInputBanner.PostedFile != null)
+                {
+                    HttpPostedFile fotoBanner = fileInputLogo.PostedFile;
+                    fotoBanner.SaveAs(Request.PhysicalApplicationPath + $@"uploads\ongs\{novoCodigo}\banner\{novoCodigo}.jpg");
+                }
+                else
+                {
+                    
+                }
 
                 CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
-
                 (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
 
+                string imgPerfil = $@"uploads\ongs\{novoCodigo}\icone\{novoCodigo}.jpg";
+                string imgBanner = $@"uploads\ongs\{novoCodigo}\banner\{novoCodigo}.jpg";
 
-                //usuario.CadastrarOng(nome, senha, email, telefone, cnpj, cep, uf, cidade, lougradouto, numero, bairro, complemento, latitude, longitude);
+
+                usuario.CadastrarOng(nome, senha, email, telefone, cnpj, cep, uf, cidade, logradouro, numero, bairro, complemento, latitude, longitude, imgPerfil, webSite, imgBanner, pix, descricao, emailContato, buscaDoacoes);
 
 
                 List<CategoriaOng> categorias = new List<CategoriaOng>();
@@ -230,10 +262,13 @@ namespace prjUmaCausaTcc.pages
                     }
                 }
 
+
+                //Response.Redirect("index.aspx");
+
             }
             catch (Exception ex)
             {
-                lblErro.Text = ex.Message;
+                lblErro.Text = ex.Message;  
             }
         }
     }

@@ -202,7 +202,6 @@ public class Usuario : Banco
     #endregion
 
     #region Metodos
-
     public void CadastrarDoador(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -237,7 +236,7 @@ public class Usuario : Banco
         }
         
     }
-    public bool CadastrarOng(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string imagemFotoPerfil, string webSite, string imagemBanner, string pix, string descricao, string emailContato)
+    public bool CadastrarOng(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string imagemFotoPerfil, string webSite, string imagemBanner, string pix, string descricao, string emailContato, bool buscaDoacoes)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -256,11 +255,14 @@ public class Usuario : Banco
             new Parametro("pLatitude",latitude),
             new Parametro("pCep",cep),
             new Parametro("pEmailContato",emailContato),
+            new Parametro("pLatitude", latitude),
+            new Parametro("pLongitude", longitude),
             new Parametro("pImagemFotoPerfil",imagemFotoPerfil),
             new Parametro("pWebSite",webSite),
             new Parametro("pImagemBanner",imagemBanner),
             new Parametro("pPix",pix),
-            new Parametro("pDescricao",descricao)
+            new Parametro("pDescricao",descricao),
+            new Parametro("pPodeBuscar", buscaDoacoes.ToString())
         };
         try
         {
@@ -688,11 +690,35 @@ public class Usuario : Banco
         }
         finally { Desconectar(); }
     }
+    public int BuscarNovoCodigoUsuario()
+    {
+        try
+        {
+            MySqlDataReader dados = Consultar("BuscarTipoUsuario", null);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    Codigo = int.Parse(dados["id_usuario"].ToString());
+                }
+            }
+            if (dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally { Desconectar(); }
+
+        return Codigo;
+    }
+
     #endregion
+
     public Usuario()
     {
     }
-
     public Usuario(int codigo, string nome, string email, string emailContato, string telefone, string identificacao, string cEP, string estado, string rua, string numero, string bairro, string complemento, string latitude, string longitude, bool posssibilidadeBusca, TipoUsuario tipoDoUsuario)
     {
        this.Codigo = codigo;
@@ -712,8 +738,7 @@ public class Usuario : Banco
        this.PosssibilidadeBusca = posssibilidadeBusca;
        this.TipoDoUsuario = tipoDoUsuario;
     }
-   public Usuario(int codigo, string nome, string email, string telefone, string identificacao, string cEP, string rua, string numero, string bairro, string complemento, string latitude, string longitude, TipoUsuario tipoDoUsuario)
-
+    public Usuario(int codigo, string nome, string email, string telefone, string identificacao, string cEP, string rua, string numero, string bairro, string complemento, string latitude, string longitude, TipoUsuario tipoDoUsuario)
     {
 
         this.Codigo = codigo;
@@ -746,12 +771,10 @@ public class Usuario : Banco
         this.TipoDoUsuario = tipoDoUsuario;
 
     }
-
     public Usuario(int codigo)
     {
         Codigo = codigo;
     }
-
     public Usuario(string nome)
     {
         Nome = nome;

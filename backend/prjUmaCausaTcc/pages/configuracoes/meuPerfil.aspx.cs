@@ -90,7 +90,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
         protected void BtnSalvarAlteraçoes_Click(object sender, EventArgs e)
         {
             try
-            {
+                {
                 Usuario usuario = (Usuario)Session["usuario"];
                 if (usuario.TipoDoUsuario.Codigo == 1)
                 {
