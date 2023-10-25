@@ -133,16 +133,16 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 foreach(Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
                 {
                     Confirmacoes.Text += $@"<div class='confirmacao'>
-              <div class='infos-confirmacao'>
-                    <p>Doador: {doacao.NomeDoador}</p>
-                    <p>Item: {doacao.NomeTipoItem}</p>
-                    <p>Valor:{doacao.Quantidade}</p>
-                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
-              </div>
-              <div class='botoes-confirmacao'>
-                    <asp:ImageButton ID='ImgBtnConfirmar' runat='server' src='./../../images/icons/confirmado.png'/>           
-                    <asp:ImageButton ID='ImgBtnRecusar' runat='server' src='./../../images/icons/recusar.png' OnClick='ImgBtnRecusar_Click'/>
-                       </ div>
+                      <div class='infos-confirmacao'>
+                            <p>Doador: {doacao.NomeDoador}</p>
+                            <p>Item: {doacao.NomeTipoItem}</p>
+                            <p>Valor:{doacao.Quantidade}</p>
+                            <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
+                      </div>
+                      <div class='botoes-confirmacao'>
+                                 <img src='./../../images/icons/confirmado.png' alt=''>
+                                     <img src = './../../images/icons/recusar.png' alt = ''>
+                      </div>
                 </div>";
 
                 }

@@ -33,7 +33,28 @@ namespace prjUmaCausaTcc.pages.configuracoes
             {
                 LitCampanhas.Text += $@"<tr>
                        <td> {campanha.Nome} </td>
-                       <td> {campanha.QuantidadeMeta} </td>
+                       <td> {campanha.QuantidadeArrecadada} </td>
+                       <td> {campanha.DataInicio.ToString().Substring(0, 10)} </td>
+                       <td> {campanha.DataPrevistaFim.ToString().Substring(0, 10)} </td>
+                       <td><a href = './../editarItem.html'><img src = './../ .. /images/icons/editar.png' alt = '' ></a></td>
+                       <td><img src = './../../images/icons/excluir.png' alt = '' ></ td >
+                     </tr> ";
+            }
+        }
+
+        protected void ImgPesquisar_Click(object sender, ImageClickEventArgs e)
+        {
+            LitCampanhas.Text = "";
+            Campanhas campanhas = new Campanhas();
+            Usuario usuario = (Usuario)Session["usuario"];
+
+            string pesquisa = TxtPesquisa.Text;
+            int user = usuario.Codigo;
+            foreach (Campanha campanha in campanhas.ListarMinhasCampanhasPesquisa(pesquisa, user))
+            {
+                LitCampanhas.Text += $@"<tr>
+                       <td> {campanha.Nome} </td>
+                       <td> {campanha.QuantidadeArrecadada} </td>
                        <td> {campanha.DataInicio.ToString().Substring(0, 10)} </td>
                        <td> {campanha.DataPrevistaFim.ToString().Substring(0, 10)} </td>
                        <td><a href = './../editarItem.html'><img src = './../ .. /images/icons/editar.png' alt = '' ></a></td>
