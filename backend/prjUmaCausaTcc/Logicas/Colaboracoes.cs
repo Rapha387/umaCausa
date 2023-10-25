@@ -157,15 +157,26 @@ namespace prjUmaCausaTcc.Logicas
             return doacoes;
         }
 
-        public List<DoacaoCampanha> ListarDoacoesCampanhasMonetariasNaoConfirmadas(int codigoOng)
+        public List<DoacaoCampanha> ListarDoacoesCampanhasMonetariasConfirmadasOuNao(int codigoOng, bool confirmacao )
         {
+            
             List<DoacaoCampanha> doacoes = new List<DoacaoCampanha>();
             List<Parametro> parametros = new List<Parametro>();
             Parametro parametro1 = new Parametro("pIdUsuarioOng", codigoOng.ToString());
             parametros.Add(parametro1);
+            
             try
             {
-                MySqlDataReader dados = Consultar("BuscarDoacoesCampanhaMonetariaNaoConfirmadas", parametros);
+                MySqlDataReader dados = null;
+                if (confirmacao == true)
+                {
+                     dados = Consultar("BuscarDoacoesCampanhaMonetariaConfirmadas", parametros);
+                }
+                else
+                {
+                     dados = Consultar("BuscarDoacoesCampanhaMonetariaNaoConfirmadas", parametros);
+                }
+                
                 if (dados.HasRows)
                 {
                     while (dados.Read())
@@ -173,12 +184,25 @@ namespace prjUmaCausaTcc.Logicas
                         Usuario doador = new Usuario(dados.GetString("nm_usuario"));
                         Campanha campanha = new Campanha();
                         campanha.BuscarCampanha(dados.GetInt32("id_campanha"));
+                        bool doacaoConfirmada = false;
+                        if (confirmacao == true)
+                        {
+                            if(dados.GetString("ic_doacaoConfirmada") == "1")
+                            {
+                                doacaoConfirmada = true;
+                            }
+                            else
+                            {
+                                doacaoConfirmada =false;
+                            }
+                        }
                         DoacaoCampanha doacao = new DoacaoCampanha()
                         {
                             Campanha = campanha,
                             Doador = doador,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
+                            DoacaoConfirmada = doacaoConfirmada,
                         };
                         doacoes.Add(doacao);
                     }
@@ -192,7 +216,7 @@ namespace prjUmaCausaTcc.Logicas
             return doacoes;
         }
 
-        public List<DoacaoCampanha> ListarDoacoesCampanhasItensNaoConfirmadas(int codigoOng)
+        public List<DoacaoCampanha> ListarDoacoesCampanhasItensConfirmadasOuNao(int codigoOng, bool confirmacao)
         {
             List<DoacaoCampanha> doacoes = new List<DoacaoCampanha>();
             List<Parametro> parametros = new List<Parametro>();
@@ -200,7 +224,16 @@ namespace prjUmaCausaTcc.Logicas
             parametros.Add(parametro1);
             try
             {
-                MySqlDataReader dados = Consultar("BuscarDoacoesCampanhaItensNaoConfirmadas", parametros);
+                MySqlDataReader dados = null;
+                if (confirmacao == true)
+                {
+                    
+                    dados = Consultar("BuscarDoacoesCampanhaItensConfirmadas", parametros);
+                }
+                else
+                {
+                   dados = Consultar("BuscarDoacoesCampanhaItensNaoConfirmadas", parametros);
+                }
                 if (dados.HasRows)
                 {
                     while (dados.Read())
@@ -209,6 +242,18 @@ namespace prjUmaCausaTcc.Logicas
                         Campanha campanha = new Campanha();
                         campanha.BuscarCampanha(dados.GetInt32("id_campanha"));
                         TipoItem tipoitem = new TipoItem(dados.GetString("nm_tipoItem"));
+                        bool doacaoConfirmada = false;
+                        if (confirmacao == true)
+                        {
+                            if (dados.GetString("ic_doacaoConfirmada") == "1")
+                            {
+                                doacaoConfirmada = true;
+                            }
+                            else
+                            {
+                                doacaoConfirmada = false;
+                            }
+                        }
                         DoacaoCampanha doacao = new DoacaoCampanha()
                         {
                             Campanha = campanha,
@@ -216,6 +261,7 @@ namespace prjUmaCausaTcc.Logicas
                             TipoItem = tipoitem,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
+                            DoacaoConfirmada = doacaoConfirmada,
                         };
                         doacoes.Add(doacao);
                     }
@@ -228,26 +274,48 @@ namespace prjUmaCausaTcc.Logicas
             finally { Desconectar(); }
             return doacoes;
         }
-        public List<DoacaoMonetaria> ListarDoacoesMonetariasNaoConfirmadas(int codigoOng)
+        public List<DoacaoMonetaria> ListarDoacoesMonetariasConfirmadasOuNao(int codigoOng, bool confirmacao)
         {
-
+            Usuario ong = new Usuario(codigoOng);
             List<DoacaoMonetaria> doacoes = new List<DoacaoMonetaria>();
             List<Parametro> parametros = new List<Parametro>();
             Parametro parametro1 = new Parametro("pIdUsuario", codigoOng.ToString());
             parametros.Add(parametro1);
             try
             {
-                MySqlDataReader dados = Consultar("BuscarDoacoesMonetariasNaoConfirmadas", parametros);
+                MySqlDataReader dados = null;
+                if (confirmacao == true)
+                {
+                    dados = Consultar("BuscarDoacoesMonetariasConfirmadas", parametros);
+                }
+                else
+                {
+                    dados = Consultar("BuscarDoacoesMonetariasNaoConfirmadas", parametros);
+                }
                 if (dados.HasRows)
                 {
                     while (dados.Read())
                     {
                         Usuario doador = new Usuario(dados.GetString("nm_usuario"));
+                        bool doacaoConfirmada = false;
+                        if (confirmacao == true)
+                        {
+                            if (dados.GetString("ic_doacaoConfirmada") == "1")
+                            {
+                                doacaoConfirmada = true;
+                            }
+                            else
+                            {
+                                doacaoConfirmada = false;
+                            }
+                        }
                         DoacaoMonetaria doacao = new DoacaoMonetaria()
                         {
+                            ONG = ong,
                             Doador = doador,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             ValorDoacao = dados.GetDouble("vl_monetario"),
+                            DoacaoConfirmada = doacaoConfirmada,
                         };
                         doacoes.Add(doacao);
                     }
@@ -260,7 +328,7 @@ namespace prjUmaCausaTcc.Logicas
             finally { Desconectar(); }
             return doacoes;
         }
-        public List<DoacaoItem> ListarDoacoesItensNaoConfirmadas(int codigoOng)
+        public List<DoacaoItem> ListarDoacoesItensConfirmadasOuNao(int codigoOng, bool confirmacao)
         {
             List<DoacaoItem> doacoes = new List<DoacaoItem>();
             List<Parametro> parametros = new List<Parametro>();
@@ -268,12 +336,31 @@ namespace prjUmaCausaTcc.Logicas
             parametros.Add(parametro1);
             try
             {
-                MySqlDataReader dados = Consultar("BuscarDoacoesItensNaoConfirmadas", parametros);
+                MySqlDataReader dados = null;
+                if (confirmacao == true)
+                {
+                    dados = Consultar("BuscarDoacoesItensConfirmadas", parametros);
+                }
+                else{
+                    dados = Consultar("BuscarDoacoesItensNaoConfirmadas", parametros);
+                }
                 if (dados.HasRows)
                 {
                     while (dados.Read())
                     {
                         Usuario doador = new Usuario(dados.GetString("nm_usuario"));
+                        bool doacaoConfirmada = false;
+                        if (confirmacao == true)
+                        {
+                            if (dados.GetString("ic_doacaoConfirmada") == "1")
+                            {
+                                doacaoConfirmada = true;
+                            }
+                            else
+                            {
+                                doacaoConfirmada = false;
+                            }
+                        }
                         DoacaoItem doacao = new DoacaoItem()
                         {
                             Doador = doador,
@@ -281,6 +368,7 @@ namespace prjUmaCausaTcc.Logicas
                             Quantidade = dados.GetString("qt_item"),
                             DataDesejada = dados.GetString("dt_doacao"),
                             HorarioDesejado = dados.GetString("hr_doacao"),
+                            DoacaoConfirmada = doacaoConfirmada,
                         };
                         doacoes.Add(doacao);
                     }

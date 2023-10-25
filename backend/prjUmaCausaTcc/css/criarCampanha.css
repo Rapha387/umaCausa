@@ -33,7 +33,12 @@ input[type=file], textarea {
 }
 
 .espaco-imagem {
-  height: 178px;
+    height: 178px;
+    position: relative;
+    height: 250px;
+    border: 2px solid #d3d3d3;
+    border-radius: 4px;
+    background-color: #fff;
 }
 
 .custom-file-upload {
@@ -51,6 +56,6 @@ input[type=file], textarea {
   width: 100%;
 }
 
-textarea {
+.textarea {
   height: 95px;
 }

@@ -87,14 +87,15 @@
       <div class="infos-configuracoes">
         <div class="infos">
           <div class="filtro-confirmacoes">
-            <div class="filtros">
-                <asp:ImageButton ID="BtnNaoConfirmadas" runat="server" src="./../../images/icons/confirmacao.png" OnClick="BtnNaoConfirmadas_Click"/>Doações à confirmar
-            </div>
-            <div class="filtros">
-                <asp:ImageButton ID="BtnJaConfirmadas" runat="server" src="./../../images/icons/confirmacao.png" OnClick="BtnJaConfirmadas_Click"/>Doações já confirmadas
-            </div>
+           <a href="confirmacoesDoacoes.aspx"><div class="filtros">
+              <img src="./../../images/icons/confirmacao.png" alt="" />Doações à
+              confirmar
+            </div></a>
+            <a href="confirmacoesDoacoes.aspx?pagina=1"><div class="filtros">
+              <img src="./../../images/icons/confirmacao.png" alt="" />Doações
+              já confirmadas
+            </div></a>
           </div>
-            <asp:Panel ID="PnlConfirmacoes" runat="server">
                 <div class="confirmacoes">
                     <asp:Literal ID="Confirmacoes" runat="server" ></asp:Literal>
          
@@ -105,11 +106,12 @@
                                 <p>Data: dd/mm/aa - Horário: HH:mm</p>
                           </div>
                           <div class="botoes-confirmacao">
-                                <img src="./../../images/icons/confirmado.png" alt="">                       
-                                <img src="./../../images/icons/recusar.png" alt="">               
+                                <img src="./../../images/icons/confirmado.png" alt="">        
+                              <asp:ImageButton ID="ImgBtnConfirmar" runat="server" src="./../../images/icons/confirmado.png" OnClick="ImgBtnConfirmar_Click"/>              
+                                <img src="./../../images/icons/recusar.png" alt="">              
+                              <asp:ImageButton ID="ImgBtnRecusar" runat="server" src="./../../images/icons/recusar.png" OnClick="ImgBtnRecusar_Click"/>
                           </div>
                     </div>--%>
-              </asp:Panel>
         </div>
       </div>
     </main>

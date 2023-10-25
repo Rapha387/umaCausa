@@ -95,7 +95,7 @@ namespace prjUmaCausaTcc.pages
             ddlData.Items.Insert(0, new ListItem("Mais Recente", "0"));
             ddlData.Items.Insert(1, new ListItem("Mais Antigo", "1"));
 
-            foreach (TipoItem item in new Itens().ListarTiposItens())
+            foreach (TipoItem item in new Itens().ListarTiposItensNaoMonetarios())
             {
                 ddlTipo.Items.Insert(item.Codigo - 1, new ListItem(item.Nome, item.Codigo.ToString()));
             }

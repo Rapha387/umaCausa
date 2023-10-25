@@ -42,33 +42,6 @@ namespace prjUmaCausaTcc.pages.configuracoes
         protected global::System.Web.UI.WebControls.Literal Menu;
 
         /// <summary>
-        /// Controle BtnNaoConfirmadas.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton BtnNaoConfirmadas;
-
-        /// <summary>
-        /// Controle BtnJaConfirmadas.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton BtnJaConfirmadas;
-
-        /// <summary>
-        /// Controle PnlConfirmacoes.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PnlConfirmacoes;
-
-        /// <summary>
         /// Controle Confirmacoes.
         /// </summary>
         /// <remarks>

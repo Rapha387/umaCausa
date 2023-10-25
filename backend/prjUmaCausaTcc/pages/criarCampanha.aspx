@@ -30,35 +30,27 @@
               <div class="inputs">
                 <div class="input-label">
                   <label>Nome:</label>
-                  <input placeholder="Campanha do Agasalho">
+                    <asp:TextBox ID="txtNome" runat="server" placeholder="Nome da sua Campanha"></asp:TextBox>
                 </div>
                 <div class="input-label">
                   <label>Tipo da Campanha:</label>
-                  <select name="" id="">
-                    <option value="monetaria">Monetária</option>
-                    <option value="item">Item</option>
-                  </select>
+                    <asp:DropDownList ID="ddlTipoCampanha" runat="server"></asp:DropDownList>
                 </div>
                 <div class="input-label">
                   <label>Quantidade desejada:</label>
-                  <input type="number" placeholder="5">
+                  <asp:TextBox ID="txtQuantidade" TextMode="Number" runat="server" placeholder="0" ></asp:TextBox>
                 </div>
                 <div class="input-label">
                   <label>Data de Finalização:</label>
-                  <input type="date" placeholder="5">
+                  <asp:TextBox ID="txtDia" TextMode="Date" runat="server" placeholder="0" ></asp:TextBox>
                 </div>
-                <div class="separar-inputs">
-                  <div class="input-label">
-                    <label>Tipo do Item:</label>
-                    <select name="" id="">
-                      <option value="">Ração</option>
-                    </select>
-                  </div>
                   <div class="input-label">
                     <label>Descrição da Campanha:</label>
-                    <textarea placeholder="descrição..."></textarea>
+                      <asp:TextBox ID="txtDescricao" runat="server" CssClass="textarea" placeholder="Descrição..."></asp:TextBox>
                   </div>
-  
+                  <div class="input-label">
+                    <asp:Panel ID="pnlODS" runat="server"></asp:Panel>
+                </div>
                 </div>
 
                 <div class="input-label">
@@ -71,7 +63,7 @@
                     <span id="nomeArquivo">Imagem Retangular em JPG</span>
                   </div>
                 </div>
-                <button>Criar Divulgação</button>
+                <asp:Button ID="btnCriarDivulgacao" runat="server" Text="Criar Divulgação" OnClick="btnCriarDivulgacao_Click"/>
               </div>
             </div>
       </main>
