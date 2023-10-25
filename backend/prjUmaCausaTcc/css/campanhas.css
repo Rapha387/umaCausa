@@ -59,15 +59,17 @@ main {
     width: 100%;
   }
   .campanhas {
-    width: 60%;
+    width: 60%
+
   }
   .pesquisa {
     width: 38%;
   }
-  .campanhas-flex a {
-    width: 48% !important;
-    color: #000;
-  }
+    .campanhas-flex a {
+        width: 48% !important;
+        color: #000;
+        gap: 30px;
+    }
   .campanhas-flex a .campanha {
     width: 100% !important;
   }
