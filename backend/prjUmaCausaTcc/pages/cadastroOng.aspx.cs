@@ -186,8 +186,6 @@ namespace prjUmaCausaTcc.pages
                         categoriasOng.Categoria = categoria;
 
                         categorias.Add(categoriasOng);
-
-                        //categoriasOng.CadastrarCategoriaOng(ong, categoria);
                     }
                 }
 
@@ -215,8 +213,6 @@ namespace prjUmaCausaTcc.pages
                         tipoItemOng.TipoItem = item;
 
                         itemsAceitos.Add(tipoItemOng);
-
-                        //tipoItemOng.CadastrarTipoItem(item, ong);
                     }
                 }
 
@@ -252,6 +248,12 @@ namespace prjUmaCausaTcc.pages
                         DateTime hrIncioDia = DateTime.Parse(txtIncioDia.Text);
                         DateTime hrFimDia = DateTime.Parse(txtFimDia.Text);
 
+                        if (hrFimDia < hrIncioDia)
+                        {
+                            erroDias.Text = $"O horário de fim do {chkDia.Text} não pode ser menor que o de início";
+                            return;
+                        }
+
                         DiaUsuario diaDisponivel = new DiaUsuario();
 
                         diaDisponivel.Dia = dia;
@@ -259,11 +261,15 @@ namespace prjUmaCausaTcc.pages
                         diaDisponivel.HorarioInicio = hrIncioDia;
 
                         diasDisponiveis.Add(diaDisponivel);
-
-                        //diaDisponivel.CadastrarDiaUsuario(usuariodia, dia, hrIncioDia, hrFimDia);
                     }
                 }
 
+                erroDias.Text = "";
+                if (diasDisponiveis.Count == 0)
+                {
+                    erroDias.Text = "Selecione pelo menos um dia";
+                    return;
+                }
 
                 usuario.CadastrarOng(nome, senha, email, telefone, cnpj, cep, uf, cidade, logradouro, numero, bairro, complemento, latitude, longitude, webSite, pix, descricao, emailContato, buscaDoacoes);
 
@@ -310,7 +316,7 @@ namespace prjUmaCausaTcc.pages
                     fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner);
                 }
 
-
+                
 
                 Session["usuario"] = usuario;
 

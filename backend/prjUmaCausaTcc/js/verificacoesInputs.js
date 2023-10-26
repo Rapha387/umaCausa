@@ -239,11 +239,6 @@ function VerificarDadosPadraoCadastro(event) {
         event.preventDefault();
         erroEndereco.textContent = "Preencha todos os campos de endereço";
     }
-    if (txtComplemento.value == "") {
-        txtComplemento.classList.add('inputInvalido');
-        event.preventDefault();
-        erroEndereco.textContent = "Preencha todos os campos de endereço";
-    }
 }
 
 function VerificarDadosOng(event) {
@@ -280,10 +275,6 @@ function VerificarDadosOng(event) {
         event.preventDefault();
         erroDescricao.textContent = "A descrição não pode estar vazia";
     }
-    if (VerificarDias() == 0) {
-        erroDias.textContent = "Selecione pelo menos um dia disponível"
-    }
-
 }
 
 if (txtTelefone) {

@@ -189,7 +189,7 @@
               <div class="input-label">
                   <label for="">Dias Disponíveis:</label>
                   <asp:Panel ID="pnlDiasDisponiveis" runat="server"></asp:Panel>
-                  <span id="erroDias" class="spanErro"></span>
+                  <asp:Label ID="erroDias" CssClass="spanErro" runat="server"></asp:Label>
               </div>
               <div class="pnlCheckBox" style="margin: 20px 0">
                 <asp:CheckBox ID="chkConfirmaoBuscaDoacoes" runat="server" />
