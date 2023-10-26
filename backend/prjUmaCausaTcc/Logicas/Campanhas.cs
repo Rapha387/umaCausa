@@ -133,6 +133,44 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
+
+        public List<Campanha> ListarMinhasCampanhasPesquisa(string pesquisa, int usuario)
+        {
+            List<Campanha> campanhas = new List<Campanha>();
+            List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pPesquisa", pesquisa.ToString()),
+            new Parametro ("pIdUsuario", usuario.ToString())
+        };
+
+            try
+            {
+                MySqlDataReader dados = Consultar("ListarMinhasCampanhasPesquisa", parametros);
+                if (dados.HasRows)
+                {
+                    while (dados.Read())
+                    {
+                        campanhas.Add(new Campanha()
+                        {
+                            Codigo = dados.GetInt32("id_campanha"),
+                            Nome = dados.GetString("nm_campanha"),
+                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
+                            QuantidadeArrecadada = dados.GetInt32("qt_arrecadado"),
+                            DataInicio = dados.GetDateTime("dt_inicioCampanha"),
+                        }) ;
+                    }
+                }
+                if (!dados.IsClosed)
+                { dados.Close(); }
+            }
+            catch (Exception)
+            {
+                throw new Exception("Houve um problema a realizar a busca");
+            }
+            finally { Desconectar(); }
+
+            return campanhas;
+        }
         public List<Campanha> ListarDadosMinimosCampanhasFinalizadasDaOng(int codigo)
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -294,7 +332,7 @@ namespace prjUmaCausaTcc.Logicas
                             DataInicio = dados.GetDateTime("dt_inicioCampanha"),
                             Nome = dados.GetString("nm_campanha"),
                             DataPrevistaFim = dados.GetString("dt_fimEsperado"),
-                            QuantidadeMeta = dados.GetInt32("qt_meta")
+                            QuantidadeArrecadada = dados.GetDouble("qt_arrecadado")
                         });
                     }
                 }

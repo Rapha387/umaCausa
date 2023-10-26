@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 
-public class DoacaoCampanha
+public class DoacaoCampanha : Banco
 {
     #region Propriedades
     public Campanha Campanha { get; set; }
@@ -28,6 +28,31 @@ public class DoacaoCampanha
 
     public DoacaoCampanha()
     {
+    }
+
+    public void ConfirmarDoacaoMonetaria(int campanha, int usuario, DateTime dataDoacao, bool confirmacao)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro("pIdCampanha",campanha.ToString()),
+            new Parametro("pIdUsuario", usuario.ToString()),
+            new Parametro("pDtDoacao", dataDoacao.ToString()),
+            new Parametro("SituacaoDoacao", confirmacao.ToString()),
+
+        };
+        try
+        {
+            Conectar();
+            Executar("ConfirmarRespostaDoacaoCampanha", parametros);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
     }
     #endregion
 }
