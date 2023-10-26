@@ -29,7 +29,8 @@
             <div class="pesquisa">
               <div class="pesquisar">
                 <asp:TextBox ID="txtPesquisa" Placeholder="Pesquisar" TextMode="Search" runat="server"></asp:TextBox>
-                <asp:ImageButton ID="btnPesquisar" OnClick="btnPesquisar_Click" runat="server" ImageUrl="./../images/icons/search.png"/>
+              
+                  <asp:ImageButton ID="btnPesquisar" OnClick="btnPesquisar_Click" runat="server" ImageUrl="./../images/icons/search.png"/>
               </div>
               <div class="filtro">
                 <h3>Filtrar Por:</h3>

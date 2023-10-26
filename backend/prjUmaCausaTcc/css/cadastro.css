@@ -66,11 +66,24 @@ h1 {
         align-items: center;
     }
 
-    .fundoCadastro{
-        width:100%;
+    .fundoCadastro {
+        width: 100%;
     }
 
     p {
         width: 301px;
+    }
+
+    #btnOng, #btnDoador {
+        width: 300px;
+    }
+
+    .fundoCadastro p {
+        width: 100%;
+    }
+
+     p {
+        width: 100%;
+       
     }
 }

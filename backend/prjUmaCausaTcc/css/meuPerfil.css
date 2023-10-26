@@ -102,3 +102,19 @@ thead td {
   background-color: #0063BF;
   color: #fff;
 }
+
+/*RESPONSIVO*/
+
+@media screen and (max-width: 1199px) {
+    main {
+        width: 100% !important;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+
+    main {
+        display: block;
+    }
+}
