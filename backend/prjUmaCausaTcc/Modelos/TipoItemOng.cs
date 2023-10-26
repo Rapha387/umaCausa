@@ -11,12 +11,12 @@ public class TipoItemOng : Banco
     public TipoItem TipoItem { get; set; }
     #endregion
 
-    public void CadastrarTipoItem(TipoItem tipoItem, Usuario ong)
+    public void CadastrarTipoItem(int codigoTipoItem, int codigoOng)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
-            new Parametro ("pIdItem", tipoItem.Codigo.ToString()),
-            new Parametro ("pIdOng", ong.Codigo.ToString()),
+            new Parametro ("pIdItem", codigoTipoItem.ToString()),
+            new Parametro ("pIdOng", codigoOng.ToString()),
         };
         try
         {

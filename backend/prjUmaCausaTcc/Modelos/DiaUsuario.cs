@@ -13,12 +13,12 @@ public class DiaUsuario : Banco
     public DateTime HorarioFim { get; set; }
     #endregion
 
-    public void CadastrarDiaUsuario(Usuario usuario, Dia dia, DateTime inicio, DateTime fim)
+    public void CadastrarDiaUsuario(int codigoUsuario, int codigoDia, DateTime inicio, DateTime fim)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
-            new Parametro ("pIdUsuario", usuario.Codigo.ToString()),
-            new Parametro ("pIdDia", dia.Codigo.ToString()),
+            new Parametro ("pIdUsuario", codigoUsuario.ToString()),
+            new Parametro ("pIdDia", codigoDia.ToString()),
             new Parametro ("pHrInicio", inicio.ToString("HH:mm")),
             new Parametro ("pHrFim", fim.ToString("HH:mm"))
         };

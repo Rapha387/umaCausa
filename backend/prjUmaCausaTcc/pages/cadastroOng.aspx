@@ -178,90 +178,25 @@
               <div class="input-label">
                   <label for="">Categorias da Ong:</label>
                   <asp:Panel ID="pnlCategorias" runat="server"></asp:Panel>
-                  <span id="erroCategorias" class="spanErro"></span>
+                  <asp:Label ID="erroCategorias" CssClass="spanErro" runat="server"></asp:Label>
               </div>
               <div class="input-label">
                   <label for="">Itens Aceitos:</label>
                   <asp:Panel ID="pnlItensAceitos" runat="server"></asp:Panel>
-                  <span id="erroItensAceitos" class="spanErro"></span>
+                  <asp:Label ID="erroItensAceitos" CssClass="spanErro" runat="server"></asp:Label>
               </div>
 
               <div class="input-label">
                   <label for="">Dias Disponíveis:</label>
-                  <asp:Panel ID="pnlDiasDisponiveis" runat="server">
-                      <%--<asp:Panel ID="pnlDia1" CssClass="inputsDia" runat="server">
-                          <asp:Panel ID="pnlCheckBoxDia1" CssClass="pnlCheckBoxDia" runat="server">
-                              <asp:CheckBox ID="chkDia1" runat="server" Text="Domingo"/>
-                          </asp:Panel>
-                          <asp:Panel ID="pnlInputsDia1" class="pnlInputsDia" runat="server">
-                              <asp:Label ID="Label1" runat="server" Text="De:"></asp:Label>
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia1" Enabled="false" runat="server"></asp:TextBox>
-                              <asp:Label ID="Label2" runat="server" Text="Até:"></asp:Label>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia1" Enabled="false" runat="server"></asp:TextBox>
-                          </asp:Panel>
-                      </asp:Panel>
-                      <asp:Panel ID="pnlDia2" CssClass="inputsDia" runat="server">
-                          <div class="pnlCheckBoxDia">
-                            <asp:CheckBox ID="chkDia2" runat="server" Text="Segunda"/>
-                          </div>
-                          <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia2" Enabled="false" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia2" Enabled="false" runat="server"></asp:TextBox>
-                          </div>
-                      </asp:Panel>
-                      <asp:Panel ID="pnlDia3" CssClass="inputsDia" runat="server">
-                          <div class="pnlCheckBoxDia">
-                              <asp:CheckBox ID="chkDia3" runat="server" Text="Terça"/>
-                          </div>
-                          <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia3" Enabled="false" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia3" Enabled="false" runat="server"></asp:TextBox>
-                          </div>
-                      </asp:Panel>
-                      <asp:Panel ID="pnlDia4" CssClass="inputsDia"  runat="server">
-                          <div class="pnlCheckBoxDia">
-                              <asp:CheckBox ID="chkDia4" runat="server" Text="Quarta"/>
-                          </div>
-                          <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia4" Enabled="false" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia4" Enabled="false" runat="server"></asp:TextBox>
-                          </div>
-                      </asp:Panel>
-                      <asp:Panel ID="pnlDia5" CssClass="inputsDia" runat="server">
-                          <div class="pnlCheckBoxDia">
-                              <asp:CheckBox ID="chkDia5" runat="server" Text="Quinta"/>
-                          </div>
-                          <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia5" Enabled="false" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia5" Enabled="false" runat="server"></asp:TextBox>
-                          </div>
-                      </asp:Panel>
-                      <asp:Panel ID="pnlDia6" CssClass="inputsDia" runat="server">
-                          <div class="pnlCheckBoxDia">
-                              <asp:CheckBox ID="chkDia6" runat="server" Text="Sexta"/>
-                          </div>
-                          <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia6" Enabled="false" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia6" Enabled="false" runat="server"></asp:TextBox>
-                          </div>
-                      </asp:Panel>
-                      <asp:Panel ID="pnlDia7" CssClass="inputsDia" runat="server">
-                          <div class="pnlCheckBoxDia">
-                              <asp:CheckBox ID="chkDia7" runat="server" Text="Sábado"/>
-                          </div>
-                          <div class="pnlInputsDia">
-                              <asp:TextBox TextMode="Time" ID="txtComecoDia7" Enabled="false" runat="server"></asp:TextBox>
-                              <asp:TextBox TextMode="Time" ID="txtFimDia7" Enabled="false" runat="server"></asp:TextBox>
-                          </div>
-                      </asp:Panel>--%>
-                  </asp:Panel>
+                  <asp:Panel ID="pnlDiasDisponiveis" runat="server"></asp:Panel>
                   <span id="erroDias" class="spanErro"></span>
               </div>
-                  <div class="pnlCheckBox" style="margin: 20px 0">
-                      <asp:CheckBox ID="chkConfirmaoBuscaDoacoes" runat="server" />
-                      <label style="font-size:16px" for="chkConfirmaoBuscaDoacoes">Posso buscar doações</label>
-                  </div>
+              <div class="pnlCheckBox" style="margin: 20px 0">
+                <asp:CheckBox ID="chkConfirmaoBuscaDoacoes" runat="server" />
+                <label style="font-size:16px" for="chkConfirmaoBuscaDoacoes">Posso buscar doações</label>
+              </div>
             </div>
+            
             <asp:Label ID="lblErro" runat="server"></asp:Label>
             <asp:Button class="button-criar" ID="btnCadastrarOng" runat="server" Text="Criar conta de ONG" OnClick="btnCadastrarOng_Click" />
           </div>

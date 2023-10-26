@@ -11,12 +11,12 @@ namespace prjUmaCausaTcc.Modelos
         public Usuario Ong { get; set; }
         public CategoriaOng Categoria { get; set; } 
 
-        public void CadastrarCategoriaOng(Usuario usuario, CategoriaOng categoria)
+        public void CadastrarCategoriaOng(int codigoUsuario, int codigoCategoria)
         {
             List<Parametro> parametros = new List<Parametro>()
             {
-            new Parametro ("pIdUsuario", usuario.Codigo.ToString()),
-            new Parametro ("pIdCategoria", categoria.Codigo.ToString()),
+            new Parametro ("pIdUsuario", codigoUsuario.ToString()),
+            new Parametro ("pIdCategoria", codigoCategoria.ToString()),
             };
             try
             {

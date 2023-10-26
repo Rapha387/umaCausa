@@ -237,7 +237,7 @@ public class Usuario : Banco
         }
         
     }
-    public void CadastrarOng(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string imagemFotoPerfil, string webSite, string imagemBanner, string pix, string descricao, string emailContato, bool buscaDoacoes)
+    public void CadastrarOng(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string webSite, string pix, string descricao, string emailContato, bool buscaDoacoes)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -256,9 +256,7 @@ public class Usuario : Banco
             new Parametro("pLatitude",latitude),
             new Parametro("pCep",cep),
             new Parametro("pEmailContato",emailContato),
-            new Parametro("pImagemFotoPerfil",imagemFotoPerfil),
             new Parametro("pWebSite",webSite),
-            new Parametro("pImagemBanner",imagemBanner),
             new Parametro("pPix",pix),
             new Parametro("pDescricao",descricao),
             new Parametro("pPodeBuscar", buscaDoacoes.ToString())
