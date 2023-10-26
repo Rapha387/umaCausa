@@ -204,8 +204,8 @@ header nav #btnMenuHeader span {
   width: 100%;
   height: 100vh;
 }
-.navHeaderResponsivo li, .navHeaderResponsivo h3 {
-  margin-top: 20px;
+.navHeaderResponsivo li {
+  margin-top: 15px;
 }
 .navHeaderResponsivo a {
   color: #000;
@@ -214,6 +214,7 @@ header nav #btnMenuHeader span {
 .divisaoNavResposivo {
   border-bottom: solid 2px #d3d3d3;
   padding: 0 3em;
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -390,6 +391,7 @@ main {
 #nomeArquivoLogo, #nomeArquivoBanner {
   font-size: 14px;
   position: absolute;
+  text-align: center;
   bottom: 10px;
   left: 50%;
   transform: translate(-50%, -50%);

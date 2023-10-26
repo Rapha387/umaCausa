@@ -297,7 +297,6 @@ public class Usuario : Banco
             Desconectar();
         }
     }
-    
     public void BuscarOng(int codigo)
     {
         // Usuario usuario = new Usuario();
@@ -737,6 +736,30 @@ public class Usuario : Banco
         finally { Desconectar(); }
 
         return existe;
+    }
+    public void AdicionarFotosPerfilOng(int codigoOng, string imgPefil, string imgBanner)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdOng", codigoOng.ToString()),
+            new Parametro ("pImgFotoPerfil", imgPefil),
+            new Parametro ("pImgBanner", imgBanner)
+        };
+
+        try
+        {
+            Conectar();
+            Executar("AdicionarFotosPerfilOng", parametros);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally 
+        { 
+            Desconectar(); 
+        }
+
     }
 
     #endregion

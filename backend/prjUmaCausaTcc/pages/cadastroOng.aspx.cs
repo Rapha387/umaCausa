@@ -299,24 +299,24 @@ namespace prjUmaCausaTcc.pages
                 Directory.CreateDirectory(Request.PhysicalApplicationPath + $@"uploads\ongs\{usuario.Codigo}\fotos");
 
 
-                string imgPerfil = $@"images\fotoPadrao\logoOngPadrao.png"; ;
-                string imgBanner = $@"images\fotoPadrao\bannerOngPadrao.png";
+                string imgPerfil = $@"images/fotoPadrao/logoOngPadrao.png"; ;
+                string imgBanner = $@"images/fotoPadrao/bannerOngPadrao.png";
 
-                if (fileInputLogo.PostedFile != null)
+                if (fileInputLogo.HasFile)
                 {
                     HttpPostedFile fotoPerfil = fileInputLogo.PostedFile;
-                    imgPerfil = $@"uploads\ongs\{usuario.Codigo}\icone\{usuario.Codigo}.jpg";
+                    imgPerfil = $@"uploads/ongs/{usuario.Codigo}/icone/{usuario.Codigo}.jpg";
                     fotoPerfil.SaveAs(Request.PhysicalApplicationPath + imgPerfil);
                 }
 
-                if (fileInputBanner.PostedFile != null)
+                if (fileInputBanner.HasFile)
                 {
                     HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
-                    imgBanner = $@"uploads\ongs\{usuario.Codigo}\banner\{usuario.Codigo}.jpg";
+                    imgBanner = $@"uploads/ongs/{usuario.Codigo}/banner/{usuario.Codigo}.jpg";
                     fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner);
                 }
 
-                
+                usuario.AdicionarFotosPerfilOng(usuario.Codigo, imgPerfil, imgBanner);
 
                 Session["usuario"] = usuario;
 
