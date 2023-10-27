@@ -48,7 +48,7 @@ namespace prjUmaCausaTcc.pages
 
                 Itens tiposItens = new Itens();
 
-                var listaTiposItens = tiposItens.ListarTiposItens();
+                var listaTiposItens = tiposItens.ListarTiposItensNaoMonetarios();
 
                 foreach (TipoItem item in listaTiposItens)
                 {

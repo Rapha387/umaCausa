@@ -87,27 +87,25 @@ public class Campanha : Banco
     #endregion
 
     #region Metodos
-    public bool CriarCampanha(string nome, string descricao, DateTime inicioCampanha, DateTime fimCampanha, double meta, string banner, Usuario usuario, CategoriaCampanha categoria, TipoItem tipo)
+    public void CriarCampanha(string nome, string descricao, DateTime fimCampanha, double meta, string banner, Usuario usuario, int tipo)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
             new Parametro ("pNmCampanha", nome),
             new Parametro ("pDsCampanha", descricao),
-            new Parametro ("pDtInicioCampanha",inicioCampanha.ToString("yyyy-MM-dd")),
             new Parametro ("pDtFimEsperada", fimCampanha.ToString("yyyy-MM-dd")),
             new Parametro ("pQtMeta", meta.ToString()),
             new Parametro ("pImgBannerCampanha",banner),
             new Parametro ("pIdUsuario", usuario.Codigo.ToString()),
-            new Parametro ("pIdTipoItem", tipo.Codigo.ToString())
+            new Parametro ("pIdTipoItem", tipo.ToString())
         };
         try
         {
-            Executar("CriarCampanha", parametros);
-            return true;
+            Consultar("CriarCampanha", parametros);
         }
         catch (Exception)
         {
-            return false;
+            throw new Exception("Erro ao criar a campanha!");
         }
         finally
         {

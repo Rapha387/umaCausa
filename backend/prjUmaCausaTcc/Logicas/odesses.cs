@@ -35,4 +35,30 @@ public class Odesses : Banco
         }
         finally { Desconectar(); }
     }
+
+    public List<ODS> ListarOds()
+    {
+        List<ODS> ODS = new List<ODS>();
+        try
+        {
+            MySqlDataReader dados = Consultar("ListarOds", null);
+            if (dados.HasRows)
+            {
+                while (dados.Read())
+                {
+                    ODS.Add(new ODS() { Codigo = dados.GetInt32("id_ODS"), Foto = dados.GetString("nm_hrefOds"), Nome = dados.GetString("nm_ods") });
+                }
+            }
+            if (dados.IsClosed)
+                dados.Close();
+
+            return ODS;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        finally { Desconectar(); }
+    }
+
 }
