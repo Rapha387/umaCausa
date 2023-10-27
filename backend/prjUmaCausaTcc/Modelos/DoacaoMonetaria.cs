@@ -62,6 +62,29 @@ public class DoacaoMonetaria : Banco
 
         return CodigoComprovante;
     }
+    public void ConfirmarDoacaoMonetaria(int usuarioDoador, int usuarioOng, DateTime dataDoacao, bool confirmacao)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro("pIdUsuarioDoador",usuarioDoador.ToString()),
+            new Parametro("pIdUsuarioOng", usuarioOng.ToString()),
+            new Parametro("pDataDoacao", dataDoacao.ToString()),
+            new Parametro("SituacaoDoacao", confirmacao.ToString()),
 
+        };
+        try
+        {
+            Conectar();
+            Executar("ConfirmarRecebimentoDoacaoMonetaria", parametros);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
     #endregion
 }

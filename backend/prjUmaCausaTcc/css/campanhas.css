@@ -64,7 +64,7 @@ main {
 
     main {
         display: flex;
-        flex-direction: column;
+        flex-direction: column !important;
         align-items: center;
     }
 
@@ -77,11 +77,11 @@ main {
         margin-top: 30px;
     }
 
-        .campanhas .campanhas-flex a {
-            width: 100%;
-        }
+    .campanhas .campanhas-flex a {
+        width: 100%;
+    }
 
-        .campanhas .campanhas-flex .campanha .imagem-campanha {
-            height: 180px;
-        }
+    .campanhas .campanhas-flex .campanha .imagem-campanha {
+        height: 180px;
+    }
 }

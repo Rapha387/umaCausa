@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using MySql.Data.MySqlClient;
 public class Usuario : Banco
@@ -202,7 +203,6 @@ public class Usuario : Banco
     #endregion
 
     #region Metodos
-
     public void CadastrarDoador(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -237,7 +237,7 @@ public class Usuario : Banco
         }
         
     }
-    public bool CadastrarOng(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string imagemFotoPerfil, string webSite, string imagemBanner, string pix, string descricao, string emailContato)
+    public void CadastrarOng(string nome, string senha, string email, string telefone, string identificacao, string cep, string estado, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string webSite, string pix, string descricao, string emailContato, bool buscaDoacoes)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -256,21 +256,19 @@ public class Usuario : Banco
             new Parametro("pLatitude",latitude),
             new Parametro("pCep",cep),
             new Parametro("pEmailContato",emailContato),
-            new Parametro("pImagemFotoPerfil",imagemFotoPerfil),
             new Parametro("pWebSite",webSite),
-            new Parametro("pImagemBanner",imagemBanner),
             new Parametro("pPix",pix),
-            new Parametro("pDescricao",descricao)
+            new Parametro("pDescricao",descricao),
+            new Parametro("pPodeBuscar", buscaDoacoes.ToString())
         };
         try
         {
             Conectar();
             Executar("CadastrarOng", parametros);
-            return true;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            return false;
+            throw new Exception(ex.Message);
         }
         finally
         {
@@ -297,26 +295,6 @@ public class Usuario : Banco
         finally
         {
             Desconectar();
-        }
-    }
-    public bool AlterarSenhaUsuario(int codigo, string senhaAntiga, string senhaAtual )
-    {
-        List<Parametro> parametros = new List<Parametro>()
-        {
-            new Parametro ("pIdUsuario", codigo.ToString()),
-            new Parametro ("pSenhaDigitada", senhaAntiga),
-            new Parametro ("pNovaSenha", senhaAtual)
-        };
-        try
-        {
-            Conectar();
-            Executar("ExcluirUsuario", parametros);
-            Desconectar();
-            return true;
-        }
-        catch (Exception)
-        {
-            return false;
         }
     }
     public void BuscarOng(int codigo)
@@ -450,8 +428,8 @@ public class Usuario : Banco
     {
         List<Parametro> parametros = new List<Parametro>()
         {
-            new Parametro ("pEmail", email.ToString()),
             new Parametro ("pSenhaDigitada", senha.ToString()),
+            new Parametro ("pEmail", email.ToString()),
         };
         try
         {
@@ -476,6 +454,25 @@ public class Usuario : Banco
 
         return false;
     }
+    public bool AlterarSenhaUsuario(int codigo, string senhaAtual )
+    {
+        List<Parametro> parametros2 = new List<Parametro>()
+        {
+            new Parametro ("pIdUsuario", codigo.ToString()),
+            new Parametro ("pNovaSenha", senhaAtual)
+        };
+        try
+        {
+            Conectar();
+            Executar("AlterarSenhaUsuario", parametros2);
+            Desconectar();
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+    }
     public void BuscarUsuarioPeloEmail(string email)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -491,6 +488,7 @@ public class Usuario : Banco
                 if (dados.Read())
                 {
                     Codigo = dados.GetInt32("id_usuario");
+                    Email = email;
                     TipoDoUsuario = new TipoUsuario
                     {
                         Codigo = dados.GetInt32("id_tipoUsuario")
@@ -652,7 +650,6 @@ public class Usuario : Banco
         }
         catch (Exception)
         {
-
             throw;
         }
         finally { Desconectar(); }
@@ -688,11 +685,88 @@ public class Usuario : Banco
         }
         finally { Desconectar(); }
     }
+    public int BuscarNovoCodigoUsuario()
+    {
+        try
+        {
+            MySqlDataReader dados = Consultar("BuscarNovoCodigoUsuario", null);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    Codigo = int.Parse(dados["id_usuario"].ToString());
+                }
+            }
+            if (dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally { Desconectar(); }
+
+        return Codigo;
+    }
+    public bool VerificarEmailIdentificacao(string email, string identificacao)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro ("pEmail", email.ToString()),
+                new Parametro ("pIdentificacao", email.ToString())
+            };
+
+        bool existe;
+
+        try
+        {
+            MySqlDataReader dados = Consultar("VerificarEmailIdentificacao", parametros);
+            if (dados.HasRows)
+                existe = true;
+            else
+                existe = false;
+
+            if (dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+        finally { Desconectar(); }
+
+        return existe;
+    }
+    public void AdicionarFotosPerfilOng(int codigoOng, string imgPefil, string imgBanner)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdOng", codigoOng.ToString()),
+            new Parametro ("pImgFotoPerfil", imgPefil),
+            new Parametro ("pImgBanner", imgBanner)
+        };
+
+        try
+        {
+            Conectar();
+            Executar("AdicionarFotosPerfilOng", parametros);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally 
+        { 
+            Desconectar(); 
+        }
+
+    }
+
     #endregion
+
     public Usuario()
     {
     }
-
     public Usuario(int codigo, string nome, string email, string emailContato, string telefone, string identificacao, string cEP, string estado, string rua, string numero, string bairro, string complemento, string latitude, string longitude, bool posssibilidadeBusca, TipoUsuario tipoDoUsuario)
     {
        this.Codigo = codigo;
@@ -712,8 +786,7 @@ public class Usuario : Banco
        this.PosssibilidadeBusca = posssibilidadeBusca;
        this.TipoDoUsuario = tipoDoUsuario;
     }
-   public Usuario(int codigo, string nome, string email, string telefone, string identificacao, string cEP, string rua, string numero, string bairro, string complemento, string latitude, string longitude, TipoUsuario tipoDoUsuario)
-
+    public Usuario(int codigo, string nome, string email, string telefone, string identificacao, string cEP, string rua, string numero, string bairro, string complemento, string latitude, string longitude, TipoUsuario tipoDoUsuario)
     {
 
         this.Codigo = codigo;
@@ -746,12 +819,10 @@ public class Usuario : Banco
         this.TipoDoUsuario = tipoDoUsuario;
 
     }
-
     public Usuario(int codigo)
     {
         Codigo = codigo;
     }
-
     public Usuario(string nome)
     {
         Nome = nome;

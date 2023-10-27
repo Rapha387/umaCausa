@@ -51,6 +51,30 @@ public class DoacaoItem : Banco
             Desconectar();
         }
     }
+    public void ConfirmarDoacaoCampanha( int usuarioDoador, int usuarioOng, DateTime dataDoacao,bool situacaoDoacao)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro("pIdUsuarioDoador",usuarioDoador.ToString()),
+            new Parametro("pIdUsuarioOng",usuarioOng.ToString()),
+            new Parametro("pDataDoacaoItem", dataDoacao.ToString()),
+            new Parametro("SituacaoDoacao", situacaoDoacao.ToString()),
+
+        };
+        try
+        {
+            Conectar();
+            Executar("ConfirmarRecebimentoDoacaoItem", parametros);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
 
     #endregion
 }

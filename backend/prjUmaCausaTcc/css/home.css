@@ -44,4 +44,8 @@
     .explicacao {
         width: 100% !important;
     }
+
+    .carrossel{
+        height: 220px !important;
+    }
 }

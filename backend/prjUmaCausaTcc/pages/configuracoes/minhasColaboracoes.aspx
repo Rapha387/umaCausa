@@ -75,9 +75,10 @@
             </div>
             <div class="infos">
               <div class="pesquisar">
-                  <input id="pesquisa" type="text" placeholder="Pesquisar..."/>
+                    <asp:TextBox ID="TxtPesquisa" runat="server" placeholder="Pesquisar..." CssClass="txtBusca"></asp:TextBox>
+                    <asp:ImageButton ID="ImgPesquisar" runat="server" ImageUrl="./../../images/icons/search.png" OnClick="ImgPesquisar_Click"/>
     <%--            <input type="search" placeholder="Pesquisar..." />--%>
-                <img src="./../../images/icons/search.png" alt="lupa" />
+                <%--<img src="./../../images/icons/search.png" alt="lupa" />--%>
               </div>
               <table>
                 <thead>
@@ -192,6 +193,7 @@
 
     <script src="./../../js/inputFile.js"></script>
     <script src="./../../js/cep.js"></script>
+            <script src="./../../js/DeslogarUsuario.js"></script>
     </form>
 </body>
 </html>
