@@ -1106,6 +1106,12 @@ label {
   width: 100%;
 }
 
+#btnAgendarItem {
+    margin: auto;
+    margin-top: 15px;
+    width: 49%;
+}
+
 .popup-item {
   padding: 2rem;
   padding-top: 3rem;
@@ -1149,7 +1155,7 @@ label {
     }
 
     header nav li {
-        display: none;
+        display: none !important;
     }
 
     footer nav img, .aImg {

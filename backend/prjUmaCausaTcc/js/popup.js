@@ -80,7 +80,6 @@ if (botaoDoar) {
     });
 }
 
-
 if (botaoDenunciar) {
     botaoDenunciar.addEventListener('click', (event) => {
       event.preventDefault();
@@ -118,36 +117,6 @@ if (botaoDoacaoItem) {
     });
 }
 
-function LimparPopupMonetario() {
-    LimparInputsMonetario();
-    popupDoacaoMonetaria.classList.add('escondido');
-    txtValor.value = "";
-    txtComprovante.value = "";
-    qrcodeContainer.innerHTML = "";
-    spanComprovante.textContent = "Nenhum Comprovante Anexado"
-    fileInputComprovante.value = "";
-}
-
-function LimparPopUpItem() {
-    LimparInputsItem();
-    popupDoacaoItem.classList.add('escondido');
-    txtNomeItem.value = "";
-    cmbTipoItem.selectedIndex = 0;
-    cmbTipoEntrega.selectedIndex = 0;
-    txtDataEnvio.value = "";
-    txtHorario.value = "";
-    txtQuantidadeItem.value = "";
-}
-
-function LimparPopUpDenuncia() {
-    txtDescricaoDenuncia.value = "";
-    cmbMotivoDenuncia.selectedIndex = 0;
-    erroDenuncia.textContent = ""
-    cmbMotivoDenuncia.classList.remove('inputInvalido');
-    popupDenunciar.classList.add('escondido');
-    bloqueio.classList.add('escondido');
-}
-
 if (botaoCopiar) {
     inputCompartilhar.value = url
     botaoCopiar.addEventListener("click", function (e) {
@@ -179,3 +148,36 @@ if (botaoCopiarPix) {
         }
     });
 }
+
+function LimparPopupMonetario() {
+    LimparInputsMonetario();
+    popupDoacaoMonetaria.classList.add('escondido');
+    txtValor.value = "";
+    txtComprovante.value = "";
+    qrcodeContainer.innerHTML = "";
+    spanComprovante.textContent = "Nenhum Comprovante Anexado"
+    fileInputComprovante.value = "";
+}
+
+function LimparPopUpItem() {
+    LimparInputsItem();
+    popupDoacaoItem.classList.add('escondido');
+    txtNomeItem.value = "";
+    cmbTipoItem.selectedIndex = 0;
+    cmbTipoEntrega.selectedIndex = 0;
+    txtDataEnvio.value = "";
+    txtHorario.value = "";
+    txtQuantidadeItem.value = "";
+}
+
+function LimparPopUpDenuncia() {
+    txtDescricaoDenuncia.value = "";
+    cmbMotivoDenuncia.selectedIndex = 0;
+    erroDenuncia.textContent = ""
+    cmbMotivoDenuncia.classList.remove('inputInvalido');
+    popupDenunciar.classList.add('escondido');
+    bloqueio.classList.add('escondido');
+}
+
+
+

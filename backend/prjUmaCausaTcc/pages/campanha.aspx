@@ -59,13 +59,6 @@
                 <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
                 <div class="infos-doacao">
                   <div class="input-label">
-                    <label for="cmbTipoItem">Tipo do Item:</label>
-                    <asp:DropDownList ID="cmbTipoItem" runat="server">
-                        <asp:ListItem>Selecione o tipo do Item</asp:ListItem>
-                    </asp:DropDownList>
-                    <span id="erroTipoItem" class="spanErro"></span>
-                  </div>
-                  <div class="input-label">
                     <label for="txtNomeItem">Nome:</label>
                     <input type="text" id="txtNomeItem" placeholder="Nome do item">
                     <span id="erroNomeItem" class="spanErro"></span>
@@ -90,8 +83,8 @@
                     <input type="time" name="txtHorario" id="txtHorario"  min="08:00" max="18:00">
                      <span id="erroHorario" class="spanErro"></span>
                   </div>
-                  <button id="btnAgendarItem">Agendar Doação</button>
                 </div>
+                <button id="btnAgendarItem">Agendar Doação</button>
             </div>
           </asp:Panel>
         
@@ -103,7 +96,7 @@
                 <label for="observacao">Observacao:</label>
                 <textarea name="observacao" id="txtObservao" cols="30" rows="5"></textarea>
                 <span id="erroDenuncia" class="spanErro" style="text-align: center"></span>
-                <button id="btnRealizarDenunciaUsuario">Denunciar</button>
+                <button id="btnRealizarDenunciaCampanha">Denunciar</button>
             </div>
           </div>
 
@@ -158,10 +151,12 @@
               </div>
             </div>
           </main>
+
           <footer>
               <asp:Literal ID="litFooter" runat="server"></asp:Literal>
           </footer>
-  
+        
+        <script src="../js/DenunciarCampanha.js"></script>
         <script src="../js/VerificarUsuario.js"></script>
         <script src="./../js/popup.js"></script>
         <script src="../js/DeslogarUsuario.js"></script>
