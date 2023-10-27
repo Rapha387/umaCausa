@@ -116,6 +116,7 @@ thead td {
 
         main .infos-configuracoes {
             width: 100%;
+            padding-left: 15px;
         }
 
     .input-label {
@@ -162,6 +163,7 @@ thead td {
         main .infos-configuracoes {
             width: 100%;
             margin-top: 20px;
+            padding: 0px;
         }
 
             main .infos-configuracoes .infos .input-label {
@@ -199,5 +201,9 @@ thead td {
 
     #complemento {
         width: 100%
+    }
+
+    input[type=submit] {
+        width: 100%;
     }
 }

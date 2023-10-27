@@ -117,3 +117,50 @@ footer {
   position: absolute;
   bottom: 0;
 }
+
+/*RESPONSIVO*/
+
+@media screen and (max-width: 1199px) {
+    main {
+        width: 100% !important;
+    }
+
+        main .infos-configuracoes {
+            width: 100%;
+            padding-left: 15px;
+        }
+}
+
+
+@media screen and (max-width: 700px) {
+
+    main {
+        display: block;
+    }
+
+        main .infos-configuracoes {
+            width: 100%;
+            margin-top: 20px;
+            padding: 0px;
+        }
+
+    .input-label {
+        width: 100%;
+    }
+
+    .novaSenha {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        position: absolute;
+        bottom: auto;
+    }
+
+    input[type=submit] {
+        width: 100%;
+    }
+}
