@@ -108,6 +108,47 @@ thead td {
     main {
         width: 100% !important;
     }
+
+        main .infos-configuracoes .infos .input-label {
+            width: 100%;
+        }
+
+        main .infos-configuracoes {
+            width: 100%;
+        }
+
+    .input-label {
+        width: 100%;
+    }
+
+    #cep {
+        width: 100%;
+    }
+
+    #UF {
+        width: 100%
+    }
+
+    #cidade {
+        width: 100%
+    }
+
+    #bairro {
+        width: 100%
+    }
+
+    #logradouro {
+        width: 100%
+    }
+
+    #numero {
+        width: 100%
+    }
+
+
+    #complemento {
+        width: 100%
+    }
 }
 
 
@@ -115,5 +156,47 @@ thead td {
 
     main {
         display: block;
+    }
+
+        main .infos-configuracoes {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+            main .infos-configuracoes .infos .input-label {
+               width:100%;
+            }
+
+    .input-label {
+        width: 100%;
+    }
+
+    #cep {
+        width: 100%;
+    }
+
+    #UF {
+        width: 100%
+    }
+
+    #cidade {
+        width: 100%
+    }
+
+    #bairro {
+        width: 100%
+    }
+
+    #logradouro {
+        width: 100%
+    }
+
+    #numero {
+        width: 100%
+    }
+
+
+    #complemento {
+        width: 100%
     }
 }
