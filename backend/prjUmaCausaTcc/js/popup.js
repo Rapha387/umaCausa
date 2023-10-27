@@ -96,22 +96,27 @@ if (botaoDenunciar) {
     });
 }
 
-botaoCompartilhar.addEventListener('click', (event) => {
-  event.preventDefault();
-  bloqueio.classList.remove("escondido");
-  popupCompartilhar.classList.remove("escondido");
-});
+if (botaoCompartilhar) {
+    botaoCompartilhar.addEventListener('click', (event) => {
+        event.preventDefault();
+        bloqueio.classList.remove("escondido");
+        popupCompartilhar.classList.remove("escondido");
+    });
+}
 
-botaoDoacaoMonetaria.addEventListener('click', () => {
-  popupDoar.classList.add('escondido');
-  popupDoacaoMonetaria.classList.remove('escondido');
-});
+if (botaoDoacaoMonetaria) {
+    botaoDoacaoMonetaria.addEventListener('click', () => {
+        popupDoar.classList.add('escondido');
+        popupDoacaoMonetaria.classList.remove('escondido');
+    });
+}
 
-botaoDoacaoItem.addEventListener('click', () => {
-  popupDoar.classList.add('escondido');
-  popupDoacaoItem.classList.remove('escondido');
-});
-
+if (botaoDoacaoItem) {
+    botaoDoacaoItem.addEventListener('click', () => {
+        popupDoar.classList.add('escondido');
+        popupDoacaoItem.classList.remove('escondido');
+    });
+}
 
 function LimparPopupMonetario() {
     LimparInputsMonetario();

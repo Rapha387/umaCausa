@@ -158,6 +158,12 @@ namespace prjUmaCausaTcc.pages
                 string latitude = "";
                 string longitude = "";
                 string pix = txtPix.Text;
+
+                if (cmbTiposPix.SelectedIndex == 0)
+                {
+                    pix = "+55" + txtPix.Text;
+                }
+
                 string webSite = txtWebSite.Text;
                 string emailContato = txtEmailContato.Text;
                 string descricao = txtDescricao.Text;

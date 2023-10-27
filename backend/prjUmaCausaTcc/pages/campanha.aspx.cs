@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjUmaCausaTcc.Logicas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -38,6 +39,9 @@ namespace prjUmaCausaTcc.pages
 
             if (!String.IsNullOrEmpty(Request["c"]))
             {
+                pnlDoacaoItem.Visible = false;
+                pnlDoacaoMonetaria.Visible = false;
+
                 int cd_campanha = 0;
                 try
                 {
@@ -55,6 +59,14 @@ namespace prjUmaCausaTcc.pages
                     {
                         litOds.Text += $"<img src='../{ods.Foto}'' alt=''>";
                     }
+
+
+                    if (campanha.TipoItemArrecadado.Codigo == 0)
+                        pnlDoacaoMonetaria.Visible = true;
+                    else
+                        pnlDoacaoItem.Visible = true;
+
+                    ExibirOpcoesDdlDenuncia();
                 }
                 catch (Exception)
                 {
@@ -73,11 +85,13 @@ namespace prjUmaCausaTcc.pages
             {
                 litMeta.Text = "R$" + campanha.QuantidadeMeta.ToString().Replace(".", ",");
                 litArrecadado.Text = "Arrecadados da meta de R$" + campanha.QuantidadeArrecadada.ToString().Replace(".", ",");
+
                 if (campanha.TipoItemArrecadado.Codigo != 0)
                 {
                     litArrecadado.Text = "Arrecadados da meta: " + campanha.QuantidadeArrecadada.ToString().Replace(".", ",") +" "+ campanha.TipoItemArrecadado.Nome;
                     litMeta.Text = campanha.QuantidadeMeta.ToString().Replace(".", ",") +" "+ campanha.TipoItemArrecadado.Nome;
                 }
+
                 litDescricao.Text = campanha.Descricao;
                 litWebNome.Text = campanha.Nome + " - umaCausa";
                 litNome.Text = campanha.Nome;
@@ -102,6 +116,28 @@ namespace prjUmaCausaTcc.pages
               <p>{ong.Descricao}</p>
             </div>
           </div></a>";
+        }
+
+        private void ExibirOpcoesDdlDenuncia()
+        {
+            try
+            {
+                cmbMotivoDenuncia.Items.Clear();
+
+                var listaMotivos = new MotivosDenunciaUsuario().ListarMotivosDenunciaUsuario();
+                int contador = 1;
+                cmbMotivoDenuncia.Items.Add("Selcione o motivo da Denuncia");
+                foreach (MotivoDenunciaUsuario motivo in listaMotivos)
+                {
+                    cmbMotivoDenuncia.Items.Add(motivo.Nome);
+                    cmbMotivoDenuncia.Items[contador].Value = motivo.Codigo.ToString();
+                    contador++;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

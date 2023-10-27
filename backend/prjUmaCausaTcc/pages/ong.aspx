@@ -205,8 +205,6 @@
               </div>
             </div>
               
-
-        
             <asp:Literal ID="litInicioFotos" runat="server"></asp:Literal>
             <asp:Literal ID="litFotos" runat="server"></asp:Literal>
             <asp:Literal ID="litFimFotos" runat="server"></asp:Literal>
