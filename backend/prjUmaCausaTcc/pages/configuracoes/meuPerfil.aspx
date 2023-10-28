@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <link rel="icon" href="./../../images/icone.svg" type="image/x-icon" />
   <link rel="stylesheet" href="./../../css/index.css">
   <link rel="stylesheet" href="./../../css/meuPerfil.css">
   <title>UmaCausa - Meu Perfil</title>
@@ -39,11 +40,11 @@
             </div>
             <div class="input-label">
               <label for="">CNPJ:</label>
-                <asp:TextBox ID="txtCnpj" runat="server" disabled=""></asp:TextBox>
+                <asp:TextBox ID="txtCnpj" runat="server" Enabled="false"></asp:TextBox>
             </div>
             <div class="input-label">
               <label for="">Email:</label>
-               <asp:TextBox ID="txtEmail" runat="server" TextMode="Email"></asp:TextBox>
+               <asp:TextBox ID="txtEmail" runat="server" Enabled="false" TextMode="Email"></asp:TextBox>
             </div>
             <div class="input-label">
               <label for="">Telefone:</label>
@@ -113,67 +114,77 @@
             </div>
 
             <asp:Panel ID="PnlItensOngs" runat="server">
-              <div class="infos">
-                <div class="input-label">
-                  <label for="">Pix:</label>
-                  <asp:TextBox ID="txtPix" runat="server"></asp:TextBox>
-                </div>
-                <div class="input-label">
-                  <label for="">WebSite:</label>
-                  <asp:TextBox ID="txtWebsite" runat="server" TextMode="Url"></asp:TextBox>
-                </div>
+               <div class="infos">
+                  <div class="input-label" id="pix">
+                    <label for="">Pix:</label>
+                    <div>
+                        <asp:DropDownList ID="cmbTiposPix" runat="server">
+                            <asp:ListItem Value="telefone">Telefone</asp:ListItem>
+                            <asp:ListItem Value="email">Email</asp:ListItem>
+                            <asp:ListItem Value="cpf">CPF</asp:ListItem>
+                            <asp:ListItem Value="cnpj">CNPJ</asp:ListItem>
+                            <asp:ListItem Value="chaveAleatoria">Outro</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:TextBox ID="txtPix" TextMode="Phone" MaxLength="11" pattern="^+55\d{11}$" placeholder="13999999999 (somente números)" runat="server" required="required"></asp:TextBox>
+                    </div>
 
-                <div class="input-label">
-                  <label for="">Email de Contato:</label>
-                  <asp:TextBox ID="txtEmailContato" runat="server"></asp:TextBox>
-                </div>
-                <div class="input-label">
-                  <label for="">Disponivel para busca?:</label>
-                    <asp:CheckBox ID="ckbPodeBuscar" runat="server" />
-                </div>
-                <div>
-                  <div class="input-label" id="categoria">
-                    <label for="">Categoria:</label>
-                     <asp:DropDownList ID="cmbCategorias" runat="server">
-                     <asp:ListItem>Selecione uma Categoria</asp:ListItem>
-                     </asp:DropDownList>
+                    <span id="erroPix" class="spanErro"></span>
                   </div>
-
-                  <div class="input-label" id="itens">
-                    <label for="">Itens Aceitos:</label>
-                      <asp:DropDownList ID="cmbTipoItem" runat="server">
-                      <asp:ListItem>Selecione o tipo do item</asp:ListItem>
-                     </asp:DropDownList>
+                  <div class="input-label">
+                    <label for="">WebSite:</label>
+                      <asp:TextBox ID="txtWebSite" TextMode="Url" runat="server" ></asp:TextBox>
                   </div>
-
+                  <div class="input-label">
+                    <label for="">Email de Contato:</label>
+                    <asp:TextBox ID="txtEmailContato" TextMode="Email" runat="server" required="required"></asp:TextBox>
+                    <span id="erroEmailContato" class="spanErro"></span>
+                  </div>
+                  <div class="input-label" id="bannerOng">
+                    <label for="">Banner da Ong:</label>
+                    <div class="espaco-imagem-banner">
+                      <label class="custom-file-upload">
+                        <asp:FileUpload ID="fileInputBanner"  runat="server" accept="image/*" />
+                        <span class="textoInputFile">Carregar Foto</span>
+                      </label>
+                      <span id="nomeArquivoBanner">Imagem Retangular em JPG</span>
+                    </div>
+                  </div>
+                  <div class="input-label" id="logo">
+                    <label for="">Logo da Ong:</label>
+                    <div class="espaco-imagem-logo">
+                      <label class="custom-file-upload">
+                        <asp:FileUpload ID="fileInputLogo" runat="server" accept="image/*" />
+                        <span class="textoInputFile">Carregar Foto</span>
+                      </label>
+                      <span id="nomeArquivoLogo">Foto quadrada em JPG</span>
+                    </div>
+                  </div>
                   <div class="input-label" id="dsOng">
-                    <label for="">Resumo da Ong:</label>
-                      <asp:TextBox ID="txtDescricao" TextMode="MultiLine" Columns="30" Rows="10" runat="server" MaxLength="1000"></asp:TextBox>
+                     <label for="">Resumo da Ong:</label>
+                     <asp:TextBox ID="txtDescricao" TextMode="MultiLine" Columns="30" Rows="10" runat="server"></asp:TextBox>
+                     <span id="erroDescricao" class="spanErro"></span>
                   </div>
-                </div>
+                  <div class="input-label">
+                      <label for="">Categorias da Ong:</label>
+                      <asp:Panel ID="pnlCategorias" runat="server"></asp:Panel>
+                      <asp:Label ID="erroCategorias" CssClass="spanErro" runat="server"></asp:Label>
+                  </div>
+                  <div class="input-label">
+                      <label for="">Itens Aceitos:</label>
+                      <asp:Panel ID="pnlItensAceitos" runat="server"></asp:Panel>
+                      <asp:Label ID="erroItensAceitos" CssClass="spanErro" runat="server"></asp:Label>
+                  </div>
 
-                <div class="input-label" id="logo">
-                  <label for="">Logo da Ong:</label>
-                  <div class="espaco-imagem">
-                    <label class="custom-file-upload">
-                      <input type="file" id="fileInputLogo" accept="image/*" />
-                      <span class="textoInputFile">Carregar Foto</span>
-                    </label>
-
-                    <span id="nomeArquivoLogo">Foto quadrada em JPG</span>
+                  <div class="input-label">
+                      <label for="">Dias Disponíveis:</label>
+                      <asp:Panel ID="pnlDiasDisponiveis" runat="server"></asp:Panel>
+                      <asp:Label ID="erroDias" CssClass="spanErro" runat="server"></asp:Label>
+                  </div>
+                  <div class="pnlCheckBox" style="margin: 20px 0">
+                    <asp:CheckBox ID="chkConfirmaoBuscaDoacoes" runat="server" />
+                    <label style="font-size:16px" for="chkConfirmaoBuscaDoacoes">Posso buscar doações</label>
                   </div>
                 </div>
-                <div class="input-label" id="bannerOng">
-                  <label for="">Banner da Ong:</label>
-                  <div class="espaco-imagem">
-                    <label class="custom-file-upload">
-                      <input type="file" id="fileInputBannner" accept="image/*" />
-                      <span class="textoInputFile">Carregar Foto</span>
-                    </label>
-                    <span id="nomeArquivoBanner">Imagem Retangular em JPG</span>
-                  </div>
-                </div>
-               </div>
              </asp:Panel>
 
              <asp:Button ID="BtnSalvarAlteraçoes" runat="server" Text="Salvar Alterações" class="button-salvar" OnClick="BtnSalvarAlteraçoes_Click"/>
@@ -187,9 +198,9 @@
 
 
 
-        <script src="../../js/verificacoesInputs.js"></script>
-        <script src="./../../js/inputFile.js"></script>
-        <script src="./../../js/DeslogarUsuario.js"></script>
+       <script src="../../js/verificacoesInputs.js"></script>
+       <script src="./../../js/inputFile.js"></script>
+       <script src="./../../js/DeslogarUsuario.js"></script>
     </form>
 </body>
 </html>

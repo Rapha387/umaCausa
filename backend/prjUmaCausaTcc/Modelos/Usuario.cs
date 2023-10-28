@@ -588,7 +588,7 @@ public class Usuario : Banco
         }
         finally { Desconectar(); }
     }
-    public void AlterarDadosOng(int codigo, string nome, string email, string emailcontato, string telefone, string descricao, string cep, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string website, string pix, object podebuscar)
+    public void AlterarDadosOng(int codigo, string nome, string email, string emailcontato, string telefone, string descricao, string cep, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string website, string pix, bool podebuscar)
     {
         Conectar();
         List<Parametro> parametros = new List<Parametro>()

@@ -136,9 +136,13 @@ thead td {
   background-color: #F5F5F5;
   border-radius: 4px;
 }
-.confirmacoes .confirmacao p:nth-child(2) {
-  margin: 10px 0;
+.infos-confirmacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
 }
+
 .confirmacoes .confirmacao .botoes-confirmacao {
   display: flex;
   justify-content: space-between;
