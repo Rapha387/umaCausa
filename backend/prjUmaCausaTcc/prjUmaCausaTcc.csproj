@@ -207,9 +207,8 @@
     <Content Include="JsonResponses\DenunciarCampanha.aspx" />
     <Content Include="JsonResponses\DenunciarUsuario.aspx" />
     <Content Include="JsonResponses\DeslogarUsuario.aspx" />
-    <Content Include="JsonResponses\DoarItemCampanha.aspx" />
     <Content Include="JsonResponses\DoarItemOng.aspx" />
-    <Content Include="JsonResponses\DoarMonetarioCampanha.aspx" />
+    <Content Include="JsonResponses\DoarCampanha.aspx" />
     <Content Include="JsonResponses\DoarMonetarioOng.aspx" />
     <Content Include="JsonResponses\VerificarUsuario.aspx" />
     <Content Include="js\alteracaoCoresBarraPorcentagem.js" />
@@ -225,6 +224,7 @@
     <Content Include="js\inputsDias.js" />
     <Content Include="js\pix.js" />
     <Content Include="js\popup.js" />
+    <Content Include="js\RealizarDoacaoCampanha.js" />
     <Content Include="js\RealizarDoacaoOng.js" />
     <Content Include="js\selectPersonalizado.js" />
     <Content Include="js\verificacoesInputs.js" />
@@ -236,16 +236,10 @@
     <Content Include="pages\campanha.aspx" />
     <Content Include="pages\campanhas.aspx" />
     <Content Include="pages\configuracoes\alterarSenha.aspx" />
-    <Content Include="pages\configuracoes\alterarSenha.html" />
     <Content Include="pages\configuracoes\confirmacoesDoacoes.aspx" />
-    <Content Include="pages\configuracoes\confirmacoesDoacoes.html" />
     <Content Include="pages\configuracoes\meuPerfil.aspx" />
-    <Content Include="pages\configuracoes\meuPerfil.html" />
-    <Content Include="pages\configuracoes\meusItens.html" />
     <Content Include="pages\configuracoes\minhasCampanhas.aspx" />
-    <Content Include="pages\configuracoes\minhasCampanhas.html" />
     <Content Include="pages\configuracoes\minhasColaboracoes.aspx" />
-    <Content Include="pages\configuracoes\minhasColaboracoes.html" />
     <Content Include="pages\erro.aspx" />
     <Content Include="pages\faq.aspx" />
     <Content Include="pages\index.aspx" />
@@ -318,13 +312,6 @@
     <Compile Include="JsonResponses\DeslogarUsuario.aspx.designer.cs">
       <DependentUpon>DeslogarUsuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="JsonResponses\DoarItemCampanha.aspx.cs">
-      <DependentUpon>DoarItemCampanha.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="JsonResponses\DoarItemCampanha.aspx.designer.cs">
-      <DependentUpon>DoarItemCampanha.aspx</DependentUpon>
-    </Compile>
     <Compile Include="JsonResponses\DoarItemOng.aspx.cs">
       <DependentUpon>DoarItemOng.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -332,12 +319,12 @@
     <Compile Include="JsonResponses\DoarItemOng.aspx.designer.cs">
       <DependentUpon>DoarItemOng.aspx</DependentUpon>
     </Compile>
-    <Compile Include="JsonResponses\DoarMonetarioCampanha.aspx.cs">
-      <DependentUpon>DoarMonetarioCampanha.aspx</DependentUpon>
+    <Compile Include="JsonResponses\DoarCampanha.aspx.cs">
+      <DependentUpon>DoarCampanha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="JsonResponses\DoarMonetarioCampanha.aspx.designer.cs">
-      <DependentUpon>DoarMonetarioCampanha.aspx</DependentUpon>
+    <Compile Include="JsonResponses\DoarCampanha.aspx.designer.cs">
+      <DependentUpon>DoarCampanha.aspx</DependentUpon>
     </Compile>
     <Compile Include="JsonResponses\DoarMonetarioOng.aspx.cs">
       <DependentUpon>DoarMonetarioOng.aspx</DependentUpon>

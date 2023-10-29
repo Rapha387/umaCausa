@@ -88,6 +88,8 @@
               </div>
             </nav>
           </footer>
+
+        <script src="../js/animarBtnHeader.js"></script>
     </form>
 </body>
 </html>

@@ -126,17 +126,29 @@ header nav ul li {
     align-items: center;
     font-size: 14px;
     background-color: #0063BF;
-    color: #fff;
+    color: #fff !important;
     padding: 8px 12px;
     border-radius: 4px;
     border: none;
 }
+
 .button-header-cadastro:hover{
     color: #fff;
 }
 .button-header-cadastro img{
     padding-right: 4.5px;
     width: 19px;
+}
+
+.button-header-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border: solid 1px #0063BF;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
 }
 
 .img-user-preto {
@@ -178,8 +190,13 @@ header nav #btnMenuHeader span {
     cursor:pointer;
 }
 
+.botoes-login-responsivo{
+    padding: 0 3rem;
+    margin-top: 20px;
+}
+
 #chkMenuHeader:checked ~ .navHeaderResponsivo {
-  display: block;
+    display: block;
 }
 
 #chkMenuHeader:checked ~ #btnMenuHeader {
@@ -240,7 +257,7 @@ footer nav {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 3.438rem;
+  padding: 0 3rem;
   width: 1200px;
   margin: auto;
 }
@@ -1156,6 +1173,10 @@ label {
 
     header nav li {
         display: none !important;
+    }
+
+    footer nav{
+        padding: 0 2rem;
     }
 
     footer nav img, .aImg {

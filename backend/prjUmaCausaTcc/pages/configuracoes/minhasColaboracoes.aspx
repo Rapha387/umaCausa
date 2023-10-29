@@ -80,6 +80,7 @@
             <asp:Literal ID="Footer" runat="server"></asp:Literal>
         </footer>
 
+        <script src="./../../js/animarBtnHeader.js"></script>
         <script src="./../../js/DeslogarUsuario.js"></script>
     </form>
 </body>

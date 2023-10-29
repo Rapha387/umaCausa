@@ -47,6 +47,10 @@ public class GerarEmentosHtml
                           <a href='./ongs.aspx'><li>Ongs</li></a>
                           <a href='./campanhas.aspx'><li>Campanhas</li></a>
                         </div>
+                          <div class='botoes-login-responsivo'>
+                            <a class='button-header-login' href='./login.aspx'>Login</a></li>
+                            <a class='button-header-cadastro' href='./cadastro.aspx'><img src='./../images/icons/user.png'/>Cadastre-se</a></li>
+                          </div>
                     </div>";
 
             return nav;

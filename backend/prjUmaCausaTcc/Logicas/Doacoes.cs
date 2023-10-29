@@ -17,6 +17,8 @@ public class Doacoes : Banco
     public bool DoacaoConfirmada { get; set; }
     public string NomeTipoItem { get; set; }
     public DateTime RespostaOng { get; set; }
+    public string TipoDoacao { get; set; }
+
     public List<Doacoes> ListarDoacoes(int IdUsuario)
     {
         List<Doacoes> listarDoacoes = new List<Doacoes>();
@@ -24,16 +26,18 @@ public class Doacoes : Banco
             
         foreach (DoacaoCampanha item in colaboracoes.ListaDoacoesCampanhas(IdUsuario))
         {
-            listarDoacoes.Add(new Doacoes { 
+            listarDoacoes.Add(new Doacoes
+            {
                 Nome = item.Campanha.Nome,
-                NomeONG = item.Campanha.ONG.Nome, 
-                DataDoacao = item.DataDoacao, 
+                NomeONG = item.Campanha.ONG.Nome,
+                DataDoacao = item.DataDoacao,
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
                 DoacaoConfirmada = item.DoacaoConfirmada,
                 RespostaOng = item.RespostaOng,
-        });
+            });
         };
+
         foreach (DoacaoItem item in colaboracoes.ListaDoacoesItems(IdUsuario))
         {
             listarDoacoes.Add(new Doacoes
@@ -44,8 +48,9 @@ public class Doacoes : Banco
                 NomeTipoItem = char.ToUpper(item.NomeItem[0]) + item.NomeItem.Substring(1),
                 DoacaoConfirmada = item.DoacaoConfirmada,
                 RespostaOng = item.respostaOng,
-            }) ;
+            });
         };
+
         foreach (DoacaoMonetaria item in colaboracoes.ListaDoacoesMonetarias(IdUsuario))
         {
             listarDoacoes.Add(new Doacoes
@@ -78,6 +83,7 @@ public class Doacoes : Banco
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
                 DoacaoConfirmada = false,
+                TipoDoacao = "dc"
             }) ;
         };
         foreach (DoacaoCampanha item in colaboracoes.ListarDoacoesCampanhasItensConfirmadasOuNao(IdUsuarioONG, false))
@@ -91,6 +97,7 @@ public class Doacoes : Banco
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
                 DoacaoConfirmada = false,
+                TipoDoacao = "dc"
             });
         };
         foreach (DoacaoMonetaria item in colaboracoes.ListarDoacoesMonetariasConfirmadasOuNao(IdUsuarioONG, false))
@@ -102,6 +109,7 @@ public class Doacoes : Banco
                 Quantidade = "R$" + item.ValorDoacao.ToString(),
                 NomeTipoItem = "Monetário",
                 DoacaoConfirmada = false,
+                TipoDoacao = "dm"
             });
         };
         foreach (DoacaoItem item in colaboracoes.ListarDoacoesItensConfirmadasOuNao(IdUsuarioONG, false))
@@ -115,6 +123,7 @@ public class Doacoes : Banco
                 Quantidade = item.Quantidade,
                 NomeTipoItem = char.ToUpper(item.NomeItem[0]) + item.NomeItem.Substring(1),
                 DoacaoConfirmada = false,
+                TipoDoacao = "di"
             });
         };
 

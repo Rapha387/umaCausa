@@ -231,6 +231,7 @@
       </footer>
 
 
+      <script src="../js/animarBtnHeader.js"></script>
       <script src="../js/VerificarUsuario.js"></script>
       <script src="../js/DeslogarUsuario.js"></script>
       <script src="../js/verificacoesInputsDoacao.js"></script>

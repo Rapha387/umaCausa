@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjUmaCausaTcc.pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,13 +20,30 @@ namespace prjUmaCausaTcc.JsonResponses
                 {
                     Response.ContentType = "application/json";
 
+                    string dadosJSON = "";
+                    JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
                     Usuario ong = new Usuario();
 
-                    ong.BuscarDadosQrCodePixOng(int.Parse(Request["ong"].ToString()));
 
-                    JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
-                    string dadosJSON = jsSerializer.Serialize(ong);
+                    if (Request["c"].ToString() == "null")
+                    {
+                        
+
+                        ong.BuscarDadosQrCodePixOng(int.Parse(Request["ong"].ToString()));
+                        
+                        dadosJSON = jsSerializer.Serialize(ong);
+                        Response.Write(dadosJSON);
+
+                        return;
+                    }
+
+                    Campanha campanha = new Campanha();
+
+                    ong = campanha.BuscarDadosPixOngCampanha(int.Parse(Request["c"].ToString())) ;
+
+                    dadosJSON = jsSerializer.Serialize(ong);
                     Response.Write(dadosJSON);
+
                 }
                 catch(Exception ex)
                 {

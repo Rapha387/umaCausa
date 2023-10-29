@@ -207,6 +207,7 @@
             <asp:Literal ID="litFooter" runat="server"></asp:Literal>
         </footer>
 
+        <script src="../js/animarBtnHeader.js"></script>
         <script src="../js/inputsDias.js"></script>
         <script src="./../js/verificacoesInputs.js"></script>
         <script src="./../js/inputFile.js"></script>

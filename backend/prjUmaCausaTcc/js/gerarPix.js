@@ -15,13 +15,13 @@ if (btnGerarPix) {
     let valorTxt = parseFloat(txtValor.value);
     const urlParams = new URLSearchParams(window.location.search);
     const ong = urlParams.get('ong');
+    const campanha = urlParams.get('c');
 
-    if (ong == "")
-        return
+    console.log(ong);
 
     btnGerarPix.setAttribute('disabled', 'true');
   
-    fetch("http://localhost:50944/JsonResponses/BuscarDadosPixOng.aspx?ong="+ong)
+    fetch(`http://localhost:50944/JsonResponses/BuscarDadosPixOng.aspx?ong=${ong}&c=${campanha}`)
     .then(function (resposta) {
         return resposta.json();
     }).then(function (dados) {

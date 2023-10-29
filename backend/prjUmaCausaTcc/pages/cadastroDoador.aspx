@@ -137,5 +137,7 @@
         <script src="./../js/verificacoesInputs.js"></script>
         <script src="./../js/cep.js"></script>
     </form>
+
+    <script src="../js/animarBtnHeader.js"></script>
 </body>
 </html>

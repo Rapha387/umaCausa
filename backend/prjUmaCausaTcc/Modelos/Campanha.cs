@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjUmaCausaTcc.pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -156,7 +157,6 @@ public class Campanha : Banco
             Desconectar();
         }
     }
-
     public void BuscarCampanha(int codigo)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -199,7 +199,42 @@ public class Campanha : Banco
         }
 
     }
+    public Usuario BuscarDadosPixOngCampanha(int codigoCampanha)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdCampanha", codigoCampanha.ToString())
+        };
 
+        Usuario ong = new Usuario();
+
+        try
+        {
+            var dados = Consultar("BuscarDadosPixOngCampanha", parametros);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    ong.NumeroPix = dados["nm_pix"].ToString();
+                    ong.Nome = dados["nm_usuario"].ToString();
+                    ong.Cidade = dados["nm_cidade"].ToString();
+                }
+            }
+
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+
+        return ong;
+    }
 
     #endregion
 }
