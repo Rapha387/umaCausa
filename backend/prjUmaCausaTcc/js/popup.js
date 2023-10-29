@@ -26,6 +26,10 @@ const txtPix = document.getElementById('txtPix');
 const popupDoacaoItem = document.querySelector('.popup-doacao-item');
 const botaoDoacaoItem = document.getElementById('btnDoarItem');
 
+const popupSucesso = document.querySelector('.popup-sucesso');
+const popupErro = document.querySelector('.popup-erro');
+const botoesRespostaPopup = document.querySelectorAll('.btnFecharPopUpResposta');
+
 const url = window.location.href;
 
 botoesFechar.forEach(function(btn){
@@ -36,6 +40,16 @@ botoesFechar.forEach(function(btn){
       LimparPopUpDenuncia();
   });
 });
+
+if (botoesRespostaPopup) {
+    botoesRespostaPopup.forEach(function(btn){
+        btn.addEventListener('click', function () {
+            let popup = this.parentNode;
+            popup.classList.add("escondido");
+            bloqueio.classList.add("escondido");
+        })
+    })
+}
 
 botoesVoltar.forEach(function(btn){
   btn.addEventListener('click', function(){

@@ -35,7 +35,6 @@ if (btnRelizarDoacaoMonetaria) {
                     alert('Erro na doação');
                 }
             });
-
     };
 }
 }
