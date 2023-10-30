@@ -39,6 +39,8 @@
                     <asp:TextBox ID="TxtPesquisa" TextMode="Search" runat="server" placeholder="Pesquisar..." CssClass="txtBusca"></asp:TextBox>
                     <asp:ImageButton ID="ImgPesquisar" runat="server" ImageUrl="./../../images/icons/search.png" OnClick="ImgPesquisar_Click"/>
               </div>
+
+                 <div class="container-tabela">
               <table>
                 <thead>
                   <td>Nome</td>
@@ -51,6 +53,7 @@
                     <asp:Literal ID="Colaboracoes" runat="server"></asp:Literal> 
                 </tbody>
               </table>
+                </div>
               <div class="paginacao">
                 <div class="paginas">
                   <img

@@ -42,17 +42,20 @@
                   </div>
                   <a href="./../criarCampanha.html"><button>Criar Nova Campanha</button></a>
 
-                  <table>
-                    <thead>
-                      <td>Campanha</td>
-                      <td>Quantidade</td>
-                      <td>Data de Divulgacao</td>
-                      <td>Data de término</td>
-                    </thead>
-                    <tbody>
-                        <asp:Literal ID="LitCampanhas" runat="server"></asp:Literal>
-                    </tbody>
-                  </table>
+                  <div class="container-tabela">
+                      <table>
+                        <thead>
+                          <td>Campanha</td>
+                          <td>Quantidade</td>
+                          <td>Data de Divulgacao</td>
+                          <td>Data de término</td>
+                        </thead>
+                        <tbody>
+                            <asp:Literal ID="LitCampanhas" runat="server"></asp:Literal>
+                        </tbody>
+                      </table>
+
+                  </div>
                   <div class="paginacao">
                     <div class="paginas">
                       <img
