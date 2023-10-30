@@ -67,6 +67,9 @@ namespace prjUmaCausaTcc.pages
                         pnlDoacaoItem.Visible = true;
 
                     ExibirOpcoesDdlDenuncia();
+
+                    ExibirOpcoesDllTipoEntrega();
+
                 }
                 catch (Exception)
                 {
@@ -83,6 +86,10 @@ namespace prjUmaCausaTcc.pages
         {
             try
             {
+                double porcentagemBarra = campanha.PorcentagemArrecadado;
+                if (campanha.PorcentagemArrecadado > 100)
+                    porcentagemBarra = 100;
+
                 litMeta.Text = "R$" + campanha.QuantidadeMeta.ToString().Replace(".", ",");
                 litArrecadado.Text = "Arrecadados da meta de R$" + campanha.QuantidadeArrecadada.ToString().Replace(".", ",");
 
@@ -95,7 +102,7 @@ namespace prjUmaCausaTcc.pages
                 litDescricao.Text = campanha.Descricao;
                 litWebNome.Text = campanha.Nome + " - umaCausa";
                 litNome.Text = campanha.Nome;
-                litProgresso.Text = $"<div class='progresso' style='width: {campanha.PorcentagemArrecadado}%;'></div>";
+                litProgresso.Text = $"<div class='progresso' style='width: {porcentagemBarra}%;'></div>";
                 litImagem.Text = $"<div style='background-image: url(../{campanha.Banner});'class='imagem-campanha'></div>";
 
             }
@@ -104,7 +111,6 @@ namespace prjUmaCausaTcc.pages
                 Response.Redirect($"erro.aspx?e=pagina não encontrada");
             }
         }
-
         private void BuscarONG(Campanha campanha)
         {
             Usuario ong = new Usuario();
@@ -120,7 +126,6 @@ namespace prjUmaCausaTcc.pages
                     </div>
                   </a>";
         }
-
         private void ExibirOpcoesDdlDenuncia()
         {
             try
@@ -140,6 +145,18 @@ namespace prjUmaCausaTcc.pages
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        }
+        private void ExibirOpcoesDllTipoEntrega()
+        {
+            var ListaTipoEntrega = new TiposEntrega().ListarTiposEntrega();
+            int contador = 1;
+            cmbTipoEntrega.Items.Add("Selecione o Tipo da Entrega");
+            foreach (TipoEntrega tipoEntrega in ListaTipoEntrega)
+            {
+                cmbTipoEntrega.Items.Add(tipoEntrega.Nome);
+                cmbTipoEntrega.Items[contador].Value = tipoEntrega.Codigo.ToString();
+                contador++;
             }
         }
     }

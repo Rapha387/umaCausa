@@ -79,18 +79,22 @@ public class DoacaoCampanha : Banco
         }
     }
 
-    public void CadastrarDoacaoCampanhaItem(int doador, int campanha, double valor, )
+    public void CadastrarDoacaoItem(int doador, int campanha, string nome, string quantidade, TipoEntrega entrega, string dataDesejada, string horaDesejada)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
+            new Parametro("pIdUsuario",doador.ToString()),
             new Parametro("pIdCampanha",campanha.ToString()),
-            new Parametro("pIdUsuario", doador.ToString()),
-            new Parametro("pQtDoado", valor.ToString())
+            new Parametro("pNmItem", nome),
+            new Parametro("pQtDoado", quantidade.ToString()),
+            new Parametro("pIdTipoEntrega", entrega.Codigo.ToString()),
+            new Parametro("pHora", horaDesejada),
+            new Parametro("pData", dataDesejada.ToString()),
         };
         try
         {
             Conectar();
-            Executar("CadastrarDoacaoCampanhaMonetaria", parametros);
+            Executar("CadastrarDoacaoCampanhaItem", parametros);
         }
         catch (Exception ex)
         {

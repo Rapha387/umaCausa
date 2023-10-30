@@ -179,7 +179,9 @@ function LimparPopUpItem() {
     LimparInputsItem();
     popupDoacaoItem.classList.add('escondido');
     txtNomeItem.value = "";
-    cmbTipoItem.selectedIndex = 0;
+    if (cmbTipoItem) {
+        cmbTipoItem.selectedIndex = 0;
+    }
     cmbTipoEntrega.selectedIndex = 0;
     txtDataEnvio.value = "";
     txtHorario.value = "";
