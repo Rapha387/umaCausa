@@ -39,7 +39,7 @@
 
       <div class="caixa-flutuante popup-doacao escondido" id="popupPrincipal">
         <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
-        <h2>ESCOLHER DOAÇÂO</h2>
+        <h2>ESCOLHER DOAÇÃO</h2>
         <div class="escolher-doacao">
           <div class="tipo-doacao" id="btnDoarMonetario">
             <img src="./../images/tipoDoacao/doacao-monetaria.png" alt="">

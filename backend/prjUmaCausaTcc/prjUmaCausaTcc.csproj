@@ -240,7 +240,6 @@
     <Content Include="pages\configuracoes\meuPerfil.aspx" />
     <Content Include="pages\configuracoes\minhasCampanhas.aspx" />
     <Content Include="pages\configuracoes\minhasColaboracoes.aspx" />
-    <Content Include="pages\criarCampanha.aspx" />
     <Content Include="pages\erro.aspx" />
     <Content Include="pages\faq.aspx" />
     <Content Include="pages\index.aspx" />

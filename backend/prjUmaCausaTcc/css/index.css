@@ -414,7 +414,7 @@ main {
   transform: translate(-50%, -50%);
 }
 
-#pnlCategorias, #pnlItensAceitos, #pnlDiasDisponiveis {
+#pnlCategorias, #pnlItensAceitos, #pnlDiasDisponiveis, #pnlODS {
     display: flex;
     flex-direction: column;
     gap: 20px;

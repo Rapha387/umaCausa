@@ -147,8 +147,10 @@ main .infos .infos2 .fotos .fotos-flex .foto {
     }
 
     main .infos .infos2 .card-infos .card {
-        width: 325px;
+        width: 100%
     }
+
+    
 
 
     main .infos .infos2 {
@@ -168,12 +170,50 @@ main .infos .infos2 .fotos .fotos-flex .foto {
         width: 100%;
     }
 
-    main .logo-nome{
-       display:block;
-       margin-top:71px;
+    main .logo-nome {
+        display: block;
+        margin-top: 71px;
     }
 
     .banner {
         height: 175px;
+    }
+
+    .popup-doacao {
+        width: 90%;
+    }
+
+        .popup-doacao .escolher-doacao {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .popup-doacao .escolher-doacao .ou {
+                height: 36px;
+                flex-direction: row;
+            }
+
+                .popup-doacao .escolher-doacao .ou::before {
+                    width: 136px;
+                    height: 1px;
+                }
+
+                .popup-doacao .escolher-doacao .ou::after {
+                    width: 136px;
+                    height: 1px;
+                }
+
+            .popup-doacao .escolher-doacao .tipo-doacao {
+                height: 240px;
+            }
+
+    .botao-fechar {
+        width: 25px;
+        height: 25px;
+    }
+
+    .popup-doacao-monetaria .monetaria-flex {
+       flex-direction: column;
+       height:1px;
     }
 }

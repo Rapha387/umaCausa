@@ -39,7 +39,7 @@
               </div>
               <div class="input-label">
                 <label for="">Email:</label>
-                <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: ex: cennin@gmail.com" required="required"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" TextMode="Email" AutoCompleteType="Email" runat="server" placeholder="ex: cennin@gmail.com" required="required"></asp:TextBox>
                 <span id="erroEmail" class="spanErro"></span>
               </div>
               <div class="input-label">

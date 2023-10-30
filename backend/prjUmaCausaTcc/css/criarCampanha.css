@@ -25,7 +25,7 @@ body {
 
 .tudo {
   margin: auto;
-  width: 60%;
+  width: 70%;
 }
 
 input[type=file], textarea {
@@ -58,4 +58,59 @@ input[type=file], textarea {
 
 .textarea {
   height: 95px;
+}
+
+
+#pnlODS{
+    max-height:385px;
+}
+
+.oi{
+    width:49%
+}
+
+ #desc{
+    width:100%;
+}
+
+ #fotinho{
+     width:100%;
+ }
+
+/*RESPONSIVO*/
+
+@media screen and (max-width: 1199px) {
+    main {
+        width: 100% !important;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       
+    }
+
+    .infos .input-label {
+        width: 100%;
+    }
+
+    .input-label {
+        width: 100%;
+    }
+
+    .tudo {
+        width: 100%;
+    }
+
+    .oi {
+        width: 100%;
+    }
+
+    .tituloDivulgacaoItem {
+      width:100%;
+    }
 }
