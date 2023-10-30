@@ -10,9 +10,12 @@ namespace prjUmaCausaTcc.pages.configuracoes
 {
     public partial class confirmacoesDoacoes : System.Web.UI.Page
     {
+        Usuario usuario;
+        Usuario doador;
+        DateTime dataDoacao;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario usuario = (Usuario)Session["usuario"];
+            usuario = (Usuario)Session["usuario"];
             Doacoes doacoes = new Doacoes();
 
             if (usuario == null)
@@ -20,7 +23,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             if (Request["pagina"] == "1")
             {
-                Confirmacoes.Text = "";
+                pnlBotao.Controls.Clear();
+                pnlDonwload.Controls.Clear();
             }
 
             GerarEmentosHtml gerarElementosHtml = new GerarEmentosHtml();
@@ -39,7 +43,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
             {
                 foreach (Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
                 {
-                    Confirmacoes.Text = "";
+                    pnlBotao.Controls.Clear();
+                    pnlDonwload.Controls.Clear();
                     string estado = "";
                     if (doacao.DoacaoConfirmada == true)
                     {
@@ -61,27 +66,28 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     {
                         estado = "Recusada";
                     }
-                    Confirmacoes.Text += 
+                    pnlBotao.Controls.Add(new LiteralControl(
                         $@"<div class='confirmacao'>
                               <div class='infos-confirmacao'>
-                                <p>Doador: {doacao.NomeDoador}</p>
+                                <p>Doador: {doacao.Doador.Nome}</p>
                                 <p>Item: {doacao.TipoDoacao}</p>
                                 <p>Quantidade: {doacao.Quantidade}</p>
                                 <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                                 <p>Estado: {estado}</p>
                               </div>
-                           </div>";
+                           </div>"));
                 }
             }
             else
             {
-                Confirmacoes.Text = "";
+                pnlBotao.Controls.Clear();
+                pnlDonwload.Controls.Clear();
                 foreach(Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
                 {
-                    Panel1.Controls.Add(new LiteralControl(
+                    pnlBotao.Controls.Add(new LiteralControl(
                         $@"<div class='confirmacao'>
                               <div class='infos-confirmacao'>
-                                <p>Doador: {doacao.NomeDoador}</p>
+                                <p>Doador: {doacao.Doador.Nome}</p>
                                 <p>Item: {doacao.NomeTipoItem}</p>
                                 <p>Valor:{doacao.Quantidade}</p>
                                 <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
@@ -94,15 +100,27 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     {
                         Panel pnlButton = new Panel();
                         Button button = new Button();
+                        
                         pnlButton.Controls.Add(button);
                         pnlDonwload.Controls.Add(pnlButton);
-                        button.Text = "Donwload";
-                        Panel1.Controls.Add(pnlButton);
+                        button.Text = "Baixar Comprovante";
+                        pnlBotao.Controls.Add(pnlButton);
+                        doador = doacao.Doador;
+                        dataDoacao = doacao.DataDoacao;
+                        button.Click += new EventHandler(Button_Click);
+
                     }
-                    Panel1.Controls.Add(new LiteralControl("</div></div>"));
+                    pnlBotao.Controls.Add(new LiteralControl("</div></div>"));
 
                 }
             }  
+        }
+
+        protected void Button_Click(object sender, EventArgs e)
+        {
+            DoacaoMonetaria doacao = new DoacaoMonetaria();
+            doacao.BuscarComprovante(doador.Codigo, usuario.Codigo, dataDoacao);
+            FileIo.DonwloadArquivo(doacao.Comprovante.Replace(@"\", "/"), "comprovante");
         }
 
         protected void ImgBtnConfirmar_Click(object sender, ImageClickEventArgs e)
@@ -114,6 +132,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
         {
 
         }
+
+
     }
     
 }    

@@ -48,11 +48,11 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 }
                 if(doacao.Nome != null)
                 {
-                    nomeOng = doacao.NomeONG + ": ";
+                    nomeOng = doacao.ONG.Nome + ": ";
                 }
                 else
                 {
-                    nomeOng = doacao.NomeONG;
+                    nomeOng = doacao.ONG.Nome;
                 }
                 Colaboracoes.Text += $@"<tr>
                         <td>{nomeOng}{doacao.Nome}</td>
@@ -92,11 +92,11 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 }
                 if (doacao.Nome != null)
                 {
-                    nomeOng = doacao.NomeONG + ": ";
+                    nomeOng = doacao.ONG.Nome + ": ";
                 }
                 else
                 {
-                    nomeOng = doacao.NomeONG;
+                    nomeOng = doacao.ONG.Nome;
                 }
                 Colaboracoes.Text += $@"<tr>
                         <td>{nomeOng}{doacao.Nome}</td>

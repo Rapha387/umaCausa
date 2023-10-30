@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MySqlX.XDevAPI;
 using prjUmaCausaTcc.Logicas;
 
 
 public class Doacoes : Banco
 {
-    public string NomeDoador { get; set; }
-    public string NomeONG { get; set; }
+    public Usuario Doador { get; set; }
+    public Usuario ONG { get; set; }
     public string Nome { get; set; }
     public string DataDesejada { get; set; }
     public string HorarioEsperado { get; set; }
@@ -18,6 +19,7 @@ public class Doacoes : Banco
     public string NomeTipoItem { get; set; }
     public DateTime RespostaOng { get; set; }
     public string TipoDoacao { get; set; }
+    public string Comprovante { get; set; }
 
     public List<Doacoes> ListarDoacoes(int IdUsuario)
     {
@@ -29,7 +31,7 @@ public class Doacoes : Banco
             listarDoacoes.Add(new Doacoes
             {
                 Nome = item.Campanha.Nome,
-                NomeONG = item.Campanha.ONG.Nome,
+                ONG = item.Campanha.ONG,
                 DataDoacao = item.DataDoacao,
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
@@ -42,7 +44,7 @@ public class Doacoes : Banco
         {
             listarDoacoes.Add(new Doacoes
             {
-                NomeONG = item.ONG.Nome,
+                ONG = item.ONG,
                 DataDoacao= item.DataDoacao,
                 Quantidade = item.Quantidade,
                 NomeTipoItem = char.ToUpper(item.NomeItem[0]) + item.NomeItem.Substring(1),
@@ -55,12 +57,13 @@ public class Doacoes : Banco
         {
             listarDoacoes.Add(new Doacoes
             {
-                NomeONG = item.ONG.Nome,
+                ONG = item.ONG,
                 DataDoacao = item.DataDoacao,
                 Quantidade = "R$" + item.ValorDoacao.ToString(),
                 NomeTipoItem = "Monetário",
                 DoacaoConfirmada = item.DoacaoConfirmada,
                 RespostaOng = item.respostaOng,
+                Comprovante = item.Comprovante
             });
         };
 
@@ -76,9 +79,9 @@ public class Doacoes : Banco
         {
             listarDoacoes.Add(new Doacoes
             {
-                NomeDoador = item.Doador.Nome,
+                Doador = item.Doador,
                 Nome = item.Campanha.Nome,
-                NomeONG = item.Campanha.ONG.Nome,
+                ONG = item.Campanha.ONG,
                 DataDoacao = item.DataDoacao,
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
@@ -90,9 +93,9 @@ public class Doacoes : Banco
         {
             listarDoacoes.Add(new Doacoes
             {
-                NomeDoador = item.Doador.Nome,
+                Doador = item.Doador,
                 Nome = item.Campanha.Nome,
-                NomeONG = item.Campanha.ONG.Nome,
+                ONG = item.Campanha.ONG,
                 DataDoacao = item.DataDoacao,
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
@@ -104,19 +107,21 @@ public class Doacoes : Banco
         {
             listarDoacoes.Add(new Doacoes
             {
-                NomeDoador = item.Doador.Nome,
+                Doador = item.Doador,
                 DataDoacao = item.DataDoacao,
                 Quantidade = "R$" + item.ValorDoacao.ToString(),
                 NomeTipoItem = "Monetário",
                 DoacaoConfirmada = false,
-                TipoDoacao = "dm"
+                TipoDoacao = "dm",
+                Comprovante = item.Comprovante
+
             });
         };
         foreach (DoacaoItem item in colaboracoes.ListarDoacoesItensConfirmadasOuNao(IdUsuarioONG, false))
         {
             listarDoacoes.Add(new Doacoes
             {
-                NomeDoador = item.Doador.Nome,
+                Doador = item.Doador,
                 DataDoacao = item.DataDoacao,
                 DataDesejada = item.DataDesejada,
                 HorarioEsperado = item.HorarioDesejado,
@@ -140,7 +145,7 @@ public class Doacoes : Banco
             listarDoacoes.Add(new Doacoes
             {
                 Nome = item.Campanha.Nome,
-                NomeONG = item.Campanha.ONG.Nome,
+                ONG = item.Campanha.ONG,
                 DataDoacao = item.DataDoacao,
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
@@ -152,7 +157,7 @@ public class Doacoes : Banco
         {
             listarDoacoes.Add(new Doacoes
             {
-                NomeONG = item.ONG.Nome,
+                ONG = item.ONG,
                 DataDoacao = item.DataDoacao,
                 Quantidade = item.Quantidade,
                 NomeTipoItem = char.ToUpper(item.NomeItem[0]) + item.NomeItem.Substring(1),
@@ -164,12 +169,13 @@ public class Doacoes : Banco
         {
             listarDoacoes.Add(new Doacoes
             {
-                NomeONG = item.ONG.Nome,
+                ONG = item.ONG,
                 DataDoacao = item.DataDoacao,
                 Quantidade = "R$" + item.ValorDoacao.ToString(),
                 NomeTipoItem = "Monetário",
                 DoacaoConfirmada = item.DoacaoConfirmada,
                 RespostaOng = item.respostaOng,
+
             });
         };
 

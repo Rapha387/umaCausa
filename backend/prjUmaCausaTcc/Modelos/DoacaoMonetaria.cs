@@ -12,6 +12,7 @@ public class DoacaoMonetaria : Banco
     public double ValorDoacao { get; set; }
     public DateTime DataDoacao { get; set; }
     public int CodigoComprovante { get; set; }  
+    public string Comprovante { get; set; }
     public int CodigoDoacao { get; set; }   
     public DateTime respostaOng { get; set; }
     public bool DoacaoConfirmada { get; set; }
@@ -76,6 +77,33 @@ public class DoacaoMonetaria : Banco
         {
             Conectar();
             Executar("ConfirmarRecebimentoDoacaoMonetaria", parametros);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
+
+    public void BuscarComprovante(int usuarioDoador, int usuarioOng, DateTime dataDoacao)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro("pUsuario",usuarioDoador.ToString()),
+            new Parametro("pOng", usuarioOng.ToString()),
+            new Parametro("pData", dataDoacao.ToString()),
+
+        };
+        try
+        {
+            var dados = Consultar("BuscarComprovante", parametros);
+            if (dados.Read())
+            {
+                Comprovante = dados.GetString("nm_comprovante");
+            }
         }
         catch (Exception ex)
         {

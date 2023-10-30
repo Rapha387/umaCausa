@@ -345,6 +345,7 @@
     <Compile Include="Logicas\CategoriasOng.cs" />
     <Compile Include="Logicas\Colaboracoes.cs" />
     <Compile Include="Logicas\Dias.cs" />
+    <Compile Include="Logicas\FileIo.cs" />
     <Compile Include="Logicas\FotosOng.cs" />
     <Compile Include="Logicas\GerarEmentosHtml.cs" />
     <Compile Include="Logicas\Itens.cs" />

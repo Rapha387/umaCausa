@@ -29,8 +29,6 @@ namespace prjUmaCausaTcc.pages
             }
             #endregion
 
-            string imgBanner = "";
-
             foreach (TipoItem item in new Itens().ListarTiposItens())
             {
                 ddlTipoCampanha.Items.Insert(item.Codigo, new ListItem(item.Nome, item.Codigo.ToString()));
