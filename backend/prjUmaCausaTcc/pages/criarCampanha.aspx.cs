@@ -63,46 +63,55 @@ namespace prjUmaCausaTcc.pages
         {
             if (!String.IsNullOrEmpty(txtDescricao.Text) && !String.IsNullOrEmpty(txtNome.Text) && !String.IsNullOrEmpty(txtQuantidade.Text) && !String.IsNullOrEmpty(txtDia.Text))
             {
-                string nome = txtNome.Text;
-                double quantidade = double.Parse(txtQuantidade.Text);
-                DateTime dia = DateTime.Now;
-                string descricao = txtDescricao.Text;
-                int CodigoTipo = int.Parse(ddlTipoCampanha.SelectedValue);
-                Campanha campanha = new Campanha();
-                campanha.CriarCampanha(nome, descricao, dia, quantidade, "", this.usuario, CodigoTipo);
-                campanha.BuscarUltimaCampanhaAdcionada();
-                int codigoCampanha = campanha.Codigo;
-                string imgBanner = $@"images/campanhas/campanha1.png";
-
-                if (fileInputBanner.HasFile)
+                try
                 {
-                    HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
-                    imgBanner = $@"uploads/campanhas/banners/{codigoCampanha}.jpg";
-                    campanha.AdcionarBannerCampanha(codigoCampanha, imgBanner);
-                    fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
-                }
-                List<ODS> odsses = new List<ODS>();
-                for (int i = 1; i < pnlODS.Controls.Count; i++)
-                {
-                    Panel painel = (Panel)pnlODS.FindControl("pnlOds" + i.ToString());
+                    string nome = txtNome.Text;
+                    double quantidade = double.Parse(txtQuantidade.Text);
+                    DateTime dia = DateTime.Now;
+                    string descricao = txtDescricao.Text;
+                    int CodigoTipo = int.Parse(ddlTipoCampanha.SelectedValue);
+                    Campanha campanha = new Campanha();
+                    campanha.CriarCampanha(nome, descricao, dia, quantidade, "", this.usuario, CodigoTipo);
+                    campanha.BuscarUltimaCampanhaAdcionada();
+                    int codigoCampanha = campanha.Codigo;
+                    string imgBanner = $@"images/campanhas/campanha1.png";
 
-                    CheckBox chk = (CheckBox)painel.FindControl("chkOds" + i.ToString());
-
-                    if (chk.Checked)
+                    if (fileInputBanner.HasFile)
                     {
-                        ODS ods = new ODS();
-                        ods.Nome = chk.Text;
-                        ods.Codigo = i;
+                        HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
+                        imgBanner = $@"uploads/campanhas/banners/{codigoCampanha}.jpg";
+                        campanha.AdcionarBannerCampanha(codigoCampanha, imgBanner);
+                        fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+                    }
+                    List<ODS> odsses = new List<ODS>();
+                    for (int i = 1; i < pnlODS.Controls.Count; i++)
+                    {
+                        Panel painel = (Panel)pnlODS.FindControl("pnlOds" + i.ToString());
 
-                        odsses.Add(ods);
+                        CheckBox chk = (CheckBox)painel.FindControl("chkOds" + i.ToString());
+
+                        if (chk.Checked)
+                        {
+                            ODS ods = new ODS();
+                            ods.Nome = chk.Text;
+                            ods.Codigo = i;
+
+                            odsses.Add(ods);
+                        }
+                    }
+
+                    foreach (ODS ods in odsses)
+                    {
+                        CampanhaODS campanhaODS = new CampanhaODS();
+                        campanhaODS.CadastrarCampanhaOds(codigoCampanha, ods.Codigo);
                     }
                 }
-
-                foreach (ODS ods in odsses)
+                catch (Exception ex)
                 {
-                    CampanhaODS campanhaODS = new CampanhaODS();
-                    campanhaODS.CadastrarCampanhaOds(codigoCampanha, ods.Codigo);
+
+                    throw new Exception(ex.Message);
                 }
+                
             };
         }
     }
