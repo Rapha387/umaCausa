@@ -27,13 +27,13 @@
 
       <div class="caixa-flutuante popup-sucesso escondido">
         <img src="./../images/popupsResposta/sucesso.png"/>
-        <p class="textoPopupResposta">Doação Realizada com sucesso</p>
+        <p id="textoRespostaSucesso" class="textoPopupResposta"></p>
         <div class="btnFecharPopUpResposta">Continuar</div>
       </div>
 
       <div class="caixa-flutuante popup-erro escondido">
         <img src="./../images/popupsResposta/erro.png"/>
-        <p class="textoPopupResposta">Não foi possível realizar a doação. Por favor tente novamente mais tarde.</p>
+        <p id="textoRespostaErro" class="textoPopupResposta"></p>
         <div class="btnFecharPopUpResposta">Voltar</div>
       </div>
 

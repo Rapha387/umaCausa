@@ -42,21 +42,18 @@ namespace prjUmaCausaTcc.pages
             foreach (ODS ods in ODS)
             {
 
-                    Panel pnlCheck = new Panel();
-                    CheckBox chk = new CheckBox();
-                    chk.ID = "chkOds" + ods.Codigo.ToString();
-                    chk.Text = ods.Nome;
+                Panel pnlCheck = new Panel();
+                CheckBox chk = new CheckBox();
+                chk.ID = "chkOds" + ods.Codigo.ToString();
+                chk.Text = ods.Nome;
 
-                    pnlCheck.CssClass = "pnlCheckBox";
+                pnlCheck.CssClass = "pnlCheckBox";
 
-                    pnlCheck.ID = "pnlOds" + ods.Codigo.ToString();
-                    pnlCheck.Controls.Add(chk);
+                pnlCheck.ID = "pnlOds" + ods.Codigo.ToString();
+                pnlCheck.Controls.Add(chk);
 
-                    pnlODS.Controls.Add(pnlCheck);
+                pnlODS.Controls.Add(pnlCheck);
             }
-
-
-
         }
 
         protected void btnCriarDivulgacao_Click(object sender, EventArgs e)
@@ -111,7 +108,7 @@ namespace prjUmaCausaTcc.pages
 
                     throw new Exception(ex.Message);
                 }
-                
+
             };
         }
     }

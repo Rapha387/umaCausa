@@ -109,13 +109,16 @@ namespace prjUmaCausaTcc.pages
         {
             Usuario ong = new Usuario();
             ong.BuscarDadosMinimosOng(campanha.ONG.Codigo);
-            litONG.Text = $@"<a href='ong.aspx?ong={ong.Codigo}' style='color: #000;'><div class='infos-realizador'>
-            <img src = '../{ong.FotoPerfil}'>
-              <div>
-              <h3>{ong.Nome}</h3>
-              <p>{ong.Descricao}</p>
-            </div>
-          </div></a>";
+            litONG.Text = 
+                $@"<a href='ong.aspx?ong={ong.Codigo}' style='color: #000;'>
+                    <div class='infos-realizador'>
+                        <img src = '../{ong.FotoPerfil}'>
+                          <div>
+                          <h3>{ong.Nome}</h3>
+                          <p>{ong.Descricao}</p>
+                        </div>
+                    </div>
+                  </a>";
         }
 
         private void ExibirOpcoesDdlDenuncia()

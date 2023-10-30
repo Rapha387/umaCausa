@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="criarCampanha.aspx.cs" Inherits="prjUmaCausaTcc.pages.criarCampanha" %>
+﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="criarCampanha.aspx.cs" Inherits="prjUmaCausaTcc.pages.criarCampanha" %>
 
 <!DOCTYPE html>
 

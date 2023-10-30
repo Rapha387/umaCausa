@@ -28,6 +28,8 @@ const botaoDoacaoItem = document.getElementById('btnDoarItem');
 
 const popupSucesso = document.querySelector('.popup-sucesso');
 const popupErro = document.querySelector('.popup-erro');
+const textoRespostaSucessoPopup = document.getElementById('textoRespostaSucesso');
+const textoRespostaErroPopup = document.getElementById('textoRespostaErro');
 const botoesRespostaPopup = document.querySelectorAll('.btnFecharPopUpResposta');
 
 const url = window.location.href;
@@ -190,7 +192,6 @@ function LimparPopUpDenuncia() {
     erroDenuncia.textContent = ""
     cmbMotivoDenuncia.classList.remove('inputInvalido');
     popupDenunciar.classList.add('escondido');
-    bloqueio.classList.add('escondido');
 }
 
 
