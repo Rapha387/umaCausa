@@ -113,7 +113,7 @@ public class Campanha : Banco
             Desconectar();
         }
     }
-    public bool EncerrarCampanha(int codigo, DateTime fimCampanha, Usuario usuario)
+    public void EncerrarCampanha(int codigo, DateTime fimCampanha, Usuario usuario)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -123,18 +123,41 @@ public class Campanha : Banco
         };
         try
         {
+            Conectar();
             Executar("EncerrarCampanha", parametros);
-            return true;
         }
         catch (Exception)
         {
-            return false;
+            throw new Exception("Erro ao encerrar a campanha!");
         }
         finally
         {
             Desconectar();
         }
     }
+
+    public void AdcionarBannerCampanha(int codigo, string banner)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pBanner", banner),
+            new Parametro ("pCodigo", codigo.ToString()),
+        };
+        try
+        {
+            Conectar();
+            Executar("AdcionarBannerCampanha", parametros);
+        }
+        catch (Exception)
+        {
+            throw new Exception("Erro ao Adicionar o Banner a campanha!");
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
+
     public bool ExcluirCampanha(int codigo)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -181,6 +204,33 @@ public class Campanha : Banco
                         Codigo = dados.GetInt32("id_usuario"),
                         Nome = dados.GetString("nm_usuario"),
                     };
+                }
+            }
+
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+
+    }
+
+    public void BuscarUltimaCampanhaAdcionada()
+    {
+        try
+        {
+            var dados = Consultar("BuscarUltimaCampanhaAdcionada", null);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    Codigo = dados.GetInt32("id_campanha");
                 }
             }
 

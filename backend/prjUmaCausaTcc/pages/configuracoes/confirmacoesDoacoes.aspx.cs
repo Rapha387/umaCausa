@@ -33,12 +33,11 @@ namespace prjUmaCausaTcc.pages.configuracoes
             Navegacao.Text = nav;
             Menu.Text = menu;
 
-            Colaboracoes colaboracoes = new Colaboracoes();
             int codigo = usuario.Codigo;
 
             if (Request["pagina"] == "1")
             {
-                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasMonetariasConfirmadasOuNao(codigo, true))
+                foreach (Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
                 {
                     Confirmacoes.Text = "";
                     string estado = "";
@@ -51,7 +50,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         estado = "Recusada";
                     }
                 }
-                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasItensConfirmadasOuNao(codigo, true))
+                foreach (Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
                 {
                     string estado = "";
                     if (doacao.DoacaoConfirmada == true)
@@ -65,57 +64,13 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     Confirmacoes.Text += 
                         $@"<div class='confirmacao'>
                               <div class='infos-confirmacao'>
-                                <p>Doador: {doacao.Doador.Nome}</p>
-                                <p>Item: {doacao.TipoItem.Nome}</p>
-                                <p>Quantidade: {doacao.QuantidadeDoado}</p>
+                                <p>Doador: {doacao.NomeDoador}</p>
+                                <p>Item: {doacao.TipoDoacao}</p>
+                                <p>Quantidade: {doacao.Quantidade}</p>
                                 <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                                 <p>Estado: {estado}</p>
                               </div>
                            </div>";
-                }
-                foreach (DoacaoMonetaria doacao in colaboracoes.ListarDoacoesMonetariasConfirmadasOuNao(codigo, true))
-                {
-                    string estado = "";
-                    if (doacao.DoacaoConfirmada == true)
-                    {
-                        estado = "Aceita";
-                    }
-                    else
-                    {
-                        estado = "Recusada";
-                    }
-                    Confirmacoes.Text += 
-                         $@"<div class='confirmacao'>
-                              <div class='infos-confirmacao'>
-                                <p>Doador: {doacao.Doador.Nome}</p>
-                                <p>Item: Monetário</p>
-                                <p>Quantidade: R${doacao.ValorDoacao}</p>
-                                <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
-                                <p>Estado: {estado}</p>
-                              </div>
-                            </div>";
-                }
-                foreach (DoacaoItem doacao in colaboracoes.ListarDoacoesItensConfirmadasOuNao(codigo, true))
-                {
-                    string estado = "";
-                    if (doacao.DoacaoConfirmada == true)
-                    {
-                        estado = "Aceita";
-                    }
-                    else
-                    {
-                        estado = "Recusada";
-                    }
-                    Confirmacoes.Text += 
-                         $@"<div class='confirmacao'>
-                              <div class='infos-confirmacao'>
-                                <p>Doador: {doacao.Doador.Nome}</p>
-                                <p>Item: {doacao.NomeItem}</p>
-                                <p>Quantidade: {doacao.Quantidade}</p>
-                                <p>Data: {doacao.DataDesejada.ToString().Substring(0, 10)} - Horário: {doacao.HorarioDesejado.ToString().Substring(0, 5)}</p>
-                                <p>Estado: {estado}</p>
-                              </div>
-                            </div>";
                 }
             }
             else
@@ -123,7 +78,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 Confirmacoes.Text = "";
                 foreach(Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
                 {
-                    Confirmacoes.Text += 
+                    Panel1.Controls.Add(new LiteralControl(
                         $@"<div class='confirmacao'>
                               <div class='infos-confirmacao'>
                                 <p>Doador: {doacao.NomeDoador}</p>
@@ -134,8 +89,18 @@ namespace prjUmaCausaTcc.pages.configuracoes
                               <div class='botoes-confirmacao'>
                                 <img id='' onclick=confirmarDoacao() src='./../../images/icons/confirmado.png' alt=''>
                                 <img id='' onclick=recusarDoacao() src = './../../images/icons/recusar.png' alt = ''>
-                              </div>
-                            </div>";
+                              "));
+                    if (doacao.TipoDoacao == "dm")
+                    {
+                        Panel pnlButton = new Panel();
+                        Button button = new Button();
+                        pnlButton.Controls.Add(button);
+                        pnlDonwload.Controls.Add(pnlButton);
+                        button.Text = "Donwload";
+                        Panel1.Controls.Add(pnlButton);
+                    }
+                    Panel1.Controls.Add(new LiteralControl("</div></div>"));
+
                 }
             }  
         }

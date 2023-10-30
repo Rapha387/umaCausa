@@ -305,7 +305,7 @@ namespace prjUmaCausaTcc.pages
                 Directory.CreateDirectory(Request.PhysicalApplicationPath + $@"uploads\ongs\{usuario.Codigo}\fotos");
 
 
-                string imgPerfil = $@"images/fotoPadrao/logoOngPadrao.png"; ;
+                string imgPerfil = $@"images/fotoPadrao/logoOngPadrao.png";
                 string imgBanner = $@"images/fotoPadrao/bannerOngPadrao.png";
 
                 if (fileInputLogo.HasFile)

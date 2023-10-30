@@ -45,6 +45,9 @@
                 </div>
                 <div class="confirmacoes">
                     <asp:Literal ID="Confirmacoes" runat="server" ></asp:Literal>
+                    <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+                    <asp:Panel ID="pnlDonwload" runat="server"></asp:Panel>
+
                 </div>
              </div>
            </div>
