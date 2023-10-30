@@ -191,7 +191,7 @@ namespace prjUmaCausaTcc.Logicas
                         bool doacaoConfirmada = false;
                         if (confirmacao == true)
                         {
-                            if(dados.GetString("ic_doacaoConfirmada") == "1")
+                            if(dados.GetString("ic_doacaoConfirmada") == "True")
                             {
                                 doacaoConfirmada = true;
                             }
@@ -250,7 +250,7 @@ namespace prjUmaCausaTcc.Logicas
                         bool doacaoConfirmada = false;
                         if (confirmacao == true)
                         {
-                            if (dados.GetString("ic_doacaoConfirmada") == "1")
+                            if (dados.GetString("ic_doacaoConfirmada") == "True")
                             {
                                 doacaoConfirmada = true;
                             }
@@ -306,7 +306,7 @@ namespace prjUmaCausaTcc.Logicas
                         bool doacaoConfirmada = false;
                         if (confirmacao == true)
                         {
-                            if (dados.GetString("ic_doacaoConfirmada") == "1")
+                            if (dados.GetString("ic_doacaoConfirmada") == "True")
                             {
                                 doacaoConfirmada = true;
                             }
@@ -359,7 +359,7 @@ namespace prjUmaCausaTcc.Logicas
                         bool doacaoConfirmada = false;
                         if (confirmacao == true)
                         {
-                            if (dados.GetString("ic_doacaoConfirmada") == "1")
+                            if (dados.GetString("ic_doacaoConfirmada") == "True")
                             {
                                 doacaoConfirmada = true;
                             }
@@ -373,6 +373,7 @@ namespace prjUmaCausaTcc.Logicas
                             Doador = doador,
                             NomeItem = dados.GetString("nm_item"),
                             Quantidade = dados.GetString("qt_item"),
+                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacaoItem")),
                             DataDesejada = dados.GetString("dt_doacao"),
                             HorarioDesejado = dados.GetString("hr_doacao"),
                             DoacaoConfirmada = doacaoConfirmada,
