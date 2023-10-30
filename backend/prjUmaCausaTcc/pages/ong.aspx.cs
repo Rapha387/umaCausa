@@ -196,6 +196,10 @@ namespace prjUmaCausaTcc.pages
                     litCampanhasInativas.Text = "<p>Não há campanhas inativas</p>";
                 foreach (Campanha campanha in campanhasInativas)
                 {
+                    double porcentagemBarra = campanha.PorcentagemArrecadado;
+                    if (campanha.PorcentagemArrecadado > 100)
+                        porcentagemBarra = 100;
+
                     litCampanhasInativas.Text += $@"
                     <div class='campanha swiper-slide'>
                         <a href='campanha.aspx?c={campanha.Codigo}'>
@@ -206,7 +210,7 @@ namespace prjUmaCausaTcc.pages
                       </div>
                       <div class='progresso'>
                         <div class='barra-progresso'>
-                          <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%'></div>
+                          <div class='quantidade-progresso' style='width: {porcentagemBarra}%'></div>
                         </div>
                         <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
                       </div>
