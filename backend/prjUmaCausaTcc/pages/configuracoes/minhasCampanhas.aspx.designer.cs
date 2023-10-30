@@ -42,6 +42,24 @@ namespace prjUmaCausaTcc.pages.configuracoes
         protected global::System.Web.UI.WebControls.Literal LitMenu;
 
         /// <summary>
+        /// Controle TxtPesquisa.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtPesquisa;
+
+        /// <summary>
+        /// Controle ImgPesquisar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImgPesquisar;
+
+        /// <summary>
         /// Controle LitCampanhas.
         /// </summary>
         /// <remarks>

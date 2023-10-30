@@ -49,3 +49,41 @@ body {
 h1 {
   text-align: center;
 }
+
+/*RESPONSIVO*/
+
+@media screen and (max-width: 1199px) {
+    main {
+        width: 100% !important;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fundoCadastro {
+        width: 100%;
+    }
+
+    p {
+        width: 301px;
+    }
+
+    #btnOng, #btnDoador {
+        width: 300px;
+    }
+
+    .fundoCadastro p {
+        width: 100%;
+    }
+
+     p {
+        width: 100%;
+       
+    }
+}

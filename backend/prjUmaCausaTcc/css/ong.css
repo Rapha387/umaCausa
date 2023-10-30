@@ -117,3 +117,63 @@ main .infos .infos2 .fotos .fotos-flex .foto {
   border-radius: 4px;
 }
 
+
+/*RESPONSIVO*/
+
+@media screen and (max-width: 1199px) {
+    main {
+        width: 100% !important;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        main .infos {
+            flex-direction: column;
+            width: 100%;
+            margin-top: 35px;
+        }
+
+
+
+    .campanhas .campanhas-flex .campanha {
+        width: 100% !important;
+    }
+
+    main .infos .infos2 .card-infos .card {
+        width: 325px;
+    }
+
+
+    main .infos .infos2 {
+        width: auto;
+    }
+
+        main .infos .infos2 .fotos .fotos-flex .foto {
+            width: 106px;
+            height: 106px;
+        }
+
+    .fotos-flex {
+        max-height: 217px;
+    }
+
+    main .infos .infos1 {
+        width: 100%;
+    }
+
+    main .logo-nome{
+       display:block;
+       margin-top:71px;
+    }
+
+    .banner {
+        height: 175px;
+    }
+}

@@ -51,55 +51,37 @@ main {
     margin-left: 3px;
 }
 
-@media screen and (min-width: 769px) and (max-width: 1199px) {
-  nav {
-    width: 100% !important;
-  }
-  main {
-    width: 100%;
-  }
-  .campanhas {
-    width: 60%;
-  }
-  .pesquisa {
-    width: 38%;
-  }
-  .campanhas-flex a {
-    width: 48% !important;
-    color: #000;
-  }
-  .campanhas-flex a .campanha {
-    width: 100% !important;
-  }
-  .campanhas-flex a img {
-    width: 100% !important;
-    height: 60% !important;
-  }
+/*RESPONSIVO*/
+
+@media screen and (max-width: 1199px) {
+    main {
+        width: 100% !important;
+    }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  nav {
-    width: 100% !important;
-  }
-  main {
-    width: 100%;
-    flex-direction: column-reverse;
-  }
-  .campanhas {
-    width: 100%;
-  }
-  .pesquisa {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  .campanhas-flex a {
-    width: 48% !important;
-    color: #000;
-  }
-  .campanhas-flex a .campanha {
-    width: 100% !important;
-  }
-  .campanhas-flex a img {
-    width: 100% !important;
-    height: 60% !important;
-  }
+
+
+@media screen and (max-width: 700px) {
+
+    main {
+        display: flex;
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    .pesquisa {
+        width: auto;
+    }
+
+    .campanhas {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .campanhas .campanhas-flex a {
+        width: 100%;
+    }
+
+    .campanhas .campanhas-flex .campanha .imagem-campanha {
+        height: 180px;
+    }
 }

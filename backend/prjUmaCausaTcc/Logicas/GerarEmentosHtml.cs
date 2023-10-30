@@ -12,7 +12,7 @@ public class GerarEmentosHtml
 
         for (int i = 0; i < nomes.Length; i++)
         {
-            if (i == 3)
+            if (i == 2)
                 break;
 
             nome += " " + nomes[i];
@@ -47,6 +47,10 @@ public class GerarEmentosHtml
                           <a href='./ongs.aspx'><li>Ongs</li></a>
                           <a href='./campanhas.aspx'><li>Campanhas</li></a>
                         </div>
+                          <div class='botoes-login-responsivo'>
+                            <a class='button-header-login' href='./login.aspx'>Login</a></li>
+                            <a class='button-header-cadastro' href='./cadastro.aspx'><img src='./../images/icons/user.png'/>Cadastre-se</a></li>
+                          </div>
                     </div>";
 
             return nav;
@@ -62,7 +66,7 @@ public class GerarEmentosHtml
                             <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
                             <ul>
                                 <li><a href='./ongs.aspx'>Ongs</a></li>
-                                <li><a href='./campanhas.aspx'>Campanhas</a></li>
+                                <li class=add-padding-borda><a href='./campanhas.aspx'>Campanhas</a></li>
                                 <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
@@ -108,7 +112,7 @@ public class GerarEmentosHtml
                             <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
                             <ul>
                                 <li><a href='./ongs.aspx'>Ongs</a></li>
-                                <li><a href='./campanhas.aspx'>Campanhas</a></li>
+                                <li class='add-padding-borda'><a href='./campanhas.aspx'>Campanhas</a></li>
                                 <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
@@ -161,7 +165,7 @@ public class GerarEmentosHtml
                             <a href='./../index.aspx'><img class='logo-header' src='./../../images/logo/logoAzul.svg' alt='logo' /></a>
                             <ul>
                                 <li><a href='./../ongs.aspx'>Ongs</a></li>
-                                <li><a href='./../campanhas.aspx'>Campanhas</a></li>
+                                <li class=add-padding-borda><a href='./../campanhas.aspx'>Campanhas</a></li>
                                 <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=./../../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
@@ -207,7 +211,7 @@ public class GerarEmentosHtml
                             <a href='./../index.aspx'><img class='logo-header' src='./../../images/logo/logoAzul.svg' alt='logo' /></a>
                             <ul>
                                 <li><a href='./../ongs.aspx'>Ongs</a></li>
-                                <li><a href='./../campanhas.aspx'>Campanhas</a></li>
+                                <li class=add-padding-borda><a href='./../campanhas.aspx'>Campanhas</a></li>
                                 <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=./../../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>

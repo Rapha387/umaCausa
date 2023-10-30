@@ -29,12 +29,10 @@ if (btnRelizarDoacaoMonetaria) {
             console.log(dados);
             if (dados['situacao'] == 'true') {
                 LimparPopupMonetario();
-                bloqueio.classList.add('escondido');
-
-                alert("Doação Realizada com Sucesso!");
+                popupSucesso.classList.remove('escondido');
             }
             else {
-                alert('Erro na doação');
+                popupErro.classList.remove('escondido');
             }
         });
 
@@ -68,13 +66,11 @@ if (btnAgendarItem) {
                         })
                     }
                     LimparPopUpItem();
-                    bloqueio.classList.add('escondido');
-
-                    alert("Agendamento Realizado com Sucesso!");
+                    popupSucesso.classList.remove('escondido');
                     
                 }
                 else {
-                    alert('Erro no Agendamento!');
+                    popupErro.classList.remove('escondido');
                 }
             });
 

@@ -23,39 +23,80 @@
 
           <div class="bloqueio escondido"></div>
 
-          <div class="caixa-flutuante popup-doacao-monetaria escondido" id="popupPrincipal">
-            <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
-            <div class="monetaria-flex">
+          <asp:Panel ID="pnlDoacaoMonetaria" runat="server" Visible="false">
+           <div id="popupPrincipal" class="caixa-flutuante popup-doacao-monetaria escondido">
+             <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
+             <div class="monetaria-flex">
               <div class="infos-doacao">
                 <label for="txtValor">Valor:</label>
                 <input type="number" placeholder="10,00" id="txtValor">
-                <button>Gerar QRCODE</button>
-                <label for="txtValor">Comprovante:</label>
-                <input type="file">
+                <button id="btnGerarPix">Gerar QRCODE</button>
+                <label for="txtComprovante">Comprovante:</label>
+                <label class="custom-file-upload">
+                    <input type="file" id="txtComprovante" accept="image/*">
+                    <span class="textoInputFile">Anexar Comprovante</span>
+                </label>
+                <span id="spanComprovante">Nenhum Comprovante Anexado</span>
               </div>
 
               <div class="espacamento"></div>
-      
-              <div class="qrcode">
-                <img src="" alt="">
+              <div class="containerQrCode">
+                  <div class="qrcode" id="qrcode"></div>
+                  <button id="btnCopiarPix"><img src="./../images/icons/copiar.png" alt="">Copiar Código Pix</button>
+                  <input type="text" id="txtPix" class="escondido" />
               </div>
-            </div>
-    
-            <div class="botao-finalizar-doacao">
-              <button>Finalizar Doação</button>
-            </div>
-          </div>
 
+            </div>
+            <span id="erroDoacaoMonetaria" class="spanErro"></span>
+            <div class="botao-finalizar-doacao">
+              <button id="btnRelizarDoacaoMonetaria">Finalizar Doação</button>
+            </div>
+          </div>  
+         </asp:Panel>
+
+         <asp:Panel ID="pnlDoacaoItem" runat="server" Visible="false">
+            <div id="popupPrincipal" class="caixa-flutuante popup-doacao-item escondido">
+                <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
+                <div class="infos-doacao">
+                  <div class="input-label">
+                    <label for="txtNomeItem">Nome:</label>
+                    <input type="text" id="txtNomeItem" placeholder="Nome do item">
+                    <span id="erroNomeItem" class="spanErro"></span>
+                  </div>
+                  <div class="input-label">
+                    <label for="txtQuantidadeItem">Quantidade:</label>
+                    <input type="number" id="txtQuantidadeItem" placeholder="2">
+                    <span id="erroQuantidadeItem" class="spanErro"></span>
+                  </div>
+                  <div class="input-label">
+                    <label for="cmbTipoEntrega">Tipo da Entrega:</label>
+                      <asp:DropDownList ID="cmbTipoEntrega" runat="server"></asp:DropDownList>
+                    <span id="erroTipoEntrega" class="spanErro"></span>
+                  </div>
+                  <div class="input-label">
+                    <label for="txtDataEnvio">Data de Envio:</label>
+                    <input type="date" name="txtDataEnvio" id="txtDataEnvio" min="now" max="2023-12-31">
+                    <span id="erroDataEnvio" class="spanErro"></span>
+                  </div>
+                  <div class="input-label">
+                    <label for="txtHorario">Horário:</label>
+                    <input type="time" name="txtHorario" id="txtHorario"  min="08:00" max="18:00">
+                     <span id="erroHorario" class="spanErro"></span>
+                  </div>
+                </div>
+                <button id="btnAgendarItem">Agendar Doação</button>
+            </div>
+          </asp:Panel>
+        
           <div class="caixa-flutuante denuncia escondido">
             <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
             <div class="denuncia-flex">
-              <h1>qual o motivo da denúncia?</h1>
-              <select name="motivoDenuncia" id="">
-                <option>Selecione o motivo</option>
-              </select>
-              <label for="observacao">Observacao:</label>
-              <textarea name="observacao" id="" cols="30" rows="5"></textarea>
-              <button>Denunciar</button>
+                <h1>qual o motivo da denúncia?</h1>
+                <asp:DropDownList ID="cmbMotivoDenuncia" runat="server"> </asp:DropDownList>
+                <label for="observacao">Observacao:</label>
+                <textarea name="observacao" id="txtObservao" cols="30" rows="5"></textarea>
+                <span id="erroDenuncia" class="spanErro" style="text-align: center"></span>
+                <button id="btnRealizarDenunciaCampanha">Denunciar</button>
             </div>
           </div>
 
@@ -63,14 +104,13 @@
             <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
             <label for="compartilhar">Compartilhar:</label><br>
             <div class="compartilhar-flex">
-              <input type="text" name="compartilhar" id="inputCompartilhar" value="umacausa.com.br/ong/vivabichos" disabled>
+              <input type="text" name="compartilhar" id="inputCompartilhar" value="umacausa.com.br/ong/vivabichos" readonly="readonly">
               <button id="btnCopiar"><img src="./../images/icons/copiar.png" alt=""></button>
             </div>
           </div>
 
           <main>
             <div class="foto-descricao-campanha">
-              <%--<div class="imagem-campanha"></div>--%>
                 <asp:Literal ID="litImagem" runat="server"></asp:Literal>
               <div class="descricao-campanha">
                 <h1><asp:Literal ID="litNome" runat="server"></asp:Literal></h1>
@@ -84,7 +124,6 @@
                 <p><asp:Literal ID="litArrecadado" runat="server"></asp:Literal></p>
                 <div class="barra-meta">
                     <asp:Literal ID="litProgresso" runat="server"></asp:Literal>
-                  <%--<div class="progresso"></div>--%>
                 </div>
                 <button id="btnDoar">DOAR</button>
               </div>
@@ -97,7 +136,6 @@
                 <h3>Objetivos do Desenvolvimento Sustentável desta campanha</h3>
                 <div class="flex-ods">
                     <asp:Literal ID="litOds" runat="server"></asp:Literal>
-                  <%--<img src="../images/ods/ods15.png" alt="">--%>
                 </div>
               </div>
 
@@ -113,12 +151,19 @@
               </div>
             </div>
           </main>
-        <footer>
+
+          <footer>
               <asp:Literal ID="litFooter" runat="server"></asp:Literal>
           </footer>
-  
+
+        <script src="../js/animarBtnHeader.js"></script>
+        <script src="../js/DenunciarCampanha.js"></script>
+        <script src="../js/VerificarUsuario.js"></script>
         <script src="./../js/popup.js"></script>
         <script src="../js/DeslogarUsuario.js"></script>
+        <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+        <script src="./../js/pix.js"></script>
+        <script src="./../js/gerarPix.js"></script>
     </form>
 </body>
 </html>

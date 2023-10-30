@@ -14,12 +14,12 @@ namespace prjUmaCausaTcc.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuario"] != null)
+                Response.Redirect("index.aspx");
+
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
             litHeader.Text = gerarHtml.MudarNavegacao(null);
-
-            if (Session["usuario"] != null)
-                Response.Redirect("index.aspx");
         }
 
         protected void btnCadastrarDoador_Click(object sender, EventArgs e)
@@ -29,10 +29,17 @@ namespace prjUmaCausaTcc.pages
                 Usuario usuario = new Usuario();
 
                 string nome = txtNome.Text;
-                string senha = txtConfirmarSenha.Text;
                 string email = txtEmail.Text;
-                string telefone = txtTelefone.Text;
                 string cpf = txtCpf.Text;
+
+                if (usuario.VerificarEmailIdentificacao(txtEmail.Text, txtCpf.Text))
+                {
+                    lblErro.Text = "O email ou cpg já estão sendo utilizados";
+                    return;
+                }
+
+                string senha = txtConfirmarSenha.Text;
+                string telefone = txtTelefone.Text;
                 string cep = txtCep.Text;
                 string uf = txtUF.Text;
                 string cidade = txtCidade.Text;

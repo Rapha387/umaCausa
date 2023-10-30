@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjUmaCausaTcc.pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -112,7 +113,7 @@ public class Campanha : Banco
             Desconectar();
         }
     }
-    public bool EncerrarCampanha(int codigo, DateTime fimCampanha, Usuario usuario)
+    public void EncerrarCampanha(int codigo, DateTime fimCampanha, Usuario usuario)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -122,18 +123,41 @@ public class Campanha : Banco
         };
         try
         {
+            Conectar();
             Executar("EncerrarCampanha", parametros);
-            return true;
         }
         catch (Exception)
         {
-            return false;
+            throw new Exception("Erro ao encerrar a campanha!");
         }
         finally
         {
             Desconectar();
         }
     }
+
+    public void AdcionarBannerCampanha(int codigo, string banner)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pBanner", banner),
+            new Parametro ("pCodigo", codigo.ToString()),
+        };
+        try
+        {
+            Conectar();
+            Executar("AdcionarBannerCampanha", parametros);
+        }
+        catch (Exception)
+        {
+            throw new Exception("Erro ao Adicionar o Banner a campanha!");
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
+
     public bool ExcluirCampanha(int codigo)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -154,7 +178,6 @@ public class Campanha : Banco
             Desconectar();
         }
     }
-
     public void BuscarCampanha(int codigo)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -198,6 +221,68 @@ public class Campanha : Banco
 
     }
 
+    public void BuscarUltimaCampanhaAdcionada()
+    {
+        try
+        {
+            var dados = Consultar("BuscarUltimaCampanhaAdcionada", null);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    Codigo = dados.GetInt32("id_campanha");
+                }
+            }
+
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+
+    }
+    public Usuario BuscarDadosPixOngCampanha(int codigoCampanha)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdCampanha", codigoCampanha.ToString())
+        };
+
+        Usuario ong = new Usuario();
+
+        try
+        {
+            var dados = Consultar("BuscarDadosPixOngCampanha", parametros);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    ong.NumeroPix = dados["nm_pix"].ToString();
+                    ong.Nome = dados["nm_usuario"].ToString();
+                    ong.Cidade = dados["nm_cidade"].ToString();
+                }
+            }
+
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+
+        return ong;
+    }
 
     #endregion
 }

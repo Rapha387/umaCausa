@@ -7,7 +7,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using System.IO;
 using System.Web.UI.WebControls;
+using prjUmaCausaTcc.JsonResponses;
+using prjUmaCausaTcc.Modelos;
 
 namespace prjUmaCausaTcc.pages
 {
@@ -136,34 +139,43 @@ namespace prjUmaCausaTcc.pages
                 string nome = txtNome.Text;
                 string cnpj = txtCnpj.Text;
                 string email = txtEmail.Text;
+
+                if (usuario.VerificarEmailIdentificacao(email, cnpj))
+                {
+                    lblErro.Text = "O email ou o cnpj já foram cadastrados";
+                    return;
+                }
+
                 string telefone = txtTelefone.Text;
                 string senha = txtConfirmarSenha.Text;
                 string cep = txtCep.Text;
                 string uf = txtUF.Text;
                 string cidade = txtCidade.Text;
                 string bairro = txtBairro.Text;
-                string lougradouto = txtLogradouro.Text;
+                string logradouro = txtLogradouro.Text;
                 string numero = txtNumero.Text;
                 string complemento = txtComplemento.Text;
                 string latitude = "";
                 string longitude = "";
                 string pix = txtPix.Text;
+
+                if (cmbTiposPix.SelectedIndex == 0)
+                {
+                    pix = "+55" + txtPix.Text;
+                }
+
                 string webSite = txtWebSite.Text;
-                string emailContao = txtEmailContato.Text;
+                string emailContato = txtEmailContato.Text;
                 string descricao = txtDescricao.Text;
                 bool buscaDoacoes = chkConfirmaoBuscaDoacoes.Checked;
 
-                string endereco = $"{lougradouto}, {numero}, {cidade}, {uf}";
+                string endereco = $"{logradouro}, {numero}, {cidade}, {uf}";
 
                 CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
-
                 (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
 
 
-                //usuario.CadastrarOng(nome, senha, email, telefone, cnpj, cep, uf, cidade, lougradouto, numero, bairro, complemento, latitude, longitude);
-
-
-                List<CategoriaOng> categorias = new List<CategoriaOng>();
+                List<Ong_CategoiraOng> categorias = new List<Ong_CategoiraOng>();
                 for (int i = 1; i < pnlCategorias.Controls.Count; i++)
                 {
                     Panel painel = (Panel)pnlCategorias.FindControl("pnlCategoria" + i.ToString());
@@ -176,13 +188,22 @@ namespace prjUmaCausaTcc.pages
                         categoria.Nome = chk.Text;
                         categoria.Codigo = i;
 
-                        categorias.Add(categoria);
+                        Ong_CategoiraOng categoriasOng = new Ong_CategoiraOng();
+                        categoriasOng.Categoria = categoria;
+
+                        categorias.Add(categoriasOng);
                     }
                 }
 
+                erroCategorias.Text = "";
+                if (categorias.Count == 0)
+                {
+                    erroCategorias.Text = "Selecione pelo menos uma categorias";
+                    return;
+                }
 
-                List<TipoItem> itemsAceitos = new List<TipoItem>();
-                for(int i = 1; i < pnlItensAceitos.Controls.Count; i++)
+                List<TipoItemOng> itemsAceitos = new List<TipoItemOng>();
+                for (int i = 1; i < pnlItensAceitos.Controls.Count; i++)
                 {
                     Panel painel = (Panel)pnlItensAceitos.FindControl("pnlItem" + i.ToString());
 
@@ -194,10 +215,19 @@ namespace prjUmaCausaTcc.pages
                         item.Nome = chk.Text;
                         item.Codigo = i;
 
-                        itemsAceitos.Add(item);
+                        TipoItemOng tipoItemOng = new TipoItemOng();
+                        tipoItemOng.TipoItem = item;
+
+                        itemsAceitos.Add(tipoItemOng);
                     }
                 }
 
+                erroItensAceitos.Text = "";
+                if (itemsAceitos.Count == 0)
+                {
+                    erroItensAceitos.Text = "Selecione pelo menos um item";
+                    return;
+                }
 
                 List<DiaUsuario> diasDisponiveis = new List<DiaUsuario>();
                 for (int i = 1; i <= pnlDiasDisponiveis.Controls.Count; i++)
@@ -208,7 +238,7 @@ namespace prjUmaCausaTcc.pages
                     int codigo = i;
 
                     Panel painel = (Panel)pnlDiasDisponiveis.FindControl("pnlDia" + codigo);
-                    
+
                     Panel pnlCheckBox = (Panel)painel.FindControl("pnlCheckBoxDia" + codigo);
                     CheckBox chkDia = (CheckBox)pnlCheckBox.FindControl("chkDia" + codigo);
 
@@ -224,16 +254,83 @@ namespace prjUmaCausaTcc.pages
                         DateTime hrIncioDia = DateTime.Parse(txtIncioDia.Text);
                         DateTime hrFimDia = DateTime.Parse(txtFimDia.Text);
 
+                        if (hrFimDia < hrIncioDia)
+                        {
+                            erroDias.Text = $"O horário de fim do {chkDia.Text} não pode ser menor que o de início";
+                            return;
+                        }
+
                         DiaUsuario diaDisponivel = new DiaUsuario();
 
-                        //diaDisponivel.CadastrarDiaUsuario(codigoOng, dia, hrIncioDia, hrFimDia);
+                        diaDisponivel.Dia = dia;
+                        diaDisponivel.HorarioFim = hrFimDia;
+                        diaDisponivel.HorarioInicio = hrIncioDia;
+
+                        diasDisponiveis.Add(diaDisponivel);
                     }
                 }
 
+                erroDias.Text = "";
+                if (diasDisponiveis.Count == 0)
+                {
+                    erroDias.Text = "Selecione pelo menos um dia";
+                    return;
+                }
+
+                usuario.CadastrarOng(nome, senha, email, telefone, cnpj, cep, uf, cidade, logradouro, numero, bairro, complemento, latitude, longitude, webSite, pix, descricao, emailContato, buscaDoacoes);
+
+
+                usuario.BuscarUsuarioPeloEmail(txtEmail.Text);
+
+
+                foreach (Ong_CategoiraOng categoria in categorias)
+                {
+                    categoria.CadastrarCategoriaOng(usuario.Codigo, categoria.Categoria.Codigo);
+                }
+
+                foreach (TipoItemOng tipoItem in itemsAceitos)
+                {
+                    tipoItem.CadastrarTipoItem(tipoItem.TipoItem.Codigo, usuario.Codigo);
+                }
+
+                foreach (DiaUsuario dia in diasDisponiveis)
+                {
+                    dia.CadastrarDiaUsuario(usuario.Codigo, dia.Dia.Codigo, dia.HorarioInicio, dia.HorarioFim);
+                }
+
+                
+                Directory.CreateDirectory(Request.PhysicalApplicationPath + $@"uploads\ongs\{usuario.Codigo}");
+                Directory.CreateDirectory(Request.PhysicalApplicationPath + $@"uploads\ongs\{usuario.Codigo}\banner");
+                Directory.CreateDirectory(Request.PhysicalApplicationPath + $@"uploads\ongs\{usuario.Codigo}\icone");
+                Directory.CreateDirectory(Request.PhysicalApplicationPath + $@"uploads\ongs\{usuario.Codigo}\fotos");
+
+
+                string imgPerfil = $@"images/fotoPadrao/logoOngPadrao.png";
+                string imgBanner = $@"images/fotoPadrao/bannerOngPadrao.png";
+
+                if (fileInputLogo.HasFile)
+                {
+                    HttpPostedFile fotoPerfil = fileInputLogo.PostedFile;
+                    imgPerfil = $@"uploads/ongs/{usuario.Codigo}/icone/{usuario.Codigo}.jpg";
+                    fotoPerfil.SaveAs(Request.PhysicalApplicationPath + imgPerfil.Replace("/", @"\"));
+                }
+
+                if (fileInputBanner.HasFile)
+                {
+                    HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
+                    imgBanner = $@"uploads/ongs/{usuario.Codigo}/banner/{usuario.Codigo}.jpg";
+                    fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+                }
+
+                usuario.AdicionarFotosPerfilOng(usuario.Codigo, imgPerfil, imgBanner);
+
+                Session["usuario"] = usuario;
+
+                Response.Redirect("index.aspx");
             }
             catch (Exception ex)
             {
-                lblErro.Text = ex.Message;
+                lblErro.Text = ex.Message;  
             }
         }
     }

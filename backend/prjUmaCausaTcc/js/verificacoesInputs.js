@@ -28,6 +28,13 @@ const listaDias = document.getElementById('selectedDias');
 const botaoCadastrarDoador = document.getElementById('btnCadastrarDoador');
 const botaoCadastrarOng = document.getElementById('btnCadastrarOng');
 
+const chkItem1 = document.getElementById('chkItem1');
+const chkItem2 = document.getElementById('chkItem2');
+const chkItem3 = document.getElementById('chkItem3');
+const chkItem4 = document.getElementById('chkItem4');
+const chkItem5 = document.getElementById('chkItem5');
+const chkItem6 = document.getElementById('chkItem6');
+const chkItem7 = document.getElementById('chkItem7');
 
 if (txtPix) {
     let cpf = txtPix.value.replace(/\D/g, '');
@@ -72,28 +79,15 @@ if (txtPix) {
             let valorInput = event.target.value;
             let valorNumerico = valorInput.replace(/[^0-9]/g, '');
             event.target.value = valorNumerico;
-
-            let telefone = txtPix.value.replace(/\D/g, '');
-            if (telefone.length === 11) {
-                telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3',);
-                txtPix.value = telefone;
-            }
         }
 
         if (cmbTiposPix.value == "cpf") {
             let valorInput = event.target.value;
             let valorNumerico = valorInput.replace(/[^0-9]/g, '');
             event.target.value = valorNumerico;
-
-            let cpf = txtPix.value.replace(/\D/g, '');
-            if (cpf.length === 11) {
-                cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-                txtPix.value = cpf;
-            }
         }
 
         if (cmbTiposPix.value == "cnpj") {
-
             let txtPix = event.target.value;
             let valorNumerico = txtPix.replace(/[^0-9]/g, '');
             event.target.value = valorNumerico;
@@ -106,7 +100,6 @@ if (txtCep) {
         if (this.value.length > 8)
             this.value = this.value.slice(0, 8);
     })
-
 }
 
 if (botaoCadastrarDoador) {
@@ -233,11 +226,6 @@ function VerificarDadosPadraoCadastro(event) {
         event.preventDefault();
         erroEndereco.textContent = "Preencha todos os campos de endereço";
     }
-    if (txtComplemento.value == "") {
-        txtComplemento.classList.add('inputInvalido');
-        event.preventDefault();
-        erroEndereco.textContent = "Preencha todos os campos de endereço";
-    }
 }
 
 function VerificarDadosOng(event) {
@@ -247,13 +235,19 @@ function VerificarDadosOng(event) {
     erroEmailContato.textContent = "";
     txtDescricao.classList.remove('inputInvalido');
     erroDescricao.textContent = "";
+    erroDias.textContent = "";
 
-    if (cmbTiposPix.value == "telefone" || cmbTiposPix.value == "cpf" && txtPix.value.length < 11) {
+    if (cmbTiposPix.value == "telefone" && txtPix.value.length < 11) {
         txtPix.classList.add('inputInvalido');
         event.preventDefault();
         erroPix.textContent = "Valor do pix inválido";
     }
-    if (cmbTiposPix.value == "telefone" || cmbTiposPix.value == "cnpj" && txtPix.value.length < 14) {
+    if (cmbTiposPix.value == "cpf" && txtPix.value.length < 11) {
+        txtPix.classList.add('inputInvalido');
+        event.preventDefault();
+        erroPix.textContent = "Valor do pix inválido";
+    }
+    if (cmbTiposPix.value == "cnpj" && txtPix.value.length < 14) {
         txtPix.classList.add('inputInvalido');
         event.preventDefault();
         erroPix.textContent = "Valor do pix inválido";
@@ -274,7 +268,6 @@ function VerificarDadosOng(event) {
         erroDescricao.textContent = "A descrição não pode estar vazia";
     }
 }
-
 
 if (txtTelefone) {
     txtTelefone.addEventListener('input', function (event) {
