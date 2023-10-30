@@ -167,7 +167,7 @@ thead td {
         }
 
             main .infos-configuracoes .infos .input-label {
-               width:100%;
+                width: 100%;
             }
 
     .input-label {
@@ -206,4 +206,16 @@ thead td {
     input[type=submit] {
         width: 100%;
     }
+
+    #logo {
+        width: 100%
+    }
+
+    #bannerOng {
+        width: 100%;
+    }
+
+        #bannerOng .custom-file-upload {
+          bottom:80px;
+        }
 }
