@@ -15,7 +15,8 @@ public class DoacaoItem : Banco
     public bool DoacaoConfirmada { get; set; }
     public TipoItem TipoItem { get; set; }
     public TipoEntrega TipoEntrega { get; set; }
-    public DateTime respostaOng { get; set; } 
+    public DateTime respostaOng { get; set; }
+    public int Codigo { get; set; }
 
     public string DataDesejada { get; set; }
     public string HorarioDesejado { get; set; }

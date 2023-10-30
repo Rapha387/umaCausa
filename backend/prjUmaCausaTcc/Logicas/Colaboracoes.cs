@@ -41,7 +41,8 @@ namespace prjUmaCausaTcc.Logicas
                             Doador = usuario,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
-                            DoacaoConfirmada = confirmado
+                            DoacaoConfirmada = confirmado,
+                            Codigo = dados.GetInt32("id_doacao")
                         };
                         if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
                             doacao.RespostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
@@ -91,6 +92,7 @@ namespace prjUmaCausaTcc.Logicas
                             Quantidade = dados.GetString("qt_item"),
                             DoacaoConfirmada = confirmado,
                             NomeItem = dados.GetString("nm_item"),
+                            Codigo = dados.GetInt32("id_doacao")
                         };
                         if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
                             doacao.respostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
@@ -139,7 +141,8 @@ namespace prjUmaCausaTcc.Logicas
                             Doador = usuario,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             ValorDoacao = dados.GetDouble("vl_monetario"),
-                            DoacaoConfirmada = confirmado
+                            DoacaoConfirmada = confirmado,
+                            CodigoDoacao = dados.GetInt32("id_doacao")
                         };
                         if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
                             doacao.respostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
@@ -204,6 +207,7 @@ namespace prjUmaCausaTcc.Logicas
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
                             DoacaoConfirmada = doacaoConfirmada,
+                            Codigo = dados.GetInt32("id_doacao")
                         };
                         doacoes.Add(doacao);
                     }
@@ -263,6 +267,7 @@ namespace prjUmaCausaTcc.Logicas
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
                             DoacaoConfirmada = doacaoConfirmada,
+                            Codigo = dados.GetInt32("id_doacao")
                         };
                         doacoes.Add(doacao);
                     }
@@ -317,6 +322,7 @@ namespace prjUmaCausaTcc.Logicas
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             ValorDoacao = dados.GetDouble("vl_monetario"),
                             DoacaoConfirmada = doacaoConfirmada,
+                            CodigoDoacao = dados.GetInt32("id_doacao")
                         };
                         doacoes.Add(doacao);
                     }
@@ -370,6 +376,7 @@ namespace prjUmaCausaTcc.Logicas
                             DataDesejada = dados.GetString("dt_doacao"),
                             HorarioDesejado = dados.GetString("hr_doacao"),
                             DoacaoConfirmada = doacaoConfirmada,
+                            Codigo = dados.GetInt32("id_doacao")
                         };
                         doacoes.Add(doacao);
                     }

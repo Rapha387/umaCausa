@@ -38,9 +38,28 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             if (Request["pagina"] == "1")
             {
-                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasMonetariasConfirmadasOuNao(codigo, true))
+                Confirmacoes.Text = "";
+                //string estado = "";
+                //if (doacao.DoacaoConfirmada == true)
+                //{
+                //    estado = "Aceita";
+                //}
+                //else
+                //{
+                //    estado = "Recusada";
+                //}
+                //Confirmacoes.Text +=
+                //       $@"<div class='confirmacao'>
+                //              <div class='infos-confirmacao'>
+                //                <p>Doador: {doacao.Doador.Nome}</p>
+                //                <p>Item: {doacao.TipoItem.Nome}</p>
+                //                <p>Quantidade: {doacao.QuantidadeDoado}</p>
+                //                <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
+                //                <p>Estado: {estado}</p>
+                //              </div>
+                //           </div>";
+                foreach (Doacoes doacao in doacoes.ListarDoacoesConfirmadas(codigo))
                 {
-                    Confirmacoes.Text = "";
                     string estado = "";
                     if (doacao.DoacaoConfirmada == true)
                     {
@@ -50,69 +69,13 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     {
                         estado = "Recusada";
                     }
-                }
-                foreach (DoacaoCampanha doacao in colaboracoes.ListarDoacoesCampanhasItensConfirmadasOuNao(codigo, true))
-                {
-                    string estado = "";
-                    if (doacao.DoacaoConfirmada == true)
-                    {
-                        estado = "Aceita";
-                    }
-                    else
-                    {
-                        estado = "Recusada";
-                    }
-                    Confirmacoes.Text += 
+                    Confirmacoes.Text +=
                         $@"<div class='confirmacao'>
                               <div class='infos-confirmacao'>
-                                <p>Doador: {doacao.Doador.Nome}</p>
-                                <p>Item: {doacao.TipoItem.Nome}</p>
-                                <p>Quantidade: {doacao.QuantidadeDoado}</p>
+                                <p>Doador: {doacao.NomeDoador}</p>
+                                <p>Item: {doacao.NomeTipoItem}</p>
+                                <p>Quantidade:{doacao.Quantidade}</p>
                                 <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
-                                <p>Estado: {estado}</p>
-                              </div>
-                           </div>";
-                }
-                foreach (DoacaoMonetaria doacao in colaboracoes.ListarDoacoesMonetariasConfirmadasOuNao(codigo, true))
-                {
-                    string estado = "";
-                    if (doacao.DoacaoConfirmada == true)
-                    {
-                        estado = "Aceita";
-                    }
-                    else
-                    {
-                        estado = "Recusada";
-                    }
-                    Confirmacoes.Text += 
-                         $@"<div class='confirmacao'>
-                              <div class='infos-confirmacao'>
-                                <p>Doador: {doacao.Doador.Nome}</p>
-                                <p>Item: Monetário</p>
-                                <p>Quantidade: R${doacao.ValorDoacao}</p>
-                                <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
-                                <p>Estado: {estado}</p>
-                              </div>
-                            </div>";
-                }
-                foreach (DoacaoItem doacao in colaboracoes.ListarDoacoesItensConfirmadasOuNao(codigo, true))
-                {
-                    string estado = "";
-                    if (doacao.DoacaoConfirmada == true)
-                    {
-                        estado = "Aceita";
-                    }
-                    else
-                    {
-                        estado = "Recusada";
-                    }
-                    Confirmacoes.Text += 
-                         $@"<div class='confirmacao'>
-                              <div class='infos-confirmacao'>
-                                <p>Doador: {doacao.Doador.Nome}</p>
-                                <p>Item: {doacao.NomeItem}</p>
-                                <p>Quantidade: {doacao.Quantidade}</p>
-                                <p>Data: {doacao.DataDesejada.ToString().Substring(0, 10)} - Horário: {doacao.HorarioDesejado.ToString().Substring(0, 5)}</p>
                                 <p>Estado: {estado}</p>
                               </div>
                             </div>";
@@ -132,22 +95,12 @@ namespace prjUmaCausaTcc.pages.configuracoes
                                 <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                               </div>
                               <div class='botoes-confirmacao'>
-                                <img id='' onclick=confirmarDoacao() src='./../../images/icons/confirmado.png' alt=''>
-                                <img id='' onclick=recusarDoacao() src = './../../images/icons/recusar.png' alt = ''>
+                                <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=confirmarDoacao() src='./../../images/icons/confirmado.png' alt=''>
+                                <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=recusarDoacao() src = './../../images/icons/recusar.png' alt = ''>
                               </div>
                             </div>";
                 }
             }  
-        }
-
-        protected void ImgBtnConfirmar_Click(object sender, ImageClickEventArgs e)
-        {
-
-        }
-
-        protected void ImgBtnRecusar_Click(object sender, ImageClickEventArgs e)
-        {
-
         }
     }
     
