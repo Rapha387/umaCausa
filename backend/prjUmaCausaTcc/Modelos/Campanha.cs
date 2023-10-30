@@ -115,37 +115,15 @@ public class Campanha : Banco
             Desconectar();
         }
     }
-    public bool EncerrarCampanha(int codigo, DateTime fimCampanha, Usuario usuario)
+    public bool EncerrarCampanha(int codigo, Usuario usuario)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
-            new Parametro ("pDtFimEsperada", fimCampanha.ToString("yyyy-MM-dd")),
             new Parametro ("pIdUsuario", usuario.Codigo.ToString()),
-            new Parametro ("pIdCampanha", codigo.ToString()),
-        };
+            new Parametro ("pIdCampanha", codigo.ToString()),        };
         try
         {
             Executar("EncerrarCampanha", parametros);
-            return true;
-        }
-        catch (Exception)
-        {
-            return false;
-        }
-        finally
-        {
-            Desconectar();
-        }
-    }
-    public bool ExcluirCampanha(int codigo)
-    {
-        List<Parametro> parametros = new List<Parametro>()
-        {
-            new Parametro ("pIdCampanha", codigo.ToString())
-        };
-        try
-        {
-            Executar("ExcluirCampanha", parametros);
             return true;
         }
         catch (Exception)

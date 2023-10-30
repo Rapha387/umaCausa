@@ -31,13 +31,11 @@ public class DoacaoCampanha : Banco
     {
     }
 
-    public void ConfirmarDoacaoMonetaria(int campanha, int usuario, DateTime dataDoacao, bool confirmacao)
+    public void ConfirmarDoacaoCampanha(int codigo, bool confirmacao)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
-            new Parametro("pIdCampanha",campanha.ToString()),
-            new Parametro("pIdUsuario", usuario.ToString()),
-            new Parametro("pDtDoacao", dataDoacao.ToString()),
+            new Parametro("pCodigo",codigo.ToString()),
             new Parametro("SituacaoDoacao", confirmacao.ToString()),
 
         };

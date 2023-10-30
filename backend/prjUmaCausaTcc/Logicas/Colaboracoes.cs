@@ -39,7 +39,7 @@ namespace prjUmaCausaTcc.Logicas
                         {
                             Campanha = campanha,
                             Doador = usuario,
-                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
+                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacaoCampanha")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
                             DoacaoConfirmada = confirmado,
                             Codigo = dados.GetInt32("id_doacao")
@@ -204,7 +204,7 @@ namespace prjUmaCausaTcc.Logicas
                         {
                             Campanha = campanha,
                             Doador = doador,
-                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
+                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacaoCampanha")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
                             DoacaoConfirmada = doacaoConfirmada,
                             Codigo = dados.GetInt32("id_doacao")
@@ -264,7 +264,7 @@ namespace prjUmaCausaTcc.Logicas
                             Campanha = campanha,
                             Doador = doador,
                             TipoItem = tipoitem,
-                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
+                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacaoCampanha")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
                             DoacaoConfirmada = doacaoConfirmada,
                             Codigo = dados.GetInt32("id_doacao")
