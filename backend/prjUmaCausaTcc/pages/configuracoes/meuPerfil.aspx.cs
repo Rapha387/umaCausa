@@ -44,24 +44,109 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     txtLogradouro.Text = usuario.Rua.ToString();
                     txtPix.Text = usuario.NumeroPix.ToString();
                     txtTelefone.Text = usuario.Telefone.ToString();
-                    txtWebsite.Text = usuario.Website.ToString();
+                    txtWebSite.Text = usuario.Website.ToString();
                     txtComplemento.Text = usuario.Complemento.ToString();
                     txtNumero.Text = usuario.Numero;
                     txtDescricao.Text = usuario.Descricao.ToString();
+
                     CategoriasOng categoriasOng = new CategoriasOng();
+
                     var listaCategoriasOng = categoriasOng.ListarCategoriasOng();
-                    foreach (var categoria in listaCategoriasOng)
+
+                    foreach (CategoriaOng categoria in listaCategoriasOng)
                     {
-                        cmbCategorias.Items.Add(categoria.Nome);
+                        Panel pnlCheck = new Panel();
+                        CheckBox chk = new CheckBox();
+                        chk.ID = "chkCategoria" + categoria.Codigo.ToString();
+                        chk.Text = categoria.Nome;
+
+                        pnlCheck.CssClass = "pnlCheckBox";
+
+                        pnlCheck.ID = "pnlCategoria" + categoria.Codigo.ToString();
+                        pnlCheck.Controls.Add(chk);
+
+                        pnlCategorias.Controls.Add(pnlCheck);
                     }
-                    if (usuario.PosssibilidadeBusca == true)
+
+                    Itens tiposItens = new Itens();
+
+                    var listaTiposItens = tiposItens.ListarTiposItens();
+
+                    foreach (TipoItem item in listaTiposItens)
                     {
-                        ckbPodeBuscar.Checked = true;
+                        if (item.Codigo != 0)
+                        {
+                            Panel pnlCheck = new Panel();
+                            CheckBox chk = new CheckBox();
+                            chk.ID = "chkItem" + item.Codigo.ToString();
+                            chk.Text = item.Nome;
+
+                            pnlCheck.CssClass = "pnlCheckBox";
+
+                            pnlCheck.ID = "pnlItem" + item.Codigo.ToString();
+                            pnlCheck.Controls.Add(chk);
+
+                            pnlItensAceitos.Controls.Add(pnlCheck);
+                        }
                     }
-                    else
+
+                    Dias dias = new Dias();
+
+                    var listaDias = dias.ListarDias();
+
+                    foreach (Dia dia in listaDias)
                     {
-                        ckbPodeBuscar.Checked = false;
+                        int codigo = dia.Codigo;
+
+                        Panel pnlDia = new Panel();
+                        pnlDia.ID = "pnlDia" + codigo;
+                        pnlDia.CssClass = "inputsDia";
+
+                        Panel pnlCheckBox = new Panel();
+                        pnlCheckBox.ID = "pnlCheckBoxDia" + codigo;
+                        pnlCheckBox.CssClass = "pnlCheckBoxDia";
+
+                        CheckBox checkBoxDia = new CheckBox();
+                        checkBoxDia.ID = "chkDia" + codigo;
+                        checkBoxDia.Text = dia.Nome;
+
+                        pnlCheckBox.Controls.Add(checkBoxDia);
+
+                        Panel pnlInputsDia = new Panel();
+                        pnlInputsDia.ID = "pnlInputsDia" + codigo;
+                        pnlInputsDia.CssClass = "pnlInputsDia";
+
+                        Label lblInputInicio = new Label();
+                        lblInputInicio.ID = "lblInputInicio" + codigo;
+                        lblInputInicio.Text = "De:";
+
+                        TextBox txtComecoDia = new TextBox();
+                        txtComecoDia.ID = "txtComecoDia" + codigo;
+                        txtComecoDia.TextMode = TextBoxMode.Time;
+                        txtComecoDia.Enabled = false;
+
+                        Label lblFimDia = new Label();
+                        lblFimDia.ID = "lblFimDia" + codigo;
+                        lblFimDia.Text = "Até:";
+
+                        TextBox txtFimDia = new TextBox();
+                        txtFimDia.ID = "txtFimDia" + codigo;
+                        txtFimDia.TextMode = TextBoxMode.Time;
+                        txtFimDia.Enabled = false;
+
+                        pnlInputsDia.Controls.Add(lblInputInicio);
+                        pnlInputsDia.Controls.Add(txtComecoDia);
+                        pnlInputsDia.Controls.Add(lblFimDia);
+                        pnlInputsDia.Controls.Add(txtFimDia);
+
+                        pnlDia.Controls.Add(pnlCheckBox);
+                        pnlDia.Controls.Add(pnlInputsDia);
+
+                        pnlDiasDisponiveis.Controls.Add(pnlDia);
                     }
+
+                    if (usuario.PosssibilidadeBusca)
+                        chkConfirmaoBuscaDoacoes.Checked = true;
                 }
                 else
                 {
@@ -84,8 +169,6 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 Response.Redirect("erro.aspx");
             }
         }
-
-
 
         protected void BtnSalvarAlteraçoes_Click(object sender, EventArgs e)
         {
@@ -110,19 +193,9 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     string endereco = $"{rua}, {numero}, {cidade}, {usuario.Estado}";
                     string latitude = "";
                     string longitude = "";
-                    string website = txtWebsite.Text;
+                    string website = txtWebSite.Text;
                     string pix = txtPix.Text;
-                    object podebuscar = false;
-                    if (ckbPodeBuscar.Checked == true)
-                    {
-                        podebuscar = true;
-                        podebuscar = 1;
-                    }
-                    else
-                    {
-                        podebuscar = false;
-                        podebuscar = 0;
-                    }
+                    bool podebuscar = chkConfirmaoBuscaDoacoes.Checked;
 
                     CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
                     (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);

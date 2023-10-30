@@ -36,8 +36,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
                        <td> {campanha.QuantidadeArrecadada} </td>
                        <td> {campanha.DataInicio.ToString().Substring(0, 10)} </td>
                        <td> {campanha.DataPrevistaFim.ToString().Substring(0, 10)} </td>
-                       <td><a href = './../editarItem.html'><img src = './../ .. /images/icons/editar.png' alt = '' ></a></td>
-                       <td><img src = './../../images/icons/excluir.png' alt = '' ></ td >
+                       <td><a href = './../editarCampanha.aspx'><img src = './../../images/icons/editar.png' alt = ''></a></td>
+                       <td><img src = './../../images/icons/excluir.png' alt = '' ></td>
                      </tr> ";
             }
         }
@@ -57,7 +57,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                        <td> {campanha.QuantidadeArrecadada} </td>
                        <td> {campanha.DataInicio.ToString().Substring(0, 10)} </td>
                        <td> {campanha.DataPrevistaFim.ToString().Substring(0, 10)} </td>
-                       <td><a href = './../editarItem.html'><img src = './../ .. /images/icons/editar.png' alt = '' ></a></td>
+                       <td><a href = './../editarCampanha.aspx'><img src = './../ .. /images/icons/editar.png' alt = '' ></a></td>
                        <td><img src = './../../images/icons/excluir.png' alt = '' ></ td >
                      </tr> ";
             }

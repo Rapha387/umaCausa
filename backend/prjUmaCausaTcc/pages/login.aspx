@@ -41,6 +41,9 @@
              <p>Novo por Aqui?<strong> Crie uma conta</strong></p>
         </div>
       </div>
+
+        <script src="../js/animarBtnHeader.js"></script>
+
     </form>
 </body>
 </html>

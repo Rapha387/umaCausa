@@ -126,17 +126,29 @@ header nav ul li {
     align-items: center;
     font-size: 14px;
     background-color: #0063BF;
-    color: #fff;
+    color: #fff !important;
     padding: 8px 12px;
     border-radius: 4px;
     border: none;
 }
+
 .button-header-cadastro:hover{
     color: #fff;
 }
 .button-header-cadastro img{
     padding-right: 4.5px;
     width: 19px;
+}
+
+.button-header-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border: solid 1px #0063BF;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
 }
 
 .img-user-preto {
@@ -178,8 +190,13 @@ header nav #btnMenuHeader span {
     cursor:pointer;
 }
 
+.botoes-login-responsivo{
+    padding: 0 3rem;
+    margin-top: 20px;
+}
+
 #chkMenuHeader:checked ~ .navHeaderResponsivo {
-  display: block;
+    display: block;
 }
 
 #chkMenuHeader:checked ~ #btnMenuHeader {
@@ -240,7 +257,7 @@ footer nav {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 3.438rem;
+  padding: 0 3rem;
   width: 1200px;
   margin: auto;
 }
@@ -880,7 +897,7 @@ label {
 }
 
 .escondido {
-  display: none;
+  display: none !important;
 }
 
 .botao-fechar {
@@ -1106,12 +1123,52 @@ label {
   width: 100%;
 }
 
+#btnAgendarItem {
+    margin: auto;
+    margin-top: 15px;
+    width: 49%;
+}
+
 .popup-item {
   padding: 2rem;
   padding-top: 3rem;
 }
 .popup-item button {
   width: 100%;
+}
+
+.popup-sucesso, .popup-erro{
+    width: 290px;
+    padding: 2rem;
+    gap: 20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.textoPopupResposta{
+    font-weight: 900;
+    font-size: 14px;
+    text-align: center;
+}
+
+.btnFecharPopUpResposta {
+    text-align: center;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0.5rem;
+    width: 100%;
+    cursor: pointer;
+}
+
+.popup-sucesso .btnFecharPopUpResposta {
+    background-color: #25AE88;
+}
+
+.popup-erro .btnFecharPopUpResposta {
+    background-color: #EE404C;
 }
 
 .paginacao {
@@ -1149,7 +1206,11 @@ label {
     }
 
     header nav li {
-        display: none;
+        display: none !important;
+    }
+
+    footer nav{
+        padding: 0 2rem;
     }
 
     footer nav img, .aImg {

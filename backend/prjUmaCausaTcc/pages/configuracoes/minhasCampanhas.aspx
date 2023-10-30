@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@300;500;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="./../../images/icone.svg" type="image/x-icon" />
     <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./../../css/index.css" />
     <link rel="stylesheet" href="./../../css/minhasCampanhas.css" />
@@ -36,10 +37,8 @@
                 </div>
                 <div class="infos">
                   <div class="pesquisar">
-                      <asp:TextBox ID="TxtPesquisa" runat="server" placeholder="Pesquisar..." CssClass="txtBusca"></asp:TextBox>
+                      <asp:TextBox ID="TxtPesquisa" TextMode="Search" runat="server" placeholder="Pesquisar..." CssClass="txtBusca"></asp:TextBox>
                       <asp:ImageButton ID="ImgPesquisar" runat="server" ImageUrl="./../../images/icons/search.png" OnClick="ImgPesquisar_Click"/>
-<%--                    <input type="search" placeholder="Pesquisar..." ImageUrl="./../../images/icons/search.png"/>
-                    <img src="./../../images/icons/search.png" alt="lupa" />--%>
                   </div>
                   <a href="./../criarCampanha.html"><button>Criar Nova Campanha</button></a>
 
@@ -52,86 +51,6 @@
                     </thead>
                     <tbody>
                         <asp:Literal ID="LitCampanhas" runat="server"></asp:Literal>
-                      <%--<tr>
-                        <td>Campanha do Agasalho</td>
-                        <td>1</td>
-                        <td>14/03/2005</td>
-                        <td>14/03/2005</td>
-                        <td><a href="./../editarItem.html"><img src="./../../images/icons/editar.png" alt=""></a></td>
-                        <td><img src="./../../images/icons/excluir.png" alt=""></td>
-                      </tr>
-                      <tr>
-                        <td>Campanha do Agasalho</td>
-                        <td>1</td>
-                        <td>14/03/2005</td>
-                        <td>14/03/2005</td>
-                        <td><a href="./../editarItem.html"><img src="./../../images/icons/editar.png" alt=""></a></td>
-                        <td><img src="./../../images/icons/excluir.png" alt=""></td>
-                      </tr>
-                      <tr>
-                        <td>Campanha do Agasalho</td>
-                        <td>1</td>
-                        <td>14/03/2005</td>
-                        <td>14/03/2005</td>
-                        <td><a href="./../editarItem.html"><img src="./../../images/icons/editar.png" alt=""></a></td>
-                        <td><img src="./../../images/icons/excluir.png" alt=""></td>
-                      </tr>
-                      <tr>
-                        <td>Campanha do Agasalho</td>
-                        <td>1</td>
-                        <td>14/03/2005</td>
-                        <td>14/03/2005</td>
-                        <td><a href="./../editarItem.html"><img src="./../../images/icons/editar.png" alt=""></a></td>
-                        <td><img src="./../../images/icons/excluir.png" alt=""></td>
-                      </tr>
-                      <tr>
-                        <td>Campanha do Agasalho</td>
-                        <td>1</td>
-                        <td>14/03/2005</td>
-                        <td>14/03/2005</td>
-                        <td><a href="./../editarItem.html"><img src="./../../images/icons/editar.png" alt=""></a></td>
-                        <td><img src="./../../images/icons/excluir.png" alt=""></td>
-                      </tr>
-                      <tr>
-                        <td>Campanha do Agasalho</td>
-                        <td>1</td>
-                        <td>14/03/2005</td>
-                        <td>14/03/2005</td>
-                        <td><a href="./../editarItem.html"><img src="./../../images/icons/editar.png" alt=""></a></td>
-                        <td><img src="./../../images/icons/excluir.png" alt=""></td>
-                      </tr>
-                      <tr>
-                        <td>Campanha do Agasalho</td>
-                        <td>1</td>
-                        <td>14/03/2005</td>
-                        <td>14/03/2005</td>
-                        <td><a href="./../editarItem.html"><img src="./../../images/icons/editar.png" alt=""></a></td>
-                        <td><img src="./../../images/icons/excluir.png" alt=""></td>
-                      </tr>
-                      <tr>
-                        <td>Campanha do Agasalho</td>
-                        <td>1</td>
-                        <td>14/03/2005</td>
-                        <td>14/03/2005</td>
-                        <td><a href="./../editarItem.html"><img src="./../../images/icons/editar.png" alt=""></a></td>
-                        <td><img src="./../../images/icons/excluir.png" alt=""></td>
-                      </tr>
-                      <tr>
-                        <td>Campanha do Agasalho</td>
-                        <td>1</td>
-                        <td>14/03/2005</td>
-                        <td>14/03/2005</td>
-                        <td><a href="./../editarItem.html"><img src="./../../images/icons/editar.png" alt=""></a></td>
-                        <td><img src="./../../images/icons/excluir.png" alt=""></td>
-                      </tr>
-                      <tr>
-                        <td>Campanha do Agasalho</td>
-                        <td>1</td>
-                        <td>14/03/2005</td>
-                        <td>14/03/2005</td>
-                        <td><a href="./../editarItem.html"><img src="./../../images/icons/editar.png" alt=""></a></td>
-                        <td><img src="./../../images/icons/excluir.png" alt=""></td>
-                      </tr>--%>
                     </tbody>
                   </table>
                   <div class="paginacao">
@@ -161,31 +80,12 @@
 
             <footer>
                 <asp:Literal ID="LitFooter" runat="server"></asp:Literal>
-             <%-- <nav>
-                <a href="./../index.html"
-                  ><img src="./../../images/logo/logoBranca.png" alt="logo umaCausa"
-                /></a>
-                <div>
-                  <h3>Inicio</h3>
-                  <p><a href="./../index.html">Home</a></p>
-                  <p><a href="./../campanhas.html">Campanhas</a></p>
-                  <p><a href="./../ongs.html">ONGs</a></p>
-                </div>
-                <div>
-                  <h3>Sobre Nós</h3>
-                  <p><a href="./../sobre.html">Sobre</a></p>
-                  <p><a href="./../nossaEquipe.html">Nossa Equipe</a></p>
-                </div>
-                <div>
-                  <h3>Suporte</h3>
-                  <p><a href="./../faq.html">FAQ</a></p>
-                </div>
-              </nav>--%>
             </footer>
 
+            <script src="./../../js/animarBtnHeader.js"></script>
             <script src="./../../js/inputFile.js"></script>
             <script src="./../../js/cep.js"></script>
-              <script src="./../../js/DeslogarUsuario.js"></script>
+            <script src="./../../js/DeslogarUsuario.js"></script>
        </form>
   </body>
 </html>

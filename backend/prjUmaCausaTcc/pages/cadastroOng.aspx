@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@900&display=swap" rel="stylesheet"/>
+    <link rel="icon" href="./../../images/icone.svg" type="image/x-icon" />
     <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./../css/index.css" />
     <link rel="stylesheet" href="./../css/cadastroOng.css" />
@@ -129,13 +130,13 @@
               <div class="input-label" id="pix">
                 <label for="">Pix:</label>
                 <div>
-                    <select name="" id="cmbTiposPix">
-                        <option value="telefone">Telefone</option>
-                        <option value="email">Email</option>
-                        <option value="cpf">CPF</option>
-                        <option value="cnpj">CNPJ</option>
-                        <option value="chaveAleatoria">Outro</option>
-                    </select>
+                    <asp:DropDownList ID="cmbTiposPix" runat="server">
+                        <asp:ListItem Value="telefone">Telefone</asp:ListItem>
+                        <asp:ListItem Value="email">Email</asp:ListItem>
+                        <asp:ListItem Value="cpf">CPF</asp:ListItem>
+                        <asp:ListItem Value="cnpj">CNPJ</asp:ListItem>
+                        <asp:ListItem Value="chaveAleatoria">Outro</asp:ListItem>
+                    </asp:DropDownList>
                     <asp:TextBox ID="txtPix" TextMode="Phone" MaxLength="11" pattern="^+55\d{11}$" placeholder="13999999999 (somente números)" runat="server" required="required"></asp:TextBox>
                 </div>
 
@@ -206,6 +207,7 @@
             <asp:Literal ID="litFooter" runat="server"></asp:Literal>
         </footer>
 
+        <script src="../js/animarBtnHeader.js"></script>
         <script src="../js/inputsDias.js"></script>
         <script src="./../js/verificacoesInputs.js"></script>
         <script src="./../js/inputFile.js"></script>

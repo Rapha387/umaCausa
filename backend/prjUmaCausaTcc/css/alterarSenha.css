@@ -113,12 +113,6 @@ thead td {
   width: 100%;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-}
-
-/*RESPONSIVO*/
 
 @media screen and (max-width: 1199px) {
     main {

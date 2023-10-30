@@ -25,9 +25,21 @@
   
       <div class="bloqueio escondido"></div>
 
+      <div class="caixa-flutuante popup-sucesso escondido">
+        <img src="./../images/popupsResposta/sucesso.png"/>
+        <p class="textoPopupResposta">Doação Realizada com sucesso</p>
+        <div class="btnFecharPopUpResposta">Continuar</div>
+      </div>
+
+      <div class="caixa-flutuante popup-erro escondido">
+        <img src="./../images/popupsResposta/erro.png"/>
+        <p class="textoPopupResposta">Não foi possível realizar a doação. Por favor tente novamente mais tarde.</p>
+        <div class="btnFecharPopUpResposta">Voltar</div>
+      </div>
+
       <div class="caixa-flutuante popup-doacao escondido" id="popupPrincipal">
         <img class="botao-fechar" src="./../images/icons/btnFechar.png" alt="botao de fechar">
-        <h2>ESCOLHER DOAÇÂO</h2>
+        <h2>ESCOLHER DOAÇÃO</h2>
         <div class="escolher-doacao">
           <div class="tipo-doacao" id="btnDoarMonetario">
             <img src="./../images/tipoDoacao/doacao-monetaria.png" alt="">
@@ -205,8 +217,6 @@
               </div>
             </div>
               
-
-        
             <asp:Literal ID="litInicioFotos" runat="server"></asp:Literal>
             <asp:Literal ID="litFotos" runat="server"></asp:Literal>
             <asp:Literal ID="litFimFotos" runat="server"></asp:Literal>
@@ -233,6 +243,7 @@
       </footer>
 
 
+      <script src="../js/animarBtnHeader.js"></script>
       <script src="../js/VerificarUsuario.js"></script>
       <script src="../js/DeslogarUsuario.js"></script>
       <script src="../js/verificacoesInputsDoacao.js"></script>

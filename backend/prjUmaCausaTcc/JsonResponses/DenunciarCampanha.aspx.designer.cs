@@ -11,7 +11,7 @@ namespace prjUmaCausaTcc.JsonResponses
 {
 
 
-    public partial class DoarItemCampanha
+    public partial class DenunciarCampanha
     {
     }
 }

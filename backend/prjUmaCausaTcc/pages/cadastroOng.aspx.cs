@@ -158,6 +158,12 @@ namespace prjUmaCausaTcc.pages
                 string latitude = "";
                 string longitude = "";
                 string pix = txtPix.Text;
+
+                if (cmbTiposPix.SelectedIndex == 0)
+                {
+                    pix = "+55" + txtPix.Text;
+                }
+
                 string webSite = txtWebSite.Text;
                 string emailContato = txtEmailContato.Text;
                 string descricao = txtDescricao.Text;
@@ -306,14 +312,14 @@ namespace prjUmaCausaTcc.pages
                 {
                     HttpPostedFile fotoPerfil = fileInputLogo.PostedFile;
                     imgPerfil = $@"uploads/ongs/{usuario.Codigo}/icone/{usuario.Codigo}.jpg";
-                    fotoPerfil.SaveAs(Request.PhysicalApplicationPath + imgPerfil);
+                    fotoPerfil.SaveAs(Request.PhysicalApplicationPath + imgPerfil.Replace("/", @"\"));
                 }
 
                 if (fileInputBanner.HasFile)
                 {
                     HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
                     imgBanner = $@"uploads/ongs/{usuario.Codigo}/banner/{usuario.Codigo}.jpg";
-                    fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner);
+                    fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
                 }
 
                 usuario.AdicionarFotosPerfilOng(usuario.Codigo, imgPerfil, imgBanner);
