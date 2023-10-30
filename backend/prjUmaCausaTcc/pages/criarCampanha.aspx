@@ -53,8 +53,8 @@
                       <label for="">Imagem do Item:</label>
                       <div class="espaco-imagem">
                         <label class="custom-file-upload">
-                          <input type="file" id="fileInput" accept="image/*" />
-                          <span class="textoInputFile">Carregar Foto</span>
+                            <asp:FileUpload ID="fileInputBanner" runat="server" accept="image/*" />
+                            <span class="textoInputFile">Carregar Foto</span>
                         </label>
                         <span id="nomeArquivo">Imagem Retangular em JPG</span>
                       </div>

@@ -78,7 +78,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 Confirmacoes.Text = "";
                 foreach(Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
                 {
-                    Confirmacoes.Text += 
+                    Panel1.Controls.Add(new LiteralControl(
                         $@"<div class='confirmacao'>
                               <div class='infos-confirmacao'>
                                 <p>Doador: {doacao.NomeDoador}</p>
@@ -89,8 +89,18 @@ namespace prjUmaCausaTcc.pages.configuracoes
                               <div class='botoes-confirmacao'>
                                 <img id='' onclick=confirmarDoacao() src='./../../images/icons/confirmado.png' alt=''>
                                 <img id='' onclick=recusarDoacao() src = './../../images/icons/recusar.png' alt = ''>
-                              </div>
-                            </div>";
+                              "));
+                    if (doacao.TipoDoacao == "dm")
+                    {
+                        Panel pnlButton = new Panel();
+                        Button button = new Button();
+                        pnlButton.Controls.Add(button);
+                        pnlDonwload.Controls.Add(pnlButton);
+                        button.Text = "Donwload";
+                        Panel1.Controls.Add(pnlButton);
+                    }
+                    Panel1.Controls.Add(new LiteralControl("</div></div>"));
+
                 }
             }  
         }

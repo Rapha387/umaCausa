@@ -144,10 +144,11 @@ thead td {
 }
 
 .confirmacoes .confirmacao .botoes-confirmacao {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    flex-direction: row-reverse;
 }
 .confirmacoes .confirmacao .botoes-confirmacao img {
   padding: 3px;
