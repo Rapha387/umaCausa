@@ -15,7 +15,6 @@
       rel="stylesheet"
     />
     <link rel="icon" href="./../../images/icone.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./../../css/index.css" />
     <link rel="stylesheet" href="./../../css/minhasColaboracoes.css" />
     <title>UmaCausa - Meu Perfil</title>

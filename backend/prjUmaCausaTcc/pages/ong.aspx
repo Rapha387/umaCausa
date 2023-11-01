@@ -1,7 +1,5 @@
 ﻿z﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ong.aspx.cs" Inherits="prjUmaCausaTcc.pages.ong" %>
-
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head runat="server">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -182,7 +180,6 @@
           </div>
           <div class="infos2">
              <button class="doar" id="btnDoar">
-                <%--<img src="./../images/icons/search.png" alt="DOAR">--%>
               <div>DOAR</div>
              </button>
             <div class="card-infos">
