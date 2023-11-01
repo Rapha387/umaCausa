@@ -151,8 +151,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
                             TextBox txtComecoDia = new TextBox();
                             txtComecoDia.ID = "txtComecoDia" + codigo;
-                            txtComecoDia.TextMode = TextBoxMode.Time;
-                            txtComecoDia.Enabled = false;
+                          //  txtComecoDia.TextMode = TextBoxMode.Time;
 
                             Label lblFimDia = new Label();
                             lblFimDia.ID = "lblFimDia" + codigo;
@@ -160,22 +159,28 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
                             TextBox txtFimDia = new TextBox();
                             txtFimDia.ID = "txtFimDia" + codigo;
-                            txtFimDia.TextMode = TextBoxMode.Time;
-                            txtFimDia.Enabled = false;
-
-                            pnlInputsDia.Controls.Add(lblInputInicio);
-                            pnlInputsDia.Controls.Add(txtComecoDia);
-                            pnlInputsDia.Controls.Add(lblFimDia);
-                            pnlInputsDia.Controls.Add(txtFimDia);
+                           // txtFimDia.TextMode = TextBoxMode.Time;
 
                             foreach (DiaUsuario diaUsuario in listadias1)
                             {
                                 if (diaUsuario.Dia.Codigo.ToString() == codigo.ToString())
                                 {
                                     checkBoxDia.Checked = true;
+
+                                    txtComecoDia.Text = diaUsuario.HorarioInicio.ToString().Substring(10);
+                                    txtComecoDia.Enabled = false;
+
+                                    txtFimDia.Text = diaUsuario.HorarioFim.ToString().Substring(10);
+                                    txtFimDia.Enabled = false;
                                 }
                             }
-                                pnlDia.Controls.Add(pnlCheckBox);
+                           
+
+                            pnlInputsDia.Controls.Add(lblInputInicio);
+                            pnlInputsDia.Controls.Add(txtComecoDia);
+                            pnlInputsDia.Controls.Add(lblFimDia);
+                            pnlInputsDia.Controls.Add(txtFimDia);
+                            pnlDia.Controls.Add(pnlCheckBox);
                             pnlDia.Controls.Add(pnlInputsDia);
 
                             pnlDiasDisponiveis.Controls.Add(pnlDia);
