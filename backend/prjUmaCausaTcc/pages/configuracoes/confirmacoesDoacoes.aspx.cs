@@ -97,7 +97,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                                 <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=confirmarDoacao() src='./../../images/icons/confirmado.png' alt=''>
                                 <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=recusarDoacao() src = './../../images/icons/recusar.png' alt = ''>
                               </div>
-                            </div>";
+                            </div>"));
                 }
             }  
         }

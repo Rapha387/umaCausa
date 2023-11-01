@@ -77,7 +77,7 @@ namespace prjUmaCausaTcc.pages
                     {
                         HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
                         imgBanner = $@"uploads/campanhas/banners/{codigoCampanha}.jpg";
-                        campanha.AdcionarBannerCampanha(codigoCampanha, imgBanner);
+                        campanha.AdicionarBannerCampanha(codigoCampanha, imgBanner);
                         fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
                     }
                     List<ODS> odsses = new List<ODS>();
@@ -108,7 +108,6 @@ namespace prjUmaCausaTcc.pages
 
                     throw new Exception(ex.Message);
                 }
-
             };
         }
     }

@@ -168,12 +168,12 @@
               <asp:Literal ID="litFooter" runat="server"></asp:Literal>
           </footer>
 
-        <script src="../js/verificacoesInputsDoacao.js"></script>
         <script src="../js/animarBtnHeader.js"></script>
-        <script src="../js/DenunciarCampanha.js"></script>
         <script src="../js/VerificarUsuario.js"></script>
-        <script src="./../js/popup.js"></script>
         <script src="../js/DeslogarUsuario.js"></script>
+        <script src="../js/verificacoesInputsDoacao.js"></script>
+        <script src="../js/DenunciarCampanha.js"></script>
+        <script src="./../js/popup.js"></script>
         <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
         <script src="./../js/pix.js"></script>
         <script src="./../js/gerarPix.js"></script>
