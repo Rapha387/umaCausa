@@ -32,6 +32,9 @@ public class DoacaoCampanha : Banco
     {
     }
 
+    #endregion
+
+    #region Metodos
     public void ConfirmarDoacaoCampanha(int codigo, bool confirmacao)
     {
         List<Parametro> parametros = new List<Parametro>()

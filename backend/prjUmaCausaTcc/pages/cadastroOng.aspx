@@ -188,7 +188,7 @@
               </div>
 
               <div class="input-label">
-                  <label for="">Dias Disponíveis:</label>
+                  <label for="">Dias disponíveis para recebimento de itens:</label>
                   <asp:Panel ID="pnlDiasDisponiveis" runat="server"></asp:Panel>
                   <asp:Label ID="erroDias" CssClass="spanErro" runat="server"></asp:Label>
               </div>

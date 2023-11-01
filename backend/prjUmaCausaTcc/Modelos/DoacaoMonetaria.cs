@@ -40,7 +40,6 @@ public class DoacaoMonetaria : Banco
             Desconectar();
         }
     }
-
     public int GerarComprovante()
     {
         try
