@@ -187,7 +187,14 @@ namespace prjUmaCausaTcc.pages
                         CategoriaOng categoria = new CategoriaOng();
                         categoria.Nome = chk.Text;
                         categoria.Codigo = i;
+                        //if(usuario.CategoriasOng == )
+                        //{
 
+                        //}
+                        //else
+                        //{
+
+                        //}
                         Ong_CategoiraOng categoriasOng = new Ong_CategoiraOng();
                         categoriasOng.Categoria = categoria;
 
@@ -214,7 +221,7 @@ namespace prjUmaCausaTcc.pages
                         TipoItem item = new TipoItem();
                         item.Nome = chk.Text;
                         item.Codigo = i;
-
+                        
                         TipoItemOng tipoItemOng = new TipoItemOng();
                         tipoItemOng.TipoItem = item;
 
