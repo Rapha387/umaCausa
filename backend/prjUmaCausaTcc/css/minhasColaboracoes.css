@@ -113,12 +113,28 @@ thead td {
     main {
         width: 100% !important;
     }
+
+        main .infos-configuracoes {
+            width: 100%;
+            padding-left: 15px;
+        }
 }
 
 
 @media screen and (max-width: 700px) {
 
     main {
-        display:block;
+        display: block;
+    }
+
+        main .infos-configuracoes {
+            width: 100%;
+            margin-top: 20px;
+            padding: 0px;
+        }
+
+    input[type=submit] {
+        width: 100%;
     }
 }
+        

@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DoarCampanha.aspx.cs" Inherits="prjUmaCausaTcc.JsonResponses.DoarMonetarioCampanha" %>

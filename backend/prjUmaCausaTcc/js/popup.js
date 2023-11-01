@@ -28,6 +28,8 @@ const botaoDoacaoItem = document.getElementById('btnDoarItem');
 
 const popupSucesso = document.querySelector('.popup-sucesso');
 const popupErro = document.querySelector('.popup-erro');
+const textoRespostaSucessoPopup = document.getElementById('textoRespostaSucesso');
+const textoRespostaErroPopup = document.getElementById('textoRespostaErro');
 const botoesRespostaPopup = document.querySelectorAll('.btnFecharPopUpResposta');
 
 const url = window.location.href;
@@ -177,7 +179,9 @@ function LimparPopUpItem() {
     LimparInputsItem();
     popupDoacaoItem.classList.add('escondido');
     txtNomeItem.value = "";
-    cmbTipoItem.selectedIndex = 0;
+    if (cmbTipoItem) {
+        cmbTipoItem.selectedIndex = 0;
+    }
     cmbTipoEntrega.selectedIndex = 0;
     txtDataEnvio.value = "";
     txtHorario.value = "";
@@ -190,7 +194,6 @@ function LimparPopUpDenuncia() {
     erroDenuncia.textContent = ""
     cmbMotivoDenuncia.classList.remove('inputInvalido');
     popupDenunciar.classList.add('escondido');
-    bloqueio.classList.add('escondido');
 }
 
 

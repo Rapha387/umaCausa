@@ -29,9 +29,11 @@ if (btnRelizarDoacaoMonetaria) {
             console.log(dados);
             if (dados['situacao'] == 'true') {
                 LimparPopupMonetario();
+                textoRespostaSucessoPopup.textContent = "Doação realizada com sucesso";
                 popupSucesso.classList.remove('escondido');
             }
             else {
+                textoRespostaSucessoPopup.textContent = "Não foi possível realizar a doação. Por favor, tente novamente mais tarde."
                 popupErro.classList.remove('escondido');
             }
         });
@@ -66,13 +68,15 @@ if (btnAgendarItem) {
                         })
                     }
                     LimparPopUpItem();
+                    textoRespostaSucessoPopup.textContent = "Agendamento realizado com sucesso";
                     popupSucesso.classList.remove('escondido');
                     
                 }
                 else {
+                    LimparPopUpItem();
+                    textoRespostaErroPopup.textContent = "Não foi possível realizar o agendamento. Por favor, tente novamente mais tarde."
                     popupErro.classList.remove('escondido');
                 }
             });
-
     }
 }   

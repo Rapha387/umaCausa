@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjUmaCausaTcc.pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -53,5 +54,56 @@ public class DoacaoCampanha : Banco
             Desconectar();
         }
     }
+
+    public void CadastrarDoacaoCampanhaMonetaria(int doador, int campanha, double valor)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro("pIdCampanha",campanha.ToString()),
+            new Parametro("pIdUsuario", doador.ToString()),
+            new Parametro("pQtDoado", valor.ToString())
+        };
+        try
+        {
+            Conectar();
+            Executar("CadastrarDoacaoCampanhaMonetaria", parametros);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
+
+    public void CadastrarDoacaoItem(int doador, int campanha, string nome, string quantidade, TipoEntrega entrega, string dataDesejada, string horaDesejada)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro("pIdUsuario",doador.ToString()),
+            new Parametro("pIdCampanha",campanha.ToString()),
+            new Parametro("pNmItem", nome),
+            new Parametro("pQtDoado", quantidade.ToString()),
+            new Parametro("pIdTipoEntrega", entrega.Codigo.ToString()),
+            new Parametro("pHora", horaDesejada),
+            new Parametro("pData", dataDesejada.ToString()),
+        };
+        try
+        {
+            Conectar();
+            Executar("CadastrarDoacaoCampanhaItem", parametros);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
+
     #endregion
 }

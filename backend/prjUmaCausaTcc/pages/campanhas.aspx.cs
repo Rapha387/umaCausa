@@ -11,14 +11,15 @@ namespace prjUmaCausaTcc.pages
 {
     public partial class campanhas : System.Web.UI.Page
     {
+        string c = "";
+        string d = "";
         int indiceDePaginacao = 0;
         protected void Page_Load(object sender, EventArgs e)
-        {
+        { 
             litItemPaginacao.Text = "";
-
+            litCampanhas.Text = "";
             List<Campanha> campanhas = new List<Campanha>();
             Campanhas listarCampanhas = new Campanhas();
-
             #region Gerar Elementos Html
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
@@ -41,22 +42,66 @@ namespace prjUmaCausaTcc.pages
             }
             #endregion
 
-            #region GerarCampanhas
 
+
+            #region GerarCampanhas
+            if (!String.IsNullOrEmpty(Request["c"]))
+                c = Request["c"].ToString();
+
+            if (!String.IsNullOrEmpty(Request["d"]))
+                d = Request["d"].ToString();
+
+
+            if (!String.IsNullOrEmpty(Request["d"]) && d == "0")
+            {
+                campanhas = listarCampanhas.ListarCampanhasPorData(0, 0);
+                GerarCampanhas(campanhas);
+            }
+            
+            if (!String.IsNullOrEmpty(Request["d"]) && d == "1")
+            {
+                campanhas = listarCampanhas.ListarCampanhasPorData(0, 1);
+                GerarCampanhas(campanhas);
+            }
+            
+
+            
+
+            if (!String.IsNullOrEmpty(Request["c"]) && c == "0")
+            {
+                campanhas = listarCampanhas.ListarCampanhasMonetarias(0);
+                GerarCampanhas(campanhas);
+            }
+            
+            if (!String.IsNullOrEmpty(Request["c"]) && c == "1")
+            {
+                campanhas = listarCampanhas.ListarCampanhasItens(0);
+                GerarCampanhas(campanhas);
+            }
+            else if (!String.IsNullOrEmpty(Request["t"]))
+            {
+                campanhas = listarCampanhas.ListarCampanhasPorTipo(0, int.Parse(Request["t"]));
+                GerarCampanhas(campanhas);
+            }
+
+                campanhas = listarCampanhas.ListarCampanhasASC(0);
+                GerarCampanhas(campanhas);
             #endregion
 
             #region DDLS
             ddlCategoria.Items.Insert(0, new ListItem("Monetário", "0"));
             ddlCategoria.Items.Insert(1, new ListItem("Item", "1"));
+
+            ddlData.Items.Insert(0, new ListItem("Mais Recente", "0"));
+            ddlData.Items.Insert(1, new ListItem("Mais Antigo", "1"));
+
+            foreach (TipoItem item in new Itens().ListarTiposItensNaoMonetarios())
+            {
+                ddlTipo.Items.Insert(item.Codigo - 1, new ListItem(item.Nome, item.Codigo.ToString()));
+            }
+
             #endregion
 
-            #region !PostBack
-            if (!IsPostBack)
-            {
-                if (!String.IsNullOrEmpty(Request["c"]))
-                    ddlCategoria.SelectedIndex = int.Parse(Request["c"]);
-            }
-            #endregion
 
             int indice = new Campanhas().ListarIndiceCampanhas();
             for (int i = 0; i < indice; i++)
@@ -84,15 +129,21 @@ namespace prjUmaCausaTcc.pages
                 return;
             }
 
-            if (!String.IsNullOrEmpty(Request["c"]) && ddlCategoria.SelectedIndex == 0)
+            #region !PostBack
+            if (!IsPostBack)
             {
-                campanhas = listarCampanhas.ListarCampanhasMonetarias();
-                GerarCampanhas(campanhas);
-                return;
-            }
+                if (!String.IsNullOrEmpty(Request["c"]))
+                    ddlCategoria.SelectedIndex = int.Parse(Request["c"]);
 
-            campanhas = listarCampanhas.ListarCampanhasASC(0);
-            GerarCampanhas(campanhas);
+                if (!String.IsNullOrEmpty(Request["d"]))
+                    ddlData.SelectedIndex = int.Parse(Request["d"]);
+
+                if (!String.IsNullOrEmpty(Request["t"]))
+                    ddlTipo.SelectedValue = Request["t"];
+            }
+            #endregion
+
+            
 
         }
 
@@ -100,6 +151,10 @@ namespace prjUmaCausaTcc.pages
         {
             foreach (Campanha campanha in campanhas)
             {
+                double porcentagemBarra = campanha.PorcentagemArrecadado;
+                if (campanha.PorcentagemArrecadado > 100)
+                    porcentagemBarra = 100;
+
                 litCampanhas.Text += $@"
                 <a href='./campanha.aspx?c={campanha.Codigo}'>
                   <div class='campanha'>
@@ -110,7 +165,7 @@ namespace prjUmaCausaTcc.pages
                       </div>
                       <div class='progresso'>
                         <div class='barra-progresso'>
-                          <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%;'></div>
+                          <div class='quantidade-progresso' style='width: {porcentagemBarra}%;'></div>
                         </div>
                         <div class='porcentagem' >{campanha.PorcentagemArrecadado}%</div>
                       </div>
@@ -149,6 +204,17 @@ namespace prjUmaCausaTcc.pages
         {
             Response.Redirect($"campanhas.aspx?c={ddlCategoria.SelectedValue}");
         }
+        protected void ddlTipo_TextChanged(object sender, EventArgs e)
+        {
+
+
+            Response.Redirect($"campanhas.aspx?t={ddlTipo.SelectedValue}");
+        }
+
+        protected void ddlData_TextChanged(object sender, EventArgs e)
+        {
+            Response.Redirect($"campanhas.aspx?d={ddlData.SelectedValue}");
+        }
         #endregion
 
         protected void btnPesquisar_Click(object sender, ImageClickEventArgs e)
@@ -159,14 +225,5 @@ namespace prjUmaCausaTcc.pages
             Response.Redirect("campanhas.aspx?s="+ txtPesquisa.Text);
         }
 
-        protected void ddlTipo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void ddlData_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

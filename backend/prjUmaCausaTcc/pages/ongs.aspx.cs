@@ -16,9 +16,6 @@ namespace prjUmaCausaTcc.pages
         int indiceDePaginacao = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            // TODO: Montar Barra de Busca
-            // TODO: Detalhar Animações do Botão e Paginação
             litOngs.Text = "";
             litItemPaginacao.Text = "";
 

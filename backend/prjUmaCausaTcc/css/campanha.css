@@ -167,4 +167,25 @@ main {
         width: 80px;
         height: 80px;
     }
+
+
+    .popup-doacao-item {
+        width: 90%;
+    }
+
+    .popup-doacao-item .infos-doacao {
+        flex-direction: column;
+     }
+
+     .popup-doacao-item .infos-doacao .input-label {
+          width: 100%;
+     }
+
+    .denuncia {
+        width: 90%;
+    }
+
+    #btnAgendarItem {
+        width: 100%;
+    }
 }

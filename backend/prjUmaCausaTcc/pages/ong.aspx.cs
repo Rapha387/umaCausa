@@ -96,14 +96,12 @@ namespace prjUmaCausaTcc.pages
             {
                 litInicioFotos.Text += $@"
                     <div class='fotos'>
-                        <h2>
-                        fotos
-                        </h2>
-                        <div class='fotos-flex'>";
+                        <h2>fotos</h2>
+                   <div class='fotos-flex'>";
             }
             foreach (FotoOng foto in fotosOng)
             {
-                litFotos.Text += $"<div style=' background: url(../{foto.Foto}); background-position: center;background-repeat: no-repeat;background-size: cover;' class='foto'></div>";
+                litFotos.Text += $"<div style='background: url(../{foto.Foto}); background-position: center;background-repeat: no-repeat;background-size: cover;' class='foto'></div>";
             }
             if (fotosOng.Count > 0)
                 litFimFotos.Text = "</div></div>";
@@ -196,6 +194,10 @@ namespace prjUmaCausaTcc.pages
                     litCampanhasInativas.Text = "<p>Não há campanhas inativas</p>";
                 foreach (Campanha campanha in campanhasInativas)
                 {
+                    double porcentagemBarra = campanha.PorcentagemArrecadado;
+                    if (campanha.PorcentagemArrecadado > 100)
+                        porcentagemBarra = 100;
+
                     litCampanhasInativas.Text += $@"
                     <div class='campanha swiper-slide'>
                         <a href='campanha.aspx?c={campanha.Codigo}'>
@@ -206,7 +208,7 @@ namespace prjUmaCausaTcc.pages
                       </div>
                       <div class='progresso'>
                         <div class='barra-progresso'>
-                          <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%'></div>
+                          <div class='quantidade-progresso' style='width: {porcentagemBarra}%'></div>
                         </div>
                         <div class='porcentagem'>{campanha.PorcentagemArrecadado}%</div>
                       </div>

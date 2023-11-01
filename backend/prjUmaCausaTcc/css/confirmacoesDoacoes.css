@@ -144,10 +144,11 @@ thead td {
 }
 
 .confirmacoes .confirmacao .botoes-confirmacao {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    flex-direction: row-reverse;
 }
 .confirmacoes .confirmacao .botoes-confirmacao img {
   padding: 3px;
@@ -155,4 +156,39 @@ thead td {
     cursor: pointer;
     border: solid 1px #d3d3d3;
     border-radius: 4px;
+}
+
+/*RESPONSIVO*/
+
+@media screen and (max-width: 1199px) {
+    main {
+        width: 100% !important;
+    }
+
+        main .infos-configuracoes .infos .input-label {
+            width: 100%;
+        }
+
+        main .infos-configuracoes {
+            width: 100%;
+            padding-left: 15px;
+        }
+
+    @media screen and (max-width: 700px) {
+
+        main {
+            display: block;
+        }
+
+       main .infos-configuracoes {
+            width: 100%;
+             margin-top: 20px;
+            padding: 0px;
+            }
+
+        main .infos-configuracoes .infos {
+            width: 100%;
+        }
+           
+    }
 }

@@ -48,7 +48,7 @@ namespace prjUmaCausaTcc.pages
 
                 Itens tiposItens = new Itens();
 
-                var listaTiposItens = tiposItens.ListarTiposItens();
+                var listaTiposItens = tiposItens.ListarTiposItensNaoMonetarios();
 
                 foreach (TipoItem item in listaTiposItens)
                 {
@@ -312,7 +312,7 @@ namespace prjUmaCausaTcc.pages
                 Directory.CreateDirectory(Request.PhysicalApplicationPath + $@"uploads\ongs\{usuario.Codigo}\fotos");
 
 
-                string imgPerfil = $@"images/fotoPadrao/logoOngPadrao.png"; ;
+                string imgPerfil = $@"images/fotoPadrao/logoOngPadrao.png";
                 string imgBanner = $@"images/fotoPadrao/bannerOngPadrao.png";
 
                 if (fileInputLogo.HasFile)

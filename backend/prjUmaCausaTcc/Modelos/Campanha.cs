@@ -88,34 +88,32 @@ public class Campanha : Banco
     #endregion
 
     #region Metodos
-    public bool CriarCampanha(string nome, string descricao, DateTime inicioCampanha, DateTime fimCampanha, double meta, string banner, Usuario usuario, CategoriaCampanha categoria, TipoItem tipo)
+    public void CriarCampanha(string nome, string descricao, DateTime fimCampanha, double meta, string banner, Usuario usuario, int tipo)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
             new Parametro ("pNmCampanha", nome),
             new Parametro ("pDsCampanha", descricao),
-            new Parametro ("pDtInicioCampanha",inicioCampanha.ToString("yyyy-MM-dd")),
             new Parametro ("pDtFimEsperada", fimCampanha.ToString("yyyy-MM-dd")),
             new Parametro ("pQtMeta", meta.ToString()),
             new Parametro ("pImgBannerCampanha",banner),
             new Parametro ("pIdUsuario", usuario.Codigo.ToString()),
-            new Parametro ("pIdTipoItem", tipo.Codigo.ToString())
+            new Parametro ("pIdTipoItem", tipo.ToString())
         };
         try
         {
-            Executar("CriarCampanha", parametros);
-            return true;
+            Consultar("CriarCampanha", parametros);
         }
         catch (Exception)
         {
-            return false;
+            throw new Exception("Erro ao criar a campanha!");
         }
         finally
         {
             Desconectar();
         }
     }
-    public bool EncerrarCampanha(int codigo, Usuario usuario)
+    public void EncerrarCampanha(int codigo, DateTime fimCampanha, Usuario usuario)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -123,7 +121,50 @@ public class Campanha : Banco
             new Parametro ("pIdCampanha", codigo.ToString()),        };
         try
         {
+            Conectar();
             Executar("EncerrarCampanha", parametros);
+        }
+        catch (Exception)
+        {
+            throw new Exception("Erro ao encerrar a campanha!");
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
+
+    public void AdcionarBannerCampanha(int codigo, string banner)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pBanner", banner),
+            new Parametro ("pCodigo", codigo.ToString()),
+        };
+        try
+        {
+            Conectar();
+            Executar("AdcionarBannerCampanha", parametros);
+        }
+        catch (Exception)
+        {
+            throw new Exception("Erro ao Adicionar o Banner a campanha!");
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
+
+    public bool ExcluirCampanha(int codigo)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdCampanha", codigo.ToString())
+        };
+        try
+        {
+            Executar("ExcluirCampanha", parametros);
             return true;
         }
         catch (Exception)
@@ -161,6 +202,33 @@ public class Campanha : Banco
                         Codigo = dados.GetInt32("id_usuario"),
                         Nome = dados.GetString("nm_usuario"),
                     };
+                }
+            }
+
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+
+    }
+
+    public void BuscarUltimaCampanhaAdcionada()
+    {
+        try
+        {
+            var dados = Consultar("BuscarUltimaCampanhaAdcionada", null);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    Codigo = dados.GetInt32("id_campanha");
                 }
             }
 
