@@ -19,9 +19,8 @@ public static class FileIo
             String caminhoDoArquivo = HttpContext.Current.Server.MapPath($"~/{caminho}");
             HttpContext.Current.Response.Clear();
             HttpContext.Current.Response.ContentType = "application/octet-stream";
-            HttpContext.Current.Response.AppendHeader("content-disposition", "filename=" + novoNomeArquivo);
+            HttpContext.Current.Response.AppendHeader("Content-Disposition", $"attachment; filename={novoNomeArquivo}");
             HttpContext.Current.Response.TransmitFile(caminhoDoArquivo);
-            HttpContext.Current.Response.End();
         }
         catch (Exception e)
         {
@@ -29,6 +28,8 @@ public static class FileIo
         }
         finally
         {
+            HttpContext.Current.Response.Flush();
+            HttpContext.Current.Response.SuppressContent = true;  
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
     }

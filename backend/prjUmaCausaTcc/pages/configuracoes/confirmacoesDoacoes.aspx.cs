@@ -100,9 +100,10 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     {
                         Panel pnlButton = new Panel();
                         Button button = new Button();
-                        
+                        button.Attributes.Add("comprovante", doacao.Comprovante);
                         pnlButton.Controls.Add(button);
                         pnlDonwload.Controls.Add(pnlButton);
+
                         button.Text = "Baixar Comprovante";
                         pnlBotao.Controls.Add(pnlButton);
                         doador = doacao.Doador;
@@ -118,9 +119,9 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
         protected void Button_Click(object sender, EventArgs e)
         {
-            DoacaoMonetaria doacao = new DoacaoMonetaria();
-            doacao.BuscarComprovante(doador.Codigo, usuario.Codigo, dataDoacao);
-            FileIo.DonwloadArquivo(doacao.Comprovante.Replace(@"\", "/"), "comprovante");
+            Button button = (Button)sender;
+            string comprovante = button.Attributes["comprovante"];
+            FileIo.DonwloadArquivo(comprovante.Replace(@"\", "/"), "comprovante.jpg");
         }
 
         protected void ImgBtnConfirmar_Click(object sender, ImageClickEventArgs e)
