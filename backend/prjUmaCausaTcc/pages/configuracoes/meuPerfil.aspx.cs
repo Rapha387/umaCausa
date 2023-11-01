@@ -54,7 +54,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
                     if (usuario.PosssibilidadeBusca == true)
                     {
-                        chkConfirmaoBuscaDoacoes.Checked= true;
+                        chkConfirmaoBuscaDoacoes.Checked = true;
                     }
                     else
                     {
@@ -72,10 +72,14 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         chk.ID = "chkCategoria" + categoria.Codigo.ToString();
                         chk.Text = categoria.Nome;
 
-                        if (listaCategoriasOng1.ToString() == categoria.Codigo.ToString())
+                        foreach (CategoriaOng categoriaong in listaCategoriasOng1)
                         {
-                            chk.Checked = true;
+                            if (categoriaong.Codigo.ToString() == categoria.Codigo.ToString())
+                            {
+                                chk.Checked = true;
+                            }
                         }
+
 
                         pnlCheck.CssClass = "pnlCheckBox";
 
@@ -84,10 +88,11 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
                         pnlCategorias.Controls.Add(pnlCheck);
                     }
-                   
+
                     Itens tiposItens = new Itens();
 
                     var listaTiposItens = tiposItens.ListarTiposItens();
+                    var listaItens = tiposItens.ListarItensAceitosOng(usuario.Codigo);
 
                     foreach (TipoItem item in listaTiposItens)
                     {
@@ -97,75 +102,88 @@ namespace prjUmaCausaTcc.pages.configuracoes
                             CheckBox chk = new CheckBox();
                             chk.ID = "chkItem" + item.Codigo.ToString();
                             chk.Text = item.Nome;
+                            foreach (TipoItem tipoitens in listaItens)
+                            {
+                                if (tipoitens.Codigo.ToString() == item.Codigo.ToString())
+                                {
+                                    chk.Checked = true;
+                                }
 
 
+                                pnlCheck.CssClass = "pnlCheckBox";
 
-                            pnlCheck.CssClass = "pnlCheckBox";
+                                pnlCheck.ID = "pnlItem" + item.Codigo.ToString();
+                                pnlCheck.Controls.Add(chk);
 
-                            pnlCheck.ID = "pnlItem" + item.Codigo.ToString();
-                            pnlCheck.Controls.Add(chk);
-
-                            pnlItensAceitos.Controls.Add(pnlCheck);
+                                pnlItensAceitos.Controls.Add(pnlCheck);
+                            }
                         }
+
+                        Dias dias = new Dias();
+
+                        var listaDias = dias.ListarDias();
+                        var listadias1 = dias.ListarDiasDisponiveisOng(usuario.Codigo);
+                        foreach (Dia dia in listaDias)
+                        {
+                            int codigo = dia.Codigo;
+
+                            Panel pnlDia = new Panel();
+                            pnlDia.ID = "pnlDia" + codigo;
+                            pnlDia.CssClass = "inputsDia";
+
+                            Panel pnlCheckBox = new Panel();
+                            pnlCheckBox.ID = "pnlCheckBoxDia" + codigo;
+                            pnlCheckBox.CssClass = "pnlCheckBoxDia";
+
+                            CheckBox checkBoxDia = new CheckBox();
+                            checkBoxDia.ID = "chkDia" + codigo;
+                            checkBoxDia.Text = dia.Nome;
+
+                            pnlCheckBox.Controls.Add(checkBoxDia);
+
+                            Panel pnlInputsDia = new Panel();
+                            pnlInputsDia.ID = "pnlInputsDia" + codigo;
+                            pnlInputsDia.CssClass = "pnlInputsDia";
+
+                            Label lblInputInicio = new Label();
+                            lblInputInicio.ID = "lblInputInicio" + codigo;
+                            lblInputInicio.Text = "De:";
+
+                            TextBox txtComecoDia = new TextBox();
+                            txtComecoDia.ID = "txtComecoDia" + codigo;
+                            txtComecoDia.TextMode = TextBoxMode.Time;
+                            txtComecoDia.Enabled = false;
+
+                            Label lblFimDia = new Label();
+                            lblFimDia.ID = "lblFimDia" + codigo;
+                            lblFimDia.Text = "Até:";
+
+                            TextBox txtFimDia = new TextBox();
+                            txtFimDia.ID = "txtFimDia" + codigo;
+                            txtFimDia.TextMode = TextBoxMode.Time;
+                            txtFimDia.Enabled = false;
+
+                            pnlInputsDia.Controls.Add(lblInputInicio);
+                            pnlInputsDia.Controls.Add(txtComecoDia);
+                            pnlInputsDia.Controls.Add(lblFimDia);
+                            pnlInputsDia.Controls.Add(txtFimDia);
+
+                            foreach (DiaUsuario diaUsuario in listadias1)
+                            {
+                                if (diaUsuario.Dia.Codigo.ToString() == codigo.ToString())
+                                {
+                                    checkBoxDia.Checked = true;
+                                }
+                            }
+                                pnlDia.Controls.Add(pnlCheckBox);
+                            pnlDia.Controls.Add(pnlInputsDia);
+
+                            pnlDiasDisponiveis.Controls.Add(pnlDia);
+                        }
+
+                        if (usuario.PosssibilidadeBusca)
+                            chkConfirmaoBuscaDoacoes.Checked = true;
                     }
-
-                    Dias dias = new Dias();
-
-                    var listaDias = dias.ListarDias();
-
-                    foreach (Dia dia in listaDias)
-                    {
-                        int codigo = dia.Codigo;
-
-                        Panel pnlDia = new Panel();
-                        pnlDia.ID = "pnlDia" + codigo;
-                        pnlDia.CssClass = "inputsDia";
-
-                        Panel pnlCheckBox = new Panel();
-                        pnlCheckBox.ID = "pnlCheckBoxDia" + codigo;
-                        pnlCheckBox.CssClass = "pnlCheckBoxDia";
-
-                        CheckBox checkBoxDia = new CheckBox();
-                        checkBoxDia.ID = "chkDia" + codigo;
-                        checkBoxDia.Text = dia.Nome;
-
-                        pnlCheckBox.Controls.Add(checkBoxDia);
-
-                        Panel pnlInputsDia = new Panel();
-                        pnlInputsDia.ID = "pnlInputsDia" + codigo;
-                        pnlInputsDia.CssClass = "pnlInputsDia";
-
-                        Label lblInputInicio = new Label();
-                        lblInputInicio.ID = "lblInputInicio" + codigo;
-                        lblInputInicio.Text = "De:";
-
-                        TextBox txtComecoDia = new TextBox();
-                        txtComecoDia.ID = "txtComecoDia" + codigo;
-                        txtComecoDia.TextMode = TextBoxMode.Time;
-                        txtComecoDia.Enabled = false;
-
-                        Label lblFimDia = new Label();
-                        lblFimDia.ID = "lblFimDia" + codigo;
-                        lblFimDia.Text = "Até:";
-
-                        TextBox txtFimDia = new TextBox();
-                        txtFimDia.ID = "txtFimDia" + codigo;
-                        txtFimDia.TextMode = TextBoxMode.Time;
-                        txtFimDia.Enabled = false;
-
-                        pnlInputsDia.Controls.Add(lblInputInicio);
-                        pnlInputsDia.Controls.Add(txtComecoDia);
-                        pnlInputsDia.Controls.Add(lblFimDia);
-                        pnlInputsDia.Controls.Add(txtFimDia);
-
-                        pnlDia.Controls.Add(pnlCheckBox);
-                        pnlDia.Controls.Add(pnlInputsDia);
-
-                        pnlDiasDisponiveis.Controls.Add(pnlDia);
-                    }
-
-                    if (usuario.PosssibilidadeBusca)
-                        chkConfirmaoBuscaDoacoes.Checked = true;
                 }
                 else
                 {
