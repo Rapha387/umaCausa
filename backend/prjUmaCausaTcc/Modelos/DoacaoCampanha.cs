@@ -15,6 +15,7 @@ public class DoacaoCampanha : Banco
     public bool DoacaoConfirmada { get; set; }
     public DateTime RespostaOng { get; set; }
     public TipoItem TipoItem { get; set; }
+    public int Codigo { get; set; }
 
     public DoacaoCampanha(Campanha campanha, Usuario doador, DateTime dataDoacao, string quantidadeDoado, bool doacaoConfirmada, DateTime respostaOng, TipoItem tipoItem)
     {
@@ -31,13 +32,11 @@ public class DoacaoCampanha : Banco
     {
     }
 
-    public void ConfirmarDoacaoMonetaria(int campanha, int usuario, DateTime dataDoacao, bool confirmacao)
+    public void ConfirmarDoacaoCampanha(int codigo, bool confirmacao)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
-            new Parametro("pIdCampanha",campanha.ToString()),
-            new Parametro("pIdUsuario", usuario.ToString()),
-            new Parametro("pDtDoacao", dataDoacao.ToString()),
+            new Parametro("pCodigo",codigo.ToString()),
             new Parametro("SituacaoDoacao", confirmacao.ToString()),
 
         };

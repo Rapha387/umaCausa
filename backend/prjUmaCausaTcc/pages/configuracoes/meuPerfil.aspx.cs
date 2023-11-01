@@ -49,6 +49,17 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     txtNumero.Text = usuario.Numero;
                     txtDescricao.Text = usuario.Descricao.ToString();
 
+
+
+                    if (usuario.PosssibilidadeBusca == true)
+                    {
+                        chkConfirmaoBuscaDoacoes.Checked= true;
+                    }
+                    else
+                    {
+                        chkConfirmaoBuscaDoacoes.Checked = false;
+                    }
+
                     CategoriasOng categoriasOng = new CategoriasOng();
 
                     var listaCategoriasOng = categoriasOng.ListarCategoriasOng();
@@ -80,6 +91,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
                             CheckBox chk = new CheckBox();
                             chk.ID = "chkItem" + item.Codigo.ToString();
                             chk.Text = item.Nome;
+
+
 
                             pnlCheck.CssClass = "pnlCheckBox";
 
@@ -162,6 +175,14 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     txtTelefone.Text = usuario.Telefone.ToString();
                     txtComplemento.Text = usuario.Complemento.ToString();
                     txtNumero.Text = usuario.Numero;
+                }
+
+                foreach (ListItem controle in txtUF.Items)
+                {
+                    if (controle.Text == usuario.Estado)
+                    {
+                        txtUF.SelectedValue = controle.Text;
+                    }
                 }
             }
             catch
