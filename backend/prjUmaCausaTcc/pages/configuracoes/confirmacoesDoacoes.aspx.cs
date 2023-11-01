@@ -65,7 +65,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         $@"<div class='confirmacao'>
                               <div class='infos-confirmacao'>
                                 <p>Doador: {doacao.NomeDoador}</p>
-                                <p>Item: {doacao.TipoDoacao}</p>
+                                <p>Tipo: {doacao.TipoDoacao}</p>
                                 <p>Quantidade: {doacao.Quantidade}</p>
                                 <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                                 <p>Estado: {estado}</p>
@@ -82,7 +82,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         $@"<div class='confirmacao'>
                               <div class='infos-confirmacao'>
                                 <p>Doador: {doacao.NomeDoador}</p>
-                                <p>Item: {doacao.NomeTipoItem}</p>
+                                <p>Tipo: {doacao.NomeTipoItem}</p>
                                 <p>Valor:{doacao.Quantidade}</p>
                                 <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                               </div>

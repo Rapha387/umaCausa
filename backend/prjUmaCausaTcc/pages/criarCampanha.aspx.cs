@@ -92,7 +92,6 @@ namespace prjUmaCausaTcc.pages
                             ODS ods = new ODS();
                             ods.Nome = chk.Text;
                             ods.Codigo = i;
-
                             odsses.Add(ods);
                         }
                     }
