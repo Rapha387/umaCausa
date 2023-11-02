@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="./../../css/index.css">
   <link rel="stylesheet" href="./../../css/alterarSenha.css">
-  <title>UmaCausa - Meu Perfil</title>
+  <title>UmaCausa - Alterar Senha</title>
 </head>
 <body>
     <form id="form1" runat="server">

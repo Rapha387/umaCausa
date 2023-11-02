@@ -120,7 +120,7 @@ namespace prjUmaCausaTcc.pages
                 if (usuario == null)
                     Response.Redirect("erro.aspx?e=nao foi possivel carregar essa pagina");
 
-                litNomeNavegador.Text = usuario.Nome + " - umaCausa";
+                litNomeNavegador.Text = "UmaCausa - " + usuario.Nome;
                 litCNPJ.Text = $"<a target='_blank' href='https://cnpj.info/{usuario.Identificacao.Replace(".", "").Replace("/", "").Replace("-", "")}'>" + usuario.Identificacao + "<a/>";
                 litDescricao.Text = usuario.Descricao;
                 litEmailContato.Text = $"<a target='_blank' target='_blank' href='mailto:{usuario.EmailContato}'>" + usuario.EmailContato + "</a>";

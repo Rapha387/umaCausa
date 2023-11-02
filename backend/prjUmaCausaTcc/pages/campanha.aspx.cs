@@ -106,7 +106,7 @@ namespace prjUmaCausaTcc.pages
                 }
 
                 litDescricao.Text = campanha.Descricao;
-                litWebNome.Text = campanha.Nome + " - umaCausa";
+                litWebNome.Text = "umaCausa - " + campanha.Nome;
                 litNome.Text = campanha.Nome;
                 litProgresso.Text = $"<div class='progresso' style='width: {campanha.PorcentagemArrecadado}%;'></div>";
                 litImagem.Text = $"<div style='background-image: url(../{campanha.Banner});'class='imagem-campanha'></div>";

@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="./../../css/index.css">
   <link rel="stylesheet" href="./../../css/criarCampanha.css">
 
-  <title>Editar Campanha - UmaCausa</title>
+  <title>UmaCausa - Editar Campanha</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -65,11 +65,9 @@
                       <label for="">ODS da campanha:</label>
                      <asp:Panel ID="pnlODS" runat="server"></asp:Panel>
                 </div>
+                <asp:Button ID="btnAlterar" runat="server" CssClass="botoesEditarEncerrar" Text="Salvar Alterações" OnClick="btnAlterar_Click"/>
+                <asp:Button ID="btnCancelar" runat="server" CssClass="botoesEditarEncerrar" Text="Cancelar Alterações" OnClick="btnCancelar_Click"/>
                 
-            </div>
-            <div class="botoesEditarEncerrar">
-                <asp:Button ID="btnCriarDivulgacao" runat="server" Text="Editar Campanha" OnClick="btnCriarDivulgacao_Click"/>
-                <asp:Button ID="btnEncerrarCampanha" runat="server" Text="Encerrar Campanha" CssClass="btn-danger" OnClick="btnEncerrarCampanha_Click"/>
             </div>
           </div>
   </main>

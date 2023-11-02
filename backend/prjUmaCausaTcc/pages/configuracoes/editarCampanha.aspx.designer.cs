@@ -96,22 +96,22 @@ namespace prjUmaCausaTcc.pages.configuracoes
         protected global::System.Web.UI.WebControls.Panel pnlODS;
 
         /// <summary>
-        /// Controle btnCriarDivulgacao.
+        /// Controle btnAlterar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCriarDivulgacao;
+        protected global::System.Web.UI.WebControls.Button btnAlterar;
 
         /// <summary>
-        /// Controle btnEncerrarCampanha.
+        /// Controle btnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEncerrarCampanha;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
 
         /// <summary>
         /// Controle litFooter.

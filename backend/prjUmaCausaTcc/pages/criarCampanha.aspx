@@ -66,10 +66,9 @@
                           <label for="">ODS da campanha:</label>
                          <asp:Panel ID="pnlODS" runat="server"></asp:Panel>
                     </div>
-                    
+                  <asp:Button ID="btnCriarDivulgacao" runat="server" Text="Criar Divulgação" OnClick="btnCriarDivulgacao_Click"/>
                 </div>
-
-                <asp:Button ID="btnCriarDivulgacao" runat="server" Text="Criar Divulgação" OnClick="btnCriarDivulgacao_Click"/>
+                
               </div>
       </main>
 

@@ -94,7 +94,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
 
         }
-        protected void btnCriarDivulgacao_Click(object sender, EventArgs e)
+        protected void btnAlterar_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtDescricao.Text) && !String.IsNullOrEmpty(txtNome.Text) && !String.IsNullOrEmpty(txtQuantidade.Text) && !String.IsNullOrEmpty(txtDia.Text))
             {
@@ -160,16 +160,9 @@ namespace prjUmaCausaTcc.pages.configuracoes
             };
         }
 
-        protected void btnEncerrarCampanha_Click(object sender, EventArgs e)
+        protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.Campanha.EncerrarCampanha(this.Campanha.Codigo, this.Usuario);
-            }
-            catch (Exception)
-            {
-                Response.Redirect("erro.aspx?Não Foi Possivel Encerrar Sua Campanha");
-            }
+            Response.Redirect("editarCampanha.aspx");
         }
     }
 }
