@@ -125,12 +125,14 @@
                 <div class="barra-meta">
                     <asp:Literal ID="litProgresso" runat="server"></asp:Literal>
                 </div>
-                <button id="btnDoar">DOAR</button>
+                  <div class="botoes">
+                    <button id="btnDoar">DOAR</button>
+                      <asp:Button ID="btnEditarCampanha" runat="server" Text="EDITAR"  OnClick="btnEditarCampanha_Click"/>
+                  </div>
               </div>
               <div class="realizador-campanha">
                 <h3>Realizador dessa campanha</h3>
                 <asp:Literal ID="litONG" runat="server"></asp:Literal>
-        
               </div>
               <div class="ods-campanha">
                 <h3>Objetivos do Desenvolvimento Sustentável desta campanha</h3>

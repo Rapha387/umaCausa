@@ -37,6 +37,7 @@ public class Doacoes : Banco
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
                 DoacaoConfirmada = item.DoacaoConfirmada,
                 RespostaOng = item.RespostaOng,
+                Comprovante = item.Comprovante
             });
         };
 
@@ -85,8 +86,9 @@ public class Doacoes : Banco
                 DataDoacao = item.DataDoacao,
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
+                Comprovante = item.Comprovante,
                 DoacaoConfirmada = false,
-                TipoDoacao = "dc"
+                TipoDoacao = "dcm"
             }) ;
         };
         foreach (DoacaoCampanha item in colaboracoes.ListarDoacoesCampanhasItensConfirmadasOuNao(IdUsuarioONG, false))
@@ -100,7 +102,7 @@ public class Doacoes : Banco
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
                 DoacaoConfirmada = false,
-                TipoDoacao = "dc"
+                TipoDoacao = "dci"
             });
         };
         foreach (DoacaoMonetaria item in colaboracoes.ListarDoacoesMonetariasConfirmadasOuNao(IdUsuarioONG, false))
@@ -151,6 +153,7 @@ public class Doacoes : Banco
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
                 DoacaoConfirmada = item.DoacaoConfirmada,
                 RespostaOng = item.RespostaOng,
+                Comprovante = item.Comprovante
             });
         }; 
         foreach (DoacaoItem item in colaboracoes.ListaDoacoesItemsPesquisa(IdUsuario, pesquisa))

@@ -14,6 +14,7 @@ public class DoacaoCampanha : Banco
     public bool DoacaoConfirmada { get; set; }
     public DateTime RespostaOng { get; set; }
     public TipoItem TipoItem { get; set; }
+    public string Comprovante { get; set; }
 
     public DoacaoCampanha(Campanha campanha, Usuario doador, DateTime dataDoacao, string quantidadeDoado, bool doacaoConfirmada, DateTime respostaOng, TipoItem tipoItem)
     {

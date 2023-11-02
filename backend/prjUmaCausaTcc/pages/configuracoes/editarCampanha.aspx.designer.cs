@@ -7,21 +7,12 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace prjUmaCausaTcc.pages
+namespace prjUmaCausaTcc.pages.configuracoes
 {
 
 
-    public partial class campanha
+    public partial class editarCampanha
     {
-
-        /// <summary>
-        /// Controle litWebNome.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litWebNome;
 
         /// <summary>
         /// Controle form1.
@@ -42,121 +33,76 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.Literal litHeader;
 
         /// <summary>
-        /// Controle pnlDoacaoMonetaria.
+        /// Controle txtNome.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlDoacaoMonetaria;
+        protected global::System.Web.UI.WebControls.TextBox txtNome;
 
         /// <summary>
-        /// Controle pnlDoacaoItem.
+        /// Controle ddlTipoCampanha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlDoacaoItem;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoCampanha;
 
         /// <summary>
-        /// Controle cmbTipoEntrega.
+        /// Controle txtQuantidade.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbTipoEntrega;
+        protected global::System.Web.UI.WebControls.TextBox txtQuantidade;
 
         /// <summary>
-        /// Controle cmbMotivoDenuncia.
+        /// Controle txtDia.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbMotivoDenuncia;
+        protected global::System.Web.UI.WebControls.TextBox txtDia;
 
         /// <summary>
-        /// Controle litImagem.
+        /// Controle txtDescricao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litImagem;
+        protected global::System.Web.UI.WebControls.TextBox txtDescricao;
 
         /// <summary>
-        /// Controle litNome.
+        /// Controle fileInputBanner.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litNome;
+        protected global::System.Web.UI.WebControls.FileUpload fileInputBanner;
 
         /// <summary>
-        /// Controle litDescricao.
+        /// Controle pnlODS.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litDescricao;
+        protected global::System.Web.UI.WebControls.Panel pnlODS;
 
         /// <summary>
-        /// Controle litMeta.
+        /// Controle btnCriarDivulgacao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litMeta;
-
-        /// <summary>
-        /// Controle litArrecadado.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litArrecadado;
-
-        /// <summary>
-        /// Controle litProgresso.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litProgresso;
-
-        /// <summary>
-        /// Controle btnEditarCampanha.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditarCampanha;
-
-        /// <summary>
-        /// Controle litONG.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litONG;
-
-        /// <summary>
-        /// Controle litOds.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litOds;
+        protected global::System.Web.UI.WebControls.Button btnCriarDivulgacao;
 
         /// <summary>
         /// Controle litFooter.

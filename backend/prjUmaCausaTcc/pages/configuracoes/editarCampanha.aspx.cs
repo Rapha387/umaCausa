@@ -5,29 +5,45 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace prjUmaCausaTcc.pages
+namespace prjUmaCausaTcc.pages.configuracoes
 {
-    public partial class criarCampanha : System.Web.UI.Page
+    public partial class editarCampanha : System.Web.UI.Page
     {
-        Usuario usuario { get; set; }
+        Usuario Usuario { get; set; }
+        Campanha Campanha { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             #region Gerar Elementos Html
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
-            litFooter.Text = gerarHtml.GerarFooter();
+            litFooter.Text = gerarHtml.GerarFooterConfiguracoes();
 
             if (Session["usuario"] != null)
             {
                 Usuario usuario = (Usuario)Session["usuario"];
-                litHeader.Text = gerarHtml.MudarNavegacao(usuario);
+                litHeader.Text = gerarHtml.GerarHeaderConfiguracoes(usuario);
                 if (usuario.TipoDoUsuario.Codigo == 1)
-                    this.usuario = usuario;
+                    this.Usuario = usuario;
                 else
                     Response.Redirect($"erro.aspx?e=pagina não encontrada");
             }
             else
             {
                 litHeader.Text = gerarHtml.MudarNavegacao(null);
+            }
+            #endregion
+
+            #region Verificar Campanha
+            if (Session["Campanha"] != null)
+            {
+                this.Campanha = (Campanha)Session["Campanha"];
+            }
+            else
+                Response.Redirect($"../erro.aspx?e=pagina não encontrada");
+
+            if (Request["id"] != null)
+            {
+                this.Campanha = new Campanha();
+                this.Campanha.BuscarCampanha(int.Parse(Request["id"]));
             }
             #endregion
 
@@ -42,20 +58,41 @@ namespace prjUmaCausaTcc.pages
             foreach (ODS ods in ODS)
             {
 
-                    Panel pnlCheck = new Panel();
-                    CheckBox chk = new CheckBox();
-                    chk.ID = "chkOds" + ods.Codigo.ToString();
-                    chk.Text = ods.Nome;
+                Panel pnlCheck = new Panel();
+                CheckBox chk = new CheckBox();
+                chk.ID = "chkOds" + ods.Codigo.ToString();
+                chk.Text = ods.Nome;
 
-                    pnlCheck.CssClass = "pnlCheckBox";
+                pnlCheck.CssClass = "pnlCheckBox";
 
-                    pnlCheck.ID = "pnlOds" + ods.Codigo.ToString();
-                    pnlCheck.Controls.Add(chk);
+                pnlCheck.ID = "pnlOds" + ods.Codigo.ToString();
+                pnlCheck.Controls.Add(chk);
 
-                    pnlODS.Controls.Add(pnlCheck);
+                pnlODS.Controls.Add(pnlCheck);
             }
-        }
 
+            txtNome.Text = this.Campanha.Nome;
+            txtQuantidade.Enabled = false;
+            txtQuantidade.Text = this.Campanha.QuantidadeMeta.ToString();
+            txtDescricao.Text = this.Campanha.Descricao;
+            DateTime dataHoraOriginal = DateTime.ParseExact(this.Campanha.DataPrevistaFim, "dd/MM/yyyy HH:mm:ss", null);
+            ddlTipoCampanha.SelectedValue = this.Campanha.TipoItemArrecadado.Codigo.ToString();
+            txtDia.Text = dataHoraOriginal.ToString("yyyy-MM-dd");
+            txtDia.Enabled = false;
+            ddlTipoCampanha.Enabled = false;
+
+
+            Odesses odesses = new Odesses();
+
+            foreach (ODS ods in odesses.BuscarOdsCampanha(this.Campanha.Codigo))
+            {
+                Panel painel = (Panel)pnlODS.FindControl("pnlOds" + ods.Codigo.ToString());
+                CheckBox chk = (CheckBox)painel.FindControl("chkOds" + ods.Codigo.ToString());
+                chk.Checked = true;
+            }
+
+
+        }
         protected void btnCriarDivulgacao_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtDescricao.Text) && !String.IsNullOrEmpty(txtNome.Text) && !String.IsNullOrEmpty(txtQuantidade.Text) && !String.IsNullOrEmpty(txtDia.Text))
@@ -67,17 +104,15 @@ namespace prjUmaCausaTcc.pages
                     DateTime dia = DateTime.Now;
                     string descricao = txtDescricao.Text;
                     int CodigoTipo = int.Parse(ddlTipoCampanha.SelectedValue);
-                    Campanha campanha = new Campanha();
-                    campanha.CriarCampanha(nome, descricao, dia, quantidade, "", this.usuario, CodigoTipo);
-                    campanha.BuscarUltimaCampanhaAdcionada();
-                    int codigoCampanha = campanha.Codigo;
+                    //this.Campanha.CriarCampanha(nome, descricao, dia, quantidade, "", this.Usuario, CodigoTipo);
+                    int codigoCampanha = this.Campanha.Codigo;
                     string imgBanner = $@"images/campanhas/campanha1.png";
 
                     if (fileInputBanner.HasFile)
                     {
                         HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
                         imgBanner = $@"uploads/campanhas/banners/{codigoCampanha}.jpg";
-                        campanha.AdcionarBannerCampanha(codigoCampanha, imgBanner);
+                        this.Campanha.AdcionarBannerCampanha(codigoCampanha, imgBanner);
                         fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
                     }
                     List<ODS> odsses = new List<ODS>();
@@ -108,7 +143,7 @@ namespace prjUmaCausaTcc.pages
 
                     throw new Exception(ex.Message);
                 }
-                
+
             };
         }
     }

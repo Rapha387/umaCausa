@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace prjUmaCausaTcc.pages
 {
 	public partial class campanha : System.Web.UI.Page
 	{
+        Usuario Usuario {  get; set; }
+        Campanha Campanha { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             litOds.Text = "";
+            btnEditarCampanha.Visible = false;
 
             #region gerarHTML
 
@@ -23,8 +27,8 @@ namespace prjUmaCausaTcc.pages
             {
                 try
                 {
-                    Usuario usuario = (Usuario)Session["usuario"];
-                    litHeader.Text = gerarHtml.MudarNavegacao(usuario);
+                    this.Usuario = (Usuario)Session["usuario"];
+                    litHeader.Text = gerarHtml.MudarNavegacao(Usuario);
                 }
                 catch (Exception ex)
                 {
@@ -47,12 +51,15 @@ namespace prjUmaCausaTcc.pages
                 {
                     cd_campanha = int.Parse(Request["c"]);
 
-                    Campanha campanha = new Campanha();
+                    this.Campanha = new Campanha();
 
-                    campanha.BuscarCampanha(cd_campanha);
-                    BuscarCampanha(campanha);
-                    BuscarONG(campanha);
-
+                    this.Campanha.BuscarCampanha(cd_campanha);
+                    BuscarCampanha(this.Campanha);
+                    BuscarONG(this.Campanha);
+                    if (this.Usuario != null && this.Usuario.TipoDoUsuario.Codigo == 1 && this.Usuario.Codigo == this.Campanha.ONG.Codigo)
+                    {
+                        btnEditarCampanha.Visible = true;
+                    }
                     Odesses odesses = new Odesses();
 
                     foreach (ODS ods in odesses.BuscarOdsCampanha(cd_campanha))
@@ -61,7 +68,7 @@ namespace prjUmaCausaTcc.pages
                     }
 
 
-                    if (campanha.TipoItemArrecadado.Codigo == 0)
+                    if (this.Campanha.TipoItemArrecadado.Codigo == 0)
                         pnlDoacaoMonetaria.Visible = true;
                     else
                         pnlDoacaoItem.Visible = true;
@@ -138,6 +145,12 @@ namespace prjUmaCausaTcc.pages
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        protected void btnEditarCampanha_Click(object sender, EventArgs e)
+        {
+            Session["Campanha"] = this.Campanha;
+            Response.Redirect("configuracoes/editarCampanha.aspx");
         }
     }
 }

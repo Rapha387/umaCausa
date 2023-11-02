@@ -195,6 +195,7 @@ public class Campanha : Banco
                     Codigo = codigo;
                     Nome = dados.GetString("nm_campanha");
                     Banner = dados.GetString("img_bannerCampanha");
+                    DataPrevistaFim = dados.GetString("dt_fimEsperado");
                     Descricao = dados.GetString("ds_campanha");
                     QuantidadeArrecadada = dados.GetDouble("qt_arrecadado");
                     QuantidadeMeta = dados.GetDouble("qt_meta");

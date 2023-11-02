@@ -96,22 +96,30 @@ namespace prjUmaCausaTcc.pages.configuracoes
                                 <img id='' onclick=confirmarDoacao() src='./../../images/icons/confirmado.png' alt=''>
                                 <img id='' onclick=recusarDoacao() src = './../../images/icons/recusar.png' alt = ''>
                               "));
-                    if (doacao.TipoDoacao == "dm")
+                    try
                     {
-                        Panel pnlButton = new Panel();
-                        Button button = new Button();
-                        button.Attributes.Add("comprovante", doacao.Comprovante);
-                        pnlButton.Controls.Add(button);
-                        pnlDonwload.Controls.Add(pnlButton);
+                        if (doacao.TipoDoacao == "dm" || doacao.TipoDoacao == "dcm")
+                        {
+                            Panel pnlButton = new Panel();
+                            Button button = new Button();
+                            button.Attributes.Add("comprovante", doacao.Comprovante);
+                            pnlButton.Controls.Add(button);
+                            pnlDonwload.Controls.Add(pnlButton);
 
-                        button.Text = "Baixar Comprovante";
-                        pnlBotao.Controls.Add(pnlButton);
-                        doador = doacao.Doador;
-                        dataDoacao = doacao.DataDoacao;
-                        button.Click += new EventHandler(Button_Click);
+                            button.Text = "Baixar Comprovante";
+                            pnlBotao.Controls.Add(pnlButton);
+                            doador = doacao.Doador;
+                            dataDoacao = doacao.DataDoacao;
+                            button.Click += new EventHandler(Button_Click);
 
+                        }
+                        pnlBotao.Controls.Add(new LiteralControl("</div></div>"));
                     }
-                    pnlBotao.Controls.Add(new LiteralControl("</div></div>"));
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+                   
 
                 }
             }  

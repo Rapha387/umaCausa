@@ -41,7 +41,8 @@ namespace prjUmaCausaTcc.Logicas
                             Doador = usuario,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
-                            DoacaoConfirmada = confirmado
+                            DoacaoConfirmada = confirmado,
+                            Comprovante = dados.GetString("nm_comprovante")
                         };
                         if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
                             doacao.RespostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
@@ -204,6 +205,7 @@ namespace prjUmaCausaTcc.Logicas
                             Doador = doador,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacaoCampanha")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
+                            Comprovante = dados.GetString("nm_comprovante"),
                             DoacaoConfirmada = doacaoConfirmada,
                         };
                         doacoes.Add(doacao);

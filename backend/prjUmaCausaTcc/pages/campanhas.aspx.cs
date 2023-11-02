@@ -42,8 +42,6 @@ namespace prjUmaCausaTcc.pages
             }
             #endregion
 
-
-
             #region GerarCampanhas
             if (!String.IsNullOrEmpty(Request["c"]))
                 c = Request["c"].ToString();
@@ -84,7 +82,7 @@ namespace prjUmaCausaTcc.pages
                 GerarCampanhas(campanhas);
             }
 
-                campanhas = listarCampanhas.ListarCampanhasASC(0);
+            campanhas = listarCampanhas.ListarCampanhasASC(0);
                 GerarCampanhas(campanhas);
             #endregion
 
@@ -151,6 +149,7 @@ namespace prjUmaCausaTcc.pages
 
         private void GerarCampanhas(List<Campanha> campanhas)
         {
+            litCampanhas.Text = "";
             foreach (Campanha campanha in campanhas)
             {
                 litCampanhas.Text += $@"

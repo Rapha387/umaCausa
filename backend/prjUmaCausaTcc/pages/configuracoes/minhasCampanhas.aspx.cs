@@ -36,7 +36,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                        <td> {campanha.QuantidadeArrecadada} </td>
                        <td> {campanha.DataInicio.ToString().Substring(0, 10)} </td>
                        <td> {campanha.DataPrevistaFim.ToString().Substring(0, 10)} </td>
-                       <td><a href = './../editarCampanha.aspx'><img src = './../../images/icons/editar.png' alt = ''></a></td>
+                       <td><a href = './editarCampanha.aspx?id={campanha.Codigo}'><img src = './../../images/icons/editar.png' alt = ''></a></td>
                        <td><img src = './../../images/icons/excluir.png' alt = '' ></td>
                      </tr> ";
             }
@@ -52,12 +52,13 @@ namespace prjUmaCausaTcc.pages.configuracoes
             int user = usuario.Codigo;
             foreach (Campanha campanha in campanhas.ListarMinhasCampanhasPesquisa(pesquisa, user))
             {
+                Session["Campanha"] = campanha;
                 LitCampanhas.Text += $@"<tr>
                        <td> {campanha.Nome} </td>
                        <td> {campanha.QuantidadeArrecadada} </td>
                        <td> {campanha.DataInicio.ToString().Substring(0, 10)} </td>
                        <td> {campanha.DataPrevistaFim.ToString().Substring(0, 10)} </td>
-                       <td><a href = './../editarCampanha.aspx'><img src = './../ .. /images/icons/editar.png' alt = '' ></a></td>
+                       <td><a href = './../editarCampanha.aspx?id={campanha.Codigo}'><img src = './../ .. /images/icons/editar.png' alt = '' ></a></td>
                        <td><img src = './../../images/icons/excluir.png' alt = '' ></ td >
                      </tr> ";
             }

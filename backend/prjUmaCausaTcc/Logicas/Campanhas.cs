@@ -331,6 +331,7 @@ namespace prjUmaCausaTcc.Logicas
                         {
                             DataInicio = dados.GetDateTime("dt_inicioCampanha"),
                             Nome = dados.GetString("nm_campanha"),
+                            Codigo = dados.GetInt32("id_campanha"),
                             DataPrevistaFim = dados.GetString("dt_fimEsperado"),
                             QuantidadeArrecadada = dados.GetDouble("qt_arrecadado")
                         });
