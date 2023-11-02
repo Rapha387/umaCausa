@@ -22,8 +22,6 @@ namespace prjUmaCausaTcc.JsonResponses
                 return;
             }
 
-            string nomeComprovante;
-
             Usuario usuario = (Usuario)Session["usuario"];
 
             if (Request.Files.Count > 0)
@@ -39,9 +37,9 @@ namespace prjUmaCausaTcc.JsonResponses
                     DoacaoCampanha doacaoCampanha = new DoacaoCampanha();
                     doacaoCampanha.CadastrarDoacaoCampanhaMonetaria(doador, campanha, valor);
 
-                    //int nomeNovo = doacaoCampanha.GerarComprovante();
+                    int nomeNovo = doacaoCampanha.GerarComprovante();
 
-                    //comprovante.SaveAs(Request.PhysicalApplicationPath + @"uploads\temp\comprovantes\" + nomeNovo + ".jpg");
+                    comprovante.SaveAs(Request.PhysicalApplicationPath + @"uploads\temp\comprovantesCampanha\" + nomeNovo + ".jpg");
                 }
                 catch
                 {

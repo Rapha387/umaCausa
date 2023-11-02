@@ -15,6 +15,7 @@ public class DoacaoCampanha : Banco
     public bool DoacaoConfirmada { get; set; }
     public DateTime RespostaOng { get; set; }
     public TipoItem TipoItem { get; set; }
+    public int CodigoComprovante { get; set; }
     public int Codigo { get; set; }
 
     public DoacaoCampanha(Campanha campanha, Usuario doador, DateTime dataDoacao, string quantidadeDoado, bool doacaoConfirmada, DateTime respostaOng, TipoItem tipoItem)
@@ -57,7 +58,6 @@ public class DoacaoCampanha : Banco
             Desconectar();
         }
     }
-
     public void CadastrarDoacaoCampanhaMonetaria(int doador, int campanha, double valor)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -80,7 +80,6 @@ public class DoacaoCampanha : Banco
             Desconectar();
         }
     }
-
     public void CadastrarDoacaoItem(int doador, int campanha, string nome, string quantidade, TipoEntrega entrega, string dataDesejada, string horaDesejada)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -106,6 +105,27 @@ public class DoacaoCampanha : Banco
         {
             Desconectar();
         }
+    }
+    public int GerarComprovante()
+    {
+        try
+        {
+            var dados = Consultar("GerarCodigoComprovanteCampanha", null);
+            if (dados.Read())
+            {
+                CodigoComprovante = dados.GetInt32("comprovante");
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+
+        return CodigoComprovante;
     }
 
     #endregion

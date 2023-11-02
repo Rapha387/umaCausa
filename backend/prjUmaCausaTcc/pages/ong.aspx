@@ -1,4 +1,4 @@
-﻿z﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ong.aspx.cs" Inherits="prjUmaCausaTcc.pages.ong" %>
+﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ong.aspx.cs" Inherits="prjUmaCausaTcc.pages.ong" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head runat="server">
