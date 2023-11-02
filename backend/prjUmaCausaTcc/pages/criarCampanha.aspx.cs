@@ -15,20 +15,21 @@ namespace prjUmaCausaTcc.pages
             #region Gerar Elementos Html
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
-
+            
             if (Session["usuario"] != null)
             {
-                Usuario usuario = (Usuario)Session["usuario"];
-                litHeader.Text = gerarHtml.MudarNavegacao(usuario);
-                if (usuario.TipoDoUsuario.Codigo == 1)
-                    this.usuario = usuario;
-                else
-                    Response.Redirect($"erro.aspx?e=pagina não encontrada");
+                this.usuario = (Usuario)Session["usuario"];
+                litHeader.Text = gerarHtml.MudarNavegacao(this.usuario);
+                
             }
             else
             {
                 litHeader.Text = gerarHtml.MudarNavegacao(null);
             }
+            if (usuario != null && usuario.TipoDoUsuario.Codigo == 1)
+                this.usuario = usuario;
+            else
+                Response.Redirect($"erro.aspx?e=pagina não encontrada");
             #endregion
 
             foreach (TipoItem item in new Itens().ListarTiposItens())
@@ -64,7 +65,9 @@ namespace prjUmaCausaTcc.pages
                 {
                     string nome = txtNome.Text;
                     double quantidade = double.Parse(txtQuantidade.Text);
-                    DateTime dia = DateTime.Now;
+                    DateTime dataHoraOriginal = DateTime.ParseExact(txtDia.Text, "yyyy-MM-dd", null);
+                    dataHoraOriginal = new DateTime(dataHoraOriginal.Year, dataHoraOriginal.Month, dataHoraOriginal.Day, 0, 0, 0);
+                    DateTime dia = dataHoraOriginal;
                     string descricao = txtDescricao.Text;
                     int CodigoTipo = int.Parse(ddlTipoCampanha.SelectedValue);
                     Campanha campanha = new Campanha();
