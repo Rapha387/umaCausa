@@ -126,8 +126,9 @@
                     <asp:Literal ID="litProgresso" runat="server"></asp:Literal>
                 </div>
                   <div class="botoes">
-                    <button id="btnDoar">DOAR</button>
-                      <asp:Button ID="btnEditarCampanha" runat="server" Text="EDITAR"  OnClick="btnEditarCampanha_Click"/>
+                      <asp:Literal ID="litDoar" runat="server"></asp:Literal>
+                    
+                      <asp:Button ID="btnEditarCampanha" runat="server" Text="EDITAR CAMPANHA"  OnClick="btnEditarCampanha_Click"/>
                   </div>
               </div>
               <div class="realizador-campanha">

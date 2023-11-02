@@ -10,23 +10,25 @@ namespace prjUmaCausaTcc.pages
 {
     public partial class ong : System.Web.UI.Page
     {
+        int codigo;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(Request["ong"]))
             {
                 int codigoOng = 0;
+
+                #region Verificacoes
+                Usuario ong = new Usuario();
                 try
                 {
                     codigoOng = int.Parse(Request["ong"]);
+                    this.codigo = codigoOng;
 
                 }
                 catch (Exception)
                 {
                     Response.Redirect($"erro.aspx?e=pagina não encontrada");
                 }
-
-                #region Verificacoes
-                Usuario ong = new Usuario();
                 try
                 {
                     ong.BuscarTipoDoUsuario(codigoOng);
@@ -35,7 +37,6 @@ namespace prjUmaCausaTcc.pages
                 {
                     Response.Redirect($"erro.aspx?e=pagina não encontrada");
                 }
-
                 if(ong.TipoDoUsuario == null || ong.TipoDoUsuario.Codigo == 0)
                 {
                     Response.Redirect($"erro.aspx?e=pagina não encontrada");
@@ -59,9 +60,9 @@ namespace prjUmaCausaTcc.pages
 
                     ExibirOpcoesDdlDenuncia();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    Response.Redirect($"erro.aspx?e=");
+                    Response.Redirect($"erro.aspx?e=" + ex.Message);
                 }
                 #endregion
             }
@@ -78,7 +79,8 @@ namespace prjUmaCausaTcc.pages
             if (Session["usuario"] != null)
             {
                 Usuario usuario = (Usuario)Session["usuario"];
-
+                if (usuario.Codigo == this.codigo)
+                    btnMeuPerfil.Visible = true;
                 litHeader.Text = gerarHtml.MudarNavegacao(usuario);
             }
             else
@@ -276,6 +278,11 @@ namespace prjUmaCausaTcc.pages
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        protected void btnMeuPerfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("configuracoes/meuPerfil.aspx");
         }
     }
 }

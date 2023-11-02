@@ -114,3 +114,25 @@ input[type=file], textarea {
       width:100%;
     }
 }
+
+.botoesEditarEncerrar input{
+    margin: 10px 0 10px 0;
+}
+.botoesEditarEncerrar input:hover {
+    transition: 0.2s ease;
+    background-color: #1d7dd7;
+}
+.botoesEditarEncerrar .btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.botoesEditarEncerrar .btn-danger:hover {
+    color: #fff;
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+
+

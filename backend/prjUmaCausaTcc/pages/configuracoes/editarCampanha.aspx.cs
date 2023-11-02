@@ -70,18 +70,19 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
                 pnlODS.Controls.Add(pnlCheck);
             }
+            if (!IsPostBack)
+            {
 
-            txtNome.Text = this.Campanha.Nome;
-            txtQuantidade.Enabled = false;
-            txtQuantidade.Text = this.Campanha.QuantidadeMeta.ToString();
-            txtDescricao.Text = this.Campanha.Descricao;
-            DateTime dataHoraOriginal = DateTime.ParseExact(this.Campanha.DataPrevistaFim, "dd/MM/yyyy HH:mm:ss", null);
-            ddlTipoCampanha.SelectedValue = this.Campanha.TipoItemArrecadado.Codigo.ToString();
-            txtDia.Text = dataHoraOriginal.ToString("yyyy-MM-dd");
-            txtDia.Enabled = false;
-            ddlTipoCampanha.Enabled = false;
-
-
+                txtNome.Text = this.Campanha.Nome;
+                txtQuantidade.Enabled = true;
+                txtQuantidade.Text = this.Campanha.QuantidadeMeta.ToString();
+                txtDescricao.Text = this.Campanha.Descricao;
+                DateTime dataHoraOriginal = DateTime.ParseExact(this.Campanha.DataPrevistaFim, "MM/dd/yyyy HH:mm:ss", null);
+                ddlTipoCampanha.SelectedValue = this.Campanha.TipoItemArrecadado.Codigo.ToString();
+                txtDia.Text = dataHoraOriginal.ToString("yyyy-MM-dd");
+                txtDia.Enabled = true;
+                ddlTipoCampanha.Enabled = true;
+            }
             Odesses odesses = new Odesses();
 
             foreach (ODS ods in odesses.BuscarOdsCampanha(this.Campanha.Codigo))
@@ -101,10 +102,12 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 {
                     string nome = txtNome.Text;
                     double quantidade = double.Parse(txtQuantidade.Text);
-                    DateTime dia = DateTime.Now;
+                    DateTime dataHoraOriginal = DateTime.ParseExact(txtDia.Text, "yyyy-MM-dd", null);
+                    dataHoraOriginal = new DateTime(dataHoraOriginal.Year, dataHoraOriginal.Month, dataHoraOriginal.Day, 0,0,0);
+                    DateTime dia = dataHoraOriginal;
                     string descricao = txtDescricao.Text;
                     int CodigoTipo = int.Parse(ddlTipoCampanha.SelectedValue);
-                    //this.Campanha.CriarCampanha(nome, descricao, dia, quantidade, "", this.Usuario, CodigoTipo);
+                    this.Campanha.EditarCampanha(this.Campanha.Codigo, nome, descricao, quantidade,dia);
                     int codigoCampanha = this.Campanha.Codigo;
                     string imgBanner = $@"images/campanhas/campanha1.png";
 
@@ -116,6 +119,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
                     }
                     List<ODS> odsses = new List<ODS>();
+                    List<ODS> odssesInativas = new List<ODS>();
                     for (int i = 1; i < pnlODS.Controls.Count; i++)
                     {
                         Panel painel = (Panel)pnlODS.FindControl("pnlOds" + i.ToString());
@@ -127,11 +131,21 @@ namespace prjUmaCausaTcc.pages.configuracoes
                             ODS ods = new ODS();
                             ods.Nome = chk.Text;
                             ods.Codigo = i;
-
                             odsses.Add(ods);
                         }
+                        else
+                        {
+                            ODS ods = new ODS();
+                            ods.Nome = chk.Text;
+                            ods.Codigo = i;
+                            odssesInativas.Add(ods);
+                        }
                     }
-
+                    foreach (ODS ods in odssesInativas)
+                    {
+                        CampanhaODS campanhaODS = new CampanhaODS();
+                        campanhaODS.DeletarCampanhaOds(codigoCampanha, ods.Codigo);
+                    }
                     foreach (ODS ods in odsses)
                     {
                         CampanhaODS campanhaODS = new CampanhaODS();
@@ -140,11 +154,22 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 }
                 catch (Exception ex)
                 {
-
                     throw new Exception(ex.Message);
                 }
 
             };
+        }
+
+        protected void btnEncerrarCampanha_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Campanha.EncerrarCampanha(this.Campanha.Codigo, this.Usuario);
+            }
+            catch (Exception)
+            {
+                Response.Redirect("erro.aspx?Não Foi Possivel Encerrar Sua Campanha");
+            }
         }
     }
 }

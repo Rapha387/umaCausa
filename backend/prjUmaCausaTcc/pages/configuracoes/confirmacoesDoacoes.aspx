@@ -44,12 +44,10 @@
                   </a>
                 </div>
                 <div class="confirmacoes">
-                    <%--<asp:Literal ID="Confirmacoes" runat="server" ></asp:Literal>--%>
                     <asp:Panel ID="pnlBotao" runat="server"></asp:Panel>
                     <asp:Panel ID="pnlDonwload" runat="server"></asp:Panel>
                 </div>
              </div>
-              <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
            </div>
         </main>
 

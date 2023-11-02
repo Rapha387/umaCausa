@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="./../../css/index.css">
   <link rel="stylesheet" href="./../../css/criarCampanha.css">
 
-  <title>UmaCausa - Editar Campanha</title>
+  <title>Editar Campanha - UmaCausa</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -67,8 +67,10 @@
                 </div>
                 
             </div>
-
-            <asp:Button ID="btnCriarDivulgacao" runat="server" Text="Editar Campanha" OnClick="btnCriarDivulgacao_Click"/>
+            <div class="botoesEditarEncerrar">
+                <asp:Button ID="btnCriarDivulgacao" runat="server" Text="Editar Campanha" OnClick="btnCriarDivulgacao_Click"/>
+                <asp:Button ID="btnEncerrarCampanha" runat="server" Text="Encerrar Campanha" CssClass="btn-danger" OnClick="btnEncerrarCampanha_Click"/>
+            </div>
           </div>
   </main>
 
@@ -77,6 +79,7 @@
 </footer>
 
     <script src="./../../js/inputFile.js"></script>
+        <script src="./../../js/DeslogarUsuario.js"></script>
     </form>
 </body>
 </html>

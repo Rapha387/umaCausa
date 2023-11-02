@@ -1,4 +1,5 @@
-﻿using prjUmaCausaTcc.pages;
+﻿using Org.BouncyCastle.Crypto.Engines;
+using prjUmaCausaTcc.pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -113,11 +114,10 @@ public class Campanha : Banco
             Desconectar();
         }
     }
-    public void EncerrarCampanha(int codigo, DateTime fimCampanha, Usuario usuario)
+    public void EncerrarCampanha(int codigo, Usuario usuario)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
-            new Parametro ("pDtFimEsperada", fimCampanha.ToString("yyyy-MM-dd")),
             new Parametro ("pIdUsuario", usuario.Codigo.ToString()),
             new Parametro ("pIdCampanha", codigo.ToString()),
         };
@@ -195,11 +195,17 @@ public class Campanha : Banco
                     Codigo = codigo;
                     Nome = dados.GetString("nm_campanha");
                     Banner = dados.GetString("img_bannerCampanha");
-                    DataPrevistaFim = dados.GetString("dt_fimEsperado");
+                    DataPrevistaFim = dados.GetMySqlDateTime("dt_fimEsperado").ToString();
                     Descricao = dados.GetString("ds_campanha");
                     QuantidadeArrecadada = dados.GetDouble("qt_arrecadado");
                     QuantidadeMeta = dados.GetDouble("qt_meta");
                     PorcentagemArrecadado = dados.GetDouble("perc");
+                    object dt_fimCampanhaValue = dados["dt_fimCampanha"];
+                    if (dt_fimCampanhaValue != DBNull.Value && dt_fimCampanhaValue != null)
+                    {
+                        DataFim = DateTime.ParseExact(dados.GetMySqlDateTime("dt_fimCampanha").ToString(), "MM/dd/yyyy HH:mm:ss", null);
+                    }
+                    
                     TipoItemArrecadado = new TipoItem() { Codigo = dados.GetInt32("id_tipoItem"), Nome = dados.GetString("nm_tipoItem") };
                     ONG = new Usuario() {
                         Codigo = dados.GetInt32("id_usuario"),
@@ -285,5 +291,29 @@ public class Campanha : Banco
         return ong;
     }
 
+    public void EditarCampanha(int codigo, string nome, string descricao, double meta, DateTime dataFim )
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pCodigo", codigo.ToString()),
+            new Parametro ("pNome", nome),
+            new Parametro ("pDescricao", descricao),
+            new Parametro ("pMeta", meta.ToString()),
+            new Parametro ("pDataFim", dataFim.ToString("yyyy-MM-dd"))
+        };
+        try
+        {
+            Conectar();
+            Executar("EditarCampanha", parametros);
+        }
+        catch (Exception)
+        {
+            throw new Exception($"Houve um erro ao editar a campanha {nome}");
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
     #endregion
 }
