@@ -52,12 +52,12 @@ public class DoacaoItem : Banco
             Desconectar();
         }
     }
-    public void ConfirmarDoacaoItem( int codigo, bool situacaoDoacao)
+    public void ConfirmarDoacaoItem( int codigo, int situacaoDoacao)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
             new Parametro("pCodigo",codigo.ToString()),
-            new Parametro("SituacaoDoacao", situacaoDoacao.ToString()),
+            new Parametro("pSituacaoDoacao", situacaoDoacao.ToString()),
         };
         try
         {

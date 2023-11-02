@@ -34,12 +34,10 @@ namespace prjUmaCausaTcc.JsonResponses
                 try
                 {
                     HttpPostedFile comprovante = Request.Files[0];
-                    nomeComprovante = comprovante.FileName;
 
                     int doador = usuario.Codigo;
                     int ong = int.Parse(Request.Form["ong"].ToString());
                     double valor = double.Parse(Request.Form["valor"].ToString());
-                    string referencia = "uploads/temp/comprovantes/" + nomeComprovante;
 
                     DoacaoMonetaria doacaoMonetaria = new DoacaoMonetaria();
                     doacaoMonetaria.CadastrarDoacaoMonetaria(doador, ong, valor);

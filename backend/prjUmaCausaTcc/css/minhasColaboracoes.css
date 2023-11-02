@@ -136,5 +136,27 @@ thead td {
     input[type=submit] {
         width: 100%;
     }
+
+    .container-tabela {
+        width: 100%;
+        overflow-x: auto;
+        margin-top: 10px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    main .infos-configuracoes {
+        width: 100%;
+    }
+
+    .pesquisar {
+        width: 100%;
+    }
+
+    .infos a {
+        width: 100%;
+    }
 }
         

@@ -216,6 +216,10 @@ thead td {
     }
 
         #bannerOng .custom-file-upload {
-          bottom:80px;
+            bottom: 80px;
         }
+
+    #pix select {
+        width: 28%;
+    }
 }

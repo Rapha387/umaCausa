@@ -11,7 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@900&display=swap" rel="stylesheet">
   <link rel="icon" href="./../../images/icone.svg" type="image/x-icon" />
-  <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="./../../css/index.css">
   <link rel="stylesheet" href="./../../css/alterarSenha.css">
   <title>UmaCausa - Meu Perfil</title>

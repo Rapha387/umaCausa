@@ -90,12 +90,12 @@ namespace prjUmaCausaTcc.pages
                 if (campanha.PorcentagemArrecadado > 100)
                     porcentagemBarra = 100;
 
-                litMeta.Text = "R$" + campanha.QuantidadeMeta.ToString().Replace(".", ",");
-                litArrecadado.Text = "Arrecadados da meta de R$" + campanha.QuantidadeArrecadada.ToString().Replace(".", ",");
+                litMeta.Text = "Meta: R$" + campanha.QuantidadeMeta.ToString().Replace(".", ",");
+                litArrecadado.Text = "Quantidade Arrecadado: R$" + campanha.QuantidadeArrecadada.ToString().Replace(".", ",");
 
                 if (campanha.TipoItemArrecadado.Codigo != 0)
                 {
-                    litArrecadado.Text = "Arrecadados da meta: " + campanha.QuantidadeArrecadada.ToString().Replace(".", ",") +" "+ campanha.TipoItemArrecadado.Nome;
+                    litArrecadado.Text = "Quantidade Arrecadado: " + campanha.QuantidadeArrecadada.ToString().Replace(".", ",") +" "+ campanha.TipoItemArrecadado.Nome;
                     litMeta.Text = campanha.QuantidadeMeta.ToString().Replace(".", ",") +" "+ campanha.TipoItemArrecadado.Nome;
                 }
 

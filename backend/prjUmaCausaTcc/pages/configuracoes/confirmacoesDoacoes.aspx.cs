@@ -37,20 +37,9 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             if (Request["pagina"] == "1")
             {
-                foreach (Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
-                {
-                    Confirmacoes.Text = "";
-                    string estado = "";
-                    if (doacao.DoacaoConfirmada == true)
-                    {
-                        estado = "Aceita";
-                    }
-                    else
-                    {
-                        estado = "Recusada";
-                    }
-                }
-                foreach (Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
+                Confirmacoes.Text = "";
+
+                foreach (Doacoes doacao in doacoes.ListarDoacoesConfirmadas(codigo))
                 {
                     string estado = "";
                     if (doacao.DoacaoConfirmada == true)
@@ -65,12 +54,12 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         $@"<div class='confirmacao'>
                               <div class='infos-confirmacao'>
                                 <p>Doador: {doacao.NomeDoador}</p>
-                                <p>Tipo: {doacao.TipoDoacao}</p>
-                                <p>Quantidade: {doacao.Quantidade}</p>
+                                <p>Item: {doacao.NomeTipoItem}</p>
+                                <p>Quantidade:{doacao.Quantidade}</p>
                                 <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                                 <p>Estado: {estado}</p>
                               </div>
-                           </div>";
+                            </div>";
                 }
             }
             else
@@ -87,20 +76,10 @@ namespace prjUmaCausaTcc.pages.configuracoes
                                 <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                               </div>
                               <div class='botoes-confirmacao'>
-                                <img id='' onclick=confirmarDoacao() src='./../../images/icons/confirmado.png' alt=''>
-                                <img id='' onclick=recusarDoacao() src = './../../images/icons/recusar.png' alt = ''>
-                              "));
-                    if (doacao.TipoDoacao == "dm")
-                    {
-                        Panel pnlButton = new Panel();
-                        Button button = new Button();
-                        pnlButton.Controls.Add(button);
-                        pnlDonwload.Controls.Add(pnlButton);
-                        button.Text = "Donwload";
-                        Panel1.Controls.Add(pnlButton);
-                    }
-                    Panel1.Controls.Add(new LiteralControl("</div></div>"));
-
+                                <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=aceitarDoacao(this) src='./../../images/icons/confirmado.png' alt=''>
+                                <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=recusarDoacao(this) src = './../../images/icons/recusar.png' alt = ''>
+                              </div>
+                            </div>"));
                 }
             }  
         }

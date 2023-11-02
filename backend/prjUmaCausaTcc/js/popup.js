@@ -26,6 +26,9 @@ const txtPix = document.getElementById('txtPix');
 const popupDoacaoItem = document.querySelector('.popup-doacao-item');
 const botaoDoacaoItem = document.getElementById('btnDoarItem');
 
+const btnRealizarDoacaoItem = document.getElementById('btnAgendarItem');
+const btnRealizarDoacaoMonetario = document.getElementById('btnRelizarDoacaoMonetaria');
+
 const popupSucesso = document.querySelector('.popup-sucesso');
 const popupErro = document.querySelector('.popup-erro');
 const textoRespostaSucessoPopup = document.getElementById('textoRespostaSucesso');
@@ -70,10 +73,12 @@ bloqueio.addEventListener('click', function() {
   caixasFlutuantes.forEach(function(caixa){
     caixa.classList.add("escondido");
       bloqueio.classList.add("escondido");
-    if(botaoDoacaoItem)
+      if (btnRealizarDoacaoItem) {
+          console.log("existe");
           LimparPopUpItem();
+      }
 
-    if(botaoDoacaoMonetaria)
+      if (btnRealizarDoacaoMonetario)
           LimparPopupMonetario();
 
      if (botaoDenunciar)

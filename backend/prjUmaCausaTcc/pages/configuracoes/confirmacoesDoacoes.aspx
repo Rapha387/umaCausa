@@ -15,7 +15,6 @@
       rel="stylesheet"
     />
     <link rel="icon" href="./../../images/icone.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./../../css/index.css" />
     <link rel="stylesheet" href="./../../css/confirmacoesDoacoes.css" />
     <title>UmaCausa - Meu Perfil</title>
@@ -58,10 +57,10 @@
         </footer>
 
 
+
         <script src="./../../js/animarBtnHeader.js"></script>
         <script src="./../../js/DeslogarUsuario.js"></script>
-        <script src="./../../js/inputFile.js"></script>
-        <script src="./../../js/cep.js"></script>
+        <script src="../../js/ConfirmarDoacao.js"></script>
 
     </form>
 </body>

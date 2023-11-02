@@ -204,6 +204,7 @@
     <Content Include="images\tipoDoacao\doacao-item.png" />
     <Content Include="images\tipoDoacao\doacao-monetaria.png" />
     <Content Include="JsonResponses\BuscarDadosPixOng.aspx" />
+    <Content Include="JsonResponses\ConfirmarDoacao.aspx" />
     <Content Include="JsonResponses\DenunciarCampanha.aspx" />
     <Content Include="JsonResponses\DenunciarUsuario.aspx" />
     <Content Include="JsonResponses\DeslogarUsuario.aspx" />
@@ -214,6 +215,7 @@
     <Content Include="js\animarBtnHeader.js" />
     <Content Include="js\carrossel-itens.js" />
     <Content Include="js\cep.js" />
+    <Content Include="js\ConfirmarDoacao.js" />
     <Content Include="js\DenunciarCampanha.js" />
     <Content Include="js\DenunciarUsuario.js" />
     <Content Include="js\DeslogarUsuario.js" />
@@ -290,6 +292,13 @@
     </Compile>
     <Compile Include="JsonResponses\BuscarDadosPixOng.aspx.designer.cs">
       <DependentUpon>BuscarDadosPixOng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JsonResponses\ConfirmarDoacao.aspx.cs">
+      <DependentUpon>ConfirmarDoacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\ConfirmarDoacao.aspx.designer.cs">
+      <DependentUpon>ConfirmarDoacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="JsonResponses\DenunciarCampanha.aspx.cs">
       <DependentUpon>DenunciarCampanha.aspx</DependentUpon>
