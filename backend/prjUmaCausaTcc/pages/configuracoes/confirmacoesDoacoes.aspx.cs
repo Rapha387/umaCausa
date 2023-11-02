@@ -38,25 +38,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
             if (Request["pagina"] == "1")
             {
                 Confirmacoes.Text = "";
-                //string estado = "";
-                //if (doacao.DoacaoConfirmada == true)
-                //{
-                //    estado = "Aceita";
-                //}
-                //else
-                //{
-                //    estado = "Recusada";
-                //}
-                //Confirmacoes.Text +=
-                //       $@"<div class='confirmacao'>
-                //              <div class='infos-confirmacao'>
-                //                <p>Doador: {doacao.Doador.Nome}</p>
-                //                <p>Item: {doacao.TipoItem.Nome}</p>
-                //                <p>Quantidade: {doacao.QuantidadeDoado}</p>
-                //                <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
-                //                <p>Estado: {estado}</p>
-                //              </div>
-                //           </div>";
+
                 foreach (Doacoes doacao in doacoes.ListarDoacoesConfirmadas(codigo))
                 {
                     string estado = "";

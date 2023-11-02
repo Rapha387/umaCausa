@@ -35,12 +35,12 @@ public class DoacaoCampanha : Banco
     #endregion
 
     #region Metodos
-    public void ConfirmarDoacaoCampanha(int codigo, bool confirmacao)
+    public void ConfirmarDoacaoCampanha(int codigo, int confirmacao)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
             new Parametro("pCodigo",codigo.ToString()),
-            new Parametro("SituacaoDoacao", confirmacao.ToString()),
+            new Parametro("pSituacaoDoacao", confirmacao.ToString()),
 
         };
         try

@@ -32,19 +32,19 @@ namespace prjUmaCausaTcc.JsonResponses
                 if (tipoDoacao == "dm")
                 {
                     DoacaoMonetaria doacaoMonetaria = new DoacaoMonetaria();
-                    doacaoMonetaria.ConfirmarDoacaoMonetaria(idDoacao, bool.Parse(Request.Form["confirmacao"]));
+                    doacaoMonetaria.ConfirmarDoacaoMonetaria(idDoacao, int.Parse(Request.Form["confirmacao"]));
                 }
 
                 if (tipoDoacao == "di")
                 {
                     DoacaoItem doacaoItem = new DoacaoItem();
-                    doacaoItem.ConfirmarDoacaoItem(idDoacao, bool.Parse(Request.Form["confirmacao"]));
+                    doacaoItem.ConfirmarDoacaoItem(idDoacao, int.Parse(Request.Form["confirmacao"]));
                 }
 
                 if (tipoDoacao == "dc")
                 {
                     DoacaoCampanha doacaoCampanha = new DoacaoCampanha();
-                    doacaoCampanha.ConfirmarDoacaoCampanha(idDoacao, bool.Parse(Request.Form["confirmacao"]));
+                    doacaoCampanha.ConfirmarDoacaoCampanha(idDoacao, int.Parse(Request.Form["confirmacao"]));
                 }
             }
             catch

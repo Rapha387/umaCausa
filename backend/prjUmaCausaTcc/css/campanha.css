@@ -57,9 +57,7 @@ main {
   height: 18px;
 }
 .infos-campanha .meta .progresso {
-  width: 30%;
   height: 100%;
-  background-color: #B66D6D;
 }
 .infos-campanha .realizador-campanha h3 {
   font-family: "Roboto", sans-serif;

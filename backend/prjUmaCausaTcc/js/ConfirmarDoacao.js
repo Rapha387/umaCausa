@@ -1,11 +1,12 @@
 ﻿
-const formData = new FormData();
+
 
 
 function aceitarDoacao(botao){
     const doacao = botao.id;
 
-    formData.append('confirmacao', true);
+    const formData = new FormData();
+    formData.append('confirmacao', 1);
     formData.append('doacao', doacao);
 
     console.log(doacao);
@@ -29,10 +30,11 @@ function aceitarDoacao(botao){
 function recusarDoacao(botao) {
     const doacao = botao.id;
 
-    formData.append('confirmacao', false);
+    const formData = new FormData();
+    formData.append('confirmacao', 0);
     formData.append('doacao', doacao);
 
-    fetch(`./../JsonResponses/ConfirmarDoacao.aspx`, {
+    fetch(`http://localhost:50944/JsonResponses/ConfirmarDoacao.aspx`, {
         method: 'POST',
         body: formData
     })
