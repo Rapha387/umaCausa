@@ -54,28 +54,7 @@
                         </tbody>
                       </table>
 
-                  </div>
-                  <div class="paginacao">
-                    <div class="paginas">
-                      <img
-                        class="pagina"
-                        src="./../../images/botoes/setaEsquerdaTabela.png"
-                        alt="setaEsquerda"
-                      />
-                      <div class="pagina pagina-selecionada">1</div>
-                      <div class="pagina">2</div>
-                      <div class="pagina">3</div>
-                      <div class="pagina">4</div>
-                      <div class="pagina">5</div>
-                      <div class="pagina">6</div>
-                      <div class="pagina">7</div>
-                      <img
-                        class="pagina"
-                        src="./../../images/botoes/setaDireitraTabela.png"
-                        alt="setaDireita"
-                      />
-                    </div>
-                  </div>
+                  </div>               
                 </div>
               </div>
             </main>
