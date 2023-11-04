@@ -113,12 +113,12 @@ public class Campanha : Banco
             Desconectar();
         }
     }
-    public void EncerrarCampanha(int codigo, Usuario usuario)
+    public void EncerrarCampanha(int codigo)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
-            new Parametro ("pIdUsuario", usuario.Codigo.ToString()),
-            new Parametro ("pIdCampanha", codigo.ToString()),        };
+            new Parametro ("pIdCampanha", codigo.ToString()),        
+        };
         try
         {
             Conectar();
