@@ -77,7 +77,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                               </div>
                               <div class='botoes-confirmacao'>
                                 <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=aceitarDoacao(this) src='./../../images/icons/confirmado.png' alt=''>
-                                <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=recusarDoacao(this) src = './../../images/icons/recusar.png' alt = ''>
+                                <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=aparecerPopupConfirmacao(this) src = './../../images/icons/recusar.png' alt = ''>
                               </div>
                             </div>"));
                 }

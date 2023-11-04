@@ -54,6 +54,10 @@ main .infos-configuracoes .infos {
     width: 49%;
 }
 
+.container-tabela{
+    width:100%;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

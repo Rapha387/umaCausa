@@ -37,7 +37,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                        <td> {campanha.DataInicio.ToString().Substring(0, 10)} </td>
                        <td> {campanha.DataPrevistaFim.ToString().Substring(0, 10)} </td>
                        <td><a href = './../editarCampanha.aspx'><img src = './../../images/icons/editar.png' alt = ''></a></td>
-                       <td><img src = './../../images/icons/excluir.png' alt = '' ></td>
+                       <td><img id='{campanha.Codigo}' onclick=encerrarCampanha(this) src = './../../images/icons/excluir.png' alt = '' ></td>
                      </tr> ";
             }
         }

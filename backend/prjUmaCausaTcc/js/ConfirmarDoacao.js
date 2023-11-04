@@ -1,7 +1,5 @@
 ﻿
 
-
-
 function aceitarDoacao(botao){
     const doacao = botao.id;
 
@@ -18,10 +16,10 @@ function aceitarDoacao(botao){
       .then(function (resposta) { return resposta.json() })
       .then(function (dados) {
            if (dados['situacao'] == 'true') {
-               console.log("foi");
+               botao.parentNode.parentNode.classList.add("escondido");
            }
            else {
-               console.log("nao foi");
+               
            }
        });
 }
@@ -41,10 +39,10 @@ function recusarDoacao(botao) {
         .then(function (resposta) { return resposta.json() })
         .then(function (dados) {
             if (dados['situacao'] == 'true') {
-
+                bloqueio.classList.add("escondido");
+                popupConfirmacao.classList.add("escondido");
             }
             else {
-
             }
         });
 }

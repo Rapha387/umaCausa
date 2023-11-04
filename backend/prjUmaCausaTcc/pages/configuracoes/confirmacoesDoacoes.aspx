@@ -25,6 +25,16 @@
             <asp:Literal ID="Navegacao" runat="server"></asp:Literal>
         </header>
 
+        <div class="bloqueio escondido"></div>
+
+        <div class="caixa-flutuante popup-confirmacao escondido">
+            <p id="textoConfirmacao" class="textoPopupResposta">Tem certeza que deseja recusar essa doação?</p>
+            <div class="botoes-confirmacao">
+                <div class="botao-confirmacao" onclick="recusarDoacao(this)" id="btnAceitarConfirmacao">Sim</div>
+                <div class="botao-confirmacao" onclick="esconderPopupConfirmacao()" id="btnRecusarConfirmacao">Não</div>
+            </div>
+        </div>
+
         <main>
             <asp:Literal ID="Menu" runat="server"></asp:Literal>
             <hr />
@@ -46,7 +56,6 @@
                     <asp:Literal ID="Confirmacoes" runat="server" ></asp:Literal>
                     <asp:Panel ID="Panel1" runat="server"></asp:Panel>
                     <asp:Panel ID="pnlDonwload" runat="server"></asp:Panel>
-
                 </div>
              </div>
            </div>
@@ -57,7 +66,7 @@
         </footer>
 
 
-
+        <script src="../../js/popup.js"></script>
         <script src="./../../js/animarBtnHeader.js"></script>
         <script src="./../../js/DeslogarUsuario.js"></script>
         <script src="../../js/ConfirmarDoacao.js"></script>

@@ -35,6 +35,10 @@ const textoRespostaSucessoPopup = document.getElementById('textoRespostaSucesso'
 const textoRespostaErroPopup = document.getElementById('textoRespostaErro');
 const botoesRespostaPopup = document.querySelectorAll('.btnFecharPopUpResposta');
 
+const popupConfirmacao = document.querySelector(".popup-confirmacao");
+const btnAceitarConfirmacao = document.getElementById("btnAceitarConfirmacao");
+const btnRecusarConfirmacao = document.getElementById("btnRecusarConfirmacao");
+
 const url = window.location.href;
 
 botoesFechar.forEach(function(btn){
@@ -170,6 +174,20 @@ if (botaoCopiarPix) {
     });
 }
 
+function aparecerPopupConfirmacao(botao) {
+    if (popupConfirmacao) {
+        bloqueio.classList.remove('escondido');
+        popupConfirmacao.classList.remove('escondido');
+        btnAceitarConfirmacao.id = botao.id;
+    }
+}
+function esconderPopupConfirmacao() {
+    if (popupConfirmacao) {
+        bloqueio.classList.add('escondido');
+        popupConfirmacao.classList.add('escondido');
+    }
+}
+
 function LimparPopupMonetario() {
     LimparInputsMonetario();
     popupDoacaoMonetaria.classList.add('escondido');
@@ -179,7 +197,6 @@ function LimparPopupMonetario() {
     spanComprovante.textContent = "Nenhum Comprovante Anexado"
     fileInputComprovante.value = "";
 }
-
 function LimparPopUpItem() {
     LimparInputsItem();
     popupDoacaoItem.classList.add('escondido');
@@ -192,7 +209,6 @@ function LimparPopUpItem() {
     txtHorario.value = "";
     txtQuantidadeItem.value = "";
 }
-
 function LimparPopUpDenuncia() {
     txtDescricaoDenuncia.value = "";
     cmbMotivoDenuncia.selectedIndex = 0;
