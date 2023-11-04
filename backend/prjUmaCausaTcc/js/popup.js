@@ -178,7 +178,7 @@ function aparecerPopupConfirmacao(botao) {
     if (popupConfirmacao) {
         bloqueio.classList.remove('escondido');
         popupConfirmacao.classList.remove('escondido');
-        btnAceitarConfirmacao.id = botao.id;
+        btnAceitarConfirmacao.name = botao.id;
     }
 }
 function esconderPopupConfirmacao() {

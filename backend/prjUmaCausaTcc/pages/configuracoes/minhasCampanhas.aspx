@@ -20,9 +20,8 @@
   </head>
   <body>
       <form id="form1" runat="server">
-            <header>
-                <asp:Literal ID="LitHeader" runat="server"></asp:Literal>
-            </header>
+
+            <asp:Literal ID="LitHeader" runat="server"></asp:Literal>
 
             <main>
                 <asp:Literal ID="LitMenu" runat="server"></asp:Literal>

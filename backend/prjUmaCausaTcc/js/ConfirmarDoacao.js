@@ -26,7 +26,7 @@ function aceitarDoacao(botao){
 
 
 function recusarDoacao(botao) {
-    const doacao = botao.id;
+    const doacao = botao.name;
 
     const formData = new FormData();
     formData.append('confirmacao', 0);
@@ -41,6 +41,9 @@ function recusarDoacao(botao) {
             if (dados['situacao'] == 'true') {
                 bloqueio.classList.add("escondido");
                 popupConfirmacao.classList.add("escondido");
+
+                const botaoRecusarDaDoacao = document.getElementById(doacao);
+                botaoRecusarDaDoacao.parentNode.parentNode.classList.add("escondido");
             }
             else {
             }

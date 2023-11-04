@@ -21,9 +21,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-       <header>
-           <asp:Literal ID="Navegacao" runat="server"></asp:Literal>
-        </header>
+
+        <asp:Literal ID="Navegacao" runat="server"></asp:Literal>
 
         <main>
         <asp:Literal ID="Menu" runat="server"></asp:Literal>   

@@ -14,7 +14,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
         {
             Usuario usuario = (Usuario)Session["usuario"];
 
-            if (usuario == null)
+            if (usuario == null || usuario.TipoDoUsuario.Codigo != 1)
                 Response.Redirect("../index.aspx");
 
             GerarEmentosHtml gerarElementosHtml = new GerarEmentosHtml();

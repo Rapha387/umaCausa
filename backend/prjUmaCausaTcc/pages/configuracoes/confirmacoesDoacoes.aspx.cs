@@ -15,7 +15,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
             Usuario usuario = (Usuario)Session["usuario"];
             Doacoes doacoes = new Doacoes();
 
-            if (usuario == null)
+            if (usuario == null || usuario.TipoDoUsuario.Codigo != 1)
                 Response.Redirect("../index.aspx");
 
             if (Request["pagina"] == "1")
