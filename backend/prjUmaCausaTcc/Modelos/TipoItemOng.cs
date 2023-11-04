@@ -29,4 +29,23 @@ public class TipoItemOng : Banco
             throw new Exception(ex.Message);
         }
     }
+
+    public void DeletarTipoItemOng(int codigoTipoItem, int codigoOng)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdUsuario", codigoOng.ToString()),
+            new Parametro ("pCodigoTipoItem", codigoTipoItem.ToString()),
+        };
+        try
+        {
+            Conectar();
+            Executar("DeletarTipoItemONg", parametros);
+            Desconectar();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
 }
