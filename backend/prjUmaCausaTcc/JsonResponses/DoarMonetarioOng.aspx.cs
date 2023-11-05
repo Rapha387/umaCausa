@@ -24,8 +24,7 @@ namespace prjUmaCausaTcc.JsonResponses
                 Response.Write(resposta);
                 return;
             }
-                
-            string nomeComprovante;
+               
 
             Usuario usuario = (Usuario)Session["usuario"];
             

@@ -151,9 +151,9 @@ public class Doacoes : Banco
         {
             listarDoacoes.Add(new Doacoes
             {
-                NomeDoador = item.Doador.Nome,
+                Doador = item.Doador,
                 Nome = item.Campanha.Nome,
-                NomeONG = item.Campanha.ONG.Nome,
+                ONG = item.Campanha.ONG,
                 DataDoacao = item.DataDoacao,
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
@@ -166,9 +166,9 @@ public class Doacoes : Banco
         {
             listarDoacoes.Add(new Doacoes
             {
-                NomeDoador = item.Doador.Nome,
+                Doador = item.Doador,
                 Nome = item.Campanha.Nome,
-                NomeONG = item.Campanha.ONG.Nome,
+                ONG = item.Campanha.ONG,
                 DataDoacao = item.DataDoacao,
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
@@ -181,7 +181,7 @@ public class Doacoes : Banco
         {
             listarDoacoes.Add(new Doacoes
             {
-                NomeDoador = item.Doador.Nome,
+                Doador = item.Doador,
                 DataDoacao = item.DataDoacao,
                 Quantidade = "R$" + item.ValorDoacao.ToString(),
                 NomeTipoItem = "Monetário",
@@ -194,7 +194,7 @@ public class Doacoes : Banco
         {
             listarDoacoes.Add(new Doacoes
             {
-                NomeDoador = item.Doador.Nome,
+                Doador = item.Doador,
                 DataDoacao = item.DataDoacao,
                 DataDesejada = item.DataDesejada,
                 HorarioEsperado = item.HorarioDesejado,

@@ -162,11 +162,7 @@ namespace prjUmaCausaTcc.pages
                       </div>
                       <div class='progresso'>
                         <div class='barra-progresso'>
-<<<<<<< HEAD
-                          <div class='quantidade-progresso' style='max-width: 100%; width: {campanha.PorcentagemArrecadado}%;'></div>
-=======
                           <div class='quantidade-progresso' style='width: {porcentagemBarra}%;'></div>
->>>>>>> origin/main
                         </div>
                         <div class='porcentagem' >{campanha.PorcentagemArrecadado}%</div>
                       </div>

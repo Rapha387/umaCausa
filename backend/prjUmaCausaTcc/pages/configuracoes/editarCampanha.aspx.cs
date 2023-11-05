@@ -24,7 +24,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 if (usuario.TipoDoUsuario.Codigo == 1)
                     this.Usuario = usuario;
                 else
-                    Response.Redirect($"erro.aspx?e=pagina não encontrada");
+                    Response.Redirect($"../erro.aspx?e=pagina não encontrada");
             }
             else
             {
@@ -115,7 +115,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     {
                         HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
                         imgBanner = $@"uploads/campanhas/banners/{codigoCampanha}.jpg";
-                        this.Campanha.AdcionarBannerCampanha(codigoCampanha, imgBanner);
+                        this.Campanha.AdicionarBannerCampanha(codigoCampanha, imgBanner);
                         fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
                     }
                     List<ODS> odsses = new List<ODS>();

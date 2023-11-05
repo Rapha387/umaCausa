@@ -42,9 +42,11 @@ namespace prjUmaCausaTcc.Logicas
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacaoCampanha")),
                             DoacaoConfirmada = confirmado,
                             Codigo = dados.GetInt32("id_doacao"),
-                            DoacaoConfirmada = confirmado,
-                            Comprovante = dados.GetString("nm_comprovante")
                         };
+                        if (!dados.IsDBNull(dados.GetOrdinal("nm_comprovante")))
+                        {
+                            doacao.Comprovante = dados.GetString("nm_comprovante");
+                        }
                         if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
                             doacao.RespostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
                         doacoes.Add(doacao);

@@ -179,7 +179,6 @@
             </div>
           </div>
           <div class="infos2">
-<<<<<<< HEAD
               <div style="margin-bottom: 20px;">
                  <button class="doar" id="btnDoar">
                     <%--<img src="./../images/icons/search.png" alt="DOAR">--%>
@@ -187,11 +186,6 @@
                  </button>
                   <asp:Button ID="btnMeuPerfil" CssClass="botao-secundario" Visible="false" OnClick="btnMeuPerfil_Click" runat="server" Text="EDITAR PERFIL" />
               </div>
-=======
-             <button class="doar" id="btnDoar">
-              <div>DOAR</div>
-             </button>
->>>>>>> origin/main
             <div class="card-infos">
               <div class="card">
                 <img src="./../images/icons/endereco.png" alt="icone endereco">
