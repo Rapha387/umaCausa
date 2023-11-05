@@ -20,6 +20,7 @@ public class Doacoes : Banco
     public DateTime RespostaOng { get; set; }
     public string TipoDoacao { get; set; }
     public string Comprovante { get; set; }
+    public int Codigo { get; set; }
 
     public List<Doacoes> ListarDoacoes(int IdUsuario)
     {
@@ -88,7 +89,8 @@ public class Doacoes : Banco
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
                 Comprovante = item.Comprovante,
                 DoacaoConfirmada = false,
-                TipoDoacao = "dcm"
+                TipoDoacao = "dcm",
+                Codigo = item.Codigo,
             }) ;
         };
         foreach (DoacaoCampanha item in colaboracoes.ListarDoacoesCampanhasItensConfirmadasOuNao(IdUsuarioONG, false))
@@ -102,7 +104,8 @@ public class Doacoes : Banco
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
                 DoacaoConfirmada = false,
-                TipoDoacao = "dci"
+                TipoDoacao = "dci",
+                Codigo=item.Codigo,
             });
         };
         foreach (DoacaoMonetaria item in colaboracoes.ListarDoacoesMonetariasConfirmadasOuNao(IdUsuarioONG, false))
@@ -114,9 +117,9 @@ public class Doacoes : Banco
                 Quantidade = "R$" + item.ValorDoacao.ToString(),
                 NomeTipoItem = "Monetário",
                 DoacaoConfirmada = false,
+                Comprovante = item.Comprovante,
                 TipoDoacao = "dm",
-                Comprovante = item.Comprovante
-
+                Codigo = item.CodigoDoacao
             });
         };
         foreach (DoacaoItem item in colaboracoes.ListarDoacoesItensConfirmadasOuNao(IdUsuarioONG, false))
@@ -130,13 +133,83 @@ public class Doacoes : Banco
                 Quantidade = item.Quantidade,
                 NomeTipoItem = char.ToUpper(item.NomeItem[0]) + item.NomeItem.Substring(1),
                 DoacaoConfirmada = false,
-                TipoDoacao = "di"
+                TipoDoacao = "di",
+                Codigo = item.Codigo
             });
         };
 
         var listarDoacoesOrdernada = listarDoacoes.OrderByDescending(item => item.DataDoacao).ToList();
         return listarDoacoesOrdernada;
     }
+
+    public List<Doacoes> ListarDoacoesConfirmadas(int IdUsuarioONG)
+    {
+        List<Doacoes> listarDoacoes = new List<Doacoes>();
+        Colaboracoes colaboracoes = new Colaboracoes();
+
+        foreach (DoacaoCampanha item in colaboracoes.ListarDoacoesCampanhasMonetariasConfirmadasOuNao(IdUsuarioONG, true))
+        {
+            listarDoacoes.Add(new Doacoes
+            {
+                NomeDoador = item.Doador.Nome,
+                Nome = item.Campanha.Nome,
+                NomeONG = item.Campanha.ONG.Nome,
+                DataDoacao = item.DataDoacao,
+                Quantidade = item.QuantidadeDoado,
+                NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
+                DoacaoConfirmada = item.DoacaoConfirmada,
+                TipoDoacao = "dc",
+                Codigo = item.Codigo,
+            });
+        };
+        foreach (DoacaoCampanha item in colaboracoes.ListarDoacoesCampanhasItensConfirmadasOuNao(IdUsuarioONG, true))
+        {
+            listarDoacoes.Add(new Doacoes
+            {
+                NomeDoador = item.Doador.Nome,
+                Nome = item.Campanha.Nome,
+                NomeONG = item.Campanha.ONG.Nome,
+                DataDoacao = item.DataDoacao,
+                Quantidade = item.QuantidadeDoado,
+                NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
+                DoacaoConfirmada = item.DoacaoConfirmada,
+                TipoDoacao = "dc",
+                Codigo = item.Codigo,
+            });
+        };
+        foreach (DoacaoMonetaria item in colaboracoes.ListarDoacoesMonetariasConfirmadasOuNao(IdUsuarioONG, true))
+        {
+            listarDoacoes.Add(new Doacoes
+            {
+                NomeDoador = item.Doador.Nome,
+                DataDoacao = item.DataDoacao,
+                Quantidade = "R$" + item.ValorDoacao.ToString(),
+                NomeTipoItem = "Monetário",
+                DoacaoConfirmada = item.DoacaoConfirmada,
+                TipoDoacao = "dm",
+                Codigo = item.CodigoDoacao
+            });
+        };
+        foreach (DoacaoItem item in colaboracoes.ListarDoacoesItensConfirmadasOuNao(IdUsuarioONG, true))
+        {
+            listarDoacoes.Add(new Doacoes
+            {
+                NomeDoador = item.Doador.Nome,
+                DataDoacao = item.DataDoacao,
+                DataDesejada = item.DataDesejada,
+                HorarioEsperado = item.HorarioDesejado,
+                Quantidade = item.Quantidade,
+                NomeTipoItem = char.ToUpper(item.NomeItem[0]) + item.NomeItem.Substring(1),
+                DoacaoConfirmada = item.DoacaoConfirmada,
+                TipoDoacao = "di",
+                Codigo = item.Codigo
+            });
+        };
+
+        var listarDoacoesOrdernada = listarDoacoes.OrderByDescending(item => item.DataDoacao).ToList();
+        return listarDoacoesOrdernada;
+    }
+
     public List<Doacoes> ListarDoacoesPesquisa(int IdUsuario, string pesquisa )
     {
         List<Doacoes> listarDoacoes = new List<Doacoes>();

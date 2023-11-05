@@ -10,4 +10,13 @@ public class Dia
     public int Codigo { get; set; }
     public string Nome { get; set; }
     #endregion
+
+    public Dia(int codigo)
+    {
+        Codigo = codigo;
+    }
+    public Dia()
+    {
+       
+    }
 }

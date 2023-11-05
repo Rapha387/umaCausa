@@ -60,9 +60,7 @@ main {
   height: 18px;
 }
 .infos-campanha .meta .progresso {
-  width: 30%;
   height: 100%;
-  background-color: #B66D6D;
 }
 .infos-campanha .realizador-campanha h3 {
   font-family: "Roboto", sans-serif;
@@ -174,5 +172,26 @@ main {
     .infos-campanha .realizador-campanha .infos-realizador img {
         width: 80px;
         height: 80px;
+    }
+
+
+    .popup-doacao-item {
+        width: 90%;
+    }
+
+    .popup-doacao-item .infos-doacao {
+        flex-direction: column;
+     }
+
+     .popup-doacao-item .infos-doacao .input-label {
+          width: 100%;
+     }
+
+    .denuncia {
+        width: 90%;
+    }
+
+    #btnAgendarItem {
+        width: 100%;
     }
 }

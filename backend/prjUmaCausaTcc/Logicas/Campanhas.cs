@@ -133,7 +133,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
-
         public List<Campanha> ListarMinhasCampanhasPesquisa(string pesquisa, int usuario)
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -329,6 +328,7 @@ namespace prjUmaCausaTcc.Logicas
                     {
                         campanhas.Add(new Campanha()
                         {
+                            Codigo = dados.GetInt32("id_campanha"),
                             DataInicio = dados.GetDateTime("dt_inicioCampanha"),
                             Nome = dados.GetString("nm_campanha"),
                             Codigo = dados.GetInt32("id_campanha"),
@@ -348,7 +348,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
-
         public List<Campanha> ListarCampanhasMonetarias(int codigo)
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -390,7 +389,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
-
         public List<Campanha> ListarCampanhasPorTipo(int codigo, int tipo)
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -433,7 +431,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
-
         public List<Campanha> ListarCampanhasItens(int codigo)
         {
             List<Campanha> campanhas = new List<Campanha>();
@@ -475,7 +472,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return campanhas;
         }
-
         public List<Campanha> ListarCampanhasPorData(int codigo, int data)
         {
             List<Campanha> campanhas = new List<Campanha>();

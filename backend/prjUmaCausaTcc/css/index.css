@@ -1171,6 +1171,41 @@ label {
     background-color: #EE404C;
 }
 
+.popup-confirmacao {
+    width: 290px;
+    padding: 2rem;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.popup-confirmacao .texto-confirmacao{
+    font-weight: 900;
+    font-size: 14px;
+    text-align: center;
+}
+
+.popup-confirmacao .botoes-confirmacao{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botao-confirmacao {
+    text-align: center;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0.4rem;
+    font-size: 14px;
+    cursor: pointer;
+    width: 49%;
+    background-color: #0063BF;
+}
+
+
 .paginacao {
     display: flex;
     width: 100%;

@@ -204,17 +204,20 @@
     <Content Include="images\tipoDoacao\doacao-item.png" />
     <Content Include="images\tipoDoacao\doacao-monetaria.png" />
     <Content Include="JsonResponses\BuscarDadosPixOng.aspx" />
+    <Content Include="JsonResponses\ConfirmarDoacao.aspx" />
     <Content Include="JsonResponses\DenunciarCampanha.aspx" />
     <Content Include="JsonResponses\DenunciarUsuario.aspx" />
     <Content Include="JsonResponses\DeslogarUsuario.aspx" />
+    <Content Include="JsonResponses\DoarItemCampanha.aspx" />
     <Content Include="JsonResponses\DoarItemOng.aspx" />
-    <Content Include="JsonResponses\DoarCampanha.aspx" />
+    <Content Include="JsonResponses\DoarMonetarioCampanha.aspx" />
     <Content Include="JsonResponses\DoarMonetarioOng.aspx" />
     <Content Include="JsonResponses\VerificarUsuario.aspx" />
     <Content Include="js\alteracaoCoresBarraPorcentagem.js" />
     <Content Include="js\animarBtnHeader.js" />
     <Content Include="js\carrossel-itens.js" />
     <Content Include="js\cep.js" />
+    <Content Include="js\ConfirmarDoacao.js" />
     <Content Include="js\DenunciarCampanha.js" />
     <Content Include="js\DenunciarUsuario.js" />
     <Content Include="js\DeslogarUsuario.js" />
@@ -241,6 +244,7 @@
     <Content Include="pages\configuracoes\meuPerfil.aspx" />
     <Content Include="pages\configuracoes\minhasCampanhas.aspx" />
     <Content Include="pages\configuracoes\minhasColaboracoes.aspx" />
+    <Content Include="pages\criarCampanha.aspx" />
     <Content Include="pages\erro.aspx" />
     <Content Include="pages\faq.aspx" />
     <Content Include="pages\index.aspx" />
@@ -292,6 +296,13 @@
     <Compile Include="JsonResponses\BuscarDadosPixOng.aspx.designer.cs">
       <DependentUpon>BuscarDadosPixOng.aspx</DependentUpon>
     </Compile>
+    <Compile Include="JsonResponses\ConfirmarDoacao.aspx.cs">
+      <DependentUpon>ConfirmarDoacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\ConfirmarDoacao.aspx.designer.cs">
+      <DependentUpon>ConfirmarDoacao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="JsonResponses\DenunciarCampanha.aspx.cs">
       <DependentUpon>DenunciarCampanha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -313,6 +324,13 @@
     <Compile Include="JsonResponses\DeslogarUsuario.aspx.designer.cs">
       <DependentUpon>DeslogarUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="JsonResponses\DoarItemCampanha.aspx.cs">
+      <DependentUpon>DoarItemCampanha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\DoarItemCampanha.aspx.designer.cs">
+      <DependentUpon>DoarItemCampanha.aspx</DependentUpon>
+    </Compile>
     <Compile Include="JsonResponses\DoarItemOng.aspx.cs">
       <DependentUpon>DoarItemOng.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -320,12 +338,12 @@
     <Compile Include="JsonResponses\DoarItemOng.aspx.designer.cs">
       <DependentUpon>DoarItemOng.aspx</DependentUpon>
     </Compile>
-    <Compile Include="JsonResponses\DoarCampanha.aspx.cs">
-      <DependentUpon>DoarCampanha.aspx</DependentUpon>
+    <Compile Include="JsonResponses\DoarMonetarioCampanha.aspx.cs">
+      <DependentUpon>DoarMonetarioCampanha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="JsonResponses\DoarCampanha.aspx.designer.cs">
-      <DependentUpon>DoarCampanha.aspx</DependentUpon>
+    <Compile Include="JsonResponses\DoarMonetarioCampanha.aspx.designer.cs">
+      <DependentUpon>DoarMonetarioCampanha.aspx</DependentUpon>
     </Compile>
     <Compile Include="JsonResponses\DoarMonetarioOng.aspx.cs">
       <DependentUpon>DoarMonetarioOng.aspx</DependentUpon>

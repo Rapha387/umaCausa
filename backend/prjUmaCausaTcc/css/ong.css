@@ -145,6 +145,8 @@ main .infos .infos2 .fotos .fotos-flex .foto {
 
 
 
+
+
     .campanhas .campanhas-flex .campanha {
         width: 100% !important;
     }
@@ -153,16 +155,16 @@ main .infos .infos2 .fotos .fotos-flex .foto {
         width: 100%
     }
 
-    
+
 
 
     main .infos .infos2 {
-        width: auto;
+        width: 100%;
     }
 
         main .infos .infos2 .fotos .fotos-flex .foto {
             width: 106px;
-            height: 106px;
+            height: 110px;
         }
 
     .fotos-flex {
@@ -174,8 +176,10 @@ main .infos .infos2 .fotos .fotos-flex .foto {
     }
 
     main .logo-nome {
-        display: block;
+        display: flex;
         margin-top: 71px;
+        flex-direction: column;
+        align-items: center;
     }
 
     .banner {
@@ -216,7 +220,48 @@ main .infos .infos2 .fotos .fotos-flex .foto {
     }
 
     .popup-doacao-monetaria .monetaria-flex {
-       flex-direction: column;
-       height:1px;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .popup-doacao-monetaria {
+        width: 90%;
+    }
+
+        .popup-doacao-monetaria .monetaria-flex .infos-doacao {
+            width: 100%;
+        }
+
+    .containerQrCode {
+        margin-top: 15px;
+    }
+
+    .popup-doacao-monetaria .botao-finalizar-doacao button {
+        width: 100%;
+    }
+
+
+    .popup-doacao-item {
+        width: 90%;
+    }
+
+        .popup-doacao-item .infos-doacao {
+            flex-direction: column;
+        }
+
+            .popup-doacao-item .infos-doacao .input-label {
+                width: 100%;
+            }
+
+    popup-doacao-monetaria .botao-finalizar-doacao {
+        margin-top: 15px;
+    }
+
+    .denuncia {
+        width: 90%;
+    }
+
+    #btnAgendarItem {
+        width:100%;
     }
 }

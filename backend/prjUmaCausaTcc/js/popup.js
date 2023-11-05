@@ -26,9 +26,18 @@ const txtPix = document.getElementById('txtPix');
 const popupDoacaoItem = document.querySelector('.popup-doacao-item');
 const botaoDoacaoItem = document.getElementById('btnDoarItem');
 
+const btnRealizarDoacaoItem = document.getElementById('btnAgendarItem');
+const btnRealizarDoacaoMonetario = document.getElementById('btnRelizarDoacaoMonetaria');
+
 const popupSucesso = document.querySelector('.popup-sucesso');
 const popupErro = document.querySelector('.popup-erro');
+const textoRespostaSucessoPopup = document.getElementById('textoRespostaSucesso');
+const textoRespostaErroPopup = document.getElementById('textoRespostaErro');
 const botoesRespostaPopup = document.querySelectorAll('.btnFecharPopUpResposta');
+
+const popupConfirmacao = document.querySelector(".popup-confirmacao");
+const btnAceitarConfirmacao = document.getElementById("btnAceitarConfirmacao");
+const btnRecusarConfirmacao = document.getElementById("btnRecusarConfirmacao");
 
 const url = window.location.href;
 
@@ -68,10 +77,12 @@ bloqueio.addEventListener('click', function() {
   caixasFlutuantes.forEach(function(caixa){
     caixa.classList.add("escondido");
       bloqueio.classList.add("escondido");
-    if(botaoDoacaoItem)
+      if (btnRealizarDoacaoItem) {
+          console.log("existe");
           LimparPopUpItem();
+      }
 
-    if(botaoDoacaoMonetaria)
+      if (btnRealizarDoacaoMonetario)
           LimparPopupMonetario();
 
      if (botaoDenunciar)
@@ -163,6 +174,20 @@ if (botaoCopiarPix) {
     });
 }
 
+function aparecerPopupConfirmacao(botao) {
+    if (popupConfirmacao) {
+        bloqueio.classList.remove('escondido');
+        popupConfirmacao.classList.remove('escondido');
+        btnAceitarConfirmacao.name = botao.id;
+    }
+}
+function esconderPopupConfirmacao() {
+    if (popupConfirmacao) {
+        bloqueio.classList.add('escondido');
+        popupConfirmacao.classList.add('escondido');
+    }
+}
+
 function LimparPopupMonetario() {
     LimparInputsMonetario();
     popupDoacaoMonetaria.classList.add('escondido');
@@ -172,25 +197,24 @@ function LimparPopupMonetario() {
     spanComprovante.textContent = "Nenhum Comprovante Anexado"
     fileInputComprovante.value = "";
 }
-
 function LimparPopUpItem() {
     LimparInputsItem();
     popupDoacaoItem.classList.add('escondido');
     txtNomeItem.value = "";
-    cmbTipoItem.selectedIndex = 0;
+    if (cmbTipoItem) {
+        cmbTipoItem.selectedIndex = 0;
+    }
     cmbTipoEntrega.selectedIndex = 0;
     txtDataEnvio.value = "";
     txtHorario.value = "";
     txtQuantidadeItem.value = "";
 }
-
 function LimparPopUpDenuncia() {
     txtDescricaoDenuncia.value = "";
     cmbMotivoDenuncia.selectedIndex = 0;
     erroDenuncia.textContent = ""
     cmbMotivoDenuncia.classList.remove('inputInvalido');
     popupDenunciar.classList.add('escondido');
-    bloqueio.classList.add('escondido');
 }
 
 

@@ -15,16 +15,14 @@
       rel="stylesheet"
     />
     <link rel="icon" href="./../../images/icone.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./../../css/index.css" />
     <link rel="stylesheet" href="./../../css/minhasColaboracoes.css" />
     <title>UmaCausa - Meu Perfil</title>
 </head>
 <body>
     <form id="form1" runat="server">
-       <header>
-           <asp:Literal ID="Navegacao" runat="server"></asp:Literal>
-        </header>
+
+        <asp:Literal ID="Navegacao" runat="server"></asp:Literal>
 
         <main>
         <asp:Literal ID="Menu" runat="server"></asp:Literal>   
@@ -39,6 +37,8 @@
                     <asp:TextBox ID="TxtPesquisa" TextMode="Search" runat="server" placeholder="Pesquisar..." CssClass="txtBusca"></asp:TextBox>
                     <asp:ImageButton ID="ImgPesquisar" runat="server" ImageUrl="./../../images/icons/search.png" OnClick="ImgPesquisar_Click"/>
               </div>
+
+                 <div class="container-tabela">
               <table>
                 <thead>
                   <td>Nome</td>
@@ -51,6 +51,7 @@
                     <asp:Literal ID="Colaboracoes" runat="server"></asp:Literal> 
                 </tbody>
               </table>
+                </div>
               <div class="paginacao">
                 <div class="paginas">
                   <img
