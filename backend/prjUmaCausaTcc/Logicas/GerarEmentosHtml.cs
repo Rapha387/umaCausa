@@ -96,7 +96,7 @@ public class GerarEmentosHtml
                         <div class='divisaoNavResposivo'>
                           <h3>Minhas Informações</h3>
                           <li><a href='./configuracoes/meuPerfil.aspx'>Meu Perfil</a></li>
-                          <li><a href='./configuracoes/meusItens.aspx'>Minhas Campanhas</a></li>
+                          <li><a href='./configuracoes/minhasCampanhas.aspx'>Minhas Campanhas</a></li>
                           <li><a href='./configuracoes/minhasColaboracoes.aspx'>Minhas Colaborações</a></li>
                         </div>
                         <li class='btnSairNavResponsivo' id='btnSairNavResponsivo'>Sair</li>
@@ -195,7 +195,7 @@ public class GerarEmentosHtml
                         <div class='divisaoNavResposivo'>
                           <h3>Minhas Informações</h3>
                           <li><a href='./meuPerfil.aspx'>Meu Perfil</a></li>
-                          <li><a href='./meusItens.aspx'>Minhas Campanhas</a></li>
+                          <li><a href='./minhasCampanhas.aspx'>Minhas Campanhas</a></li>
                           <li><a href='./minhasColaboracoes.aspx'>Minhas Colaborações</a></li>
                         </div>
                         <li class='btnSairNavResponsivo' id='btnSairNavResponsivo'>Sair</li>
@@ -239,9 +239,7 @@ public class GerarEmentosHtml
                         <div class='divisaoNavResposivo'>
                           <h3>Minhas Informações</h3>
                           <li><a href='./meuPerfil.aspx'>Meu Perfil</a></li>
-                          <li><a href='./meusItens.aspx'>Minhas Campanhas</a></li>
                           <li><a href='./minhasColaboracoes.aspx'>Minhas Colaborações</a></li>
-                          <li><a href='./confirmacoesDoacoes.aspx'>Confirmações de Doações</a></li>
                         </div>
                         <li class='btnSairNavResponsivo' id='btnSairNavResponsivo'>Sair</li>
                     </div>";

@@ -114,12 +114,11 @@ public class Campanha : Banco
             Desconectar();
         }
     }
-    public void EncerrarCampanha(int codigo, Usuario usuario)
+    public void EncerrarCampanha(int codigo)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
-            new Parametro ("pIdUsuario", usuario.Codigo.ToString()),
-            new Parametro ("pIdCampanha", codigo.ToString()),
+            new Parametro ("pIdCampanha", codigo.ToString()),        
         };
         try
         {
@@ -129,49 +128,6 @@ public class Campanha : Banco
         catch (Exception)
         {
             throw new Exception("Erro ao encerrar a campanha!");
-        }
-        finally
-        {
-            Desconectar();
-        }
-    }
-
-    public void AdcionarBannerCampanha(int codigo, string banner)
-    {
-        List<Parametro> parametros = new List<Parametro>()
-        {
-            new Parametro ("pBanner", banner),
-            new Parametro ("pCodigo", codigo.ToString()),
-        };
-        try
-        {
-            Conectar();
-            Executar("AdcionarBannerCampanha", parametros);
-        }
-        catch (Exception)
-        {
-            throw new Exception("Erro ao Adicionar o Banner a campanha!");
-        }
-        finally
-        {
-            Desconectar();
-        }
-    }
-
-    public bool ExcluirCampanha(int codigo)
-    {
-        List<Parametro> parametros = new List<Parametro>()
-        {
-            new Parametro ("pIdCampanha", codigo.ToString())
-        };
-        try
-        {
-            Executar("ExcluirCampanha", parametros);
-            return true;
-        }
-        catch (Exception)
-        {
-            return false;
         }
         finally
         {
@@ -227,7 +183,6 @@ public class Campanha : Banco
         }
 
     }
-
     public void BuscarUltimaCampanhaAdcionada()
     {
         try
@@ -253,6 +208,27 @@ public class Campanha : Banco
             Desconectar();
         }
 
+    }
+    public void AdicionarBannerCampanha(int codigo, string banner)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pBanner", banner),
+            new Parametro ("pCodigo", codigo.ToString()),
+        };
+        try
+        {
+            Conectar();
+            Executar("AdcionarBannerCampanha", parametros);
+        }
+        catch (Exception)
+        {
+            throw new Exception("Erro ao Adicionar o Banner a campanha!");
+        }
+        finally
+        {
+            Desconectar();
+        }
     }
     public Usuario BuscarDadosPixOngCampanha(int codigoCampanha)
     {

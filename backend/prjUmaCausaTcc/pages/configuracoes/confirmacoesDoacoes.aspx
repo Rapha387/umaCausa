@@ -15,16 +15,24 @@
       rel="stylesheet"
     />
     <link rel="icon" href="./../../images/icone.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="./../swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./../../css/index.css" />
     <link rel="stylesheet" href="./../../css/confirmacoesDoacoes.css" />
     <title>UmaCausa - Confirmar Doações</title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <header>
-            <asp:Literal ID="Navegacao" runat="server"></asp:Literal>
-        </header>
+        
+        <asp:Literal ID="Navegacao" runat="server"></asp:Literal>
+
+        <div class="bloqueio escondido"></div>
+
+        <div class="caixa-flutuante popup-confirmacao escondido">
+            <p id="textoConfirmacao" class="textoPopupResposta">Tem certeza que deseja recusar essa doação?</p>
+            <div class="botoes-confirmacao">
+                <div class="botao-confirmacao" onclick="recusarDoacao(this)" id="btnAceitarConfirmacao">Sim</div>
+                <div class="botao-confirmacao" onclick="esconderPopupConfirmacao()" id="btnRecusarConfirmacao">Não</div>
+            </div>
+        </div>
 
         <main>
             <asp:Literal ID="Menu" runat="server"></asp:Literal>
@@ -44,6 +52,7 @@
                   </a>
                 </div>
                 <div class="confirmacoes">
+                    <asp:Literal ID="Confirmacoes" runat="server" ></asp:Literal>
                     <asp:Panel ID="pnlBotao" runat="server"></asp:Panel>
                     <asp:Panel ID="pnlDonwload" runat="server"></asp:Panel>
                 </div>
@@ -56,10 +65,10 @@
         </footer>
 
 
+        <script src="../../js/popup.js"></script>
         <script src="./../../js/animarBtnHeader.js"></script>
         <script src="./../../js/DeslogarUsuario.js"></script>
-        <script src="./../../js/inputFile.js"></script>
-        <script src="./../../js/cep.js"></script>
+        <script src="../../js/ConfirmarDoacao.js"></script>
 
     </form>
 </body>

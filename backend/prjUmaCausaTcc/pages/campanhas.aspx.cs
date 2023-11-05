@@ -111,8 +111,6 @@ namespace prjUmaCausaTcc.pages
                 btnBack.Visible = false;
             }
 
-
-
             if (!String.IsNullOrEmpty(Request["pagina"]))
             {
                 campanhas = listarCampanhas.ListarCampanhasASC((int.Parse(Request["pagina"]) - 1));
@@ -150,6 +148,10 @@ namespace prjUmaCausaTcc.pages
             litCampanhas.Text = "";
             foreach (Campanha campanha in campanhas)
             {
+                double porcentagemBarra = campanha.PorcentagemArrecadado;
+                if (campanha.PorcentagemArrecadado > 100)
+                    porcentagemBarra = 100;
+
                 litCampanhas.Text += $@"
                 <a href='./campanha.aspx?c={campanha.Codigo}'>
                   <div class='campanha'>
@@ -160,7 +162,7 @@ namespace prjUmaCausaTcc.pages
                       </div>
                       <div class='progresso'>
                         <div class='barra-progresso'>
-                          <div class='quantidade-progresso' style='max-width: 100%; width: {campanha.PorcentagemArrecadado}%;'></div>
+                          <div class='quantidade-progresso' style='width: {porcentagemBarra}%;'></div>
                         </div>
                         <div class='porcentagem' >{campanha.PorcentagemArrecadado}%</div>
                       </div>

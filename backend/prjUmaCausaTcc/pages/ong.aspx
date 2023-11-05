@@ -1,7 +1,5 @@
 ﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ong.aspx.cs" Inherits="prjUmaCausaTcc.pages.ong" %>
-
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head runat="server">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -27,13 +25,13 @@
 
       <div class="caixa-flutuante popup-sucesso escondido">
         <img src="./../images/popupsResposta/sucesso.png"/>
-        <p class="textoPopupResposta">Doação Realizada com sucesso</p>
+        <p id="textoRespostaSucesso" class="textoPopupResposta"></p>
         <div class="btnFecharPopUpResposta">Continuar</div>
       </div>
 
       <div class="caixa-flutuante popup-erro escondido">
         <img src="./../images/popupsResposta/erro.png"/>
-        <p class="textoPopupResposta">Não foi possível realizar a doação. Por favor tente novamente mais tarde.</p>
+        <p id="textoRespostaErro" class="textoPopupResposta"></p>
         <div class="btnFecharPopUpResposta">Voltar</div>
       </div>
 
@@ -181,13 +179,13 @@
             </div>
           </div>
           <div class="infos2">
-              <div style="margin-bottom: 20px;">
-                 <button class="doar" id="btnDoar">
-                    <%--<img src="./../images/icons/search.png" alt="DOAR">--%>
-                  <div>DOAR</div>
-                 </button>
-                  <asp:Button ID="btnMeuPerfil" CssClass="botao-secundario" Visible="false" OnClick="btnMeuPerfil_Click" runat="server" Text="EDITAR PERFIL" />
-              </div>
+              <asp:Panel ID="pnlBotaoDoar" runat="server">
+                  <button class="doar" id="btnDoar">
+                     <div>DOAR</div>
+                   </button>
+              </asp:Panel>
+             
+              <asp:Button ID="btnMeuPerfil" CssClass="botao-secundario" Visible="false" OnClick="btnMeuPerfil_Click" runat="server" Text="EDITAR PERFIL" />
             <div class="card-infos">
               <div class="card">
                 <img src="./../images/icons/endereco.png" alt="icone endereco">

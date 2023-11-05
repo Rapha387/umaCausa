@@ -88,6 +88,10 @@ namespace prjUmaCausaTcc.pages
 
             foreach (Campanha campanha in campanhasAtivas)
             {
+                double porcentagemBarra = campanha.PorcentagemArrecadado;
+                if (campanha.PorcentagemArrecadado > 100)
+                    porcentagemBarra = 100;
+
                 litCampanhasPertoAcabar.Text += $@"
                 <div class='campanha swiper-slide'>
                     <a href='campanha.aspx?c={campanha.Codigo}'>
@@ -98,7 +102,7 @@ namespace prjUmaCausaTcc.pages
                             </div>
                            <div class='progresso'> 
                             <div class='barra-progresso'>
-                                <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%;'></div>
+                                <div class='quantidade-progresso' style='width: {porcentagemBarra}%;'></div>
                             </div>
                             <div class='porcentagem' >{campanha.PorcentagemArrecadado}%</div>
                            </div>
@@ -115,10 +119,6 @@ namespace prjUmaCausaTcc.pages
         public void ExibirOngsAleatorias()
         {
             List<Usuario> ongs = new Ongs().ListarOngsAleatorias();
-            //if (ongsProximas.Count <= 0)
-            //{
-            //    return;
-            //}
 
             foreach (Usuario ong in ongs)
             {
@@ -137,16 +137,13 @@ namespace prjUmaCausaTcc.pages
         public void ExibirCampanhasAleatorias()
         {
             List<Campanha> campanhas = new Campanhas().ListarCampanhasAleatorias();
-            //if (campanhasAtivas.Count <= 0)
-            //{
-            //    pnlCampanhasAcabando.Visible = false;
-            //    return;
-            //}
-
-            //pnlCampanhasAcabando.Visible = true;
 
             foreach (Campanha campanha in campanhas)
             {
+                double porcentagemBarra = campanha.PorcentagemArrecadado;
+                if (campanha.PorcentagemArrecadado > 100)
+                    porcentagemBarra = 100;
+
                 litCampanhasAleatorias.Text += $@"
                 <div class='campanha swiper-slide'>
                     <a href='campanha.aspx?c={campanha.Codigo}'>
@@ -157,7 +154,7 @@ namespace prjUmaCausaTcc.pages
                             </div>
                            <div class='progresso'> 
                             <div class='barra-progresso'>
-                                <div class='quantidade-progresso' style='width: {campanha.PorcentagemArrecadado}%;'></div>
+                                <div class='quantidade-progresso' style='width: {porcentagemBarra}%;'></div>
                             </div>
                             <div class='porcentagem' >{campanha.PorcentagemArrecadado}%</div>
                            </div>

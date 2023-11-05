@@ -43,17 +43,17 @@ namespace prjUmaCausaTcc.pages
             foreach (ODS ods in ODS)
             {
 
-                    Panel pnlCheck = new Panel();
-                    CheckBox chk = new CheckBox();
-                    chk.ID = "chkOds" + ods.Codigo.ToString();
-                    chk.Text = ods.Nome;
+                Panel pnlCheck = new Panel();
+                CheckBox chk = new CheckBox();
+                chk.ID = "chkOds" + ods.Codigo.ToString();
+                chk.Text = ods.Nome;
 
-                    pnlCheck.CssClass = "pnlCheckBox";
+                pnlCheck.CssClass = "pnlCheckBox";
 
-                    pnlCheck.ID = "pnlOds" + ods.Codigo.ToString();
-                    pnlCheck.Controls.Add(chk);
+                pnlCheck.ID = "pnlOds" + ods.Codigo.ToString();
+                pnlCheck.Controls.Add(chk);
 
-                    pnlODS.Controls.Add(pnlCheck);
+                pnlODS.Controls.Add(pnlCheck);
             }
         }
 
@@ -80,7 +80,7 @@ namespace prjUmaCausaTcc.pages
                     {
                         HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
                         imgBanner = $@"uploads/campanhas/banners/{codigoCampanha}.jpg";
-                        campanha.AdcionarBannerCampanha(codigoCampanha, imgBanner);
+                        campanha.AdicionarBannerCampanha(codigoCampanha, imgBanner);
                         fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
                     }
                     List<ODS> odsses = new List<ODS>();
@@ -95,7 +95,6 @@ namespace prjUmaCausaTcc.pages
                             ODS ods = new ODS();
                             ods.Nome = chk.Text;
                             ods.Codigo = i;
-
                             odsses.Add(ods);
                         }
                     }
@@ -111,7 +110,6 @@ namespace prjUmaCausaTcc.pages
 
                     throw new Exception(ex.Message);
                 }
-                
             };
         }
     }

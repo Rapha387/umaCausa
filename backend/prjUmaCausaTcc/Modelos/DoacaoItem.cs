@@ -15,7 +15,8 @@ public class DoacaoItem : Banco
     public bool DoacaoConfirmada { get; set; }
     public TipoItem TipoItem { get; set; }
     public TipoEntrega TipoEntrega { get; set; }
-    public DateTime respostaOng { get; set; } 
+    public DateTime respostaOng { get; set; }
+    public int Codigo { get; set; }
 
     public string DataDesejada { get; set; }
     public string HorarioDesejado { get; set; }
@@ -51,20 +52,17 @@ public class DoacaoItem : Banco
             Desconectar();
         }
     }
-    public void ConfirmarDoacaoCampanha( int usuarioDoador, int usuarioOng, DateTime dataDoacao,bool situacaoDoacao)
+    public void ConfirmarDoacaoItem( int codigo, int situacaoDoacao)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
-            new Parametro("pIdUsuarioDoador",usuarioDoador.ToString()),
-            new Parametro("pIdUsuarioOng",usuarioOng.ToString()),
-            new Parametro("pDataDoacaoItem", dataDoacao.ToString()),
-            new Parametro("SituacaoDoacao", situacaoDoacao.ToString()),
-
+            new Parametro("pCodigo",codigo.ToString()),
+            new Parametro("pSituacaoDoacao", situacaoDoacao.ToString()),
         };
         try
         {
             Conectar();
-            Executar("ConfirmarRecebimentoDoacaoItem", parametros);
+            Executar("ConfirmarRespostaDoacaoItem", parametros);
         }
         catch (Exception ex)
         {

@@ -21,10 +21,12 @@ function VerificarDadosDoacaoItem(event) {
         event.preventDefault();
         erroNomeItem.textContent = "Preencha o nome do item"
     }
-    if (cmbTipoItem.selectedIndex == 0) {
-        cmbTipoItem.classList.add('inputInvalido');
-        event.preventDefault();
-        erroTipoItem.textContent = "Selecione o tipo do item"
+    if (cmbTipoItem) {
+        if (cmbTipoItem.selectedIndex == 0) {
+            cmbTipoItem.classList.add('inputInvalido');
+            event.preventDefault();
+            erroTipoItem.textContent = "Selecione o tipo do item"
+        }
     }
     if (txtQuantidadeItem.value == "") {
         txtQuantidadeItem.classList.add('inputInvalido');
@@ -71,13 +73,16 @@ function LimparInputsMonetario() {
 
 function LimparInputsItem() {
     txtNomeItem.classList.remove('inputInvalido');
-    cmbTipoItem.classList.remove('inputInvalido');
+    if (cmbTipoItem) {
+        cmbTipoItem.classList.remove('inputInvalido');
+        erroTipoItem.textContent = "";
+    }
+        
     txtQuantidadeItem.classList.remove('inputInvalido');
     cmbTipoEntrega.classList.remove('inputInvalido');
     txtHorario.classList.remove('inputInvalido');
     txtDataEnvio.classList.remove('inputInvalido');
     erroNomeItem.textContent = ""
-    erroTipoItem.textContent = ""
     erroQuantidadeItem.textContent = ""
     erroTipoEntrega.textContent = ""
     erroHorario.textContent = ""
