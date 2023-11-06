@@ -42,6 +42,7 @@ namespace prjUmaCausaTcc.Logicas
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacaoCampanha")),
                             DoacaoConfirmada = confirmado,
                             Codigo = dados.GetInt32("id_doacao"),
+                            QuantidadeDoado = dados.GetString("qt_doado")
                         };
                         if (!dados.IsDBNull(dados.GetOrdinal("nm_comprovante")))
                         {
@@ -442,8 +443,7 @@ namespace prjUmaCausaTcc.Logicas
                 { dados.Close(); }
             }
             catch (Exception)
-            {
-
+            { 
                 throw new Exception("Houve um problema a realizar a busca");
             }
             finally { Desconectar(); }

@@ -66,46 +66,54 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
         protected void ImgPesquisar_Click(object sender, ImageClickEventArgs e)
         {
-            string pesquisa = TxtPesquisa.Text;
-            Colaboracoes.Text = "";
-            Doacoes doacoes = new Doacoes();
-            Usuario usuario = (Usuario)Session["usuario"];
-            int codigo = usuario.Codigo;
-            foreach (Doacoes doacao in doacoes.ListarDoacoesPesquisa(codigo, pesquisa))
+            try
             {
-                string estadoConfirmacao = "";
-                string nomeOng = "";
-                if (doacao.DoacaoConfirmada == true)
+                string pesquisa = TxtPesquisa.Text;
+                Colaboracoes.Text = "";
+                Doacoes doacoes = new Doacoes();
+                Usuario usuario = (Usuario)Session["usuario"];
+                int codigo = usuario.Codigo;
+                foreach (Doacoes doacao in doacoes.ListarDoacoesPesquisa(codigo, pesquisa))
                 {
-                    estadoConfirmacao = "Aceita";
-                }
-                else
-                {
-                    if (doacao.RespostaOng.ToString() == "01/01/0001 00:00:00")
+                    string estadoConfirmacao = "";
+                    string nomeOng = "";
+                    if (doacao.DoacaoConfirmada == true)
                     {
-                        estadoConfirmacao = "Pendente";
+                        estadoConfirmacao = "Aceita";
                     }
                     else
                     {
-                        estadoConfirmacao = "Negada";
+                        if (doacao.RespostaOng.ToString() == "01/01/0001 00:00:00")
+                        {
+                            estadoConfirmacao = "Pendente";
+                        }
+                        else
+                        {
+                            estadoConfirmacao = "Negada";
+                        }
                     }
-                }
-                if (doacao.Nome != null)
-                {
-                    nomeOng = doacao.ONG.Nome + ": ";
-                }
-                else
-                {
-                    nomeOng = doacao.ONG.Nome;
-                }
-                Colaboracoes.Text += $@"<tr>
+                    if (doacao.Nome != null)
+                    {
+                        nomeOng = doacao.ONG.Nome + ": ";
+                    }
+                    else
+                    {
+                        nomeOng = doacao.ONG.Nome;
+                    }
+                    Colaboracoes.Text += $@"<tr>
                         <td>{nomeOng}{doacao.Nome}</td>
                         <td>{doacao.NomeTipoItem}</td>
                         <td>{doacao.Quantidade}</td>
                         <td>{doacao.DataDoacao.ToString().Substring(0, 10)}</td>
                         <td>{estadoConfirmacao}</td>
                       </tr>";
+                }
             }
+            catch
+            {
+                litErro.Text = "colaboração não encontrada";
+            }
+
         }
     }
 }
