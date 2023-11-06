@@ -52,6 +52,7 @@
                 </tbody>
               </table>
                 </div>
+                <asp:Literal ID="litErro" runat="server"></asp:Literal>
             </div>
           </div>
         </main>
