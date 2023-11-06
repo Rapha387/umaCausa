@@ -391,7 +391,7 @@
     <Compile Include="Modelos\MotivoDenunciaCampanha.cs" />
     <Compile Include="Modelos\MotivoDenunciaUsuario.cs" />
     <Compile Include="Modelos\ODS.cs" />
-    <Compile Include="Modelos\Ong_CategoiraOng.cs" />
+    <Compile Include="Modelos\Ong_CategoriaOng.cs" />
     <Compile Include="Modelos\TipoEntrega.cs" />
     <Compile Include="Modelos\TipoItem.cs" />
     <Compile Include="Modelos\TipoItemOng.cs" />

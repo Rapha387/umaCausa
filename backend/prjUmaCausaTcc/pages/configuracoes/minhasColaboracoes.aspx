@@ -51,8 +51,7 @@
                     <asp:Literal ID="Colaboracoes" runat="server"></asp:Literal> 
                 </tbody>
               </table>
-             </div>
-              <asp:Literal ID="litErro" runat="server"></asp:Literal>
+                </div>
             </div>
           </div>
         </main>
