@@ -41,6 +41,8 @@ namespace prjUmaCausaTcc.JsonResponses
                     doacaoItem.ConfirmarDoacaoItem(idDoacao, int.Parse(Request.Form["confirmacao"]));
                 }
 
+                string tipoDoacao2 = doacao.Substring(0, 3);
+
                 if (tipoDoacao == "dc")
                 {
                     DoacaoCampanha doacaoCampanha = new DoacaoCampanha();

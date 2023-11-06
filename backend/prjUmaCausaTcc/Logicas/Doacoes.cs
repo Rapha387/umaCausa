@@ -21,6 +21,7 @@ public class Doacoes : Banco
     public string TipoDoacao { get; set; }
     public string Comprovante { get; set; }
     public int Codigo { get; set; }
+    public bool Monetario { get; set; }
 
     public List<Doacoes> ListarDoacoes(int IdUsuario)
     {
@@ -89,7 +90,8 @@ public class Doacoes : Banco
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
                 Comprovante = item.Comprovante,
                 DoacaoConfirmada = false,
-                TipoDoacao = "dcm",
+                TipoDoacao = "dc",
+                Monetario = true,
                 Codigo = item.Codigo,
             }) ;
         };
@@ -104,7 +106,7 @@ public class Doacoes : Banco
                 Quantidade = item.QuantidadeDoado,
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
                 DoacaoConfirmada = false,
-                TipoDoacao = "dci",
+                TipoDoacao = "dc",
                 Codigo=item.Codigo,
             });
         };
@@ -119,6 +121,7 @@ public class Doacoes : Banco
                 DoacaoConfirmada = false,
                 Comprovante = item.Comprovante,
                 TipoDoacao = "dm",
+                Monetario = true,
                 Codigo = item.CodigoDoacao
             });
         };
@@ -159,6 +162,7 @@ public class Doacoes : Banco
                 NomeTipoItem = item.Campanha.TipoItemArrecadado.Nome,
                 DoacaoConfirmada = item.DoacaoConfirmada,
                 TipoDoacao = "dc",
+                Monetario = true,
                 Codigo = item.Codigo,
             });
         };
@@ -187,6 +191,7 @@ public class Doacoes : Banco
                 NomeTipoItem = "Monetário",
                 DoacaoConfirmada = item.DoacaoConfirmada,
                 TipoDoacao = "dm",
+                Monetario = true,
                 Codigo = item.CodigoDoacao
             });
         };

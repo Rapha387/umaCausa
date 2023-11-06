@@ -27,6 +27,7 @@ function aceitarDoacao(botao){
 
 function recusarDoacao(botao) {
     const doacao = botao.name;
+    console.log(doacao)
 
     const formData = new FormData();
     formData.append('confirmacao', 0);
@@ -46,6 +47,7 @@ function recusarDoacao(botao) {
                 botaoRecusarDaDoacao.parentNode.parentNode.classList.add("escondido");
             }
             else {
+                console.log("nao foi");
             }
         });
 }

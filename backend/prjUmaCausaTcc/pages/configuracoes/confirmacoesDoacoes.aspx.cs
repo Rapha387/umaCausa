@@ -85,7 +85,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                                     <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=aceitarDoacao(this) src='./../../images/icons/confirmado.png' alt=''>
                                     "));
                     
-                            if (doacao.TipoDoacao == "dm" || doacao.TipoDoacao == "dcm")
+                            if (doacao.Monetario == true)
                             {
                                 Panel pnlButton = new Panel();
                                 Button button = new Button();
