@@ -37,13 +37,14 @@ namespace prjUmaCausaTcc.pages.configuracoes
             {
                 this.Campanha = (Campanha)Session["Campanha"];
             }
-            else
-                Response.Redirect($"../erro.aspx?e=pagina não encontrada");
-
-            if (Request["id"] != null)
+            else if (Request["id"] != null)
             {
                 this.Campanha = new Campanha();
                 this.Campanha.BuscarCampanha(int.Parse(Request["id"]));
+            }
+            else
+            {
+                Response.Redirect($"../erro.aspx?e=pagina não encontrada");
             }
             #endregion
 

@@ -122,6 +122,9 @@ namespace prjUmaCausaTcc.pages
             {
                 campanhas = listarCampanhas.ListarCampanhasPesquisa(Request["s"].ToString());
                 GerarCampanhas(campanhas);
+                btnNext.Visible = false;
+                btnBack.Visible = false;
+                litItemPaginacao.Text = "";
                 return;
             }
 
@@ -129,13 +132,28 @@ namespace prjUmaCausaTcc.pages
             if (!IsPostBack)
             {
                 if (!String.IsNullOrEmpty(Request["c"]))
+                {
                     ddlCategoria.SelectedIndex = int.Parse(Request["c"]);
+                    btnNext.Visible = false;
+                    btnBack.Visible = false;
+                    litItemPaginacao.Text = "";
+                }
 
                 if (!String.IsNullOrEmpty(Request["d"]))
+                {
                     ddlData.SelectedIndex = int.Parse(Request["d"]);
+                    btnNext.Visible = false;
+                    btnBack.Visible = false;
+                    litItemPaginacao.Text = "";
+                }
 
                 if (!String.IsNullOrEmpty(Request["t"]))
+                {
                     ddlTipo.SelectedValue = Request["t"];
+                    btnNext.Visible = false;
+                    btnBack.Visible = false;
+                    litItemPaginacao.Text = "";
+                }
             }
             #endregion
 

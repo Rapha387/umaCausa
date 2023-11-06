@@ -67,7 +67,9 @@
                          <asp:Panel ID="pnlODS" runat="server"></asp:Panel>
                     </div>
                   <asp:Button ID="btnCriarDivulgacao" runat="server" Text="Criar Divulgação" OnClick="btnCriarDivulgacao_Click"/>
+
                 </div>
+                <asp:Literal ID="literro" runat="server"></asp:Literal>
                 
               </div>
       </main>

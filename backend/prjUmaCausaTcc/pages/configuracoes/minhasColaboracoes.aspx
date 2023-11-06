@@ -17,7 +17,7 @@
     <link rel="icon" href="./../../images/icone.svg" type="image/x-icon" />
     <link rel="stylesheet" href="./../../css/index.css" />
     <link rel="stylesheet" href="./../../css/minhasColaboracoes.css" />
-    <title>UmaCausa - Meu Perfil</title>
+    <title>UmaCausa - Minhas Colaborações</title>
 </head>
 <body>
     <form id="form1" runat="server">

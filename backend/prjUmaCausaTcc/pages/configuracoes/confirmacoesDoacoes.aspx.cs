@@ -41,21 +41,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             if (Request["pagina"] == "1")
             {
-                foreach (Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
-                {
-                    pnlBotao.Controls.Clear();
-                    pnlDonwload.Controls.Clear();
-                    string estado = "";
-                    if (doacao.DoacaoConfirmada == true)
-                    {
-                        estado = "Aceita";
-                    }
-                    else
-                    {
-                        estado = "Recusada";
-                    }
-                }
-                foreach (Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
+                foreach (Doacoes doacao in doacoes.ListarDoacoesConfirmadas(codigo))
                 {
                     string estado = "";
                     if (doacao.DoacaoConfirmada == true)
@@ -70,7 +56,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         $@"<div class='confirmacao'>
                               <div class='infos-confirmacao'>
                                 <p>Doador: {doacao.Doador.Nome}</p>
-                                <p>Item: {doacao.TipoDoacao}</p>
+                                <p>Item: {doacao.NomeTipoItem}</p>
                                 <p>Quantidade: {doacao.Quantidade}</p>
                                 <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                                 <p>Estado: {estado}</p>
@@ -117,10 +103,10 @@ namespace prjUmaCausaTcc.pages.configuracoes
                             pnlBotao.Controls.Add(new LiteralControl("</div></div>"));
                     }         
                 }
-                    catch (Exception ex)
-                    {
-                        Response.Redirect("../erro.aspx?"+ ex.Message);
-                    }
+                catch (Exception ex)
+                {
+                    Response.Redirect("../erro.aspx?"+ ex.Message);
+                }
             }  
         }
 

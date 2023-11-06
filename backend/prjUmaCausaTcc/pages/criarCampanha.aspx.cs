@@ -107,10 +107,13 @@ namespace prjUmaCausaTcc.pages
                 }
                 catch (Exception ex)
                 {
-
-                    throw new Exception(ex.Message);
+                    Response.Redirect("erro.aspx?e"+ex.Message);
                 }
-            };
+            }
+            else
+            {
+                literro.Text = "Campos em branco!";
+            }
         }
     }
 }
