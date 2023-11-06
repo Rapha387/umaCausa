@@ -74,7 +74,7 @@ namespace prjUmaCausaTcc.pages
                     campanha.CriarCampanha(nome, descricao, dia, quantidade, "", this.usuario, CodigoTipo);
                     campanha.BuscarUltimaCampanhaAdcionada();
                     int codigoCampanha = campanha.Codigo;
-                    string imgBanner = $@"images/campanhas/campanha1.png";
+                    string imgBanner = $@"images/fotoPadrao/bannerOngPadrao.png";
 
                     if (fileInputBanner.HasFile)
                     {
