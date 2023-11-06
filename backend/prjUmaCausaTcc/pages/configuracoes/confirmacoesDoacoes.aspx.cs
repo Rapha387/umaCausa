@@ -41,21 +41,9 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             if (Request["pagina"] == "1")
             {
-                foreach (Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
-                {
-                    pnlBotao.Controls.Clear();
-                    pnlDonwload.Controls.Clear();
-                    string estado = "";
-                    if (doacao.DoacaoConfirmada == true)
-                    {
-                        estado = "Aceita";
-                    }
-                    else
-                    {
-                        estado = "Recusada";
-                    }
-                }
-                foreach (Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
+                Confirmacoes.Text = "";
+
+                foreach (Doacoes doacao in doacoes.ListarDoacoesConfirmadas(codigo))
                 {
                     string estado = "";
                     if (doacao.DoacaoConfirmada == true)
@@ -66,16 +54,16 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     {
                         estado = "Recusada";
                     }
-                    pnlBotao.Controls.Add(new LiteralControl(
+                    Confirmacoes.Text +=
                         $@"<div class='confirmacao'>
                               <div class='infos-confirmacao'>
                                 <p>Doador: {doacao.Doador.Nome}</p>
-                                <p>Item: {doacao.TipoDoacao}</p>
-                                <p>Quantidade: {doacao.Quantidade}</p>
+                                <p>Item: {doacao.NomeTipoItem}</p>  
+                                <p>Quantidade:{doacao.Quantidade}</p>
                                 <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                                 <p>Estado: {estado}</p>
                               </div>
-                           </div>"));
+                            </div>";
                 }
             }
             else
@@ -95,8 +83,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
                                     <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                                     </div>
                                     <div class='botoes-confirmacao'>
-                                    <img id='' onclick=confirmarDoacao() src='./../../images/icons/confirmado.png' alt=''>
-                                    <img id='' onclick=recusarDoacao() src = './../../images/icons/recusar.png' alt = ''>
+                                    <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=aparecerPopupConfirmacao(this) src = './../../images/icons/recusar.png' alt = ''>
+                                    <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=aceitarDoacao(this) src='./../../images/icons/confirmado.png' alt=''>
                                     "));
                     
                             if (doacao.TipoDoacao == "dm" || doacao.TipoDoacao == "dcm")
