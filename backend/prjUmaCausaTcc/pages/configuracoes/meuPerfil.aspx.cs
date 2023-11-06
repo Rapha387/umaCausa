@@ -13,8 +13,11 @@ namespace prjUmaCausaTcc.pages.configuracoes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-                return;
+            //if (IsPostBack)
+            //{
+            //    BtnSalvarAlteraçoes_Click(sender, e);
+            //}
+              
 
             Usuario usuario = (Usuario)Session["usuario"];
 
@@ -222,7 +225,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
         protected void BtnSalvarAlteraçoes_Click(object sender, EventArgs e)
         {
             try
-                {
+            {
                 Usuario usuario = (Usuario)Session["usuario"];
                 if (usuario.TipoDoUsuario.Codigo == 1)
                 {
@@ -247,8 +250,49 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     bool podebuscar = chkConfirmaoBuscaDoacoes.Checked;
 
 
-                    CategoriasOng categoriasOng = new CategoriasOng();
+                   
 
+                    List<CategoriaOng> categorias = new List<CategoriaOng>();
+                    List<CategoriaOng> categoriasInativas = new List<CategoriaOng>();
+                    for (int i = 1; i < pnlCategorias.Controls.Count; i++)
+                    {
+                        Panel painel = (Panel)pnlCategorias.FindControl("pnlCategoria" + i.ToString());
+
+                        CheckBox chk1 = (CheckBox)painel.FindControl("chkCategoria" + i.ToString());
+
+                        if (chk1.Checked)
+                        {
+                            CategoriaOng categoriaOng = new CategoriaOng();
+                            categoriaOng.Nome = chk1.Text;
+                            categoriaOng.Codigo = i;
+                            categorias.Add(categoriaOng);
+                        }
+                        else
+                        {
+                            CategoriaOng categoriaOng = new CategoriaOng();
+                            categoriaOng.Nome = chk1.Text;
+                             categoriaOng.Codigo = i;
+                            categoriasInativas.Add(categoriaOng);
+                        }
+                    }
+                    foreach (CategoriaOng categoria in categorias)
+                    {
+                        Ong_CategoriaOng ongCategoriaOng = new Ong_CategoriaOng();
+                        ongCategoriaOng.CadastrarOngCategoriaOng(usuario.Codigo, categoria.Codigo);
+                    }
+                    foreach (CategoriaOng categoria in categoriasInativas)
+                    {
+                        Ong_CategoriaOng ongCategoriaOng = new Ong_CategoriaOng();
+                        ongCategoriaOng.DeletarOngCategoriaOng(usuario.Codigo, categoria.Codigo);
+                    }
+
+                    erroCategorias.Text = "";
+                    if (categorias.Count == 0)
+                    {
+                        erroCategorias.Text = "Selecione pelo menos uma categorias";
+                        return;
+                    }
+                    CategoriasOng categoriasOng = new CategoriasOng();
                     var listaCategoriasOng = categoriasOng.ListarCategoriasOng();
                     var listaCategoriasOng1 = categoriasOng.ListarIDCategoriaDaOng(usuario.Codigo);
                     foreach (CategoriaOng categoria in listaCategoriasOng)
@@ -270,75 +314,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         pnlCheck.Controls.Add(chk);
                         pnlCategorias.Controls.Add(pnlCheck);
                     }
-                    Itens tiposItens = new Itens();
-                    var listaTiposItens = tiposItens.ListarTiposItens();
-                    var listaItens = tiposItens.ListarItensAceitosOng(usuario.Codigo);
-
-                    foreach (TipoItem item in listaTiposItens)
-                    {
-                        if (item.Codigo != 0)
-                        {
-                            Panel pnlCheck = new Panel();
-                            CheckBox chk = new CheckBox();
-                            chk.ID = "chkItem" + item.Codigo.ToString();
-                            chk.Text = item.Nome;
-                            foreach (TipoItem tipoitens in listaItens)
-                            {
-                                if (tipoitens.Codigo.ToString() == item.Codigo.ToString())
-                                {
-                                    chk.Checked = true;
-                                }
-                                pnlCheck.CssClass = "pnlCheckBox";
-
-                                pnlCheck.ID = "pnlItem" + item.Codigo.ToString();
-                                pnlCheck.Controls.Add(chk);
-
-                                pnlItensAceitos.Controls.Add(pnlCheck);
-                            }
-                        }
-                        if (usuario.PosssibilidadeBusca)
-                            chkConfirmaoBuscaDoacoes.Checked = true;
-                    }  
-                    List<CategoriaOng> categorias = new List<CategoriaOng>();
-                    List<CategoriaOng> categoriasInativas = new List<CategoriaOng>();
-                    for (int i = 1; i < pnlCategorias.Controls.Count; i++)
-                    {
-                        Panel painel = (Panel)pnlCategorias.FindControl("pnlCategoria" + i.ToString());
-
-                        CheckBox chk1 = (CheckBox)painel.FindControl("chkCategoria" + i.ToString());
-
-                        if (chk1.Checked)
-                        {
-                            CategoriaOng categoriaOng = new CategoriaOng();
-                            categoriaOng.Nome = chk1.Text;
-                            categoriaOng.Codigo = i;
-                            categorias.Add(categoriaOng);
-                        }
-                        else
-                        {
-                            CategoriaOng categoriaOng = new CategoriaOng();
-                            categoriaOng.Nome = chk1.Text;
-                            categoriaOng.Codigo = i;
-                            categoriasInativas.Add(categoriaOng);
-                        }
-                    }
-                    foreach (CategoriaOng categoria in categorias)
-                    {
-                        Ong_CategoiraOng ongCategoriaOng = new Ong_CategoiraOng();
-                        ongCategoriaOng.CadastrarOngCategoriaOng(usuario.Codigo, categoria.Codigo);
-                    }
-                    foreach (CategoriaOng categoria in categoriasInativas)
-                    {
-                        Ong_CategoiraOng ongCategoriaOng = new Ong_CategoiraOng();
-                        ongCategoriaOng.DeletarOngCategoriaOng(usuario.Codigo, categoria.Codigo);
-                    }
-
-                    erroCategorias.Text = "";
-                    if (categorias.Count == 0)
-                    {
-                        erroCategorias.Text = "Selecione pelo menos uma categorias";
-                        return;
-                    }
+                   
 
                     List<TipoItem> itemsAceitos = new List<TipoItem>();
                     List<TipoItem> itemsAceitosInativos = new List<TipoItem>();
@@ -348,15 +324,6 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
                         CheckBox chk = (CheckBox)painel.FindControl("chkItem" + i.ToString());
 
-                        //if (chk.Checked)
-                        //{
-                        //    TipoItem item = new TipoItem();
-                        //    item.Nome = chk.Text;
-                        //    item.Codigo = i;
-                        //    TipoItemOng tipoItemOng = new TipoItemOng();
-                        //    tipoItemOng.TipoItem = item;
-                        //    itemsAceitos.Add(tipoItemOng);
-                        //}
                         if (chk.Checked)
                         {
                             TipoItem item = new TipoItem();
@@ -389,6 +356,37 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         erroItensAceitos.Text = "Selecione pelo menos um item";
                         return;
                     }
+
+                    Itens tiposItens = new Itens();
+                    var listaTiposItens = tiposItens.ListarTiposItens();
+                    var listaItens = tiposItens.ListarItensAceitosOng(usuario.Codigo);
+
+                    foreach (TipoItem item in listaTiposItens)
+                    {
+                        if (item.Codigo != 0)
+                        {
+                            Panel pnlCheck = new Panel();
+                            CheckBox chk = new CheckBox();
+                            chk.ID = "chkItem" + item.Codigo.ToString();
+                            chk.Text = item.Nome;
+                            foreach (TipoItem tipoitens in listaItens)
+                            {
+                                if (tipoitens.Codigo.ToString() == item.Codigo.ToString())
+                                {
+                                    chk.Checked = true;
+                                }
+                                pnlCheck.CssClass = "pnlCheckBox";
+
+                                pnlCheck.ID = "pnlItem" + item.Codigo.ToString();
+                                pnlCheck.Controls.Add(chk);
+
+                                pnlItensAceitos.Controls.Add(pnlCheck);
+                            }
+                        }
+                        if (usuario.PosssibilidadeBusca)
+                            chkConfirmaoBuscaDoacoes.Checked = true;
+                    }
+
                     //List<DiaUsuario> diasDisponiveis = new List<DiaUsuario>();
                     //for (int i = 1; i <= pnlDiasDisponiveis.Controls.Count; i++)
                     //{
@@ -428,20 +426,6 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
                     (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);  
                    usuario.AlterarDadosOng(codigo, nome, email, emailcontato, telefone, descricao, cep, cidade, rua, numero, bairro, complemento, latitude, longitude, website, pix, podebuscar);
-                    //foreach (Ong_CategoiraOng categoria in categorias)
-                    //{
-                    //    categoria.CadastrarOngCategoriaOng(usuario.Codigo, categoria.Categoria.Codigo);
-                    //}
-
-                    //foreach (TipoItemOng tipoItem in itemsAceitos)
-                    //{
-                    //    tipoItem.CadastrarTipoItem(tipoItem.TipoItem.Codigo, usuario.Codigo);
-                    //}
-
-                //    foreach (DiaUsuario dia in diasDisponiveis)
-                //    {
-                //        dia.CadastrarDiaUsuario(usuario.Codigo, dia.Dia.Codigo, dia.HorarioInicio, dia.HorarioFim);
-                //    }
                 }
                 else
                 {

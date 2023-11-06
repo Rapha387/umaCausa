@@ -6,7 +6,7 @@ using System.Web;
 
 namespace prjUmaCausaTcc.Modelos
 {
-    public class Ong_CategoiraOng : Banco
+    public class Ong_CategoriaOng : Banco
     {
         public Usuario Ong { get; set; }
         public CategoriaOng Categoria { get; set; } 
@@ -21,7 +21,7 @@ namespace prjUmaCausaTcc.Modelos
             try
             {
                 Conectar();
-                Executar("CadastrarCategoriaOng", parametros);
+                Executar("CadastrarOngCategoriaOng", parametros);
                 Desconectar();
             }
             catch (Exception ex)

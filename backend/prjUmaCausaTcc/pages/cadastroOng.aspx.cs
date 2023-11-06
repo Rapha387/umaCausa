@@ -175,7 +175,7 @@ namespace prjUmaCausaTcc.pages
                 (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
 
 
-                List<Ong_CategoiraOng> categorias = new List<Ong_CategoiraOng>();
+                List<Ong_CategoriaOng> categorias = new List<Ong_CategoriaOng>();
                 for (int i = 1; i < pnlCategorias.Controls.Count; i++)
                 {
                     Panel painel = (Panel)pnlCategorias.FindControl("pnlCategoria" + i.ToString());
@@ -195,7 +195,7 @@ namespace prjUmaCausaTcc.pages
                         //{
 
                         //}
-                        Ong_CategoiraOng categoriasOng = new Ong_CategoiraOng();
+                        Ong_CategoriaOng categoriasOng = new Ong_CategoriaOng();
                         categoriasOng.Categoria = categoria;
 
                         categorias.Add(categoriasOng);
@@ -290,7 +290,7 @@ namespace prjUmaCausaTcc.pages
                 usuario.BuscarUsuarioPeloEmail(txtEmail.Text);
 
 
-                foreach (Ong_CategoiraOng categoria in categorias)
+                foreach (Ong_CategoriaOng categoria in categorias)
                 {
                     categoria.CadastrarOngCategoriaOng(usuario.Codigo, categoria.Categoria.Codigo);
                 }
