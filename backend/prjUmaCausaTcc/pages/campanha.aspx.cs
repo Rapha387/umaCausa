@@ -15,6 +15,7 @@ namespace prjUmaCausaTcc.pages
         Campanha Campanha { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            litDoar.Text = "<button id='btnDoar'>DOAR</button>";
             litOds.Text = "";
             btnEditarCampanha.Visible = false;
 
@@ -87,8 +88,6 @@ namespace prjUmaCausaTcc.pages
             {
                 Response.Redirect("erro.aspx?e=Página não encontrada");
             }
-
-            litDoar.Text = "<button id='btnDoar'>DOAR</button>";
             if (this.Campanha.DataFim != null && this.Campanha.DataFim.ToString() != "01/01/0001 00:00:00")
             {
                 litDoar.Text = "<button id='btnDoar' class='disabled' disabled>ENCERRADA</button>";

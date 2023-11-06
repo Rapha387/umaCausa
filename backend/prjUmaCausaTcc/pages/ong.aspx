@@ -180,10 +180,12 @@
           </div>
           <div class="infos2">
               <div style="margin-bottom: 20px;">
-                 <button class="doar" id="btnDoar">
-                    <%--<img src="./../images/icons/search.png" alt="DOAR">--%>
-                  <div>DOAR</div>
+                  <asp:Literal ID="litDoar" runat="server"></asp:Literal>
+                  <asp:Panel ID="pnlDoar" runat="server"><button class="doar" id="btnDoar">
+                        <%--<img src="./../images/icons/search.png" alt="DOAR">--%>
+                      <div>DOAR</div>
                  </button>
+                      </asp:Panel>
                   <asp:Button ID="btnMeuPerfil" CssClass="botao-secundario" Visible="false" OnClick="btnMeuPerfil_Click" runat="server" Text="EDITAR PERFIL" />
               </div>
             <div class="card-infos">
