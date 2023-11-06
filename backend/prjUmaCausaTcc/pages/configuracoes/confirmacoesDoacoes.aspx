@@ -17,7 +17,7 @@
     <link rel="icon" href="./../../images/icone.svg" type="image/x-icon" />
     <link rel="stylesheet" href="./../../css/index.css" />
     <link rel="stylesheet" href="./../../css/confirmacoesDoacoes.css" />
-    <title>UmaCausa - Meu Perfil</title>
+    <title>UmaCausa - Confirmar Doações</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -52,8 +52,7 @@
                   </a>
                 </div>
                 <div class="confirmacoes">
-                    <asp:Literal ID="Confirmacoes" runat="server" ></asp:Literal>
-                    <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+                    <asp:Panel ID="pnlBotao" runat="server"></asp:Panel>
                     <asp:Panel ID="pnlDonwload" runat="server"></asp:Panel>
                 </div>
              </div>

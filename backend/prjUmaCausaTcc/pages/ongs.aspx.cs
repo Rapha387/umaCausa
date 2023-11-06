@@ -192,24 +192,20 @@ namespace prjUmaCausaTcc.pages
         #region Botões NextBack
         protected void btnNext_Click(object sender, ImageClickEventArgs e)
         {
-            if (!String.IsNullOrEmpty(Request["pagina"]))
-            {
-                if (indiceDePaginacao > int.Parse(Request["pagina"]))
-                    Response.Redirect($"ongs.aspx?pagina={(int.Parse(Request["pagina"]) + 1)}");
-            }
-            else
-                Response.Redirect($"ongs.aspx?pagina={1}");
+            if (String.IsNullOrEmpty(Request["pagina"]))
+                Response.Redirect($"ongs.aspx?pagina=2");
+
+            if (indiceDePaginacao > int.Parse(Request["pagina"]))
+                Response.Redirect($"ongs.aspx?pagina={(int.Parse(Request["pagina"]) + 1)}");
         }
 
         protected void btnBack_Click(object sender, ImageClickEventArgs e)
         {
-            if (!String.IsNullOrEmpty(Request["pagina"]))
-            {
-                if (int.Parse(Request["pagina"]) > 1)
-                    Response.Redirect($"ongs.aspx?pagina={(int.Parse(Request["pagina"]) - 1)}");
-            }
-            else
+            if (String.IsNullOrEmpty(Request["pagina"]))
                 Response.Redirect($"ongs.aspx?pagina={1}");
+
+            if (int.Parse(Request["pagina"]) > 1)
+                Response.Redirect($"ongs.aspx?pagina={(int.Parse(Request["pagina"]) - 1)}");
         }
         #endregion
 

@@ -15,6 +15,7 @@ public class DoacaoCampanha : Banco
     public bool DoacaoConfirmada { get; set; }
     public DateTime RespostaOng { get; set; }
     public TipoItem TipoItem { get; set; }
+    public string Comprovante { get; set; }
     public int CodigoComprovante { get; set; }
     public int Codigo { get; set; }
 

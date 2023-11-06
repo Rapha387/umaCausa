@@ -148,6 +148,7 @@ thead td {
     justify-content: space-between;
     align-items: center;
     gap: 25px;
+    flex-direction: row-reverse;
 }
 .confirmacoes .confirmacao .botoes-confirmacao img {
   padding: 3px;

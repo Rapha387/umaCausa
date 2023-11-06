@@ -240,6 +240,7 @@
     <Content Include="pages\campanhas.aspx" />
     <Content Include="pages\configuracoes\alterarSenha.aspx" />
     <Content Include="pages\configuracoes\confirmacoesDoacoes.aspx" />
+    <Content Include="pages\configuracoes\editarCampanha.aspx" />
     <Content Include="pages\configuracoes\meuPerfil.aspx" />
     <Content Include="pages\configuracoes\minhasCampanhas.aspx" />
     <Content Include="pages\configuracoes\minhasColaboracoes.aspx" />
@@ -363,6 +364,7 @@
     <Compile Include="Logicas\CategoriasOng.cs" />
     <Compile Include="Logicas\Colaboracoes.cs" />
     <Compile Include="Logicas\Dias.cs" />
+    <Compile Include="Logicas\FileIo.cs" />
     <Compile Include="Logicas\FotosOng.cs" />
     <Compile Include="Logicas\GerarEmentosHtml.cs" />
     <Compile Include="Logicas\Itens.cs" />
@@ -446,6 +448,13 @@
     </Compile>
     <Compile Include="pages\configuracoes\confirmacoesDoacoes.aspx.designer.cs">
       <DependentUpon>confirmacoesDoacoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\configuracoes\editarCampanha.aspx.cs">
+      <DependentUpon>editarCampanha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\configuracoes\editarCampanha.aspx.designer.cs">
+      <DependentUpon>editarCampanha.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\configuracoes\meuPerfil.aspx.cs">
       <DependentUpon>meuPerfil.aspx</DependentUpon>

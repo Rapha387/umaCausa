@@ -34,8 +34,28 @@ public class CampanhaODS : Banco
         {
             Desconectar();
         }
+    }
 
-
+    public void DeletarCampanhaOds(int campanha, int ods)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pCampanha", campanha.ToString()),
+            new Parametro ("pOds", ods.ToString())
+        };
+        try
+        {
+            Conectar();
+            Executar("DeletarCampanhaODS", parametros);
+        }
+        catch (Exception)
+        {
+            throw new Exception("Erro ao Deletar ODS!");
+        }
+        finally
+        {
+            Desconectar();
+        }
     }
     #endregion
 }

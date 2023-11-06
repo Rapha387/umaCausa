@@ -39,14 +39,17 @@ main {
 .infos-campanha {
     width: 33%;
 }
+.infos-campanha .botoes {
+    margin: 15px 0px 15px 0px;
+}
 .infos-campanha .meta h3 {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   font-weight: 900;
 }
 .infos-campanha .meta button {
-  width: 100%;
-  margin: 15px 0 20px 0;
+    width: 100%;
+    margin: 15px 0 5px 0;
 }
 .infos-campanha .meta .barra-meta {
   margin-top: 10px;
@@ -92,7 +95,9 @@ main {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+.barra-meta .progresso {
+    max-width: 100%;
+}
 .ods-campanha {
   margin-top: 20px;
 }
@@ -112,9 +117,12 @@ main {
 .ods-campanha .flex-ods img {
   width: 68px;
 }
-
+#btnEditarCampanha {
+    color: #0063BF;
+    background: rgba(255,255,255, 0);
+    border: solid 2px #0063BF;
+}
 /*RESPONSIVO*/
-
 @media screen and (max-width: 1199px) {
     main {
         width: 100% !important;

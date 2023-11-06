@@ -76,9 +76,17 @@ input[type=file], textarea {
  #fotinho{
      width:100%;
  }
-
+#btnCriarDivulgacao{
+    width:49%;
+}
+#nomeArquivo {
+    font-size: 14px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 /*RESPONSIVO*/
-
 @media screen and (max-width: 1199px) {
     main {
         width: 100% !important;
@@ -114,3 +122,25 @@ input[type=file], textarea {
       width:100%;
     }
 }
+
+.botoesEditarEncerrar{
+    width: 49%;
+}
+.botoesEditarEncerrar:hover {
+    transition: 0.2s ease;
+    background-color: #1d7dd7;
+}
+#btnCancelar {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+#btnCancelar:hover {
+    color: #fff;
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+
+

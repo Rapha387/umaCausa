@@ -259,7 +259,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                             CategoriaOng categoriaOng = new CategoriaOng();
                             categoriaOng.Nome = chk1.Text;
                             categoriaOng.Codigo = i;
-                            // categoriasOng.Add(categoriaOng);
+                            //categoriasOng.Add(categoriaOng);
                         }
                     }
 

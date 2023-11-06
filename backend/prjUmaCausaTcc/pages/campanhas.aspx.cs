@@ -42,9 +42,12 @@ namespace prjUmaCausaTcc.pages
             }
             #endregion
 
-
-
             #region GerarCampanhas
+
+            campanhas = listarCampanhas.ListarCampanhasASC(0);
+            GerarCampanhas(campanhas);
+
+
             if (!String.IsNullOrEmpty(Request["c"]))
                 c = Request["c"].ToString();
 
@@ -63,9 +66,6 @@ namespace prjUmaCausaTcc.pages
                 campanhas = listarCampanhas.ListarCampanhasPorData(0, 1);
                 GerarCampanhas(campanhas);
             }
-            
-
-            
 
             if (!String.IsNullOrEmpty(Request["c"]) && c == "0")
             {
@@ -83,9 +83,6 @@ namespace prjUmaCausaTcc.pages
                 campanhas = listarCampanhas.ListarCampanhasPorTipo(0, int.Parse(Request["t"]));
                 GerarCampanhas(campanhas);
             }
-
-                campanhas = listarCampanhas.ListarCampanhasASC(0);
-                GerarCampanhas(campanhas);
             #endregion
 
             #region DDLS
@@ -99,7 +96,6 @@ namespace prjUmaCausaTcc.pages
             {
                 ddlTipo.Items.Insert(item.Codigo - 1, new ListItem(item.Nome, item.Codigo.ToString()));
             }
-
             #endregion
 
 
@@ -149,6 +145,7 @@ namespace prjUmaCausaTcc.pages
 
         private void GerarCampanhas(List<Campanha> campanhas)
         {
+            litCampanhas.Text = "";
             foreach (Campanha campanha in campanhas)
             {
                 double porcentagemBarra = campanha.PorcentagemArrecadado;

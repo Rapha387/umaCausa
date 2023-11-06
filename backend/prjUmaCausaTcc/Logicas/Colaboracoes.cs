@@ -27,7 +27,7 @@ namespace prjUmaCausaTcc.Logicas
                         campanha.BuscarCampanha(dados.GetInt32("id_campanha"));
                         Usuario usuario = new Usuario(codigo);
                         bool confirmado = false;
-                        if (dados.GetInt32("ic_doacaoConfirmada") == 0 || dados.GetInt32("ic_doacaoConfirmada") == null)
+                        if (dados.GetInt32("ic_doacaoConfirmada") == 0)
                         {
                             confirmado = false;
                         }
@@ -40,10 +40,13 @@ namespace prjUmaCausaTcc.Logicas
                             Campanha = campanha,
                             Doador = usuario,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacaoCampanha")),
-                            QuantidadeDoado = dados.GetString("qt_doado"),
                             DoacaoConfirmada = confirmado,
-                            Codigo = dados.GetInt32("id_doacao")
+                            Codigo = dados.GetInt32("id_doacao"),
                         };
+                        if (!dados.IsDBNull(dados.GetOrdinal("nm_comprovante")))
+                        {
+                            doacao.Comprovante = dados.GetString("nm_comprovante");
+                        }
                         if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
                             doacao.RespostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
                         doacoes.Add(doacao);
@@ -141,6 +144,7 @@ namespace prjUmaCausaTcc.Logicas
                             Doador = usuario,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             ValorDoacao = dados.GetDouble("vl_monetario"),
+                            Comprovante = dados.GetString("nm_comprovante"),
                             DoacaoConfirmada = confirmado,
                             CodigoDoacao = dados.GetInt32("id_doacao")
                         };
@@ -206,6 +210,7 @@ namespace prjUmaCausaTcc.Logicas
                             Doador = doador,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacaoCampanha")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
+                            Comprovante = dados.GetString("nm_comprovante"),
                             DoacaoConfirmada = doacaoConfirmada,
                             Codigo = dados.GetInt32("id_doacao")
                         };
@@ -322,6 +327,7 @@ namespace prjUmaCausaTcc.Logicas
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             ValorDoacao = dados.GetDouble("vl_monetario"),
                             DoacaoConfirmada = doacaoConfirmada,
+                            Comprovante = dados.GetString("nm_comprovante"),
                             CodigoDoacao = dados.GetInt32("id_doacao")
                         };
                         doacoes.Add(doacao);
@@ -411,7 +417,7 @@ namespace prjUmaCausaTcc.Logicas
                         campanha.BuscarCampanha(dados.GetInt32("id_campanha"));
                         Usuario usuario = new Usuario(codigo);
                         bool confirmado = false;
-                        if (dados.GetInt32("ic_doacaoConfirmada") == 0 || dados.GetInt32("ic_doacaoConfirmada") == null)
+                        if (dados.GetInt32("ic_doacaoConfirmada") == 0)
                         {
                             confirmado = false;
                         }
@@ -527,7 +533,8 @@ namespace prjUmaCausaTcc.Logicas
                             Doador = usuario,
                             DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
                             ValorDoacao = dados.GetDouble("vl_monetario"),
-                            DoacaoConfirmada = confirmado
+                            DoacaoConfirmada = confirmado,
+                            Comprovante = dados.GetString("nm_comprovante")
                         };
                         if (!String.IsNullOrEmpty(dados["dt_respostaOng"].ToString()))
                             doacao.respostaOng = DateTime.Parse(dados["dt_respostaOng"].ToString());
