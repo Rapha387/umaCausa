@@ -80,48 +80,47 @@ namespace prjUmaCausaTcc.pages.configuracoes
             }
             else
             {
-                pnlBotao.Controls.Clear();
-                pnlDonwload.Controls.Clear();
-                foreach(Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
+                try
                 {
-                    pnlBotao.Controls.Add(new LiteralControl(
-                        $@"<div class='confirmacao'>
-                              <div class='infos-confirmacao'>
-                                <p>Doador: {doacao.Doador.Nome}</p>
-                                <p>Item: {doacao.NomeTipoItem}</p>
-                                <p>Valor:{doacao.Quantidade}</p>
-                                <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
-                              </div>
-                              <div class='botoes-confirmacao'>
-                                <img id='' onclick=confirmarDoacao() src='./../../images/icons/confirmado.png' alt=''>
-                                <img id='' onclick=recusarDoacao() src = './../../images/icons/recusar.png' alt = ''>
-                              "));
-                    try
+                    pnlBotao.Controls.Clear();
+                    pnlDonwload.Controls.Clear();
+                    foreach(Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
                     {
-                        if (doacao.TipoDoacao == "dm" || doacao.TipoDoacao == "dcm")
-                        {
-                            Panel pnlButton = new Panel();
-                            Button button = new Button();
-                            button.Attributes.Add("comprovante", doacao.Comprovante);
-                            pnlButton.Controls.Add(button);
-                            pnlDonwload.Controls.Add(pnlButton);
+                        pnlBotao.Controls.Add(new LiteralControl(
+                            $@"<div class='confirmacao'>
+                                    <div class='infos-confirmacao'>
+                                    <p>Doador: {doacao.Doador.Nome}</p>
+                                    <p>Item: {doacao.NomeTipoItem}</p>
+                                    <p>Valor:{doacao.Quantidade}</p>
+                                    <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
+                                    </div>
+                                    <div class='botoes-confirmacao'>
+                                    <img id='' onclick=confirmarDoacao() src='./../../images/icons/confirmado.png' alt=''>
+                                    <img id='' onclick=recusarDoacao() src = './../../images/icons/recusar.png' alt = ''>
+                                    "));
+                    
+                            if (doacao.TipoDoacao == "dm" || doacao.TipoDoacao == "dcm")
+                            {
+                                Panel pnlButton = new Panel();
+                                Button button = new Button();
+                                button.Attributes.Add("comprovante", doacao.Comprovante);
+                                pnlButton.Controls.Add(button);
+                                pnlDonwload.Controls.Add(pnlButton);
 
-                            button.Text = "Baixar Comprovante";
-                            pnlBotao.Controls.Add(pnlButton);
-                            doador = doacao.Doador;
-                            dataDoacao = doacao.DataDoacao;
-                            button.Click += new EventHandler(Button_Click);
+                                button.Text = "Baixar Comprovante";
+                                pnlBotao.Controls.Add(pnlButton);
+                                doador = doacao.Doador;
+                                dataDoacao = doacao.DataDoacao;
+                                button.Click += new EventHandler(Button_Click);
 
-                        }
-                        pnlBotao.Controls.Add(new LiteralControl("</div></div>"));
-                    }
+                            }
+                            pnlBotao.Controls.Add(new LiteralControl("</div></div>"));
+                    }         
+                }
                     catch (Exception ex)
                     {
-                        throw new Exception(ex.Message);
+                        Response.Redirect("../erro.aspx?"+ ex.Message);
                     }
-                   
-
-                }
             }  
         }
 

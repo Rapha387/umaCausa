@@ -66,7 +66,8 @@ public class GerarEmentosHtml
                             <a href='./index.aspx'><img class='logo-header' src='./../images/logo/logoAzul.svg' alt='logo' /></a>
                             <ul>
                                 <li><a href='./ongs.aspx'>Ongs</a></li>
-                                <li class=add-padding-borda><a href='./campanhas.aspx'>Campanhas</a></li>
+                                <li><a href='./campanhas.aspx'>Campanhas</a></li>
+                                <li class=add-padding-borda><a href='./criarCampanha.aspx'>Crie uma campanha</a></li>
                                 <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
@@ -94,6 +95,7 @@ public class GerarEmentosHtml
                           <h3>Páginas</h3>
                           <li><a href='./ongs.aspx'>Ongs</a></li>
                           <li><a href='./campanhas.aspx'>Campanhas</a></li>
+                          <li><a href='./criarCampanha.aspx'>Crie uma campanha</a></li>
                         </div>
                         <div class='divisaoNavResposivo'>
                           <h3>Minhas Informações</h3>
@@ -152,7 +154,6 @@ public class GerarEmentosHtml
             return nav;
         }
     }
-
     public string GerarHeaderConfiguracoes(Usuario usuario)
     {
         if (usuario == null)
@@ -168,7 +169,8 @@ public class GerarEmentosHtml
                             <a href='./../index.aspx'><img class='logo-header' src='./../../images/logo/logoAzul.svg' alt='logo' /></a>
                             <ul>
                                 <li><a href='./../ongs.aspx'>Ongs</a></li>
-                                <li class=add-padding-borda><a href='./../campanhas.aspx'>Campanhas</a></li>
+                                <li><a href='./../campanhas.aspx'>Campanhas</a></li>
+                               <li class=add-padding-borda><a href='../criarCampanha.aspx'>Crie uma campanha</a></li>
                                 <li><label for='menuConfig' class='btnMenuHeader'><img class='img-user-preto' src=./../../images/icons/userPreto.png /><span>{nome}</span></label></li>
                                 <label for='chkMenuHeader' id='btnMenuHeader'>
                                     <span class='linha'></span>
@@ -195,7 +197,7 @@ public class GerarEmentosHtml
                         <div class='divisaoNavResposivo'>
                           <h3>Páginas</h3>
                           <li><a href='./../ongs.aspx'>Ongs</a></li>
-                          <li><a href='./../campanhas.aspx'>Campanhas</a></li>
+                          <li><a href='../criarCampanha.aspx'>Crie uma campanha</a></li>
                         </div>
                         <div class='divisaoNavResposivo'>
                           <h3>Minhas Informações</h3>
