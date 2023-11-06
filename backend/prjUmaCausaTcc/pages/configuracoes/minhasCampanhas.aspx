@@ -38,7 +38,7 @@
                       <asp:TextBox ID="TxtPesquisa" TextMode="Search" runat="server" placeholder="Pesquisar..." CssClass="txtBusca"></asp:TextBox>
                       <asp:ImageButton ID="ImgPesquisar" runat="server" ImageUrl="./../../images/icons/search.png" OnClick="ImgPesquisar_Click"/>
                   </div>
-                  <a href="criarCampanha.aspx"><button>Criar Nova Campanha</button></a>
+                  <a href="../criarCampanha.aspx"><button>Criar Nova Campanha</button></a>
 
                   <div class="container-tabela">
                       <table>
