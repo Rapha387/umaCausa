@@ -47,6 +47,11 @@ input[type=submit] {
     cursor: pointer;
 }
 
+.input-desabilitado {
+    color: #9b9b9b !important;
+    background: #e5e5e573 !important;
+}
+
 .add-padding-borda {
     height: 24px;
     display: flex;
@@ -84,6 +89,19 @@ h1, h2 {
 
 h2 {
   letter-spacing: 5.5px;
+}
+
+.botao-secundario {
+    background-color: #fff !important;
+    color: #0063BF !important;
+    border: solid 2px #0063BF !important;
+    cursor: pointer !important;
+    transition: 0.2s !important;
+}
+
+.botao-secundario:hover{
+    background-color: #0063BF !important;
+    color: #fff !important;
 }
 
 /* -------------- LAYOUT --------------- */

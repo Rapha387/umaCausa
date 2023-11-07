@@ -28,7 +28,6 @@ if (btnRealizarDenunciaUsuario) {
             .then(function (dados) {
                 console.log(dados);
                 if (dados['situacao'] == 'true') {
-
                     LimparPopUpDenuncia();
                     textoRespostaSucessoPopup.textContent = "Denuncia realizada com sucesso";
                     popupSucesso.classList.remove('escondido');

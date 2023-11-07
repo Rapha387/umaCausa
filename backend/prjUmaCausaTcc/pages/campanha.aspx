@@ -140,19 +140,20 @@
                   <div class="botoes">
                       <asp:Literal ID="litDoar" runat="server"></asp:Literal>
                     
-                      <asp:Button ID="btnEditarCampanha" runat="server" Text="EDITAR CAMPANHA"  OnClick="btnEditarCampanha_Click"/>
+                      <asp:Button ID="btnEditarCampanha" CssClass="botao-secundario" runat="server" Text="EDITAR CAMPANHA"  OnClick="btnEditarCampanha_Click"/>
                   </div>
               </div>
               <div class="realizador-campanha">
                 <h3>Realizador dessa campanha</h3>
                 <asp:Literal ID="litONG" runat="server"></asp:Literal>
               </div>
-              <div class="ods-campanha">
-                <h3>Objetivos do Desenvolvimento Sustentável desta campanha</h3>
-                <div class="flex-ods">
-                    <asp:Literal ID="litOds" runat="server"></asp:Literal>
-                </div>
-              </div>
+              <asp:Panel ID="pnlODSs" Visible="false" CssClass="ods-campanha" runat="server">
+                  <h3>Objetivos do Desenvolvimento Sustentável desta campanha</h3>
+                    <div class="flex-ods">
+                        <asp:Literal ID="litOds" runat="server"></asp:Literal>
+                    </div>
+              </asp:Panel>
+                
 
               <div class="denunciar-compartilhar">
                 <div class="compartilhar" id="btnCompartilhar">

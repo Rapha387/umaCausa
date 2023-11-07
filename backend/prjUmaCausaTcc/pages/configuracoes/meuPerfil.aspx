@@ -39,11 +39,11 @@
             </div>
             <div class="input-label">
               <label for="">CNPJ:</label>
-                <asp:TextBox ID="txtCnpj" runat="server" Enabled="false"></asp:TextBox>
+              <asp:TextBox ID="txtCnpj" CssClass="input-desabilitado" runat="server" Enabled="false"></asp:TextBox>
             </div>
             <div class="input-label">
               <label for="">Email:</label>
-               <asp:TextBox ID="txtEmail" runat="server" Enabled="false" TextMode="Email"></asp:TextBox>
+               <asp:TextBox ID="txtEmail" CssClass="input-desabilitado" runat="server" Enabled="false" TextMode="Email"></asp:TextBox>
             </div>
             <div class="input-label">
               <label for="">Telefone:</label>

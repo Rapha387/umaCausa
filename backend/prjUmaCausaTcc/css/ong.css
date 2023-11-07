@@ -115,12 +115,6 @@ main .infos .infos2 .fotos .fotos-flex .foto {
   height: 111px;
   border-radius: 4px;
 }
-#btnMeuPerfil {
-    color: #0063BF;
-    background: rgba(255,255,255, 0);
-    border: solid 2px #0063BF;
-}
-
 /*RESPONSIVO*/
 
 @media screen and (max-width: 1199px) {
@@ -143,10 +137,6 @@ main .infos .infos2 .fotos .fotos-flex .foto {
             margin-top: 35px;
         }
 
-
-
-
-
     .campanhas .campanhas-flex .campanha {
         width: 100% !important;
     }
@@ -154,9 +144,6 @@ main .infos .infos2 .fotos .fotos-flex .foto {
     main .infos .infos2 .card-infos .card {
         width: 100%
     }
-
-
-
 
     main .infos .infos2 {
         width: 100%;

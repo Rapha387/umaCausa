@@ -18,6 +18,7 @@ namespace prjUmaCausaTcc.pages
             litDoar.Text = "<button id='btnDoar'>DOAR</button>";
             litOds.Text = "";
             btnEditarCampanha.Visible = false;
+            pnlODSs.Visible = false;
 
             #region gerarHTML
 
@@ -63,11 +64,17 @@ namespace prjUmaCausaTcc.pages
                     }
                     Odesses odesses = new Odesses();
 
-                    foreach (ODS ods in odesses.BuscarOdsCampanha(cd_campanha))
-                    {
-                        litOds.Text += $"<img src='../{ods.Foto}'' alt=''>";
-                    }
+                    var listaODs = odesses.BuscarOdsCampanha(cd_campanha);
 
+                    if (listaODs.Count != 0)
+                    {
+                        pnlODSs.Visible = true;
+
+                        foreach (ODS ods in listaODs)
+                        {
+                            litOds.Text += $"<img src='../{ods.Foto}'' alt=''>";
+                        }
+                    }
 
                     if (this.Campanha.TipoItemArrecadado.Codigo == 0)
                         pnlDoacaoMonetaria.Visible = true;
@@ -159,7 +166,6 @@ namespace prjUmaCausaTcc.pages
                 throw new Exception(ex.Message);
             }
         }
-
         protected void btnEditarCampanha_Click(object sender, EventArgs e)
         {
             Session["Campanha"] = this.Campanha;

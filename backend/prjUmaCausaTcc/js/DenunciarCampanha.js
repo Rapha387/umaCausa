@@ -30,12 +30,14 @@ if (btnRealizarDenunciaCampanha) {
             .then(function (dados) {
                 console.log(dados);
                 if (dados['situacao'] == 'true') {
-
                     LimparPopUpDenuncia();
-                    alert("Denuncia Realizada!");
+                    textoRespostaSucessoPopup.textContent = "Denuncia realizada com sucesso";
+                    popupSucesso.classList.remove('escondido');
                 }
                 else {
-                    alert('Erro na Denuncia');
+                    LimparPopUpDenuncia();
+                    textoRespostaSucessoPopup.textContent = "Não foi possível realizar a denuncia. Por favor tente novamente mais tarde";
+                    popupSucesso.classList.remove('escondido');
                 }
             });
     })
