@@ -10,8 +10,10 @@ namespace prjUmaCausaTcc.pages.configuracoes
 {
     public partial class minhasCampanhas : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
             Usuario usuario = (Usuario)Session["usuario"];
 
             if (usuario == null || usuario.TipoDoUsuario.Codigo != 1)
@@ -26,6 +28,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
             LitHeader.Text = nav;
             LitMenu.Text = menu;
 
+            LitCampanhas.Text = "";
+
             Campanhas campanhas = new Campanhas();
             int codigo = usuario.Codigo;
 
@@ -37,7 +41,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                        <td> {campanha.DataInicio.ToString().Substring(0, 10)} </td>
                        <td> {campanha.DataPrevistaFim.ToString().Substring(0, 10)} </td>
                        <td><a href = './editarCampanha.aspx?id={campanha.Codigo}'><img src = './../../images/icons/editar.png' alt = ''></a></td>  
-                       <td><img id='{campanha.Codigo}' onclick=encerrarCampanha(this) src = './../../images/icons/excluir.png' alt = '' ></td>
+                       <td><img id='{campanha.Codigo}' onclick='aparecerPopupConfirmacao(this)' src = './../../images/icons/excluir.png' alt = '' ></td>
                      </tr> ";
             }
         }
@@ -58,7 +62,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                        <td> {campanha.QuantidadeArrecadada} </td>
                        <td> {campanha.DataInicio.ToString().Substring(0, 10)} </td>
                        <td> {campanha.DataPrevistaFim.ToString().Substring(0, 10)} </td>
-                       <td><a href = './../editarCampanha.aspx?id={campanha.Codigo}'><img src = './../ .. /images/icons/editar.png' alt = '' ></a></td>
+                       <td><a hrer='./../editarCampanha.aspx?id={campanha.Codigo}'><img src = './../../images/icons/editar.png' alt = '' ></a></td>
                        <td><img src = './../../images/icons/excluir.png' alt = '' ></ td >
                      </tr> ";
             }

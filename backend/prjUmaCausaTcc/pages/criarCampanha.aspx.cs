@@ -76,13 +76,6 @@ namespace prjUmaCausaTcc.pages
                     int codigoCampanha = campanha.Codigo;
                     string imgBanner = $@"images/fotoPadrao/bannerOngPadrao.png";
 
-                    if (fileInputBanner.HasFile)
-                    {
-                        HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
-                        imgBanner = $@"uploads/campanhas/banners/{codigoCampanha}.jpg";
-                        campanha.AdicionarBannerCampanha(codigoCampanha, imgBanner);
-                        fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
-                    }
                     List<ODS> odsses = new List<ODS>();
                     for (int i = 1; i < pnlODS.Controls.Count; i++)
                     {
@@ -97,13 +90,22 @@ namespace prjUmaCausaTcc.pages
                             ods.Codigo = i;
                             odsses.Add(ods);
                         }
-                    }
+                    }                        
 
                     foreach (ODS ods in odsses)
                     {
                         CampanhaODS campanhaODS = new CampanhaODS();
                         campanhaODS.CadastrarCampanhaOds(codigoCampanha, ods.Codigo);
                     }
+
+                    if (fileInputBanner.HasFile)
+                    {
+                        HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
+                        imgBanner = $@"uploads/campanhas/banners/{codigoCampanha}.jpg";
+                        campanha.AdicionarBannerCampanha(codigoCampanha, imgBanner);
+                        fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+                    }
+
                 }
                 catch (Exception ex)
                 {

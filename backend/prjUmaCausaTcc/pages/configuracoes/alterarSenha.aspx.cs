@@ -11,8 +11,6 @@ namespace prjUmaCausaTcc.pages.configuracoes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            litPopUpResposta.Text = "";
-
             Usuario usuario = (Usuario)Session["usuario"];
 
             if (usuario == null)
