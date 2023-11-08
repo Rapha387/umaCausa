@@ -292,12 +292,12 @@ namespace prjUmaCausaTcc.pages
 
                 foreach (Ong_CategoiraOng categoria in categorias)
                 {
-                    categoria.CadastrarCategoriaOng(usuario.Codigo, categoria.Categoria.Codigo);
+                    categoria.CadastrarOngCategoriaOng(usuario.Codigo, categoria.Categoria.Codigo);
                 }
 
                 foreach (TipoItemOng tipoItem in itemsAceitos)
                 {
-                    tipoItem.CadastrarTipoItem(tipoItem.TipoItem.Codigo, usuario.Codigo);
+                    tipoItem.CadastrarTipoItemOng(tipoItem.TipoItem.Codigo, usuario.Codigo);
                 }
 
                 foreach (DiaUsuario dia in diasDisponiveis)

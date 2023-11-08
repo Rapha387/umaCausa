@@ -11,7 +11,7 @@ public class TipoItemOng : Banco
     public TipoItem TipoItem { get; set; }
     #endregion
 
-    public void CadastrarTipoItem(int codigoTipoItem, int codigoOng)
+    public void CadastrarTipoItemOng(int codigoTipoItem, int codigoOng)
     {
         List<Parametro> parametros = new List<Parametro>()
         {
@@ -29,4 +29,26 @@ public class TipoItemOng : Banco
             throw new Exception(ex.Message);
         }
     }
+    #region Metodos
+    
+
+    public void DeletarTipoItemOng(int codigoTipoItem, int codigoOng)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdUsuario", codigoOng.ToString()),
+            new Parametro ("pCodigoTipoItem", codigoTipoItem.ToString()),
+        };
+        try
+        {
+            Conectar();
+            Executar("DeletarTipoItemONg", parametros);
+            Desconectar();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+    #endregion
 }

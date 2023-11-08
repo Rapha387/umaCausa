@@ -121,7 +121,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     }
                     List<ODS> odsses = new List<ODS>();
                     List<ODS> odssesInativas = new List<ODS>();
-                    for (int i = 1; i < pnlODS.Controls.Count; i++)
+                    for (int i = 1; i <= pnlODS.Controls.Count; i++)
                     {
                         Panel painel = (Panel)pnlODS.FindControl("pnlOds" + i.ToString());
 

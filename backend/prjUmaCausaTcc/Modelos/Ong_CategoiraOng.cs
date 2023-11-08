@@ -9,9 +9,9 @@ namespace prjUmaCausaTcc.Modelos
     public class Ong_CategoiraOng : Banco
     {
         public Usuario Ong { get; set; }
-        public CategoriaOng Categoria { get; set; } 
+        public CategoriaOng Categoria { get; set; }
 
-        public void CadastrarCategoriaOng(int codigoUsuario, int codigoCategoria)
+        public void CadastrarOngCategoriaOng(int codigoUsuario, int codigoCategoria)
         {
             List<Parametro> parametros = new List<Parametro>()
             {
@@ -21,7 +21,27 @@ namespace prjUmaCausaTcc.Modelos
             try
             {
                 Conectar();
-                Executar("CadastrarCategoriaOng", parametros);
+                Executar("CadastrarOngCategoriaOng", parametros);
+                Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        public void DeletarOngCategoriaOng(int codigoUsuario, int codigoCategoria)
+        {
+            List<Parametro> parametros = new List<Parametro>()
+            {
+            new Parametro ("pIdUsuario", codigoUsuario.ToString()),
+            new Parametro ("pIdCategoria", codigoCategoria.ToString()),
+            };
+            try
+            {
+                Conectar();
+                Executar("DeletarOngCategoriaOng", parametros);
                 Desconectar();
             }
             catch (Exception ex)
