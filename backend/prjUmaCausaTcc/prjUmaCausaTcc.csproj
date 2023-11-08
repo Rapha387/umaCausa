@@ -246,6 +246,7 @@
     <Content Include="pages\configuracoes\minhasColaboracoes.aspx" />
     <Content Include="pages\criarCampanha.aspx" />
     <Content Include="pages\erro.aspx" />
+    <Content Include="pages\esqueciMinhaSenha.aspx" />
     <Content Include="pages\faq.aspx" />
     <Content Include="pages\index.aspx" />
     <Content Include="pages\login.aspx" />
@@ -371,6 +372,7 @@
     <Compile Include="Logicas\MotivosDenunciaUsuario.cs" />
     <Compile Include="Logicas\Odesses.cs" />
     <Compile Include="Logicas\Ongs.cs" />
+    <Compile Include="Logicas\RecuperarSenha.cs" />
     <Compile Include="Logicas\TiposEntrega.cs" />
     <Compile Include="Modelos\Campanha.cs" />
     <Compile Include="Modelos\CampanhaODS.cs" />
@@ -490,6 +492,13 @@
     </Compile>
     <Compile Include="pages\erro.aspx.designer.cs">
       <DependentUpon>erro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\esqueciMinhaSenha.aspx.cs">
+      <DependentUpon>esqueciMinhaSenha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\esqueciMinhaSenha.aspx.designer.cs">
+      <DependentUpon>esqueciMinhaSenha.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\faq.aspx.cs">
       <DependentUpon>faq.aspx</DependentUpon>

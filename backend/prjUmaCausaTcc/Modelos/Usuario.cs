@@ -454,11 +454,11 @@ public class Usuario : Banco
 
         return false;
     }
-    public bool AlterarSenhaUsuario(int codigo, string senhaAtual )
+    public bool AlterarSenhaUsuario(string email, string senhaAtual )
     {
         List<Parametro> parametros2 = new List<Parametro>()
         {
-            new Parametro ("pIdUsuario", codigo.ToString()),
+            new Parametro ("pEmail", email),
             new Parametro ("pNovaSenha", senhaAtual)
         };
         try

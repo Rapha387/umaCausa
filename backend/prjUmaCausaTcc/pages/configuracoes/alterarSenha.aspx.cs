@@ -36,7 +36,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
             {
                if(usuario.VerificarSenha(senhaAntiga, email) == true)
                 {
-                    usuario.AlterarSenhaUsuario(usuario.Codigo, senhaNova);
+                    usuario.AlterarSenhaUsuario(usuario.Email.ToLower(), senhaNova);
                     LitErro.Text = "Senha alterada com sucesso!";
                 }
                 else

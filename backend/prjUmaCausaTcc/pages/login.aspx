@@ -19,7 +19,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
       <asp:Literal ID="litHeader" runat="server"></asp:Literal>
 
       <div class="principalLogin">
@@ -36,9 +35,9 @@
             </div>
 
             <asp:Label ID="lblErroMSG" runat="server" Text="" CssClass="erromsg"></asp:Label>
-             <p><strong>Esqueceu a senha?</strong></p>
+             <a href="esqueciMinhaSenha.aspx"><p><strong>Esqueceu a senha?</strong></p></a>
              <asp:Button ID="btnConectar" runat="server" Text="Logar" OnClick="btnConectar_Click"/>
-             <p>Novo por Aqui?<strong> Crie uma conta</strong></p>
+             <p>Novo por Aqui?<strong> <a href="cadastro.aspx" style="color:black;">Crie uma conta</a></strong></p>
         </div>
       </div>
 

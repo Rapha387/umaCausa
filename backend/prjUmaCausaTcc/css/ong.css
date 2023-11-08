@@ -117,7 +117,7 @@ main .infos .infos2 .fotos .fotos-flex .foto {
 }
 #btnMeuPerfil {
     color: #0063BF;
-    background: rgba(255,255,255, 0);
+    background: #fff;
     border: solid 2px #0063BF;
 }
 
