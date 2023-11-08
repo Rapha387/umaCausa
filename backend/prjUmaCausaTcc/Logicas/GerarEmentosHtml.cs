@@ -143,7 +143,7 @@ public class GerarEmentosHtml
                         </div>
                         <div class='divisaoNavResposivo'>
                           <h3>Minhas Informações</h3>
-                            <a href='./configuracoes/meuPerfil.aspx'><li>Editar Meu Perfil</li></a>
+                            <a href='./configuracoes/meuPerfil.aspx'><li>Meu Perfil</li></a>
                           <li><a href='./configuracoes/minhasColaboracoes.aspx'>Minhas Colaborações</a></li>
                           <li><a href='configuracoes/confirmacoesDoacoes.aspx'>Confirmações de Doações</a></li>
                         </div>

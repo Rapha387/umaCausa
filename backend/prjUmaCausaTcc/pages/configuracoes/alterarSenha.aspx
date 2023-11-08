@@ -19,7 +19,9 @@
     <form id="form1" runat="server">
 
           <asp:Literal ID="LitHeader" runat="server"></asp:Literal>
-
+          
+        <asp:Literal ID="litPopUpResposta" runat="server"></asp:Literal>
+          
           <main>
             <asp:Literal ID="LitMenu" runat="server"></asp:Literal>
 
@@ -57,9 +59,8 @@
               <asp:Literal ID="LitFooter" runat="server"></asp:Literal>
           </footer>
 
+          <script src="../../js/popup.js"></script>
           <script src="../../js/animarBtnHeader.js"></script>
-          <script src="./../../js/inputFile.js"></script>
-          <script src="./../../js/cep.js"></script>
           <script src="./../../js/DeslogarUsuario.js"></script>
     </form>
 </body>
