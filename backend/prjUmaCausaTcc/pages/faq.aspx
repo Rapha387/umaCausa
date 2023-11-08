@@ -36,8 +36,6 @@
                     <div>
                         A <strong> UmaCausa</strong> é para todos os tipos de projeto!
                         Trabalhamos com projetos que promovam impacto na sociedade (seja cultural, social, econômico, político ou ambiental) e cuja proposta seja viável através da dinâmica do financiamento coletivo - o que vai depender da sua relevância, credibilidade e força de divulgação.</strong> é para todos os tipos de projeto!
-                        Trabalhamos com projetos que promovam impacto na sociedade (seja cultural, social, econômico, político ou ambiental) e cuja proposta seja viável
-                        através da dinâmica do financiamento coletivo - o que vai depender da sua relevância, credibilidade e força de divulgação.
                     </div>
                 </details>
 
@@ -72,7 +70,7 @@
               <details>
                 <summary>Qual é a porcentagem de minha doação que vai para a ONG?</summary>
                 <div>
-                    Garantimos que a maior parte de sua doação vá diretamente para a ONG escolhida. A porcentagem exata pode variar, mas fazemos o possível para minimizar as taxas administrativas.
+                    Todo o valor doado é destinado inteiramente para a instituição, sem fins lucrativos da parte administrativa da UmaCausa.
                 </div>
               </details>
 

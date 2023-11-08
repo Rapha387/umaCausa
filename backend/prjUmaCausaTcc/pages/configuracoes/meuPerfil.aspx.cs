@@ -38,6 +38,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
                 if (usuario.TipoDoUsuario.Codigo == 1)
                 {
+                    #region Declarações Textbox
                     usuario.BuscarOng(usuario.Codigo);
                     txtNome.Text = usuario.Nome.ToString();
                     txtBairro.Text = usuario.Bairro.ToString();
@@ -53,8 +54,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     txtComplemento.Text = usuario.Complemento.ToString();
                     txtNumero.Text = usuario.Numero;
                     txtDescricao.Text = usuario.Descricao.ToString();
-
-
+                    #endregion
 
                     if (usuario.PosssibilidadeBusca == true)
                     {
@@ -69,6 +69,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 }
                 else
                 {
+                    #region Declarações TextBox
                     usuario.BuscarDoador(usuario.Codigo);
                     PnlItensOngs.Visible = false;
                     txtNome.Text = usuario.Nome.ToString();
@@ -81,6 +82,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     txtTelefone.Text = usuario.Telefone.ToString();
                     txtComplemento.Text = usuario.Complemento.ToString();
                     txtNumero.Text = usuario.Numero;
+                    #endregion
                 }
 
                 foreach (ListItem controle in txtUF.Items)
@@ -106,6 +108,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 Usuario usuario = (Usuario)Session["usuario"];
                 if (usuario.TipoDoUsuario.Codigo == 1)
                 {
+                    #region Declarações Variaveis
                     int codigo = usuario.Codigo;
                     int tipo = usuario.TipoDoUsuario.Codigo;
                     string nome = txtNome.Text;
@@ -125,6 +128,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     string website = txtWebSite.Text;
                     string pix = txtPix.Text;
                     bool podebuscar = chkConfirmaoBuscaDoacoes.Checked;
+                    #endregion
 
 
                     ExibirChksOng();

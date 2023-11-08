@@ -1,11 +1,13 @@
 body {
   background: none;
 }
-
+.inputEnable{
+    background-color:darkgray;
+}
 main {
-  display: flex;
-  justify-content: space-between;
-  width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
 }
 
 main nav {
@@ -103,8 +105,10 @@ thead td {
   color: #fff;
 }
 
+.input-desabilitado{
+    background-color:darkgrey;
+}
 /*RESPONSIVO*/
-
 @media screen and (max-width: 1199px) {
     main {
         width: 100% !important;
