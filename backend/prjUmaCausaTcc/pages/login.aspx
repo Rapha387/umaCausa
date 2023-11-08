@@ -38,7 +38,7 @@
             <asp:Label ID="lblErroMSG" runat="server" Text="" CssClass="erromsg"></asp:Label>
              <p><strong>Esqueceu a senha?</strong></p>
              <asp:Button ID="btnConectar" runat="server" Text="Logar" OnClick="btnConectar_Click"/>
-             <p>Novo por Aqui?<strong> Crie uma conta</strong></p>
+             <p>Novo por Aqui?<a style="color: #0063BF" href="cadastro.aspx"><strong> Crie uma conta</strong></a></p>
         </div>
       </div>
 
