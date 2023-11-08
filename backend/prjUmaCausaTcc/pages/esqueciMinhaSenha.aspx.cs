@@ -57,7 +57,7 @@ namespace prjUmaCausaTcc.pages
             #endregion
 
             #region Atribuição dos Valores
-            remetente = "alissonprojetos.contato@outlook.com.br";
+            remetente = "alisson.r.santos92@hotmail.com";
             senha = "Google038576";
             destinatario = emailDestinatario;
             assunto = "Recuperação";
