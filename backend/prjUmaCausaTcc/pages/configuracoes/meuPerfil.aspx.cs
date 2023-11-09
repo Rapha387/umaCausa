@@ -2,6 +2,7 @@
 using prjUmaCausaTcc.Modelos;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -124,7 +125,6 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     TextBox txtFimDia = new TextBox();
                     txtFimDia.ID = "txtFimDia" + codigo;
                     txtFimDia.TextMode = TextBoxMode.Time;
-                    txtFimDia.Enabled = true;
 
 
                     pnlInputsDia.Controls.Add(lblInputInicio);
@@ -143,11 +143,11 @@ namespace prjUmaCausaTcc.pages.configuracoes
                             checkBoxDia.Checked = true;
                             string horario = diaUsuario.HorarioInicio.ToString().Substring(11, 5);
                             txtComecoDia.Text = horario;
-                            txtComecoDia.Enabled = false;
+                            txtComecoDia.Enabled = true;
 
                             string horariofim = diaUsuario.HorarioFim.ToString().Substring(11, 5);
                             txtFimDia.Text = horariofim;
-                            txtFimDia.Enabled = false;
+                            txtFimDia.Enabled = true;
                         }
                     }
                 }
@@ -186,7 +186,9 @@ namespace prjUmaCausaTcc.pages.configuracoes
             }
             else
             {
-                #region Declarar Texboxs
+                if (!IsPostBack)
+                {
+                  #region Declarar Texboxs
                 usuario.BuscarDoador(usuario.Codigo);
                 PnlItensOngs.Visible = false;
                 txtNome.Text = usuario.Nome.ToString();
@@ -200,6 +202,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 txtComplemento.Text = usuario.Complemento.ToString();
                 txtNumero.Text = usuario.Numero;
                 #endregion
+                }
             }
         }
         protected void BtnSalvarAlteraçoes_Click(object sender, EventArgs e)
@@ -301,59 +304,77 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     {
                         new TipoItemOng().CadastrarTipoItemOng(item.TipoItem.Codigo, user.Codigo);
                     }
-                    foreach (TipoItemOng item in itemsChecados)
+
+                    foreach (TipoItemOng item in itemsNaoChecados)
                     {
                         new TipoItemOng().DeletarTipoItemOng(item.TipoItem.Codigo, user.Codigo);
                     }
 
-                    //List<DiaUsuario> diasDisponiveis = new List<DiaUsuario>();
-                    //for (int i = 1; i <= pnlDiasDisponiveis.Controls.Count; i++)
-                    //{
-                    //    if (i > 7)
-                    //        break;
+                    List<DiaUsuario> diasDisponiveisChecados = new List<DiaUsuario>();
+                    List<DiaUsuario> diasDisponiveisNaoChecados = new List<DiaUsuario>();
+                    for (int i = 1; i <= pnlDiasDisponiveis.Controls.Count; i++)
+                    {
+                        if (i > 7)
+                            break;
 
-                    //    int codigo1 = i;
+                        int codigo1 = i;
 
-                    //    Panel painel = (Panel)pnlDiasDisponiveis.FindControl("pnlDia" + codigo1);
+                        Panel painel = (Panel)pnlDiasDisponiveis.FindControl("pnlDia" + codigo1);
 
-                    //    Panel pnlCheckBox = (Panel)painel.FindControl("pnlCheckBoxDia" + codigo1);
-                    //    CheckBox chkDia = (CheckBox)pnlCheckBox.FindControl("chkDia" + codigo1);
+                        Panel pnlCheckBox = (Panel)painel.FindControl("pnlCheckBoxDia" + codigo1);
+                        CheckBox chkDia = (CheckBox)pnlCheckBox.FindControl("chkDia" + codigo1);
+                        Panel pnlInputsDia = (Panel)painel.FindControl("pnlInputsDia" + codigo1);
+                        TextBox txtIncioDia = (TextBox)pnlInputsDia.FindControl("txtComecoDia" + codigo1);
+                        TextBox txtFimDia = (TextBox)pnlInputsDia.FindControl("txtFimDia" + codigo1);
 
-                    //    if (chkDia.Checked)
-                    //    {
-                    //        Panel pnlInputsDia = (Panel)painel.FindControl("pnlInputsDia" + codigo1);
-                    //        TextBox txtIncioDia = (TextBox)pnlInputsDia.FindControl("txtComecoDia" + codigo1);
-                    //        TextBox txtFimDia = (TextBox)pnlInputsDia.FindControl("txtFimDia" + codigo1);
+                        if (chkDia.Checked && !String.IsNullOrEmpty(txtIncioDia.Text) && !String.IsNullOrEmpty(txtFimDia.Text))
+                        {
+                            Dia dia = new Dia();
+                            dia.Codigo = codigo1;
 
-                    //        Dia dia = new Dia();
-                    //        dia.Codigo = codigo1;
+                            DateTime hrIncioDia = DateTime.Parse(txtIncioDia.Text);
+                            DateTime hrFimDia = DateTime.Parse(txtFimDia.Text);
 
-                    //        DateTime hrIncioDia = DateTime.Parse(txtIncioDia.Text);
-                    //        DateTime hrFimDia = DateTime.Parse(txtFimDia.Text);
+                            if (hrFimDia < hrIncioDia)
+                            {
+                                erroDias.Text = $"O horário de fim do {chkDia.Text} não pode ser menor que o de início";
+                                return;
+                            }
 
-                    //        if (hrFimDia < hrIncioDia)
-                    //        {
-                    //            erroDias.Text = $"O horário de fim do {chkDia.Text} não pode ser menor que o de início";
-                    //            return;
-                    //        }
+                            DiaUsuario diaDisponivel = new DiaUsuario();
 
-                    //        DiaUsuario diaDisponivel = new DiaUsuario();
+                            diaDisponivel.Dia = dia;
+                            diaDisponivel.HorarioFim = hrFimDia;
+                            diaDisponivel.HorarioInicio = hrIncioDia;
 
-                    //        diaDisponivel.Dia = dia;
-                    //        diaDisponivel.HorarioFim = hrFimDia;
-                    //        diaDisponivel.HorarioInicio = hrIncioDia;
+                            diasDisponiveisChecados.Add(diaDisponivel);
+                        }
+                        else
+                        {
 
-                    //        diasDisponiveis.Add(diaDisponivel);
-                    //    }
-                    //}
+                            Dia dia = new Dia();
+                            dia.Codigo = codigo1;
+                            DiaUsuario diaDisponivel = new DiaUsuario();
+                            diaDisponivel.Dia = dia;
+                            diasDisponiveisNaoChecados.Add(diaDisponivel);
+                        }
+                    }
 
-                    //erroDias.Text = "";
-                    //if (diasDisponiveis.Count == 0)
-                    //{
-                    //    erroDias.Text = "Selecione pelo menos um dia";
-                    //    return;
-                    //}
+                    erroDias.Text = "";
+                    if (diasDisponiveisChecados.Count == 0)
+                    {
+                        erroDias.Text = "Selecione pelo menos um dia";
+                        return;
+                    }
 
+                    foreach (DiaUsuario dia in diasDisponiveisChecados)
+                    {
+                        new DiaUsuario().CadastrarDiaUsuario(user.Codigo, dia.Dia.Codigo, dia.HorarioInicio, dia.HorarioFim);
+                    }
+                    foreach (DiaUsuario dia in diasDisponiveisNaoChecados)
+                    {
+                        new DiaUsuario().DeletarDiaUsuario(user.Codigo, dia.Dia.Codigo);
+                    }
                 }
                 else
                 {
@@ -374,13 +395,14 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     string longitude = "";
                     CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
                     (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
-                    usuario.AlterarDadosdoador(codigo, nome, email, telefone, cep, cidade, rua, numero, bairro, complemento, latitude, longitude);
+                    usuario.AlterarDadosDoador(codigo, nome, email, telefone, cep, cidade, rua, numero, bairro, complemento, latitude, longitude);
                 }
             }
             catch
             {
                 Response.Redirect("../erro.aspx");
             }
+            Response.Redirect("./meuPerfil.aspx");
         }
 
         

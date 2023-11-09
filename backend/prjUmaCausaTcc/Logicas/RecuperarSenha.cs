@@ -28,9 +28,9 @@ public class RecuperarSenha : Banco
     }
     public int RecuperarCodigoRecuperacao(string email)
     {
+        int codigo = 0;
         try
         {
-            int codigo = 0;
             List<Parametro> parametros = new List<Parametro>()
             {
                 new Parametro("pEmail",email),
@@ -45,7 +45,6 @@ public class RecuperarSenha : Banco
             }
             if (!dados.IsClosed)
             { dados.Close(); }
-            return codigo;
         }
         catch (Exception)
         {
@@ -55,6 +54,7 @@ public class RecuperarSenha : Banco
         {
             Desconectar();
         }
+        return codigo;
     }
 
     public bool VerificarExistenciaEmail(string email)
@@ -77,7 +77,6 @@ public class RecuperarSenha : Banco
             }
             if (!dados.IsClosed)
             { dados.Close(); }
-            return validacao;
         }
         catch (Exception)
         {
@@ -87,6 +86,7 @@ public class RecuperarSenha : Banco
         {
             Desconectar();
         }
+        return validacao;
     }
 
     public bool VerificarCodigoRecuperacao(int codigo,string email)
@@ -112,7 +112,6 @@ public class RecuperarSenha : Banco
             }
             if (!dados.IsClosed)
             { dados.Close(); }
-            return validacao;
         }
         catch (Exception)
         {
@@ -122,5 +121,6 @@ public class RecuperarSenha : Banco
         {
             Desconectar();
         }
+        return validacao;
     }
 }

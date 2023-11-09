@@ -22,15 +22,14 @@ namespace prjUmaCausaTcc.Modelos
             {
                 Conectar();
                 Executar("CadastrarOngCategoriaOng", parametros);
-                Desconectar();
+                
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+            finally { Conectar(); }
         }
-
-
         public void DeletarOngCategoriaOng(int codigoUsuario, int codigoCategoria)
         {
             List<Parametro> parametros = new List<Parametro>()
@@ -42,12 +41,13 @@ namespace prjUmaCausaTcc.Modelos
             {
                 Conectar();
                 Executar("DeletarOngCategoriaOng", parametros);
-                Desconectar();
+                
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+            finally { Desconectar(); }
         }
     }
 }

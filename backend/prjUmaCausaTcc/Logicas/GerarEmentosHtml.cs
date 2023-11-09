@@ -18,7 +18,6 @@ public class GerarEmentosHtml
             nome += " " + nomes[i];
         }
     }
-
     public string MudarNavegacao(Usuario usuario)
     {
         if (usuario == null)
@@ -253,7 +252,6 @@ public class GerarEmentosHtml
             return nav;
         }
     }
-
     public string GerarFooter()
     {
         string footer = $@"
@@ -374,8 +372,6 @@ public class GerarEmentosHtml
             return nav;
         }
     }
-    
-
     public string GerarFooterConfiguracoes()
     {
         string footer = $@"

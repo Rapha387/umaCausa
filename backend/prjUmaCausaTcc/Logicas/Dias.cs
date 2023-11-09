@@ -46,7 +46,6 @@ namespace prjUmaCausaTcc.Logicas
 
             return listaDias;
         }
-
         public List<DiaUsuario> ListarDiasDisponiveisOng(int codigo)
         {
             List<DiaUsuario> listaDias1 = new List<DiaUsuario>();

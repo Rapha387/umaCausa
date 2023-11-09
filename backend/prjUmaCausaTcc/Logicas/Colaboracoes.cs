@@ -114,7 +114,6 @@ namespace prjUmaCausaTcc.Logicas
             finally { Desconectar(); }
             return doacoes;
         }
-
         public List<DoacaoMonetaria> ListaDoacoesMonetarias(int codigo)
         {
             List<DoacaoMonetaria> doacoes = new List<DoacaoMonetaria>();
@@ -165,7 +164,6 @@ namespace prjUmaCausaTcc.Logicas
             finally { Desconectar(); }
             return doacoes;
         }
-
         public List<DoacaoCampanha> ListarDoacoesCampanhasMonetariasConfirmadasOuNao(int codigoOng, bool confirmacao )
         {
             
@@ -226,7 +224,6 @@ namespace prjUmaCausaTcc.Logicas
             finally { Desconectar(); }
             return doacoes;
         }
-
         public List<DoacaoCampanha> ListarDoacoesCampanhasItensConfirmadasOuNao(int codigoOng, bool confirmacao)
         {
             List<DoacaoCampanha> doacoes = new List<DoacaoCampanha>();
@@ -397,7 +394,6 @@ namespace prjUmaCausaTcc.Logicas
             finally { Desconectar(); }
             return doacoes;
         }
-
         public List<DoacaoCampanha> ListaDoacoesCampanhasPesquisa(int codigo, string pesquisa)
         {
             List<DoacaoCampanha> doacoes = new List<DoacaoCampanha>();
@@ -500,7 +496,6 @@ namespace prjUmaCausaTcc.Logicas
             finally { Desconectar(); }
             return doacoes;
         }
-
         public List<DoacaoMonetaria> ListaDoacoesMonetariasPesquisa(int codigo, string pesquisa)
         {
             List<DoacaoMonetaria> doacoes = new List<DoacaoMonetaria>();

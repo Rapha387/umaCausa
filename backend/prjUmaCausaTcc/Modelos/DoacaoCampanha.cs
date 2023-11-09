@@ -116,6 +116,8 @@ public class DoacaoCampanha : Banco
             {
                 CodigoComprovante = dados.GetInt32("comprovante");
             }
+            if (!dados.IsClosed)
+                dados.Close();
         }
         catch (Exception ex)
         {
