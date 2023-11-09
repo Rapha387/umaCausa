@@ -13,26 +13,17 @@ namespace prjUmaCausaTcc.pages.configuracoes
         Campanha Campanha { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            #region Gerar Elementos Html
-            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
-            litFooter.Text = gerarHtml.GerarFooterConfiguracoes();
 
-            if (Session["usuario"] != null)
-            {
-                Usuario usuario = (Usuario)Session["usuario"];
-                litHeader.Text = gerarHtml.GerarHeaderConfiguracoes(usuario);
-                if (usuario.TipoDoUsuario.Codigo == 1)
-                    this.Usuario = usuario;
-                else
-                    Response.Redirect($"../erro.aspx?e=pagina não encontrada");
-            }
-            else
-            {
-                litHeader.Text = gerarHtml.MudarNavegacao(null);
-            }
-            #endregion
+            if (Session["usuario"] == null)
+                Response.Redirect("../index.aspx");
+
+            Usuario usuario = (Usuario)Session["usuario"];
+
+            if (usuario.TipoDoUsuario.Codigo == 0)
+                Response.Redirect("../index.aspx");
 
             #region Verificar Campanha
+
             if (Session["Campanha"] != null)
             {
                 this.Campanha = (Campanha)Session["Campanha"];
@@ -46,6 +37,21 @@ namespace prjUmaCausaTcc.pages.configuracoes
             {
                 Response.Redirect($"../erro.aspx?e=pagina não encontrada");
             }
+            #endregion
+
+            if (Campanha.BuscarCodigoOngDaCampanha(this.Campanha.Codigo) != usuario.Codigo)
+                Response.Redirect("../index.aspx");
+
+
+            this.Usuario = usuario;
+
+            #region Gerar Elementos Html
+
+            GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
+
+            litHeader.Text = gerarHtml.GerarHeaderConfiguracoes(usuario);
+            litFooter.Text = gerarHtml.GerarFooterConfiguracoes();
+
             #endregion
 
             foreach (TipoItem item in new Itens().ListarTiposItens())

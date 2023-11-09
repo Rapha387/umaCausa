@@ -266,7 +266,6 @@ public class Campanha : Banco
 
         return ong;
     }
-
     public void EditarCampanha(int codigo, string nome, string descricao, double meta, DateTime dataFim )
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -290,6 +289,41 @@ public class Campanha : Banco
         {
             Desconectar();
         }
+    }
+
+    public int BuscarCodigoOngDaCampanha(int codigoCampanha)
+    {
+        int codigo = 0;
+
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdCampanha", codigoCampanha.ToString())
+        };
+
+        try
+        {
+            var dados = Consultar("BuscarCodigoOngDaCampanha", parametros);
+            if (dados.HasRows)
+            {
+                if (dados.Read())
+                {
+                    codigo = int.Parse(dados["id_ong"].ToString());
+                }
+            }
+
+            if (!dados.IsClosed)
+                dados.Close();
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+        finally
+        {
+            Desconectar();
+        }
+
+        return codigo;
     }
     #endregion
 }
