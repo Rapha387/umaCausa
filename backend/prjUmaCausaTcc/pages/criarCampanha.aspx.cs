@@ -12,6 +12,9 @@ namespace prjUmaCausaTcc.pages
         Usuario usuario { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuario"] == null)
+                Response.Redirect("index.aspx");
+
             #region Gerar Elementos Html
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
@@ -20,7 +23,6 @@ namespace prjUmaCausaTcc.pages
             {
                 this.usuario = (Usuario)Session["usuario"];
                 litHeader.Text = gerarHtml.MudarNavegacao(this.usuario);
-                
             }
             else
             {

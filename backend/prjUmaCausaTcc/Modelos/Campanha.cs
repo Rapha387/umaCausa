@@ -307,7 +307,7 @@ public class Campanha : Banco
             {
                 if (dados.Read())
                 {
-                    codigo = int.Parse(dados["id_ong"].ToString());
+                    codigo = int.Parse(dados["id_usuario"].ToString());
                 }
             }
 
