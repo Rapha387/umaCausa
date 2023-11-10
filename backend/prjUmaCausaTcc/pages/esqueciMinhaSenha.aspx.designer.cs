@@ -24,6 +24,15 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Controle litHeader.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litHeader;
+
+        /// <summary>
         /// Controle pnlEnviarEmail.
         /// </summary>
         /// <remarks>
@@ -60,40 +69,13 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.Panel pnlEnviado;
 
         /// <summary>
-        /// Controle litTexto.
+        /// Controle Retornar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litTexto;
-
-        /// <summary>
-        /// Controle txtCodigo.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigo;
-
-        /// <summary>
-        /// Controle ReenviarCodigo.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ReenviarCodigo;
-
-        /// <summary>
-        /// Controle btnVerificar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVerificar;
+        protected global::System.Web.UI.WebControls.Button Retornar;
 
         /// <summary>
         /// Controle pnlAlterarSenha.
@@ -139,5 +121,14 @@ namespace prjUmaCausaTcc.pages
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMensagem;
+
+        /// <summary>
+        /// Controle litFooter.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litFooter;
     }
 }

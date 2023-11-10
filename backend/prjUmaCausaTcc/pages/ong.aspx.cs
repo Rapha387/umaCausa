@@ -52,8 +52,6 @@ namespace prjUmaCausaTcc.pages
 
                     ExibirCampanhasInativas(codigoOng);
                     
-                    ExibirCampanhasInativas(codigoOng);
-                    
                     ExibirFotosOng(codigoOng);
 
                     ExibirOpcoesDdlsDoacao(codigoOng);
@@ -160,6 +158,7 @@ namespace prjUmaCausaTcc.pages
 
                 foreach (Campanha campanha in campanhasAtivas)
                 {
+
                     litCampanhasAtivas.Text += $@"
                     <div class='campanha swiper-slide'>
                         <a href='campanha.aspx?c={campanha.Codigo}'>

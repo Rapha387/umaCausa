@@ -132,6 +132,7 @@
     <Content Include="css\criarCampanha.css" />
     <Content Include="css\divulgacaoItem.css" />
     <Content Include="css\erro.css" />
+    <Content Include="css\esqueciMinhaSenha.css" />
     <Content Include="css\faq.css" />
     <Content Include="css\home.css" />
     <Content Include="css\index.css" />

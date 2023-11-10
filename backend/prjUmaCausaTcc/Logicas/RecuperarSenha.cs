@@ -26,9 +26,30 @@ public class RecuperarSenha : Banco
             Desconectar();
         }
     }
-    public int RecuperarCodigoRecuperacao(string email)
+
+    public void ExcluirCodigoRecuperacao(string email)
     {
-        int codigo = 0;
+        try
+        {
+            List<Parametro> parametros = new List<Parametro>()
+            {
+                new Parametro("pEmail",email),
+            };
+            Conectar();
+            Executar("ExcluirCodigosExpirados", parametros);
+        }
+        catch (Exception)
+        {
+            throw new Exception("Ocorreu um problema na busca");
+        }
+        finally
+        {
+            Desconectar();
+        }
+    }
+    public string RecuperarCodigoRecuperacao(string email)
+    {
+        string codigo = "";
         try
         {
             List<Parametro> parametros = new List<Parametro>()
@@ -40,7 +61,7 @@ public class RecuperarSenha : Banco
             {
                 if (dados.Read())
                 {
-                    codigo = dados.GetInt32("codigo");
+                    codigo = dados.GetString("codigo");
                 }
             }
             if (!dados.IsClosed)
@@ -89,7 +110,7 @@ public class RecuperarSenha : Banco
         return validacao;
     }
 
-    public bool VerificarCodigoRecuperacao(int codigo,string email)
+    public bool VerificarCodigoRecuperacao(string codigo,string email)
     {
         bool validacao = false;
         try
@@ -97,7 +118,7 @@ public class RecuperarSenha : Banco
             List<Parametro> parametros = new List<Parametro>()
             {
                 new Parametro("pEmail",email),
-                new Parametro("pCodigo",codigo.ToString()),
+                new Parametro("pCodigo",codigo),
             };
             MySqlDataReader dados = Consultar("VerificarCodigoRecuperacao", parametros);
             if (dados.HasRows)

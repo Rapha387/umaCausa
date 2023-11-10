@@ -1,0 +1,25 @@
+﻿body {
+}
+.card {
+    margin:auto;
+    text-align:center;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    background-color: #FCFBFB;
+    border: 2px solid #CDC7C7;
+    padding: 2.001rem;
+    margin-top: 20px;
+    flex-direction: column;
+    gap: 36px;
+}
+.itens-erro {
+    margin-top: 0.5rem;
+    width: 100%;
+    text-align: center;
+    color: #ff0000;
+}
+.input-label {
+    text-align: left;
+    margin-top:10px;
+}

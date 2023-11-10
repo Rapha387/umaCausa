@@ -33,17 +33,17 @@
               <div class="infos">
                 <div class="input-label">
                   <label for="">Senha Atual:</label>
-                    <asp:TextBox ID="TxtSenhaAtual" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="TxtSenhaAtual" MinLength="8" runat="server" TextMode="Password"></asp:TextBox>
                 </div>
                 <div class="novaSenha">
                   <div class="input-label">
                     <label for="">Nova Senha:</label>
-                   <asp:TextBox ID="TxtNovaSenha" runat="server" TextMode="Password"></asp:TextBox>
+                   <asp:TextBox ID="TxtNovaSenha" MinLength="8" runat="server" TextMode="Password"></asp:TextBox>
 
                   </div>
                   <div class="input-label">
                     <label for="">Repita a Nova Senha:</label>
-                   <asp:TextBox ID="TxtRepeticao" runat="server" TextMode="Password"></asp:TextBox>
+                   <asp:TextBox ID="TxtRepeticao" MinLength="8" runat="server" TextMode="Password"></asp:TextBox>
 
                   </div>
                 </div>
