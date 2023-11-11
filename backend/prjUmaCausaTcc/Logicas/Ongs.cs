@@ -147,16 +147,17 @@ namespace prjUmaCausaTcc.Logicas
                         ongs.Add(ong);
                     }
                 }
-                if (dados.IsClosed)
+                if (!dados.IsClosed)
                     dados.Close();
 
-                return ongs;
+                
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
             finally { Desconectar(); }
+            return ongs;
 
         }
         public List<Usuario> ListarOngsPorCategoria(int limite, int categoria)

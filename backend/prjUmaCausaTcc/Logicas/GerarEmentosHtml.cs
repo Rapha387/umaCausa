@@ -18,7 +18,6 @@ public class GerarEmentosHtml
             nome += " " + nomes[i];
         }
     }
-
     public string MudarNavegacao(Usuario usuario)
     {
         if (usuario == null)
@@ -78,8 +77,8 @@ public class GerarEmentosHtml
                             <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
                             <div class='menu-configuracoes'>
                                 <div>
-                                  <a href='ong.aspx?ong={usuario.Codigo}'><li>Visualizar Minha Página</li></a>
-                                  <a href='configuracoes/meuPerfil.aspx'><li>Editar Meu Perfil</li></a>
+                                  <a href='ong.aspx?ong={usuario.Codigo}'><li>Minha Página</li></a>
+                                  <a href='configuracoes/meuPerfil.aspx'><li>Editar Perfil</li></a>
                                   <a href='configuracoes/minhasColaboracoes.aspx'><li>Minhas Colaborações</li></a>
                                   <a href='configuracoes/minhasCampanhas.aspx'><li>Minhas Campanhas</li></a>
                                   <a href='configuracoes/confirmacoesDoacoes.aspx'><li>Confirmações de Doações</li></a>
@@ -98,8 +97,8 @@ public class GerarEmentosHtml
                         </div>
                         <div class='divisaoNavResposivo'>
                           <h3>Minhas Informações</h3>
-                          <a href='./ong.aspx?ong={usuario.Codigo}'><li>Visualizar Minha Página</li></a>
-                           <a href='./configuracoes/meuPerfil.aspx'><li>Editar Meu Perfil</li></a>
+                          <a href='./ong.aspx?ong={usuario.Codigo}'><li>Minha Página</li></a>
+                           <a href='./configuracoes/meuPerfil.aspx'><li>Editar Perfil</li></a>
                           <li><a href='./configuracoes/minhasCampanhas.aspx'>Minhas Campanhas</a></li>
                           <li><a href='./configuracoes/minhasColaboracoes.aspx'>Minhas Colaborações</a></li>
                         </div>
@@ -127,7 +126,7 @@ public class GerarEmentosHtml
                             <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
                             <div class='menu-configuracoes'>
                                 <div>
-                                  <a href='configuracoes/meuPerfil.aspx'><li>Editar Meu Perfil</li></a>
+                                  <a href='configuracoes/meuPerfil.aspx'><li>Editar Perfil</li></a>
                                   <a href='configuracoes/minhasColaboracoes.aspx'><li>Minhas Colaborações</li></a>
                                   <li id='btnSair'>Sair</li>
                                 </div>
@@ -180,8 +179,8 @@ public class GerarEmentosHtml
                             <input type='checkbox' class='escondido'name='menuConfig' id='menuConfig'>
                             <div class='menu-configuracoes'>
                                 <div>
-                                  <a href='../ong.aspx?ong={usuario.Codigo}'><li>Visualizar Minha Página</li></a>
-                                  <a href='./meuPerfil.aspx'><li>Editar Meu Perfil</li></a>
+                                  <a href='../ong.aspx?ong={usuario.Codigo}'><li>Minha Página</li></a>
+                                  <a href='./meuPerfil.aspx'><li>Editar Perfil</li></a>
                                   <a href='./minhasColaboracoes.aspx'><li>Minhas Colaborações</li></a>
                                   <a href='./minhasCampanhas.aspx'><li>Minhas Campanhas</li></a>
                                   <a href='./confirmacoesDoacoes.aspx'><li>Confirmações de Doações</li></a>
@@ -199,8 +198,8 @@ public class GerarEmentosHtml
                         </div>
                         <div class='divisaoNavResposivo'>
                           <h3>Minhas Informações</h3>
-                          <a href='../ong.aspx?ong={usuario.Codigo}'><li>Visualizar Minha Página</li></a>
-                                  <a href='./meuPerfil.aspx'><li>Editar Meu Perfil</li></a>
+                          <a href='../ong.aspx?ong={usuario.Codigo}'><li>Minha Página</li></a>
+                                  <a href='./meuPerfil.aspx'><li>Editar Perfil</li></a>
                           <li><a href='./minhasCampanhas.aspx'>Minhas Campanhas</a></li>
                           <li><a href='./minhasColaboracoes.aspx'>Minhas Colaborações</a></li>
                         </div>
@@ -253,7 +252,6 @@ public class GerarEmentosHtml
             return nav;
         }
     }
-
     public string GerarFooter()
     {
         string footer = $@"
@@ -374,8 +372,6 @@ public class GerarEmentosHtml
             return nav;
         }
     }
-    
-
     public string GerarFooterConfiguracoes()
     {
         string footer = $@"

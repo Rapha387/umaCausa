@@ -26,11 +26,29 @@ public class DiaUsuario : Banco
         {
             Conectar();
             Executar("CadastrarDiasUsuario", parametros);
-            Desconectar();
         }
         catch (Exception ex)
         {
             throw new Exception(ex.Message);
         }
+        finally { Desconectar(); }
+    }
+    public void DeletarDiaUsuario(int codigoUsuario, int codigoDia)
+    {
+        List<Parametro> parametros = new List<Parametro>()
+        {
+            new Parametro ("pIdUsuario", codigoUsuario.ToString()),
+            new Parametro ("pIdDia", codigoDia.ToString()),
+        };
+        try
+        {
+            Conectar();
+            Executar("DeletarDiaUsuario", parametros);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        finally { Desconectar(); }
     }
 }

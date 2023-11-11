@@ -297,7 +297,7 @@ namespace prjUmaCausaTcc.pages
 
                 foreach (TipoItemOng tipoItem in itemsAceitos)
                 {
-                    tipoItem.CadastrarTipoItem(tipoItem.TipoItem.Codigo, usuario.Codigo);
+                    tipoItem.CadastrarTipoItemOng(tipoItem.TipoItem.Codigo, usuario.Codigo);
                 }
 
                 foreach (DiaUsuario dia in diasDisponiveis)

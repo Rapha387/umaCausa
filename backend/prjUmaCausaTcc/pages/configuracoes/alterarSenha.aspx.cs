@@ -11,10 +11,13 @@ namespace prjUmaCausaTcc.pages.configuracoes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            litPopUpResposta.Text = "";
+
             Usuario usuario = (Usuario)Session["usuario"];
 
             if (usuario == null)
                 Response.Redirect("../index.aspx");
+
             GerarEmentosHtml gerarEmentosHtml = new GerarEmentosHtml();
             string header = gerarEmentosHtml.GerarHeaderConfiguracoes(usuario);
             string footer = gerarEmentosHtml.GerarFooterConfiguracoes();
@@ -38,7 +41,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
             {
                if(usuario.VerificarSenha(senhaAntiga, email) == true)
                 {
-                    usuario.AlterarSenhaUsuario(usuario.Codigo, senhaNova);
+                    usuario.AlterarSenhaUsuario(usuario.Email, senhaNova);
                     litPopUpResposta.Text = @"
                         <div class='bloqueio'></div>
                         
@@ -54,8 +57,6 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     TxtNovaSenha.Text = "";
                     TxtSenhaAtual.Text = "";
                     TxtRepeticao.Text = "";
-
-                    Response.Redirect("alterarSenha.aspx");
                 }
                 else
                 {

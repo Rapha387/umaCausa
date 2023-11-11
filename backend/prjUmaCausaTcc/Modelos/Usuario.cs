@@ -276,27 +276,6 @@ public class Usuario : Banco
         }
 
     }
-    public bool ExcluirUsuario(int codigo)
-    {
-        List<Parametro> parametros = new List<Parametro>()
-        {
-            new Parametro ("pIdUsuario", codigo.ToString())
-        };
-        try
-        {
-            Conectar();
-            Executar("ExcluirUsuario", parametros);
-            return true;
-        }
-        catch (Exception)
-        {
-            return false;
-        }
-        finally
-        {
-            Desconectar();
-        }
-    }
     public void BuscarOng(int codigo)
     {
         // Usuario usuario = new Usuario();
@@ -431,19 +410,19 @@ public class Usuario : Banco
             new Parametro ("pSenhaDigitada", senha.ToString()),
             new Parametro ("pEmail", email.ToString()),
         };
+        bool verificado = false;
         try
         {
             MySqlDataReader dados = Consultar("VerificarSenha", parametros);
             if (dados.Read())
             {
-                return dados.GetBoolean(0);
+                verificado = dados.GetBoolean(0);
             }
             if (!dados.IsClosed)
                 dados.Close();
         }
         catch (Exception)
         {
-
             throw new Exception("Erro ao fazer a verificação");
         }
         finally
@@ -452,26 +431,26 @@ public class Usuario : Banco
         }
 
 
-        return false;
+        return verificado;
     }
-    public bool AlterarSenhaUsuario(int codigo, string senhaAtual )
+    public bool AlterarSenhaUsuario(string email, string senhaAtual)
     {
         List<Parametro> parametros2 = new List<Parametro>()
         {
-            new Parametro ("pIdUsuario", codigo.ToString()),
+            new Parametro ("pEmail", email),
             new Parametro ("pNovaSenha", senhaAtual)
         };
         try
         {
             Conectar();
             Executar("AlterarSenhaUsuario", parametros2);
-            Desconectar();
-            return true;
         }
         catch (Exception)
         {
-            return false;
+            throw new Exception("Erro ao atualizar");
         }
+        finally { Desconectar();}
+        return true;
     }
     public void BuscarUsuarioPeloEmail(string email)
     {
@@ -556,9 +535,8 @@ public class Usuario : Banco
             Desconectar();
         }
     }
-    public void AlterarDadosdoador(int codigo, string nome, string email, string telefone, string cep, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude)
+    public void AlterarDadosDoador(int codigo, string nome, string email, string telefone, string cep, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude)
     {
-        Conectar();
         List<Parametro> parametros = new List<Parametro>()
             {
                 new Parametro ("pIdUsuario", codigo.ToString()),
@@ -580,7 +558,6 @@ public class Usuario : Banco
         {
             Conectar();
             Executar("AlterarDadosDoador", parametros);
-            Desconectar();
         }
         catch (Exception ex)
         {
@@ -590,7 +567,6 @@ public class Usuario : Banco
     }
     public void AlterarDadosOng(int codigo, string nome, string email, string emailcontato, string telefone, string descricao, string cep, string cidade, string rua, string numero, string bairro, string complemento, string latitude, string longitude, string website, string pix, bool podebuscar)
     {
-        Conectar();
         List<Parametro> parametros = new List<Parametro>()
             {
                 new Parametro ("pIdUsuario", codigo.ToString()),
@@ -618,7 +594,6 @@ public class Usuario : Banco
         {
             Conectar();
             Executar("AlterarDadosOng", parametros);
-            Desconectar();
         }
         catch (Exception ex)
         {
@@ -645,7 +620,7 @@ public class Usuario : Banco
                     FotoPerfil = dados.GetString("img_fotoPerfil");
                 }
             }
-            if (dados.IsClosed)
+            if (!dados.IsClosed)
                 dados.Close();
         }
         catch (Exception)
@@ -676,7 +651,7 @@ public class Usuario : Banco
             {
                 TipoDoUsuario = null;
             }
-            if (dados.IsClosed)
+            if (!dados.IsClosed)
                 dados.Close();
         }
         catch (Exception ex)
@@ -697,7 +672,7 @@ public class Usuario : Banco
                     Codigo = int.Parse(dados["id_usuario"].ToString());
                 }
             }
-            if (dados.IsClosed)
+            if (!dados.IsClosed)
                 dados.Close();
         }
         catch (Exception ex)
@@ -726,12 +701,12 @@ public class Usuario : Banco
             else
                 existe = false;
 
-            if (dados.IsClosed)
+            if (!dados.IsClosed)
                 dados.Close();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw;
+            throw new Exception(ex.Message);
         }
         finally { Desconectar(); }
 

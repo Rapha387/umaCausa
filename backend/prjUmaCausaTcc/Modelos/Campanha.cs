@@ -103,7 +103,8 @@ public class Campanha : Banco
         };
         try
         {
-            Consultar("CriarCampanha", parametros);
+            Conectar();
+            Executar("CriarCampanha", parametros);
         }
         catch (Exception)
         {

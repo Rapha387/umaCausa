@@ -32,6 +32,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
             {
                 this.Campanha = new Campanha();
                 this.Campanha.BuscarCampanha(int.Parse(Request["id"]));
+                if (this.Campanha.ONG.Codigo != this.Usuario.Codigo)
+                    Response.Redirect($"../erro.aspx?e=pagina não encontrada");
             }
             else
             {
@@ -127,7 +129,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     }
                     List<ODS> odsses = new List<ODS>();
                     List<ODS> odssesInativas = new List<ODS>();
-                    for (int i = 1; i < pnlODS.Controls.Count; i++)
+                    for (int i = 1; i <= pnlODS.Controls.Count; i++)
                     {
                         Panel painel = (Panel)pnlODS.FindControl("pnlOds" + i.ToString());
 

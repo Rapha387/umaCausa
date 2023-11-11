@@ -24,16 +24,15 @@ public class Odesses : Banco
                     ODS.Add(new ODS() { Codigo = dados.GetInt32("id_ODS"), Foto = dados.GetString("nm_hrefOds") });
                 }
             }
-            if (dados.IsClosed)
+            if (!dados.IsClosed)
                 dados.Close();
-
-            return ODS;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw;
+            throw new Exception(ex.Message);
         }
         finally { Desconectar(); }
+        return ODS;
     }
 
     public List<ODS> ListarOds()
@@ -49,16 +48,16 @@ public class Odesses : Banco
                     ODS.Add(new ODS() { Codigo = dados.GetInt32("id_ODS"), Foto = dados.GetString("nm_hrefOds"), Nome = dados.GetString("nm_ods") });
                 }
             }
-            if (dados.IsClosed)
+            if (!dados.IsClosed)
                 dados.Close();
-
-            return ODS;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw;
+            throw new Exception(ex.Message);
         }
         finally { Desconectar(); }
+
+        return ODS;
     }
 
 }
