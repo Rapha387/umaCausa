@@ -118,15 +118,17 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     int CodigoTipo = int.Parse(ddlTipoCampanha.SelectedValue);
                     this.Campanha.EditarCampanha(this.Campanha.Codigo, nome, descricao, quantidade,dia);
                     int codigoCampanha = this.Campanha.Codigo;
-                    string imgBanner = $@"images/campanhas/campanha1.png";
+                    string imgBanner = $@"images/fotoPadrao/bannerOngPadrao.png";
+                    HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
 
                     if (fileInputBanner.HasFile)
                     {
-                        HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
                         imgBanner = $@"uploads/campanhas/banners/{codigoCampanha}.jpg";
-                        this.Campanha.AdicionarBannerCampanha(codigoCampanha, imgBanner);
                         fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
                     }
+                    else
+                        fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+
                     List<ODS> odsses = new List<ODS>();
                     List<ODS> odssesInativas = new List<ODS>();
                     for (int i = 1; i <= pnlODS.Controls.Count; i++)

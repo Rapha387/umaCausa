@@ -375,6 +375,28 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     {
                         new DiaUsuario().DeletarDiaUsuario(user.Codigo, dia.Dia.Codigo);
                     }
+                    string imgBanner = $@"images/fotoPadrao/bannerOngPadrao.png";
+                    HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
+
+                    if (fileInputBanner.HasFile)
+                    {
+                        imgBanner = $@"uploads/ongs/{codigo}/banner/{codigo}.jpg";
+                        fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+                    }
+                    else
+                        fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+
+                    //string imgLogo = $@"images/fotoPadrao/bannerOngPadrao.png";
+                    //HttpPostedFile fotoLogo = fileInputBanner.PostedFile;
+
+                    //if (fileInputBanner.HasFile)
+                    //{
+                    //    imgLogo = $@"uploads/ongs/{codigo}/banner/{codigo}.jpg";
+                    //    fotoLogo.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+                    //}
+                    //else
+                    //    fotoLogo.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+
                 }
                 else
                 {
