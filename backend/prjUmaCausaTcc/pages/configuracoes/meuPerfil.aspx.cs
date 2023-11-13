@@ -53,7 +53,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     txtUF.SelectedValue = usuario.Estado;
                     txtDescricao.Text = usuario.Descricao.ToString();
                     chkConfirmaoBuscaDoacoes.Checked = false;
-                    if (usuario.PosssibilidadeBusca == true)
+                    if (usuario.PosssibilidadeBusca)
                         chkConfirmaoBuscaDoacoes.Checked = true;
                     #endregion
                 }
@@ -386,16 +386,16 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     else
                         fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
 
-                    //string imgLogo = $@"images/fotoPadrao/bannerOngPadrao.png";
-                    //HttpPostedFile fotoLogo = fileInputBanner.PostedFile;
+                    string imgLogo = $@"images/fotoPadrao/logoOngPadrao.png";
+                    HttpPostedFile fotoLogo = fileInputLogo.PostedFile;
 
-                    //if (fileInputBanner.HasFile)
-                    //{
-                    //    imgLogo = $@"uploads/ongs/{codigo}/banner/{codigo}.jpg";
-                    //    fotoLogo.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
-                    //}
-                    //else
-                    //    fotoLogo.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+                    if (fileInputLogo.HasFile)
+                    {
+                        imgLogo = $@"uploads/ongs/{codigo}/icone/{codigo}.jpg";
+                        fotoLogo.SaveAs(Request.PhysicalApplicationPath + imgLogo.Replace("/", @"\"));
+                    }
+                    else
+                        fotoLogo.SaveAs(Request.PhysicalApplicationPath + imgLogo.Replace("/", @"\"));
 
                 }
                 else
