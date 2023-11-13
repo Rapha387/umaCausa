@@ -18,7 +18,7 @@ function encerrarCampanha(botao) {
                 popupConfirmacao.classList.add("escondido");
 
                 const botaoEncerrarCampanha = document.getElementById(campanha);
-                botaoEncerrarCampanha.parentNode.parentNode.classList.add("escondido");
+                botaoEncerrarCampanha.parentNode.textContent = "Finalizada";
             }
             else {
                 console.log("nao foi");

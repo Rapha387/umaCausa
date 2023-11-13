@@ -39,60 +39,62 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             int codigo = usuario.Codigo;
 
-            if (Request["pagina"] == "1")
+            try
             {
-                var listaDoacoes = doacoes.ListarDoacoesConfirmadas(codigo);
-                
-                foreach (Doacoes doacao in listaDoacoes)
+                if (Request["pagina"] == "1")
                 {
-                    string estado = "";
-                    if (doacao.DoacaoConfirmada == true)
-                    {
-                        estado = "Aceita";
-                    }
-                    else
-                    {
-                        estado = "Recusada";
-                    }
-                    Confirmacoes.Text +=
-                        $@"<div class='confirmacao'>
-                              <div class='infos-confirmacao'>
-                                <p>Doador: {doacao.Doador.Nome}</p>
-                                <p>Item: {doacao.NomeTipoItem}</p>
-                                <p>Quantidade: {doacao.Quantidade}</p>
-                                <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
-                                <p>Estado: {estado}</p>
-                              </div>
-                            </div>";
-                }
+                    var listaDoacoes = doacoes.ListarDoacoesConfirmadas(codigo);
 
-                if (listaDoacoes.Count == 0)
-                    Confirmacoes.Text = "Você não tem nenhuma doação para confirmar no momento";
-
-            }
-            else
-            {
-                try
-                {
-                    pnlBotao.Controls.Clear();
-                    pnlDonwload.Controls.Clear();
-
-                    var listaDoacoes = doacoes.ListarDoacoesNaoConfirmadas(codigo);
                     foreach (Doacoes doacao in listaDoacoes)
                     {
-                        pnlBotao.Controls.Add(new LiteralControl(
+                        string estado = "";
+                        if (doacao.DoacaoConfirmada == true)
+                        {
+                            estado = "Aceita";
+                        }
+                        else
+                        {
+                            estado = "Recusada";
+                        }
+                        Confirmacoes.Text +=
                             $@"<div class='confirmacao'>
-                                    <div class='infos-confirmacao'>
+                                  <div class='infos-confirmacao'>
                                     <p>Doador: {doacao.Doador.Nome}</p>
                                     <p>Item: {doacao.NomeTipoItem}</p>
-                                    <p>Valor:{doacao.Quantidade}</p>
+                                    <p>Quantidade: {doacao.Quantidade}</p>
                                     <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
-                                    </div>
-                                    <div class='botoes-confirmacao'>
-                                    <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=aparecerPopupConfirmacao(this) src = './../../images/icons/recusar.png' alt = ''>
-                                    <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=aceitarDoacao(this) src='./../../images/icons/confirmado.png' alt=''>
-                                    "));
-                    
+                                  </div>
+                                  <div>
+                                    <p>{estado}</p>
+                                  </div>
+                                </div>";
+                    }
+
+                    if (listaDoacoes.Count == 0)
+                        Confirmacoes.Text = "Você não tem nenhuma doação para confirmar no momento";
+
+                }
+                else
+                {
+                        pnlBotao.Controls.Clear();
+                        pnlDonwload.Controls.Clear();
+
+                        var listaDoacoes = doacoes.ListarDoacoesNaoConfirmadas(codigo);
+                        foreach (Doacoes doacao in listaDoacoes)
+                        {
+                            pnlBotao.Controls.Add(new LiteralControl(
+                                $@"<div class='confirmacao'>
+                                        <div class='infos-confirmacao'>
+                                        <p>Doador: {doacao.Doador.Nome}</p>
+                                        <p>Item: {doacao.NomeTipoItem}</p>
+                                        <p>Valor:{doacao.Quantidade}</p>
+                                        <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
+                                        </div>
+                                        <div class='botoes-confirmacao'>
+                                        <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=aparecerPopupConfirmacao(this) src = './../../images/icons/recusar.png' alt = ''>
+                                        <img id='{doacao.TipoDoacao + doacao.Codigo}' onclick=aceitarDoacao(this) src='./../../images/icons/confirmado.png' alt=''>
+                                        "));
+
                             if (doacao.Monetario == true)
                             {
                                 Panel pnlButton = new Panel();
@@ -109,16 +111,17 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
                             }
                             pnlBotao.Controls.Add(new LiteralControl("</div></div>"));
-                    }
+                        }
 
-                    if (listaDoacoes.Count == 0)
-                        Confirmacoes.Text = "<div class='confirmacao'>Você não tem nenhuma doação para confirmar no momento</div>";
+                        if (listaDoacoes.Count == 0)
+                            Confirmacoes.Text = "<div class='confirmacao'>Você não tem nenhuma doação para confirmar no momento</div>";
                 }
-                catch (Exception ex)
-                {
-                    Response.Redirect("../erro.aspx?"+ ex.Message);
-                }
-            }  
+            }
+            catch
+            {
+                Confirmacoes.Text = "<div class='confirmacao'>Não foi possível carregar as confirmações. Por favor tente novamente mais tarde.</div>";
+            }
+
         }
 
         protected void Button_Click(object sender, EventArgs e)
