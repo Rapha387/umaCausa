@@ -12,6 +12,9 @@ namespace prjUmaCausaTcc.pages
         Usuario usuario { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuario"] == null)
+                Response.Redirect("index.aspx");
+
             #region Gerar Elementos Html
             GerarEmentosHtml gerarHtml = new GerarEmentosHtml();
             litFooter.Text = gerarHtml.GerarFooter();
@@ -20,7 +23,6 @@ namespace prjUmaCausaTcc.pages
             {
                 this.usuario = (Usuario)Session["usuario"];
                 litHeader.Text = gerarHtml.MudarNavegacao(this.usuario);
-                
             }
             else
             {
@@ -76,13 +78,6 @@ namespace prjUmaCausaTcc.pages
                     int codigoCampanha = campanha.Codigo;
                     string imgBanner = $@"images/fotoPadrao/bannerOngPadrao.png";
 
-                    if (fileInputBanner.HasFile)
-                    {
-                        HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
-                        imgBanner = $@"uploads/campanhas/banners/{codigoCampanha}.jpg";
-                        campanha.AdicionarBannerCampanha(codigoCampanha, imgBanner);
-                        fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
-                    }
                     List<ODS> odsses = new List<ODS>();
                     for (int i = 1; i < pnlODS.Controls.Count; i++)
                     {
@@ -97,13 +92,22 @@ namespace prjUmaCausaTcc.pages
                             ods.Codigo = i;
                             odsses.Add(ods);
                         }
-                    }
+                    }                        
 
                     foreach (ODS ods in odsses)
                     {
                         CampanhaODS campanhaODS = new CampanhaODS();
                         campanhaODS.CadastrarCampanhaOds(codigoCampanha, ods.Codigo);
                     }
+
+                    if (fileInputBanner.HasFile)
+                    {
+                        HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
+                        imgBanner = $@"uploads/campanhas/banners/{codigoCampanha}.jpg";
+                        campanha.AdicionarBannerCampanha(codigoCampanha, imgBanner);
+                        fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+                    }
+
                 }
                 catch (Exception ex)
                 {

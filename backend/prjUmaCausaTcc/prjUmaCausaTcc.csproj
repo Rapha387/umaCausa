@@ -132,6 +132,7 @@
     <Content Include="css\criarCampanha.css" />
     <Content Include="css\divulgacaoItem.css" />
     <Content Include="css\erro.css" />
+    <Content Include="css\esqueciMinhaSenha.css" />
     <Content Include="css\faq.css" />
     <Content Include="css\home.css" />
     <Content Include="css\index.css" />
@@ -212,6 +213,7 @@
     <Content Include="JsonResponses\DoarItemOng.aspx" />
     <Content Include="JsonResponses\DoarMonetarioCampanha.aspx" />
     <Content Include="JsonResponses\DoarMonetarioOng.aspx" />
+    <Content Include="JsonResponses\EncerrarCampanha.aspx" />
     <Content Include="JsonResponses\VerificarUsuario.aspx" />
     <Content Include="js\alteracaoCoresBarraPorcentagem.js" />
     <Content Include="js\animarBtnHeader.js" />
@@ -221,6 +223,7 @@
     <Content Include="js\DenunciarCampanha.js" />
     <Content Include="js\DenunciarUsuario.js" />
     <Content Include="js\DeslogarUsuario.js" />
+    <Content Include="js\EncerrarCampanha.js" />
     <Content Include="js\gerarPix.js" />
     <Content Include="js\home.js" />
     <Content Include="js\inputFile.js" />
@@ -232,6 +235,7 @@
     <Content Include="js\selectPersonalizado.js" />
     <Content Include="js\verificacoesInputs.js" />
     <Content Include="js\verificacoesInputsDoacao.js" />
+    <Content Include="js\verificarInputsCadastroCampanha.js" />
     <Content Include="js\VerificarUsuario.js" />
     <Content Include="pages\cadastro.aspx" />
     <Content Include="pages\cadastroDoador.aspx" />
@@ -246,6 +250,7 @@
     <Content Include="pages\configuracoes\minhasColaboracoes.aspx" />
     <Content Include="pages\criarCampanha.aspx" />
     <Content Include="pages\erro.aspx" />
+    <Content Include="pages\esqueciMinhaSenha.aspx" />
     <Content Include="pages\faq.aspx" />
     <Content Include="pages\index.aspx" />
     <Content Include="pages\login.aspx" />
@@ -352,6 +357,13 @@
     <Compile Include="JsonResponses\DoarMonetarioOng.aspx.designer.cs">
       <DependentUpon>DoarMonetarioOng.aspx</DependentUpon>
     </Compile>
+    <Compile Include="JsonResponses\EncerrarCampanha.aspx.cs">
+      <DependentUpon>EncerrarCampanha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonResponses\EncerrarCampanha.aspx.designer.cs">
+      <DependentUpon>EncerrarCampanha.aspx</DependentUpon>
+    </Compile>
     <Compile Include="JsonResponses\VerificarUsuario.aspx.cs">
       <DependentUpon>VerificarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -371,6 +383,7 @@
     <Compile Include="Logicas\MotivosDenunciaUsuario.cs" />
     <Compile Include="Logicas\Odesses.cs" />
     <Compile Include="Logicas\Ongs.cs" />
+    <Compile Include="Logicas\RecuperarSenha.cs" />
     <Compile Include="Logicas\TiposEntrega.cs" />
     <Compile Include="Modelos\Campanha.cs" />
     <Compile Include="Modelos\CampanhaODS.cs" />
@@ -490,6 +503,13 @@
     </Compile>
     <Compile Include="pages\erro.aspx.designer.cs">
       <DependentUpon>erro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\esqueciMinhaSenha.aspx.cs">
+      <DependentUpon>esqueciMinhaSenha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\esqueciMinhaSenha.aspx.designer.cs">
+      <DependentUpon>esqueciMinhaSenha.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\faq.aspx.cs">
       <DependentUpon>faq.aspx</DependentUpon>

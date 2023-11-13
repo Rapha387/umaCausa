@@ -41,7 +41,9 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             if (Request["pagina"] == "1")
             {
-                foreach (Doacoes doacao in doacoes.ListarDoacoesConfirmadas(codigo))
+                var listaDoacoes = doacoes.ListarDoacoesConfirmadas(codigo);
+                
+                foreach (Doacoes doacao in listaDoacoes)
                 {
                     string estado = "";
                     if (doacao.DoacaoConfirmada == true)
@@ -63,6 +65,10 @@ namespace prjUmaCausaTcc.pages.configuracoes
                               </div>
                             </div>";
                 }
+
+                if (listaDoacoes.Count == 0)
+                    Confirmacoes.Text = "Você não tem nenhuma doação para confirmar no momento";
+
             }
             else
             {
@@ -70,7 +76,9 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 {
                     pnlBotao.Controls.Clear();
                     pnlDonwload.Controls.Clear();
-                    foreach(Doacoes doacao in doacoes.ListarDoacoesNaoConfirmadas(codigo))
+
+                    var listaDoacoes = doacoes.ListarDoacoesNaoConfirmadas(codigo);
+                    foreach (Doacoes doacao in listaDoacoes)
                     {
                         pnlBotao.Controls.Add(new LiteralControl(
                             $@"<div class='confirmacao'>
@@ -101,7 +109,10 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
                             }
                             pnlBotao.Controls.Add(new LiteralControl("</div></div>"));
-                    }         
+                    }
+
+                    if (listaDoacoes.Count == 0)
+                        Confirmacoes.Text = "<div class='confirmacao'>Você não tem nenhuma doação para confirmar no momento</div>";
                 }
                 catch (Exception ex)
                 {

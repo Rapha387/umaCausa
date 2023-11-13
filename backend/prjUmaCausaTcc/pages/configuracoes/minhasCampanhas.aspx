@@ -23,6 +23,17 @@
 
             <asp:Literal ID="LitHeader" runat="server"></asp:Literal>
 
+            
+            <div class="bloqueio escondido"></div>
+
+            <div class="caixa-flutuante popup-confirmacao escondido">
+                <p id="textoConfirmacao" class="textoPopupResposta">Tem que deseja encerrar essa campanha?</p>
+                <div class="botoes-confirmacao">
+                    <div class="botao-confirmacao" onclick="encerrarCampanha(this)" id="btnAceitarConfirmacao">Sim</div>
+                    <div class="botao-confirmacao" onclick="esconderPopupConfirmacao()" id="btnRecusarConfirmacao">Não</div>
+                </div>
+            </div>
+
             <main>
                 <asp:Literal ID="LitMenu" runat="server"></asp:Literal>
 
@@ -38,7 +49,7 @@
                       <asp:TextBox ID="TxtPesquisa" TextMode="Search" runat="server" placeholder="Pesquisar..." CssClass="txtBusca"></asp:TextBox>
                       <asp:ImageButton ID="ImgPesquisar" runat="server" ImageUrl="./../../images/icons/search.png" OnClick="ImgPesquisar_Click"/>
                   </div>
-                  <a href="criarCampanha.aspx"><button>Criar Nova Campanha</button></a>
+                  <a class="botao-criar-campanha" href="./../criarCampanha.aspx"><div>Criar Nova Campanha</div></a>
 
                   <div class="container-tabela">
                       <table>
@@ -62,6 +73,8 @@
                 <asp:Literal ID="LitFooter" runat="server"></asp:Literal>
             </footer>
 
+            <script src="./../../js/popup.js"></script>
+            <script src="./../../js/EncerrarCampanha.js"></script>
             <script src="./../../js/animarBtnHeader.js"></script>
             <script src="./../../js/DeslogarUsuario.js"></script>
        </form>

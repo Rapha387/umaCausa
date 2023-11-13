@@ -9,6 +9,14 @@
   text-decoration: none;
 }
 
+.aceito {
+    color: #25AE88;
+}
+
+.negado {
+    color: #EE404C;
+}
+
 input:focus {
     border-color: #0063BF;
 }

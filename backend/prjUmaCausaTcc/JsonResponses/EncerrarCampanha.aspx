@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EncerrarCampanha.aspx.cs" Inherits="prjUmaCausaTcc.JsonResponses.EncerrarCampanha" %>

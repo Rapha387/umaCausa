@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 
 
-public class TipoItem
+public class TipoItem : Banco
 {
     public TipoItem()
     {
     }
-
+    
     #region construtores
     public TipoItem(string nome)
     {

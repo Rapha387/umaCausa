@@ -84,7 +84,6 @@ public class DoacaoMonetaria : Banco
             Desconectar();
         }
     }
-
     public void BuscarComprovante(int usuarioDoador, int usuarioOng, DateTime dataDoacao)
     {
         List<Parametro> parametros = new List<Parametro>()
@@ -101,6 +100,8 @@ public class DoacaoMonetaria : Banco
             {
                 Comprovante = dados.GetString("nm_comprovante");
             }
+            if (!dados.IsClosed)
+                dados.Close();
         }
         catch (Exception ex)
         {

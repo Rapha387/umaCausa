@@ -11,7 +11,7 @@ namespace prjUmaCausaTcc.pages
 {
 
 
-    public partial class criarCampanha
+    public partial class esqueciMinhaSenha
     {
 
         /// <summary>
@@ -33,85 +33,94 @@ namespace prjUmaCausaTcc.pages
         protected global::System.Web.UI.WebControls.Literal litHeader;
 
         /// <summary>
-        /// Controle txtNome.
+        /// Controle pnlEnviarEmail.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNome;
+        protected global::System.Web.UI.WebControls.Panel pnlEnviarEmail;
 
         /// <summary>
-        /// Controle ddlTipoCampanha.
+        /// Controle txtDestinatario.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoCampanha;
+        protected global::System.Web.UI.WebControls.TextBox txtDestinatario;
 
         /// <summary>
-        /// Controle txtQuantidade.
+        /// Controle btnEnviar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuantidade;
+        protected global::System.Web.UI.WebControls.Button btnEnviar;
 
         /// <summary>
-        /// Controle txtDia.
+        /// Controle pnlEnviado.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDia;
+        protected global::System.Web.UI.WebControls.Panel pnlEnviado;
 
         /// <summary>
-        /// Controle txtDescricao.
+        /// Controle Retornar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescricao;
+        protected global::System.Web.UI.WebControls.Button Retornar;
 
         /// <summary>
-        /// Controle fileInputBanner.
+        /// Controle pnlAlterarSenha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileInputBanner;
+        protected global::System.Web.UI.WebControls.Panel pnlAlterarSenha;
 
         /// <summary>
-        /// Controle pnlODS.
+        /// Controle TxtNovaSenha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlODS;
+        protected global::System.Web.UI.WebControls.TextBox TxtNovaSenha;
 
         /// <summary>
-        /// Controle btnCriarCampanha.
+        /// Controle TxtRepeticao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCriarCampanha;
+        protected global::System.Web.UI.WebControls.TextBox TxtRepeticao;
 
         /// <summary>
-        /// Controle literro.
+        /// Controle BtnSalvar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal literro;
+        protected global::System.Web.UI.WebControls.Button BtnSalvar;
+
+        /// <summary>
+        /// Controle lblMensagem.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensagem;
 
         /// <summary>
         /// Controle litFooter.

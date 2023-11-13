@@ -11,10 +11,13 @@ namespace prjUmaCausaTcc.pages.configuracoes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            litPopUpResposta.Text = "";
+
             Usuario usuario = (Usuario)Session["usuario"];
 
             if (usuario == null)
                 Response.Redirect("../index.aspx");
+
             GerarEmentosHtml gerarEmentosHtml = new GerarEmentosHtml();
             string header = gerarEmentosHtml.GerarHeaderConfiguracoes(usuario);
             string footer = gerarEmentosHtml.GerarFooterConfiguracoes();
@@ -27,6 +30,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
         protected void BtnSalvar_Click(object sender, EventArgs e)
         {
+            litPopUpResposta.Text = "";
+
             string senhaAntiga = TxtSenhaAtual.Text;
             string senhaNova = TxtNovaSenha.Text;
             string repeticao = TxtRepeticao.Text;
@@ -36,8 +41,22 @@ namespace prjUmaCausaTcc.pages.configuracoes
             {
                if(usuario.VerificarSenha(senhaAntiga, email) == true)
                 {
-                    usuario.AlterarSenhaUsuario(usuario.Codigo, senhaNova);
-                    LitErro.Text = "Senha alterada com sucesso!";
+                    usuario.AlterarSenhaUsuario(usuario.Email, senhaNova);
+                    litPopUpResposta.Text = @"
+                        <div class='bloqueio'></div>
+                        
+                        <div class='caixa-flutuante popup-sucesso'>
+                            <img src='./../../images/popupsResposta/sucesso.png' />
+     
+                            <p id='textoRespostaSucesso' class='textoPopupResposta'>
+                                Senha Alterar com Sucesso
+                            </p>
+                            <div class='btnFecharPopUpResposta'>Continuar</div>
+                        </div>";
+
+                    TxtNovaSenha.Text = "";
+                    TxtSenhaAtual.Text = "";
+                    TxtRepeticao.Text = "";
                 }
                 else
                 {

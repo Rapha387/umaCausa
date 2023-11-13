@@ -20,66 +20,71 @@
 </head>
 <body>
     <form id="form1" runat="server">
+            <asp:Literal ID="litHeader" runat="server"></asp:Literal>
 
-        <asp:Literal ID="litHeader" runat="server"></asp:Literal>
+            <main>
+                <div class="tudo">
+                  <div class="tituloDivulgacaoItem">
+                    <h1>Criar Campanha</h1>
+                  </div>
 
-        <main>
-            <div class="tituloDivulgacaoItem">
-              <h1>Criar Campanha</h1>
-            </div>
-
-            <div class="tudo">
-              <div class="inputs">
-                <div class="input-label">
-                  <label>Nome:</label>
-                    <asp:TextBox ID="txtNome" runat="server" placeholder="Nome da sua Campanha"></asp:TextBox>
-                    </div>
+                  <div class="inputs">
                     <div class="input-label">
-                      <label>Tipo da Campanha:</label>
-                        <asp:DropDownList ID="ddlTipoCampanha" runat="server"></asp:DropDownList>
-                    </div>
-                    <div class="input-label">
-                      <label>Quantidade desejada:</label>
-                      <asp:TextBox ID="txtQuantidade" TextMode="Number" runat="server" placeholder="0" ></asp:TextBox>
-                    </div>
-                    <div class="input-label">
-                      <label>Data de Finalização:</label>
-                      <asp:TextBox ID="txtDia" TextMode="Date" runat="server" placeholder="0" ></asp:TextBox>
-                    </div>
-                     <div class="oi">
-                      <div class="input-label" id="desc">
-                        <label>Descrição da Campanha:</label>
-                          <asp:TextBox ID="txtDescricao" TextMode="MultiLine" runat="server" CssClass="textarea" placeholder="Descrição..."></asp:TextBox>
-                      </div>
-                      <div class="input-label" id="fotinho">
-                      <label for="">Imagem do Item:</label>
-                      <div class="espaco-imagem">
-                        <label class="custom-file-upload">
-                            <asp:FileUpload ID="fileInputBanner" runat="server" accept="image/*" />
-                            <span class="textoInputFile">Carregar Foto</span>
-                        </label>
-                        <span id="nomeArquivo">Imagem Retangular em JPG</span>
-                      </div>
-                      </div>
-                     </div>
-                      <div class="input-label">
-                          <label for="">ODS da campanha:</label>
-                         <asp:Panel ID="pnlODS" runat="server"></asp:Panel>
-                    </div>
-                  <asp:Button ID="btnCriarDivulgacao" runat="server" Text="Criar Divulgação" OnClick="btnCriarDivulgacao_Click"/>
+                      <label>Nome:</label>
+                            <asp:TextBox ID="txtNome" runat="server" placeholder="Nome da sua Campanha"></asp:TextBox>
+                            <span id="erroNomeCampanha" class="spanErro"></span>
+                        </div>
+                        <div class="input-label">
+                          <label>Tipo da Campanha:</label>
+                           <asp:DropDownList ID="ddlTipoCampanha" runat="server"></asp:DropDownList>
+                            <span id="erroTipoCampanha" class="spanErro"></span>
+                        </div>
+                        <div class="input-label">
+                            <label>Quantidade desejada:</label>
+                            <asp:TextBox ID="txtQuantidade" TextMode="Number" runat="server" placeholder="0" ></asp:TextBox>
+                            <span id="erroQuantidade" class="spanErro"></span>
+                        </div>
+                        <div class="input-label">
+                            <label>Data de Finalização:</label>
+                            <asp:TextBox ID="txtDia" TextMode="Date" runat="server" placeholder="0" ></asp:TextBox>
+                            <span id="erroDia" class="spanErro"></span>
+                        </div>
+                         <div class="oi">
+                          <div class="input-label" id="desc">
+                              <label>Descrição da Campanha:</label>
+                              <asp:TextBox ID="txtDescricao" TextMode="MultiLine" runat="server" CssClass="textarea" placeholder="Descrição..."></asp:TextBox>
+                              <span id="erroDescricao" class="spanErro"></span>
+                          </div>
+                          <div class="input-label" id="fotinho">
+                          <label for="">Imagem do Item:</label>
+                          <div class="espaco-imagem">
+                            <label class="custom-file-upload">
+                                <asp:FileUpload ID="fileInputBanner" runat="server" accept="image/*" />
+                                <span class="textoInputFile">Carregar Foto</span>
+                            </label>
+                            <span id="nomeArquivo">Imagem Retangular em JPG</span>
+                          </div>
+                          </div>
+                         </div>
+                          <div class="input-label">
+                              <label for="">ODS da campanha:</label>
+                              <asp:Panel ID="pnlODS" runat="server"></asp:Panel>
+                        </div>
+                      <asp:Button ID="btnCriarCampanha" runat="server" Text="Criar Divulgação" OnClick="btnCriarDivulgacao_Click"/>
 
-                </div>
-                <asp:Literal ID="literro" runat="server"></asp:Literal>
+                    </div>
+                    <asp:Literal ID="literro" runat="server"></asp:Literal>
                 
-              </div>
-      </main>
+                  </div>
+              </main>
 
-    <footer>
-        <asp:Literal ID="litFooter" runat="server"></asp:Literal>
-    </footer>
+            <footer>
+                <asp:Literal ID="litFooter" runat="server"></asp:Literal>
+            </footer>
 
-        <script src="./../js/inputFile.js"></script>
-        <script src="./../../js/DeslogarUsuario.js"></script>
+            <script src="./../js/verificarInputsCadastroCampanha.js"></script>
+            <script src="./../js/inputFile.js"></script>
+            <script src="./../../js/DeslogarUsuario.js"></script>
     </form>
 </body>
 </html>

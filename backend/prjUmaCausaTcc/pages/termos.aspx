@@ -24,7 +24,7 @@
     <form id="form1" runat="server">
         <header>
             <nav>
-              <a href="./index.html"><img class="logo-header" src="./../images/logo/logoAzul.svg" alt=""></a>
+              <a href="./index.html"><img class="logo-header" src="./../images/logo/logoAzul.svg" alt="" /></a>
               <ul>
                 <li><a href="./ongs.html">Ongs</a></li>
                 <li><a href="./campanhas.html">Campanhas</a></li>

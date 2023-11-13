@@ -326,14 +326,20 @@ namespace prjUmaCausaTcc.Logicas
                 {
                     while (dados.Read())
                     {
-                        campanhas.Add(new Campanha()
-                        {
-                            Codigo = dados.GetInt32("id_campanha"),
-                            DataInicio = dados.GetDateTime("dt_inicioCampanha"),
-                            Nome = dados.GetString("nm_campanha"),
-                            DataPrevistaFim = dados.GetString("dt_fimEsperado"),
-                            QuantidadeArrecadada = dados.GetDouble("qt_arrecadado")
-                        });
+                        Campanha campanha = new Campanha();
+
+                        campanha.Codigo = dados.GetInt32("id_campanha");
+                        campanha.DataInicio = dados.GetDateTime("dt_inicioCampanha");
+                        campanha.Nome = dados.GetString("nm_campanha");
+                        campanha.DataPrevistaFim = dados.GetString("dt_fimEsperado");
+                        campanha.QuantidadeArrecadada = dados.GetDouble("qt_arrecadado");
+
+                        string aa = dados["dt_fimCampanha"].ToString();
+
+                        if (dados["dt_fimCampanha"].ToString() != "")
+                            campanha.DataFim = DateTime.Parse(dados["dt_fimCampanha"].ToString());
+
+                        campanhas.Add(campanha);
                     }
                 }
                 if (!dados.IsClosed)

@@ -31,9 +31,11 @@ namespace prjUmaCausaTcc.pages.configuracoes
             {
                 string estadoConfirmacao = "";
                 string nomeOng = "";
+                string classEstadoConfirmacao = "";
                 if (doacao.DoacaoConfirmada == true)
                 {
                     estadoConfirmacao = "Aceita";
+                    classEstadoConfirmacao = "aceito";
                 }
                 else
                 {
@@ -44,6 +46,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     else
                     {
                         estadoConfirmacao = "Negada";
+                        classEstadoConfirmacao = "negado";
                     }
                 }
                 if(doacao.Nome != null)
@@ -59,7 +62,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         <td>{doacao.NomeTipoItem}</td>
                         <td>{doacao.Quantidade}</td>
                         <td>{doacao.DataDoacao.ToString().Substring(0, 10)}</td>
-                        <td>{estadoConfirmacao}</td>
+                        <td class='{classEstadoConfirmacao}'>{estadoConfirmacao}</td>
                       </tr>";
             }
         }
@@ -77,10 +80,14 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 {
                     string estadoConfirmacao = "";
                     string nomeOng = "";
+                    string classEstadoConfirmacao = "";
+
                     if (doacao.DoacaoConfirmada == true)
                     {
+                        classEstadoConfirmacao = "aceito";
                         estadoConfirmacao = "Aceita";
                     }
+                        
                     else
                     {
                         if (doacao.RespostaOng.ToString() == "01/01/0001 00:00:00")
@@ -90,22 +97,22 @@ namespace prjUmaCausaTcc.pages.configuracoes
                         else
                         {
                             estadoConfirmacao = "Negada";
-                        }
+                            classEstadoConfirmacao = "negado";
+                        } 
                     }
+
                     if (doacao.Nome != null)
-                    {
                         nomeOng = doacao.ONG.Nome + ": ";
-                    }
                     else
-                    {
                         nomeOng = doacao.ONG.Nome;
-                    }
+
+
                     Colaboracoes.Text += $@"<tr>
                         <td>{nomeOng}{doacao.Nome}</td>
                         <td>{doacao.NomeTipoItem}</td>
                         <td>{doacao.Quantidade}</td>
                         <td>{doacao.DataDoacao.ToString().Substring(0, 10)}</td>
-                        <td>{estadoConfirmacao}</td>
+                        <td class='{classEstadoConfirmacao}'>{estadoConfirmacao}</td>
                       </tr>";
                 }
             }

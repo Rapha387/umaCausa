@@ -122,6 +122,19 @@ thead td {
   height: 45px;
 }
 
+
+.botao-criar-campanha {
+    background-color: #0063BF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    height: 45px;
+    border-radius: 4px;
+}
+
+
+
 /*RESPONSIVO*/
 
 @media screen and (max-width: 1199px) {
