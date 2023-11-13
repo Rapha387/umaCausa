@@ -108,6 +108,8 @@ namespace prjUmaCausaTcc.pages
                         fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
                     }
 
+                    Response.Redirect($"campanha.aspx?c={codigoCampanha}", false);
+
                 }
                 catch (Exception ex)
                 {

@@ -48,13 +48,16 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     foreach (Doacoes doacao in listaDoacoes)
                     {
                         string estado = "";
+                        string classEstado = "";
                         if (doacao.DoacaoConfirmada == true)
                         {
                             estado = "Aceita";
+                            classEstado = "aceito";
                         }
                         else
                         {
                             estado = "Recusada";
+                            classEstado = "negado";
                         }
                         Confirmacoes.Text +=
                             $@"<div class='confirmacao'>
@@ -65,7 +68,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                                     <p>Data: {doacao.DataDoacao.ToString().Substring(0, 10)}</p>
                                   </div>
                                   <div>
-                                    <p>{estado}</p>
+                                    <p class='{classEstado}'>{estado}</p>
                                   </div>
                                 </div>";
                     }

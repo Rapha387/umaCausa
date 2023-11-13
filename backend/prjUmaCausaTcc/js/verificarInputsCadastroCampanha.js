@@ -20,10 +20,6 @@ function verificarDadosCampanha(event) {
         event.preventDefault();
         erroNomeCampanha.textContent = "O nome da campanha não pode estar vazio";
     }
-    if (ddlTipoCampanha.selectedIndex == 0) {
-        event.preventDefault();
-        erroTipoCampanha.textContent = "Selecione o tipo da campanha";
-    }
     if (txtQuantidade.value == ""){
         event.preventDefault();
         erroQuantidade.textContent = "A quantidade não pode estar vazia";

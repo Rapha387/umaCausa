@@ -35,21 +35,21 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             foreach (Campanha campanha in campanhas.ListarDadosMinimosCampanhas(codigo))
             {
-                string botoesCampanha = "<td>Finalizada</td>";
+                string botoesCampanha = "<td><a href='../campanha.aspx?c={campanha.Codigo}'>Finalizada</a></td>";
 
                 if (campanha.DataFim.ToString() == "01/01/0001 00:00:00")
                 {
                     botoesCampanha = $@"
-                       <td style='display:flex; justify-content:space-around'><a href = './editarCampanha.aspx?id={campanha.Codigo}'><img src = './../../images/icons/editar.png' alt=''></a>
+                       <td style='display:flex; justify-content:space-around; text-align: center; padding: 0.6rem;'><a style='padding: 0;width: auto !important;' href = './editarCampanha.aspx?id={campanha.Codigo}'><img src = './../../images/icons/editar.png' alt=''></a>
                        <img id='{campanha.Codigo}' onclick='aparecerPopupConfirmacao(this)' src = './../../images/icons/excluir.png' alt=''>";
                 }
                     
 
                 LitCampanhas.Text += $@"<tr>
-                       <td> {campanha.Nome} </td>
-                       <td> {campanha.QuantidadeArrecadada} </td>
-                       <td> {campanha.DataInicio.ToString().Substring(0, 10)} </td>
-                       <td> {campanha.DataPrevistaFim.ToString().Substring(0, 10)} </td>
+                       <td><a href='../campanha.aspx?c={campanha.Codigo}'> {campanha.Nome}</a></td>
+                       <td><a href='../campanha.aspx?c={campanha.Codigo}'> {campanha.QuantidadeArrecadada}</a></td>
+                       <td><a href='../campanha.aspx?c={campanha.Codigo}'> {campanha.DataInicio.ToString().Substring(0, 10)}</a></td>
+                       <td><a href='../campanha.aspx?c={campanha.Codigo}'> {campanha.DataPrevistaFim.ToString().Substring(0, 10)}</a></td>
                        {botoesCampanha}
                      </tr>";
             }
