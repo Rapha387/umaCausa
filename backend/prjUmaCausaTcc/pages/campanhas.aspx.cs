@@ -83,6 +83,10 @@ namespace prjUmaCausaTcc.pages
                 campanhas = listarCampanhas.ListarCampanhasPorTipo(0, int.Parse(Request["t"]));
                 GerarCampanhas(campanhas);
             }
+
+            if (campanhas.Count == 0)
+                litCampanhas.Text = "Não foi possível encontrar nenhuma campanha";
+
             #endregion
 
             #region DDLS
@@ -114,6 +118,12 @@ namespace prjUmaCausaTcc.pages
             if (!String.IsNullOrEmpty(Request["pagina"]))
             {
                 campanhas = listarCampanhas.ListarCampanhasASC((int.Parse(Request["pagina"]) - 1));
+                if(campanhas.Count == 0)
+                {
+                    litCampanhas.Text = "Não foi possível encontrar nenhuma campanha";
+                    return; 
+                }
+                    
                 GerarCampanhas(campanhas);
                 return;
             }
@@ -121,10 +131,18 @@ namespace prjUmaCausaTcc.pages
             if (!String.IsNullOrEmpty(Request["s"]))
             {
                 campanhas = listarCampanhas.ListarCampanhasPesquisa(Request["s"].ToString());
-                GerarCampanhas(campanhas);
+
                 btnNext.Visible = false;
                 btnBack.Visible = false;
                 litItemPaginacao.Text = "";
+
+                if (campanhas.Count == 0)
+                {
+                    litCampanhas.Text = "Não foi possível encontrar nenhuma campanha";
+                    return;
+                }
+
+                GerarCampanhas(campanhas);
                 return;
             }
 

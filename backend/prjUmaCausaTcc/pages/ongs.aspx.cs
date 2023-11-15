@@ -19,11 +19,12 @@ namespace prjUmaCausaTcc.pages
             litOngs.Text = "";
             litItemPaginacao.Text = "";
 
+            List<Usuario> ongs = new List<Usuario>();
 
             if (!String.IsNullOrEmpty(Request["c"]))
             {
                 c = Request["c"].ToString();
-                List<Usuario> ongs = new Ongs().ListarOngsPorCategoria(0, int.Parse(c));
+                ongs = new Ongs().ListarOngsPorCategoria(0, int.Parse(c));
                 GerarOngs(ongs);
                 if (String.IsNullOrEmpty(litItemPaginacao.Text))
                 {
@@ -34,7 +35,7 @@ namespace prjUmaCausaTcc.pages
             else if (!String.IsNullOrEmpty(Request["e"]))
             {
                 es = Request["e"].ToString();
-                List<Usuario> ongs = new Ongs().ListarOngsPorEstado(0,es);
+                ongs = new Ongs().ListarOngsPorEstado(0,es);
                 GerarOngs(ongs);
                 if (String.IsNullOrEmpty(litItemPaginacao.Text))
                 {
@@ -44,7 +45,7 @@ namespace prjUmaCausaTcc.pages
             }
             else if(!String.IsNullOrEmpty(Request["s"]))
             { 
-                List<Usuario> ongs = new Ongs().ListarOngsPesquisa(Request["s"].ToString());
+                ongs = new Ongs().ListarOngsPesquisa(Request["s"].ToString());
                 GerarOngs(ongs);
                 if (String.IsNullOrEmpty(litItemPaginacao.Text))
                 {
@@ -56,12 +57,12 @@ namespace prjUmaCausaTcc.pages
             {
                 if (String.IsNullOrEmpty(Request["pagina"]))
                 {
-                    List<Usuario> ongs = new Ongs().ListarOngs(0);
+                    ongs = new Ongs().ListarOngs(0);
                     GerarOngs(ongs);
                 }
                 else
                 {
-                    List<Usuario> ongs = new Ongs().ListarOngs((int.Parse(Request["pagina"]) - 1));
+                    ongs = new Ongs().ListarOngs((int.Parse(Request["pagina"]) - 1));
                     GerarOngs(ongs);
                 }
                 int indice = new Ongs().ListarIndiceOngs();
@@ -76,6 +77,10 @@ namespace prjUmaCausaTcc.pages
                     btnBack.Visible = false;
                 }
             }
+
+            if (ongs.Count == 0)
+                litOngs.Text = "Não foi possível encontrar nenhuma ong";
+                
             #region DDLS
             foreach (CategoriaOng categoriaOng in new CategoriasOng().ListarCategoriasOng())
             {
