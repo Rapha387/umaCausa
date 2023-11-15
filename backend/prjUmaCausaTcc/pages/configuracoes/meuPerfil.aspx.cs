@@ -36,6 +36,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 if (!IsPostBack)
                 {
                     #region Declarar Textboxs
+
                     usuario.BuscarOng(usuario.Codigo);
                     txtNome.Text = usuario.Nome.ToString();
                     txtBairro.Text = usuario.Bairro.ToString();
@@ -52,8 +53,11 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     txtNumero.Text = usuario.Numero;
                     txtUF.SelectedValue = usuario.Estado;
                     txtDescricao.Text = usuario.Descricao.ToString();
+
+
                     chkConfirmaoBuscaDoacoes.Checked = false;
-                    if (usuario.PosssibilidadeBusca == true)
+
+                    if (usuario.PosssibilidadeBusca)
                         chkConfirmaoBuscaDoacoes.Checked = true;
                     #endregion
                 }
@@ -189,6 +193,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 if (!IsPostBack)
                 {
                     #region Declarar Texboxs
+
                     usuario.BuscarDoador(usuario.Codigo);
                     PnlItensOngs.Visible = false;
                     txtNome.Text = usuario.Nome.ToString();
@@ -199,6 +204,7 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     txtEmail.Text = usuario.Email.ToString();
                     txtLogradouro.Text = usuario.Rua.ToString();
                     txtTelefone.Text = usuario.Telefone.ToString();
+                    txtUF.SelectedValue = usuario.Estado;
                     txtComplemento.Text = usuario.Complemento.ToString();
                     txtNumero.Text = usuario.Numero;
                     #endregion
@@ -212,9 +218,10 @@ namespace prjUmaCausaTcc.pages.configuracoes
             {
                 if (user.TipoDoUsuario.Codigo == 1)
                 {
-                    #region Váriaveis
-                    int codigo = user.Codigo;
-                    int tipo = user.TipoDoUsuario.Codigo;
+
+                    #region Declarações Variaveis
+                    int codigo = usuario.Codigo;
+                    int tipo = usuario.TipoDoUsuario.Codigo;
                     string nome = txtNome.Text;
                     string telefone = txtTelefone.Text;
                     string email = txtEmail.Text;
@@ -232,12 +239,24 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     string website = txtWebSite.Text;
                     string pix = txtPix.Text;
                     bool podebuscar = chkConfirmaoBuscaDoacoes.Checked;
-                    #endregion
+                    int podeBuscar1 = 0;
+                    if (podebuscar)
+                    {
+                         podeBuscar1 = 1;
+                    }
+                    else
+                    {
+                         podeBuscar1 = 0;
+                    }
+                    
+
+                        
+                        #endregion
 
                     CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
                     (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
 
-                    usuario.AlterarDadosOng(codigo, nome, email, emailcontato, telefone, descricao, cep, cidade, rua, numero, bairro, complemento, latitude, longitude, website, pix, podebuscar);
+                    usuario.AlterarDadosOng(codigo, nome, email, emailcontato, telefone, descricao, cep, cidade, rua, numero, bairro, complemento, latitude, longitude, website, pix, podeBuscar1);
 
                     List<CategoriaOng> categoriasChecadas = new List<CategoriaOng>();
                     List<CategoriaOng> categoriasNaoChecadas = new List<CategoriaOng>();
@@ -375,6 +394,28 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     {
                         new DiaUsuario().DeletarDiaUsuario(user.Codigo, dia.Dia.Codigo);
                     }
+                    string imgBanner = $@"images/fotoPadrao/bannerOngPadrao.png";
+                    HttpPostedFile fotoBanner = fileInputBanner.PostedFile;
+
+                    if (fileInputBanner.HasFile)
+                    {
+                        imgBanner = $@"uploads/ongs/{codigo}/banner/{codigo}.jpg";
+                        fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+                    }
+                    else
+                        fotoBanner.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+
+                    //string imgLogo = $@"images/fotoPadrao/bannerOngPadrao.png";
+                    //HttpPostedFile fotoLogo = fileInputBanner.PostedFile;
+
+                    //if (fileInputBanner.HasFile)
+                    //{
+                    //    imgLogo = $@"uploads/ongs/{codigo}/banner/{codigo}.jpg";
+                    //    fotoLogo.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+                    //}
+                    //else
+                    //    fotoLogo.SaveAs(Request.PhysicalApplicationPath + imgBanner.Replace("/", @"\"));
+
                 }
                 else
                 {
@@ -396,6 +437,11 @@ namespace prjUmaCausaTcc.pages.configuracoes
                     CapturarGeolocalizacao capturarGeolocalizacao = new CapturarGeolocalizacao();
                     (latitude, longitude) = capturarGeolocalizacao.DefinirCoordenadas(endereco);
                     usuario.AlterarDadosDoador(codigo, nome, email, telefone, cep, cidade, rua, numero, bairro, complemento, latitude, longitude);
+
+                    usuario.BuscarUsuarioPeloEmail(txtEmail.Text);
+
+                    Session["usuario"] = usuario;
+                    Response.Redirect("meuPerfil.aspx", false);
                 }
             }
             catch
@@ -404,7 +450,5 @@ namespace prjUmaCausaTcc.pages.configuracoes
             }
             Response.Redirect("./meuPerfil.aspx");
         }
-
-
     }
 }

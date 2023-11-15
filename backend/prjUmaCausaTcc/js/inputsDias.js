@@ -63,3 +63,12 @@ function mudarEstadoInputs(chkDia,txtComecoDia, txtFimDia){
         txtFimDia.disabled = true;
     }
 }
+
+mudarEstadoInputs(chkDia1, txtComecoDia1, txtFimDia1);
+mudarEstadoInputs(chkDia2, txtComecoDia2, txtFimDia2);
+mudarEstadoInputs(chkDia3, txtComecoDia3, txtFimDia3);
+mudarEstadoInputs(chkDia4, txtComecoDia4, txtFimDia4);
+mudarEstadoInputs(chkDia5, txtComecoDia5, txtFimDia5);
+mudarEstadoInputs(chkDia6, txtComecoDia6, txtFimDia6);
+mudarEstadoInputs(chkDia7, txtComecoDia7, txtFimDia7);
+
