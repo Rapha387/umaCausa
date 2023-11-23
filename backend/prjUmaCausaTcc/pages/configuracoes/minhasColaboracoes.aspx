@@ -37,21 +37,23 @@
                     <asp:TextBox ID="TxtPesquisa" TextMode="Search" runat="server" placeholder="Pesquisar..." CssClass="txtBusca"></asp:TextBox>
                     <asp:ImageButton ID="ImgPesquisar" runat="server" ImageUrl="./../../images/icons/search.png" OnClick="ImgPesquisar_Click"/>
               </div>
-
+                <asp:Panel ID="pnlTabela" Width="100%" runat="server">
                  <div class="container-tabela">
-              <table>
-                <thead>
-                  <td>Nome</td>
-                  <td>Tipo</td>
-                  <td>Quantidade</td>
-                  <td>Data da colaboração</td>
-                  <td>Confirmação</td>
-                </thead>
-                <tbody>
-                    <asp:Literal ID="Colaboracoes" runat="server"></asp:Literal> 
-                </tbody>
-              </table>
+                  <table>
+                    <thead>
+                      <td>Nome</td>
+                      <td>Tipo</td>
+                      <td>Quantidade</td>
+                      <td>Data da colaboração</td>
+                      <td>Confirmação</td>
+                    </thead>
+                    <tbody>
+                        <asp:Literal ID="Colaboracoes" runat="server"></asp:Literal> 
+                    </tbody>
+                  </table>
                 </div>
+                </asp:Panel>
+
                 <asp:Literal ID="litErro" runat="server"></asp:Literal>
             </div>
           </div>

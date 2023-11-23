@@ -18,16 +18,28 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 Response.Redirect("../index.aspx");
 
             GerarEmentosHtml gerarElementosHtml = new GerarEmentosHtml();
+
             string nav = gerarElementosHtml.GerarHeaderConfiguracoes(usuario);
             string footer = gerarElementosHtml.GerarFooterConfiguracoes();
             string menu = gerarElementosHtml.GerarMenu(usuario);
+
             Footer.Text = footer;
             Navegacao.Text = nav;
             Menu.Text = menu;
-            Colaboracoes colaboracoes = new Colaboracoes();
+
             int codigo = usuario.Codigo;
             Doacoes doacoes = new Doacoes();
-            foreach(Doacoes doacao in doacoes.ListarDoacoes(codigo))
+
+            var listaDoacoes = doacoes.ListarDoacoes(codigo);
+
+            if (listaDoacoes.Count == 0)
+            {
+                pnlTabela.Visible = false;
+                litErro.Text = "Não foi possível encontrar nenhumna colaboração";
+                return;
+            }
+
+            foreach (Doacoes doacao in listaDoacoes)
             {
                 string estadoConfirmacao = "";
                 string nomeOng = "";
