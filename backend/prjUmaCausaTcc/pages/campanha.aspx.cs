@@ -56,8 +56,18 @@ namespace prjUmaCausaTcc.pages
                     this.Campanha = new Campanha();
 
                     this.Campanha.BuscarCampanha(cd_campanha);
+
+                    if (Session["usuario"] != null)
+                    {
+                        if (this.Campanha.ONG.Codigo == this.Usuario.Codigo)
+                        {
+                            litDoar.Text = "";
+                        }
+                    }
+                    
                     BuscarCampanha(this.Campanha);
                     BuscarONG(this.Campanha);
+
                     if (this.Usuario != null && this.Usuario.TipoDoUsuario.Codigo == 1 && this.Usuario.Codigo == this.Campanha.ONG.Codigo)
                     {
                         btnEditarCampanha.Visible = true;
@@ -100,7 +110,6 @@ namespace prjUmaCausaTcc.pages
                 litDoar.Text = "<button id='btnDoar' class='disabled' disabled>ENCERRADA</button>";
             }
         }
-
         private void BuscarCampanha(Campanha campanha)
         {
             try
@@ -119,7 +128,7 @@ namespace prjUmaCausaTcc.pages
                 }
 
                 litDescricao.Text = campanha.Descricao;
-                litWebNome.Text = "umaCausa - " + campanha.Nome;
+                litWebNome.Text = "UmaCausa - " + campanha.Nome;
                 litNome.Text = campanha.Nome;
                 litProgresso.Text = $"<div class='progresso' style='width: {porcentagemBarra}%;'></div>";
                 litImagem.Text = $"<div style='background-image: url(../{campanha.Banner});'class='imagem-campanha'></div>";

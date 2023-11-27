@@ -490,7 +490,6 @@ namespace prjUmaCausaTcc.Logicas
             }
             catch (Exception)
             {
-
                 throw new Exception("Houve um problema a realizar a busca");
             }
             finally { Desconectar(); }
