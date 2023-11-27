@@ -1,17 +1,9 @@
-﻿header {
-    height: 7.4vh;
-}
-
 ﻿h1 {
     margin-bottom: 10px;
 }
 
-body {
-    padding-top: 7.4vh;
-}
-
 .principalLogin {
-    height: 92.6vh;
+    height: calc(100vh - 50px);
     display: flex;
     align-items: center;
 }

@@ -89,6 +89,10 @@ button img {
   width: 19px;
 }
 
+option{
+    padding: 0.4rem;
+}
+
 h1, h2 {
   font-family: "Roboto", sans-serif;
   font-size: 22px;
