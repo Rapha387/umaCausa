@@ -88,7 +88,17 @@ namespace prjUmaCausaTcc.pages.configuracoes
                 Doacoes doacoes = new Doacoes();
                 Usuario usuario = (Usuario)Session["usuario"];
                 int codigo = usuario.Codigo;
-                foreach (Doacoes doacao in doacoes.ListarDoacoesPesquisa(codigo, pesquisa))
+
+                var listaDoacoes = doacoes.ListarDoacoesPesquisa(codigo, pesquisa);
+
+                if (listaDoacoes.Count == 0)
+                {
+                    pnlTabela.Visible = false;
+                    litErro.Text = "Não foi possível encontrar nenhumna colaboração";
+                    return;
+                }
+
+                foreach (Doacoes doacao in listaDoacoes)
                 {
                     string estadoConfirmacao = "";
                     string nomeOng = "";
@@ -132,7 +142,6 @@ namespace prjUmaCausaTcc.pages.configuracoes
             {
                 litErro.Text = "colaboração não encontrada";
             }
-
         }
     }
 }

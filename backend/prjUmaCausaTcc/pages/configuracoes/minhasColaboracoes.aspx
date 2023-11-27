@@ -34,7 +34,7 @@
             </div>
             <div class="infos">
               <div class="pesquisar">
-                    <asp:TextBox ID="TxtPesquisa" TextMode="Search" runat="server" placeholder="Pesquisar..." CssClass="txtBusca"></asp:TextBox>
+                    <asp:TextBox ID="TxtPesquisa" TextMode="Search" runat="server" placeholder="Pesquisar Ong..." CssClass="txtBusca"></asp:TextBox>
                     <asp:ImageButton ID="ImgPesquisar" runat="server" ImageUrl="./../../images/icons/search.png" OnClick="ImgPesquisar_Click"/>
               </div>
                 <asp:Panel ID="pnlTabela" Width="100%" runat="server">

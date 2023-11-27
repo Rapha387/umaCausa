@@ -13,6 +13,8 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            litErro.Text = "";
+            pnlCampanhas.Visible = true;
 
             Usuario usuario = (Usuario)Session["usuario"];
 
@@ -32,6 +34,15 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
             Campanhas campanhas = new Campanhas();
             int codigo = usuario.Codigo;
+
+            var listaCampanhas = campanhas.ListarDadosMinimosCampanhas(codigo);
+
+            if (listaCampanhas.Count == 0)
+            {
+                pnlCampanhas.Visible = false;
+                litErro.Text = "Não foi possível encontrar nenhuma campanha";
+                return;
+            }
 
             foreach (Campanha campanha in campanhas.ListarDadosMinimosCampanhas(codigo))
             {
@@ -57,23 +68,49 @@ namespace prjUmaCausaTcc.pages.configuracoes
 
         protected void ImgPesquisar_Click(object sender, ImageClickEventArgs e)
         {
-            LitCampanhas.Text = "";
-            Campanhas campanhas = new Campanhas();
-            Usuario usuario = (Usuario)Session["usuario"];
 
-            string pesquisa = TxtPesquisa.Text;
-            int user = usuario.Codigo;
-            foreach (Campanha campanha in campanhas.ListarMinhasCampanhasPesquisa(pesquisa, user))
+            try
             {
-                Session["Campanha"] = campanha;
-                LitCampanhas.Text += $@"<tr>
-                       <td> {campanha.Nome} </td>
-                       <td> {campanha.QuantidadeArrecadada} </td>
-                       <td> {campanha.DataInicio.ToString().Substring(0, 10)} </td>
-                       <td> {campanha.DataPrevistaFim.ToString().Substring(0, 10)} </td>
-                       <td><a hrer='./../editarCampanha.aspx?id={campanha.Codigo}'><img src = './../../images/icons/editar.png' alt = '' ></a></td>
-                       <td><img src = './../../images/icons/excluir.png' alt = '' ></ td >
-                     </tr> ";
+                LitCampanhas.Text = "";
+                Campanhas campanhas = new Campanhas();
+                Usuario usuario = (Usuario)Session["usuario"];
+
+                string pesquisa = TxtPesquisa.Text;
+                int user = usuario.Codigo;
+
+                var listaCampanhas = campanhas.ListarMinhasCampanhasPesquisa(pesquisa, user);
+
+                if (listaCampanhas.Count == 0)
+                {
+                    pnlCampanhas.Visible = false;
+                    litErro.Text = "Não foi possível encontrar nenhuma campanha";
+                    return;
+                }
+
+                foreach (Campanha campanha in listaCampanhas)
+                {
+                    string botoesCampanha = "<td><a href='../campanha.aspx?c={campanha.Codigo}'>Finalizada</a></td>";
+
+                    if (campanha.DataFim.ToString() == "01/01/0001 00:00:00")
+                    {
+                        botoesCampanha = $@"
+                           <td style='display:flex; justify-content:space-around; text-align: center; padding: 0.6rem;'><a style='padding: 0;width: auto !important;' href = './editarCampanha.aspx?id={campanha.Codigo}'><img src = './../../images/icons/editar.png' alt=''></a>
+                           <img id='{campanha.Codigo}' onclick='aparecerPopupConfirmacao(this)' src = './../../images/icons/excluir.png' alt=''>";
+                    }
+
+                    LitCampanhas.Text += $@"<tr>
+                           <td><a href='../campanha.aspx?c={campanha.Codigo}'> {campanha.Nome}</a></td>
+                           <td><a href='../campanha.aspx?c={campanha.Codigo}'> {campanha.QuantidadeArrecadada}</a></td>
+                           <td><a href='../campanha.aspx?c={campanha.Codigo}'> {campanha.DataInicio.ToString().Substring(0, 10)}</a></td>
+                           <td><a href='../campanha.aspx?c={campanha.Codigo}'> {campanha.DataPrevistaFim.ToString().Substring(0, 10)}</a></td>
+                           {botoesCampanha}
+                         </tr>";
+                }
+            }
+            catch
+            {
+                pnlCampanhas.Visible = false;
+                litErro.Text = "Não foi possível carregar suas campanhas";   
             }
         }
     }

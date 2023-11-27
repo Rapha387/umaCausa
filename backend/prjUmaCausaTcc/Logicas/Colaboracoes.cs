@@ -426,7 +426,7 @@ namespace prjUmaCausaTcc.Logicas
                         {
                             Campanha = campanha,
                             Doador = usuario,
-                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacao")),
+                            DataDoacao = DateTime.Parse(dados.GetString("dt_doacaoCampanha")),
                             QuantidadeDoado = dados.GetString("qt_doado"),
                             DoacaoConfirmada = confirmado
                         };

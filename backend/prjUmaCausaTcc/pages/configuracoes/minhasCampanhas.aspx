@@ -52,17 +52,21 @@
                   <a class="botao-criar-campanha" href="./../criarCampanha.aspx"><div>Criar Nova Campanha</div></a>
 
                   <div class="container-tabela">
-                      <table>
-                        <thead>
-                          <td>Campanha</td>
-                          <td>Quantidade</td>
-                          <td>Data de Divulgacao</td>
-                          <td>Data de término</td>
-                        </thead>
-                        <tbody>
-                            <asp:Literal ID="LitCampanhas" runat="server"></asp:Literal>
-                        </tbody>
-                      </table>
+                      <asp:Panel ID="pnlCampanhas" Width="100%" runat="server">
+                          <table>
+                            <thead>
+                              <td>Campanha</td>
+                              <td>Quantidade</td>
+                              <td>Data de Divulgacao</td>
+                              <td>Data de término</td>
+                            </thead>
+                            <tbody>
+                                <asp:Literal ID="LitCampanhas" runat="server"></asp:Literal>
+                            </tbody>
+                          </table>
+                      </asp:Panel>
+
+                      <asp:Literal ID="litErro" runat="server"></asp:Literal>
 
                   </div>               
                 </div>

@@ -60,6 +60,15 @@ namespace prjUmaCausaTcc.pages.configuracoes
         protected global::System.Web.UI.WebControls.ImageButton ImgPesquisar;
 
         /// <summary>
+        /// Controle pnlCampanhas.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCampanhas;
+
+        /// <summary>
         /// Controle LitCampanhas.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace prjUmaCausaTcc.pages.configuracoes
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal LitCampanhas;
+
+        /// <summary>
+        /// Controle litErro.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litErro;
 
         /// <summary>
         /// Controle LitFooter.
