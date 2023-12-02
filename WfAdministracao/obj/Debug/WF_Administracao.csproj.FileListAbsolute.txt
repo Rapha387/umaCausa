@@ -1,0 +1,178 @@
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\WF_Administracao.exe.config
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\WF_Administracao.exe
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\WF_Administracao.pdb
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\obj\Debug\WF_Administracao.csproj.AssemblyReference.cache
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\obj\Debug\WF_Administracao.frmLogin.resources
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\obj\Debug\WF_Administracao.Properties.Resources.resources
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\obj\Debug\WF_Administracao.csproj.GenerateResource.cache
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\obj\Debug\WF_Administracao.csproj.CoreCompileInputs.cache
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\obj\Debug\WF_Administracao.exe
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\obj\Debug\WF_Administracao.pdb
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\Google.Protobuf.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\MySql.Data.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Buffers.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.IO.Pipelines.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Memory.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\ZstdSharp.dll
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\Google.Protobuf.pdb
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\Google.Protobuf.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\MySql.Data.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Buffers.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.IO.Pipelines.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Memory.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\obj\Debug\WF_Administracao.csproj.CopyComplete
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\obj\Debug\WF_Administracao.Formularios.frmPrincipal.resources
+C:\Users\aliss\OneDrive\Área de Trabalho\WF_Administracao\obj\Debug\WF_Administracao.frmIndex.resources
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\WF_Administracao.exe.config
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\WF_Administracao.exe
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\WF_Administracao.pdb
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\Google.Protobuf.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\MySql.Data.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Buffers.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.IO.Pipelines.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Memory.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\ZstdSharp.dll
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\Google.Protobuf.pdb
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\Google.Protobuf.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\MySql.Data.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Buffers.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.IO.Pipelines.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Memory.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.csproj.AssemblyReference.cache
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.csproj.SuggestedBindingRedirects.cache
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.frmLogin.resources
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.Formularios.frmPrincipal.resources
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.frmIndex.resources
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.Properties.Resources.resources
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.csproj.GenerateResource.cache
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.csproj.CoreCompileInputs.cache
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.csproj.CopyComplete
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.exe
+C:\Users\aluno\Desktop\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.pdb
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\WF_Administracao.exe.config
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\WF_Administracao.exe
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\WF_Administracao.pdb
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\Google.Protobuf.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\MySql.Data.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Buffers.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.IO.Pipelines.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Memory.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\ZstdSharp.dll
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\Google.Protobuf.pdb
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\Google.Protobuf.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\MySql.Data.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Buffers.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.IO.Pipelines.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Memory.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.csproj.AssemblyReference.cache
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.frmLogin.resources
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.Formularios.frmPrincipal.resources
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.frmIndex.resources
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.Properties.Resources.resources
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.csproj.GenerateResource.cache
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.csproj.CoreCompileInputs.cache
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.csproj.CopyComplete
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.exe
+C:\Users\aliss\Documents\WFUMACAUSA\WF_Administracao\obj\Debug\WF_Administracao.pdb
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\WF_Administracao.exe.config
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\WF_Administracao.exe
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\WF_Administracao.pdb
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\BouncyCastle.Cryptography.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\Google.Protobuf.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\K4os.Compression.LZ4.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\K4os.Hash.xxHash.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\MySql.Data.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Buffers.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.IO.Pipelines.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Memory.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Numerics.Vectors.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\ZstdSharp.dll
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\BouncyCastle.Cryptography.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\Google.Protobuf.pdb
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\Google.Protobuf.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\K4os.Compression.LZ4.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\K4os.Hash.xxHash.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\MySql.Data.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Buffers.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.IO.Pipelines.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Memory.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Numerics.Vectors.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\etec\TCC\umaCausa\WfAdministracao\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\etec\TCC\umaCausa\WfAdministracao\obj\Debug\WF_Administracao.csproj.AssemblyReference.cache
+C:\etec\TCC\umaCausa\WfAdministracao\obj\Debug\WF_Administracao.csproj.SuggestedBindingRedirects.cache
+C:\etec\TCC\umaCausa\WfAdministracao\obj\Debug\WF_Administracao.frmLogin.resources
+C:\etec\TCC\umaCausa\WfAdministracao\obj\Debug\WF_Administracao.Formularios.frmPrincipal.resources
+C:\etec\TCC\umaCausa\WfAdministracao\obj\Debug\WF_Administracao.frmIndex.resources
+C:\etec\TCC\umaCausa\WfAdministracao\obj\Debug\WF_Administracao.Properties.Resources.resources
+C:\etec\TCC\umaCausa\WfAdministracao\obj\Debug\WF_Administracao.csproj.GenerateResource.cache
+C:\etec\TCC\umaCausa\WfAdministracao\obj\Debug\WF_Administracao.csproj.CoreCompileInputs.cache
+C:\etec\TCC\umaCausa\WfAdministracao\obj\Debug\WF_Administracao.csproj.CopyComplete
+C:\etec\TCC\umaCausa\WfAdministracao\obj\Debug\WF_Administracao.exe
+C:\etec\TCC\umaCausa\WfAdministracao\obj\Debug\WF_Administracao.pdb
