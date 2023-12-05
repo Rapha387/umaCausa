@@ -8,7 +8,7 @@ public static class Conexao
 {
     public static string getConexao()
     {
-       //return "SERVER=127.0.0.1;UID=root;PASSWORD=root;DATABASE=umacausa";
-       return "SERVER=mysql.umacausa.kinghost.net;UID=umacausa;PASSWORD=umacausa123;DATABASE=umacausa";
+       return "SERVER=127.0.0.1;UID=root;PASSWORD=root;DATABASE=umacausa";
+       //return "SERVER=mysql.umacausa.kinghost.net;UID=umacausa;PASSWORD=umacausa123;DATABASE=umacausa";
     }
 }
