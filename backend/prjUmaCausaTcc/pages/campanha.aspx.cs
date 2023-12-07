@@ -57,6 +57,9 @@ namespace prjUmaCausaTcc.pages
 
                     this.Campanha.BuscarCampanha(cd_campanha);
 
+                    if (this.Campanha.Nome == null)
+                        Response.Redirect($"erro.aspx?e=não foi possível carregar essa página");
+
                     if (Session["usuario"] != null)
                     {
                         if (this.Campanha.ONG.Codigo == this.Usuario.Codigo)

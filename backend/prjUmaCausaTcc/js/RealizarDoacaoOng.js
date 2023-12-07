@@ -8,7 +8,7 @@ if (btnRelizarDoacaoMonetaria) {
         event.preventDefault();
         VerificarDadosDoacaoMonetaria(event);
 
-        if (txtValor.value == "" || txtComprovante.files.length <= 0) {
+        if (txtValor.value <= 0 || txtValor.value == "" || txtComprovante.files.length <= 0) {
             return;
         }
 

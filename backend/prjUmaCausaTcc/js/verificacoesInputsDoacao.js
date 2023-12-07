@@ -58,6 +58,11 @@ function VerificarDadosDoacaoMonetaria(event) {
         event.preventDefault();
         erroDoacaoMonetaria.textContent = "O valor não pode estar vazio"
     }
+    if (txtValor.value <= 0) {
+        txtValor.classList.add('inputInvalido');
+        event.preventDefault();
+        erroDoacaoMonetaria.textContent = "O valor tem que ser maior que 0"
+    }
     if (txtComprovante.files.length <= 0) {
         txtComprovante.classList.add('inputInvalido');
         event.preventDefault();
