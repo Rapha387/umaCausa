@@ -9,12 +9,12 @@
 
 ## Desenvolvedores
 
-- <a style="color: inherit" href="">Alisson Ramos Aquino dos Santos</a>
-- <a style="color: inherit" href="">Guilherme Negrão</a>
-- <a style="color: inherit" href="">Gustavo Negrão</a>
-- <a style="color: inherit" href="">Laura Felice Costa Bezerra</a>
-- <a style="color: inherit" href="">Marcella Silva de Oliveira</a>
-- <a style="color: inherit" href="">Raphael Lima Fernandes</a>
+- <a style="color: inherit" href="https://github.com/Alisson-Ramos">Alisson Ramos Aquino dos Santos</a>
+- <a style="color: inherit" href="https://github.com/Gug4negrao">Guilherme Negrão</a>
+- <a style="color: inherit" href="https://github.com/Gug4negrao">Gustavo Negrão</a>
+- <a style="color: inherit" href="https://github.com/felicelaura">Laura Felice Costa Bezerra</a>
+- <a style="color: inherit" href="https://github.com/marcellaoliveira14">Marcella Silva de Oliveira</a>
+- <a style="color: inherit" href="https://github.com/Rapha387">Raphael Lima Fernandes</a>
 
 ## Como Utilizar o Projeto:
 
